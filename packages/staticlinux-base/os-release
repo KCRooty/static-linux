@@ -1,0 +1,11 @@
+NAME="Static Linux"
+PRETTY_NAME="Static Linux"
+ID=static-linux
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;0;200;160"
+HOME_URL="https://staticforge.dev/linux"
+DOCUMENTATION_URL="https://github.com/KCRooty/static-linux"
+SUPPORT_URL="https://github.com/KCRooty/static-linux/issues"
+BUG_REPORT_URL="https://github.com/KCRooty/static-linux/issues"
+LOGO=static-linux
