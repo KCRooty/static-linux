@@ -1,0 +1,8 @@
+iso/out/
+packages/aur-cache/
+*.iso
+*.img
+*.log
+__pycache__/
+*.pyc
+.env
