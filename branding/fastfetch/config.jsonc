@@ -1,35 +1,42 @@
-// Static Linux — fastfetch, minimal.
+// Static Linux — fastfetch
 // Install to /etc/fastfetch/config.jsonc (system default for every user).
-// Logos in /usr/share/static-linux/fastfetch/  (logo-*.fastfetch)
+// Logos in /usr/share/static-linux/fastfetch/
 //
-// Palette:  Signal Green #00C8A0 -> 38;2;0;200;160 · dim -> 90
+// Accent: light purple #C0A0F0 -> 38;2;192;160;240   (dim -> 38;2;138;120;170)
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
 
   "logo": {
     "type": "file",
-    "source": "/usr/share/static-linux/fastfetch/logo-sf-block.fastfetch",
-    "color": { "1": "38;2;0;200;160", "2": "38;2;230;232;238" },
-    "padding": { "top": 1, "left": 3, "right": 4 }
+    "source": "/usr/share/static-linux/fastfetch/logo-static-linux.fastfetch",
+    "color": { "1": "38;2;192;160;240" },
+    "padding": { "top": 1, "left": 2, "right": 3 }
   },
 
   "display": {
-    "separator": "  ",
-    "color": { "keys": "90", "output": "37" },
-    "percent": { "type": 1 }
+    "separator": "   ",
+    "color": { "keys": "38;2;192;160;240", "output": "38;2;205;205;215" }
   },
 
   "modules": [
-    { "type": "custom", "format": "{#38;2;0;200;160}Static Linux{#90}   fast. private. yours." },
-    { "type": "title", "format": "{#90}{user-name}{#0}@{#38;2;0;200;160}{host-name}" },
-    { "type": "custom", "format": "{#90}──────────────────────────────" },
-    { "type": "os",       "key": "  distro" },
-    { "type": "kernel",   "key": "  kernel", "format": "{2}" },
-    { "type": "uptime",   "key": "  uptime", "format": "{?1}{1}d {?}{?2}{2}h {?}{3}m" },
-    { "type": "packages", "key": "  pkgs  ", "format": "{pacman}" },
-    { "type": "wm",       "key": "  wm    ", "format": "{1}" },
-    { "type": "shell",    "key": "  shell ", "format": "{1} {4}" },
-    { "type": "memory",   "key": "  memory" },
+    { "type": "title", "format": "{#38;2;192;160;240}{user-name}{#38;2;138;120;170}@{#38;2;192;160;240}{host-name}" },
+    { "type": "custom", "format": "{#38;2;138;120;170}fast. private. yours." },
+    "break",
+    { "type": "os",       "key": "distro " },
+    { "type": "kernel",   "key": "kernel ", "format": "{2}" },
+    { "type": "packages", "key": "pkgs   ", "format": "{pacman}" },
+    { "type": "uptime",   "key": "uptime ", "format": "{?1}{1}d {?}{?2}{2}h {?}{3}m" },
+    { "type": "shell",    "key": "shell  ", "format": "{1} {4}" },
+    "break",
+    { "type": "de",       "key": "desktop", "format": "{2}" },
+    { "type": "wm",       "key": "wm     ", "format": "{1}" },
+    { "type": "wmtheme",  "key": "theme  " },
+    { "type": "terminal", "key": "term   ", "format": "{5}" },
+    "break",
+    { "type": "cpu",      "key": "cpu    ", "format": "{1}" },
+    { "type": "gpu",      "key": "gpu    ", "format": "{2}", "temp": false },
+    { "type": "memory",   "key": "memory ", "format": "{1} / {2}" },
+    { "type": "disk",     "key": "disk   ", "folders": "/", "format": "{1} / {2}" },
     "break",
     { "type": "colors", "symbol": "circle", "block": { "width": 2 } }
   ]

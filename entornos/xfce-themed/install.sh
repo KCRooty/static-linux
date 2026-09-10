@@ -99,15 +99,30 @@ if [[ -f "$WP_SRC" ]]; then
     # point the xfconf key at the real path (skel XML uses the system path)
     sed -i "s#/usr/share/backgrounds/static-linux/void-dark.png#$WP_DST#" \
         "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    # apply live if a session is running as this user
+    # apply live if a session is running as this user (xfdesktop 4.20 needs the
+    # key on both the workspace and non-workspace paths, plus a full restart)
     if [[ "$MODE" == "home" ]] && pgrep -u "$USER_NAME" xfdesktop >/dev/null 2>&1; then
         run_as() { [[ $EUID -eq 0 ]] && sudo -u "$USER_NAME" "$@" || "$@"; }
         UID_N="$(id -u "$USER_NAME")"
-        for prop in $(DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID_N/bus" \
-                      run_as xfconf-query -c xfce4-desktop -l 2>/dev/null | grep 'last-image$'); do
-            DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID_N/bus" \
-                run_as xfconf-query -c xfce4-desktop -p "$prop" -s "$WP_DST" 2>/dev/null || true
+        DBUS="unix:path=/run/user/$UID_N/bus"
+        for base in $(DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as \
+                       xfconf-query -c xfce4-desktop -l 2>/dev/null \
+                       | grep -oE '/backdrop/screen[0-9]+/monitor[^/]+' | sort -u); do
+            for p in "$base/workspace0/last-image" "$base/last-image"; do
+                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
+                    -p "$p" -n -t string -s "$WP_DST" 2>/dev/null || \
+                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
+                    -p "$p" -s "$WP_DST" 2>/dev/null || true
+            done
+            for p in "$base/workspace0/image-style" "$base/image-style"; do
+                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
+                    -p "$p" -n -t int -s 5 2>/dev/null || \
+                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
+                    -p "$p" -s 5 2>/dev/null || true
+            done
         done
+        DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as bash -c \
+            'kill "$(pgrep -x xfdesktop)" 2>/dev/null; sleep 1; setsid xfdesktop >/dev/null 2>&1 &' || true
     fi
 else
     warn "wallpaper not found ($WP_SRC) - run branding/wallpapers/gen-wallpaper.py"
