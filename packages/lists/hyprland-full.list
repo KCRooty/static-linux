@@ -1,0 +1,56 @@
+# Static Linux — Hyprland + Astal (full)
+# Tier: Recommended / ceiling (4 GB). Wayland. Modern GPU required.
+
+# ---- Compositor ----------------------------------------------------
+hyprland
+hyprlock
+hypridle
+hyprpaper
+hyprpolkit-agent
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+qt5-wayland
+qt6-wayland
+
+# ---- Shell / widgets (Astal — AGS successor, GTK4) ----------------
+# astal (AUR)             core libraries
+# aylurs-gtk-shell (AUR)  ags CLI for Astal
+libastal-meta
+gjs
+gtk4
+gtk4-layer-shell
+libadwaita
+
+# ---- Bars / dock / launcher -------------------------------------
+# nwg-dock-hyprland (AUR)
+nwg-desktop
+rofi-wayland
+wl-clipboard
+cliphist
+
+# ---- Notifications / theming ----------------------------------
+libnotify
+papirus-icon-theme
+nwg-look
+kvantum
+
+# ---- Core apps -----------------------------------------------
+nautilus
+gvfs
+gvfs-mtp
+kitty
+loupe
+mpv
+file-roller
+polkit-gnome
+network-manager-applet
+blueman
+
+# ---- Screenshot / screen record -----------------------------
+grim
+slurp
+hyprshot
+wf-recorder
+
+# ---- Login manager -----------------------------------------
+sddm

@@ -1,0 +1,30 @@
+# Static Linux — Openbox minimal
+# Tier: Minimum absolute (512 MB). Xorg. Very limited hardware, ARM32,
+# servers that still want a light GUI.
+
+openbox
+obconf
+tint2
+jgmenu
+nitrogen
+picom
+
+# Session / login
+lightdm
+lightdm-gtk-greeter
+
+# File manager
+pcmanfm
+gvfs
+xarchiver
+
+# Bare essentials
+lxterminal
+lxappearance
+network-manager-applet
+scrot
+xdg-user-dirs
+
+# Notifications
+dunst
+libnotify

@@ -1,0 +1,21 @@
+# Static Linux — sl-detect environment recommendation thresholds
+#
+# Only `KEY = integer` lines are read by detect.py. Everything else is
+# documentation. Change the numbers here to retune without touching code.
+
+# RAM (MB) needed for each Wayland tier
+FULL_RAM_MB = 4096
+LITE_RAM_MB = 2048
+XFCE_RAM_MB = 1024
+
+# Decision logic implemented in detect.py :: recommend_env()
+#
+#   arch == arm32                         -> openbox-minimal
+#   ram_mb < XFCE_RAM_MB                   -> openbox-minimal
+#   not wayland                            -> xfce-themed        (forced)
+#   wayland and ram_mb >= FULL_RAM_MB      -> hyprland-astal-full
+#   wayland and ram_mb >= LITE_RAM_MB      -> hyprland-astal-lite
+#   wayland and ram_mb <  LITE_RAM_MB      -> xfce-themed
+#
+# Reference result — Packard Bell iMedia S2883:
+#   wayland=false, ram_mb=3727, arch=x86_64  ->  xfce-themed

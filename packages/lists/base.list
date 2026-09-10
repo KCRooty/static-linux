@@ -1,0 +1,102 @@
+# Static Linux — base package list
+# Always installed, every environment, every flavor.
+# One package per line. '#' comments and blank lines ignored.
+# Lines tagged (AUR) are installed by paru AFTER pacstrap, not by pacstrap.
+
+# ---- Core system --------------------------------------------------------
+base
+base-devel
+linux-firmware
+linux-firmware-whence
+mkinitcpio
+sudo
+systemd-sysvcompat
+dbus-broker
+
+# ---- Kernel (the real one is chosen by sl-detect; headers always) ------
+linux-lts
+linux-lts-headers
+dkms
+
+# ---- Boot -------------------------------------------------------------
+grub
+efibootmgr
+os-prober
+grub-btrfs
+
+# ---- Filesystems / tooling ------------------------------------------
+btrfs-progs
+e2fsprogs
+xfsprogs
+f2fs-tools
+dosfstools
+exfatprogs
+snapper
+snap-pac
+inotify-tools
+
+# ---- Memory / OOM --------------------------------------------------
+zram-generator
+earlyoom
+
+# ---- Network -------------------------------------------------------
+networkmanager
+wpa_supplicant
+iwd
+modemmanager
+openssh
+
+# ---- Repos / containers ------------------------------------------
+flatpak
+distrobox
+podman
+reflector
+pacman-contrib
+
+# paru is bootstrapped from the AUR by the installer (needs base-devel + rust)
+# paru (AUR)
+
+# ---- Privacy baseline (see privacidad/ for the profiles) -----------
+ufw
+dnscrypt-proxy
+apparmor
+
+# ---- Graphics stack (GPU-specific drivers appended by sl-detect) ---
+mesa
+vulkan-icd-loader
+libva-mesa-driver
+mesa-vdpau
+xorg-server
+xorg-xinit
+
+# ---- Audio -------------------------------------------------------
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+
+# ---- Fonts (Static Linux brand set, all SIL OFL) ------------------
+ttf-jetbrains-mono
+noto-fonts
+noto-fonts-emoji
+# ttf-outfit (AUR)
+# ttf-space-grotesk (AUR)
+
+# ---- CLI essentials --------------------------------------------
+git
+curl
+wget
+rsync
+htop
+fastfetch
+nano
+vi
+man-db
+man-pages
+texinfo
+less
+usbutils
+pciutils
+lsof
+which

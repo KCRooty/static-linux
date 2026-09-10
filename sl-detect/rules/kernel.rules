@@ -1,0 +1,46 @@
+# Static Linux — sl-detect kernel recommendation rules
+#
+# Two kinds of line are read by detect.py:
+#
+#   1. `KEY = integer`               -> threshold override
+#        LTS_CPU_YEAR : CPUs released before this year get linux-lts
+#
+#   2. `cpu model substring = year`  -> approximate CPU release year
+#        Matched case-insensitively against /proc/cpuinfo "model name".
+#        First match wins. Used only as a hint; HDD always forces linux-lts.
+#
+# Decision logic — detect.py :: recommend_kernel()
+#   storage == hdd                       -> linux-lts
+#   cpu_year is known and < LTS_CPU_YEAR -> linux-lts
+#   otherwise                            -> linux-zen
+# (linux-hardened is selected by the Maximum privacy profile, not here.)
+
+LTS_CPU_YEAR = 2015
+
+# ---- CPU release-year hints (matched as substrings of "model name") ------
+j1900   = 2013
+j1800   = 2014
+j2900   = 2013
+n2840   = 2014
+n2807   = 2014
+n3540   = 2014
+n3050   = 2015
+n3060   = 2016
+atom    = 2012
+core2   = 2007
+i3-2    = 2011
+i5-2    = 2011
+i7-2    = 2011
+i3-3    = 2012
+i5-3    = 2012
+i7-3    = 2012
+i5-4    = 2013
+i7-4    = 2013
+i5-5    = 2015
+i5-6    = 2015
+i7-6    = 2015
+i5-7    = 2016
+i7-8    = 2018
+i5-8    = 2018
+5600    = 2022
+ryzen   = 2019

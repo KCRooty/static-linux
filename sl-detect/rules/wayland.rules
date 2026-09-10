@@ -1,0 +1,19 @@
+# Static Linux — sl-detect Wayland override rules
+#
+# The GPU rules file already carries a `wayland` column. This file is an
+# additional hard veto layer: any GPU family listed here is forced to
+# Wayland = false regardless of what gpu.rules said, and the installer will
+# offer XFCE / Openbox only.
+#
+# Format:  family : false
+#
+# Also enforced in code (detect.py), independent of this file:
+#   * No DRM card node in /dev/dri or /sys/class/drm  ->  Wayland = false
+#   * arch == arm32                                   ->  Wayland = false
+#   * GPU undetectable                                ->  Wayland = false
+
+intel_bay_trail    : false   # CONFIRMED on Packard Bell iMedia S2883 (J1900)
+intel_cherrytrail  : false
+nvidia_kepler      : false   # nouveau reclocking too poor for a compositor
+nvidia_fermi       : false
+amd_pre_gcn        : false

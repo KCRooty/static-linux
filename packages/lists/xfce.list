@@ -1,0 +1,44 @@
+# Static Linux — Themed XFCE environment
+# Tier: Minimum functional (1 GB). Xorg. Forced fallback when Wayland is out.
+# Validated on Packard Bell iMedia S2883 (J1900, Bay Trail).
+
+xfce4
+xfce4-goodies
+xfce4-pulseaudio-plugin
+xfce4-whiskermenu-plugin
+xfce4-screenshooter
+xfce4-notifyd
+xfce4-power-manager
+
+# Session / login
+lightdm
+lightdm-gtk-greeter
+lightdm-gtk-greeter-settings
+
+# File manager + mounting
+thunar
+thunar-volman
+thunar-archive-plugin
+gvfs
+gvfs-mtp
+file-roller
+tumbler
+
+# Apps / utilities
+mousepad
+ristretto
+xarchiver
+network-manager-applet
+blueman
+galculator
+xdg-user-dirs-gtk
+
+# Theming (Static Linux look)
+gtk-engine-murrine
+papirus-icon-theme
+kvantum
+qt5ct
+qt6ct
+
+# Terminal
+xfce4-terminal

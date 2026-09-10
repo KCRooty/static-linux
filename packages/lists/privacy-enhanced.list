@@ -1,0 +1,12 @@
+# Static Linux — Privacy profile: Improved / Mejorado
+# Kernel: linux-zen
+# = Basic + application sandboxing + metadata hygiene
+
+linux-zen
+linux-zen-headers
+
+firejail
+apparmor
+bleachbit
+mat2
+usbguard

@@ -1,0 +1,8 @@
+---
+# Static Linux — Calamares job that runs sl-detect and publishes the results
+# into globalStorage for later modules (partition, packages, bootloader,
+# fstab, initcpio) to consume.
+type:       "job"
+name:       "sl-detect"
+interface:  "python"
+script:     "main.py"

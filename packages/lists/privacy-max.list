@@ -1,0 +1,19 @@
+# Static Linux — Privacy profile: Maximum / Máximo
+# Kernel: linux-hardened
+# = Improved + system Tor proxy + keystroke timing obfuscation +
+#   encrypted swap + aggressive MAC randomization + verified repos only
+
+linux-hardened
+linux-hardened-headers
+
+firejail
+apparmor
+bleachbit
+mat2
+usbguard
+
+tor
+torsocks
+proxychains-ng
+# kloak (AUR)          keystroke timing obfuscation
+cryptsetup

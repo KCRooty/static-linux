@@ -1,0 +1,8 @@
+# Static Linux — Privacy profile: Basic
+# Kernel: linux-zen
+# Everything in "default from day 0" is already in base.list (ufw,
+# dnscrypt-proxy, apparmor). This profile only adds what Basic needs on top
+# and is applied by privacidad/perfil-basico/apply.sh.
+
+linux-zen
+linux-zen-headers

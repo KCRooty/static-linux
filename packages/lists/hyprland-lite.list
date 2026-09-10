@@ -1,0 +1,43 @@
+# Static Linux — Hyprland + Astal (lite)
+# Tier: Standard (2 GB). Wayland. Reduced animations, Thunar instead of
+# Nautilus, no dock.
+
+hyprland
+hyprlock
+hypridle
+hyprpaper
+hyprpolkit-agent
+xdg-desktop-portal-hyprland
+xdg-desktop-portal-gtk
+qt5-wayland
+qt6-wayland
+
+# Shell / widgets (lighter Astal setup)
+libastal-meta
+gjs
+gtk4
+gtk4-layer-shell
+libadwaita
+
+# Launcher / clipboard
+rofi-wayland
+wl-clipboard
+cliphist
+
+# Core apps (lighter picks)
+thunar
+thunar-volman
+gvfs
+kitty
+mpv
+imv
+file-roller
+polkit-gnome
+network-manager-applet
+
+# Screenshot
+grim
+slurp
+
+# Login
+sddm

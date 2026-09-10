@@ -1,0 +1,38 @@
+# Static Linux — sl-detect GPU rules
+#
+# Format:  regex | family | driver | wayland
+#   regex    : case-insensitive, matched against the PCI device description
+#   family   : internal id used by other rules and by sl-welcome
+#   driver   : package/kernel driver to install
+#   wayland  : true | false  (does this family run Wayland/Hyprland acceptably?)
+#
+# First matching line wins. Order from most specific to most generic.
+# Missing file or no match  ->  built-in table in detect.py (safe: wayland=false)
+
+# ---- Intel ----------------------------------------------------------------
+z3[67]xxx|bay trail|atom.*(graphics|processor z)      | intel_bay_trail   | i915 | false
+cherry ?trail|braswell|atom x[57]-z8                  | intel_cherrytrail | i915 | false
+iris xe|alder lake-?[a-z]* gt|raptor lake|meteor lake | intel_xe          | xe   | true
+tiger lake|ice lake|rocket lake                       | intel_xe          | i915 | true
+hd graphics 5|hd graphics 6|uhd graphics|iris plus    | intel_gen9plus    | i915 | true
+hd graphics [23]000|hd graphics 4                     | intel_gen_early   | i915 | true
+intel.*(hd|iris|graphics)                             | intel_gen         | i915 | true
+
+# ---- AMD -----------------------------------------------------------------
+navi|rdna|radeon rx [5-9]\d{3}|rx [5-9]\d{2}0         | amd_rdna          | amdgpu | true
+vega|radeon vii                                       | amd_vega          | amdgpu | true
+polaris|radeon rx [45]\d0|radeon r9 3                 | amd_polaris       | amdgpu | true
+radeon r[579] [23]\d\d|radeon hd 7\d{3}|radeon hd 8   | amd_gcn           | amdgpu | true
+radeon hd [2-6]\d{3}|radeon hd 7[0-6]\d\b             | amd_pre_gcn       | radeon | false
+amd|radeon|advanced micro devices                     | amd_unknown       | amdgpu | true
+
+# ---- NVIDIA ------------------------------------------------------------
+geforce rtx [2-9]\d{3}|geforce gtx 16\d{2}            | nvidia_turing_plus  | nvidia   | true
+geforce gtx 10\d{2}|pascal                            | nvidia_pascal       | nvidia   | true
+geforce gtx 9\d{2}|maxwell|geforce gtx titan x        | nvidia_maxwell      | nvidia   | true
+geforce gtx [67]\d{2}|geforce gt 7\d{2}|kepler        | nvidia_kepler       | nouveau  | false
+geforce (gt|gtx) [1-5]\d{2}\b|fermi|tesla             | nvidia_fermi        | nouveau  | false
+nvidia|geforce|quadro                                 | nvidia_unknown      | nvidia   | true
+
+# ---- Virtual / other -------------------------------------------------
+virtio|red hat.*qxl|qemu|bochs|vmware|virtualbox|cirrus | virtual         | modesetting | true
