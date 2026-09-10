@@ -29,8 +29,7 @@ MiscSearchDialogOpacity=100
 MiscShowUnsafePasteDialog=TRUE
 ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=10000
-BackgroundMode=TERMINAL_BACKGROUND_TRANSPARENT
-BackgroundDarkness=0.960000
+BackgroundMode=TERMINAL_BACKGROUND_SOLID
 
 # Static Linux palette — Void background, Signal Green cursor
 ColorForeground=#d7d9e0

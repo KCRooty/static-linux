@@ -52,4 +52,4 @@ See [`packages/lists/xfce.list`](../../packages/lists/xfce.list). Key deps:
   system Default theme + our `themerc` at install time).
 - `void-dark.png` wallpaper and the SF monogram assets referenced by the
   greeter (`branding/`).
-- `ttf-outfit` / `ttf-space-grotesk` AUR packages so the brand fonts ship.
+- `ttf-outfit` / `otf-space-grotesk` AUR packages so the brand fonts ship.

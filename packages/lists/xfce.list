@@ -35,7 +35,6 @@ xdg-user-dirs-gtk
 
 # Theming (Static Linux look)
 gnome-themes-extra
-gtk-engine-murrine
 papirus-icon-theme
 kvantum
 qt5ct

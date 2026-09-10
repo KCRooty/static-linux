@@ -82,6 +82,37 @@ else
         "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml" || true
 fi
 
+# --- wallpaper --------------------------------------------------------
+WP_SRC="$SHARED/../../branding/wallpapers/dark/void-dark.png"
+WP_SRC="$(readlink -f "$WP_SRC" 2>/dev/null || echo "$WP_SRC")"
+if [[ -f "$WP_SRC" ]]; then
+    if [[ $EUID -eq 0 ]]; then
+        WP_DST="/usr/share/backgrounds/static-linux/void-dark.png"
+        mkdir -p "$(dirname "$WP_DST")"
+        install -m 0644 "$WP_SRC" "$WP_DST"
+    else
+        WP_DST="$TARGET/.local/share/backgrounds/static-linux/void-dark.png"
+        mkdir -p "$(dirname "$WP_DST")"
+        install -m 0644 "$WP_SRC" "$WP_DST"
+    fi
+    log "wallpaper -> $WP_DST"
+    # point the xfconf key at the real path (skel XML uses the system path)
+    sed -i "s#/usr/share/backgrounds/static-linux/void-dark.png#$WP_DST#" \
+        "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
+    # apply live if a session is running as this user
+    if [[ "$MODE" == "home" ]] && pgrep -u "$USER_NAME" xfdesktop >/dev/null 2>&1; then
+        run_as() { [[ $EUID -eq 0 ]] && sudo -u "$USER_NAME" "$@" || "$@"; }
+        UID_N="$(id -u "$USER_NAME")"
+        for prop in $(DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID_N/bus" \
+                      run_as xfconf-query -c xfce4-desktop -l 2>/dev/null | grep 'last-image$'); do
+            DBUS_SESSION_BUS_ADDRESS="unix:path=/run/user/$UID_N/bus" \
+                run_as xfconf-query -c xfce4-desktop -p "$prop" -s "$WP_DST" 2>/dev/null || true
+        done
+    fi
+else
+    warn "wallpaper not found ($WP_SRC) - run branding/wallpapers/gen-wallpaper.py"
+fi
+
 # --- optional system config (lightdm) -------------------------------
 if [[ $SYSTEM_CONFIG -eq 1 ]]; then
     [[ $EUID -eq 0 ]] || die "--system-config needs root"
@@ -99,8 +130,8 @@ command -v xfce4-session >/dev/null || warn "xfce4 not installed yet"
 [[ -d /usr/share/themes/Adwaita-dark || -d /usr/share/themes/Adwaita ]] || \
     warn "Adwaita-dark missing — install gnome-themes-extra"
 [[ -d /usr/share/icons/Papirus-Dark ]] || warn "Papirus-Dark missing — install papirus-icon-theme"
-fc-list 2>/dev/null | grep -qi "Space Grotesk" || warn "font 'Space Grotesk' missing (AUR: ttf-space-grotesk)"
-fc-list 2>/dev/null | grep -qi "JetBrains Mono" || warn "font 'JetBrains Mono' missing (pacman: ttf-jetbrains-mono)"
+fc-list : family 2>/dev/null | grep -qi "space grotesk" || warn "font 'Space Grotesk' missing (AUR: otf-space-grotesk)"
+fc-list : family 2>/dev/null | grep -qi "jetbrains mono" || warn "font 'JetBrains Mono' missing (pacman: ttf-jetbrains-mono)"
 
 log "done. Backup of replaced files (if any): $BACKUP"
 [[ "$MODE" == "home" ]] && log "log out and pick the Xfce session, or run: startxfce4"
