@@ -1,0 +1,44 @@
+// Static Linux — fastfetch (rendered per accent by branding/accents/apply.sh)
+// Accent: Monocromo   dominant E6E8EE · detail 8A8F9C · text E6E8EE
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+
+  "logo": {
+    "type": "file",
+    "source": "/usr/share/static-linux/fastfetch/logo-static-linux.fastfetch",
+    "color": { "1": "38;2;230;232;238" },
+    "padding": { "top": 1, "left": 2, "right": 3 }
+  },
+
+  "display": {
+    "separator": "   ",
+    "color": { "keys": "38;2;230;232;238", "output": "38;2;230;232;238" },
+    "percent": {
+      "type": 1,
+      "color": { "green": "38;2;138;143;156", "yellow": "38;2;138;143;156", "red": "38;2;138;143;156" }
+    }
+  },
+
+  "modules": [
+    { "type": "title",  "format": "{#38;2;230;232;238}{user-name}{#38;2;138;143;156}@{#38;2;230;232;238}{host-name}" },
+    { "type": "custom", "format": "{#38;2;138;143;156}fast. private. yours." },
+    "break",
+    { "type": "os",       "key": "distro " },
+    { "type": "kernel",   "key": "kernel ", "format": "{2}" },
+    { "type": "packages", "key": "pkgs   ", "format": "{pacman}" },
+    { "type": "uptime",   "key": "uptime ", "format": "{?1}{1}d {?}{?2}{2}h {?}{3}m" },
+    { "type": "shell",    "key": "shell  ", "format": "{1} {4}" },
+    "break",
+    { "type": "de",       "key": "desktop", "format": "{2}" },
+    { "type": "wm",       "key": "wm     ", "format": "{1}" },
+    { "type": "wmtheme",  "key": "theme  " },
+    { "type": "terminal", "key": "term   ", "format": "{5}" },
+    "break",
+    { "type": "cpu",      "key": "cpu    ", "format": "{1}" },
+    { "type": "gpu",      "key": "gpu    ", "format": "{2}", "temp": false },
+    { "type": "memory",   "key": "memory ", "format": "{1} / {2}" },
+    { "type": "disk",     "key": "disk   ", "folders": "/", "format": "{1} / {2}" },
+    "break",
+    { "type": "colors", "symbol": "circle", "block": { "width": 2 } }
+  ]
+}

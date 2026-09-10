@@ -1,0 +1,11 @@
+# Static Linux — xfce4-terminal colour block (rendered per accent by apply.sh)
+# apply.sh replaces the "# --- accent colours ---" ... EOF region of terminalrc.
+# Accent: Rojo
+ColorForeground=#D6D8E0
+ColorBackground=#0B0C10
+ColorCursor=#E85D6B
+ColorCursorForeground=#0B0C10
+ColorBold=#D6D8E0
+ColorSelection=#E85D6B
+ColorSelectionUseDefault=FALSE
+ColorSelectionForeground=#0B0C10

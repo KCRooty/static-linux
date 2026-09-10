@@ -1,0 +1,8 @@
+---
+# Static Linux — Calamares job: apply the chosen accent colour in the target.
+# Reads globalStorage "slAccent" (set by the accent selection page; falls back
+# to "purple"). Runs late, after users + packages, before "umount".
+type:       "job"
+name:       "accent"
+interface:  "python"
+script:     "main.py"

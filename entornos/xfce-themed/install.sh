@@ -64,68 +64,27 @@ copy_tree() {
 log "deploying dotfiles"
 copy_tree "$HERE/skel"
 
-# --- compose the Static-Void xfwm4 theme ------------------------------
-THEME_DST="$TARGET/.local/share/xfwm4/themes/Static-Void"
-DEFAULT_SRC=""
-for cand in /usr/share/themes/Default/xfwm4 /usr/share/themes/Adwaita/xfwm4; do
-    [[ -d "$cand" ]] && { DEFAULT_SRC="$cand"; break; }
-done
-if [[ -n "$DEFAULT_SRC" ]]; then
-    log "building xfwm4 theme from $DEFAULT_SRC"
-    mkdir -p "$THEME_DST"
-    cp -a "$DEFAULT_SRC/." "$THEME_DST/"
-    cp -f "$SHARED/themes/Static-Void-xfwm4/themerc" "$THEME_DST/themerc"
-else
-    warn "no base xfwm4 theme found (install xfwm4); window decorations fall back to Default"
-    # keep xfwm4.xml working regardless
+# keep xfwm4.xml working even if no base theme is available for compositing
+if [[ ! -d /usr/share/themes/Default/xfwm4 && ! -d /usr/share/themes/Adwaita/xfwm4 ]]; then
+    warn "no base xfwm4 theme (install xfwm4) — window decorations fall back to Default"
     sed -i 's/value="Static-Void"/value="Default"/' \
         "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml" || true
 fi
 
-# --- wallpaper --------------------------------------------------------
-WP_SRC="$SHARED/../../branding/wallpapers/dark/void-dark.png"
-WP_SRC="$(readlink -f "$WP_SRC" 2>/dev/null || echo "$WP_SRC")"
-if [[ -f "$WP_SRC" ]]; then
-    if [[ $EUID -eq 0 ]]; then
-        WP_DST="/usr/share/backgrounds/static-linux/void-dark.png"
-        mkdir -p "$(dirname "$WP_DST")"
-        install -m 0644 "$WP_SRC" "$WP_DST"
+# --- accent colour layer (fastfetch / GTK / xfwm4 / terminal / wallpaper) ---
+# Delegated to the accent system so there is one theming path. Default is
+# whatever is recorded, else "purple".
+ACCENT_SH="$HERE/../../branding/accents/apply.sh"
+if [[ -x "$ACCENT_SH" ]]; then
+    ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
+    log "applying accent: $ACCENT"
+    if [[ "$MODE" == "skel" ]]; then
+        "$ACCENT_SH" "$ACCENT" --skel || warn "accent apply failed"
     else
-        WP_DST="$TARGET/.local/share/backgrounds/static-linux/void-dark.png"
-        mkdir -p "$(dirname "$WP_DST")"
-        install -m 0644 "$WP_SRC" "$WP_DST"
-    fi
-    log "wallpaper -> $WP_DST"
-    # point the xfconf key at the real path (skel XML uses the system path)
-    sed -i "s#/usr/share/backgrounds/static-linux/void-dark.png#$WP_DST#" \
-        "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-    # apply live if a session is running as this user (xfdesktop 4.20 needs the
-    # key on both the workspace and non-workspace paths, plus a full restart)
-    if [[ "$MODE" == "home" ]] && pgrep -u "$USER_NAME" xfdesktop >/dev/null 2>&1; then
-        run_as() { [[ $EUID -eq 0 ]] && sudo -u "$USER_NAME" "$@" || "$@"; }
-        UID_N="$(id -u "$USER_NAME")"
-        DBUS="unix:path=/run/user/$UID_N/bus"
-        for base in $(DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as \
-                       xfconf-query -c xfce4-desktop -l 2>/dev/null \
-                       | grep -oE '/backdrop/screen[0-9]+/monitor[^/]+' | sort -u); do
-            for p in "$base/workspace0/last-image" "$base/last-image"; do
-                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
-                    -p "$p" -n -t string -s "$WP_DST" 2>/dev/null || \
-                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
-                    -p "$p" -s "$WP_DST" 2>/dev/null || true
-            done
-            for p in "$base/workspace0/image-style" "$base/image-style"; do
-                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
-                    -p "$p" -n -t int -s 5 2>/dev/null || \
-                DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as xfconf-query -c xfce4-desktop \
-                    -p "$p" -s 5 2>/dev/null || true
-            done
-        done
-        DBUS_SESSION_BUS_ADDRESS="$DBUS" run_as bash -c \
-            'kill "$(pgrep -x xfdesktop)" 2>/dev/null; sleep 1; setsid xfdesktop >/dev/null 2>&1 &' || true
+        "$ACCENT_SH" "$ACCENT" --user "$USER_NAME" || warn "accent apply failed"
     fi
 else
-    warn "wallpaper not found ($WP_SRC) - run branding/wallpapers/gen-wallpaper.py"
+    warn "branding/accents/apply.sh not found — skipping colour layer"
 fi
 
 # --- optional system config (lightdm) -------------------------------

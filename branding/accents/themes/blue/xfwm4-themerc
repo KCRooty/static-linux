@@ -1,0 +1,23 @@
+# Static Linux — "Static-Void" xfwm4 theme overlay (rendered per accent)
+# Accent: Azul
+# apply.sh composes the real theme: system Default xfwm4 pixmaps + this themerc.
+
+active_text_color=#D6D8E0
+inactive_text_color=#4574A6
+active_text_shadow_color=#000000
+inactive_text_shadow_color=#000000
+
+active_border_color=#5AA6F5
+inactive_border_color=#4574A6
+
+title_shadow_active=frame
+title_shadow_inactive=false
+title_vertical_offset_active=1
+title_vertical_offset_inactive=1
+
+button_offset=6
+button_spacing=2
+full_width_title=true
+title_alignment=center
+maximized_offset=0
+show_app_icon=false

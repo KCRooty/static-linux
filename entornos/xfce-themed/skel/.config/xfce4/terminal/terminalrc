@@ -31,13 +31,3 @@ ScrollingBar=TERMINAL_SCROLLBAR_NONE
 ScrollingLines=10000
 BackgroundMode=TERMINAL_BACKGROUND_SOLID
 
-# Static Linux palette — Void background, Signal Green cursor
-ColorForeground=#d7d9e0
-ColorBackground=#0B0C10
-ColorCursor=#00C8A0
-ColorCursorForeground=#0B0C10
-ColorBold=#FFFFFF
-ColorSelection=#00C8A0
-ColorSelectionUseDefault=FALSE
-ColorSelectionForeground=#0B0C10
-ColorPalette=#141620;#e0607e;#00C8A0;#F5A623;#5a9cf5;#a97bf5;#43c6b8;#c8ccd4;#3a3f52;#ec7a94;#3fe0c4;#ffc061;#7ab5ff;#c39cff;#6fe0d4;#ffffff

@@ -1,0 +1,38 @@
+/* Static Linux — GTK accent overlay (rendered per accent by apply.sh)
+ * Accent: Rosa  ·  recolors accents only, not the whole theme. */
+
+@define-color sl_accent      #F48FB1;
+@define-color sl_accent_dim   #A96682;
+@define-color sl_detail       #F2C94C;
+@define-color sl_text         #D6D8E0;
+@define-color sl_bg           #0B0C10;
+
+@define-color accent_color            @sl_accent;
+@define-color accent_bg_color         @sl_accent;
+@define-color accent_fg_color         @sl_bg;
+@define-color theme_selected_bg_color @sl_accent;
+@define-color theme_selected_fg_color @sl_bg;
+@define-color success_color           @sl_accent;
+@define-color warning_color           @sl_detail;
+
+*:focus-visible            { outline-color: @sl_accent; }
+link, *:link              { color: @sl_accent; }
+selection, *:selected     { background-color: @sl_accent; color: @sl_bg; }
+
+button.suggested-action {
+  background-image: none;
+  background-color: @sl_accent;
+  color: @sl_bg;
+  border-color: @sl_accent_dim;
+}
+button.suggested-action:hover { background-color: @sl_accent_dim; }
+
+progressbar progress      { background-color: @sl_accent; }
+switch:checked            { background-color: @sl_accent; }
+checkbutton check:checked,
+radiobutton radio:checked { background-color: @sl_accent; border-color: @sl_accent; }
+entry:focus-within        { border-color: @sl_accent; }
+
+.xfce4-panel              { background-color: alpha(@sl_bg, 0.96); }
+#whiskermenu-window       { background-color: shade(@sl_bg, 1.25); }
+#whiskermenu-window entry { background-color: shade(@sl_bg, 1.6); }

@@ -3,6 +3,11 @@
 Static Linux ships a minimal branded `fastfetch` as the system default.
 Look reference: Archcraft — small logo, few fields, dim keys, breathing room.
 
+**Colours are not set here** — `config.jsonc` is rendered per accent by
+[`branding/accents/apply.sh`](../accents/) from
+[`accents/templates/fastfetch.jsonc.in`](../accents/templates/fastfetch.jsonc.in).
+Edit the template, not the installed file. Default accent: purple.
+
 ```
                    Static Linux   fast. private. yours.
    █████  █████    core@staticlinux

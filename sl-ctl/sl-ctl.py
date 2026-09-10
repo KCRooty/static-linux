@@ -27,6 +27,7 @@ STATE_DIR = Path("/var/lib/static-linux")
 BACKUP_DIR = Path("/var/backups/static-linux/tweaks")
 SL_DETECT = "/usr/lib/static-linux/sl-detect/detect.py"
 PRIVACY_DIR = Path("/usr/lib/static-linux/privacidad")
+ACCENT_DIR = Path("/usr/lib/static-linux/accents")
 
 GREEN = "\033[1;38;5;43m"   # Signal Green-ish for a 256-color terminal
 DIM = "\033[2m"
@@ -111,6 +112,30 @@ def cmd_privacy(args) -> int:
     if not apply_sh.exists():
         sys.exit(f"sl-ctl: {apply_sh} not found")
     return _sh(["bash", str(apply_sh)]).returncode
+
+
+# ---------------------------------------------------------------------------
+# accent  (whole-look colour)
+# ---------------------------------------------------------------------------
+def _accent_apply() -> Path | None:
+    for p in (ACCENT_DIR / "apply.sh",
+              Path(__file__).resolve().parents[1] / "branding" / "accents" / "apply.sh"):
+        if p.exists():
+            return p
+    return None
+
+
+def cmd_accent(args) -> int:
+    apply = _accent_apply()
+    if apply is None:
+        sys.exit("sl-ctl: accent tool not found")
+    if args.list:
+        return _sh(["bash", str(apply), "--list"]).returncode
+    if not args.name:
+        return _sh(["bash", str(apply), "--current"]).returncode
+    if os.geteuid() != 0:
+        sys.exit("sl-ctl: 'accent <name>' must be run as root (touches /etc)")
+    return _sh(["bash", str(apply), args.name]).returncode
 
 
 # ---------------------------------------------------------------------------
@@ -292,6 +317,11 @@ def build_parser() -> argparse.ArgumentParser:
     pr = sub.add_parser("privacy", help="show or change the privacy profile")
     pr.add_argument("--profile", metavar="basic|improved|maximum")
     pr.set_defaults(fn=cmd_privacy)
+
+    ac = sub.add_parser("accent", help="show or change the accent colour")
+    ac.add_argument("name", nargs="?", metavar="purple|blue|green|...")
+    ac.add_argument("--list", action="store_true", help="list available accents")
+    ac.set_defaults(fn=cmd_accent)
 
     return p
 
