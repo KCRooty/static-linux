@@ -1,0 +1,29 @@
+# Static Linux — "Static-Void" xfwm4 theme (themerc overlay)
+#
+# xfwm4 window decorations are pixmap-based. install.sh composes the real
+# theme by copying the system "Default" xfwm4 pixmaps into
+# ~/.local/share/xfwm4/themes/Static-Void/ and dropping this themerc on top,
+# so we get correct decorations with the Static Linux palette.
+#
+# Palette:  Void #0B0C10 · Signal Green #00C8A0 · muted text #d7d9e0
+
+active_text_color=#FFFFFF
+inactive_text_color=#6b7080
+active_text_shadow_color=#000000
+inactive_text_shadow_color=#000000
+
+active_border_color=#00C8A0
+inactive_border_color=#1E2030
+
+title_shadow_active=frame
+title_shadow_inactive=false
+title_vertical_offset_active=1
+title_vertical_offset_inactive=1
+
+button_offset=6
+button_spacing=2
+full_width_title=true
+title_alignment=center
+maximized_offset=0
+
+show_app_icon=false
