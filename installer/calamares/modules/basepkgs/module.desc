@@ -1,0 +1,8 @@
+---
+# Static Linux — Calamares job: install the always-on base package set.
+# Runs early in exec, right after "mount" — almost every later exec job
+# (initcpiocfg, bootloader, users, ...) needs a populated target.
+type:       "job"
+name:       "basepkgs"
+interface:  "python"
+script:     "main.py"

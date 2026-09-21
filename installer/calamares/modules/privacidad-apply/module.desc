@@ -1,0 +1,8 @@
+---
+# Static Linux — Calamares job: apply the chosen privacy profile.
+# Reads globalStorage["packagechooser_privacidad"] (set by the "privacidad"
+# packagechooser instance in the show phase). Runs after entorno-pkgs.
+type:       "job"
+name:       "privacidad-apply"
+interface:  "python"
+script:     "main.py"

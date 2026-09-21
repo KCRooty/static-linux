@@ -1,0 +1,9 @@
+---
+# Static Linux — Calamares job: install the chosen desktop environment.
+# Reads globalStorage["packagechooser_entorno"] (set by the "entorno"
+# packagechooser instance in the show phase). Runs after basepkgs, before
+# sabores.
+type:       "job"
+name:       "entorno-pkgs"
+interface:  "python"
+script:     "main.py"
