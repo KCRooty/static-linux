@@ -1,0 +1,31 @@
+# Static Linux — sl-detect ARM SoC GPU rules (device-tree, not PCI)
+#
+# gpu.rules is matched against `lspci` output, which doesn't exist on ARM
+# SBCs: their GPU is a platform device described in the device tree, not a
+# PCI card. This file is matched instead against /proc/device-tree/compatible
+# — read as one lowercased, space-joined string (most-specific entry first,
+# per the Linux devicetree convention).
+#
+# Format:  regex | family | driver | wayland | label
+#   regex    : matched against the device-tree "compatible" string
+#   family   : internal id, independent namespace from gpu.rules families
+#   driver   : kernel/mesa driver
+#   wayland  : true | false
+#   label    : human-readable model shown in sl-detect --all / sl-welcome
+#
+# First matching line wins, most specific SoC first. No match -> falls back
+# to the "unknown" GPU entry in detect.py (safe: wayland=false).
+#
+# Targets named in CONTRIBUTING.md's "help needed" list: RPi 4/5, Pinebook
+# Pro (RK3399), RK3588. Compatible strings are the well-known upstream
+# device-tree bindings — verify against `cat /proc/device-tree/compatible`
+# on real hardware before shipping (CONTRIBUTING.md: test before merge).
+
+brcm,bcm2712        | videocore_vc7      | v3d      | true  | Broadcom VideoCore VII (Raspberry Pi 5)
+brcm,bcm2711        | videocore_vc6      | v3d      | true  | Broadcom VideoCore VI (Raspberry Pi 4)
+brcm,bcm2837        | videocore_vc4      | vc4      | false | Broadcom VideoCore IV (Raspberry Pi 3, too weak for a compositor)
+rockchip,rk3588     | mali_valhall_g610  | panfrost | true  | Mali-G610 MP4, Valhall (RK3588)
+rockchip,rk3399     | mali_midgard_t860  | panfrost | true  | Mali-T860 MP4, Midgard (RK3399 / Pinebook Pro)
+allwinner,sun50i-h6 | mali_midgard_t720  | panfrost | false | Mali-T720, Midgard (Allwinner H6/H616 — panfrost still rough here)
+amlogic,g12b        | mali_bifrost_g52   | panfrost | true  | Mali-G52, Bifrost (Amlogic S922X)
+amlogic,sm1         | mali_bifrost_g31   | panfrost | true  | Mali-G31, Bifrost (Amlogic S905X3)

@@ -10,8 +10,10 @@
 # Missing file or no match  ->  built-in table in detect.py (safe: wayland=false)
 
 # ---- Intel ----------------------------------------------------------------
+945g|945gm|945gme|950|gma [39]00|gma x[34]\d{3}|82(4|8|9)\d\d.*express | intel_gma | modesetting | false
 z3[67]xxx|bay trail|atom.*(graphics|processor z)      | intel_bay_trail   | i915 | false
 cherry ?trail|braswell|atom x[57]-z8                  | intel_cherrytrail | i915 | false
+arc a[3-9]\d{2}|dg2|battlemage|arc b[5-9]\d{2}        | intel_arc         | i915 | true
 iris xe|alder lake-?[a-z]* gt|raptor lake|meteor lake | intel_xe          | xe   | true
 tiger lake|ice lake|rocket lake                       | intel_xe          | i915 | true
 hd graphics 5|hd graphics 6|uhd graphics|iris plus    | intel_gen9plus    | i915 | true

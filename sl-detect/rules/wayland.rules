@@ -12,8 +12,11 @@
 #   * arch == arm32                                   ->  Wayland = false
 #   * GPU undetectable                                ->  Wayland = false
 
+intel_gma          : false   # pre-2010 GMA 9xx/X3xxx/X4xxx — no modern driver
 intel_bay_trail    : false   # CONFIRMED on Packard Bell iMedia S2883 (J1900)
 intel_cherrytrail  : false
 nvidia_kepler      : false   # nouveau reclocking too poor for a compositor
 nvidia_fermi       : false
 amd_pre_gcn        : false
+videocore_vc4      : false   # Raspberry Pi 3 — too weak for a compositor
+mali_midgard_t720  : false   # Allwinner H6/H616 — panfrost still rough here
