@@ -1,0 +1,10 @@
+# Static Linux — Sabor: Office
+# LibreOffice, Obsidian, Joplin, Bitwarden. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+libreoffice-fresh
+bitwarden
+
+# ---- AUR ----------------------------------------------------------
+# obsidian (AUR)
+# joplin-desktop-bin (AUR)

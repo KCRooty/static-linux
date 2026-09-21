@@ -1,0 +1,12 @@
+# Static Linux — Sabor: Education
+# GeoGebra, Stellarium, Anki, Jupyter, Thonny, FreeCAD. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+stellarium
+anki
+jupyter-notebook
+freecad
+
+# ---- AUR ----------------------------------------------------------
+# geogebra (AUR)
+# thonny (AUR)

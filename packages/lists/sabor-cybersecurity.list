@@ -1,0 +1,13 @@
+# Static Linux — Sabor: Cybersecurity
+# Nmap, Wireshark, Metasploit, Hashcat, Ghidra, Tor. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+nmap
+wireshark-qt
+hashcat
+john
+tor
+
+# ---- AUR ----------------------------------------------------------
+# metasploit (AUR)
+# ghidra (AUR)

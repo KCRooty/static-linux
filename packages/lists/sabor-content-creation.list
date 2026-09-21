@@ -1,0 +1,14 @@
+# Static Linux — Sabor: Content Creation
+# Krita, GIMP, Blender, DaVinci, OBS, LMMS, Ardour. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+krita
+gimp
+blender
+inkscape
+obs-studio
+lmms
+ardour
+
+# ---- AUR ----------------------------------------------------------
+# davinci-resolve (AUR)

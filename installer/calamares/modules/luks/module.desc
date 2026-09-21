@@ -1,0 +1,10 @@
+---
+# Static Linux — Calamares job: LUKS2 sanity checks.
+# Best-effort — the actual encryption setup is Calamares' own core partition
+# module. This runs late (after partition + bootloader, before "umount") and
+# only checks/warns; it never rewrites bootloader or mkinitcpio config itself
+# (CRITICAL RULE: no irreversible changes without a clear owner of the undo).
+type:       "job"
+name:       "luks"
+interface:  "python"
+script:     "main.py"
