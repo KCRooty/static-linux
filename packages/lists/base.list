@@ -70,10 +70,11 @@ dnscrypt-proxy
 apparmor
 
 # ---- Graphics stack (GPU-specific drivers appended by sl-detect) ---
+# mesa now bundles VA-API/VDPAU support directly — libva-mesa-driver and
+# mesa-vdpau were separate packages once, both gone from the repos now
+# (verified against archlinux.org/packages/search/json 2026-09-21).
 mesa
 vulkan-icd-loader
-libva-mesa-driver
-mesa-vdpau
 xorg-server
 xorg-xinit
 
@@ -98,8 +99,10 @@ wget
 rsync
 htop
 fastfetch
+# vi (standalone) doesn't exist as a package — vim provides the vi command
+# too. Verified 2026-09-21.
 nano
-vi
+vim
 man-db
 man-pages
 texinfo

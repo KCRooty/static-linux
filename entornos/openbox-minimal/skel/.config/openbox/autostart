@@ -5,7 +5,7 @@
 # needs lxsession, which isn't in this tier's package list — one less daemon
 # resident at 512 MB). Everything needed is started explicitly here instead.
 
-nitrogen --restore &
+[ -x ~/.fehbg ] && ~/.fehbg &
 tint2 &
 nm-applet &
 dunst &

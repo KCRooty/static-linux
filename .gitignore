@@ -1,4 +1,11 @@
 iso/out/
+iso/work-*/
+# assembled/copied in fresh by iso/build.sh on every run — see its header
+iso/profiledir-*/airootfs/
+iso/profiledir-*/efiboot/
+iso/profiledir-*/syslinux/
+iso/profiledir-*/grub/
+iso/profiledir-*/pacman.conf
 packages/aur-cache/
 *.iso
 *.img

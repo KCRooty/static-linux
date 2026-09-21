@@ -84,7 +84,8 @@ else
     warn "branding/accents/apply.sh not found — skipping colour layer"
 fi
 
-# --- wallpaper: nitrogen doesn't read xfconf, set it directly ----------
+# --- wallpaper: feh doesn't read xfconf, set it directly (nitrogen was
+# dropped from the official repos, unmaintained upstream) ----------------
 WP_DIR_INSTALLED="/usr/share/static-linux/wallpapers"
 if [[ -d "$WP_DIR_INSTALLED" ]]; then
     WP_DIR="$WP_DIR_INSTALLED"
@@ -93,15 +94,13 @@ else
 fi
 WP="$WP_DIR/$ACCENT/void-$ACCENT.png"
 if [[ -f "$WP" ]]; then
-    NITRO_CFG="$TARGET/.config/nitrogen/bg-saved.cfg"
-    mkdir -p "$(dirname "$NITRO_CFG")"
-    cat > "$NITRO_CFG" <<EOF
-[xin_-1]
-file=$WP
-mode=5
-bgcolor=#0B0C10
+    FEHBG="$TARGET/.fehbg"
+    cat > "$FEHBG" <<EOF
+#!/bin/sh
+feh --no-fehbg --bg-fill '$WP'
 EOF
-    log "nitrogen wallpaper -> $WP"
+    chmod +x "$FEHBG"
+    log "feh wallpaper -> $WP"
 else
     warn "no wallpaper found for accent '$ACCENT' at $WP"
 fi

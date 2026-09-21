@@ -13,7 +13,7 @@ resident process. `~/.config/openbox/autostart` starts everything explicitly.
 | Menu | jgmenu (auto-discovers `.desktop` files, no menu.xml to maintain) |
 | Files | PCManFM |
 | Terminal | LXTerminal |
-| Wallpaper | nitrogen |
+| Wallpaper | feh (`~/.fehbg`) |
 | Notifications | dunst |
 | Compositor | picom — shipped, **not autostarted** (`>500 MB idle RAM = design bug`) |
 
@@ -26,9 +26,10 @@ Right-click or middle-click the desktop, or `Super+D`, opens jgmenu.
 LightDM greeter — same as `xfce-themed`. Two things it does **not** cover
 here, both noted so they don't get mistaken for bugs:
 
-- **Wallpaper**: nitrogen doesn't read xfconf, so `install.sh` writes
-  `~/.config/nitrogen/bg-saved.cfg` directly instead of going through
-  `apply.sh`'s xfdesktop step.
+- **Wallpaper**: feh doesn't read xfconf, so `install.sh` writes `~/.fehbg`
+  (feh's own persistence convention — sourced from `autostart`) instead of
+  going through `apply.sh`'s xfdesktop step. (Not nitrogen — dropped from
+  the official Arch repos, unmaintained upstream.)
 - **Window border**: Openbox's `rc.xml` theme isn't accent-reactive yet — it
   ships with a fixed dark theme. Making the border color follow the accent
   needs a proper Openbox theme (an `openbox-3/` theme directory with

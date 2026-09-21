@@ -1,0 +1,76 @@
+# Static Linux — online ISO package list (live environment only — this is
+# NOT what ends up on the installed system; that's packages/lists/*.list,
+# installed live by Calamares' basepkgs/entorno-pkgs/sabores jobs).
+#
+# Deliberately NOT a copy of archiso's releng packages.x86_64 — releng is
+# broad on purpose (it's the universal official installer: rescue tools,
+# every filesystem/RAID/VPN driver under the sun). This is trimmed to what
+# actually boots Static Linux's own live session and runs Calamares against
+# the filesystems/bootloader this project supports.
+
+# ---- Kernel / boot -------------------------------------------------
+base
+linux
+linux-firmware
+mkinitcpio
+mkinitcpio-archiso
+amd-ucode
+intel-ucode
+efibootmgr
+memtest86+
+memtest86+-efi
+syslinux
+grub
+
+# ---- Filesystems / partitioning (docs/PROYECTO.md-supported set) ---------
+arch-install-scripts
+gptfdisk
+parted
+dosfstools
+e2fsprogs
+exfatprogs
+f2fs-tools
+btrfs-progs
+xfsprogs
+cryptsetup
+lvm2
+
+# ---- Networking (live session needs it — Calamares installs live) -
+networkmanager
+iwd
+wpa_supplicant
+modemmanager
+openssh
+
+# ---- Live GUI (bare — just enough to host Calamares) ---------------
+xorg-server
+xorg-xinit
+openbox
+
+# ---- Installer -------------------------------------------------------
+calamares
+
+# ---- CLI essentials (matches packages/lists/base.list) --------------
+nano
+vim
+man-db
+man-pages
+less
+usbutils
+pciutils
+rsync
+reflector
+pv
+smartmontools
+nvme-cli
+
+# ---- Fonts (installer text) ------------------------------------------
+ttf-jetbrains-mono
+noto-fonts
+
+# staticlinux-base isn't in any pacman repo yet (no Static Forge repo —
+# see packages/staticlinux-base/README.md's "Future contents"), so it's
+# not listed here for pacstrap. ../build.sh installs it into airootfs/
+# directly by running the PKGBUILD's own package() function against the
+# profile's airootfs — same tree pacstrap would produce if it were
+# repo-installable, no duplicated packaging logic.
