@@ -62,6 +62,7 @@ plugins:
 nav:
   - Inicio: index.md
   - Instalación: instalacion.md
+  - Construir la ISO: iso.md
   - Hardware:
       - Requisitos: hardware/requisitos.md
       - "Referencia: Packard Bell iMedia S2883": hardware/imedia-s2883.md
