@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC "-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+ "http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+  <vendor>Static Forge</vendor>
+  <vendor_url>https://github.com/KCRooty/static-linux</vendor_url>
+
+  <action id="dev.staticforge.welcome.apply-privacy-profile">
+    <description>Aplicar un perfil de privacidad de Static Linux</description>
+    <description xml:lang="en">Apply a Static Linux privacy profile</description>
+    <message>sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad</message>
+    <message xml:lang="en">sl-welcome needs administrator privileges to apply the privacy profile</message>
+    <icon_name>security-high-symbolic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/lib/static-linux/sl-welcome/apply-profile</annotate>
+  </action>
+
+  <action id="dev.staticforge.welcome.install-packages">
+    <description>Instalar paquetes del catálogo de sl-welcome</description>
+    <description xml:lang="en">Install packages from the sl-welcome catalog</description>
+    <message>sl-welcome necesita privilegios de administrador para instalar paquetes con pacman</message>
+    <message xml:lang="en">sl-welcome needs administrator privileges to install packages with pacman</message>
+    <icon_name>system-software-install-symbolic</icon_name>
+    <defaults>
+      <allow_any>auth_admin</allow_any>
+      <allow_inactive>auth_admin</allow_inactive>
+      <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/pacman</annotate>
+  </action>
+</policyconfig>

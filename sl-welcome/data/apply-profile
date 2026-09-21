@@ -1,0 +1,20 @@
+#!/bin/bash
+# Static Linux — pkexec target for sl-welcome's privacy page.
+#
+# A dedicated, argument-validating wrapper instead of pointing polkit's
+# org.freedesktop.policykit.exec.path straight at /bin/bash: that would make
+# ANY `pkexec bash <anything>` on the system match sl-welcome's friendly
+# "apply privacy profile" policy message. Installed to
+# /usr/lib/static-linux/sl-welcome/apply-profile.
+set -euo pipefail
+
+PRIVACY_DIR="/usr/lib/static-linux/privacidad"
+
+case "${1:-}" in
+    basico)   folder="perfil-basico" ;;
+    mejorado) folder="perfil-mejorado" ;;
+    maximo)   folder="perfil-maximo" ;;
+    *)        echo "apply-profile: perfil desconocido '${1:-}'" >&2; exit 1 ;;
+esac
+
+exec bash "$PRIVACY_DIR/$folder/apply.sh"

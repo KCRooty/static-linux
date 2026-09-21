@@ -1,0 +1,34 @@
+category: "Multimedia"
+apps:
+  - id: vlc
+    name: VLC
+    desc: Reproductor de vídeo/audio que abre casi cualquier formato.
+    pkg: vlc
+  - id: mpv
+    name: mpv
+    desc: Reproductor ligero controlado por teclado, ideal en equipos justos de RAM.
+    pkg: mpv
+  - id: audacious
+    name: Audacious
+    desc: Reproductor de música ligero, estilo Winamp.
+    pkg: audacious
+  - id: handbrake
+    name: HandBrake
+    desc: Recodificar/comprimir vídeo.
+    pkg: handbrake
+  - id: shotcut
+    name: Shotcut
+    desc: Editor de vídeo multiplataforma, más ligero que DaVinci Resolve.
+    pkg: shotcut
+  - id: obs-studio
+    name: OBS Studio
+    desc: Grabación de pantalla y streaming.
+    pkg: obs-studio
+  - id: audacity
+    name: Audacity
+    desc: Edición de audio — reducción de ruido, compresor, limiter.
+    pkg: audacity
+  - id: easytag
+    name: EasyTag
+    desc: Editar metadatos (tags) de archivos de audio en lote.
+    pkg: easytag

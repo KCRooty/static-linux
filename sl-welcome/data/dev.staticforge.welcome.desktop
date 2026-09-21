@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Static Linux — Bienvenida
+Name[en]=Static Linux Welcome
+Comment=Primeros pasos, apariencia, privacidad y catálogo de apps
+Comment[en]=First steps, appearance, privacy and app catalog
+Exec=sl-welcome
+Icon=static-linux
+Categories=System;Settings;
+Terminal=false
+StartupNotify=true
