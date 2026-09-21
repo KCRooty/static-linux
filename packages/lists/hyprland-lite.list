@@ -6,21 +6,22 @@ hyprland
 hyprlock
 hypridle
 hyprpaper
-hyprpolkit-agent
+hyprpolkitagent
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 qt5-wayland
 qt6-wayland
 
 # Shell / widgets (lighter Astal setup)
-libastal-meta
 gjs
 gtk4
 gtk4-layer-shell
 libadwaita
 
 # Launcher / clipboard
-rofi-wayland
+# rofi-wayland's own Wayland layer-shell support got upstreamed into plain
+# rofi — the separate fork package doesn't exist anymore, official or AUR.
+rofi
 wl-clipboard
 cliphist
 
@@ -45,3 +46,8 @@ slurp
 
 # Login
 sddm
+
+# ---- AUR ----------------------------------------------------------
+# aylurs-gtk-shell (AUR)   the astal CLI (`ags` command) — plain "ags" on
+#                          the AUR is an unrelated adventure-game engine
+# libastal-meta (AUR)      astal core libraries — no official package

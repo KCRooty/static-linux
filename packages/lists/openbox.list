@@ -3,10 +3,12 @@
 # servers that still want a light GUI.
 
 openbox
-obconf
 tint2
 jgmenu
-nitrogen
+# nitrogen was dropped from the official repos (unmaintained upstream,
+# AUR-only now) — feh --bg-fill + ~/.fehbg is the actively-packaged
+# equivalent. Verified 2026-09-21.
+feh
 picom
 
 # Session / login
@@ -21,6 +23,11 @@ xarchiver
 # Bare essentials
 lxterminal
 lxappearance
+# obconf (Openbox's own config GUI) was dropped from the repos — GTK2, EOL
+# upstream. lxappearance-obconf folds the same Openbox theme/settings pane
+# into lxappearance instead of pulling in a second, heavier app (obconf-qt
+# would drag in Qt on a 512 MB tier). Verified 2026-09-21.
+lxappearance-obconf
 network-manager-applet
 scrot
 xdg-user-dirs

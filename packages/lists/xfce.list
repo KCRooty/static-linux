@@ -2,6 +2,11 @@
 # Tier: Minimum functional (1 GB). Xorg. Forced fallback when Wayland is out.
 # Validated on Packard Bell iMedia S2883 (J1900, Bay Trail).
 
+# xfce4 and xfce4-goodies are pacman GROUPS, not individual packages — that's
+# why they return 0 hits on archlinux.org/packages/search/json (that API only
+# indexes packages, not groups). Confirmed real via
+# archlinux.org/groups/x86_64/xfce4/ and .../xfce4-goodies/ 2026-09-21.
+# pacstrap/mkarchiso resolve groups fine (base-devel above is the same case).
 xfce4
 xfce4-goodies
 xfce4-pulseaudio-plugin

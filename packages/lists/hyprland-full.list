@@ -2,29 +2,29 @@
 # Tier: Recommended / ceiling (4 GB). Wayland. Modern GPU required.
 
 # ---- Compositor ----------------------------------------------------
+# Verified against archlinux.org/packages/search/json 2026-09-21.
 hyprland
 hyprlock
 hypridle
 hyprpaper
-hyprpolkit-agent
+hyprpolkitagent
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 qt5-wayland
 qt6-wayland
 
 # ---- Shell / widgets (Astal — AGS successor, GTK4) ----------------
-# astal (AUR)             core libraries
-# aylurs-gtk-shell (AUR)  ags CLI for Astal
-libastal-meta
 gjs
 gtk4
 gtk4-layer-shell
 libadwaita
 
 # ---- Bars / dock / launcher -------------------------------------
-# nwg-dock-hyprland (AUR)
-nwg-desktop
-rofi-wayland
+# nwg-dock-hyprland is official (extra) now — used to be AUR-only.
+nwg-dock-hyprland
+# rofi-wayland's own Wayland layer-shell support got upstreamed into plain
+# rofi — the separate fork package doesn't exist anymore, official or AUR.
+rofi
 wl-clipboard
 cliphist
 
@@ -58,3 +58,8 @@ brightnessctl
 
 # ---- Login manager -----------------------------------------
 sddm
+
+# ---- AUR ----------------------------------------------------------
+# aylurs-gtk-shell (AUR)   the astal CLI (`ags` command) — plain "ags" on
+#                          the AUR is an unrelated adventure-game engine
+# libastal-meta (AUR)      astal core libraries — no official package
