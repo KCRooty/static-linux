@@ -69,6 +69,7 @@ nav:
       - sl-detect: herramientas/sl-detect.md
       - sl-ctl: herramientas/sl-ctl.md
       - sl-welcome: herramientas/sl-welcome.md
+      - staticlinux-base: herramientas/staticlinux-base.md
   - Entornos de escritorio: entornos.md
   - Privacidad: privacidad.md
   - Sabores (flavors): sabores.md

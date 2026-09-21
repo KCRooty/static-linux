@@ -1,0 +1,155 @@
+# Maintainer: Static Forge <releases@staticforge.dev>
+#
+# Static Linux's base meta-package — the glue between "a bunch of scripts in
+# a git repo" and "a real Arch install that identifies and behaves as Static
+# Linux". Everything installer/calamares/modules/*, sl-ctl and sl-welcome
+# assume lives at /usr/lib/static-linux/... comes from here.
+#
+# This packages the monorepo in place — there's nothing to download, so
+# `source=()` is empty. Run makepkg from inside a checkout:
+#
+#   cd packages/staticlinux-base && makepkg -si
+#
+# Layout shipped (see docs/wiki for the consumer side of each path):
+#   /usr/lib/static-linux/sl-detect/       detect.py + rules/*.rules
+#   /usr/lib/static-linux/sl-ctl/          sl-ctl.py
+#   /usr/lib/static-linux/sl-welcome/      the GTK4 app + catalog/
+#   /usr/lib/static-linux/accents/         apply.sh + palette.conf + templates/
+#   /usr/lib/static-linux/privacidad/      3 profiles + shared lib.sh
+#   /usr/lib/static-linux/packages/lists/  every packages/lists/*.list
+#   /usr/lib/static-linux/entornos/*/      install.sh + skel/ per environment
+#   /usr/share/static-linux/fastfetch/     logo assets (config.jsonc: an
+#                                          /etc default, not here)
+#   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome} symlinks into the paths above
+#
+# /etc/os-release and /etc/lsb-release are shipped as plain files at that
+# exact path — not /usr/lib/os-release, which `filesystem` owns and this
+# package deliberately never touches. /etc/os-release starts as a symlink
+# to /usr/lib/os-release on a stock Arch box; this package replaces it with
+# a real file pacman tracks (backup=, so a future upgrade gets a .pacnew
+# instead of silently overwriting a hand edit), same technique every other
+# Arch derivative uses to avoid fighting `filesystem` for ownership of
+# /usr/lib/os-release itself.
+
+pkgname=staticlinux-base
+pkgver=2026.09.21
+pkgrel=1
+pkgdesc="Static Linux base: identity files, sl-detect/sl-ctl/sl-welcome, environment and privacy-profile data"
+arch=('any')
+url="https://github.com/KCRooty/static-linux"
+license=('GPL-3.0-only')
+depends=('bash' 'python')
+optdepends=(
+    'python-gobject: sl-welcome (GTK4 first-boot app)'
+    'gtk4: sl-welcome'
+    'libadwaita: sl-welcome accent theming'
+    'python-yaml: sl-welcome catalog page'
+    'polkit: sl-welcome privileged actions (privacy profile, catalog installs)'
+    'pacman-contrib: sl-ctl update (checkupdates etc.)'
+    'fastfetch: branded system info'
+    'lightdm-gtk-greeter: accent-themed login screen'
+    'reflector: sl-ctl mirror'
+    'snapper: sl-ctl snapshot (BTRFS installs only)'
+)
+backup=(
+    'etc/os-release'
+    'etc/lsb-release'
+    'etc/fastfetch/config.jsonc'
+    'etc/static-linux/accent'
+)
+install=staticlinux-base.install
+source=()
+sha256sums=()
+
+pkgver() {
+    date +%Y.%m.%d
+}
+
+package() {
+    local repo lib share
+    repo="$(cd "$startdir/../.." && pwd)"
+    lib="$pkgdir/usr/lib/static-linux"
+    share="$pkgdir/usr/share/static-linux"
+    cd "$repo"
+
+    # ---- sl-detect ------------------------------------------------------
+    install -Dm755 sl-detect/detect.py "$lib/sl-detect/detect.py"
+    install -Dm644 -t "$lib/sl-detect/rules" sl-detect/rules/*.rules
+
+    # ---- sl-ctl -----------------------------------------------------------
+    install -Dm755 sl-ctl/sl-ctl.py "$lib/sl-ctl/sl-ctl.py"
+
+    # ---- sl-welcome ---------------------------------------------------
+    install -Dm755 sl-welcome/sl-welcome "$lib/sl-welcome/sl-welcome"
+    install -Dm644 -t "$lib/sl-welcome/src" sl-welcome/src/*.py sl-welcome/src/style.css
+    install -Dm644 -t "$lib/sl-welcome/src/pages" sl-welcome/src/pages/*.py
+    install -Dm644 -t "$lib/sl-welcome/catalog" sl-welcome/catalog/*.yaml
+    install -Dm755 sl-welcome/data/apply-profile "$lib/sl-welcome/apply-profile"
+    install -Dm644 sl-welcome/data/dev.staticforge.welcome.desktop \
+        "$pkgdir/usr/share/applications/dev.staticforge.welcome.desktop"
+    install -Dm644 sl-welcome/data/dev.staticforge.welcome.policy \
+        "$pkgdir/usr/share/polkit-1/actions/dev.staticforge.welcome.policy"
+
+    # ---- accents (branding/accents/ -> flat, matches sl-ctl.py/sl-welcome's
+    # ACCENT_DIR constant) — gen.sh and themes/ are repo-maintainer-only
+    # tooling, not read by apply.sh at runtime, so they stay out of the
+    # package. ------------------------------------------------------------
+    install -Dm755 branding/accents/apply.sh "$lib/accents/apply.sh"
+    install -Dm644 branding/accents/palette.conf "$lib/accents/palette.conf"
+    install -Dm644 -t "$lib/accents/templates" branding/accents/templates/*.in
+
+    # ---- privacidad (whole tree, structure preserved — apply.sh scripts
+    # source ../scripts/lib.sh relative to themselves) --------------------
+    for profile in basico mejorado maximo; do
+        install -Dm755 "privacidad/perfil-$profile/apply.sh" \
+            "$lib/privacidad/perfil-$profile/apply.sh"
+        install -Dm644 "privacidad/perfil-$profile/packages.list" \
+            "$lib/privacidad/perfil-$profile/packages.list"
+    done
+    install -Dm644 privacidad/scripts/lib.sh "$lib/privacidad/scripts/lib.sh"
+
+    # ---- package lists (base, per-environment, per-flavor, per-profile) -
+    install -Dm644 -t "$lib/packages/lists" packages/lists/*.list
+
+    # ---- environments (install.sh + full skel/ dotfile tree) ------------
+    for env in xfce-themed openbox-minimal hyprland-astal-full hyprland-astal-lite; do
+        install -Dm755 "entornos/$env/install.sh" "$lib/entornos/$env/install.sh"
+        if [[ -d "entornos/$env/skel" ]]; then
+            while IFS= read -r -d '' f; do
+                rel="${f#entornos/$env/skel/}"
+                install -Dm644 "$f" "$lib/entornos/$env/skel/$rel"
+            done < <(find "entornos/$env/skel" -type f -print0)
+        fi
+    done
+    # autostart scripts/hooks need +x even though the rest of skel/ is data
+    chmod 755 "$lib/entornos/openbox-minimal/skel/.config/openbox/autostart" 2>/dev/null || true
+    chmod 755 "$lib/entornos/hyprland-astal-full/skel/.config/ags/app.ts" 2>/dev/null || true
+    chmod 755 "$lib/entornos/hyprland-astal-lite/skel/.config/ags/app.ts" 2>/dev/null || true
+
+    # ---- shared branding assets (icons/wallpapers/fastfetch logos) ------
+    install -Dm644 -t "$share/fastfetch" branding/fastfetch/*.fastfetch branding/fastfetch/*.txt
+    install -Dm755 branding/wallpapers/gen-wallpaper.py "$share/wallpapers/gen-wallpaper.py"
+    for accent_dir in branding/wallpapers/*/; do
+        accent="$(basename "$accent_dir")"
+        install -Dm644 "$accent_dir/void-$accent.png" "$share/wallpapers/$accent/void-$accent.png"
+    done
+    # a default wallpaper visible before the first `sl-ctl accent` / sl-welcome run
+    install -Dm644 branding/wallpapers/purple/void-purple.png \
+        "$pkgdir/usr/share/backgrounds/static-linux/void-purple.png"
+
+    # ---- /usr/bin entry points -------------------------------------------
+    install -d "$pkgdir/usr/bin"
+    ln -s /usr/lib/static-linux/sl-detect/detect.py "$pkgdir/usr/bin/sl-detect"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-ctl.py "$pkgdir/usr/bin/sl-ctl"
+    ln -s /usr/lib/static-linux/sl-welcome/sl-welcome "$pkgdir/usr/bin/sl-welcome"
+
+    # ---- system defaults --------------------------------------------------
+    install -Dm644 packages/staticlinux-base/os-release "$pkgdir/etc/os-release"
+    install -Dm644 packages/staticlinux-base/lsb-release "$pkgdir/etc/lsb-release"
+    install -Dm644 branding/fastfetch/config.jsonc "$pkgdir/etc/fastfetch/config.jsonc"
+    install -d "$pkgdir/etc/static-linux"
+    echo "purple" > "$pkgdir/etc/static-linux/accent"
+
+    install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+}
