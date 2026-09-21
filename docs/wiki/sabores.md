@@ -31,9 +31,15 @@ puede compilar como root ahí) — los deja anotados en
     [Instalación](instalacion.md). Después de instalar, `sl-ctl flavor --add
     <sabor>` es la otra vía (en desarrollo, marcada EXPERIMENTAL).
 
-## Nombres de paquete: verificar antes de construir la ISO
+## Nombres de paquete
 
-Las listas se escribieron con los nombres de paquete habituales de Arch/AUR,
-pero sin verificarlas contra los repositorios en el momento de construir el
-ISO — cada archivo lo dice en su cabecera. Si vas a construir un ISO con un
-sabor nuevo, contrasta la lista contra `pacman -Ss`/AUR primero.
+Verificados contra `archlinux.org/packages` y la API de AUR el 21/09/2026 —
+cada archivo lo dice en su cabecera. Salió a relucir que varios paquetes que
+solían ser solo-AUR ya están en `extra` (`metasploit`, `ghidra`, `obsidian`,
+`geogebra`), que `visual-studio-code-bin` (AUR, telemetría de Microsoft) se
+puede sustituir por `code` (oficial, el build Open Source de VS Code — mejor
+encaje con la política de cero telemetría), que `virtualbox-host-modules-arch`
+ya no existe (ahora es `virtualbox-host-dkms`) y que `bridge-utils` se cayó
+de los repos oficiales (solo AUR). Como cualquier paquete de Arch, esto se
+mueve con el tiempo — si construyes un ISO mucho después de esa fecha,
+contrasta de nuevo contra `pacman -Ss`/AUR antes de dar por buena la lista.
