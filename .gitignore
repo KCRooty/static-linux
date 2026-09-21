@@ -6,6 +6,7 @@ packages/aur-cache/
 __pycache__/
 *.pyc
 .env
+site/
 
 # machine screenshots can capture foreground windows / private content
 docs/screenshots/*.png
