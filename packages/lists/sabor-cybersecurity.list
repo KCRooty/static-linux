@@ -1,13 +1,12 @@
 # Static Linux — Sabor: Cybersecurity
 # Nmap, Wireshark, Metasploit, Hashcat, Ghidra, Tor. (docs/PROYECTO.md flavors table)
-# Verify package names against current Arch/AUR before shipping.
+# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
+# metasploit and ghidra are official (extra) now — used to be AUR-only.
 
 nmap
 wireshark-qt
 hashcat
 john
 tor
-
-# ---- AUR ----------------------------------------------------------
-# metasploit (AUR)
-# ghidra (AUR)
+metasploit
+ghidra

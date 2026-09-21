@@ -1,6 +1,6 @@
 # Static Linux — Sabor: Gaming
 # Steam+Proton-GE, Lutris, Heroic, MangoHud, GameMode. (docs/PROYECTO.md flavors table)
-# Verify package names against current Arch/AUR before shipping.
+# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
 
 steam
 lutris

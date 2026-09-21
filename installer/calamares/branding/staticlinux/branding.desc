@@ -1,0 +1,45 @@
+---
+componentName: staticlinux
+
+welcomeStyleCalamares: false
+welcomeExpandingLogo: true
+
+windowExpanding: normal
+windowSize: 800px,520px
+windowPlacement: center
+
+sidebar: widget
+navigation: widget
+
+strings:
+  productName: "Static Linux"
+  shortProductName: "Static Linux"
+  version: "2026.09"
+  shortVersion: "2026.09"
+  versionedName: "Static Linux 2026.09"
+  shortVersionedName: "SL 2026.09"
+  bootloaderEntryName: "Static Linux"
+  productUrl: "https://github.com/KCRooty/static-linux"
+  supportUrl: "https://github.com/KCRooty/static-linux/issues"
+  knownIssuesUrl: "https://github.com/KCRooty/static-linux/issues"
+  releaseNotesUrl: "https://github.com/KCRooty/static-linux/releases"
+
+# No `images:` section yet. Calamares resolves these against files
+# alongside branding.desc (this directory), not arbitrary repo paths — so
+# using branding/wallpapers/purple/void-purple.png here would mean either
+# duplicating that PNG into this directory or confirming Calamares accepts
+# a relative path out of it, neither of which is verified. Once Core has a
+# real SF monogram (productIcon/productLogo) and picks a wallpaper for this
+# directory, add:
+#   images:
+#     productIcon: "sf-icon.png"
+#     productLogo: "sf-logo.png"
+#     productWelcome: "void-purple.png"
+#     productWallpaper: "void-purple.png"
+# Calamares runs fine without an images: section — it falls back to no logo.
+
+style:
+  SidebarBackground: "#0B0C10"
+  SidebarText: "#D6D8E0"
+  SidebarTextCurrent: "#0B0C10"
+  SidebarBackgroundCurrent: "#00C8A0"
