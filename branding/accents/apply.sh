@@ -14,16 +14,26 @@
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO="$(cd "$HERE/../.." && pwd)"
 PALETTE="$HERE/palette.conf"
 TPL="$HERE/templates"
-WP_GEN="$REPO/branding/wallpapers/gen-wallpaper.py"
+
+# Wallpapers: installed path first (/usr/share/static-linux/wallpapers, from
+# the staticlinux-base package), else the repo-relative dev checkout layout
+# (branding/wallpapers/, two levels above branding/accents/apply.sh) — same
+# "installed, else repo-relative" pattern sl-ctl.py and sl-welcome use.
+WP_DIR_INSTALLED="/usr/share/static-linux/wallpapers"
+if [[ -d "$WP_DIR_INSTALLED" ]]; then
+  WP_DIR="$WP_DIR_INSTALLED"
+else
+  WP_DIR="$(cd "$HERE/../../branding/wallpapers" 2>/dev/null && pwd)"
+fi
+WP_GEN="$WP_DIR/gen-wallpaper.py"
 BACKUP="/var/backups/static-linux/accent/$(date +%Y%m%d-%H%M%S)"
 STATE_SYS="/etc/static-linux/accent"
 STATE_VAR="/var/lib/static-linux/accent"
 
 MODE="home"
-USER_NAME="${SUDO_USER:-$USER}"
+USER_NAME="${SUDO_USER:-${USER:-root}}"
 ACCENT=""
 
 log()  { printf '\033[1;35m[accent]\033[0m %s\n' "$*"; }
@@ -128,7 +138,7 @@ if [[ $IS_ROOT -eq 1 ]]; then
 fi
 
 # ---- 6. wallpaper ------------------------------------------------
-WP="$REPO/branding/wallpapers/$ACCENT/void-$ACCENT.png"
+WP="$WP_DIR/$ACCENT/void-$ACCENT.png"
 [[ -f "$WP" ]] || { log "generating wallpaper"; python3 "$WP_GEN" --accent "$ACCENT" >/dev/null; }
 if [[ $IS_ROOT -eq 1 ]]; then
   WP_DST="/usr/share/backgrounds/static-linux/void-$ACCENT.png"

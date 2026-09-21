@@ -15,7 +15,7 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SHARED="$(cd "$HERE/../shared" && pwd)"
 MODE=""
 TARGET=""
-USER_NAME="${SUDO_USER:-$USER}"
+USER_NAME="${SUDO_USER:-${USER:-root}}"
 SYSTEM_CONFIG=0
 
 log()  { printf '\033[1;38;5;43m[xfce-themed]\033[0m %s\n' "$*"; }
@@ -74,7 +74,12 @@ fi
 # --- accent colour layer (fastfetch / GTK / xfwm4 / terminal / wallpaper) ---
 # Delegated to the accent system so there is one theming path. Default is
 # whatever is recorded, else "purple".
-ACCENT_SH="$HERE/../../branding/accents/apply.sh"
+ACCENT_SH_INSTALLED="/usr/lib/static-linux/accents/apply.sh"
+if [[ -x "$ACCENT_SH_INSTALLED" ]]; then
+    ACCENT_SH="$ACCENT_SH_INSTALLED"
+else
+    ACCENT_SH="$HERE/../../branding/accents/apply.sh"
+fi
 if [[ -x "$ACCENT_SH" ]]; then
     ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
     log "applying accent: $ACCENT"

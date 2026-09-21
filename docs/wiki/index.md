@@ -27,6 +27,7 @@ en vez de forzar un único perfil "recomendado" para todo el mundo.
 | [`sl-detect`](herramientas/sl-detect.md) | Detecta hardware, recomienda entorno/FS/kernel |
 | [`sl-ctl`](herramientas/sl-ctl.md) | Gestión post-instalación (tweaks, snapshots, sabores, privacidad) |
 | [`sl-welcome`](herramientas/sl-welcome.md) | App de primer arranque: apariencia, privacidad, catálogo de apps |
+| [`staticlinux-base`](herramientas/staticlinux-base.md) | El paquete que lleva todo lo anterior a `/usr/lib/static-linux/` |
 | [Entornos](entornos.md) | Hyprland+Astal (full/lite) · XFCE temático · Openbox minimal |
 | [Privacidad](privacidad.md) | 3 perfiles reversibles: Básico, Mejorado, Máximo |
 | [Sabores](sabores.md) | 9 presets de instalación (Gaming, Dev, Cybersecurity...) |

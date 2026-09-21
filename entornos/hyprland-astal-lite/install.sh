@@ -14,7 +14,7 @@ set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 MODE=""
 TARGET=""
-USER_NAME="${SUDO_USER:-$USER}"
+USER_NAME="${SUDO_USER:-${USER:-root}}"
 SYSTEM_CONFIG=0
 
 log()  { printf '\033[1;38;5;43m[hyprland-astal-lite]\033[0m %s\n' "$*"; }
@@ -65,7 +65,12 @@ copy_tree "$HERE/skel"
 chmod +x "$TARGET/.config/ags/app.ts"
 
 # --- accent colour layer (fastfetch / GTK / greeter / wallpaper file) ---
-ACCENT_SH="$HERE/../../branding/accents/apply.sh"
+ACCENT_SH_INSTALLED="/usr/lib/static-linux/accents/apply.sh"
+if [[ -x "$ACCENT_SH_INSTALLED" ]]; then
+    ACCENT_SH="$ACCENT_SH_INSTALLED"
+else
+    ACCENT_SH="$HERE/../../branding/accents/apply.sh"
+fi
 ACCENT="purple"
 if [[ -x "$ACCENT_SH" ]]; then
     ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
@@ -82,7 +87,13 @@ fi
 # Astal bar (bar.css) picks up @accent_color live too — no separate step.
 
 # --- wallpaper: hyprpaper needs its own config, not xfconf --------------
-WP="$HERE/../../branding/wallpapers/$ACCENT/void-$ACCENT.png"
+WP_DIR_INSTALLED="/usr/share/static-linux/wallpapers"
+if [[ -d "$WP_DIR_INSTALLED" ]]; then
+    WP_DIR="$WP_DIR_INSTALLED"
+else
+    WP_DIR="$HERE/../../branding/wallpapers"
+fi
+WP="$WP_DIR/$ACCENT/void-$ACCENT.png"
 if [[ -f "$WP" ]]; then
     HYPRPAPER_CFG="$TARGET/.config/hypr/hyprpaper.conf"
     mkdir -p "$(dirname "$HYPRPAPER_CFG")"
