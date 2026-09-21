@@ -1,0 +1,28 @@
+# El sabor Gaming trae Steam+Proton-GE, Lutris, Heroic, MangoHud y GameMode.
+# Esto es lo que queda fuera de ese preset.
+category: "Juegos"
+apps:
+  - id: gamemode
+    name: GameMode
+    desc: Optimiza el sistema mientras juegas (feral gamemode).
+    pkg: gamemode
+  - id: mangohud
+    name: MangoHud
+    desc: Overlay de FPS/temperaturas/uso de CPU-GPU en juegos.
+    pkg: mangohud
+  - id: bottles
+    name: Bottles
+    desc: Entornos Wine independientes por aplicación/juego.
+    pkg: bottles
+  - id: retroarch
+    name: RetroArch
+    desc: Frontend de emulación multi-sistema.
+    pkg: retroarch
+  - id: dolphin-emu
+    name: Dolphin Emulator
+    desc: Emulador de GameCube/Wii.
+    pkg: dolphin-emu
+  - id: pcsx2
+    name: PCSX2
+    desc: Emulador de PlayStation 2.
+    pkg: pcsx2

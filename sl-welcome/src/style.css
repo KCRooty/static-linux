@@ -1,0 +1,38 @@
+/* sl-welcome — app-only additions on top of the user's ~/.config/gtk-4.0/gtk.css
+ * accent overlay (branding/accents/apply.sh). No colours are hardcoded here —
+ * everything reads @accent_color / @sl_bg etc. so it follows the active accent. */
+
+.sl-wordmark {
+  font-family: "Outfit", sans-serif;
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: 0.04em;
+}
+
+.sl-tagline {
+  font-family: "Space Grotesk", sans-serif;
+  opacity: 0.7;
+  font-size: 14px;
+}
+
+.sl-mono {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
+.sl-card {
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.sl-accent-swatch {
+  min-width: 40px;
+  min-height: 40px;
+  border-radius: 999px;
+  border: 2px solid alpha(@borders, 0.6);
+}
+
+.sl-accent-swatch.selected {
+  border-color: @accent_color;
+  border-width: 3px;
+}

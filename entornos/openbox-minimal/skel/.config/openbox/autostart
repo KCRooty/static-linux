@@ -1,0 +1,17 @@
+#!/bin/bash
+# Static Linux — Openbox minimal autostart.
+#
+# Plain `openbox-session` does NOT read ~/.config/autostart/*.desktop (that
+# needs lxsession, which isn't in this tier's package list — one less daemon
+# resident at 512 MB). Everything needed is started explicitly here instead.
+
+nitrogen --restore &
+tint2 &
+nm-applet &
+dunst &
+
+# No compositor by default on the 512 MB tier (">500 MB idle RAM = design
+# bug", docs/PROYECTO.md). Uncomment if the hardware has room to spare:
+# picom --config ~/.config/picom/picom.conf &
+
+sl-welcome --autostart &

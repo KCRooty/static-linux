@@ -1,0 +1,37 @@
+category: "Productividad"
+apps:
+  - id: libreoffice-fresh
+    name: LibreOffice
+    desc: Suite ofimática completa (también está en el sabor Office).
+    pkg: libreoffice-fresh
+  - id: obsidian
+    name: Obsidian
+    desc: Notas en Markdown enlazadas entre sí.
+    pkg: obsidian
+    aur: true
+  - id: joplin-desktop
+    name: Joplin
+    desc: Notas cifradas con sincronización opcional.
+    pkg: joplin-desktop-bin
+    aur: true
+  - id: bitwarden
+    name: Bitwarden
+    desc: Gestor de contraseñas open source.
+    pkg: bitwarden
+  - id: keepassxc
+    name: KeePassXC
+    desc: Gestor de contraseñas 100% local, sin cuenta ni nube.
+    pkg: keepassxc
+  - id: xournalpp
+    name: Xournal++
+    desc: Tomar notas a mano/anotar PDFs con tableta o ratón.
+    pkg: xournalpp
+  - id: pdfarranger
+    name: PDF Arranger
+    desc: Reordenar, unir y dividir PDFs.
+    pkg: pdfarranger
+  - id: planify
+    name: Planify
+    desc: Gestor de tareas y proyectos al estilo Todoist, pero local.
+    pkg: planify
+    aur: true

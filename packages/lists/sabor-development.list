@@ -1,0 +1,16 @@
+# Static Linux — Sabor: Development
+# VS Code, Git, Docker, Python, Rust, Node, Java. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+git
+docker
+docker-compose
+python
+python-pip
+rustup
+nodejs
+npm
+jdk-openjdk
+
+# ---- AUR ----------------------------------------------------------
+# visual-studio-code-bin (AUR)

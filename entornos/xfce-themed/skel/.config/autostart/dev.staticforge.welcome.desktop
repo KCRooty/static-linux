@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Static Linux — Bienvenida
+Exec=sl-welcome --autostart
+Icon=static-linux
+Terminal=false
+X-GNOME-Autostart-enabled=true
+X-GNOME-Autostart-Delay=2

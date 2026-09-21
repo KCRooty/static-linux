@@ -1,0 +1,14 @@
+#!/usr/bin/env python3
+"""Thin launcher so `sl-welcome` works on PATH (sl-ctl.py's cmd_welcome looks
+for it with shutil.which). Installed to /usr/bin/sl-welcome by the package;
+runnable straight from a git checkout too."""
+
+import sys
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
+
+from main import main  # noqa: E402
+
+if __name__ == "__main__":
+    sys.exit(main())

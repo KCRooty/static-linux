@@ -1,0 +1,12 @@
+# Static Linux — Sabor: Virtual Machines
+# QEMU+KVM, virt-manager, VirtualBox. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+qemu-full
+virt-manager
+libvirt
+dnsmasq
+bridge-utils
+edk2-ovmf
+virtualbox
+virtualbox-host-modules-arch

@@ -1,0 +1,89 @@
+# Static Linux — tint2 panel (Openbox minimal tier)
+# Void background, Signal Green accent on the active task pill. Backgrounds
+# are numbered by the order they're defined below (tint2's config format has
+# no named sections) — background 1 = panel, background 2 = active task.
+
+#---- Backgrounds (defined once, referenced below by number) ----
+rounded = 6
+border_width = 0
+border_sides = TBLR
+background_color = #0B0C10 96
+border_color = #0B0C10 0
+background_color_hover = #0B0C10 96
+border_color_hover = #0B0C10 0
+background_color_pressed = #0B0C10 96
+border_color_pressed = #0B0C10 0
+# ^ background 1: panel
+
+rounded = 4
+border_width = 1
+border_sides = TBLR
+background_color = #00C8A0 18
+border_color = #00C8A0 60
+background_color_hover = #00C8A0 26
+border_color_hover = #00C8A0 80
+background_color_pressed = #00C8A0 32
+border_color_pressed = #00C8A0 100
+# ^ background 2: active task pill
+
+#---- Panel ----
+# No launcher applet: jgmenu is already one right-click / middle-click / W-d
+# away via Openbox's own root menu bindings (rc.xml) — no need for a second,
+# possibly-missing .desktop entry just to duplicate that.
+panel_items = TSC
+panel_size = 100% 28
+panel_margin = 0 0
+panel_padding = 6 0 6
+panel_background_id = 1
+panel_layer = top
+panel_position = bottom center horizontal
+panel_dock = 0
+panel_monitor = all
+wm_menu = 0
+panel_shrink = 0
+autohide = 0
+strut_policy = follow_size
+panel_window_name = tint2
+
+#---- Taskbar ----
+taskbar_mode = single_desktop
+taskbar_padding = 4 2 4
+taskbar_background_id = 0
+taskbar_active_background_id = 0
+taskbar_name = 0
+
+task_text = 1
+task_icon = 1
+task_centered = 0
+task_maximum_size = 200 26
+task_padding = 6 2
+task_font = Space Grotesk 9
+task_font_color = #D6D8E0 100
+task_active_font_color = #00C8A0 100
+task_background_id = 0
+task_active_background_id = 2
+
+#---- System tray ----
+systray_padding = 4 4 4
+systray_background_id = 0
+systray_sort = ascending
+systray_icon_size = 18
+systray_icon_asb = 100 0 0
+
+#---- Clock ----
+time1_format = %H:%M
+time1_font = JetBrains Mono 10
+time2_format = %A %d %B
+time2_font = Space Grotesk 8
+clock_font_color = #D6D8E0 100
+clock_padding = 8 0
+clock_background_id = 0
+clock_rclick_command =
+
+#---- Tooltips ----
+tooltip_show_timeout = 0.5
+tooltip_hide_timeout = 0.1
+tooltip_padding = 4 4
+tooltip_background_id = 1
+tooltip_font_color = #D6D8E0 100
+tooltip_font = Space Grotesk 9

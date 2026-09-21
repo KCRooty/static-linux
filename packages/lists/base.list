@@ -53,6 +53,14 @@ podman
 reflector
 pacman-contrib
 
+# ---- sl-welcome (first-boot app, Fase 7) --------------------------
+python
+python-gobject
+python-yaml
+gtk4
+libadwaita
+polkit
+
 # paru is bootstrapped from the AUR by the installer (needs base-devel + rust)
 # paru (AUR)
 

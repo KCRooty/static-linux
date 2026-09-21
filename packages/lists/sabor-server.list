@@ -1,0 +1,11 @@
+# Static Linux — Sabor: Server/Homelab
+# Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit. (docs/PROYECTO.md flavors table)
+# Verify package names against current Arch/AUR before shipping.
+
+docker
+docker-compose
+nginx
+mariadb
+wireguard-tools
+fail2ban
+cockpit

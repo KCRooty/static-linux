@@ -49,7 +49,9 @@ DEFAULTS = {
 # Built-in GPU knowledge, used only when rules/gpu.rules is missing or has no
 # match. Each entry: (regex, family, driver, wayland_ok).
 BUILTIN_GPU_RULES = [
+    (r"945g|950|gma [39]00|gma x[34]\d{3}", "intel_gma", "modesetting", False),
     (r"z3[67]xxx|bay trail|atom.*graphics", "intel_bay_trail", "i915", False),
+    (r"arc a[3-9]\d{2}|dg2|battlemage", "intel_arc", "i915", True),
     (r"iris xe|alder lake|tiger lake|ice lake", "intel_xe", "xe", True),
     (r"hd graphics|uhd graphics|intel.*(hd|iris)", "intel_gen", "i915", True),
     (r"navi|rdna|vega|polaris|radeon r[579]|rx \d", "amd_gcn", "amdgpu", True),
@@ -105,6 +107,24 @@ def load_gpu_rules() -> list[tuple]:
         pattern, family, driver, wl = parts
         rules.append((pattern, family, driver, wl.lower() in ("1", "true", "yes")))
     return rules or BUILTIN_GPU_RULES
+
+
+def load_soc_gpu_rules() -> list[tuple]:
+    """rules/gpu-soc.rules lines: `regex | family | driver | wayland | label`.
+
+    ARM SoC GPUs (RPi, RK3399/RK3588, ...) aren't PCI devices, so they need
+    their own rules file matched against /proc/device-tree/compatible instead
+    of `lspci` output. No built-in fallback table: an unmatched SoC just
+    falls through to the generic "unknown" GPU (safe: wayland=false).
+    """
+    rules = []
+    for line in _read_rules_file("gpu-soc.rules"):
+        parts = [p.strip() for p in line.split("|")]
+        if len(parts) != 5:
+            continue
+        pattern, family, driver, wl, label = parts
+        rules.append((pattern, family, driver, wl.lower() in ("1", "true", "yes"), label))
+    return rules
 
 
 def load_kernel_year_map() -> list[tuple[str, int]]:
@@ -219,6 +239,29 @@ def _pci_display_devices() -> list[str]:
     return devices
 
 
+def _devicetree_compatible() -> str:
+    """Lowercased, space-joined /proc/device-tree/compatible. Empty on x86."""
+    raw = _read("/proc/device-tree/compatible")
+    return raw.replace("\x00", " ").strip().lower()
+
+
+def _soc_gpu() -> dict | None:
+    """ARM SoC GPU via device-tree match. None if not an ARM SBC or no match."""
+    compat = _devicetree_compatible()
+    if not compat:
+        return None
+    for pattern, family, driver, wl, label in load_soc_gpu_rules():
+        if re.search(pattern, compat, re.I):
+            return {
+                "model": label,
+                "driver": driver,
+                "family": family,
+                "wayland_ok": wl,
+                "all_gpus": [compat],
+            }
+    return None
+
+
 def detect_gpu() -> dict:
     """Return {model, driver, family, wayland_ok, all_gpus}."""
     gpus = _pci_display_devices()
@@ -231,6 +274,9 @@ def detect_gpu() -> dict:
         return "unknown", "modesetting", False  # safe: no Wayland
 
     if not gpus:
+        soc = _soc_gpu()
+        if soc:
+            return soc
         return {
             "model": "unknown",
             "driver": "modesetting",
