@@ -1,6 +1,6 @@
 site_name: Static Linux
 site_description: "Arch-based Linux distribution with automatic hardware detection, adaptive desktop environments, and privacy-first defaults."
-site_url: https://kcrooty.github.io/static-linux/
+site_url: https://staticforge.dpdns.org/static-linux/
 repo_url: https://github.com/KCRooty/static-linux
 repo_name: KCRooty/static-linux
 edit_uri: edit/main/docs/wiki/
