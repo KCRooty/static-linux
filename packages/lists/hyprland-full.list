@@ -29,6 +29,7 @@ wl-clipboard
 cliphist
 
 # ---- Notifications / theming ----------------------------------
+dunst
 libnotify
 papirus-icon-theme
 nwg-look
@@ -51,6 +52,9 @@ grim
 slurp
 hyprshot
 wf-recorder
+
+# ---- Misc hardware control -----------------------------------
+brightnessctl
 
 # ---- Login manager -----------------------------------------
 sddm

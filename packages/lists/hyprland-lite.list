@@ -24,6 +24,10 @@ rofi-wayland
 wl-clipboard
 cliphist
 
+# Notifications
+dunst
+libnotify
+
 # Core apps (lighter picks)
 thunar
 thunar-volman
