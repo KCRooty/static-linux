@@ -1,0 +1,75 @@
+# Maintainer: Static Forge <releases@staticforge.dev>
+#
+# Calamares, built the way Static Linux's installer sequence needs it.
+#
+# Calamares isn't in the official Arch repos, and the AUR `calamares`
+# package can't run installer/calamares/settings.conf:
+#   * it has no Python bindings (no pybind11 at build time), and every
+#     Static Linux job module — sl-detect, basepkgs, entorno-pkgs, sabores,
+#     privacidad-apply, accent, luks — is `interface: "python"`;
+#   * it skips the `packagechooser` module, which the `entorno` and
+#     `privacidad` pages are instances of.
+# So this is the same upstream release tarball with those two things fixed.
+#
+# mkarchiso can only pacstrap from pacman repos, so the built package goes
+# into the local repo that iso/build.sh wires into the ISO profile — see
+# packages/local-repo.sh.
+
+pkgname=calamares
+pkgver=3.4.2
+pkgrel=1
+pkgdesc="Distribution-independent installer framework (Static Linux build: Python jobs + packagechooser)"
+arch=('x86_64')
+url="https://codeberg.org/Calamares/calamares"
+license=('GPL-3.0-or-later')
+# no calamares-debug split package: it would land in the ISO's local repo
+options=('!debug')
+depends=(
+    'kcoreaddons'
+    'kpmcore'
+    'libpwquality'
+    'python'
+    'qt6-declarative'
+    'qt6-svg'
+    'yaml-cpp'
+)
+makedepends=(
+    'cmake'
+    'extra-cmake-modules'
+    'libglvnd'
+    'ninja'
+    'pybind11'
+    'qt6-tools'
+    'qt6-translations'
+)
+source=("$pkgname-$pkgver.tar.gz::$url/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz")
+sha256sums=('733bbbb00dc9f84874bd5c22960952f317ea2537565431179fa2152b2fbfdccc')
+
+build() {
+    # Modules Static Linux never uses: other init systems / initramfs
+    # generators, upstream's test dummies, and the QML packagechooser.
+    local skip=(
+        dracut dracutlukscfg
+        dummycpp dummyprocess dummypython dummypythonqt
+        initramfs initramfscfg
+        interactiveterminal
+        packagechooserq
+        services-openrc
+    )
+
+    cmake -B build -S "$pkgname-$pkgver" -G Ninja \
+        -DCMAKE_BUILD_TYPE=Release \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DCMAKE_INSTALL_LIBDIR=lib \
+        -DWITH_QT6=ON \
+        -DWITH_PYBIND11=ON \
+        -DINSTALL_CONFIG=ON \
+        -DSKIP_MODULES="${skip[*]}" \
+        -DBUILD_TESTING=OFF \
+        -Wno-dev
+    cmake --build build
+}
+
+package() {
+    DESTDIR="$pkgdir" cmake --install build
+}

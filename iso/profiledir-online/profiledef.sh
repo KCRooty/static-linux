@@ -11,11 +11,12 @@ iso_application="Static Linux — online install medium (fast. private. yours.)"
 iso_version="$(date +%Y.%m.%d)"
 install_dir="staticlinux"
 buildmodes=('iso')
-bootmodes=(
-    'bios.syslinux.mbr' 'bios.syslinux.eltorito'
-    'uefi-x64.systemd-boot.esp' 'uefi-x64.systemd-boot.eltorito'
-)
+bootmodes=('bios.syslinux' 'uefi.systemd-boot')
 arch="x86_64"
+# Quiet boot: without this the screen between the boot menu and the
+# installer is archiso's initramfs log (":: running hook [archiso]",
+# "systemd-udevd version …-arch") — reads as an Arch installer, not ours.
+kernel_params_x86_64="quiet loglevel=3"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
 airootfs_image_tool_options=('-comp' 'zstd' '-Xcompression-level' '19')

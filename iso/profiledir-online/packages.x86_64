@@ -17,6 +17,7 @@ mkinitcpio-archiso
 amd-ucode
 intel-ucode
 efibootmgr
+os-prober
 memtest86+
 memtest86+-efi
 syslinux
@@ -45,9 +46,12 @@ openssh
 # ---- Live GUI (bare — just enough to host Calamares) ---------------
 xorg-server
 xorg-xinit
+xorg-xsetroot
+xf86-input-libinput
 openbox
 
 # ---- Installer -------------------------------------------------------
+# Static Linux's own build (packages/calamares/), from the local repo.
 calamares
 
 # ---- CLI essentials (matches packages/lists/base.list) --------------
@@ -68,9 +72,7 @@ nvme-cli
 ttf-jetbrains-mono
 noto-fonts
 
-# staticlinux-base isn't in any pacman repo yet (no Static Forge repo —
-# see packages/staticlinux-base/README.md's "Future contents"), so it's
-# not listed here for pacstrap. ../build.sh installs it into airootfs/
-# directly by running the PKGBUILD's own package() function against the
-# profile's airootfs — same tree pacstrap would produce if it were
-# repo-installable, no duplicated packaging logic.
+# ---- Static Linux itself -----------------------------------------------
+# Not in any official repo — comes from the local repo ../build.sh wires
+# into this profile's pacman.conf (packages/local-repo.sh builds it).
+staticlinux-base

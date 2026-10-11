@@ -10,7 +10,7 @@ short version:
 | `/usr/lib/static-linux/` | sl-detect, sl-ctl, sl-welcome, accents, privacidad, packages/lists/*.list, entornos/*/{install.sh,skel/} |
 | `/usr/share/static-linux/` | fastfetch logos, per-accent wallpapers + the generator |
 | `/usr/bin/{sl-detect,sl-ctl,sl-welcome}` | symlinks into the above |
-| `/usr/lib/static-linux/os-release`, `/etc/lsb-release` | identity files (see below) |
+| `/usr/lib/static-linux/os-release` | identity file (see below) |
 | `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | defaults — `sl-welcome`/`sl-ctl accent` overwrite these later |
 
 ## Build
@@ -38,8 +38,12 @@ Static Linux correctly. A hand-made regular `/etc/os-release` is left alone.
 The file is deliberately not shipped at `/etc/os-release`: that path already
 exists on stock Arch as an unowned symlink, so pacman reports a file
 conflict, or — with the file in `backup=()` — installs ours as
-`/etc/os-release.pacnew` and nothing changes. `/etc/lsb-release` doesn't
-exist on stock Arch, so it stays a plain `backup=()` file.
+`/etc/os-release.pacnew` and nothing changes.
+
+There is no `/etc/lsb-release`: that path belongs to the `lsb-release`
+package (which Steam depends on), and shipping it here made installing
+Steam fail with a file conflict. `lsb_release` reads `os-release`, so it
+reports Static Linux regardless.
 
 ## Future contents
 
