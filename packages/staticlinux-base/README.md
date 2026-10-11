@@ -10,7 +10,7 @@ short version:
 | `/usr/lib/static-linux/` | sl-detect, sl-ctl, sl-welcome, accents, privacidad, packages/lists/*.list, entornos/*/{install.sh,skel/} |
 | `/usr/share/static-linux/` | fastfetch logos, per-accent wallpapers + the generator |
 | `/usr/bin/{sl-detect,sl-ctl,sl-welcome}` | symlinks into the above |
-| `/etc/os-release`, `/etc/lsb-release` | identity files (see below) |
+| `/usr/lib/static-linux/os-release`, `/etc/lsb-release` | identity files (see below) |
 | `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | defaults — `sl-welcome`/`sl-ctl accent` overwrite these later |
 
 ## Build
@@ -27,15 +27,19 @@ inside a checkout.
 
 On a plain Arch box `/etc/os-release` is a symlink to `/usr/lib/os-release`,
 owned by the `filesystem` package. This package never touches
-`/usr/lib/os-release` — it ships `/etc/os-release` and `/etc/lsb-release` as
-plain files at those exact paths instead, replacing the symlink. Nothing
-else owns that literal path, so there's no `conflicts=()`/`provides=()`
-fight with `filesystem`, and since most `/etc/os-release` readers check
-`/etc/` before falling back to `/usr/lib/`, this is enough to make
-fastfetch, `neofetch`-alikes, GNOME/KDE "About" panels, `lsb_release`, and
-`ID_LIKE=arch`-aware tooling all report Static Linux correctly. Both files
-are in `backup=()`, so a future package upgrade drops a `.pacnew` instead of
-silently overwriting a hand edit.
+`/usr/lib/os-release` — it ships its own copy as
+`/usr/lib/static-linux/os-release`, and the install script repoints the
+`/etc/os-release` symlink at it (removing the package points it back at
+`../usr/lib/os-release`). Since `/etc/os-release` readers follow the
+symlink, this is enough to make fastfetch, `neofetch`-alikes, GNOME/KDE
+"About" panels, `lsb_release`, and `ID_LIKE=arch`-aware tooling all report
+Static Linux correctly. A hand-made regular `/etc/os-release` is left alone.
+
+The file is deliberately not shipped at `/etc/os-release`: that path already
+exists on stock Arch as an unowned symlink, so pacman reports a file
+conflict, or — with the file in `backup=()` — installs ours as
+`/etc/os-release.pacnew` and nothing changes. `/etc/lsb-release` doesn't
+exist on stock Arch, so it stays a plain `backup=()` file.
 
 ## Future contents
 

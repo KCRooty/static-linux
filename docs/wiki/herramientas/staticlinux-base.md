@@ -22,22 +22,27 @@ que hay que ejecutarlo desde dentro de un checkout.
 | `/usr/lib/static-linux/` | sl-detect, sl-ctl, sl-welcome, accents, privacidad, `packages/lists/*.list`, `entornos/*/{install.sh,skel/}` |
 | `/usr/share/static-linux/` | logos de fastfetch, un wallpaper por acento + el generador |
 | `/usr/bin/{sl-detect,sl-ctl,sl-welcome}` | symlinks a lo anterior |
-| `/etc/os-release`, `/etc/lsb-release` | identidad del sistema (ver abajo) |
+| `/usr/lib/static-linux/os-release`, `/etc/lsb-release` | identidad del sistema (ver abajo) |
 | `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | valores por defecto — `sl-welcome`/`sl-ctl accent` los sobrescriben después |
 
 ## `/etc/os-release` sin pelearse con `filesystem`
 
 En un Arch normal `/etc/os-release` es un symlink a `/usr/lib/os-release`,
 propiedad del paquete `filesystem`. Este paquete no toca `/usr/lib/os-release`
-en ningún momento — instala `/etc/os-release` y `/etc/lsb-release` como
-archivos normales en esa ruta exacta, reemplazando el symlink. Nadie más es
-dueño de esa ruta literal, así que no hay conflicto de `conflicts`/`provides`
-con `filesystem`, y como la mayoría de lectores de `/etc/os-release` miran
-primero ahí antes que en `/usr/lib/`, con eso basta para que fastfetch, los
+en ningún momento — instala su propia copia en
+`/usr/lib/static-linux/os-release`, y el script de instalación reapunta el
+symlink `/etc/os-release` hacia ella (al desinstalar el paquete vuelve a
+apuntar a `../usr/lib/os-release`). Con eso basta para que fastfetch, los
 paneles "Acerca de" de GNOME/KDE, `lsb_release` y cualquier herramienta que
-mire `ID_LIKE=arch` digan Static Linux correctamente. Ambos archivos están en
-`backup=()`, así que una actualización futura del paquete deja un `.pacnew`
-en vez de pisar un cambio hecho a mano.
+mire `ID_LIKE=arch` digan Static Linux correctamente. Si `/etc/os-release`
+es un archivo normal hecho a mano, no se toca.
+
+No se instala directamente en `/etc/os-release` a propósito: en un Arch de
+serie esa ruta ya existe como symlink sin dueño, así que pacman da conflicto
+de archivos o — con el archivo en `backup=()` — deja el nuestro como
+`/etc/os-release.pacnew` y el sistema sigue diciendo "Arch Linux".
+`/etc/lsb-release` no existe en Arch de serie, así que sigue siendo un
+archivo normal en `backup=()`.
 
 ## Por qué dos jerarquías (`/usr/lib/` vs `/usr/share/`)
 

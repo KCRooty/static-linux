@@ -1,4 +1,19 @@
+_stock_os_release=../usr/lib/os-release
+_sl_os_release=/usr/lib/static-linux/os-release
+
+# Point /etc/os-release at ours. A hand-made regular file is left alone.
+_link_os_release() {
+    if [ -L /etc/os-release ] || [ ! -e /etc/os-release ]; then
+        ln -sfn "$_sl_os_release" /etc/os-release
+    else
+        echo "==> /etc/os-release is a regular file — not replacing it."
+        echo "    To identify as Static Linux: ln -sfn $_sl_os_release /etc/os-release"
+    fi
+    rm -f /etc/os-release.pacnew
+}
+
 post_install() {
+    _link_os_release
     command -v update-desktop-database >/dev/null && update-desktop-database -q /usr/share/applications
     command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -q /usr/share/icons/hicolor 2>/dev/null
 
@@ -18,5 +33,9 @@ post_upgrade() {
 }
 
 post_remove() {
+    # back to the stock Arch symlink, only if it was still ours
+    if [ "$(readlink /etc/os-release 2>/dev/null)" = "$_sl_os_release" ]; then
+        ln -sfn "$_stock_os_release" /etc/os-release
+    fi
     command -v update-desktop-database >/dev/null && update-desktop-database -q /usr/share/applications
 }
