@@ -22,7 +22,7 @@ que hay que ejecutarlo desde dentro de un checkout.
 | `/usr/lib/static-linux/` | sl-detect, sl-ctl, sl-welcome, accents, privacidad, `packages/lists/*.list`, `entornos/*/{install.sh,skel/}` |
 | `/usr/share/static-linux/` | logos de fastfetch, un wallpaper por acento + el generador |
 | `/usr/bin/{sl-detect,sl-ctl,sl-welcome}` | symlinks a lo anterior |
-| `/usr/lib/static-linux/os-release`, `/etc/lsb-release` | identidad del sistema (ver abajo) |
+| `/usr/lib/static-linux/os-release` | identidad del sistema (ver abajo) |
 | `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | valores por defecto — `sl-welcome`/`sl-ctl accent` los sobrescriben después |
 
 ## `/etc/os-release` sin pelearse con `filesystem`
@@ -41,8 +41,10 @@ No se instala directamente en `/etc/os-release` a propósito: en un Arch de
 serie esa ruta ya existe como symlink sin dueño, así que pacman da conflicto
 de archivos o — con el archivo en `backup=()` — deja el nuestro como
 `/etc/os-release.pacnew` y el sistema sigue diciendo "Arch Linux".
-`/etc/lsb-release` no existe en Arch de serie, así que sigue siendo un
-archivo normal en `backup=()`.
+
+No hay `/etc/lsb-release`: esa ruta es del paquete `lsb-release` (del que
+depende Steam), y al incluirla aquí instalar Steam fallaba por conflicto de
+archivos. `lsb_release` lee `os-release`, así que dice Static Linux igual.
 
 ## Por qué dos jerarquías (`/usr/lib/` vs `/usr/share/`)
 

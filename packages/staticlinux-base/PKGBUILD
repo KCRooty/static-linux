@@ -32,6 +32,11 @@
 # /etc/os-release.pacnew and the system keeps saying "Arch Linux" — seen on
 # the PC Principal, 2026-10-11. /usr/lib/os-release (owned by `filesystem`)
 # is never touched.
+#
+# No /etc/lsb-release either: the `lsb-release` package (a dependency of
+# Steam, among others) owns that path, so shipping it here made
+# `pacman -S steam` fail with a file conflict. lsb_release reads os-release
+# anyway, so it reports Static Linux without it.
 
 pkgname=staticlinux-base
 pkgver=2026.09.21
@@ -54,7 +59,6 @@ optdepends=(
     'snapper: sl-ctl snapshot (BTRFS installs only)'
 )
 backup=(
-    'etc/lsb-release'
     'etc/fastfetch/config.jsonc'
     'etc/static-linux/accent'
 )
@@ -146,7 +150,6 @@ package() {
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
-    install -Dm644 packages/staticlinux-base/lsb-release "$pkgdir/etc/lsb-release"
     install -Dm644 branding/fastfetch/config.jsonc "$pkgdir/etc/fastfetch/config.jsonc"
     install -d "$pkgdir/etc/static-linux"
     echo "purple" > "$pkgdir/etc/static-linux/accent"

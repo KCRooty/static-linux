@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
 # Static Linux — Calamares "basepkgs" job
 #
-# Installs packages/lists/base.list into the target — the packages every
-# Static Linux install needs regardless of chosen environment/flavor/privacy
-# profile. Kept as its own job (not inlined into the core "packages"
-# module's static `operations:` list) so base.list stays the single source
-# of truth instead of two copies drifting apart — same reasoning as
-# sabores/main.py and privacidad's packages.list pointer files.
+# Bootstraps the target: pacstraps packages/lists/base.list, the kernel
+# sl-detect recommended, and staticlinux-base into the freshly mounted (and
+# still empty) root. Everything after this in the sequence — entorno-pkgs,
+# sabores, privacidad-apply, accent — runs pacman and Static Linux scripts
+# *inside* the target, which only works once this job has put a system there.
+#
+# Has to be pacstrap from the live session, not `pacman` in the target: there
+# is no pacman, no keyring and no /usr/lib/static-linux in an empty mount.
+# base.list is therefore read from the live system's own copy.
+#
+# staticlinux-base isn't in any official repo: the ISO carries it in the
+# local repo iso/build.sh sets up (/opt/staticlinux-repo), which the live
+# pacman.conf — the one pacstrap uses — points at.
 #
 # AUR packages are never installed here: pacman can't build them as root
 # during the install. Recorded in globalStorage["slBaseAurPending"] for a
@@ -14,10 +21,12 @@
 
 import os
 import re
+import shutil
+import subprocess
 
 import libcalamares
 
-LIST_PATH = "usr/lib/static-linux/packages/lists/base.list"  # relative to target root
+LIST_PATH = "/usr/lib/static-linux/packages/lists/base.list"  # in the live system
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
 
@@ -48,19 +57,47 @@ def run():
     if not root:
         return ("No target", "rootMountPoint is not set")
 
-    list_path = os.path.join(root, LIST_PATH)
-    if not os.path.exists(list_path):
-        return ("base.list missing", f"expected it at {list_path}")
+    if not os.path.exists(LIST_PATH):
+        return ("base.list missing", f"expected it at {LIST_PATH} in the live system")
 
-    pkgs, aur_pkgs = _parse_list(list_path)
+    pkgs, aur_pkgs = _parse_list(LIST_PATH)
     if not pkgs:
-        return ("base.list is empty", f"no installable packages found in {list_path}")
+        return ("base.list is empty", f"no installable packages found in {LIST_PATH}")
 
-    rc = libcalamares.utils.target_env_call(
-        ["pacman", "-S", "--needed", "--noconfirm", *pkgs]
+    kernel = gs.value("slRecommendedKernel") or "linux-lts"
+    for extra in (kernel, f"{kernel}-headers", "staticlinux-base"):
+        if extra not in pkgs:
+            pkgs.append(extra)
+
+    # -K: give the target its own fresh pacman keyring instead of copying
+    # the live session's.
+    # Plain subprocess: this runs in the live session, and libcalamares only
+    # has helpers for running things inside the target.
+    proc = subprocess.run(
+        ["pacstrap", "-K", root, *pkgs],
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
     )
-    if rc != 0:
-        return ("Base package install failed", f"pacman exited {rc}")
+    if proc.returncode != 0:
+        tail = "\n".join(proc.stdout.splitlines()[-15:])
+        libcalamares.utils.warning(f"basepkgs: pacstrap output (tail):\n{tail}")
+        return ("Base system install failed",
+                f"pacstrap exited {proc.returncode}\n\n{tail}")
+
+    # The jobs after this one run pacman in a plain chroot of the target
+    # (unlike arch-chroot, Calamares doesn't bind the live resolv.conf in),
+    # and a fresh pacstrap only has `filesystem`'s comment-only stub: every
+    # download failed with "Could not resolve host". NetworkManager takes
+    # the file over on first boot.
+    resolv = os.path.join(root, "etc/resolv.conf")
+    try:
+        with open(resolv, encoding="utf-8") as fh:
+            has_dns = any(line.startswith("nameserver") for line in fh)
+    except OSError:
+        has_dns = False
+    if not has_dns:
+        if os.path.islink(resolv):
+            os.unlink(resolv)
+        shutil.copyfile("/etc/resolv.conf", resolv)
 
     if aur_pkgs:
         gs.insert("slBaseAurPending", sorted(set(aur_pkgs)))
