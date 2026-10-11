@@ -31,7 +31,7 @@ sudo sl-ctl accent blue       # switch (reversible — backs up first)
 # or directly:
 branding/accents/apply.sh --list
 sudo branding/accents/apply.sh green
-sudo branding/accents/apply.sh green --user alfons
+sudo branding/accents/apply.sh green --user core
 sudo branding/accents/apply.sh green --skel      # ISO build → /etc/skel + /etc
 ```
 

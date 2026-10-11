@@ -31,7 +31,9 @@ cifrado en un equipo así.
 
 ## ¿Por qué Brave y no Firefox?
 
-Decisión de marca ya tomada. Firefox está disponible en el
+Decisión de marca ya tomada — en concreto **Brave Origin** (canal Release):
+la variante recortada de Brave, solo con lo esencial de privacidad, sin
+wallet, rewards ni VPN. Firefox está disponible en el
 [catálogo de `sl-welcome`](herramientas/sl-welcome.md) si lo prefieres.
 
 ## ¿Cero telemetría de verdad, o "cero telemetría, con opción de activarla"?

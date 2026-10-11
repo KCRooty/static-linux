@@ -15,9 +15,9 @@ Static Linux is a Static Forge project. Thanks for helping.
 
 | Machine | Role | Command tag |
 |---|---|---|
-| Packard Bell iMedia S2883 (J1900) | first target / bare-metal test | `[BUILD · bash]` |
-| ThinkPad T480s (incoming) | ISO builds, VMs, main dev | `[BUILD · bash]` |
-| Main PC (Windows 11) | branding, docs, design | `[PROD · PowerShell]` |
+| Main PC — Arch (Ryzen 5 5600, RTX 3070 Ti) | main dev, ISO builds, VMs, bare-metal test | `[BUILD · bash]` |
+| Main PC — Windows 11 (same box, dual boot) | branding, docs, design | `[PROD · PowerShell]` |
+| Packard Bell iMedia S2883 (J1900) | first target — retired, kept as `sl-detect` regression reference | — |
 
 Never mix command environments. `pacman` / `paru` on Linux — never `apt`,
 never `brew`.

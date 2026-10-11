@@ -70,6 +70,21 @@ EFI fallback  : True             (limited UEFI — stage BOOTX64.EFI)
 force XFCE    : True
 ```
 
+## Reference result — PC Principal (Ryzen 5 5600 + RTX 3070 Ti)
+
+The current dev/test machine, replacing the iMedia (32 GB, SATA SSD, UEFI,
+proprietary NVIDIA driver):
+
+```
+→ environment : hyprland-astal-full   (Turing+ GPU = Wayland OK, RAM >= 4 GB)
+→ filesystem  : btrfs                 (SSD + RAM >= 4 GB)
+→ kernel      : linux-zen             (SSD + 2022 CPU)
+→ I/O sched   : none
+swapfile 2G   : False
+EFI fallback  : True
+force XFCE    : False
+```
+
 ## Rule files
 
 | File | Purpose |

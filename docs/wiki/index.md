@@ -40,7 +40,7 @@ cada una:
 
 - Base: **Arch**, no Artix/Debian/Ubuntu.
 - Init: **systemd**.
-- Navegador por defecto: **Brave**.
+- Navegador por defecto: **Brave Origin** (canal Release).
 - AUR helper: **paru**, únicamente CLI.
 - **Secure Boot: no soportado.**
 - Telemetría: **cero, absoluto**.
