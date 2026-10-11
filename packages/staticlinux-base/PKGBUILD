@@ -23,14 +23,15 @@
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
 #   /usr/bin/{sl-detect,sl-ctl,sl-welcome} symlinks into the paths above
 #
-# /etc/os-release and /etc/lsb-release are shipped as plain files at that
-# exact path — not /usr/lib/os-release, which `filesystem` owns and this
-# package deliberately never touches. /etc/os-release starts as a symlink
-# to /usr/lib/os-release on a stock Arch box; this package replaces it with
-# a real file pacman tracks (backup=, so a future upgrade gets a .pacnew
-# instead of silently overwriting a hand edit), same technique every other
-# Arch derivative uses to avoid fighting `filesystem` for ownership of
-# /usr/lib/os-release itself.
+# Identity: the Static Linux os-release ships as
+# /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
+# /etc/os-release symlink at it (and back to ../usr/lib/os-release on
+# removal). It is NOT shipped at /etc/os-release itself: on a stock Arch box
+# that path already exists as an unowned symlink, so pacman either refuses
+# the install (file conflict) or, with backup=(), parks ours as
+# /etc/os-release.pacnew and the system keeps saying "Arch Linux" — seen on
+# the PC Principal, 2026-10-11. /usr/lib/os-release (owned by `filesystem`)
+# is never touched.
 
 pkgname=staticlinux-base
 pkgver=2026.09.21
@@ -53,7 +54,6 @@ optdepends=(
     'snapper: sl-ctl snapshot (BTRFS installs only)'
 )
 backup=(
-    'etc/os-release'
     'etc/lsb-release'
     'etc/fastfetch/config.jsonc'
     'etc/static-linux/accent'
@@ -145,7 +145,7 @@ package() {
     ln -s /usr/lib/static-linux/sl-welcome/sl-welcome "$pkgdir/usr/bin/sl-welcome"
 
     # ---- system defaults --------------------------------------------------
-    install -Dm644 packages/staticlinux-base/os-release "$pkgdir/etc/os-release"
+    install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
     install -Dm644 packages/staticlinux-base/lsb-release "$pkgdir/etc/lsb-release"
     install -Dm644 branding/fastfetch/config.jsonc "$pkgdir/etc/fastfetch/config.jsonc"
     install -d "$pkgdir/etc/static-linux"

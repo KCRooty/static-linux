@@ -85,6 +85,9 @@ else
   [[ -d "$HOMEDIR" ]] || die "no home for '$USER_NAME'"
 fi
 IS_ROOT=$([[ $EUID -eq 0 ]] && echo 1 || echo 0)
+# /var/backups is root-only: an unprivileged run keeps its backups in the
+# target home instead (same idea as xfce-themed's ~/.sl-xfce-backup).
+[[ $IS_ROOT -eq 1 ]] || BACKUP="$HOMEDIR/.sl-accent-backup/$(basename "$BACKUP")"
 
 log "accent: $ACCENT ($LABEL)  ·  #$ACCENT_HEX  ·  target $HOMEDIR"
 

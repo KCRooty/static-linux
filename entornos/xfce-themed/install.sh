@@ -12,7 +12,6 @@
 set -euo pipefail
 
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SHARED="$(cd "$HERE/../shared" && pwd)"
 MODE=""
 TARGET=""
 USER_NAME="${SUDO_USER:-${USER:-root}}"
