@@ -1,5 +1,5 @@
 # Static Linux — sl-welcome catalog
-# Brave ya viene instalado por defecto (docs/PROYECTO.md: "not Firefox, not Chromium").
+# Brave Origin ya viene instalado por defecto (docs/PROYECTO.md: "not Firefox, not Chromium").
 category: "Internet"
 apps:
   - id: firefox

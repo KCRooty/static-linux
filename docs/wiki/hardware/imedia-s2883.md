@@ -60,6 +60,7 @@ Ya forman parte del diseño del instalador — no son notas sueltas:
 Este equipo llegó a arrancar Static Linux completo con XFCE temático,
 fastfetch de marca (logo Static Forge, tema `Static-Void`) y el acento
 morado por defecto funcionando en vivo. El equipo ya no está disponible para
-seguir probando — la siguiente ronda de pruebas reales espera a que llegue
-el ThinkPad T480s o la GPU del PC principal (ver estado de hardware en
-`docs/PROYECTO.md`).
+seguir probando — las pruebas reales continúan en el
+[PC Principal](pc-principal.md), que lo sustituye como máquina de referencia.
+Los valores de esta página siguen fijados como tests de regresión de
+`sl-detect`.

@@ -15,6 +15,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import pwd
 import shutil
 import subprocess
 import sys
@@ -41,6 +42,38 @@ def _sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:
 def _need_root() -> None:
     if os.geteuid() != 0:
         sys.exit("sl-ctl: this command must be run as root")
+
+
+def _invoking_user() -> str | None:
+    """The non-root user who launched sl-ctl, or None if there isn't one.
+
+    SUDO_USER alone is not enough: it is unset under pkexec (sl-welcome), doas,
+    `su`, or a plain root shell. Try every hint, in order of reliability, and
+    never fall back to a made-up account.
+    """
+    candidates: list[str | int] = []
+    for var in ("SUDO_USER", "DOAS_USER"):
+        if os.environ.get(var):
+            candidates.append(os.environ[var])
+    for var in ("PKEXEC_UID", "SUDO_UID"):
+        if os.environ.get(var, "").isdigit():
+            candidates.append(int(os.environ[var]))
+    try:
+        # Set by pam_loginuid at login and inherited across su/sudo/pkexec.
+        loginuid = int(Path("/proc/self/loginuid").read_text().strip())
+        if loginuid != 0xFFFFFFFF:
+            candidates.append(loginuid)
+    except (OSError, ValueError):
+        pass
+
+    for cand in candidates:
+        try:
+            entry = pwd.getpwuid(cand) if isinstance(cand, int) else pwd.getpwnam(cand)
+        except KeyError:
+            continue
+        if entry.pw_uid != 0:
+            return entry.pw_name
+    return None
 
 
 def _sl_detect_path() -> str:
@@ -245,7 +278,13 @@ def cmd_update(args) -> int:
     _need_root()
     rc = _sh(["pacman", "-Syu"]).returncode
     if shutil.which("paru"):
-        _sh(["sudo", "-u", os.environ.get("SUDO_USER", "nobody"), "paru", "-Syu"])
+        user = _invoking_user()
+        if user:
+            _sh(["sudo", "-u", user, "paru", "-Syu"])
+        else:
+            # paru refuses to build as root, and there is no user to drop to.
+            print("sl-ctl: AUR update skipped — no non-root user found. "
+                  "Run `paru -Sua` as your own user.", file=sys.stderr)
     if shutil.which("flatpak"):
         _sh(["flatpak", "update"])
     return rc

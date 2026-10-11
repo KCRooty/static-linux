@@ -4,7 +4,7 @@
 #   apply.sh --list                 show the accents
 #   apply.sh --current              print the active accent
 #   apply.sh purple                 apply to the invoking user + /etc (sudo for /etc)
-#   apply.sh blue --user alfons     apply to another user's home
+#   apply.sh blue --user core       apply to another user's home
 #   sudo apply.sh green --skel      render into /etc/skel + /etc (ISO build)
 #
 # Touches: fastfetch, GTK (3/4), xfwm4 border, xfce4-terminal, LightDM greeter,

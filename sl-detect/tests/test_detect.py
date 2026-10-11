@@ -154,6 +154,44 @@ class GpuRules(unittest.TestCase):
         self.assertTrue(wl)
 
 
+class PcPrincipalReference(unittest.TestCase):
+    """Ryzen 5 5600 + RTX 3070 Ti, 32 GB, SATA SSD — the current dev machine.
+
+    The high-end counterpart of the iMedia S2883 reference: values are the
+    real `sl-detect --json` output from that hardware.
+    """
+
+    def test_gpu_is_turing_plus_with_wayland(self):
+        orig = detect._pci_display_devices
+        try:
+            detect._pci_display_devices = lambda: [
+                "NVIDIA Corporation GA104 [GeForce RTX 3070 Ti]"
+            ]
+            gpu = detect.detect_gpu()
+        finally:
+            detect._pci_display_devices = orig
+        self.assertEqual(gpu["family"], "nvidia_turing_plus")
+        self.assertEqual(gpu["driver"], "nvidia")
+        self.assertTrue(gpu["wayland_ok"])
+
+    def test_cpu_year_beats_generic_ryzen_hint(self):
+        # "5600 = 2022" must win over the catch-all "ryzen = 2019".
+        orig = detect._cpu_model
+        try:
+            detect._cpu_model = lambda: "AMD Ryzen 5 5600 6-Core Processor"
+            self.assertEqual(detect.detect_cpu_year(), 2022)
+        finally:
+            detect._cpu_model = orig
+
+    def test_recommendations(self):
+        self.assertEqual(
+            detect.recommend_env(True, 32006, "x86_64", T), "hyprland-astal-full"
+        )
+        self.assertEqual(detect.recommend_fs("ssd", 32006, T), "btrfs")
+        self.assertEqual(detect.recommend_kernel("ssd", 2022, T), "linux-zen")
+        self.assertEqual(detect.recommend_io_scheduler("ssd"), "none")
+
+
 class SocGpuRules(unittest.TestCase):
     """ARM SoC GPUs, matched against /proc/device-tree/compatible."""
 
