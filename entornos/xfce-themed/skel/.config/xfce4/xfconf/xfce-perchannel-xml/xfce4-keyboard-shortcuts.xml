@@ -11,6 +11,11 @@
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed"/>
+      <!-- Tapping Super alone opens the panel menu (Whisker). Xfce can't bind a bare
+           modifier without breaking every Super+key shortcut above, so
+           xcape (autostart/dev.staticforge.super-key.desktop) turns a
+           Super tap into Alt+F1, and Alt+F1 is what is bound here. -->
+      <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-whiskermenu"/>
       <property name="override" type="bool" value="true"/>
     </property>
   </property>

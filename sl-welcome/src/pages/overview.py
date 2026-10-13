@@ -11,9 +11,9 @@ from gi.repository import Adw, Gtk  # noqa: E402
 import system_info  # noqa: E402
 
 _LINKS = [
-    ("Wiki", "https://github.com/KCRooty/static-linux/wiki"),
+    ("Wiki", "https://staticforge.dpdns.org/static-linux/"),
     ("Repositorio (GitHub)", "https://github.com/KCRooty/static-linux"),
-    ("Reportar un problema", "https://github.com/KCRooty/static-linux/issues/new"),
+    ("Reportar un problema", "https://github.com/KCRooty/static-linux/issues/new/choose"),
 ]
 
 
