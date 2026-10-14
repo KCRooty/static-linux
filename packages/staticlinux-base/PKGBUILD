@@ -60,6 +60,7 @@ optdepends=(
 )
 backup=(
     'etc/fastfetch/config.jsonc'
+    'etc/xdg/mimeapps.list'
     'etc/static-linux/accent'
 )
 install=staticlinux-base.install
@@ -151,6 +152,9 @@ package() {
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
     install -Dm644 branding/fastfetch/config.jsonc "$pkgdir/etc/fastfetch/config.jsonc"
+    # system-wide default browser, for every environment (a user's own
+    # ~/.config/mimeapps.list still wins)
+    install -Dm644 packages/staticlinux-base/mimeapps.list "$pkgdir/etc/xdg/mimeapps.list"
     install -d "$pkgdir/etc/static-linux"
     echo "purple" > "$pkgdir/etc/static-linux/accent"
 

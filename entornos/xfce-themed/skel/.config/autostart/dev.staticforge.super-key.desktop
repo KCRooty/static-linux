@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Static Linux — tecla Super
+Name[en]=Static Linux Super key
+Comment=Una pulsación de Super abre el menú de aplicaciones
+Comment[en]=Tapping Super opens the application menu
+Exec=xcape -e Super_L=Alt_L|F1
+Icon=static-linux
+Terminal=false
+NoDisplay=true
+X-GNOME-Autostart-enabled=true

@@ -17,7 +17,7 @@ skel/.config/
     xfwm4.xml                    Static-Void WM theme, compositor on, Super+arrows tiling
     xfce4-panel.xml              single top panel (Void 96%): Whisker · tasklist · tray · audio · power · clock
     xfce4-desktop.xml            Void background, home/trash icons
-    xfce4-keyboard-shortcuts.xml Super+Return term, Super+E files, Super+B Brave Origin, PrtSc screenshot
+    xfce4-keyboard-shortcuts.xml Super+Return term, Super+E files, Super+B Brave Origin, Super (tap) menu, PrtSc screenshot
   gtk-3.0/gtk.css               Signal Green accent overlay (accents only, not a full theme)
   gtk-4.0/gtk.css               same for the few GTK4 apps
   xfce4/terminal/terminalrc     JetBrains Mono, Void bg, green cursor

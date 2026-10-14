@@ -46,6 +46,13 @@ iwd
 modemmanager
 openssh
 
+# ---- Default browser ------------------------------------------------
+# Brave Origin, Release channel. Not in the official repos: it comes from
+# the ISO's local repo (packages/local-repo.sh builds Brave's own AUR
+# package), which is why it is pacstrapped here with the base system and
+# not listed per environment — the target's pacman can't see that repo.
+brave-origin-bin
+
 # ---- Repos / containers ------------------------------------------
 flatpak
 distrobox

@@ -70,7 +70,7 @@ LOCAL_REPO_NAME="staticlinux-local"
 # ---- 0. the local repo must hold what pacstrap can't get elsewhere -----
 [[ -f "$LOCAL_REPO/$LOCAL_REPO_NAME.db" ]] || die "local repo missing at $LOCAL_REPO — \
 run packages/local-repo.sh as your normal user first"
-for pkg in calamares staticlinux-base; do
+for pkg in calamares staticlinux-base brave-origin-bin; do
     compgen -G "$LOCAL_REPO/$pkg-[0-9]*.pkg.tar.zst" >/dev/null || die "$pkg isn't in \
 the local repo — run packages/local-repo.sh $pkg as your normal user"
 done

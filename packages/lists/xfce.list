@@ -37,6 +37,15 @@ network-manager-applet
 blueman
 galculator
 xdg-user-dirs-gtk
+# Super tap -> Whisker menu (see skel autostart/dev.staticforge.super-key.desktop)
+xcape
+
+# Media codecs for Parole (ships in xfce4-goodies, plays through GStreamer).
+# Without gst-libav an .mp4 fails with "MPEG-4 AAC decoder" missing — seen
+# on the PC Principal.
+gst-libav
+gst-plugins-bad
+gst-plugins-ugly
 
 # Theming (Static Linux look)
 gnome-themes-extra

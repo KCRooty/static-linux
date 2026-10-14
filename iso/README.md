@@ -4,7 +4,7 @@ Builds Static Linux's live/install medium with [archiso](https://gitlab.archlinu
 
 ```bash
 sudo pacman -S archiso
-packages/local-repo.sh      # as your normal user: builds calamares + staticlinux-base
+packages/local-repo.sh      # as your normal user: builds calamares, staticlinux-base, brave-origin-bin
 sudo iso/build.sh online    # ~1.7 GB, needs network at install time
 sudo iso/build.sh offline   # packages bundled (see caveat below)
 ```
@@ -69,4 +69,3 @@ maximum privacy profiles, LUKS, btrfs, real hardware, and the offline ISO.
 - **The installed system doesn't know the local repo**, so `staticlinux-base`
   is a foreign package there and never updates. Needs a real Static Forge
   repo.
-- **No default browser is installed** by any package list.
