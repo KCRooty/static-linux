@@ -8,7 +8,7 @@ ground with a faint glow towards the bottom, and 70s "groovy" stripes in
 five tones of the accent: a band that comes in from the left and curves
 down into the bottom edge, plus a small rainbow in the top-right corner.
 
-    python3 gen-wallpaper.py                     # every accent, 1920x1080
+    python3 gen-wallpaper.py                     # every accent, 3840x2160
     python3 gen-wallpaper.py --accent purple
     python3 gen-wallpaper.py --accent all --size 2560x1440
 """
@@ -126,7 +126,7 @@ def render(w: int, h: int, pal: dict) -> bytes:
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("--accent", default="all")
-    ap.add_argument("--size", default="1920x1080")
+    ap.add_argument("--size", default="3840x2160")  # 4K: sharp on every screen, scaled down elsewhere
     args = ap.parse_args()
 
     w, h = (int(n) for n in args.size.lower().split("x"))

@@ -3,13 +3,13 @@
 # Run from a repo checkout; commit the results so the offline ISO ships them
 # without needing to render at install time.
 #
-#   ./gen.sh                 all accents, 1920x1080 wallpapers
+#   ./gen.sh                 all accents, 3840x2160 wallpapers
 #   ./gen.sh 2560x1440       all accents at a custom size
 
 set -euo pipefail
 HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 REPO="$(cd "$HERE/../.." && pwd)"
-SIZE="${1:-1920x1080}"
+SIZE="${1:-3840x2160}"
 
 echo "==> wallpapers ($SIZE)"
 python3 "$REPO/branding/wallpapers/gen-wallpaper.py" --accent all --size "$SIZE"

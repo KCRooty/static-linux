@@ -5,6 +5,8 @@
 # needs lxsession, which isn't in this tier's package list — one less daemon
 # resident at 512 MB). Everything needed is started explicitly here instead.
 
+# HiDPI: Xft.dpi for this screen, before anything draws text
+/usr/lib/static-linux/accents/display-setup.sh
 [ -x ~/.fehbg ] && ~/.fehbg &
 tint2 &
 nm-applet &

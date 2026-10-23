@@ -6,15 +6,26 @@ import gi
 
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
-from gi.repository import Adw, Gtk  # noqa: E402
+from gi.repository import Adw, Gdk, Gtk  # noqa: E402
 
 from pages import appearance, catalog, overview, privacy  # noqa: E402
 
 
+def fit_to_screen(width: int, height: int) -> tuple[int, int]:
+    """The preferred size, shrunk to fit small screens (800x600, netbooks)."""
+    monitors = Gdk.Display.get_default().get_monitors()
+    if monitors.get_n_items():
+        geo = monitors.get_item(0).get_geometry()
+        width = min(width, geo.width - 40)
+        height = min(height, geo.height - 80)  # room for a panel
+    return max(width, 360), max(height, 360)
+
+
 class WelcomeWindow(Adw.ApplicationWindow):
     def __init__(self, app: Adw.Application) -> None:
+        w, h = fit_to_screen(760, 620)
         super().__init__(application=app, title="Bienvenido a Static Linux",
-                          default_width=760, default_height=620)
+                          default_width=w, default_height=h)
 
         self.toast_overlay = Adw.ToastOverlay()
 

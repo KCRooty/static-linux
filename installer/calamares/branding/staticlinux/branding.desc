@@ -4,7 +4,8 @@ componentName: staticlinux
 welcomeStyleCalamares: false
 welcomeExpandingLogo: true
 
-windowExpanding: normal
+# fills any screen, from 800x600 netbooks to 4K (windowSize is ignored)
+windowExpanding: fullscreen
 windowSize: 900px,600px
 windowPlacement: center
 

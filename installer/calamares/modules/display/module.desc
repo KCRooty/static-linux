@@ -1,0 +1,7 @@
+---
+# Static Linux — Calamares job: hand the live session's display scale to the
+# installed system (HiDPI). Runs after accent, before umount.
+type:       "job"
+name:       "display"
+interface:  "python"
+script:     "main.py"

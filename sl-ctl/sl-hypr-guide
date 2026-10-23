@@ -118,8 +118,13 @@ class Guide(Adw.Application):
         Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), prov,
                                                   Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
 
+        w, h = 720, 720
+        monitors = Gdk.Display.get_default().get_monitors()
+        if monitors.get_n_items():  # shrink on small screens; the list scrolls
+            geo = monitors.get_item(0).get_geometry()
+            w, h = min(w, geo.width - 40), min(h, geo.height - 80)
         win = Adw.ApplicationWindow(application=app, title="Atajos de Hyprland",
-                                    default_width=720, default_height=720)
+                                    default_width=max(w, 360), default_height=max(h, 360))
         view = Adw.ToolbarView()
         view.add_top_bar(Adw.HeaderBar())
 

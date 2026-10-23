@@ -67,6 +67,19 @@ y la guarda en `Imágenes/Capturas` *y* la copia al portapapeles, sin menús —
 como en Windows. Lo hace `sl-screenshot`, que usa la herramienta de cada
 sesión (maim en X11, grim en Hyprland, Spectacle en KDE).
 
+## Cualquier pantalla
+
+Static Linux se adapta a la pantalla en la que se instala, de 800×600 a 4K:
+
+- El instalador ocupa toda la pantalla y se escala según la densidad real del
+  monitor (`sl-display-scale`: píxeles entre el tamaño físico que informa la
+  pantalla) — 1×, 1,25×, 1,5× o 2×.
+- Ese valor pasa al sistema instalado (`/etc/static-linux/display-scale`): el
+  login lo aplica desde el primer arranque, y XFCE/Openbox en el primer inicio
+  de sesión. Hyprland y KDE escalan solos por monitor.
+- Los fondos son 4K y se recortan a cualquier proporción; las ventanas propias
+  (`sl-welcome`, la guía de Hyprland) se encogen en pantallas pequeñas.
+
 ## Theming compartido, con huecos conocidos
 
 `branding/accents/apply.sh` cubre fastfetch, GTK 3/4, la ventana de LightDM

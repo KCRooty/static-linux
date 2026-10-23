@@ -23,7 +23,7 @@
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
 #   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
 #   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
-#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide} symlinks into the paths above
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale} symlinks into the paths above
 #
 # Identity: the Static Linux os-release ships as
 # /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
@@ -90,6 +90,7 @@ package() {
     install -Dm755 sl-ctl/sl-ctl.py "$lib/sl-ctl/sl-ctl.py"
     install -Dm755 sl-ctl/sl-screenshot "$lib/sl-ctl/sl-screenshot"
     install -Dm755 sl-ctl/sl-hypr-guide "$lib/sl-ctl/sl-hypr-guide"
+    install -Dm755 sl-ctl/sl-display-scale "$lib/sl-ctl/sl-display-scale"
 
     # ---- sl-welcome ---------------------------------------------------
     install -Dm755 sl-welcome/sl-welcome "$lib/sl-welcome/sl-welcome"
@@ -108,6 +109,7 @@ package() {
     # package. ------------------------------------------------------------
     install -Dm755 branding/accents/apply.sh "$lib/accents/apply.sh"
     install -Dm755 branding/accents/sync-wallpaper.sh "$lib/accents/sync-wallpaper.sh"
+    install -Dm755 branding/accents/display-setup.sh "$lib/accents/display-setup.sh"
     install -Dm644 branding/accents/palette.conf "$lib/accents/palette.conf"
     install -Dm644 -t "$lib/accents/templates" branding/accents/templates/*.in
 
@@ -160,6 +162,7 @@ package() {
     ln -s /usr/lib/static-linux/sl-welcome/sl-welcome "$pkgdir/usr/bin/sl-welcome"
     ln -s /usr/lib/static-linux/sl-ctl/sl-screenshot "$pkgdir/usr/bin/sl-screenshot"
     ln -s /usr/lib/static-linux/sl-ctl/sl-hypr-guide "$pkgdir/usr/bin/sl-hypr-guide"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-display-scale "$pkgdir/usr/bin/sl-display-scale"
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
