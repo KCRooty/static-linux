@@ -1,0 +1,57 @@
+# Static Linux — KDE Plasma 6
+# Tier: Recommended (4 GB). Wayland by default (X11 session still works).
+# Heavier than the other environments at idle (~700-900 MB) — sl-detect never
+# recommends it, it's there for people who want a full desktop.
+# Verified against the official repos 2026-10-23.
+
+# ---- Plasma core --------------------------------------------------
+plasma-desktop
+plasma-workspace
+kwin
+kglobalacceld
+systemsettings
+kscreen
+powerdevil
+plasma-nm
+plasma-pa
+bluedevil
+plasma-firewall
+kdeplasma-addons
+plasma-browser-integration
+xdg-desktop-portal-kde
+kwayland-integration
+print-manager
+kinfocenter
+plasma-systemmonitor
+
+# ---- Look -----------------------------------------------------------
+breeze
+breeze-gtk
+kde-gtk-config
+papirus-icon-theme
+
+# ---- Login -----------------------------------------------------------
+sddm
+sddm-kcm
+
+# ---- Core apps -------------------------------------------------------
+dolphin
+konsole
+kate
+ark
+gwenview
+okular
+spectacle
+kwalletmanager
+kdeconnect
+partitionmanager
+ffmpegthumbs
+kdegraphics-thumbnailers
+
+# ---- Media backends --------------------------------------------------
+qt6-multimedia-ffmpeg
+phonon-qt6-vlc
+
+# ---- sl-screenshot (Super+Shift+S): spectacle + clipboard --------------
+wl-clipboard
+xclip

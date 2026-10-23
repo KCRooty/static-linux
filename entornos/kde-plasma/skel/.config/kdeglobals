@@ -1,0 +1,19 @@
+[General]
+ColorScheme=BreezeDark
+accentColorFromWallpaper=false
+font=Space Grotesk,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+menuFont=Space Grotesk,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+toolBarFont=Space Grotesk,9,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+smallestReadableFont=Space Grotesk,8,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+fixed=JetBrains Mono,10,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[Icons]
+Theme=Papirus-Dark
+
+[KDE]
+LookAndFeelPackage=org.kde.breezedark.desktop
+SingleClick=false
+AnimationDurationFactor=0.7
+
+[WM]
+activeFont=Space Grotesk,10,-1,5,600,0,0,0,0,0,0,0,0,0,0,1

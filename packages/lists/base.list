@@ -63,6 +63,7 @@ pacman-contrib
 # ---- sl-welcome (first-boot app, Fase 7) --------------------------
 python
 python-gobject
+python-cairo
 python-yaml
 gtk4
 libadwaita
@@ -96,8 +97,8 @@ wireplumber
 ttf-jetbrains-mono
 noto-fonts
 noto-fonts-emoji
-# ttf-outfit (AUR)
-# otf-space-grotesk (AUR)
+# Space Grotesk + Outfit, packaged in packages/staticlinux-fonts (local repo)
+staticlinux-fonts
 
 # ---- CLI essentials --------------------------------------------
 git
@@ -118,3 +119,7 @@ usbutils
 pciutils
 lsof
 which
+
+# ---- sl-screenshot (Super+Shift+S): ~/Imágenes/Capturas + clipboard ----
+xdg-user-dirs
+libnotify

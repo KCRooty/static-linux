@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Captura de pantalla (zona)
+Name[en]=Screenshot (region)
+Comment=Guarda en Imágenes/Capturas y copia al portapapeles
+Exec=sl-screenshot
+Icon=applets-screenshooter
+NoDisplay=true
+X-KDE-GlobalAccel-CommandShortcut=true

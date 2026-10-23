@@ -5,7 +5,7 @@ welcomeStyleCalamares: false
 welcomeExpandingLogo: true
 
 windowExpanding: normal
-windowSize: 800px,520px
+windowSize: 900px,600px
 windowPlacement: center
 
 sidebar: widget
@@ -14,10 +14,10 @@ navigation: widget
 strings:
   productName: "Static Linux"
   shortProductName: "Static Linux"
-  version: "2026.09"
-  shortVersion: "2026.09"
-  versionedName: "Static Linux 2026.09"
-  shortVersionedName: "SL 2026.09"
+  version: "2026.10"
+  shortVersion: "2026.10"
+  versionedName: "Static Linux 2026.10"
+  shortVersionedName: "SL 2026.10"
   bootloaderEntryName: "Static Linux"
   productUrl: "https://github.com/KCRooty/static-linux"
   supportUrl: "https://github.com/KCRooty/static-linux/issues"
@@ -30,7 +30,7 @@ strings:
 # Files must sit next to this branding.desc.
 images:
   productIcon: "icon.png"
-  productLogo: "icon.png"
+  productLogo: "logo.png"
   productWelcome: "welcome.png"
 
 style:

@@ -37,6 +37,8 @@ network-manager-applet
 blueman
 galculator
 xdg-user-dirs-gtk
+# output names for the wallpaper autostart (branding/accents/sync-wallpaper.sh)
+xorg-xrandr
 # Super tap -> Whisker menu (see skel autostart/dev.staticforge.super-key.desktop)
 xcape
 
@@ -58,3 +60,7 @@ xdg-desktop-portal-xapp
 
 # Terminal
 xfce4-terminal
+
+# sl-screenshot on X11 (Super+Shift+S)
+maim
+xclip

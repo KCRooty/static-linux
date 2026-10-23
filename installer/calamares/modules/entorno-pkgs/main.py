@@ -11,6 +11,7 @@
 
 import os
 import re
+import subprocess
 
 import libcalamares
 
@@ -19,7 +20,14 @@ ENVS = {
     "openbox-minimal": ("packages/lists/openbox.list", "entornos/openbox-minimal/install.sh"),
     "hyprland-astal-lite": ("packages/lists/hyprland-lite.list", "entornos/hyprland-astal-lite/install.sh"),
     "hyprland-astal-full": ("packages/lists/hyprland-full.list", "entornos/hyprland-astal-full/install.sh"),
+    "kde-plasma": ("packages/lists/kde.list", "entornos/kde-plasma/install.sh"),
 }
+# The live ISO carries the local repo (Astal for Hyprland, Brave, ...) at this
+# path — see iso/build.sh. The target's own pacman.conf doesn't know it, so
+# while installing it is bind-mounted in and a temporary pacman.conf adds it.
+LIVE_REPO = "/opt/staticlinux-repo"
+LIVE_REPO_NAME = "staticlinux-local"
+TMP_CONF = "/tmp/sl-entorno-pacman.conf"
 TARGET_PREFIX = "usr/lib/static-linux"  # where staticlinux-base ships repo data, relative to target root
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
@@ -45,6 +53,38 @@ def _parse_list(path):
     return pkgs, aur_pkgs
 
 
+def _install_with_local_repo(root, pkgs):
+    """pacman -S in the target, with the live ISO's local repo reachable."""
+    mnt = root.rstrip("/") + LIVE_REPO
+    mounted = False
+    conf_args = []
+    if os.path.isdir(LIVE_REPO):
+        os.makedirs(mnt, exist_ok=True)
+        mounted = subprocess.run(["mount", "--bind", "-o", "ro", LIVE_REPO, mnt]).returncode == 0
+        if mounted:
+            with open(os.path.join(root, "etc/pacman.conf"), encoding="utf-8") as fh:
+                base = fh.read()
+            with open(root.rstrip("/") + TMP_CONF, "w", encoding="utf-8") as fh:
+                fh.write(base + f"\n[{LIVE_REPO_NAME}]\nSigLevel = Optional TrustAll\n"
+                              f"Server = file://{LIVE_REPO}\n")
+            conf_args = ["--config", TMP_CONF, "-Sy"]
+    try:
+        return libcalamares.utils.target_env_call(
+            ["pacman", *(conf_args or ["-S"]), "--needed", "--noconfirm", *pkgs]
+        )
+    finally:
+        if mounted:
+            subprocess.run(["umount", mnt])
+            try:
+                os.rmdir(mnt)  # /opt itself belongs to the filesystem package
+            except OSError:
+                pass
+            try:
+                os.remove(root.rstrip("/") + TMP_CONF)
+            except OSError:
+                pass
+
+
 def run():
     gs = libcalamares.globalstorage
     root = gs.value("rootMountPoint")
@@ -66,9 +106,7 @@ def run():
 
     pkgs, aur_pkgs = _parse_list(list_path)
     if pkgs:
-        rc = libcalamares.utils.target_env_call(
-            ["pacman", "-S", "--needed", "--noconfirm", *pkgs]
-        )
+        rc = _install_with_local_repo(root, pkgs)
         if rc != 0:
             return ("Environment package install failed", f"pacman exited {rc} for {slug}")
 

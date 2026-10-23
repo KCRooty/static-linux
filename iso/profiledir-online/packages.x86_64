@@ -49,6 +49,7 @@ xorg-xinit
 xorg-xsetroot
 xf86-input-libinput
 openbox
+feh
 
 # ---- Installer -------------------------------------------------------
 # Static Linux's own build (packages/calamares/), from the local repo.
@@ -70,6 +71,7 @@ nvme-cli
 
 # ---- Fonts (installer text) ------------------------------------------
 ttf-jetbrains-mono
+staticlinux-fonts
 noto-fonts
 
 # ---- Static Linux itself -----------------------------------------------

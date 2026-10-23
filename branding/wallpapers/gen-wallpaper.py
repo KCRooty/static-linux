@@ -4,8 +4,9 @@ Static Linux — brand wallpaper generator.
 
 Pure standard library (no PIL / ImageMagick), so it runs on the live ISO
 build host. One wallpaper per accent (see ../accents/palette.conf): a dark
-ground, a faint diagonal split (a nod to the Static Forge SF monogram), a
-thin accent seam along the split and a small mark in the corner.
+ground with a faint glow towards the bottom, and 70s "groovy" stripes in
+five tones of the accent: a band that comes in from the left and curves
+down into the bottom edge, plus a small rainbow in the top-right corner.
 
     python3 gen-wallpaper.py                     # every accent, 1920x1080
     python3 gen-wallpaper.py --accent purple
@@ -45,43 +46,71 @@ def _mix(a, b, t):
     return tuple(round(a[i] + (b[i] - a[i]) * t) for i in range(3))
 
 
+def stripe_colors(pal: dict) -> list[tuple[int, int, int]]:
+    """Five 70s-style stripe tones from the accent, outer -> inner."""
+    white = (255, 255, 255)
+    return [_mix(pal["dim"], pal["bg"], 0.35), pal["dim"], pal["accent"],
+            _mix(pal["accent"], white, 0.35), pal["detail"]]
+
+
+def _band(s: float, r_out: float, sw: float, gap: float, cols, n: int):
+    """Colour + coverage for distance `s` inside a band of n stripes that
+    starts at radius r_out and steps inwards; None outside any stripe."""
+    pitch = sw + gap
+    p = r_out - s
+    if p < 0 or p >= n * pitch:
+        return None
+    i = int(p // pitch)
+    q = p - i * pitch                     # 0..pitch across this stripe+gap
+    cov = min(q, sw - q) + 0.5            # 1px anti-aliasing on both edges
+    if cov <= 0:
+        return None
+    return cols[i], min(1.0, cov)
+
+
 def render(w: int, h: int, pal: dict) -> bytes:
     bg = pal["bg"]
-    # lighter half of the split: nudge bg toward the accent, very slightly
-    half = _mix(bg, pal["accent"], 0.06 if sum(bg) < 384 else -0.04)
-    half = tuple(max(0, min(255, c)) for c in half)
-    edge = pal["accent"]
-    dot = pal["detail"]
+    cols = stripe_colors(pal)
+    n = len(cols)
+    k = min(w, h) / 1080
+    sw, gap = 30 * k, 5 * k               # stripe width / gap between stripes
+    band = n * (sw + gap)
 
-    feather = 1.6 / min(w, h)
-    # small corner mark: a short accent tick + a dot, bottom-right
-    mark_x0, mark_y0 = w - int(w * 0.14), h - int(h * 0.11)
+    # main band: comes in from the left, turns down into the bottom edge
+    cx, cy = w * 0.64, float(h)
+    r_out = h * 0.36
+    # small rainbow in the top-right corner
+    c_out = h * 0.20
+
+    bottom = _mix(bg, pal["accent"], 0.05 if sum(bg) < 384 else -0.03)
+    bottom = tuple(max(0, min(255, c)) for c in bottom)
 
     rows = bytearray()
     for y in range(h):
         rows.append(0)
-        yn = y / h
-        row = bytearray(w * 3)
-        for x in range(w):
-            d = (x / w) + yn - 1.0
-            if d > feather:
-                px = half
-            elif d < -feather:
-                px = bg
-            else:
-                t = 1.0 - abs(d) / feather
-                px = _mix(_mix(bg, half, 0.5), edge, 0.6 * t)
+        base = _mix(bg, bottom, (y / h) ** 2)      # faint glow towards the bottom
+        row = bytearray(bytes(base) * w)
 
-            # corner mark
-            if y >= mark_y0 and x >= mark_x0:
-                lx, ly = x - mark_x0, y - mark_y0
-                if 0 <= ly - lx <= 2:                       # thin diagonal tick
-                    px = edge
-                elif (lx - int(w * 0.10)) ** 2 + (ly - int(h * 0.055)) ** 2 <= 9:
-                    px = dot                                 # small dot
-
-            o = x * 3
-            row[o], row[o + 1], row[o + 2] = px
+        # straight part of the main band (same colour across the row)
+        hit = _band(cy - y, r_out, sw, gap, cols, n)
+        if hit:
+            px = bytes(_mix(base, hit[0], hit[1]))
+            row[0:int(cx) * 3] = px * int(cx)
+        # curved part of the main band
+        dy = y - cy
+        if -r_out <= dy:
+            for x in range(int(cx), min(w, int(cx + r_out) + 2)):
+                hit = _band(((x - cx) ** 2 + dy * dy) ** 0.5, r_out, sw, gap, cols, n)
+                if hit:
+                    o = x * 3
+                    row[o:o + 3] = bytes(_mix(base, hit[0], hit[1]))
+        # corner rainbow
+        if y <= c_out + 1:
+            for x in range(max(0, int(w - c_out) - 2), w):
+                hit = _band(((x - w) ** 2 + y * y) ** 0.5, c_out, sw * 0.7, gap * 0.7, cols, n)
+                if hit:
+                    o = x * 3
+                    row[o:o + 3] = bytes(_mix(base, hit[0], hit[1]))
         rows.extend(row)
 
     def chunk(tag: bytes, data: bytes) -> bytes:

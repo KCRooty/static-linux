@@ -30,7 +30,8 @@ def _load_palette() -> list[dict]:
         if len(fields) != 7:
             continue
         name, accent, dim, detail, text, bg, label = fields
-        accents.append({"name": name, "accent": accent, "bg": bg, "label": label})
+        accents.append({"name": name, "accent": accent, "dim": dim, "detail": detail,
+                        "bg": bg, "label": label})
     return accents
 
 

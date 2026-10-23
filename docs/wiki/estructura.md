@@ -64,7 +64,7 @@ static-linux/
 │
 ├── docs/wiki/            fuentes MkDocs Material — sitio real, ver mkdocs.yml
 ├── .github/workflows/    deploy de la wiki a GitHub Pages
-├── docs/PROYECTO.md             especificación y decisiones de diseño
+├── docs/PROYECTO.md      especificación y decisiones de diseño
 ├── CONTRIBUTING.md
 └── README.md
 ```

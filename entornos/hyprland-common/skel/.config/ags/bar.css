@@ -1,0 +1,71 @@
+/* Static Linux — Astal bar. Uses the @accent_color / @sl_bg / @sl_text named
+ * colours from ~/.config/gtk-4.0/gtk.css (branding/accents/apply.sh), which
+ * app.tsx loads first — so the bar follows the active accent. */
+
+window.sl-bar {
+  background: transparent;
+}
+
+.bar-inner {
+  margin: 6px 10px 0;
+  padding: 3px 8px;
+  min-height: 34px;
+  border-radius: 14px;
+  background-color: alpha(@sl_bg, 0.88);
+  border: 1px solid alpha(@accent_color, 0.25);
+  color: @sl_text;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 13px;
+}
+
+.bar-inner button,
+.bar-inner menubutton > button {
+  min-height: 0;
+  min-width: 0;
+  padding: 4px 9px;
+  border-radius: 10px;
+  background: none;
+  box-shadow: none;
+  border: none;
+  color: @sl_text;
+  transition: background-color 160ms ease-out;
+}
+.bar-inner button:hover,
+.bar-inner menubutton > button:hover {
+  background-color: alpha(@accent_color, 0.18);
+}
+
+.launcher image { color: @accent_color; -gtk-icon-size: 18px; }
+
+.ws {
+  min-width: 26px;
+  padding: 2px 0;
+  border-radius: 999px;
+  background-color: alpha(@sl_text, 0.07);
+  font-family: "JetBrains Mono", monospace;
+  font-size: 12px;
+  transition: background-color 200ms ease-out, min-width 200ms ease-out;
+}
+.ws.active {
+  min-width: 40px;
+  background-color: @accent_color;
+  color: @sl_bg;
+  font-weight: bold;
+}
+
+.clock-time { color: @accent_color; font-weight: bold; font-family: "JetBrains Mono", monospace; }
+.clock-date { color: alpha(@sl_text, 0.6); font-size: 12px; }
+
+.chip label { font-size: 12px; }
+.power image { color: #E8792B; }
+
+popover > contents {
+  border-radius: 14px;
+  padding: 8px;
+  background-color: shade(@sl_bg, 1.35);
+  border: 1px solid alpha(@accent_color, 0.3);
+}
+.power-pop button { padding: 6px 12px; border-radius: 8px; }
+.power-pop button:hover { background-color: alpha(@accent_color, 0.18); }
+.volume-pop slider { min-height: 16px; }
+.volume-pop trough highlight { background-color: @accent_color; }

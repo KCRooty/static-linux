@@ -78,6 +78,7 @@ nvme-cli
 
 # ---- Fonts -------------------------------------------------------
 ttf-jetbrains-mono
+staticlinux-fonts
 noto-fonts
 
 # ---- Everything from packages/lists/*.list (base + entornos + sabores

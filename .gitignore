@@ -20,6 +20,7 @@ docs/screenshots/*.png
 
 # makepkg leftovers when a PKGBUILD is built in place (packages/local-repo.sh)
 packages/*/*.tar.gz
+packages/*/*.zip
 packages/*/*.pkg.tar.zst
 packages/*/src/
 packages/*/pkg/

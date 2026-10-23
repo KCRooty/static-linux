@@ -1,0 +1,164 @@
+#!/usr/bin/env python3
+"""Static Linux — Hyprland keybinding guide (Super+F1).
+
+Pops up after the first Hyprland login and on Super+F1. The list is read
+live from `hyprctl binds -j`, using the `description` every bind in
+/usr/share/static-linux/hypr/static.lua carries ("Category: text"), so it
+always matches the running config — including binds the user adds with a
+description.
+
+    sl-hypr-guide              show the guide
+    sl-hypr-guide --autostart  show it only the first time
+"""
+from __future__ import annotations
+
+import json
+import subprocess
+import sys
+from collections import OrderedDict
+from pathlib import Path
+
+import gi
+
+gi.require_version("Gtk", "4.0")
+gi.require_version("Adw", "1")
+from gi.repository import Adw, Gdk, Gtk  # noqa: E402
+
+APP_ID = "dev.staticforge.hyprguide"
+STATE = Path.home() / ".local/state/static-linux/hypr-guide-shown"
+WELCOME_SRC = Path("/usr/lib/static-linux/sl-welcome/src")
+
+MODS = [(64, "Super"), (4, "Ctrl"), (8, "Alt"), (1, "Shift")]
+KEYS = {
+    "Return": "Intro", "space": "Espacio", "Space": "Espacio", "Tab": "Tab", "Print": "Impr Pant",
+    "left": "←", "right": "→", "up": "↑", "down": "↓",
+    "mouse:272": "clic izquierdo", "mouse:273": "clic derecho",
+    "mouse_down": "rueda ↓", "mouse_up": "rueda ↑",
+    "XF86AudioRaiseVolume": "Vol +", "XF86AudioLowerVolume": "Vol −", "XF86AudioMute": "Silencio",
+    "XF86AudioMicMute": "Micro", "XF86MonBrightnessUp": "Brillo +", "XF86MonBrightnessDown": "Brillo −",
+    "XF86AudioPlay": "▶︎❙❙", "XF86AudioNext": "⏭", "XF86AudioPrev": "⏮",
+}
+ORDER = ["Ayuda", "Apps", "Captura", "Ventanas", "Escritorios", "Sesión", "Multimedia"]
+
+
+def combo(b: dict) -> str:
+    mods = [name for bit, name in MODS if b.get("modmask", 0) & bit]
+    key = b.get("key") or (f"código {b['keycode']}" if b.get("keycode") else "?")
+    return " + ".join(mods + [KEYS.get(key, key.upper() if len(key) == 1 else key)])
+
+
+def merge(keys: list[str]) -> str:
+    """'Super + 1' ... 'Super + 9' -> 'Super + 1…9'; arrows -> '←↑→↓'."""
+    prefix = {k.rsplit(" + ", 1)[0] for k in keys}
+    lasts = [k.rsplit(" + ", 1)[-1] for k in keys]
+    if len(keys) > 2 and len(prefix) == 1:
+        p = prefix.pop()
+        if all(x.isdigit() for x in lasts):
+            return f"{p} + {min(lasts)}…{max(lasts)}"
+        if set(lasts) <= set("←→↑↓"):
+            return f"{p} + flechas"
+    return "  /  ".join(dict.fromkeys(keys))
+
+
+def load() -> "OrderedDict[str, list[tuple[str, str]]]":
+    try:
+        binds = json.loads(subprocess.run(["hyprctl", "binds", "-j"], capture_output=True,
+                                          text=True, timeout=5).stdout or "[]")
+    except (OSError, subprocess.SubprocessError, json.JSONDecodeError):
+        binds = []
+    by_desc: "OrderedDict[str, list[str]]" = OrderedDict()
+    for b in binds:
+        desc = (b.get("description") or "").strip()
+        if desc:
+            by_desc.setdefault(desc, []).append(combo(b))
+    groups: "OrderedDict[str, list[tuple[str, str]]]" = OrderedDict((g, []) for g in ORDER)
+    for desc, keys in by_desc.items():
+        cat, _, text = desc.partition(": ")
+        if not text:
+            cat, text = "Otros", desc
+        groups.setdefault(cat, []).append((merge(keys), text[:1].upper() + text[1:]))
+    return OrderedDict((g, rows) for g, rows in groups.items() if rows)
+
+
+def header() -> Gtk.Widget:
+    """The same groovy banner sl-welcome uses, in the active accent."""
+    try:
+        sys.path.insert(0, str(WELCOME_SRC))
+        from banner import GroovyBanner  # type: ignore
+        from pages.appearance import _current_accent, _load_palette  # type: ignore
+        acc = {a["name"]: a for a in _load_palette()}.get(_current_accent())
+        if acc:
+            return GroovyBanner(acc)
+    except Exception:  # noqa: BLE001 — the guide must open even without the banner
+        pass
+    return Gtk.Label(label="Atajos de Hyprland", css_classes=["title-1"], margin_top=16)
+
+
+CSS = b"""
+.sl-key {
+  font-family: "JetBrains Mono", monospace; font-size: 12px; font-weight: 700;
+  padding: 3px 9px; border-radius: 8px;
+  background-color: alpha(@accent_color, 0.16); color: @accent_color;
+}
+.sl-group-title { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 15px; }
+.sl-wordmark { font-family: "Outfit", sans-serif; font-weight: 700; font-size: 26px; }
+.sl-tagline { font-family: "Space Grotesk", sans-serif; opacity: 0.7; }
+"""
+
+
+class Guide(Adw.Application):
+    def __init__(self) -> None:
+        super().__init__(application_id=APP_ID)
+        self.connect("activate", self.on_activate)
+
+    def on_activate(self, app: Adw.Application) -> None:
+        Adw.StyleManager.get_default().set_color_scheme(Adw.ColorScheme.FORCE_DARK)
+        prov = Gtk.CssProvider()
+        prov.load_from_data(CSS)
+        Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), prov,
+                                                  Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
+
+        win = Adw.ApplicationWindow(application=app, title="Atajos de Hyprland",
+                                    default_width=720, default_height=720)
+        view = Adw.ToolbarView()
+        view.add_top_bar(Adw.HeaderBar())
+
+        box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=18,
+                      margin_start=22, margin_end=22, margin_top=6, margin_bottom=22)
+        box.append(header())
+        intro = Gtk.Label(wrap=True, xalign=0, css_classes=["dim-label"],
+                          label="Hyprland se maneja sobre todo con el teclado. Super es la tecla "
+                                "de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1.")
+        box.append(intro)
+
+        groups = load()
+        if not groups:
+            box.append(Gtk.Label(label="No se han podido leer los atajos (¿Hyprland está en marcha?).",
+                                 wrap=True))
+        for title, rows in groups.items():
+            box.append(Gtk.Label(label=title, xalign=0, css_classes=["sl-group-title"]))
+            lst = Gtk.ListBox(css_classes=["boxed-list"], selection_mode=Gtk.SelectionMode.NONE)
+            for keys, text in rows:
+                row = Adw.ActionRow(title=text)
+                row.add_suffix(Gtk.Label(label=keys, css_classes=["sl-key"], valign=Gtk.Align.CENTER))
+                lst.append(row)
+            box.append(lst)
+
+        scroller = Gtk.ScrolledWindow(hscrollbar_policy=Gtk.PolicyType.NEVER, vexpand=True)
+        scroller.set_child(Adw.Clamp(maximum_size=760, child=box))
+        view.set_content(scroller)
+        win.set_content(view)
+        win.present()
+
+        STATE.parent.mkdir(parents=True, exist_ok=True)
+        STATE.touch(exist_ok=True)
+
+
+def main() -> int:
+    if "--autostart" in sys.argv[1:] and STATE.exists():
+        return 0
+    return Guide().run([sys.argv[0]])
+
+
+if __name__ == "__main__":
+    sys.exit(main())

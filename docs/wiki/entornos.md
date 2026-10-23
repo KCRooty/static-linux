@@ -1,6 +1,7 @@
 # Entornos de escritorio
 
-`sl-detect` recomienda uno de los cuatro según el hardware — ver
+`sl-detect` recomienda uno de los cuatro primeros según el hardware (KDE Plasma
+se elige a mano) — ver
 [Requisitos de hardware](hardware/requisitos.md) para la tabla de
 decisión completa. Cada uno vive en `entornos/<nombre>/`, con su propio
 `install.sh --home|--skel` idempotente (con backup automático).
@@ -11,21 +12,32 @@ decisión completa. Cada uno vive en `entornos/<nombre>/`, con su propio
 | [`hyprland-astal-lite`](https://github.com/KCRooty/static-linux/tree/main/entornos/hyprland-astal-lite) | 2-4 GB | Wayland | Escrito, sin probar en hardware real |
 | [`xfce-themed`](https://github.com/KCRooty/static-linux/tree/main/entornos/xfce-themed) | ≥ 1 GB | Xorg | **Validado en el iMedia S2883** |
 | [`openbox-minimal`](https://github.com/KCRooty/static-linux/tree/main/entornos/openbox-minimal) | ≥ 512 MB | Xorg | Escrito, sin probar en hardware real |
+| [`kde-plasma`](https://github.com/KCRooty/static-linux/tree/main/entornos/kde-plasma) | ≥ 4 GB | Wayland | Nuevo (2026-10) |
 
 `xfce-themed` es el único que se ha visto arrancar en una máquina real hasta
 ahora — ver la [referencia del iMedia S2883](hardware/imedia-s2883.md).
 
 ## Hyprland + Astal (full / lite)
 
-Compositor Hyprland, shell propio en `~/.config/ags/` con
-[Astal](https://aylur.github.io/astal/) (TypeScript, GTK4) — una barra con
-workspaces, título de la ventana activa y reloj. La barra lee los mismos
-colores con nombre que `branding/accents/apply.sh` escribe para GTK, así que
-sigue el acento activo sin código adicional.
+Hyprland ≥ 0.56 se configura en **Lua**. La configuración de Static Linux
+(atajos, aspecto, arranque, reglas) vive en
+`/usr/share/static-linux/hypr/static.lua` y se actualiza con el sistema; tu
+`~/.config/hypr/hyprland.lua` solo elige el nivel (`full` o `lite`), la carga y
+deja sitio para tus cambios, que mandan sobre los de serie.
 
-`full` lleva blur, sombras y animaciones completas (pensado para GPUs
-Wayland-capables con ≥4 GB). `lite` es el mismo shell con esos efectos
-apagados — mismo código de Astal, `hyprland.conf` más ligero.
+- **Barra** propia con [Astal](https://aylur.github.io/astal/) (`~/.config/ags/`,
+  TypeScript + GTK4): lanzador, escritorios, reloj con calendario, bandeja,
+  wifi, volumen, batería y menú de apagado. Sigue el acento activo.
+- **Guía de atajos:** se abre sola en el primer inicio de sesión y con
+  **Super + F1**. Lee los atajos en vivo de Hyprland, así que siempre coincide
+  con tu configuración (los tuyos también salen si les pones `description`).
+- El teclado sigue la distribución elegida en el instalador; los bordes y la
+  pantalla de bloqueo, el acento.
+- `full`: blur, sombras y animaciones. `lite`: plano y con animaciones
+  mínimas, para 2-4 GB.
+
+Astal solo existe en el AUR (paquetes `-git`); la ISO lo trae ya compilado
+en su repositorio local, así que la barra funciona desde el primer arranque.
 
 ## XFCE temático
 
@@ -39,6 +51,21 @@ Nivel 512 MB. Sin `lxsession` (un demonio menos residente), sin compositor
 por defecto (`picom` está listado pero no se arranca —
 `>500 MB de RAM en reposo = bug de diseño`, docs/PROYECTO.md). tint2 + jgmenu en
 vez de un panel completo.
+
+## KDE Plasma
+
+Plasma 6 completo (Wayland), con Breeze oscuro, iconos Papirus, las fuentes de
+la marca y el acento de Static Linux aplicado en el primer inicio de sesión
+(fondo + color de acento con las herramientas de Plasma). Es el entorno más
+pesado (~700-900 MB en reposo), por eso `sl-detect` nunca lo recomienda: está
+para quien quiera un escritorio completo y familiar.
+
+## Capturas de pantalla
+
+En todos los entornos, **Super + Shift + S** selecciona una zona de la pantalla
+y la guarda en `Imágenes/Capturas` *y* la copia al portapapeles, sin menús —
+como en Windows. Lo hace `sl-screenshot`, que usa la herramienta de cada
+sesión (maim en X11, grim en Hyprland, Spectacle en KDE).
 
 ## Theming compartido, con huecos conocidos
 

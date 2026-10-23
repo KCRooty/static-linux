@@ -72,6 +72,10 @@
     <keybind key="A-Tab">
       <action name="NextWindow"/>
     </keybind>
+    <!-- Windows-style region capture: saved to ~/Imágenes/Capturas + clipboard -->
+    <keybind key="W-S-s">
+      <action name="Execute"><command>sl-screenshot</command></action>
+    </keybind>
     <keybind key="Print">
       <action name="Execute"><command>scrot ~/Pictures/%Y-%m-%d-%H%M%S.png</command></action>
     </keybind>

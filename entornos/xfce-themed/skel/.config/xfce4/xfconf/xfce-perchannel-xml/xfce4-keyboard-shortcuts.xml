@@ -10,6 +10,8 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="xfce4-terminal"/>
       <property name="&lt;Super&gt;l" type="string" value="xflock4"/>
       <property name="Print" type="string" value="xfce4-screenshooter"/>
+      <!-- Windows-style region capture: saved to ~/Imágenes/Capturas + clipboard -->
+      <property name="&lt;Shift&gt;&lt;Super&gt;s" type="string" value="sl-screenshot"/>
       <property name="&lt;Alt&gt;F2" type="string" value="xfce4-appfinder --collapsed"/>
       <!-- Tapping Super alone opens the panel menu (Whisker). Xfce can't bind a bare
            modifier without breaking every Super+key shortcut above, so

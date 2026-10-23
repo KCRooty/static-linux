@@ -72,7 +72,7 @@ render() {  # render <template> -> stdout
       -e "s/@BG_HEX@/$BG_HEX/g" \
       -e "s/@ACCENT_ANSI@/$ACCENT_ANSI/g" -e "s/@DIM_ANSI@/$DIM_ANSI/g" \
       -e "s/@DETAIL_ANSI@/$DETAIL_ANSI/g" -e "s/@TEXT_ANSI@/$TEXT_ANSI/g" \
-      -e "s/@LABEL@/$LABEL/g" "$1"
+      -e "s/@LABEL@/$LABEL/g" -e "s/@ACCENT@/$ACCENT/g" "$1"
 }
 bk() { local f="$1"; [[ -e "$f" && ! -e "$BACKUP$f" ]] && { mkdir -p "$(dirname "$BACKUP$f")"; cp -a "$f" "$BACKUP$f"; }; return 0; }
 

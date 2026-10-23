@@ -37,7 +37,6 @@ kitty
 mpv
 imv
 file-roller
-polkit-gnome
 network-manager-applet
 
 # Screenshot
@@ -47,7 +46,20 @@ slurp
 # Login
 sddm
 
-# ---- AUR ----------------------------------------------------------
-# aylurs-gtk-shell (AUR)   the astal CLI (`ags` command) — plain "ags" on
-#                          the AUR is an unrelated adventure-game engine
-# libastal-meta (AUR)      astal core libraries — no official package
+# ---- Astal shell (bar) ---------------------------------------------
+# AUR-only upstream; built into the ISO's local repo by
+# packages/local-repo.sh (CHROOT_AUR_PKGS) and installed from there.
+aylurs-gtk-shell
+libastal-io-git
+libastal-git
+libastal-4-git
+libastal-hyprland-git
+libastal-tray-git
+libastal-wireplumber-git
+libastal-network-git
+libastal-battery-git
+appmenu-glib-translator-git
+
+# ---- media / audio controls used by the binds and the bar -----------
+playerctl
+pavucontrol

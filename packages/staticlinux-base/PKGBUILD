@@ -21,7 +21,9 @@
 #   /usr/share/static-linux/fastfetch/     logo assets (config.jsonc: an
 #                                          /etc default, not here)
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
-#   /usr/bin/{sl-detect,sl-ctl,sl-welcome} symlinks into the paths above
+#   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
+#   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide} symlinks into the paths above
 #
 # Identity: the Static Linux os-release ships as
 # /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
@@ -46,8 +48,10 @@ arch=('any')
 url="https://github.com/KCRooty/static-linux"
 license=('GPL-3.0-only')
 depends=('bash' 'python')
+makedepends=('python-markdown' 'python-yaml')  # offline wiki (docs/build-offline-wiki.py)
 optdepends=(
     'python-gobject: sl-welcome (GTK4 first-boot app)'
+    'python-cairo: sl-welcome overview banner'
     'gtk4: sl-welcome'
     'libadwaita: sl-welcome accent theming'
     'python-yaml: sl-welcome catalog page'
@@ -84,6 +88,8 @@ package() {
 
     # ---- sl-ctl -----------------------------------------------------------
     install -Dm755 sl-ctl/sl-ctl.py "$lib/sl-ctl/sl-ctl.py"
+    install -Dm755 sl-ctl/sl-screenshot "$lib/sl-ctl/sl-screenshot"
+    install -Dm755 sl-ctl/sl-hypr-guide "$lib/sl-ctl/sl-hypr-guide"
 
     # ---- sl-welcome ---------------------------------------------------
     install -Dm755 sl-welcome/sl-welcome "$lib/sl-welcome/sl-welcome"
@@ -101,6 +107,7 @@ package() {
     # tooling, not read by apply.sh at runtime, so they stay out of the
     # package. ------------------------------------------------------------
     install -Dm755 branding/accents/apply.sh "$lib/accents/apply.sh"
+    install -Dm755 branding/accents/sync-wallpaper.sh "$lib/accents/sync-wallpaper.sh"
     install -Dm644 branding/accents/palette.conf "$lib/accents/palette.conf"
     install -Dm644 -t "$lib/accents/templates" branding/accents/templates/*.in
 
@@ -118,8 +125,10 @@ package() {
     install -Dm644 -t "$lib/packages/lists" packages/lists/*.list
 
     # ---- environments (install.sh + full skel/ dotfile tree) ------------
-    for env in xfce-themed openbox-minimal hyprland-astal-full hyprland-astal-lite; do
-        install -Dm755 "entornos/$env/install.sh" "$lib/entornos/$env/install.sh"
+    for env in xfce-themed openbox-minimal hyprland-astal-full hyprland-astal-lite \
+               hyprland-common kde-plasma; do
+        [[ -f "entornos/$env/install.sh" ]] && \
+            install -Dm755 "entornos/$env/install.sh" "$lib/entornos/$env/install.sh"
         if [[ -d "entornos/$env/skel" ]]; then
             while IFS= read -r -d '' f; do
                 rel="${f#entornos/$env/skel/}"
@@ -129,8 +138,9 @@ package() {
     done
     # autostart scripts/hooks need +x even though the rest of skel/ is data
     chmod 755 "$lib/entornos/openbox-minimal/skel/.config/openbox/autostart" 2>/dev/null || true
-    chmod 755 "$lib/entornos/hyprland-astal-full/skel/.config/ags/app.ts" 2>/dev/null || true
-    chmod 755 "$lib/entornos/hyprland-astal-lite/skel/.config/ags/app.ts" 2>/dev/null || true
+    install -Dm755 entornos/kde-plasma/firstrun.sh "$lib/entornos/kde-plasma/firstrun.sh"
+    # Hyprland base config (Lua), loaded by every user's ~/.config/hypr/hyprland.lua
+    install -Dm644 entornos/hyprland-common/static.lua "$pkgdir/usr/share/static-linux/hypr/static.lua"
 
     # ---- shared branding assets (icons/wallpapers/fastfetch logos) ------
     install -Dm644 -t "$share/fastfetch" branding/fastfetch/*.fastfetch branding/fastfetch/*.txt
@@ -148,6 +158,8 @@ package() {
     ln -s /usr/lib/static-linux/sl-detect/detect.py "$pkgdir/usr/bin/sl-detect"
     ln -s /usr/lib/static-linux/sl-ctl/sl-ctl.py "$pkgdir/usr/bin/sl-ctl"
     ln -s /usr/lib/static-linux/sl-welcome/sl-welcome "$pkgdir/usr/bin/sl-welcome"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-screenshot "$pkgdir/usr/bin/sl-screenshot"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-hypr-guide "$pkgdir/usr/bin/sl-hypr-guide"
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
@@ -155,8 +167,15 @@ package() {
     # system-wide default browser, for every environment (a user's own
     # ~/.config/mimeapps.list still wins)
     install -Dm644 packages/staticlinux-base/mimeapps.list "$pkgdir/etc/xdg/mimeapps.list"
+    # for desktops that bind shortcuts to .desktop files (KDE: Meta+Shift+S)
+    install -Dm644 packages/staticlinux-base/sl-screenshot.desktop \
+        "$pkgdir/usr/share/applications/sl-screenshot.desktop"
     install -d "$pkgdir/etc/static-linux"
     echo "purple" > "$pkgdir/etc/static-linux/accent"
+
+    # ---- offline wiki: docs/wiki rendered to one HTML page, opened by
+    # sl-welcome's "Wiki" link so it works without a network ---------------
+    python3 docs/build-offline-wiki.py "$pkgdir/usr/share/doc/static-linux/wiki/index.html"
 
     install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

@@ -35,3 +35,7 @@ xdg-user-dirs
 # Notifications
 dunst
 libnotify
+
+# sl-screenshot on X11 (Super+Shift+S)
+maim
+xclip

@@ -1,0 +1,5 @@
+[services][sl-screenshot.desktop]
+_launch=Meta+Shift+S
+
+[services][org.kde.spectacle.desktop]
+RectangularRegionScreenShot=none

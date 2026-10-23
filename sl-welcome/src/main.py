@@ -44,6 +44,11 @@ class WelcomeApp(Adw.Application):
             self.quit()
             return
 
+        # libadwaita ignores the GTK theme, and a fresh XFCE session sets no
+        # color-scheme preference, so it fell back to light
+        Adw.StyleManager.get_default().set_color_scheme(
+            Adw.ColorScheme.FORCE_DARK)
+
         css_provider = Gtk.CssProvider()
         css_provider.load_from_path(str(SRC_DIR / "style.css"))
         Gtk.StyleContext.add_provider_for_display(

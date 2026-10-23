@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Static Linux — primer inicio en Plasma
+Exec=/usr/lib/static-linux/entornos/kde-plasma/firstrun.sh
+Icon=static-linux
+NoDisplay=true
+X-KDE-autostart-phase=2

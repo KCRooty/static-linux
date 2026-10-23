@@ -83,7 +83,17 @@ EOF
         ufw --force reset >/dev/null
         ufw default deny incoming
         ufw default allow outgoing
-        ufw --force enable
+        # Inside the installer's chroot, `ufw enable` loads the rules into the
+        # kernel the chroot shares with the live session and cuts its
+        # incoming connections. There, only flip ENABLED so ufw.service
+        # loads them on the installed system's first boot.
+        if systemd-detect-virt --chroot -q 2>/dev/null; then
+            sl_backup_file /etc/ufw/ufw.conf
+            sed -i 's/^ENABLED=.*/ENABLED=yes/' /etc/ufw/ufw.conf
+            sl_log "ufw enabled for next boot (running in a chroot)"
+        else
+            ufw --force enable
+        fi
         sl_enable ufw
     fi
 

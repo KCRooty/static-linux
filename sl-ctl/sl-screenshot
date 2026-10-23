@@ -1,0 +1,38 @@
+#!/bin/bash
+# Static Linux — region screenshot, Windows-style (Super+Shift+S everywhere).
+#
+# Select a region, and the PNG is both saved to ~/Imágenes/Capturas (the
+# user's XDG Pictures dir) and copied to the clipboard. No dialog. Esc
+# cancels. Picks the tool for the running session:
+#   KDE Plasma      spectacle (KWin has no wlr-screencopy, so grim can't)
+#   other Wayland   grim + slurp + wl-copy
+#   X11             maim + xclip
+
+set -uo pipefail
+
+pics="$(xdg-user-dir PICTURES 2>/dev/null)"
+[[ -n "$pics" && "$pics" != "$HOME" ]] || pics="$HOME/Imágenes"
+dir="$pics/Capturas"
+mkdir -p "$dir"
+file="$dir/Captura_$(date +%Y-%m-%d_%H-%M-%S).png"
+
+notify() { command -v notify-send >/dev/null && notify-send -a "Capturas" -i "$file" -t 2500 "Captura guardada" "Copiada al portapapeles · $(basename "$file")"; }
+
+if [[ "${XDG_CURRENT_DESKTOP:-}" == *KDE* ]]; then
+    spectacle --background --nonotify --region --output "$file" || exit 1
+    [[ -s "$file" ]] || exit 0                      # selection cancelled
+    if [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+        wl-copy --type image/png < "$file"
+    else
+        xclip -selection clipboard -t image/png -i "$file"
+    fi
+elif [[ -n "${WAYLAND_DISPLAY:-}" ]]; then
+    region="$(slurp -d)" || exit 0                  # Esc
+    grim -g "$region" "$file" || exit 1
+    wl-copy --type image/png < "$file"
+else
+    maim --select --hidecursor "$file" || exit 0    # Esc
+    # xclip keeps serving the clipboard in the background until replaced
+    xclip -selection clipboard -t image/png -i "$file"
+fi
+notify

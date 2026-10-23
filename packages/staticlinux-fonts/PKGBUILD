@@ -1,0 +1,31 @@
+# Maintainer: Static Forge <releases@staticforge.dev>
+#
+# Static Linux's brand typefaces, straight from their upstream releases:
+#   Space Grotesk 2.0.0  UI / body text   github.com/floriankarsten/space-grotesk
+#   Outfit 1.1           display, headings github.com/Outfitio/Outfit-Fonts
+# Both SIL OFL 1.1. Neither is in the official repos; the AUR copies are
+# split across unrelated bundles (Space Grotesk only ships inside the 38c3
+# styleguide package, which needs fontforge), so we package them here.
+
+pkgname=staticlinux-fonts
+pkgver=2026.10.23
+pkgrel=1
+pkgdesc="Static Linux brand fonts: Space Grotesk and Outfit"
+arch=('any')
+url="https://github.com/KCRooty/static-linux"
+license=('OFL-1.1')
+source=("SpaceGrotesk-2.0.0.zip::https://github.com/floriankarsten/space-grotesk/releases/download/2.0.0/SpaceGrotesk-2.0.0.zip"
+        "Outfit-Fonts-1.1.zip::https://github.com/Outfitio/Outfit-Fonts/archive/refs/tags/1.1.zip")
+sha256sums=('53b415577d4139248555300710bea0d268c7a5be67b93de53b716a9736cabffd'
+            '31b95566b43805970a62a12aeb3d90a38e06c4d63e288dd8ebef63985ce5a5b7')
+
+package() {
+    install -Dm644 -t "$pkgdir/usr/share/fonts/space-grotesk" \
+        "$srcdir"/SpaceGrotesk-2.0.0/ttf/static/SpaceGrotesk-*.ttf
+    install -Dm644 -t "$pkgdir/usr/share/fonts/outfit" \
+        "$srcdir"/Outfit-Fonts-1.1/fonts/ttf/Outfit-*.ttf
+    install -Dm644 "$srcdir/SpaceGrotesk-2.0.0/OFL.txt" \
+        "$pkgdir/usr/share/licenses/$pkgname/OFL-SpaceGrotesk.txt"
+    install -Dm644 "$srcdir/Outfit-Fonts-1.1/OFL.txt" \
+        "$pkgdir/usr/share/licenses/$pkgname/OFL-Outfit.txt"
+}

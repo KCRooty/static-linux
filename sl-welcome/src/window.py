@@ -36,6 +36,16 @@ class WelcomeWindow(Adw.ApplicationWindow):
                                     "Catálogo", "system-software-install-symbolic")
 
         switcher.set_stack(stack)
+        # short fade-in of the page being switched to
+        stack.connect("notify::visible-child", self._fade_in)
         toolbar_view.set_content(stack)
         self.toast_overlay.set_child(toolbar_view)
         self.set_content(self.toast_overlay)
+
+    def _fade_in(self, stack: Adw.ViewStack, _pspec) -> None:
+        child = stack.get_visible_child()
+        if child is None:
+            return
+        target = Adw.PropertyAnimationTarget.new(child, "opacity")
+        self._page_anim = Adw.TimedAnimation.new(child, 0.0, 1.0, 220, target)
+        self._page_anim.play()
