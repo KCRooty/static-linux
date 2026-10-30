@@ -1,0 +1,45 @@
+/* Static Linux wiki — Static Forge brand colours for the "custom" palette
+   in mkdocs.yml. Void / Signal Green / Amber. */
+
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: #0B0C10;
+  --md-primary-fg-color--light: #1c1f27;
+  --md-primary-fg-color--dark: #000000;
+  --md-primary-bg-color: #FFFFFF;
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: #00C8A0;
+  --md-accent-fg-color--transparent: #00C8A01a;
+  --md-accent-bg-color: #0B0C10;
+}
+
+:root {
+  --md-code-fg-color: #D6D8E0;
+  --md-code-bg-color: #14151c;
+}
+
+.md-typeset code {
+  font-family: "JetBrains Mono", monospace;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 700;
+}
+
+/* Amber for warnings/critical-rule admonitions, matching branding/. */
+.md-typeset .admonition.warning,
+.md-typeset .admonition.danger {
+  border-color: #F5A623;
+}
+.md-typeset .warning > .admonition-title,
+.md-typeset .danger > .admonition-title {
+  background-color: #f5a6231a;
+}
+.md-typeset .warning > .admonition-title::before,
+.md-typeset .danger > .admonition-title::before {
+  background-color: #F5A623;
+}

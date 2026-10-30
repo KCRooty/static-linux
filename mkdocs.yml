@@ -1,0 +1,81 @@
+site_name: Static Linux
+site_description: "Arch-based Linux distribution with automatic hardware detection, adaptive desktop environments, and privacy-first defaults."
+site_url: https://staticforge.dpdns.org/static-linux/
+repo_url: https://github.com/KCRooty/static-linux
+repo_name: KCRooty/static-linux
+edit_uri: edit/main/docs/wiki/
+docs_dir: docs/wiki
+
+copyright: "Static Linux — by Static Forge. GPL-3.0."
+
+theme:
+  name: material
+  font:
+    text: Space Grotesk
+    code: JetBrains Mono
+  palette:
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-night
+        name: Modo claro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: custom
+      accent: custom
+      toggle:
+        icon: material/weather-sunny
+        name: Modo oscuro
+  icon:
+    repo: fontawesome/brands/github
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.top
+    - navigation.footer
+    - content.action.edit
+    - content.code.copy
+    - search.suggest
+    - search.highlight
+    - toc.follow
+
+extra_css:
+  - stylesheets/static-forge.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - toc:
+      permalink: true
+
+plugins:
+  - search:
+      lang: es
+
+nav:
+  - Inicio: index.md
+  - Instalación: instalacion.md
+  - Construir la ISO: iso.md
+  - Hardware:
+      - Requisitos: hardware/requisitos.md
+      - "Referencia: PC Principal (Ryzen 5 5600 + RTX 3070 Ti)": hardware/pc-principal.md
+      - "Referencia: Packard Bell iMedia S2883": hardware/imedia-s2883.md
+  - Herramientas:
+      - sl-detect: herramientas/sl-detect.md
+      - sl-ctl: herramientas/sl-ctl.md
+      - sl-welcome: herramientas/sl-welcome.md
+      - staticlinux-base: herramientas/staticlinux-base.md
+  - Entornos de escritorio: entornos.md
+  - Privacidad: privacidad.md
+  - Sabores (flavors): sabores.md
+  - Branding y acentos: branding-accents.md
+  - FAQ: faq.md
+  - Contribuir: contribuir.md
+  - "Desarrollo: estructura del repo": estructura.md

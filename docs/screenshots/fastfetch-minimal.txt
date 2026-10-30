@@ -1,0 +1,20 @@
+                                                          core@staticlinux
+           __        __  _         ___                    fast. private. yours.
+     _____/ /_____ _/ /_(_)____   / (_)___  __  ___  __   
+    / ___/ __/ __ `/ __/ / ___/  / / / __ \/ / / / |/_/   distro    Static Linux x86_64
+   (__  ) /_/ /_/ / /_/ / /__   / / / / / / /_/ />  <     kernel    6.18.50-2-lts
+  /____/\__/\__,_/\__/_/\___/  /_/_/_/ /_/\__,_/_/|_|     pkgs      577
+                                                          uptime    2h 10m
+                                                          shell     bash 5.3.15
+                                                          
+                                                          desktop   Xfce4
+                                                          wm        xfwm4
+                                                          theme     Static-Void
+                                                          term      bash
+                                                          
+                                                          cpu       Intel(R) Celeron(R) J1900
+                                                          gpu       Atom Processor Z36xxx/Z37xxx Series Graphics & Display
+                                                          memory    1.92 GiB / 3.64 GiB
+                                                          disk      10.45 GiB / 227.68 GiB
+                                                          
+                                                          ● ● ● ● ● ● ● ●
