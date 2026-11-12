@@ -34,29 +34,14 @@
 @define-color borders             #{{line}};
 
 /* ---- shape (DESIGN.md §5): controls 6 px, containers 8 px, no glow ---- */
-button, entry, spinbutton, combobox button { border-radius: 6px; }
+button, entry, spinbutton, combobox button { border-radius: {{radius_ctl}}px; }
 menu, .menu, .context-menu, popover.background > contents, tooltip { border-radius: 8px; }
 *:focus-visible { outline: 2px solid @accent_color; outline-offset: 1px; }
 selection, *:selected { background-color: @accent_bg_color; color: @accent_fg_color; }
 tooltip, tooltip.background { background-color: #{{surface}}; color: #{{text}}; border: 1px solid #{{line}}; }
 
-/* ---- XFCE top bar: 30 px, solid, workspaces as dots, clock centred ---- */
-.xfce4-panel.background { background-color: #{{bg}}; border-bottom: 1px solid #{{line}}; }
-.xfce4-panel button { border-radius: 6px; padding: 0 6px; color: #{{text}}; transition: background-color 120ms ease-out; }
-.xfce4-panel button:hover { background-color: alpha(#{{accent}}, 0.16); }
-.xfce4-panel button:checked { background-color: alpha(#{{accent}}, 0.22); box-shadow: none; }
-.xfce4-panel label { font-family: "Space Grotesk"; font-weight: 500; }
-/* pager in "buttons" mode: each workspace is a 10 px dot, the current one in the accent */
-.xfce4-panel wnck-pager, .xfce4-panel #pager-10 button { min-width: 10px; min-height: 10px; }
-.xfce4-panel #pager-10 button { padding: 0; margin: 10px 3px; border-radius: 99px; background-color: #{{line}};
-                             color: transparent; font-size: 0; min-width: 10px; min-height: 10px; }
-.xfce4-panel #pager-10 button:checked { background-color: #{{accent}}; }
-.xfce4-panel #pager-10 button:hover { background-color: #{{text_dim}}; }
-
-/* ---- whisker menu: solid, accent only on the hovered row ---- */
-#whiskermenu-window { background-color: #{{bg}}; border: 2px solid #{{line}}; border-radius: 8px; }
-#whiskermenu-window entry { background-color: #{{surface}}; border-radius: 6px; }
-#whiskermenu-window button:hover, #whiskermenu-window treeview:selected { background-color: #{{accent}}; color: #{{accent_fg}}; }
+/* ---- style: {{style}} (panel, menu, window chrome inside GTK) ---- */
+{{style_gtk3}}
 
 /* xfdesktop icon labels sit on the wallpaper */
 XfdesktopIconView.view.label { color: #{{text}}; text-shadow: 0 1px 2px alpha(black, 0.6); }

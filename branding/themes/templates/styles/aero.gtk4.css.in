@@ -1,0 +1,2 @@
+headerbar { background-image: linear-gradient(to bottom, #FFFFFF, #{{tint15}} 50%, #{{tint25}} 51%, #{{tint15}}); }
+button.suggested-action { background-image: linear-gradient(to bottom, #{{accent_hi}}, #{{accent}} 50%, #{{accent_lo}} 51%, #{{accent}}); }

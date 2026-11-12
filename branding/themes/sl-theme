@@ -67,6 +67,17 @@ def load_theme(theme_id: str) -> dict[str, str]:
     theme.setdefault("folders", "yellow")
     theme["gtk_theme"] = "adw-gtk3" if theme["mode"] == "light" else "adw-gtk3-dark"
     theme["color_scheme"] = "prefer-light" if theme["mode"] == "light" else "prefer-dark"
+    theme.setdefault("style", "minimal")
+    if theme["style"] not in xfwm4.STYLES:
+        die(f"theme '{theme_id}': unknown style '{theme['style']}' (one of {', '.join(xfwm4.STYLES)})")
+    theme.setdefault("font_ui", "Space Grotesk")
+    theme["dark_mode"] = "false" if theme["mode"] == "light" else "true"
+    theme["radius_ctl"] = {"minimal": "6", "aero": "4", "ventanas": "4"}[theme["style"]]
+    # tints the styles draw with (gloss, hover rows): bg pulled towards the accent
+    for pct in (8, 15, 25, 40):
+        theme[f"tint{pct}"] = xfwm4._mix(theme["bg"], theme["accent"], pct / 100)
+    theme["accent_hi"] = xfwm4._mix(theme["accent"], "FFFFFF", 0.35)
+    theme["accent_lo"] = xfwm4._mix(theme["accent"], "000000", 0.20)
     for key in ("bg", "surface", "line", "text", "text_dim", "accent", "accent_fg"):
         theme[f"{key}_rgb"] = ",".join(str(int(theme[key][i:i + 2], 16)) for i in (0, 2, 4))
         theme[f"{key}_ansi"] = "38;2;" + theme[f"{key}_rgb"].replace(",", ";")
@@ -80,6 +91,16 @@ def render(text: str, theme: dict[str, str]) -> str:
             die(f"template uses unknown key {{{{{key}}}}}")
         return theme[key]
     return re.sub(r"\{\{\s*([a-z0-9_]+)\s*\}\}", sub, text)
+
+
+def style_partial(theme: dict[str, str], kind: str) -> str:
+    """Rendered templates/styles/<style>.<kind>.in, or "" if the style has none."""
+    path = TEMPLATES / "styles" / f"{theme['style']}.{kind}.in"
+    return render(path.read_text(), theme) if path.is_file() else ""
+
+
+PANEL = ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
+PANEL_STYLE = ".config/static-linux/panel-style"
 
 
 def manifest() -> list[tuple[str, str]]:
@@ -155,11 +176,11 @@ def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None
     settings = [
         ("xsettings", "/Net/ThemeName", theme["gtk_theme"]),
         ("xsettings", "/Net/IconThemeName", "StaticLinux"),
-        ("xsettings", "/Gtk/FontName", "Space Grotesk 10"),
+        ("xsettings", "/Gtk/FontName", f"{theme['font_ui']} 10"),
         ("xsettings", "/Gtk/MonospaceFontName", "JetBrains Mono 10"),
         ("xfwm4", "/general/theme", "StaticLinux"),
-        ("xfwm4", "/general/title_font", "Space Grotesk Medium 10"),
-        ("xfwm4", "/general/button_layout", "|HMC"),
+        ("xfwm4", "/general/title_font", f"{theme['font_ui']} Medium 10"),
+        ("xfwm4", "/general/button_layout", xfwm4.BUTTON_LAYOUT[theme["style"]]),
     ]
     typed = [(c, p, "string", v) for c, p, v in settings]
     for xml_text in channels:
@@ -187,6 +208,62 @@ def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None
                            env=env, check=False)
 
 
+def xfconf_arrays(xml_text: str) -> list[tuple[str, list[tuple[str, str]]]]:
+    """(property, [(type, value)...]) for every array property of a channel file."""
+    import xml.etree.ElementTree as ET
+    out = []
+    def walk(node, path):
+        for prop in node.findall("property"):
+            p = f"{path}/{prop.get('name')}"
+            if prop.get("type") == "array":
+                out.append((p, [(v.get("type"), v.get("value")) for v in prop.findall("value")]))
+            walk(prop, p)
+    walk(ET.fromstring(xml_text), "")
+    return out
+
+
+def swap_panel(w: Writer, theme: dict[str, str], user: str | None) -> None:
+    """Load the style's panel layout. With a session running, xfconfd owns the
+    channel (it would write its copy over our file), so the layout goes in
+    through xfconf-query: reset the channel, set every property, restart the
+    panel. Without a session, writing the file is enough."""
+    text = render((TEMPLATES / "panels" / f"{theme['style']}.xml").read_text(), theme)
+    prefix: list[str] = []
+    env = dict(os.environ)
+    if user and os.geteuid() == 0:
+        uid = pwd.getpwnam(user).pw_uid
+        prefix = ["runuser", "-u", user, "--"]
+        env["DBUS_SESSION_BUS_ADDRESS"] = f"unix:path=/run/user/{uid}/bus"
+    running = shutil.which("xfconf-query") and subprocess.run(
+        ["pgrep", "-u", user or str(os.getuid()), "-x", "xfce4-panel"], capture_output=True).returncode == 0
+    if not running:
+        w.write(PANEL, text)
+        return
+    q = prefix + ["xfconf-query", "-c", "xfce4-panel"]
+    subprocess.run(q + ["-p", "/", "-r", "-R"], env=env, check=False, stderr=subprocess.DEVNULL)
+    for _channel, prop, kind, value in xfconf_from_xml(text):
+        subprocess.run(q + ["-p", prop, "-n", "-t", kind, "-s", value], env=env, check=False,
+                       stderr=subprocess.DEVNULL)
+    for prop, values in xfconf_arrays(text):
+        args = [a for kind, value in values for a in ("-t", kind, "-s", value)]
+        subprocess.run(q + ["-p", prop, "-n", "--force-array", *args], env=env, check=False,
+                       stderr=subprocess.DEVNULL)
+    # the restart talks to the display: borrow DISPLAY/XAUTHORITY from the panel itself
+    pid = subprocess.run(["pgrep", "-u", user or str(os.getuid()), "-x", "xfce4-panel"],
+                         capture_output=True, text=True).stdout.split()
+    try:
+        raw = Path(f"/proc/{pid[0]}/environ").read_bytes().split(b"\0")
+        for item in raw:
+            key, _, value = item.decode(errors="replace").partition("=")
+            if key in ("DISPLAY", "XAUTHORITY", "WAYLAND_DISPLAY"):
+                env[key] = value
+    except (IndexError, OSError):
+        pass
+    subprocess.run(prefix + ["env", *[f"{k}={env[k]}" for k in ("DISPLAY", "XAUTHORITY") if k in env],
+                             "xfce4-panel", "-r"], env=env, check=False,
+                   stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
 def apply(theme_id: str, mode: str, user: str | None) -> None:
     theme = load_theme(theme_id)
     if mode == "skel":
@@ -201,6 +278,8 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
             owner = None
         user = name
     w = Writer(home, owner)
+    theme["style_gtk3"] = style_partial(theme, "gtk3.css")
+    theme["style_gtk4"] = style_partial(theme, "gtk4.css")
     channels = []
     for src, dest in manifest():
         text = render((TEMPLATES / src).read_text(), theme)
@@ -220,9 +299,19 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
         if not (home / custom).exists():  # the user's own rules: create, never overwrite
             w.write(custom, "/* Your own GTK rules. sl-theme never touches this file. */\n")
     w.write(".config/static-linux/theme", theme_id + "\n")
-    log(f"{theme['name']} written to {home}")
-    if mode != "skel":
+    # the bar's layout belongs to the style: only rewrite it when the style
+    # changes, so a user's own panel tweaks survive palette-only switches
+    old_style = (home / PANEL_STYLE).read_text().strip() if (home / PANEL_STYLE).is_file() else "minimal"
+    new_panel = mode == "skel" or old_style != theme["style"]
+    if new_panel:
+        w.write(PANEL_STYLE, theme["style"] + "\n")
+    log(f"{theme['name']} ({theme['style']}) written to {home}")
+    if mode == "skel":
+        w.write(PANEL, render((TEMPLATES / "panels" / f"{theme['style']}.xml").read_text(), theme))
+    else:
         xfconf(theme, user, channels)
+        if new_panel:
+            swap_panel(w, theme, user)
 
 
 def current() -> str:

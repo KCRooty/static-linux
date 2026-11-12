@@ -1,0 +1,37 @@
+/* style: aero (Frutiger Aero). Gloss is drawn with gradients over solid colour:
+ * a light upper half and a tinted lower half. Nothing is transparent. */
+headerbar, .titlebar {
+  background-image: linear-gradient(to bottom, #FFFFFF, #{{tint15}} 50%, #{{tint25}} 51%, #{{tint15}});
+  border-bottom: 1px solid #{{line}};
+}
+button {
+  background-image: linear-gradient(to bottom, #FFFFFF, #{{bg}} 50%, #{{tint15}} 51%, #{{tint8}});
+  border: 1px solid #{{line}};
+  box-shadow: inset 0 1px alpha(white, 0.9);
+}
+button:hover { border-color: #{{accent}}; background-image: linear-gradient(to bottom, #FFFFFF, #{{tint15}} 50%, #{{tint25}} 51%, #{{tint15}}); }
+button:active, button:checked { background-image: linear-gradient(to bottom, #{{tint25}}, #{{tint40}}); box-shadow: inset 0 1px 2px alpha(black, 0.18); }
+button.suggested-action, button.default {
+  background-image: linear-gradient(to bottom, #{{accent_hi}}, #{{accent}} 50%, #{{accent_lo}} 51%, #{{accent}});
+  color: #{{accent_fg}}; border-color: #{{accent_lo}};
+}
+progressbar progress, scale highlight, switch:checked {
+  background-image: linear-gradient(to bottom, #{{accent_hi}}, #{{accent}} 50%, #{{accent_lo}} 51%, #{{accent}});
+}
+
+/* ---- XFCE taskbar: 40 px at the bottom, glossy, start menu on the left ---- */
+.xfce4-panel.background {
+  background-image: linear-gradient(to bottom, #FFFFFF, #{{tint15}} 50%, #{{tint25}} 51%, #{{tint15}});
+  border-top: 1px solid #{{line}};
+}
+.xfce4-panel button { border-radius: 4px; padding: 0 6px; color: #{{text}}; background-image: none; border: 1px solid transparent; box-shadow: none; }
+.xfce4-panel button:hover { border-color: #{{line}}; background-image: linear-gradient(to bottom, alpha(white, 0.9), alpha(white, 0.35) 50%, alpha(#{{accent}}, 0.15) 51%, alpha(#{{accent}}, 0.25)); }
+.xfce4-panel button:checked { border-color: #{{accent}}; background-image: linear-gradient(to bottom, alpha(white, 0.8), alpha(#{{accent}}, 0.25) 51%, alpha(#{{accent}}, 0.35)); }
+.xfce4-panel label { font-family: "{{font_ui}}"; }
+
+/* ---- whisker menu ---- */
+#whiskermenu-window { background-color: #{{surface}}; border: 1px solid #{{line}}; border-radius: 8px; }
+#whiskermenu-window entry { background-color: #FFFFFF; border-radius: 4px; }
+#whiskermenu-window button:hover, #whiskermenu-window treeview:selected {
+  background-image: linear-gradient(to bottom, #{{tint15}}, #{{tint25}}); color: #{{text}}; border-color: #{{accent}};
+}

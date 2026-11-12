@@ -41,6 +41,8 @@ Un tema es una carpeta `branding/themes/<id>/` con `theme.conf` (paleta) y su fo
 | **Bosque** | oscuro | niebla sobre pinos | `#9BC4A0` |
 | **Sakura** | oscuro | ventanas de tinta sobre rosa cerezo | `#F2A7BC` |
 | **Violeta** | oscuro | monocromo violeta | `#8F86F2` |
+| **Aero** (estilo aero) | claro | cielo, agua y hierba con brillo: Frutiger Aero | `#1667A8` |
+| **Ventanas** (estilo ventanas) | oscuro | grafito y azul claro, cercano a Windows 11 | `#4CC2FF` |
 | **Tu fondo** | según la imagen | paleta calculada con matugen de cualquier imagen | el que salga |
 
 Por qué Ámbar por defecto: es el heredero del estilo Retro 70s que Core eligió en octubre (cálido,
@@ -48,7 +50,8 @@ reconocible) y funciona bien en pantallas baratas.
 
 **Claves de `theme.conf`:** `bg` (fondo de ventana), `surface` (campos, terminal, filas), `line`
 (bordes), `text`, `text_dim`, `accent`, `accent_fg` (texto sobre el acento), `danger`, `warning`,
-`term` y `term_bright` (los 16 colores de terminal).
+`term` y `term_bright` (los 16 colores de terminal). Opcionales: `style` (`minimal` si falta),
+`font_ui` (fuente de la interfaz, Space Grotesk si falta) y `folders` (color de carpetas Papirus).
 
 **Reglas de color:**
 - El acento marca **una cosa por pantalla**: lo seleccionado, el foco y la acción principal.
@@ -63,7 +66,23 @@ resto. Cada fondo lleva autor y licencia en `branding/themes/<id>/CREDITS` y en 
 Ningún arte de Core se publica sin su visto bueno expreso, pieza por pieza. Mientras falte un fondo
 definitivo, el tema usa uno provisional y su `CREDITS` lo dice.
 
-## 5. Forma (igual en todos los temas)
+## 5. Forma
+
+Tres estilos. El estilo decide la forma (ventanas, barra, controles); la paleta y el fondo los pone
+el tema. Petición de Core del 2026-11-12: un cuarto estilo Frutiger Aero y un quinto parecido a
+Windows, además del aspecto mínimo.
+
+| Estilo | Ventanas | Barra | Controles | Fuente |
+|---|---|---|---|---|
+| **minimal** | borde de 2 px, tres puntos | arriba, 30 px, escritorios como puntos, reloj al centro | radio 6 px, planos | Space Grotesk |
+| **aero** | barra de título con brillo (mitad superior clara), marco de 4 px, botones cápsula con glifos, cerrar en rojo | abajo, 40 px, con brillo; inicio y apps a la izquierda, reloj y "mostrar escritorio" a la derecha | radio 4 px, degradado con brillo | Noto Sans |
+| **ventanas** | plana, borde de 1 px, botones de 46 px ─ □ ✕, cerrar rojo al pasar | abajo, 48 px, inicio y apps al centro, la app activa subrayada con el acento | radio 4 px, planos | Inter |
+
+El brillo de aero se dibuja con degradados sobre color sólido: la regla de "sin transparencia"
+vale para los tres. La barra solo se reescribe cuando cambia el estilo, así un cambio de paleta
+no borra los retoques que el usuario haya hecho en su panel.
+
+Lo que sigue es la forma del estilo **minimal**:
 
 | Pieza | Decisión | Por qué |
 |---|---|---|

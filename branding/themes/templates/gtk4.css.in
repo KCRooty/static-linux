@@ -33,8 +33,11 @@
 @define-color thumbnail_fg_color  #{{text}};
 @define-color borders             #{{line}};
 
-button, entry, spinbutton { border-radius: 6px; }
+button, entry, spinbutton { border-radius: {{radius_ctl}}px; }
 popover > contents, .card { border-radius: 8px; }
 *:focus-visible { outline: 2px solid @accent_color; outline-offset: 1px; }
+
+/* ---- style: {{style}} ---- */
+{{style_gtk4}}
 
 @import url("gtk-custom.css");
