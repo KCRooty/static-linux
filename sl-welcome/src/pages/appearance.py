@@ -1,12 +1,14 @@
-"""Appearance page — the 10-accent picker, delegates to branding/accents/apply.sh.
+"""Appearance page — the theme picker (wallpaper + palette + style), delegates
+to sl-theme, plus the old accent helpers the overview banner still reads.
 
-Applying an accent as the logged-in user needs no root (apply.sh defaults to
-$HOME mode), so this page runs the script directly — no pkexec here.
+Applying a theme as the logged-in user needs no root (sl-theme writes only to
+$HOME and talks to the running session), so this page runs it directly.
 """
 
 from __future__ import annotations
 
 import subprocess
+import threading
 from pathlib import Path
 
 import gi
@@ -15,7 +17,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
-from paths import accent_apply_path, accent_palette_path  # noqa: E402
+from paths import accent_apply_path, accent_palette_path, themes_dir  # noqa: E402
 
 
 def _load_palette() -> list[dict]:
@@ -48,126 +50,82 @@ def _current_accent() -> str:
         return "purple"
 
 
+STYLE_LABEL = {"minimal": "barra fina arriba", "aero": "Frutiger Aero, barra abajo",
+               "ventanas": "como Windows, barra abajo"}
+
+
+def _themes() -> list[dict]:
+    out = []
+    root = themes_dir()
+    if not root.is_dir():
+        return out
+    for conf in sorted(root.glob("*/theme.conf")):
+        theme = {"id": conf.parent.name, "dir": conf.parent}
+        for line in conf.read_text().splitlines():
+            line = line.strip()
+            if line.startswith("#") and "comment" not in theme:
+                theme["comment"] = line.lstrip("# ").split(":", 1)[-1].strip().split(". ")[0].rstrip(".")
+            elif "=" in line and not line.startswith("#"):
+                key, value = line.split("=", 1)
+                theme[key.strip()] = value.strip()
+        out.append(theme)
+    # the default first, then alphabetical
+    out.sort(key=lambda t: (t["id"] != "ambar", t.get("name", t["id"])))
+    return out
+
+
+def _current_theme() -> str:
+    path = Path.home() / ".config/static-linux/theme"
+    try:
+        return path.read_text().strip() or "ambar"
+    except OSError:
+        return "ambar"
+
+
 def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup(
-        title="Acento de color",
-        description="Recolorea fastfetch, GTK, borde de ventanas, terminal, "
-                     "greeter y fondo de pantalla a la vez. Sin sudo.",
+        title="Tema",
+        description="Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas "
+                    "y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo.",
     )
     page.add(group)
-
-    current = _current_accent()
-    flow = Gtk.FlowBox(selection_mode=Gtk.SelectionMode.NONE,
-                        max_children_per_line=5, row_spacing=12, column_spacing=12,
-                        margin_top=8, margin_bottom=8)
-
-    swatches: dict[str, Gtk.Widget] = {}
-
-    def mark_selected(name: str) -> None:
-        for n, btn in swatches.items():
-            if n == name:
-                btn.add_css_class("selected")
-            else:
-                btn.remove_css_class("selected")
-
-    def on_click(_btn, accent_name: str) -> None:
-        apply_sh = accent_apply_path()
-        if not apply_sh.exists():
-            toast_overlay.add_toast(Adw.Toast(title="No encuentro branding/accents/apply.sh"))
-            return
-
-        def run():
-            result = subprocess.run(["bash", str(apply_sh), accent_name],
-                                     capture_output=True, text=True)
-            GLib.idle_add(after_run, result)
-
-        def after_run(result):
-            if result.returncode == 0:
-                mark_selected(accent_name)
-                toast_overlay.add_toast(Adw.Toast(title=f"Acento aplicado: {accent_name}"))
-            else:
-                toast_overlay.add_toast(Adw.Toast(title="No se pudo aplicar el acento"))
-
-        import threading
-        threading.Thread(target=run, daemon=True).start()
-
-    for acc in _load_palette():
-        btn = Gtk.Button(css_classes=["sl-accent-swatch"], tooltip_text=acc["label"])
-        css = Gtk.CssProvider()
-        css.load_from_string(
-            f"button {{ background-color: #{acc['accent']}; }}"
-        )
-        btn.get_style_context().add_provider(css, Gtk.STYLE_PROVIDER_PRIORITY_APPLICATION)
-        btn.connect("clicked", on_click, acc["name"])
-        swatches[acc["name"]] = btn
-        flow.append(btn)
-
-    mark_selected(current)
-    group.add(flow)
-
-    page.add(_style_group(toast_overlay, current))
-    return page
-
-
-STYLES = [
-    ("retro", "void", "Retro 70s", "Rayas groovy cálidas y esquinas suaves (el de serie)."),
-    ("cyberpunk", "neon", "Cyberpunk", "Rejilla neón, bordes duros y brillos."),
-    ("liquid", "liquid", "Líquido", "Minimalista y translúcido, al estilo Apple, con Inter."),
-]
-WALLPAPERS = Path("/usr/share/static-linux/wallpapers")
-
-
-def _current_style() -> str:
-    apply_sh = accent_apply_path()
-    try:
-        out = subprocess.run(["bash", str(apply_sh), "--current-style"],
-                             capture_output=True, text=True, timeout=5)
-        return out.stdout.strip() or "retro"
-    except (OSError, subprocess.SubprocessError):
-        return "retro"
-
-
-def _style_group(toast_overlay: Adw.ToastOverlay, accent: str) -> Adw.PreferencesGroup:
-    group = Adw.PreferencesGroup(
-        title="Estilo",
-        description="El aspecto de todo el sistema: fondo, forma de ventanas y controles, "
-                    "tipografía. Se combina con cualquier color de acento.",
-    )
-    current = _current_style()
+    tool = themes_dir() / "sl-theme"
+    current = _current_theme()
     first = None
-    for key, prefix, title, desc in STYLES:
-        row = Adw.ActionRow(title=title, subtitle=desc)
-        thumb = WALLPAPERS / accent / f"{prefix}-{accent}.png"
-        if thumb.exists():
-            pic = Gtk.Picture.new_for_filename(str(thumb))
-            pic.set_size_request(112, 63)
+    for theme in _themes():
+        mode = "claro" if theme.get("mode") == "light" else "oscuro"
+        style = STYLE_LABEL.get(theme.get("style", "minimal"), "")
+        row = Adw.ActionRow(title=theme.get("name", theme["id"]),
+                            subtitle=f"{mode} · {style}" + (f" · {theme['comment']}" if theme.get("comment") else ""))
+        preview = theme["dir"] / "preview.jpg"
+        if preview.exists():
+            pic = Gtk.Picture.new_for_filename(str(preview))
+            pic.set_size_request(128, 72)
             pic.set_content_fit(Gtk.ContentFit.COVER)
-            frame = Gtk.Frame(child=pic, valign=Gtk.Align.CENTER, css_classes=["sl-card"])
-            row.add_suffix(frame)
-        radio = Gtk.CheckButton(valign=Gtk.Align.CENTER, active=(key == current))
+            row.add_suffix(Gtk.Frame(child=pic, valign=Gtk.Align.CENTER, css_classes=["sl-card"]))
+        radio = Gtk.CheckButton(valign=Gtk.Align.CENTER, active=(theme["id"] == current))
         if first is None:
             first = radio
         else:
             radio.set_group(first)
         row.add_prefix(radio)
         row.set_activatable_widget(radio)
-        radio.connect("toggled", _on_style, key, accent, toast_overlay)
+        radio.connect("toggled", _on_theme, theme, tool, toast_overlay)
         group.add(row)
-    return group
+    if first is None:
+        group.set_description("No encuentro los temas de Static Linux (sl-theme).")
+    return page
 
 
-def _on_style(radio: Gtk.CheckButton, style: str, accent: str, toast_overlay) -> None:
+def _on_theme(radio: Gtk.CheckButton, theme: dict, tool: Path, toast_overlay) -> None:
     if not radio.get_active():
         return
-    apply_sh = accent_apply_path()
 
     def run():
-        res = subprocess.run(["bash", str(apply_sh), accent, "--style", style],
-                             capture_output=True, text=True)
+        res = subprocess.run(["python3", str(tool), theme["id"]], capture_output=True, text=True)
+        name = theme.get("name", theme["id"])
         GLib.idle_add(lambda: toast_overlay.add_toast(Adw.Toast(
-            title=f"Estilo aplicado: {style}" if res.returncode == 0
-            else "No se pudo aplicar el estilo")))
+            title=f"Tema aplicado: {name}" if res.returncode == 0 else "No se pudo aplicar el tema")))
 
-    import threading
     threading.Thread(target=run, daemon=True).start()

@@ -128,6 +128,7 @@ class Writer:
             saved = self.backup / rel
             saved.parent.mkdir(parents=True, exist_ok=True)
             shutil.copy2(dest, saved)
+            self.chown(saved)  # run as root (installer): the user must own the backups too
         dest.parent.mkdir(parents=True, exist_ok=True)
         if isinstance(data, bytes):
             dest.write_bytes(data)

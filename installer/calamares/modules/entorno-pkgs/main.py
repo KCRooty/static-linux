@@ -96,14 +96,14 @@ def run():
     if chosen and chosen not in ENVS:
         libcalamares.utils.warning(f"entorno-pkgs: unknown id {chosen!r}, falling back to xfce-themed")
 
-    # the look picked on the "Estilo" page: written first, the environment's
-    # install.sh and the accent job read it (/etc/static-linux/style)
-    style = (gs.value("packagechooser_estilo") or "retro").split(",")[0].strip()
-    if style not in ("retro", "cyberpunk", "liquid"):
-        style = "retro"
+    # the theme picked on the "Tema" page: written first, so the environment's
+    # install.sh themes /etc/skel with it; tema-apply then themes the user
+    theme = (gs.value("packagechooser_tema") or "ambar").split(",")[0].strip()
+    if not theme.replace("-", "").isalnum():
+        theme = "ambar"
     os.makedirs(os.path.join(root, "etc/static-linux"), exist_ok=True)
-    with open(os.path.join(root, "etc/static-linux/style"), "w", encoding="utf-8") as fh:
-        fh.write(style + "\n")
+    with open(os.path.join(root, "etc/static-linux/theme"), "w", encoding="utf-8") as fh:
+        fh.write(theme + "\n")
 
     list_rel, install_rel = ENVS[slug]
     list_path = os.path.join(root, TARGET_PREFIX, list_rel)

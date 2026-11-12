@@ -156,6 +156,7 @@ if [[ -n "$DEV_SSH_KEY" ]]; then
 fi
 
 log "airootfs: installer/calamares/ -> etc/calamares/"
+rm -rf "$AIROOTFS/etc/calamares"  # no stale modules from an older tree
 mkdir -p "$AIROOTFS/etc/calamares"
 cp -a "$REPO/installer/calamares/." "$AIROOTFS/etc/calamares/"
 

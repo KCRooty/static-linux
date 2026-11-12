@@ -14,7 +14,10 @@ set -uo pipefail
 ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
 WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
 WP="$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image 2>/dev/null)"
-for cand in "$WP" \
+# the active sl-theme theme decides first (its wallpaper is the theme)
+THEME="$(cat "$HOME/.config/static-linux/theme" 2>/dev/null || cat /etc/static-linux/theme 2>/dev/null)"
+for cand in "/usr/share/static-linux/themes/${THEME:-none}/wallpaper.jpg" \
+            "$WP" \
             "$HOME/.local/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png" \
             "/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png" \
             "/usr/share/backgrounds/static-linux/void-purple.png"; do

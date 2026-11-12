@@ -171,19 +171,22 @@ def cmd_accent(args) -> int:
     return _sh(["bash", str(apply), args.name]).returncode
 
 
-def cmd_style(args) -> int:
-    """retro | cyberpunk | liquid — the look, combined with the current accent."""
-    apply = _accent_apply()
-    if apply is None:
-        sys.exit("sl-ctl: accent tool not found")
-    if not args.name:
-        return _sh(["bash", str(apply), "--current-style"]).returncode
-    if args.name not in ("retro", "cyberpunk", "liquid"):
-        sys.exit("sl-ctl: style must be retro, cyberpunk or liquid")
-    accent = subprocess.run(["bash", str(apply), "--current"], capture_output=True,
-                            text=True).stdout.strip() or "purple"
-    # as a normal user: this user's desktop only; with sudo: also /etc (login screen, defaults)
-    return _sh(["bash", str(apply), accent, "--style", args.name]).returncode
+def _theme_tool() -> Path | None:
+    for p in (Path("/usr/share/static-linux/themes/sl-theme"),
+              Path(__file__).resolve().parents[1] / "branding" / "themes" / "sl-theme"):
+        if p.exists():
+            return p
+    return None
+
+
+def cmd_theme(args) -> int:
+    """Wallpaper + palette + style for the whole look (DESIGN.md), via sl-theme."""
+    tool = _theme_tool()
+    if tool is None:
+        sys.exit("sl-ctl: sl-theme not found")
+    if args.list or not args.name:
+        return _sh(["python3", str(tool), "--list"]).returncode
+    return _sh(["python3", str(tool), args.name]).returncode
 
 
 # ---------------------------------------------------------------------------
@@ -377,9 +380,10 @@ def build_parser() -> argparse.ArgumentParser:
     ac.add_argument("--list", action="store_true", help="list available accents")
     ac.set_defaults(fn=cmd_accent)
 
-    st = sub.add_parser("style", help="show or change the look: retro, cyberpunk, liquid")
-    st.add_argument("name", nargs="?", metavar="retro|cyberpunk|liquid")
-    st.set_defaults(fn=cmd_style)
+    th = sub.add_parser("theme", help="show or change the theme (wallpaper + palette + style)")
+    th.add_argument("name", nargs="?", metavar="ambar|papel|aero|ventanas|...")
+    th.add_argument("--list", action="store_true", help="list available themes")
+    th.set_defaults(fn=cmd_theme)
 
     return p
 

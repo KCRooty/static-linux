@@ -19,6 +19,7 @@ ACCENT_PALETTE_INSTALLED = Path("/usr/lib/static-linux/accents/palette.conf")
 PRIVACY_DIR_INSTALLED = Path("/usr/lib/static-linux/privacidad")
 APPLY_PROFILE_WRAPPER_INSTALLED = Path("/usr/lib/static-linux/sl-welcome/apply-profile")
 SF_PKGBUILDS_INSTALLED = Path("/usr/lib/static-linux/packages/sf")
+THEMES_INSTALLED = Path("/usr/share/static-linux/themes")
 
 
 def _repo_root() -> Path | None:
@@ -83,3 +84,13 @@ def sf_pkgbuild_dir(name: str) -> Path:
     if root:
         return root / "packages" / "sf" / name
     return installed
+
+
+def themes_dir() -> Path:
+    """branding/themes (sl-theme + one folder per theme)."""
+    if (THEMES_INSTALLED / "sl-theme").is_file():
+        return THEMES_INSTALLED
+    root = _repo_root()
+    if root:
+        return root / "branding" / "themes"
+    return THEMES_INSTALLED

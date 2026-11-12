@@ -3,6 +3,7 @@
 
     branding/themes/gen_wallpaper.py aero       -> aero/wallpaper.jpg
     branding/themes/gen_wallpaper.py ventanas   -> ventanas/wallpaper.jpg
+    branding/themes/gen_wallpaper.py violeta    -> violeta/wallpaper.jpg (provisional)
     branding/themes/gen_wallpaper.py all
 
 Same seed, same image. 3840x2160, like the prints.
@@ -96,7 +97,36 @@ def ventanas(rng: np.random.Generator) -> Image.Image:
     return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(1.2))
 
 
-MAKERS = {"aero": aero, "ventanas": ventanas}
+def violeta(rng: np.random.Generator) -> Image.Image:
+    """Provisional: violet ridges at dusk, until Core picks one of his pieces."""
+    y, x = np.mgrid[0:H, 0:W].astype(np.float32)
+    u, v = x / W, y / H
+    img = _grad([(0, "14121D"), (0.45, "2E2350"), (0.7, "6A4C9C"), (0.82, "C89BD8"), (1, "C89BD8")], v)
+    # stars in the upper sky
+    for _ in range(420):
+        sx, sy = rng.uniform(0, W), rng.uniform(0, H * 0.45)
+        r = rng.uniform(0.8, 2.4)
+        d = np.hypot(x[int(max(sy - 6, 0)):int(sy + 6), int(max(sx - 6, 0)):int(sx + 6)] - sx,
+                     y[int(max(sy - 6, 0)):int(sy + 6), int(max(sx - 6, 0)):int(sx + 6)] - sy)
+        a = np.clip(1 - d / r, 0, 1) * rng.uniform(0.3, 0.9) * (1 - sy / (H * 0.45))
+        sl = img[int(max(sy - 6, 0)):int(sy + 6), int(max(sx - 6, 0)):int(sx + 6)]
+        sl[:] = _over(sl, _hex("EDE6FF"), a)
+    # moon
+    d = np.hypot(x - W * 0.72, y - H * 0.24)
+    img = _over(img, _hex("F4ECFF"), np.clip((90 - d) / 2, 0, 1))
+    img = _over(img, _hex("B9A6F0"), np.exp(-(d / 420) ** 2) * 0.25)
+    # five ridges, far (light, hazy) to near (dark)
+    layers = [("8F7AC8", 0.66), ("6B57A6", 0.72), ("4A3C80", 0.79), ("2D2556", 0.86), ("17132A", 0.93)]
+    for i, (col, base) in enumerate(layers):
+        ph = rng.uniform(0, 6.28)
+        ridge = (base - 0.06 * np.sin(u * rng.uniform(2, 4) + ph) - 0.03 * np.sin(u * rng.uniform(7, 11) + ph * 1.7)
+                 - 0.012 * np.sin(u * rng.uniform(23, 31) + ph * 2.3))
+        inside = np.clip((v - ridge) * H / 2.5, 0, 1)
+        img = _over(img, _hex(col), inside)
+    return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
+
+
+MAKERS = {"aero": aero, "ventanas": ventanas, "violeta": violeta}
 
 
 def main(argv: list[str]) -> int:

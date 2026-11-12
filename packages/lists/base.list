@@ -131,3 +131,10 @@ libnotify
 7zip
 ffmpeg
 yt-dlp
+
+# ---- Themes (sl-theme: wallpaper + palette + style, every environment) ----
+adw-gtk-theme
+papirus-icon-theme
+inter-font
+noto-fonts
+cava

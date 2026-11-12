@@ -1,0 +1,8 @@
+---
+# Static Linux — Calamares job: apply the theme picked on the "Tema" page
+# (wallpaper + palette + style) inside the installed system, with sl-theme.
+# Runs late, after users + packages, before "umount".
+type:       "job"
+name:       "tema-apply"
+interface:  "python"
+script:     "main.py"

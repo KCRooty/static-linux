@@ -91,6 +91,23 @@ else
     warn "branding/accents/apply.sh not found — skipping colour layer"
 fi
 
+# --- theme: wallpaper + palette + style (sl-theme, DESIGN.md) -------
+# Runs after the accent layer and rewrites what both touch. The theme is the
+# one recorded by the installer, else Ámbar.
+SL_THEME="/usr/share/static-linux/themes/sl-theme"
+[[ -f "$SL_THEME" ]] || SL_THEME="$HERE/../../branding/themes/sl-theme"
+if [[ -f "$SL_THEME" ]]; then
+    THEME="$(cat /etc/static-linux/theme 2>/dev/null || echo ambar)"
+    log "applying theme: $THEME"
+    if [[ "$MODE" == "skel" ]]; then
+        python3 "$SL_THEME" "$THEME" --skel || warn "theme apply failed"
+    else
+        python3 "$SL_THEME" "$THEME" --user "$USER_NAME" || warn "theme apply failed"
+    fi
+else
+    warn "sl-theme not found, skipping themes"
+fi
+
 # --- optional system config (lightdm) -------------------------------
 if [[ $SYSTEM_CONFIG -eq 1 ]]; then
     [[ $EUID -eq 0 ]] || die "--system-config needs root"

@@ -60,6 +60,8 @@ optdepends=(
     'pacman-contrib: sl-ctl update (checkupdates etc.)'
     'fastfetch: branded system info'
     'lightdm-gtk-greeter: accent-themed login screen'
+    'adw-gtk-theme: sl-theme (GTK3 apps in the theme colours)'
+    'papirus-icon-theme: sl-theme (folders in the theme colour)'
     'reflector: sl-ctl mirror'
     'snapper: sl-ctl snapshot (BTRFS installs only)'
 )
@@ -114,6 +116,24 @@ package() {
     install -Dm644 branding/accents/palette.conf "$lib/accents/palette.conf"
     install -Dm644 -t "$lib/accents/templates" branding/accents/templates/*.in
 
+    # ---- themes: wallpaper + palette + style (DESIGN.md), applied by sl-theme
+    # from the installer, sl-welcome and sl-ctl. gen_wallpaper.py stays out:
+    # it is the tool that drew two of the wallpapers, not needed at runtime.
+    local themes="$share/themes"
+    install -Dm755 branding/themes/sl-theme "$themes/sl-theme"
+    install -Dm644 -t "$themes" branding/themes/check.py branding/themes/icons.py branding/themes/xfwm4.py
+    install -Dm644 -t "$themes/templates" branding/themes/templates/MANIFEST branding/themes/templates/*.in
+    install -Dm644 -t "$themes/templates/styles" branding/themes/templates/styles/*.in
+    install -Dm644 -t "$themes/templates/panels" branding/themes/templates/panels/*.xml
+    for theme_dir in branding/themes/*/; do
+        [[ -f "$theme_dir/theme.conf" ]] || continue
+        id="$(basename "$theme_dir")"
+        install -Dm644 -t "$themes/$id" "$theme_dir"theme.conf "$theme_dir"CREDITS
+        for f in wallpaper.jpg preview.jpg; do
+            [[ -f "$theme_dir/$f" ]] && install -Dm644 "$theme_dir/$f" "$themes/$id/$f"
+        done
+    done
+
     # ---- privacidad (whole tree, structure preserved — apply.sh scripts
     # source ../scripts/lib.sh relative to themselves) --------------------
     for profile in basico mejorado maximo; do
@@ -161,12 +181,15 @@ package() {
     # a default wallpaper visible before the first `sl-ctl accent` / sl-welcome run
     install -Dm644 branding/wallpapers/purple/void-purple.png \
         "$pkgdir/usr/share/backgrounds/static-linux/void-purple.png"
+    install -Dm644 branding/themes/ambar/wallpaper.jpg \
+        "$pkgdir/usr/share/backgrounds/static-linux/ambar.jpg"
 
     # ---- /usr/bin entry points -------------------------------------------
     install -d "$pkgdir/usr/bin"
     ln -s /usr/lib/static-linux/sl-detect/detect.py "$pkgdir/usr/bin/sl-detect"
     ln -s /usr/lib/static-linux/sl-ctl/sl-ctl.py "$pkgdir/usr/bin/sl-ctl"
     ln -s /usr/lib/static-linux/sl-welcome/sl-welcome "$pkgdir/usr/bin/sl-welcome"
+    ln -s /usr/share/static-linux/themes/sl-theme "$pkgdir/usr/bin/sl-theme"
     ln -s /usr/lib/static-linux/sl-ctl/sl-screenshot "$pkgdir/usr/bin/sl-screenshot"
     ln -s /usr/lib/static-linux/sl-ctl/sl-hypr-guide "$pkgdir/usr/bin/sl-hypr-guide"
     ln -s /usr/lib/static-linux/sl-ctl/sl-display-scale "$pkgdir/usr/bin/sl-display-scale"
