@@ -287,7 +287,7 @@ sl-ctl mirror                    # update mirrors
 ```bash
 # Generate key (one time)
 gpg --full-generate-key
-# RSA 4096 · Name: Static Forge · Email: releases@staticforge.dev
+# RSA 4096 · Name: Static Forge · Email: staticforge@staticforge.me
 
 # Sign ISO
 gpg --armor --detach-sign static-linux-2025.06-x86_64.iso

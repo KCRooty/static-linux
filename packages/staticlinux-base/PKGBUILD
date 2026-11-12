@@ -1,4 +1,4 @@
-# Maintainer: Static Forge <releases@staticforge.dev>
+# Maintainer: Static Forge <staticforge@staticforge.me>
 #
 # Static Linux's base meta-package — the glue between "a bunch of scripts in
 # a git repo" and "a real Arch install that identifies and behaves as Static
