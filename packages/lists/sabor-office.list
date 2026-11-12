@@ -1,12 +1,11 @@
 # Static Linux — Sabor: Office
-# LibreOffice, Obsidian, Joplin, Bitwarden. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-# obsidian is official (extra) now — used to be AUR-only. joplin-desktop
-# was wrong (no "-bin" suffix — that's a different, unofficial AUR package).
-
+# LibreOffice in Spanish with spellcheck, Obsidian, KeePassXC, PDF tools.
+# Verified against the official repos 2026-10-23.
 libreoffice-fresh
-bitwarden
+libreoffice-fresh-es
+hunspell-es_es
+hyphen-es
 obsidian
-
-# ---- AUR ----------------------------------------------------------
-# joplin-desktop (AUR)
+keepassxc
+xournalpp
+pdfarranger

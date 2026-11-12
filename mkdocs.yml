@@ -74,7 +74,7 @@ nav:
       - staticlinux-base: herramientas/staticlinux-base.md
   - Entornos de escritorio: entornos.md
   - Privacidad: privacidad.md
-  - Sabores (flavors): sabores.md
+  - Sabores y catálogo: sabores.md
   - Branding y acentos: branding-accents.md
   - FAQ: faq.md
   - Contribuir: contribuir.md

@@ -92,7 +92,8 @@ if [[ -d "$WP_DIR_INSTALLED" ]]; then
 else
     WP_DIR="$HERE/../../branding/wallpapers"
 fi
-WP="$WP_DIR/$ACCENT/void-$ACCENT.png"
+WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
+WP="$WP_DIR/$ACCENT/$WP_PREFIX-$ACCENT.png"
 if [[ -f "$WP" ]]; then
     FEHBG="$TARGET/.fehbg"
     cat > "$FEHBG" <<EOF

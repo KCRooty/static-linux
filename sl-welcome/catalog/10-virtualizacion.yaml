@@ -1,0 +1,14 @@
+category: "Máquinas virtuales"
+apps:
+  - id: virt-manager
+    name: virt-manager (KVM)
+    desc: Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt.
+    pkg: virt-manager qemu-desktop libvirt dnsmasq edk2-ovmf swtpm
+  - id: gnome-boxes
+    name: GNOME Boxes
+    desc: Máquinas virtuales en dos clics.
+    pkg: gnome-boxes
+  - id: virtualbox
+    name: VirtualBox
+    desc: La opción clásica; más lenta que KVM y con módulo propio del kernel.
+    pkg: virtualbox virtualbox-host-dkms

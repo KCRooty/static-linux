@@ -12,10 +12,11 @@
 set -uo pipefail
 
 ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
+WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
 WP="$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image 2>/dev/null)"
 for cand in "$WP" \
-            "$HOME/.local/share/backgrounds/static-linux/void-$ACCENT.png" \
-            "/usr/share/backgrounds/static-linux/void-$ACCENT.png" \
+            "$HOME/.local/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png" \
+            "/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png" \
             "/usr/share/backgrounds/static-linux/void-purple.png"; do
   [[ -n "$cand" && -f "$cand" ]] && { WP="$cand"; break; }
 done

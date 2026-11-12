@@ -1,14 +1,30 @@
 # Static Linux — Sabor: Gaming
-# Steam+Proton-GE, Lutris, Heroic, MangoHud, GameMode. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-
+# Steam + Proton, Lutris, Heroic (Epic/GOG/Amazon), Minecraft, MangoHud, GameMode.
+# Performance setup done by the installer (installer/calamares/modules/sabores):
+# [multilib], 32-bit Vulkan driver for the detected GPU, user in the gamemode
+# group, ntsync loaded (Wine/Proton sync without esync/fsync hacks).
+# Verified against the official repos + Flathub 2026-10-23.
 steam
 lutris
-mangohud
-lib32-mangohud
 gamemode
 lib32-gamemode
+mangohud
+lib32-mangohud
+gamescope
+goverlay
+vulkan-icd-loader
+lib32-vulkan-icd-loader
+lib32-mesa
+wine
+wine-mono
+winetricks
+protontricks
+prismlauncher
 
-# ---- AUR ----------------------------------------------------------
-# heroic-games-launcher-bin (AUR)
+# ---- Flathub (installed system-wide during the install) --------------
+# flatpak: com.heroicgameslauncher.hgl
+# flatpak: com.modrinth.ModrinthApp
+
+# ---- AUR (sl-welcome > Catálogo, or paru) -----------------------------
 # proton-ge-custom-bin (AUR)
+# minecraft-launcher (AUR)

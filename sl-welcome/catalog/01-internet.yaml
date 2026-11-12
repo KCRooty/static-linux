@@ -1,0 +1,40 @@
+# Static Linux — sl-welcome catalog. One file per category.
+# Each app: id, name, desc and at least one source — `pkg` (official repos,
+# pacman), `flatpak` (Flathub app id, installed per user) or `aur` (paru, in
+# a terminal). When an app has several, sl-welcome uses the first available
+# in that order. Brave Origin ships preinstalled and isn't listed.
+category: "Internet"
+apps:
+  - id: firefox
+    name: Firefox
+    desc: El navegador de Mozilla.
+    pkg: firefox
+  - id: zen
+    name: Zen Browser
+    desc: Basado en Firefox, con pestañas verticales y espacios de trabajo.
+    flatpak: app.zen_browser.zen
+    aur: zen-browser-bin
+  - id: chromium
+    name: Chromium
+    desc: La base libre de Chrome, sin servicios de Google.
+    pkg: chromium
+  - id: thunderbird
+    name: Thunderbird
+    desc: Correo, calendario y contactos.
+    pkg: thunderbird
+  - id: qbittorrent
+    name: qBittorrent
+    desc: Cliente BitTorrent libre y sin publicidad.
+    pkg: qbittorrent
+  - id: localsend
+    name: LocalSend
+    desc: Pasa archivos a otros dispositivos de tu red, sin nube.
+    flatpak: org.localsend.localsend_app
+  - id: nextcloud
+    name: Nextcloud
+    desc: Sincroniza con tu propio servidor Nextcloud.
+    pkg: nextcloud-client
+  - id: filezilla
+    name: FileZilla
+    desc: Cliente FTP/SFTP.
+    pkg: filezilla

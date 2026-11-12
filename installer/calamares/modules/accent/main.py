@@ -41,16 +41,19 @@ def run():
 
     # apply.sh --skel writes /etc/skel + /etc inside the target; the first-boot
     # user already exists, so also run it against that user's home.
-    users = libcalamares.globalstorage.value("createdUser") or {}
-    login = users.get("username") if isinstance(users, dict) else None
+    login = libcalamares.globalstorage.value("username")  # set by the users module
 
-    rc = libcalamares.utils.target_env_call(["bash", APPLY, accent, "--skel"])
+    style = (libcalamares.globalstorage.value("packagechooser_estilo") or "retro").split(",")[0].strip()
+    if style not in ("retro", "cyberpunk", "liquid"):
+        style = "retro"
+
+    rc = libcalamares.utils.target_env_call(["bash", APPLY, accent, "--style", style, "--skel"])
     if rc != 0:
         return ("Accent failed", f"apply.sh --skel exited {rc}")
 
     if login:
         libcalamares.utils.target_env_call(
-            ["bash", APPLY, accent, "--user", login]
+            ["bash", APPLY, accent, "--style", style, "--user", login]
         )
 
     libcalamares.utils.debug(f"accent applied: {accent}")

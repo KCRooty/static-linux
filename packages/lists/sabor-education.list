@@ -1,13 +1,11 @@
 # Static Linux — Sabor: Education
-# GeoGebra, Stellarium, Anki, Jupyter, Thonny, FreeCAD. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-# geogebra is official (extra) now — used to be AUR-only.
-
+# GeoGebra, Stellarium, Anki, Jupyter, FreeCAD.
+# Verified against the official repos + AUR 2026-10-23.
 stellarium
 anki
 jupyter-notebook
 freecad
 geogebra
 
-# ---- AUR ----------------------------------------------------------
+# ---- AUR (sl-welcome > Catálogo, or paru) -----------------------------
 # thonny (AUR)

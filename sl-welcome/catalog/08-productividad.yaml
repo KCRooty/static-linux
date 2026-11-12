@@ -1,0 +1,34 @@
+category: "Productividad"
+apps:
+  - id: libreoffice
+    name: LibreOffice
+    desc: Ofimática completa, en español y con corrector.
+    pkg: libreoffice-fresh libreoffice-fresh-es hunspell-es_es
+  - id: obsidian
+    name: Obsidian
+    desc: Notas en Markdown enlazadas.
+    pkg: obsidian
+  - id: keepassxc
+    name: KeePassXC
+    desc: Gestor de contraseñas local y libre.
+    pkg: keepassxc
+  - id: bitwarden
+    name: Bitwarden
+    desc: Gestor de contraseñas en la nube.
+    pkg: bitwarden
+  - id: joplin
+    name: Joplin
+    desc: Notas con sincronización cifrada.
+    aur: joplin-desktop
+  - id: xournalpp
+    name: Xournal++
+    desc: Notas a mano y anotar PDFs.
+    pkg: xournalpp
+  - id: pdfarranger
+    name: PDF Arranger
+    desc: Unir, dividir y reordenar PDFs.
+    pkg: pdfarranger
+  - id: planify
+    name: Planify
+    desc: Tareas y listas.
+    pkg: planify

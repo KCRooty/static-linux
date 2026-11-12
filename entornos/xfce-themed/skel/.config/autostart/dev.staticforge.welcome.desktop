@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Static Linux — Bienvenida
+Name=Bienvenida a Static Linux
 Exec=sl-welcome --autostart
 Icon=static-linux
 Terminal=false

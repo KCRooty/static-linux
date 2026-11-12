@@ -1,0 +1,23 @@
+/* style: liquid — Apple-like minimal: very round, translucent surfaces,
+ * Inter, soft shadows. */
+* { font-family: "Inter", "Space Grotesk", sans-serif; }
+button, entry, #whiskermenu-window button, #whiskermenu-window entry { border-radius: 12px; }
+.xfce4-panel button { border-radius: 10px; }
+menu, .menu, .context-menu, popover.background > contents {
+  border-radius: 16px;
+  background-color: alpha(shade(@sl_bg, 1.5), 0.82);
+  box-shadow: 0 8px 28px alpha(black, 0.35);
+}
+tooltip, tooltip.background {
+  border-radius: 12px;
+  background-color: alpha(shade(@sl_bg, 1.6), 0.86);
+  border: 1px solid alpha(white, 0.08);
+}
+.xfce4-panel { background-color: alpha(@sl_bg, 0.62); }
+#whiskermenu-window {
+  background-color: alpha(shade(@sl_bg, 1.3), 0.86);
+  border-radius: 16px;
+}
+button:hover, .xfce4-panel button:hover { background-color: alpha(white, 0.08); }
+.xfce4-panel button:checked { background-color: alpha(white, 0.12); box-shadow: none; }
+scrollbar slider { border-radius: 99px; }

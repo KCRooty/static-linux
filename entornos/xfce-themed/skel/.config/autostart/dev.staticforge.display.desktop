@@ -1,6 +1,6 @@
 [Desktop Entry]
 Type=Application
-Name=Static Linux — escalado de pantalla
+Name=Static Linux: escalado de pantalla
 Name[en]=Static Linux display scaling
 Comment=Ajusta el tamaño de la interfaz a la densidad de la pantalla (HiDPI)
 Exec=/usr/lib/static-linux/accents/display-setup.sh

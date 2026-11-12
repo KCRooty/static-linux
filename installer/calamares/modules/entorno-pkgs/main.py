@@ -96,6 +96,15 @@ def run():
     if chosen and chosen not in ENVS:
         libcalamares.utils.warning(f"entorno-pkgs: unknown id {chosen!r}, falling back to xfce-themed")
 
+    # the look picked on the "Estilo" page: written first, the environment's
+    # install.sh and the accent job read it (/etc/static-linux/style)
+    style = (gs.value("packagechooser_estilo") or "retro").split(",")[0].strip()
+    if style not in ("retro", "cyberpunk", "liquid"):
+        style = "retro"
+    os.makedirs(os.path.join(root, "etc/static-linux"), exist_ok=True)
+    with open(os.path.join(root, "etc/static-linux/style"), "w", encoding="utf-8") as fh:
+        fh.write(style + "\n")
+
     list_rel, install_rel = ENVS[slug]
     list_path = os.path.join(root, TARGET_PREFIX, list_rel)
     install_target = f"/{TARGET_PREFIX}/{install_rel}"
@@ -126,8 +135,9 @@ def run():
     if rc != 0:
         return ("Environment install.sh failed", f"--skel exited {rc} for {slug}")
 
-    users = gs.value("createdUser") or {}
-    login = users.get("username") if isinstance(users, dict) else None
+    # the user doesn't exist yet at this point (users runs later and copies
+    # /etc/skel, which --skel above already filled); only for re-runs
+    login = gs.value("username")
     if login:
         libcalamares.utils.target_env_call(["bash", install_target, "--home", "--user", login])
 

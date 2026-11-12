@@ -1,0 +1,47 @@
+category: "Desarrollo"
+apps:
+  - id: git
+    name: Git
+    desc: Control de versiones (incluido en Static Linux).
+    pkg: git
+  - id: github-cli
+    name: GitHub CLI
+    desc: GitHub desde la terminal (gh).
+    pkg: github-cli
+  - id: docker
+    name: Docker
+    desc: Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker.
+    pkg: docker docker-compose docker-buildx
+  - id: vscode
+    name: Visual Studio Code
+    desc: La compilación de Microsoft, con su marketplace.
+    aur: visual-studio-code-bin
+  - id: code-oss
+    name: Code - OSS
+    desc: VS Code compilado desde el código libre (repos oficiales).
+    pkg: code
+  - id: vscodium
+    name: VSCodium
+    desc: VS Code sin telemetría de Microsoft.
+    aur: vscodium-bin
+    flatpak: com.vscodium.codium
+  - id: neovim
+    name: Neovim
+    desc: Editor modal en la terminal.
+    pkg: neovim
+  - id: lazygit
+    name: lazygit
+    desc: Git con interfaz en la terminal.
+    pkg: lazygit
+  - id: meld
+    name: Meld
+    desc: Comparar archivos y carpetas.
+    pkg: meld
+  - id: dbeaver
+    name: DBeaver
+    desc: Cliente de bases de datos.
+    pkg: dbeaver
+  - id: android-tools
+    name: Android Tools
+    desc: adb y fastboot.
+    pkg: android-tools

@@ -27,7 +27,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     group = Adw.PreferencesGroup(
         title="Perfil de privacidad",
         description="Cada perfil hace backup automático de lo que toca "
-                     "(/var/backups/static-linux/privacy/) — 100% reversible. "
+                     "(/var/backups/static-linux/privacy/), así que todo se puede deshacer. "
                      "Pide contraseña de administrador.",
     )
     page.add(group)

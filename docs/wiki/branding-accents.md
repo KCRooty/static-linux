@@ -13,6 +13,23 @@ Tipografías (todas SIL OFL): **Outfit 700** para titulares/GRUB/SDDM,
 **Space Grotesk 400** para UI y cuerpo de texto, **JetBrains Mono** para
 terminal, código y `sl-ctl`.
 
+## Tres estilos
+
+El **estilo** es el aspecto; el **acento**, el color. Se combinan libremente
+(3 × 10). Se elige en el instalador (página **Estilo**), en la bienvenida
+(Apariencia) o con `sl-ctl style`.
+
+| Estilo | Fondo | Interfaz |
+|---|---|---|
+| **Retro 70s** (por defecto) | rayas *groovy* en los tonos del acento | esquinas suaves, Space Grotesk |
+| **Cyberpunk** | rejilla neón con sol al horizonte | bordes duros, brillos, títulos en JetBrains Mono |
+| **Líquido** | manchas difuminadas y una onda de luz | muy redondeado, menús y panel translúcidos, Inter |
+
+Los fondos los genera `branding/wallpapers/gen-wallpaper.py --style …`
+(`void-*`, `neon-*`, `liquid-*`), la capa visual es
+`branding/accents/templates/style-<estilo>.css.in`, y en Hyprland el
+redondeo y el blur también siguen al estilo.
+
 ## Los 10 acentos
 
 `branding/accents/palette.conf` — morado es el acento por defecto de marca,

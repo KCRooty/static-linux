@@ -29,7 +29,7 @@ class PrivilegedActionError(RuntimeError):
 def _pkexec_run(cmd: list[str]) -> subprocess.CompletedProcess:
     if not shutil.which("pkexec"):
         raise PrivilegedActionError(
-            "pkexec no está instalado — instala 'polkit' para aplicar cambios de sistema."
+            "pkexec no está instalado. Instala 'polkit' para aplicar cambios de sistema."
         )
     return subprocess.run(["pkexec", *cmd], capture_output=True, text=True)
 

@@ -1,15 +1,15 @@
 """
 Loads the extra-apps catalog (sl-welcome/catalog/*.yaml) for the Catálogo page.
 
-Each file is one category:
+Each file is one category (files sort by name, hence the NN- prefixes):
 
-    category: "Internet"
+    category: "Juegos"
     apps:
-      - id: brave-browser
-        name: Brave
-        desc: Navegador ya instalado por defecto — no aparece aquí.
-        pkg: brave-bin
-        aur: true
+      - id: heroic
+        name: Heroic Games Launcher
+        desc: Epic, GOG y Amazon.
+        flatpak: com.heroicgameslauncher.hgl   # sources: pkg / flatpak / aur
+        aur: heroic-games-launcher-bin         # (pkg may list several, space-separated)
 """
 
 from __future__ import annotations

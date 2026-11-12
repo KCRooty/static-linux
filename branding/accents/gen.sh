@@ -28,7 +28,8 @@ grep -vE '^\s*#|^\s*$' "$HERE/palette.conf" | while IFS='|' read -r name a d det
         -e "s/@TEXT_HEX@/$t/g" -e "s/@BG_HEX@/$bg/g" \
         -e "s/@ACCENT_ANSI@/$(ansi "$a")/g" -e "s/@DIM_ANSI@/$(ansi "$d")/g" \
         -e "s/@DETAIL_ANSI@/$(ansi "$det")/g" -e "s/@TEXT_ANSI@/$(ansi "$t")/g" \
-        -e "s/@LABEL@/$label/g" -e "s/@ACCENT@/$name/g" "$tpl" > "$out/$base"
+        -e "s/@LABEL@/$label/g" -e "s/@ACCENT@/$name/g" \
+        -e "s#@WALLPAPER@#/usr/share/backgrounds/static-linux/void-$name.png#g" "$tpl" > "$out/$base"
   done
   echo "  $name -> themes/$name/"
 done

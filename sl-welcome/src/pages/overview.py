@@ -45,7 +45,7 @@ def build() -> Gtk.Widget:
         box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=4,
                        margin_top=24, margin_bottom=8, halign=Gtk.Align.CENTER)
         box.append(Gtk.Label(label="STATIC LINUX", css_classes=["sl-wordmark"]))
-        box.append(Gtk.Label(label="by Static Forge — fast. private. yours.",
+        box.append(Gtk.Label(label="by Static Forge · fast. private. yours.",
                               css_classes=["sl-tagline"]))
         header.add(box)
     page.add(header)
@@ -68,7 +68,7 @@ def build() -> Gtk.Widget:
 
     rec_group = Adw.PreferencesGroup(
         title="Recomendación de sl-detect",
-        description="Calculada para este hardware — puedes cambiarla en Apariencia/Privacidad.",
+        description="Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad.",
     )
     rec_group.add(_row("Entorno", rec.get("env", "n/a")))
     rec_group.add(_row("Sistema de archivos", rec.get("fs", "n/a")))

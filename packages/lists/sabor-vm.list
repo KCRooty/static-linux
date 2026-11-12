@@ -1,18 +1,12 @@
 # Static Linux — Sabor: Virtual Machines
-# QEMU+KVM, virt-manager, VirtualBox. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-# virtualbox-host-modules-arch doesn't exist — DKMS replaced it years ago,
-# the current package is virtualbox-host-dkms. bridge-utils was dropped
-# from the official repos (superseded by iproute2's bridge features) and
-# is AUR-only now.
-
-qemu-full
-virt-manager
+# KVM/QEMU with virt-manager and GNOME Boxes. libvirt is socket-activated and
+# the user is added to the libvirt group by the installer. VirtualBox is left
+# out on purpose (out-of-tree module, slower than KVM) — it's in the catalog.
+# Verified against the official repos 2026-10-23.
+qemu-desktop
 libvirt
+virt-manager
+gnome-boxes
 dnsmasq
 edk2-ovmf
-virtualbox
-virtualbox-host-dkms
-
-# ---- AUR ----------------------------------------------------------
-# bridge-utils (AUR)
+swtpm

@@ -1,0 +1,46 @@
+category: "Sistema y herramientas"
+apps:
+  - id: 7zip
+    name: 7-Zip
+    desc: Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux).
+    pkg: 7zip
+  - id: ffmpeg
+    name: FFmpeg
+    desc: Convertir audio y vídeo (incluido en Static Linux).
+    pkg: ffmpeg
+  - id: yt-dlp
+    name: yt-dlp
+    desc: Descargar vídeo y audio de YouTube y más (incluido en Static Linux).
+    pkg: yt-dlp
+  - id: openssh
+    name: OpenSSH
+    desc: Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives).
+    pkg: openssh
+  - id: flatseal
+    name: Flatseal
+    desc: Permisos de las apps de Flathub.
+    flatpak: com.github.tchx84.Flatseal
+  - id: timeshift
+    name: Timeshift
+    desc: Copias del sistema para volver atrás.
+    pkg: timeshift
+  - id: gparted
+    name: GParted
+    desc: Particionar discos.
+    pkg: gparted
+  - id: bleachbit
+    name: BleachBit
+    desc: Liberar espacio y borrar rastros.
+    pkg: bleachbit
+  - id: syncthing
+    name: Syncthing
+    desc: Sincronizar carpetas entre tus equipos, sin nube.
+    pkg: syncthing
+  - id: btop
+    name: btop
+    desc: Monitor de recursos en la terminal.
+    pkg: btop
+  - id: ventoy
+    name: Ventoy
+    desc: USB de arranque con varias ISOs a la vez.
+    aur: ventoy-bin

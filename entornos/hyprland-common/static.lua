@@ -42,6 +42,10 @@ local function keyboard()
 end
 
 local accent, dim, detail = accent_colors()
+-- look profile picked in the installer / sl-welcome: retro, cyberpunk, liquid
+local style = (read_file((os.getenv("HOME") or "") .. "/.config/static-linux/style")
+               or read_file("/etc/static-linux/style") or "retro"):gsub("%s+", "")
+local rounding = ({ cyberpunk = 2, liquid = 16 })[style] or (full and 12 or 8)
 local kb_layout, kb_variant = keyboard()
 
 local terminal    = "kitty"
@@ -98,10 +102,10 @@ hl.config({
     },
 
     decoration = {
-        rounding = full and 12 or 8,
+        rounding = rounding,
         rounding_power = 2,
         active_opacity = 1.0,
-        inactive_opacity = full and 0.95 or 1.0,
+        inactive_opacity = full and (style == "liquid" and 0.90 or 0.95) or 1.0,
         shadow = {
             enabled = full,
             range = 14,
@@ -110,8 +114,8 @@ hl.config({
         },
         blur = {
             enabled = full,
-            size = 6,
-            passes = 2,
+            size = style == "liquid" and 9 or 6,
+            passes = style == "liquid" and 3 or 2,
             vibrancy = 0.17,
         },
     },

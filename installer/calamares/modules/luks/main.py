@@ -87,14 +87,14 @@ def run():
     if _is_j1900_class(gs.value("slDetect")):
         libcalamares.utils.warning(
             "luks: LUKS2 elegido en hardware de clase J1900 (HDD/RAM baja/CPU "
-            "antigua) — docs/PROYECTO.md recomienda EXT4 sin cifrar aquí por rendimiento. "
+            "antigua). docs/PROYECTO.md recomienda EXT4 sin cifrar aquí por rendimiento. "
             "No se bloquea la instalación."
         )
 
     sb = _secure_boot_enabled_on_live_system()
     if sb:
         libcalamares.utils.warning(
-            "luks: Secure Boot está ACTIVADO en el firmware — Static Linux no lo "
+            "luks: Secure Boot está ACTIVADO en el firmware y Static Linux no lo "
             "soporta (GRUB sin firmar). Desactívalo en la BIOS/UEFI antes de "
             "arrancar el sistema instalado."
         )
@@ -103,7 +103,7 @@ def run():
     if hooks_ok is False:
         libcalamares.utils.warning(
             "luks: /etc/mkinitcpio.conf en el target no tiene 'encrypt' antes de "
-            "'filesystems' en HOOKS — revisa initcpiocfg, el arranque puede fallar."
+            "'filesystems' en HOOKS. Revisa initcpiocfg, el arranque puede fallar."
         )
 
     gs.insert("slLuksChecked", True)

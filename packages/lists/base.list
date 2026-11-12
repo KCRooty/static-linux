@@ -69,8 +69,8 @@ gtk4
 libadwaita
 polkit
 
-# paru is bootstrapped from the AUR by the installer (needs base-devel + rust)
-# paru (AUR)
+# AUR helper: paru-bin, prebuilt into the ISO's local repo (packages/local-repo.sh)
+paru-bin
 
 # ---- Privacy baseline (see privacidad/ for the profiles) -----------
 ufw
@@ -99,6 +99,8 @@ noto-fonts
 noto-fonts-emoji
 # Space Grotesk + Outfit, packaged in packages/staticlinux-fonts (local repo)
 staticlinux-fonts
+# Inter: the UI font of the "liquid" style
+inter-font
 
 # ---- CLI essentials --------------------------------------------
 git
@@ -123,3 +125,9 @@ which
 # ---- sl-screenshot (Super+Shift+S): ~/Imágenes/Capturas + clipboard ----
 xdg-user-dirs
 libnotify
+
+# ---- Always included (Static Linux defaults) ------------------------
+# archives (7z/zip/rar…), media codecs/conversion, video downloads
+7zip
+ffmpeg
+yt-dlp

@@ -1,14 +1,23 @@
 # Static Linux — Sabor: Development
-# VS Code, Git, Docker, Python, Rust, Node, Java. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-
+# Git, Docker, VS Code (Code - OSS), Python, Rust, Node, Java.
+# Docker is socket-activated (no daemon in RAM until first use) and the user
+# is added to the docker group by the installer.
+# Verified against the official repos + AUR 2026-10-23.
 git
+github-cli
 docker
 docker-compose
+docker-buildx
+code
 python
 python-pip
+python-pipx
 rustup
 nodejs
 npm
 jdk-openjdk
-code
+base-devel
+
+# ---- AUR (sl-welcome > Catálogo, or paru) -----------------------------
+# vscodium-bin (AUR)
+# visual-studio-code-bin (AUR)

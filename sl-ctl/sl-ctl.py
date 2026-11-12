@@ -106,7 +106,7 @@ def cmd_info(args) -> int:
 
     rec = report.get("recommend", {})
     gpu = report.get("gpu", {})
-    print(f"""{GREEN}  ▞▚  Static Linux{RESET}  {DIM}by Static Forge — fast. private. yours.{RESET}
+    print(f"""{GREEN}  ▞▚  Static Linux{RESET}  {DIM}by Static Forge · fast. private. yours.{RESET}
 
   {GREEN}Kernel{RESET}    {os.uname().release}
   {GREEN}CPU{RESET}       {report.get('cpu', {}).get('model', 'n/a')}
@@ -171,6 +171,21 @@ def cmd_accent(args) -> int:
     return _sh(["bash", str(apply), args.name]).returncode
 
 
+def cmd_style(args) -> int:
+    """retro | cyberpunk | liquid — the look, combined with the current accent."""
+    apply = _accent_apply()
+    if apply is None:
+        sys.exit("sl-ctl: accent tool not found")
+    if not args.name:
+        return _sh(["bash", str(apply), "--current-style"]).returncode
+    if args.name not in ("retro", "cyberpunk", "liquid"):
+        sys.exit("sl-ctl: style must be retro, cyberpunk or liquid")
+    accent = subprocess.run(["bash", str(apply), "--current"], capture_output=True,
+                            text=True).stdout.strip() or "purple"
+    # as a normal user: this user's desktop only; with sudo: also /etc (login screen, defaults)
+    return _sh(["bash", str(apply), accent, "--style", args.name]).returncode
+
+
 # ---------------------------------------------------------------------------
 # tweaks  (generic reversible file tweaks)
 # ---------------------------------------------------------------------------
@@ -219,7 +234,7 @@ def cmd_tweaks(args) -> int:
 
     if args.list or not (args.apply or args.revert):
         for name, meta in reg.items():
-            mark = f"{GREEN}applied{RESET}" if state.get(name) else "—"
+            mark = f"{GREEN}applied{RESET}" if state.get(name) else "-"
             print(f"  {name:18} [{mark}]  {meta['desc']}")
         return 0
 
@@ -283,7 +298,7 @@ def cmd_update(args) -> int:
             _sh(["sudo", "-u", user, "paru", "-Syu"])
         else:
             # paru refuses to build as root, and there is no user to drop to.
-            print("sl-ctl: AUR update skipped — no non-root user found. "
+            print("sl-ctl: AUR update skipped: no non-root user found. "
                   "Run `paru -Sua` as your own user.", file=sys.stderr)
     if shutil.which("flatpak"):
         _sh(["flatpak", "update"])
@@ -361,6 +376,10 @@ def build_parser() -> argparse.ArgumentParser:
     ac.add_argument("name", nargs="?", metavar="purple|blue|green|...")
     ac.add_argument("--list", action="store_true", help="list available accents")
     ac.set_defaults(fn=cmd_accent)
+
+    st = sub.add_parser("style", help="show or change the look: retro, cyberpunk, liquid")
+    st.add_argument("name", nargs="?", metavar="retro|cyberpunk|liquid")
+    st.set_defaults(fn=cmd_style)
 
     return p
 

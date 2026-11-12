@@ -1,0 +1,30 @@
+category: "Vídeo"
+apps:
+  - id: kdenlive
+    name: Kdenlive
+    desc: Editor de vídeo libre y completo.
+    pkg: kdenlive
+  - id: shotcut
+    name: Shotcut
+    desc: Editor de vídeo libre, sencillo y rápido.
+    pkg: shotcut
+  - id: davinci-resolve
+    name: DaVinci Resolve
+    desc: Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada.
+    aur: davinci-resolve
+  - id: obs
+    name: OBS Studio
+    desc: Grabar y emitir en directo.
+    pkg: obs-studio
+  - id: handbrake
+    name: HandBrake
+    desc: Convertir y comprimir vídeo.
+    pkg: handbrake
+  - id: vlc
+    name: VLC
+    desc: Reproduce cualquier cosa.
+    pkg: vlc
+  - id: mpv
+    name: mpv
+    desc: Reproductor mínimo y muy rápido.
+    pkg: mpv

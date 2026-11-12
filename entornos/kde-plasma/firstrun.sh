@@ -13,8 +13,9 @@ STATE="$HOME/.local/state/static-linux/kde-firstrun-done"
 ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
 PALETTE=/usr/lib/static-linux/accents/palette.conf
 HEX="$(awk -F'|' -v n="$ACCENT" '$1 ~ "^ *"n" *$" {gsub(/ /,"",$2); print $2}' "$PALETTE" 2>/dev/null)"
-WP="/usr/share/backgrounds/static-linux/void-$ACCENT.png"
-[[ -f "$WP" ]] || WP="/usr/share/static-linux/wallpapers/$ACCENT/void-$ACCENT.png"
+WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
+WP="/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png"
+[[ -f "$WP" ]] || WP="/usr/share/static-linux/wallpapers/$ACCENT/$WP_PREFIX-$ACCENT.png"
 
 # plasmashell has to be up for the wallpaper call
 for _ in $(seq 1 30); do

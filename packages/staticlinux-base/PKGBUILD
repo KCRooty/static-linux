@@ -149,7 +149,8 @@ package() {
     install -Dm755 branding/wallpapers/gen-wallpaper.py "$share/wallpapers/gen-wallpaper.py"
     for accent_dir in branding/wallpapers/*/; do
         accent="$(basename "$accent_dir")"
-        install -Dm644 "$accent_dir/void-$accent.png" "$share/wallpapers/$accent/void-$accent.png"
+        # one per style: void- (retro), neon- (cyberpunk), liquid- (liquid)
+        install -Dm644 -t "$share/wallpapers/$accent" "$accent_dir"/*.png
     done
     # a default wallpaper visible before the first `sl-ctl accent` / sl-welcome run
     install -Dm644 branding/wallpapers/purple/void-purple.png \

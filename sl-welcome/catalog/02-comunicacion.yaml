@@ -1,0 +1,23 @@
+category: "Comunicación"
+apps:
+  - id: vesktop
+    name: Vesktop (Discord + Vencord)
+    desc: Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux.
+    flatpak: dev.vencord.Vesktop
+    aur: vesktop-bin
+  - id: discord
+    name: Discord
+    desc: El cliente oficial.
+    pkg: discord
+  - id: telegram
+    name: Telegram
+    desc: Mensajería.
+    pkg: telegram-desktop
+  - id: signal
+    name: Signal
+    desc: Mensajería cifrada de extremo a extremo.
+    pkg: signal-desktop
+  - id: element
+    name: Element
+    desc: Chat descentralizado (Matrix).
+    pkg: element-desktop

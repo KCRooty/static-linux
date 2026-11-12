@@ -30,6 +30,22 @@ LIST_PATH = "/usr/lib/static-linux/packages/lists/base.list"  # in the live syst
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
 
+def _enable_multilib(conf):
+    try:
+        with open(conf, encoding="utf-8") as fh:
+            text = fh.read()
+    except OSError:
+        return
+    if re.search(r"(?m)^\[multilib\]", text):
+        return
+    new, n = re.subn(r"(?m)^#\[multilib\]\n#Include = /etc/pacman.d/mirrorlist",
+                     "[multilib]\nInclude = /etc/pacman.d/mirrorlist", text)
+    if not n:
+        new = text.rstrip("\n") + "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n"
+    with open(conf, "w", encoding="utf-8") as fh:
+        fh.write(new)
+
+
 def pretty_name():
     return "Installing base packages"
 
@@ -98,6 +114,11 @@ def run():
         if os.path.islink(resolv):
             os.unlink(resolv)
         shutil.copyfile("/etc/resolv.conf", resolv)
+
+    # [multilib]: 32-bit libraries for Steam, Wine/Proton and lib32 GPU
+    # drivers. Enabled up front so the gaming flavor and sl-welcome's
+    # catalog can just pacman -S them.
+    _enable_multilib(os.path.join(root, "etc/pacman.conf"))
 
     if aur_pkgs:
         gs.insert("slBaseAurPending", sorted(set(aur_pkgs)))

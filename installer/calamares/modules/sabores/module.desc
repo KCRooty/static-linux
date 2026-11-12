@@ -1,7 +1,7 @@
 ---
 # Static Linux — Calamares job: install the chosen flavor (sabor) packages.
-# Reads globalStorage "slSabores" (set by a flavor selection page — not built
-# yet). Runs after "packages" (base + environment), before "umount".
+# Reads globalStorage "packagechooser_sabores" (the "Sabores" page, a
+# packagechooser instance). Runs right after "users", see main.py.
 type:       "job"
 name:       "sabores"
 interface:  "python"

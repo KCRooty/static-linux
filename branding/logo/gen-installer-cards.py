@@ -88,10 +88,46 @@ PRIV = {
     "maximo": ("Máximo", "+ Tor, kloak y swap cifrado", "hardened", 3),
 }
 
+def pills(apps, color):
+    """App names as rounded pills, wrapped over up to three rows."""
+    out, x, y = [], 32, 92
+    for name in apps:
+        w = 16 + 9.2 * len(name)
+        if x + w > 440:
+            x, y = 32, y + 44
+        out.append(f'<rect x="{x}" y="{y}" width="{w}" height="32" rx="16" fill="{PANEL}" stroke="{color}"/>'
+                   f'<text x="{x + w / 2}" y="{y + 21}" text-anchor="middle" font-family="Noto Sans" '
+                   f'font-size="15" fill="{TEXT}">{html.escape(name)}</text>')
+        x += w + 10
+    return "".join(out)
+
+
+FLAVORS = {
+    "sabores": ("Sabores", "Paquetes de apps para lo que vayas a hacer", "opcional",
+                ["Gaming", "Creación", "Desarrollo", "Oficina", "VMs", "Educación", "Seguridad", "Servidor"], "#F2B33D"),
+    "gaming": ("Gaming", "Steam, Proton, Epic/GOG y Minecraft", "32-bit + Vulkan",
+               ["Steam", "Lutris", "Heroic", "Prism", "Modrinth", "MangoHud", "GameMode"], "#C2452D"),
+    "content-creation": ("Creación", "Imagen, 3D, vídeo y audio", "audio RT",
+                         ["Krita", "GIMP", "Blender", "Kdenlive", "OBS", "Ardour", "LMMS", "Audacity"], "#E8792B"),
+    "development": ("Desarrollo", "Código, contenedores y lenguajes", "Docker",
+                    ["Git", "VS Code", "Docker", "Python", "Rust", "Node", "Java"], "#2A9D8F"),
+    "office": ("Oficina", "Documentos, notas y contraseñas", "español",
+               ["LibreOffice", "Obsidian", "KeePassXC", "Xournal++", "PDF"], "#F2B33D"),
+    "vm": ("Máquinas virtuales", "KVM con UEFI y TPM para invitados", "KVM",
+           ["virt-manager", "GNOME Boxes", "QEMU", "TPM"], "#00C8A0"),
+    "education": ("Educación", "Ciencia, matemáticas y estudio", "aula",
+                  ["GeoGebra", "Stellarium", "Anki", "Jupyter", "FreeCAD"], "#2A9D8F"),
+    "cybersecurity": ("Ciberseguridad", "Auditoría y análisis", "pentest",
+                      ["Nmap", "Wireshark", "Hashcat", "Metasploit", "Ghidra", "Tor"], "#C2452D"),
+    "server": ("Servidor", "Homelab sin servicios abiertos por defecto", "homelab",
+               ["Docker", "Nginx", "MariaDB", "WireGuard", "Cockpit"], "#6B3A1F"),
+}
+
 out = Path(sys.argv[1])
 out.mkdir(parents=True, exist_ok=True)
 for key, (t, s, chip, body) in ENVS.items():
     (out / f"{key}.svg").write_text(frame(t, s, chip, body))
 for key, (t, s, chip, lvl) in PRIV.items():
     (out / f"{key}.svg").write_text(frame(t, s, chip, shield(lvl)))
-print("\n".join(sorted(str(p) for p in out.glob("*.svg"))))
+for key, (t, sub, chip, apps, color) in FLAVORS.items():
+    (out / f"{key}.svg").write_text(frame(t, sub, chip, pills(apps, color)))

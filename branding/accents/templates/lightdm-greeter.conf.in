@@ -1,7 +1,7 @@
 # Static Linux — LightDM GTK greeter (rendered per accent by apply.sh)
 # Accent: @LABEL@
 [greeter]
-background = /usr/share/backgrounds/static-linux/void-@ACCENT@.png
+background = @WALLPAPER@
 user-background = false
 theme-name = Adwaita-dark
 icon-theme-name = Papirus-Dark

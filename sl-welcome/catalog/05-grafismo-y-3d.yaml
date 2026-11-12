@@ -1,0 +1,34 @@
+category: "Grafismo y 3D"
+apps:
+  - id: krita
+    name: Krita
+    desc: Pintura digital.
+    pkg: krita
+  - id: gimp
+    name: GIMP
+    desc: Retoque fotográfico.
+    pkg: gimp
+  - id: inkscape
+    name: Inkscape
+    desc: Gráficos vectoriales.
+    pkg: inkscape
+  - id: blender
+    name: Blender
+    desc: Modelado, animación y render 3D.
+    pkg: blender
+  - id: freecad
+    name: FreeCAD
+    desc: CAD 3D paramétrico.
+    pkg: freecad
+  - id: darktable
+    name: darktable
+    desc: Revelado RAW.
+    pkg: darktable
+  - id: godot
+    name: Godot
+    desc: Motor de videojuegos libre.
+    pkg: godot
+  - id: aseprite
+    name: Aseprite
+    desc: Pixel art y animación (se compila desde el código).
+    aur: aseprite

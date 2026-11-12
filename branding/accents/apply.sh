@@ -6,6 +6,10 @@
 #   apply.sh purple                 apply to the invoking user + /etc (sudo for /etc)
 #   apply.sh blue --user core       apply to another user's home
 #   sudo apply.sh green --skel      render into /etc/skel + /etc (ISO build)
+#   apply.sh purple --style liquid  also switch the look: retro (default, 70s
+#                                   stripes) · cyberpunk (neon grid, hard edges)
+#                                   · liquid (soft blobs, translucent, Inter)
+#   apply.sh --current-style        print the active style
 #
 # Touches: fastfetch, GTK (3/4), xfwm4 border, xfce4-terminal, LightDM greeter,
 # wallpaper. Every change is backed up to /var/backups/static-linux/accent/
@@ -31,6 +35,8 @@ WP_GEN="$WP_DIR/gen-wallpaper.py"
 BACKUP="/var/backups/static-linux/accent/$(date +%Y%m%d-%H%M%S)"
 STATE_SYS="/etc/static-linux/accent"
 STATE_VAR="/var/lib/static-linux/accent"
+STYLE_SYS="/etc/static-linux/style"
+STYLE=""
 
 MODE="home"
 USER_NAME="${SUDO_USER:-${USER:-root}}"
@@ -45,6 +51,8 @@ while [[ $# -gt 0 ]]; do
   case "$1" in
     --list)    grep -vE '^\s*#|^\s*$' "$PALETTE" | awk -F'|' '{printf "  %-10s %s\n",$1,$7}'; exit 0 ;;
     --current) cat "$STATE_SYS" 2>/dev/null || cat "$STATE_VAR" 2>/dev/null || echo "purple"; exit 0 ;;
+    --current-style) cat "$HOME/.config/static-linux/style" 2>/dev/null || cat "$STYLE_SYS" 2>/dev/null || echo retro; exit 0 ;;
+    --style)   STYLE="$2"; shift ;;
     --skel)    MODE="skel" ;;
     --user)    USER_NAME="$2"; shift ;;
     -*)        die "unknown option: $1" ;;
@@ -66,13 +74,13 @@ ansi() { printf '38;2;%d;%d;%d' "0x${1:0:2}" "0x${1:2:2}" "0x${1:4:2}"; }
 ACCENT_ANSI="$(ansi "$ACCENT_HEX")"; DIM_ANSI="$(ansi "$DIM_HEX")"
 DETAIL_ANSI="$(ansi "$DETAIL_HEX")"; TEXT_ANSI="$(ansi "$TEXT_HEX")"
 
-render() {  # render <template> -> stdout
+render() {  # render <template> -> stdout (@WALLPAPER@ needs WP_SYS, set below)
   sed -e "s/@ACCENT_HEX@/$ACCENT_HEX/g"   -e "s/@DIM_HEX@/$DIM_HEX/g" \
       -e "s/@DETAIL_HEX@/$DETAIL_HEX/g"   -e "s/@TEXT_HEX@/$TEXT_HEX/g" \
       -e "s/@BG_HEX@/$BG_HEX/g" \
       -e "s/@ACCENT_ANSI@/$ACCENT_ANSI/g" -e "s/@DIM_ANSI@/$DIM_ANSI/g" \
       -e "s/@DETAIL_ANSI@/$DETAIL_ANSI/g" -e "s/@TEXT_ANSI@/$TEXT_ANSI/g" \
-      -e "s/@LABEL@/$LABEL/g" -e "s/@ACCENT@/$ACCENT/g" "$1"
+      -e "s/@LABEL@/$LABEL/g" -e "s/@ACCENT@/$ACCENT/g" -e "s#@WALLPAPER@#${WP_SYS:-}#g" "$1"
 }
 bk() { local f="$1"; [[ -e "$f" && ! -e "$BACKUP$f" ]] && { mkdir -p "$(dirname "$BACKUP$f")"; cp -a "$f" "$BACKUP$f"; }; return 0; }
 
@@ -89,7 +97,18 @@ IS_ROOT=$([[ $EUID -eq 0 ]] && echo 1 || echo 0)
 # target home instead (same idea as xfce-themed's ~/.sl-xfce-backup).
 [[ $IS_ROOT -eq 1 ]] || BACKUP="$HOMEDIR/.sl-accent-backup/$(basename "$BACKUP")"
 
-log "accent: $ACCENT ($LABEL)  ·  #$ACCENT_HEX  ·  target $HOMEDIR"
+# ---- style: explicit, else the user's, else the system's, else retro ------
+USER_STYLE_FILE="$HOMEDIR/.config/static-linux/style"
+[[ -n "$STYLE" ]] || STYLE="$(cat "$USER_STYLE_FILE" 2>/dev/null || cat "$STYLE_SYS" 2>/dev/null || echo retro)"
+case "$STYLE" in
+  retro)     WP_PREFIX=void ;;
+  cyberpunk) WP_PREFIX=neon ;;
+  liquid)    WP_PREFIX=liquid ;;
+  *)         die "unknown style '$STYLE' (retro | cyberpunk | liquid)" ;;
+esac
+WP_SYS="/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png"
+
+log "accent: $ACCENT ($LABEL)  ·  #$ACCENT_HEX  ·  style $STYLE  ·  target $HOMEDIR"
 
 # ---- 1. fastfetch (system) -----------------------------------------
 if [[ $IS_ROOT -eq 1 ]]; then
@@ -105,9 +124,9 @@ fi
 for gv in gtk-3.0 gtk-4.0; do
   dst="$HOMEDIR/.config/$gv/gtk.css"
   bk "$dst"; mkdir -p "$(dirname "$dst")"
-  render "$TPL/gtk.css.in" > "$dst"
+  { render "$TPL/gtk.css.in"; echo; render "$TPL/style-$STYLE.css.in"; } > "$dst"
 done
-log "GTK 3/4 accent -> $HOMEDIR/.config/gtk-*/gtk.css"
+log "GTK 3/4 accent + $STYLE style -> $HOMEDIR/.config/gtk-*/gtk.css"
 
 # ---- 3. xfwm4 "Static-Void" theme -------------------------------
 THEME_DST="$HOMEDIR/.local/share/xfwm4/themes/Static-Void"
@@ -141,22 +160,28 @@ if [[ $IS_ROOT -eq 1 ]]; then
 fi
 
 # ---- 6. wallpaper ------------------------------------------------
-WP="$WP_DIR/$ACCENT/void-$ACCENT.png"
-[[ -f "$WP" ]] || { log "generating wallpaper"; python3 "$WP_GEN" --accent "$ACCENT" >/dev/null; }
+WP="$WP_DIR/$ACCENT/$WP_PREFIX-$ACCENT.png"
+[[ -f "$WP" ]] || { log "generating wallpaper"; python3 "$WP_GEN" --accent "$ACCENT" --style "$STYLE" >/dev/null; }
 if [[ $IS_ROOT -eq 1 ]]; then
-  WP_DST="/usr/share/backgrounds/static-linux/void-$ACCENT.png"
+  WP_DST="$WP_SYS"
   install -Dm0644 "$WP" "$WP_DST"
 else
-  WP_DST="$HOMEDIR/.local/share/backgrounds/static-linux/void-$ACCENT.png"
+  WP_DST="$HOMEDIR/.local/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png"
   install -Dm0644 "$WP" "$WP_DST"
 fi
 # update the desktop XML (skel + live)
 DXML="$HOMEDIR/.config/xfce4/xfconf/xfce-perchannel-xml/xfce4-desktop.xml"
-[[ -f "$DXML" ]] && { bk "$DXML"; sed -i -E "s#(void-)[a-z-]+(\.png)#\\1$ACCENT\\2#; s#/backgrounds/static-linux/void-[a-z-]+\.png#$(dirname "$WP_DST" | sed 's#/[^/]*$##')/void-$ACCENT.png#" "$DXML" 2>/dev/null || true; }
+[[ -f "$DXML" ]] && { bk "$DXML"; sed -i -E "s#[^\"]*/backgrounds/static-linux/[a-z]+-[a-z-]+\.png#$WP_DST#g" "$DXML" 2>/dev/null || true; }
 log "wallpaper -> $WP_DST"
 
 # ---- 7. record + live apply -----------------------------------
-if [[ $IS_ROOT -eq 1 ]]; then mkdir -p "$(dirname "$STATE_SYS")"; echo "$ACCENT" > "$STATE_SYS"; fi
+if [[ $IS_ROOT -eq 1 ]]; then
+  mkdir -p "$(dirname "$STATE_SYS")"; echo "$ACCENT" > "$STATE_SYS"; echo "$STYLE" > "$STYLE_SYS"
+fi
+if [[ "$MODE" != "skel" ]]; then
+  mkdir -p "$(dirname "$USER_STYLE_FILE")" && echo "$STYLE" > "$USER_STYLE_FILE"
+  [[ $IS_ROOT -eq 1 ]] && chown "$USER_NAME": "$USER_STYLE_FILE" "$(dirname "$USER_STYLE_FILE")" 2>/dev/null || true
+fi
 mkdir -p "$(dirname "$STATE_VAR")" 2>/dev/null && echo "$ACCENT" > "$STATE_VAR" 2>/dev/null || true
 
 if [[ "$MODE" == "home" ]] && pgrep -u "$USER_NAME" xfce4-session >/dev/null 2>&1; then

@@ -1,0 +1,24 @@
+/* style: cyberpunk (legacy) — hard edges, neon glow on focus/hover,
+ * monospace titles. */
+button, entry, .xfce4-panel button, menu, .menu, .context-menu,
+popover.background > contents, tooltip, #whiskermenu-window button,
+#whiskermenu-window entry, scrollbar slider { border-radius: 2px; }
+
+button:hover, .xfce4-panel button:hover, #whiskermenu-window button:hover {
+  box-shadow: 0 0 8px alpha(@sl_accent, 0.55), inset 0 0 0 1px alpha(@sl_accent, 0.6);
+}
+entry:focus-within, button:focus-visible {
+  box-shadow: 0 0 10px alpha(@sl_accent, 0.7);
+}
+.xfce4-panel {
+  background-color: alpha(@sl_bg, 0.98);
+  border-bottom: 1px solid alpha(@sl_accent, 0.7);
+  box-shadow: 0 1px 10px alpha(@sl_accent, 0.35);
+}
+.xfce4-panel button:checked { box-shadow: inset 0 -2px @sl_detail, 0 0 6px alpha(@sl_detail, 0.5); }
+headerbar .title, .title, window.csd > .titlebar label {
+  font-family: "JetBrains Mono", monospace;
+  letter-spacing: 0.06em;
+}
+selection, *:selected { background-color: @sl_accent; color: @sl_bg; }
+tooltip, tooltip.background { border: 1px solid @sl_detail; }

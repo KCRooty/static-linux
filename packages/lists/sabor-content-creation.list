@@ -1,14 +1,19 @@
 # Static Linux — Sabor: Content Creation
-# Krita, GIMP, Blender, DaVinci, OBS, LMMS, Ardour. (docs/PROYECTO.md flavors table)
-# Verified against archlinux.org/packages + AUR RPC on 2026-09-21.
-
+# Image, 3D, video, audio and streaming. DAWs get realtime scheduling
+# (realtime-privileges + the user in the realtime group, set by the installer).
+# Verified against the official repos + AUR 2026-10-23.
 krita
 gimp
-blender
 inkscape
+blender
+kdenlive
+shotcut
 obs-studio
-lmms
+audacity
 ardour
+lmms
+hydrogen
+realtime-privileges
 
-# ---- AUR ----------------------------------------------------------
+# ---- AUR (sl-welcome > Catálogo, or paru) -----------------------------
 # davinci-resolve (AUR)

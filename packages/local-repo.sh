@@ -35,7 +35,7 @@ AUR_PKGS=(brave-origin-bin)
 # other, so they're built in dependency order inside a clean devtools chroot
 # whose pacman.conf includes this local repo — nothing gets installed on the build host.
 # Needs `devtools` and sudo (makechrootpkg mounts the chroot).
-CHROOT_AUR_PKGS=(appmenu-glib-translator-git libastal-io-git libastal-git libastal-4-git
+CHROOT_AUR_PKGS=(paru-bin appmenu-glib-translator-git libastal-io-git libastal-git libastal-4-git
                  libastal-hyprland-git libastal-tray-git libastal-wireplumber-git
                  libastal-network-git libastal-battery-git aylurs-gtk-shell)
 PKGS=("$@")

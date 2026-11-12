@@ -1,0 +1,46 @@
+category: "Música y audio"
+apps:
+  - id: spotify
+    name: Spotify
+    desc: El cliente oficial (se instala y actualiza con spotify-launcher).
+    pkg: spotify-launcher
+  - id: spicetify
+    name: Spicetify
+    desc: Temas y extensiones para Spotify. Instala Spotify primero.
+    aur: spicetify-cli
+  - id: spotdl
+    name: spotDL
+    desc: Descarga tus listas de Spotify en local (desde YouTube Music).
+    aur: spotdl
+  - id: audacity
+    name: Audacity
+    desc: Grabar y editar audio.
+    pkg: audacity
+  - id: ardour
+    name: Ardour
+    desc: DAW profesional libre: grabación multipista y mezcla.
+    pkg: ardour
+  - id: lmms
+    name: LMMS
+    desc: DAW libre para producir música, al estilo FL Studio.
+    pkg: lmms
+  - id: hydrogen
+    name: Hydrogen
+    desc: Caja de ritmos.
+    pkg: hydrogen
+  - id: bitwig
+    name: Bitwig Studio
+    desc: DAW comercial con versión de prueba; nativo en Linux.
+    flatpak: com.bitwig.BitwigStudio
+  - id: reaper
+    name: REAPER
+    desc: DAW ligero y potente (licencia de pago, prueba completa).
+    flatpak: fm.reaper.Reaper
+  - id: mixxx
+    name: Mixxx
+    desc: Software de DJ.
+    pkg: mixxx
+  - id: audacious
+    name: Audacious
+    desc: Reproductor de música ligero.
+    pkg: audacious

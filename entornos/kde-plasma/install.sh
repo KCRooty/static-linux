@@ -84,7 +84,8 @@ fi
 # --- system bits (installer / ISO only) -------------------------------
 if [[ "$MODE" == "skel" ]]; then
     # SDDM: Breeze theme on the accent wallpaper, Wayland greeter
-    WP="/usr/share/backgrounds/static-linux/void-$ACCENT.png"
+    WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
+    WP="/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png"
     install -d /etc/sddm.conf.d
     cat > /etc/sddm.conf.d/10-static-linux.conf <<EOF
 [General]

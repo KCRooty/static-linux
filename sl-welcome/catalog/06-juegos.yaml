@@ -1,0 +1,55 @@
+category: "Juegos"
+apps:
+  - id: steam
+    name: Steam
+    desc: Con Proton para jugar a juegos de Windows.
+    pkg: steam
+  - id: heroic
+    name: Heroic Games Launcher
+    desc: Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux.
+    flatpak: com.heroicgameslauncher.hgl
+    aur: heroic-games-launcher-bin
+  - id: lutris
+    name: Lutris
+    desc: Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…).
+    pkg: lutris
+  - id: prismlauncher
+    name: Prism Launcher
+    desc: Minecraft Java con varias instancias y mods.
+    pkg: prismlauncher
+  - id: modrinth
+    name: Modrinth App
+    desc: Minecraft Java con los mods y modpacks de Modrinth.
+    flatpak: com.modrinth.ModrinthApp
+  - id: minecraft-launcher
+    name: Minecraft Launcher (oficial)
+    desc: El launcher oficial de Mojang para Minecraft Java.
+    aur: minecraft-launcher
+  - id: minecraft-bedrock
+    name: Minecraft Bedrock
+    desc: Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play).
+    flatpak: io.mrarm.mcpelauncher
+  - id: protonup
+    name: ProtonUp-Qt
+    desc: Instala Proton-GE y otras versiones de Proton/Wine con un clic.
+    flatpak: net.davidotek.pupgui2
+  - id: bottles
+    name: Bottles
+    desc: Programas de Windows en entornos aislados.
+    flatpak: com.usebottles.bottles
+  - id: gamemode
+    name: GameMode + MangoHud
+    desc: Rendimiento al jugar y contador de FPS.
+    pkg: gamemode lib32-gamemode mangohud lib32-mangohud
+  - id: retroarch
+    name: RetroArch
+    desc: Emulador multisistema.
+    pkg: retroarch
+  - id: dolphin-emu
+    name: Dolphin
+    desc: Emulador de GameCube y Wii.
+    pkg: dolphin-emu
+  - id: pcsx2
+    name: PCSX2
+    desc: Emulador de PlayStation 2.
+    flatpak: net.pcsx2.PCSX2
