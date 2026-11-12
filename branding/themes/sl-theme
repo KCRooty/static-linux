@@ -1,0 +1,256 @@
+#!/usr/bin/env python3
+"""sl-theme: apply a Static Linux theme (wallpaper + palette) to the whole look.
+
+    sl-theme --list                  themes and which one is active
+    sl-theme --current               print the active theme id
+    sl-theme ambar                   apply to the invoking user
+    sl-theme papel --user testu      apply to another user's home (root)
+    sl-theme ambar --skel            render into /etc/skel (ISO build, root)
+
+A theme is branding/themes/<id>/theme.conf + wallpaper.jpg (see DESIGN.md).
+Every file this script overwrites is copied first to
+~/.local/state/static-linux/theme-backup/<timestamp>/, so nothing is lost.
+Templates live in templates/; MANIFEST lists template -> destination.
+"""
+
+from __future__ import annotations
+
+import argparse
+import os
+import pwd
+import re
+import shutil
+import subprocess
+import sys
+import time
+from pathlib import Path
+
+HERE = Path(__file__).resolve().parent
+INSTALLED = Path("/usr/share/static-linux/themes")
+THEMES = INSTALLED if (INSTALLED / "ambar").is_dir() else HERE
+TEMPLATES = THEMES / "templates"
+DEFAULT = "ambar"
+
+sys.path.insert(0, str(THEMES))
+import check  # noqa: E402  (same folder: contrast rules)
+import icons  # noqa: E402  (folder-coloured Papirus)
+import xfwm4  # noqa: E402  (window decoration generator)
+
+
+def log(msg: str) -> None:
+    print(f"\033[1;33m[theme]\033[0m {msg}")
+
+
+def die(msg: str) -> None:
+    print(f"\033[1;31m[theme]\033[0m {msg}", file=sys.stderr)
+    sys.exit(1)
+
+
+def theme_ids() -> list[str]:
+    return sorted(p.name for p in THEMES.iterdir() if (p / "theme.conf").is_file())
+
+
+def load_theme(theme_id: str) -> dict[str, str]:
+    path = THEMES / theme_id / "theme.conf"
+    if not path.is_file():
+        die(f"unknown theme '{theme_id}' (sl-theme --list)")
+    theme = check.load(path)
+    errors = check.check(theme_id, theme)
+    if errors:
+        die(f"theme '{theme_id}' fails DESIGN.md contrast rules: {errors[0]}")
+    # derived values the templates use
+    for i, colour in enumerate(theme["term"].split(",") + theme["term_bright"].split(",")):
+        theme[f"term{i}"] = colour
+    wall = THEMES / theme_id / "wallpaper.jpg"
+    theme["wallpaper"] = str(wall if wall.is_file() else "")
+    theme["id"] = theme_id
+    theme.setdefault("folders", "yellow")
+    theme["gtk_theme"] = "adw-gtk3" if theme["mode"] == "light" else "adw-gtk3-dark"
+    theme["color_scheme"] = "prefer-light" if theme["mode"] == "light" else "prefer-dark"
+    for key in ("bg", "surface", "line", "text", "text_dim", "accent", "accent_fg"):
+        theme[f"{key}_rgb"] = ",".join(str(int(theme[key][i:i + 2], 16)) for i in (0, 2, 4))
+        theme[f"{key}_ansi"] = "38;2;" + theme[f"{key}_rgb"].replace(",", ";")
+    return theme
+
+
+def render(text: str, theme: dict[str, str]) -> str:
+    def sub(m: re.Match) -> str:
+        key = m.group(1)
+        if key not in theme:
+            die(f"template uses unknown key {{{{{key}}}}}")
+        return theme[key]
+    return re.sub(r"\{\{\s*([a-z0-9_]+)\s*\}\}", sub, text)
+
+
+def manifest() -> list[tuple[str, str]]:
+    rows = []
+    for line in (TEMPLATES / "MANIFEST").read_text().splitlines():
+        line = line.strip()
+        if line and not line.startswith("#"):
+            src, dest = line.split()
+            rows.append((src, dest))
+    return rows
+
+
+class Writer:
+    """Writes files under a home, backing up whatever it replaces once."""
+
+    def __init__(self, home: Path, owner: tuple[int, int] | None) -> None:
+        self.home = home
+        self.owner = owner
+        stamp = time.strftime("%Y%m%d-%H%M%S")
+        self.backup = home / ".local/state/static-linux/theme-backup" / stamp
+
+    def write(self, rel: str, data: str | bytes) -> None:
+        dest = self.home / rel
+        if dest.is_file():
+            saved = self.backup / rel
+            saved.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(dest, saved)
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if isinstance(data, bytes):
+            dest.write_bytes(data)
+        else:
+            dest.write_text(data)
+        self.chown(dest)
+
+    def link(self, rel: str, target: str) -> None:
+        dest = self.home / rel
+        dest.parent.mkdir(parents=True, exist_ok=True)
+        if dest.is_symlink() or dest.exists():
+            dest.unlink()
+        dest.symlink_to(target)
+        if self.owner:
+            os.lchown(dest, *self.owner)
+            self.chown(dest.parent)
+
+    def chown(self, path: Path) -> None:
+        if not self.owner:
+            return
+        # own every directory we may have created between home and the file
+        for p in [path, *path.parents]:
+            if p == self.home:
+                break
+            os.chown(p, *self.owner)
+
+
+def xfconf_from_xml(xml_text: str) -> list[tuple[str, str, str, str]]:
+    """(channel, property, type, value) for every leaf property of a rendered
+    xfconf channel file, so the running session gets exactly what skel gets."""
+    import xml.etree.ElementTree as ET
+    root = ET.fromstring(xml_text)
+    out = []
+    def walk(node, path):
+        for prop in node.findall("property"):
+            p = f"{path}/{prop.get('name')}"
+            if prop.get("type") not in ("empty", "array") and prop.get("value") is not None:
+                out.append((root.get("name"), p, prop.get("type"), prop.get("value")))
+            walk(prop, p)
+    walk(root, "")
+    return out
+
+
+def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None:
+    """Point the running XFCE session at the new files (no-op outside one)."""
+    settings = [
+        ("xsettings", "/Net/ThemeName", theme["gtk_theme"]),
+        ("xsettings", "/Net/IconThemeName", "StaticLinux"),
+        ("xsettings", "/Gtk/FontName", "Space Grotesk 10"),
+        ("xsettings", "/Gtk/MonospaceFontName", "JetBrains Mono 10"),
+        ("xfwm4", "/general/theme", "StaticLinux"),
+        ("xfwm4", "/general/title_font", "Space Grotesk Medium 10"),
+        ("xfwm4", "/general/button_layout", "|HMC"),
+    ]
+    typed = [(c, p, "string", v) for c, p, v in settings]
+    for xml_text in channels:
+        typed += xfconf_from_xml(xml_text)
+    env = dict(os.environ)
+    prefix: list[str] = []
+    if user and os.geteuid() == 0:
+        uid = pwd.getpwnam(user).pw_uid
+        bus = f"/run/user/{uid}/bus"
+        if not Path(bus).exists():
+            return
+        prefix = ["runuser", "-u", user, "--"]
+        env["DBUS_SESSION_BUS_ADDRESS"] = f"unix:path={bus}"
+    if not shutil.which("xfconf-query"):
+        return
+    for channel, prop, kind, value in typed:
+        subprocess.run(prefix + ["xfconf-query", "-c", channel, "-p", prop, "-n", "-t", kind, "-s", value],
+                       env=env, stderr=subprocess.DEVNULL, check=False)
+    # wallpaper on every monitor/workspace xfdesktop already knows about
+    out = subprocess.run(prefix + ["xfconf-query", "-c", "xfce4-desktop", "-l"], env=env,
+                         capture_output=True, text=True, check=False).stdout
+    for prop in out.split():
+        if prop.endswith("/last-image"):
+            subprocess.run(prefix + ["xfconf-query", "-c", "xfce4-desktop", "-p", prop, "-s", theme["wallpaper"]],
+                           env=env, check=False)
+
+
+def apply(theme_id: str, mode: str, user: str | None) -> None:
+    theme = load_theme(theme_id)
+    if mode == "skel":
+        home, owner = Path("/etc/skel"), None
+    else:
+        name = user or os.environ.get("SUDO_USER") or pwd.getpwuid(os.getuid()).pw_name
+        entry = pwd.getpwnam(name)
+        home, owner = Path(entry.pw_dir), (entry.pw_uid, entry.pw_gid)
+        if os.geteuid() != 0 and entry.pw_uid != os.getuid():
+            die("applying to another user's home needs root")
+        if os.geteuid() != 0:
+            owner = None
+        user = name
+    w = Writer(home, owner)
+    channels = []
+    for src, dest in manifest():
+        text = render((TEMPLATES / src).read_text(), theme)
+        w.write(dest, text)
+        if "/xfce-perchannel-xml/" in dest:
+            channels.append(text)
+    icon_dir = home / ".local/share/icons/StaticLinux"
+    if icon_dir.is_dir():  # only our own symlinks live here: rebuild from scratch
+        shutil.rmtree(icon_dir)
+    folder_links = icons.links(theme["folders"])
+    for rel, target in folder_links.items():
+        w.link(f".local/share/icons/StaticLinux/{rel}", target)
+    w.write(".local/share/icons/StaticLinux/index.theme", icons.index_theme(theme, list(folder_links)))
+    for rel, data in xfwm4.generate(theme).items():
+        w.write(f".local/share/themes/StaticLinux/xfwm4/{rel}", data)
+    for custom in (".config/gtk-3.0/gtk-custom.css", ".config/gtk-4.0/gtk-custom.css"):
+        if not (home / custom).exists():  # the user's own rules: create, never overwrite
+            w.write(custom, "/* Your own GTK rules. sl-theme never touches this file. */\n")
+    w.write(".config/static-linux/theme", theme_id + "\n")
+    log(f"{theme['name']} written to {home}")
+    if mode != "skel":
+        xfconf(theme, user, channels)
+
+
+def current() -> str:
+    path = Path.home() / ".config/static-linux/theme"
+    return path.read_text().strip() if path.is_file() else DEFAULT
+
+
+def main() -> None:
+    ap = argparse.ArgumentParser(prog="sl-theme", description=__doc__.splitlines()[0])
+    ap.add_argument("theme", nargs="?")
+    ap.add_argument("--list", action="store_true")
+    ap.add_argument("--current", action="store_true")
+    ap.add_argument("--user")
+    ap.add_argument("--skel", action="store_true")
+    args = ap.parse_args()
+    if args.list:
+        active = current()
+        for tid in theme_ids():
+            t = check.load(THEMES / tid / "theme.conf")
+            print(f"{'*' if tid == active else ' '} {tid:10} {t.get('name', tid)} ({t.get('mode')})")
+        return
+    if args.current:
+        print(current())
+        return
+    if not args.theme:
+        ap.error("pick a theme (sl-theme --list)")
+    apply(args.theme, "skel" if args.skel else "home", args.user)
+
+
+if __name__ == "__main__":
+    main()

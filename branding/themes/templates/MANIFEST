@@ -1,0 +1,7 @@
+# template                 destination (relative to the home being themed)
+gtk3.css.in                .config/gtk-3.0/gtk.css
+gtk4.css.in                .config/gtk-4.0/gtk.css
+fastfetch.jsonc.in         .config/fastfetch/config.jsonc
+xfce4-terminal.xml.in      .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
+kitty-theme.conf.in        .config/kitty/static-linux-theme.conf
+cava.conf.in               .config/cava/config
