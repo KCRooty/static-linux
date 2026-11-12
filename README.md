@@ -1,7 +1,11 @@
+<img src="assets/logo.png" alt="Static Linux" width="96" height="96">
+
 # Static Linux
 **by Static Forge**
 
 > Fast. Private. Yours.
+
+**Página del proyecto:** [staticforge.me/linux](https://staticforge.me/linux/)
 
 Distribución basada en Arch Linux con detección automática de hardware
 (`sl-detect`), entornos de escritorio adaptativos según el equipo detectado,
