@@ -8,6 +8,10 @@ one available is used:
     aur      AUR package     -> paru -S in a terminal     (paru asks for sudo
                                                            itself, and builds
                                                            as the normal user)
+    sf       Static Forge    -> makepkg -si in a terminal (PKGBUILD shipped in
+                                                           packages/sf/, builds
+                                                           from the official
+                                                           release)
 
 Apps already on the system are shown as installed. Whatever a flavor couldn't
 install during setup (/etc/static-linux/pending-aur, written by the installer)
@@ -29,11 +33,12 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
 from catalog_loader import load_categories  # noqa: E402
+from paths import sf_pkgbuild_dir  # noqa: E402
 from privileged import PrivilegedActionError, install_packages  # noqa: E402
 
 PENDING = Path("/etc/static-linux/pending-aur")
 FLATHUB = "https://dl.flathub.org/repo/flathub.flatpakrepo"
-SOURCE_LABEL = {"pkg": "repos oficiales", "flatpak": "Flathub", "aur": "AUR"}
+SOURCE_LABEL = {"pkg": "repos oficiales", "flatpak": "Flathub", "aur": "AUR", "sf": "Static Forge"}
 
 # terminal -> argv prefix that runs a command
 TERMINALS = [
@@ -66,13 +71,16 @@ def _installed() -> tuple[set[str], set[str]]:
 
 def _source(app: dict) -> tuple[str, list[str]] | None:
     """(kind, names) for the first usable source of an app."""
-    for kind in ("pkg", "flatpak", "aur"):
+    for kind in ("sf", "pkg", "flatpak", "aur"):
         value = app.get(kind)
         if not value:
             continue
         if kind == "flatpak" and not shutil.which("flatpak"):
             continue
         if kind == "aur" and not shutil.which("paru"):
+            continue
+        if kind == "sf" and not all((sf_pkgbuild_dir(n) / "PKGBUILD").is_file()
+                                    for n in str(value).split()):
             continue
         return kind, str(value).split()
     return None
@@ -142,7 +150,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     action_group = Adw.PreferencesGroup()
     install_row = Adw.ActionRow(
         title="Instalar lo marcado",
-        subtitle="Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR: se abre una terminal")
+        subtitle="Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal")
     spinner = Gtk.Spinner(visible=False)
     install_btn = Gtk.Button(label="Instalar", valign=Gtk.Align.CENTER,
                              css_classes=["suggested-action"])
@@ -159,6 +167,17 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
         pkgs = [n for kind, names in chosen if kind == "pkg" for n in names]
         flatpaks = [n for kind, names in chosen if kind == "flatpak" for n in names]
         aur = [n for kind, names in chosen if kind == "aur" for n in names]
+        sf = [n for kind, names in chosen if kind == "sf" for n in names]
+
+        if sf:
+            # build each PKGBUILD in a scratch copy as the normal user;
+            # makepkg -si asks for sudo only to install the result
+            steps = [f"d=$(mktemp -d) && cp -r {shlex.quote(str(sf_pkgbuild_dir(n)))}/. \"$d\" "
+                     f"&& (cd \"$d\" && makepkg -si --needed --noconfirm); rm -rf \"$d\""
+                     for n in sf]
+            cmd = " ; ".join(steps)
+            if not _run_in_terminal(cmd):
+                toast_overlay.add_toast(Adw.Toast(title="Sin terminal para instalar las apps de Static Forge"))
 
         if aur:
             cmd = "paru -S --needed " + " ".join(shlex.quote(a) for a in aur)

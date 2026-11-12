@@ -1,0 +1,6 @@
+category: "Static Forge"
+apps:
+  - id: kc-downloader
+    name: KC Downloader
+    desc: Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio.
+    sf: kc-downloader-bin

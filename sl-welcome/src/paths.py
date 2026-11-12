@@ -18,6 +18,7 @@ ACCENT_APPLY_INSTALLED = Path("/usr/lib/static-linux/accents/apply.sh")
 ACCENT_PALETTE_INSTALLED = Path("/usr/lib/static-linux/accents/palette.conf")
 PRIVACY_DIR_INSTALLED = Path("/usr/lib/static-linux/privacidad")
 APPLY_PROFILE_WRAPPER_INSTALLED = Path("/usr/lib/static-linux/sl-welcome/apply-profile")
+SF_PKGBUILDS_INSTALLED = Path("/usr/lib/static-linux/packages/sf")
 
 
 def _repo_root() -> Path | None:
@@ -71,3 +72,14 @@ def apply_profile_wrapper_path() -> Path | None:
 
 def catalog_dir() -> Path:
     return MODULE_DIR / "catalog"
+
+
+def sf_pkgbuild_dir(name: str) -> Path:
+    """Folder holding the PKGBUILD of a Static Forge app (packages/sf/<name>)."""
+    installed = SF_PKGBUILDS_INSTALLED / name
+    if installed.is_dir():
+        return installed
+    root = _repo_root()
+    if root:
+        return root / "packages" / "sf" / name
+    return installed

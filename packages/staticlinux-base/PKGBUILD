@@ -17,6 +17,7 @@
 #   /usr/lib/static-linux/accents/         apply.sh + palette.conf + templates/
 #   /usr/lib/static-linux/privacidad/      3 profiles + shared lib.sh
 #   /usr/lib/static-linux/packages/lists/  every packages/lists/*.list
+#   /usr/lib/static-linux/packages/sf/     PKGBUILDs of Static Forge apps (sl-welcome catalog)
 #   /usr/lib/static-linux/entornos/*/      install.sh + skel/ per environment
 #   /usr/share/static-linux/fastfetch/     logo assets (config.jsonc: an
 #                                          /etc default, not here)
@@ -125,6 +126,11 @@ package() {
 
     # ---- package lists (base, per-environment, per-flavor, per-profile) -
     install -Dm644 -t "$lib/packages/lists" packages/lists/*.list
+
+    # ---- Static Forge apps (PKGBUILDs sl-welcome builds on demand) -------
+    for sf in packages/sf/*/; do
+        install -Dm644 -t "$lib/packages/sf/$(basename "$sf")" "$sf"PKGBUILD
+    done
 
     # ---- environments (install.sh + full skel/ dotfile tree) ------------
     for env in xfce-themed openbox-minimal hyprland-astal-full hyprland-astal-lite \

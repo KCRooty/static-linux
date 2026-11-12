@@ -8,7 +8,7 @@ Each file is one category (files sort by name, hence the NN- prefixes):
       - id: heroic
         name: Heroic Games Launcher
         desc: Epic, GOG y Amazon.
-        flatpak: com.heroicgameslauncher.hgl   # sources: pkg / flatpak / aur
+        flatpak: com.heroicgameslauncher.hgl   # sources: sf / pkg / flatpak / aur
         aur: heroic-games-launcher-bin         # (pkg may list several, space-separated)
 """
 

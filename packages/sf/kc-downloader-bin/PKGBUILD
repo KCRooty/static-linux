@@ -1,0 +1,44 @@
+# Maintainer: Static Forge <staticforge@staticforge.me>
+#
+# KC Downloader, the studio's media downloader, from its official GitHub
+# release. sl-welcome builds this from /usr/lib/static-linux/packages/sf/
+# (catalog section "Static Forge"); packages/local-repo.sh can also build it.
+# Settings and the tools the app manages live in ~/.local/share/kc-downloader,
+# so /opt stays read-only.
+pkgname=kc-downloader-bin
+pkgver=3.0.1
+pkgrel=1
+pkgdesc='Downloader for YouTube, YouTube Music, Spotify and Pinterest (Static Forge)'
+arch=('x86_64')
+url='https://github.com/KCRooty/kc-downloader'
+license=('LicenseRef-none')  # upstream has no LICENSE file yet
+depends=('glibc' 'libxkbcommon-x11' 'xcb-util-cursor' 'fontconfig')
+optdepends=('vulkan-icd-loader: GPU image upscaling (Real-ESRGAN)')
+provides=('kc-downloader')
+conflicts=('kc-downloader')
+options=('!strip' '!debug')
+source=("$url/releases/download/v$pkgver/kc-downloader-$pkgver-linux-x64.tar.gz")
+sha256sums=('5571714a9b0e449a02ae176354dd872815408c703a4e1bc1a7ce706ba017a4de')
+
+package() {
+    cd "KC Downloader"
+    install -d "$pkgdir/opt/kc-downloader"
+    cp -a kc-downloader _internal tools "$pkgdir/opt/kc-downloader/"
+    chmod 755 "$pkgdir/opt/kc-downloader/kc-downloader"
+    find "$pkgdir/opt/kc-downloader/tools" -type f -exec chmod 755 {} +
+    install -d "$pkgdir/usr/bin"
+    ln -s /opt/kc-downloader/kc-downloader "$pkgdir/usr/bin/kc-downloader"
+    install -Dm644 _internal/assets/logo.png "$pkgdir/usr/share/icons/hicolor/512x512/apps/kc-downloader.png"
+    install -Dm644 README.md CHANGELOG.md -t "$pkgdir/usr/share/doc/$pkgname/"
+    install -Dm644 /dev/stdin "$pkgdir/usr/share/applications/kc-downloader.desktop" <<DESK
+[Desktop Entry]
+Type=Application
+Name=KC Downloader
+Comment=Descarga de YouTube, YouTube Music, Spotify y Pinterest
+Exec=kc-downloader
+Icon=kc-downloader
+Terminal=false
+Categories=AudioVideo;Network;
+StartupWMClass=kc-downloader
+DESK
+}
