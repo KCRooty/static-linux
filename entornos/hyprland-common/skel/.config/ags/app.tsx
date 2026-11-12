@@ -11,7 +11,7 @@ const HOME = GLib.get_home_dir()
 app.start({
   instanceName: "sl-shell",
   main() {
-    // accent overlay first (branding/accents/apply.sh writes @accent_color,
+    // theme colours first (sl-theme writes @accent_color,
     // @sl_bg, ... there), then the bar's own rules that use those colours
     app.apply_css(`${HOME}/.config/gtk-4.0/gtk.css`)
     app.apply_css(`${HOME}/.config/ags/bar.css`)

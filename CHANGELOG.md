@@ -4,6 +4,31 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 Aún no hay ISO pública: todo se construye desde este repositorio.
 
+## Sin publicar · Los temas, en todos los escritorios y en el arranque
+
+### Nuevo
+- **KDE Plasma, Hyprland y Openbox siguen el tema.** `sl-theme` escribe cada
+  pieza solo si su programa está instalado (columna nueva en
+  `templates/MANIFEST`): esquema de color y Konsole en Plasma; bordes,
+  hyprpaper, hyprlock y barra en Hyprland; tema de ventanas, tint2, jgmenu,
+  dunst, LXTerminal y fondo en Openbox. Los `install.sh` de esos entornos ya
+  no usan los acentos viejos.
+- **Arranque e inicio de sesión con el tema:** `sl-theme <id> --system` pinta
+  LightDM (o el fondo de SDDM), el menú de GRUB y una pantalla de Plymouth
+  propia con la petición de contraseña de LUKS. El instalador lo ejecuta
+  antes de generar el initramfs, y `sudo sl-ctl theme` lo repite al cambiar
+  de tema. `base.list` suma `plymouth`.
+- Con la sesión abierta, Openbox, tint2, dunst, Hyprland y Plasma recargan
+  el tema sin cerrar sesión.
+
+### Arreglos
+- kitty no cargaba los colores del tema: faltaba el `include` en
+  `kitty.conf`.
+- LXTerminal ignoraba su paleta (faltaba `color_preset=Custom`).
+- El menú de GRUB decía "Static Linux Linux".
+- La barra de Hyprland usaba colores (`@sl_bg`, `@sl_text`) que el tema no
+  definía.
+
 ## 2026-11-12 · Temas, estilos y el código, abierto
 
 ### Nuevo

@@ -1,3 +1,5 @@
+# Static Linux — dunst notifications (Openbox, Hyprland). Colours rendered by
+# sl-theme from the active theme ({{name}}).
 [global]
     monitor = 0
     follow = mouse
@@ -18,7 +20,7 @@
     padding = 8
     horizontal_padding = 8
     frame_width = 1
-    frame_color = "#00C8A0"
+    frame_color = "#{{accent}}"
     separator_color = frame
     sort = yes
     font = Space Grotesk 9
@@ -43,24 +45,24 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 8
+    corner_radius = {{radius_win}}
     mouse_left_click = close_current
     mouse_middle_click = do_action, close_current
     mouse_right_click = close_all
 
 [urgency_low]
-    background = "#0B0C10"
-    foreground = "#D6D8E0"
+    background = "#{{bg}}"
+    foreground = "#{{text}}"
     timeout = 4
 
 [urgency_normal]
-    background = "#0B0C10"
-    foreground = "#D6D8E0"
-    frame_color = "#00C8A0"
+    background = "#{{bg}}"
+    foreground = "#{{text}}"
+    frame_color = "#{{accent}}"
     timeout = 6
 
 [urgency_critical]
-    background = "#0B0C10"
-    foreground = "#D6D8E0"
-    frame_color = "#E85D6B"
+    background = "#{{bg}}"
+    foreground = "#{{text}}"
+    frame_color = "#{{danger}}"
     timeout = 0

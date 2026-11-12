@@ -1,0 +1,95 @@
+// Static Linux — Plymouth boot splash, rendered by sl-theme ({{name}}).
+// Theme wallpaper (dimmed), the Static Forge mark, a thin accent bar, and the
+// disk-unlock prompt for LUKS installs.
+
+Window.SetBackgroundTopColor({{splash_bg_r}} / 255, {{splash_bg_g}} / 255, {{splash_bg_b}} / 255);
+Window.SetBackgroundBottomColor({{splash_bg_r}} / 255, {{splash_bg_g}} / 255, {{splash_bg_b}} / 255);
+
+W = Window.GetWidth();
+H = Window.GetHeight();
+
+// wallpaper, cropped to fill the screen
+bg_image = Image("background.png");
+scale = Math.Max(W / bg_image.GetWidth(), H / bg_image.GetHeight());
+bg_scaled = bg_image.Scale(bg_image.GetWidth() * scale, bg_image.GetHeight() * scale);
+bg = Sprite(bg_scaled);
+bg.SetX((W - bg_scaled.GetWidth()) / 2);
+bg.SetY((H - bg_scaled.GetHeight()) / 2);
+bg.SetZ(-100);
+
+// the mark, a fifth of the screen height
+logo_image = Image("logo.png");
+logo_h = H / 5;
+logo_scaled = logo_image.Scale(logo_image.GetWidth() * logo_h / logo_image.GetHeight(), logo_h);
+logo = Sprite(logo_scaled);
+logo.SetX((W - logo_scaled.GetWidth()) / 2);
+logo.SetY(H * 0.40 - logo_h / 2);
+
+// progress: a track and an accent fill under the mark
+bar_w = Math.Int(W / 5);
+bar_y = H * 0.40 + logo_h / 2 + H * 0.06;
+track = Sprite(Image("track.png").Scale(bar_w, 4));
+track.SetX((W - bar_w) / 2);
+track.SetY(bar_y);
+fill_image = Image("fill.png");
+fill = Sprite();
+fill.SetX((W - bar_w) / 2);
+fill.SetY(bar_y);
+
+fun progress_callback(duration, progress) {
+    width = Math.Int(bar_w * progress);
+    if (width < 2) width = 2;
+    fill.SetImage(fill_image.Scale(width, 4));
+}
+Plymouth.SetBootProgressFunction(progress_callback);
+
+// ---- disk unlock (LUKS) and questions ----------------------------------
+prompt = Sprite();
+prompt.SetY(bar_y + 28);
+dots = Sprite();
+dots.SetY(bar_y + 64);
+
+fun show_prompt(text, bullets) {
+    track.SetOpacity(0);
+    fill.SetOpacity(0);
+    p = Image.Text(text, {{splash_text_r}} / 255, {{splash_text_g}} / 255, {{splash_text_b}} / 255, 1, "{{font_ui}} 14");
+    prompt.SetImage(p);
+    prompt.SetX((W - p.GetWidth()) / 2);
+    prompt.SetOpacity(1);
+    d = Image.Text(bullets, {{accent_r}} / 255, {{accent_g}} / 255, {{accent_b}} / 255, 1, "{{font_ui}} 22");
+    dots.SetImage(d);
+    dots.SetX((W - d.GetWidth()) / 2);
+    dots.SetOpacity(1);
+}
+
+fun display_password_callback(text, count) {
+    bullets = "";
+    for (i = 0; i < count && i < 32; i++) bullets += "●";
+    if (text == "") text = "Contraseña del disco";
+    show_prompt(text, bullets + " ");
+}
+
+fun display_question_callback(text, entry) {
+    show_prompt(text, entry + " ");
+}
+
+fun display_normal_callback() {
+    prompt.SetOpacity(0);
+    dots.SetOpacity(0);
+    track.SetOpacity(1);
+    fill.SetOpacity(1);
+}
+
+Plymouth.SetDisplayPasswordFunction(display_password_callback);
+Plymouth.SetDisplayQuestionFunction(display_question_callback);
+Plymouth.SetDisplayNormalFunction(display_normal_callback);
+
+// boot messages (fsck, errors) on one line at the bottom
+msg = Sprite();
+msg.SetY(H - 48);
+fun message_callback(text) {
+    m = Image.Text(text, {{splash_dim_r}} / 255, {{splash_dim_g}} / 255, {{splash_dim_b}} / 255, 1, "{{font_ui}} 11");
+    msg.SetImage(m);
+    msg.SetX((W - m.GetWidth()) / 2);
+}
+Plymouth.SetMessageFunction(message_callback);

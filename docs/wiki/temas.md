@@ -6,9 +6,11 @@ estilo; `sl-theme` lo pinta todo a la vez. La dirección visual completa está
 en [`DESIGN.md`](https://github.com/KCRooty/static-linux/blob/main/DESIGN.md).
 
 !!! note "Estado (2026-11-12)"
-    Los temas funcionan en **XFCE** de punta a punta: instalador, sistema
-    instalado, sl-welcome y `sl-ctl theme`. KDE, Hyprland y Openbox, la
-    pantalla de inicio de sesión, Plymouth y GRUB todavía no siguen el tema.
+    Los temas llegan a los cuatro entornos (XFCE, KDE Plasma, Hyprland y
+    Openbox) y al arranque: menú de GRUB, pantalla de carga (Plymouth) y
+    pantalla de inicio de sesión (LightDM o SDDM). Probado en la VM: XFCE,
+    Openbox, LightDM, Plymouth y GRUB. KDE e Hyprland están generados y
+    revisados, pero falta verlos arrancados en una instalación.
 
 ## Los ocho temas
 
@@ -53,8 +55,10 @@ en tu panel.
 ```bash
 sl-ctl theme --list        # temas y cuál está activo
 sl-ctl theme aero          # aplicar al usuario actual
+sudo sl-ctl theme aero     # y además inicio de sesión, GRUB y arranque
 sl-theme --current         # id del tema activo
 sudo sl-theme ambar --skel # pintar /etc/skel (build de la ISO)
+sudo sl-theme ambar --system  # solo inicio de sesión, GRUB y Plymouth
 ```
 
 ## Qué toca `sl-theme`
@@ -68,15 +72,38 @@ Todo sale de `branding/themes/<id>/theme.conf` y de las plantillas de
   por `xfwm4.py` según el estilo.
 - Iconos Papirus con carpetas del color del tema (`icons.py`).
 - xsettings (tema, fuente, iconos, botones de ventana) y el panel de XFCE.
-- Terminal (xfce4-terminal y kitty), fastfetch y cava.
+- Terminal (xfce4-terminal, kitty, LXTerminal y Konsole), fastfetch y cava.
 - El fondo de pantalla.
+
+Cada fila de `MANIFEST` puede nombrar un programa: ese archivo solo se
+escribe si el programa está instalado. Así una sola orden pinta el entorno
+que tengas:
+
+| Entorno | Qué recibe |
+|---|---|
+| XFCE | xfwm4, panel, xfce4-terminal, fondo por xfconf |
+| KDE Plasma | esquema de color `StaticLinux` (también dentro de `kdeglobals`), Konsole, fondo |
+| Hyprland | bordes y redondeo (`~/.config/hypr/theme.lua`), hyprpaper, hyprlock, barra de Astal, dunst |
+| Openbox | tema de ventanas `StaticLinux`, tint2, jgmenu, dunst, LXTerminal, fondo con feh |
+
+Con `--system` (como root) pinta lo que es de toda la máquina, con copia de
+lo que sustituye en `/var/backups/static-linux/theme/<fecha>/`:
+
+- **Inicio de sesión:** LightDM con el fondo del tema y un tema GTK propio
+  (`StaticLinux-Greeter`); en SDDM, el fondo de Breeze.
+- **GRUB:** tema en `/boot/grub/themes/static-linux` con el fondo atenuado,
+  menú del color del tema y fuentes Space Grotesk y Outfit.
+- **Plymouth:** fondo atenuado, la marca de Static Forge, barra del color de
+  acento y la petición de contraseña de LUKS. Regenera el initramfs.
 
 Tus reglas propias van en `~/.config/gtk-{3,4}.0/gtk-custom.css`, que
 `sl-theme` crea vacío y nunca sobrescribe. Todo lo que sobrescribe se copia
 antes a `~/.local/state/static-linux/theme-backup/<fecha>/`.
 
-Al cambiar de estilo con la sesión abierta, el panel se reconstruye en
-caliente. Las apps que ya estaban abiertas cambian al reabrirlas.
+Con la sesión abierta, `sl-theme` avisa a lo que esté corriendo: el panel
+de XFCE se reconstruye al cambiar de estilo, Openbox, tint2 y dunst recargan,
+Hyprland recarga y relanza hyprpaper, y Plasma aplica el esquema y el fondo.
+Las apps que ya estaban abiertas cambian al reabrirlas.
 
 ## Hacer un tema
 
@@ -118,7 +145,6 @@ Tipografías (SIL OFL): **Outfit 700** para titulares, GRUB y logotipo;
 
 ## Los acentos de antes
 
-`branding/accents/apply.sh` y sus diez acentos siguen en el repo: el
-instalador los usa como capa base para fastfetch y el greeter de LightDM
-antes de aplicar el tema, y Openbox e Hyprland todavía dependen de ellos.
-Se retirarán cuando los temas lleguen a esos entornos.
+`branding/accents/apply.sh` y sus diez acentos siguen en el repo para
+`sl-ctl accent` y el resumen de sl-welcome, pero ni el instalador ni los
+entornos los usan ya: todo pasa por `sl-theme`.

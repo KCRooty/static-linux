@@ -1,0 +1,15 @@
+-- Static Linux — active theme for Hyprland, written by sl-theme ({{name}}).
+-- /usr/share/static-linux/hypr/static.lua reads it; don't edit, run sl-theme.
+return {
+    id       = "{{id}}",
+    style    = "{{style}}",
+    mode     = "{{mode}}",
+    bg       = "{{bg}}",
+    surface  = "{{surface}}",
+    line     = "{{line}}",
+    text     = "{{text}}",
+    accent   = "{{accent}}",
+    accent2  = "{{accent_hi}}",
+    rounding = {{radius_win}},
+    font     = "{{font_ui}}",
+}

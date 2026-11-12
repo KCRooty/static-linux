@@ -1,0 +1,47 @@
+# Static Linux — lock screen, written by sl-theme ({{name}}).
+general {
+    hide_cursor = true
+}
+
+background {
+    path = {{wallpaper}}
+    blur_passes = 2
+    brightness = 0.6
+}
+
+label {
+    text = $TIME
+    font_family = Outfit
+    font_size = 96
+    color = rgba({{text}}FF)
+    position = 0, 160
+    halign = center
+    valign = center
+}
+
+label {
+    text = cmd[update:60000] date '+%A %d %B'
+    font_family = {{font_ui}}
+    font_size = 20
+    color = rgba({{accent}}FF)
+    position = 0, 70
+    halign = center
+    valign = center
+}
+
+input-field {
+    size = 320, 56
+    outline_thickness = 2
+    outer_color = rgba({{accent}}FF)
+    inner_color = rgba({{bg}}E6)
+    font_color = rgba({{text}}FF)
+    font_family = {{font_ui}}
+    placeholder_text = <i>Contraseña</i>
+    fail_text = <i>Contraseña incorrecta</i>
+    check_color = rgba({{warning}}FF)
+    fail_color = rgba({{danger}}FF)
+    rounding = {{radius_win}}
+    position = 0, -40
+    halign = center
+    valign = center
+}

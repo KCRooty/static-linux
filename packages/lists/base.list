@@ -138,3 +138,5 @@ papirus-icon-theme
 inter-font
 noto-fonts
 cava
+# boot splash in the theme (sl-theme --system); Calamares adds the hook + splash
+plymouth

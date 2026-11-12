@@ -64,46 +64,17 @@ log "deploying dotfiles"
 copy_tree "$HERE/skel"
 chmod +x "$TARGET/.config/openbox/autostart"
 
-# --- accent colour layer (fastfetch / GTK / greeter / wallpaper file) ---
-ACCENT_SH_INSTALLED="/usr/lib/static-linux/accents/apply.sh"
-if [[ -x "$ACCENT_SH_INSTALLED" ]]; then
-    ACCENT_SH="$ACCENT_SH_INSTALLED"
+# --- theme: wallpaper + palette for this environment (sl-theme) ----------
+# sl-theme writes only the pieces whose programs are installed (MANIFEST),
+# so the same call themes XFCE, KDE, Hyprland or Openbox.
+SL_THEME="/usr/share/static-linux/themes/sl-theme"
+[[ -f "$SL_THEME" ]] || SL_THEME="$HERE/../../branding/themes/sl-theme"
+THEME="$(cat /etc/static-linux/theme 2>/dev/null || echo ambar)"
+log "applying theme: $THEME"
+if [[ "$MODE" == "skel" ]]; then
+    python3 "$SL_THEME" "$THEME" --skel || warn "theme apply failed"
 else
-    ACCENT_SH="$HERE/../../branding/accents/apply.sh"
-fi
-ACCENT="purple"
-if [[ -x "$ACCENT_SH" ]]; then
-    ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
-    log "applying accent: $ACCENT"
-    if [[ "$MODE" == "skel" ]]; then
-        "$ACCENT_SH" "$ACCENT" --skel || warn "accent apply failed"
-    else
-        "$ACCENT_SH" "$ACCENT" --user "$USER_NAME" || warn "accent apply failed"
-    fi
-else
-    warn "branding/accents/apply.sh not found — skipping colour layer"
-fi
-
-# --- wallpaper: feh doesn't read xfconf, set it directly (nitrogen was
-# dropped from the official repos, unmaintained upstream) ----------------
-WP_DIR_INSTALLED="/usr/share/static-linux/wallpapers"
-if [[ -d "$WP_DIR_INSTALLED" ]]; then
-    WP_DIR="$WP_DIR_INSTALLED"
-else
-    WP_DIR="$HERE/../../branding/wallpapers"
-fi
-WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
-WP="$WP_DIR/$ACCENT/$WP_PREFIX-$ACCENT.png"
-if [[ -f "$WP" ]]; then
-    FEHBG="$TARGET/.fehbg"
-    cat > "$FEHBG" <<EOF
-#!/bin/sh
-feh --no-fehbg --bg-fill '$WP'
-EOF
-    chmod +x "$FEHBG"
-    log "feh wallpaper -> $WP"
-else
-    warn "no wallpaper found for accent '$ACCENT' at $WP"
+    python3 "$SL_THEME" "$THEME" --user "$USER_NAME" || warn "theme apply failed"
 fi
 
 # --- optional system config (lightdm) -------------------------------

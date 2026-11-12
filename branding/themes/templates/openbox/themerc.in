@@ -1,0 +1,95 @@
+# Static Linux — Openbox window theme, rendered by sl-theme from the active
+# theme ({{name}}, style {{style}}). Flat titlebars in the theme background,
+# accent border on the focused window.
+border.width: 1
+padding.width: 6
+padding.height: 4
+window.handle.width: 0
+window.client.padding.width: 0
+window.client.padding.height: 0
+menu.overlap.x: 0
+menu.overlap.y: 0
+menu.separator.width: 1
+menu.separator.padding.width: 6
+menu.separator.padding.height: 3
+
+window.active.border.color: #{{accent}}
+window.inactive.border.color: #{{line}}
+window.active.client.color: #{{bg}}
+window.inactive.client.color: #{{bg}}
+
+window.active.title.bg: flat solid
+window.active.title.bg.color: #{{bg}}
+window.inactive.title.bg: flat solid
+window.inactive.title.bg.color: #{{surface}}
+window.active.label.bg: parentrelative
+window.inactive.label.bg: parentrelative
+window.active.label.text.color: #{{text}}
+window.inactive.label.text.color: #{{text_dim}}
+window.label.text.justify: center
+
+window.active.button.unpressed.bg: parentrelative
+window.active.button.unpressed.image.color: #{{text}}
+window.active.button.hover.bg: flat solid
+window.active.button.hover.bg.color: #{{tint25}}
+window.active.button.hover.image.color: #{{text}}
+window.active.button.pressed.bg: flat solid
+window.active.button.pressed.bg.color: #{{accent}}
+window.active.button.pressed.image.color: #{{accent_fg}}
+window.active.button.disabled.bg: parentrelative
+window.active.button.disabled.image.color: #{{line}}
+window.active.button.toggled.bg: parentrelative
+window.active.button.toggled.image.color: #{{accent}}
+window.inactive.button.unpressed.bg: parentrelative
+window.inactive.button.unpressed.image.color: #{{text_dim}}
+window.inactive.button.hover.bg: flat solid
+window.inactive.button.hover.bg.color: #{{tint15}}
+window.inactive.button.hover.image.color: #{{text}}
+window.inactive.button.pressed.bg: flat solid
+window.inactive.button.pressed.bg.color: #{{accent}}
+window.inactive.button.pressed.image.color: #{{accent_fg}}
+window.inactive.button.disabled.bg: parentrelative
+window.inactive.button.disabled.image.color: #{{line}}
+window.inactive.button.toggled.bg: parentrelative
+window.inactive.button.toggled.image.color: #{{text_dim}}
+window.active.button.close.hover.bg: flat solid
+window.active.button.close.hover.bg.color: #{{danger}}
+window.active.button.close.hover.image.color: #{{bg}}
+window.active.button.close.pressed.bg: flat solid
+window.active.button.close.pressed.bg.color: #{{danger}}
+window.active.button.close.pressed.image.color: #{{bg}}
+
+menu.border.color: #{{line}}
+menu.border.width: 1
+menu.title.bg: flat solid
+menu.title.bg.color: #{{bg}}
+menu.title.text.color: #{{accent}}
+menu.title.text.justify: left
+menu.items.bg: flat solid
+menu.items.bg.color: #{{surface}}
+menu.items.text.color: #{{text}}
+menu.items.disabled.text.color: #{{text_dim}}
+menu.items.active.bg: flat solid
+menu.items.active.bg.color: #{{accent}}
+menu.items.active.text.color: #{{accent_fg}}
+menu.separator.color: #{{line}}
+
+osd.border.color: #{{line}}
+osd.border.width: 1
+osd.bg: flat solid
+osd.bg.color: #{{surface}}
+osd.label.bg: parentrelative
+osd.label.text.color: #{{text}}
+osd.hilight.bg: flat solid
+osd.hilight.bg.color: #{{accent}}
+osd.unhilight.bg: flat solid
+osd.unhilight.bg.color: #{{line}}
+osd.button.unpressed.bg: flat solid
+osd.button.unpressed.bg.color: #{{surface}}
+osd.button.unpressed.text.color: #{{text}}
+osd.button.pressed.bg: flat solid
+osd.button.pressed.bg.color: #{{accent}}
+osd.button.pressed.text.color: #{{accent_fg}}
+osd.button.focused.bg: flat solid
+osd.button.focused.bg.color: #{{tint25}}
+osd.button.focused.text.color: #{{text}}

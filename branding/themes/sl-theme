@@ -6,11 +6,14 @@
     sl-theme ambar                   apply to the invoking user
     sl-theme papel --user testu      apply to another user's home (root)
     sl-theme ambar --skel            render into /etc/skel (ISO build, root)
+    sl-theme ambar --system          login screen, GRUB and boot splash (root)
 
 A theme is branding/themes/<id>/theme.conf + wallpaper.jpg (see DESIGN.md).
 Every file this script overwrites is copied first to
 ~/.local/state/static-linux/theme-backup/<timestamp>/, so nothing is lost.
-Templates live in templates/; MANIFEST lists template -> destination.
+Templates live in templates/; MANIFEST lists template -> destination, and
+optionally a program: that file is only written where the program exists, so
+each environment (XFCE, KDE, Hyprland, Openbox) gets its own pieces.
 """
 
 from __future__ import annotations
@@ -34,6 +37,7 @@ DEFAULT = "ambar"
 sys.path.insert(0, str(THEMES))
 import check  # noqa: E402  (same folder: contrast rules)
 import icons  # noqa: E402  (folder-coloured Papirus)
+import system  # noqa: E402  (login screen, GRUB, Plymouth)
 import xfwm4  # noqa: E402  (window decoration generator)
 
 
@@ -72,15 +76,23 @@ def load_theme(theme_id: str) -> dict[str, str]:
         die(f"theme '{theme_id}': unknown style '{theme['style']}' (one of {', '.join(xfwm4.STYLES)})")
     theme.setdefault("font_ui", "Space Grotesk")
     theme["dark_mode"] = "false" if theme["mode"] == "light" else "true"
+    theme["dark_int"] = "0" if theme["mode"] == "light" else "1"
+    theme["icon_base"] = "Papirus-Light" if theme["mode"] == "light" else "Papirus-Dark"
     theme["radius_ctl"] = {"minimal": "6", "aero": "4", "ventanas": "4"}[theme["style"]]
+    theme["radius_win"] = {"minimal": "10", "aero": "8", "ventanas": "3"}[theme["style"]]
     # tints the styles draw with (gloss, hover rows): bg pulled towards the accent
     for pct in (8, 15, 25, 40):
         theme[f"tint{pct}"] = xfwm4._mix(theme["bg"], theme["accent"], pct / 100)
     theme["accent_hi"] = xfwm4._mix(theme["accent"], "FFFFFF", 0.35)
     theme["accent_lo"] = xfwm4._mix(theme["accent"], "000000", 0.20)
-    for key in ("bg", "surface", "line", "text", "text_dim", "accent", "accent_fg"):
-        theme[f"{key}_rgb"] = ",".join(str(int(theme[key][i:i + 2], 16)) for i in (0, 2, 4))
-        theme[f"{key}_ansi"] = "38;2;" + theme[f"{key}_rgb"].replace(",", ";")
+    # every colour also as "r,g,b", r/g/b alone (0-255) and a truecolor escape
+    for key, value in list(theme.items()):
+        if not re.fullmatch(r"[0-9A-Fa-f]{6}", value or ""):
+            continue
+        rgb = [int(value[i:i + 2], 16) for i in (0, 2, 4)]
+        theme[f"{key}_rgb"] = ",".join(map(str, rgb))
+        theme[f"{key}_r"], theme[f"{key}_g"], theme[f"{key}_b"] = map(str, rgb)
+        theme[f"{key}_ansi"] = "38;2;" + ";".join(map(str, rgb))
     return theme
 
 
@@ -103,13 +115,14 @@ PANEL = ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 PANEL_STYLE = ".config/static-linux/panel-style"
 
 
-def manifest() -> list[tuple[str, str]]:
+def manifest() -> list[tuple[str, str, str | None]]:
+    """(template, destination, program or None) for every MANIFEST row."""
     rows = []
     for line in (TEMPLATES / "MANIFEST").read_text().splitlines():
         line = line.strip()
         if line and not line.startswith("#"):
-            src, dest = line.split()
-            rows.append((src, dest))
+            src, dest, *needs = line.split()
+            rows.append((src, dest, needs[0] if needs else None))
     return rows
 
 
@@ -134,6 +147,8 @@ class Writer:
             dest.write_bytes(data)
         else:
             dest.write_text(data)
+        if data[:2] in ("#!", b"#!"):
+            dest.chmod(0o755)
         self.chown(dest)
 
     def link(self, rel: str, target: str) -> None:
@@ -265,8 +280,130 @@ def swap_panel(w: Writer, theme: dict[str, str], user: str | None) -> None:
                    stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 
 
+def ensure_line(w: Writer, rel: str, line: str, header: str = "") -> None:
+    """Make sure a config file contains `line` (create it, or append once)."""
+    path = w.home / rel
+    text = path.read_text() if path.is_file() else header
+    if line not in text.splitlines():
+        w.write(rel, text + ("" if not text or text.endswith("\n") else "\n") + line + "\n")
+
+
+def ini_merge(w: Writer, rel: str, groups: dict[str, dict[str, str]]) -> None:
+    """Set keys in a KDE-style ini file, keeping every other group and key."""
+    path = w.home / rel
+    lines = path.read_text().splitlines() if path.is_file() else []
+    out: list[str] = []
+    pending = {g: dict(kv) for g, kv in groups.items()}
+    group = None
+    def flush(g):
+        for k, v in pending.pop(g, {}).items():
+            out.append(f"{k}={v}")
+    for line in lines:
+        m = re.fullmatch(r"\[(.+)\]", line.strip())
+        if m:
+            if group in pending:
+                flush(group)
+            group = m.group(1)
+            out.append(line)
+            continue
+        key = line.split("=", 1)[0].strip()
+        if group in pending and key in pending[group]:
+            out.append(f"{key}={pending[group].pop(key)}")
+            continue
+        out.append(line)
+    if group in pending:
+        flush(group)
+    for g in list(pending):
+        out += ["", f"[{g}]"]
+        flush(g)
+    w.write(rel, "\n".join(out).lstrip("\n") + "\n")
+
+
+def kde_globals(w: Writer, theme: dict[str, str]) -> None:
+    """Plasma reads its colours from kdeglobals: merge the scheme's groups in,
+    so the theme shows even before Plasma's own tools run."""
+    scheme = render((TEMPLATES / "kde/StaticLinux.colors.in").read_text(), theme)
+    groups: dict[str, dict[str, str]] = {}
+    group = None
+    for line in scheme.splitlines():
+        m = re.fullmatch(r"\[(.+)\]", line.strip())
+        if m:
+            group = m.group(1)
+            continue
+        if group and group.startswith(("Colors:", "WM")) and "=" in line:
+            k, v = line.split("=", 1)
+            groups.setdefault(group, {})[k] = v
+    groups["General"] = {"ColorScheme": "StaticLinux", "AccentColor": theme["accent_rgb"],
+                         "accentColorFromWallpaper": "false"}
+    groups["Icons"] = {"Theme": "StaticLinux"}
+    groups["KDE"] = {"LookAndFeelPackage": "org.kde.breeze.desktop" if theme["mode"] == "light"
+                     else "org.kde.breezedark.desktop"}
+    ini_merge(w, ".config/kdeglobals", groups)
+    ini_merge(w, ".config/konsolerc", {"Desktop Entry": {"DefaultProfile": "StaticLinux.profile"}})
+
+
+def session_env(user: str | None, procs: list[str]) -> tuple[list[str], dict[str, str]] | None:
+    """Command prefix + environment to talk to the user's running session,
+    borrowed from the first of `procs` that runs for that user (None if none)."""
+    who = user or pwd.getpwuid(os.getuid()).pw_name
+    for name in procs:
+        pids = subprocess.run(["pgrep", "-u", who, "-x", name], capture_output=True,
+                              text=True).stdout.split()
+        if not pids:
+            continue
+        env = dict(os.environ)
+        try:
+            for item in Path(f"/proc/{pids[0]}/environ").read_bytes().split(b"\0"):
+                key, _, value = item.decode(errors="replace").partition("=")
+                if key in ("DISPLAY", "XAUTHORITY", "WAYLAND_DISPLAY", "DBUS_SESSION_BUS_ADDRESS",
+                           "XDG_RUNTIME_DIR", "HYPRLAND_INSTANCE_SIGNATURE"):
+                    env[key] = value
+        except OSError:
+            pass
+        prefix = ["runuser", "-u", who, "--"] if os.geteuid() == 0 and who != "root" else []
+        return prefix, env
+    return None
+
+
+def refresh_session(theme: dict[str, str], user: str | None) -> None:
+    """Nudge whatever is running so the new files show without logging out."""
+    def run(prefix, env, *cmd, background=False):
+        keep = [f"{k}={env[k]}" for k in ("DISPLAY", "XAUTHORITY", "WAYLAND_DISPLAY",
+                "DBUS_SESSION_BUS_ADDRESS", "XDG_RUNTIME_DIR", "HYPRLAND_INSTANCE_SIGNATURE") if k in env]
+        full = prefix + ["env", *keep, *cmd]
+        if background:
+            subprocess.Popen(full, env=env, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL,
+                             start_new_session=True)
+        else:
+            subprocess.run(full, env=env, check=False, stdout=subprocess.DEVNULL,
+                           stderr=subprocess.DEVNULL)
+    if (s := session_env(user, ["openbox"])):
+        run(*s, "openbox", "--reconfigure")
+        run(*s, "sh", "-c", "[ -x ~/.fehbg ] && ~/.fehbg")
+    if (s := session_env(user, ["tint2"])):
+        run(*s, "pkill", "-USR1", "-x", "tint2")
+    if (s := session_env(user, ["dunst"])):
+        run(*s, "dunstctl", "reload")
+    if (s := session_env(user, ["Hyprland", ".Hyprland-wrapped"])):
+        run(*s, "hyprctl", "reload")
+        run(*s, "pkill", "-x", "hyprpaper")
+        run(*s, "hyprpaper", background=True)
+    if (s := session_env(user, ["plasmashell"])):
+        # re-applying the scheme that is already active is a no-op in Plasma
+        run(*s, "plasma-apply-colorscheme", "BreezeDark" if theme["mode"] == "light" else "BreezeLight")
+        run(*s, "plasma-apply-colorscheme", "StaticLinux")
+        run(*s, "plasma-apply-wallpaperimage", theme["wallpaper"])
+
+
 def apply(theme_id: str, mode: str, user: str | None) -> None:
     theme = load_theme(theme_id)
+    if mode == "system":
+        if os.geteuid() != 0:
+            die("--system needs root")
+        system.apply(theme, render, TEMPLATES / "system", log)
+        Path("/etc/static-linux").mkdir(parents=True, exist_ok=True)
+        Path("/etc/static-linux/theme").write_text(theme_id + "\n")
+        return
     if mode == "skel":
         home, owner = Path("/etc/skel"), None
     else:
@@ -282,7 +419,9 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     theme["style_gtk3"] = style_partial(theme, "gtk3.css")
     theme["style_gtk4"] = style_partial(theme, "gtk4.css")
     channels = []
-    for src, dest in manifest():
+    for src, dest, needs in manifest():
+        if needs and not shutil.which(needs):
+            continue
         text = render((TEMPLATES / src).read_text(), theme)
         w.write(dest, text)
         if "/xfce-perchannel-xml/" in dest:
@@ -299,6 +438,11 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     for custom in (".config/gtk-3.0/gtk-custom.css", ".config/gtk-4.0/gtk-custom.css"):
         if not (home / custom).exists():  # the user's own rules: create, never overwrite
             w.write(custom, "/* Your own GTK rules. sl-theme never touches this file. */\n")
+    if shutil.which("kitty"):
+        ensure_line(w, ".config/kitty/kitty.conf", "include static-linux-theme.conf",
+                    "# Your kitty settings. sl-theme only adds the include below.\n")
+    if shutil.which("plasmashell"):
+        kde_globals(w, theme)
     w.write(".config/static-linux/theme", theme_id + "\n")
     # the bar's layout belongs to the style: only rewrite it when the style
     # changes, so a user's own panel tweaks survive palette-only switches
@@ -313,6 +457,7 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
         xfconf(theme, user, channels)
         if new_panel:
             swap_panel(w, theme, user)
+        refresh_session(theme, user)
 
 
 def current() -> str:
@@ -327,6 +472,10 @@ def main() -> None:
     ap.add_argument("--current", action="store_true")
     ap.add_argument("--user")
     ap.add_argument("--skel", action="store_true")
+    ap.add_argument("--system", action="store_true",
+                    help="login screen, GRUB and boot splash for the whole machine (root)")
+    ap.add_argument("--no-initramfs", action="store_true",
+                    help="with --system: leave the initramfs alone (the installer rebuilds it)")
     args = ap.parse_args()
     if args.list:
         active = current()
@@ -339,7 +488,8 @@ def main() -> None:
         return
     if not args.theme:
         ap.error("pick a theme (sl-theme --list)")
-    apply(args.theme, "skel" if args.skel else "home", args.user)
+    system.REBUILD_INITRAMFS = not args.no_initramfs
+    apply(args.theme, "system" if args.system else "skel" if args.skel else "home", args.user)
 
 
 if __name__ == "__main__":

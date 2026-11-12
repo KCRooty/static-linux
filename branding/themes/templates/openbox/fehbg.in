@@ -1,0 +1,3 @@
+#!/bin/sh
+# Static Linux — wallpaper for Openbox, written by sl-theme ({{name}}).
+feh --no-fehbg --bg-fill '{{wallpaper}}'

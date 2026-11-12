@@ -57,35 +57,23 @@ copy_tree() {
 log "deploying dotfiles"
 copy_tree "$HERE/skel"
 
-# --- accent: GTK overlay, fastfetch, wallpaper file (the shared layer) ---
-ACCENT_SH="/usr/lib/static-linux/accents/apply.sh"
-[[ -x "$ACCENT_SH" ]] || ACCENT_SH="$HERE/../../branding/accents/apply.sh"
-ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
-if [[ -x "$ACCENT_SH" ]]; then
-    log "applying accent: $ACCENT"
-    if [[ "$MODE" == "skel" ]]; then
-        "$ACCENT_SH" "$ACCENT" --skel || warn "accent apply failed"
-    else
-        "$ACCENT_SH" "$ACCENT" --user "$USER_NAME" || warn "accent apply failed"
-    fi
-fi
-
-# Plasma's own accent: kdeglobals AccentColor (r,g,b). firstrun.sh applies
-# it again through plasma-apply-colorscheme on the first login.
-PALETTE="/usr/lib/static-linux/accents/palette.conf"
-[[ -f "$PALETTE" ]] || PALETTE="$HERE/../../branding/accents/palette.conf"
-HEX="$(awk -F'|' -v n="$ACCENT" '$1 ~ "^ *"n" *$" {gsub(/ /,"",$2); print $2}' "$PALETTE")"
-if [[ -n "$HEX" ]]; then
-    RGB="$((16#${HEX:0:2})),$((16#${HEX:2:2})),$((16#${HEX:4:2}))"
-    sed -i "/^AccentColor=/d; s/^\[General\]$/[General]\nAccentColor=$RGB/" "$TARGET/.config/kdeglobals"
-    log "Plasma accent -> #$HEX"
+# --- theme: wallpaper + palette for this environment (sl-theme) ----------
+# sl-theme writes only the pieces whose programs are installed (MANIFEST),
+# so the same call themes XFCE, KDE, Hyprland or Openbox.
+SL_THEME="/usr/share/static-linux/themes/sl-theme"
+[[ -f "$SL_THEME" ]] || SL_THEME="$HERE/../../branding/themes/sl-theme"
+THEME="$(cat /etc/static-linux/theme 2>/dev/null || echo ambar)"
+log "applying theme: $THEME"
+if [[ "$MODE" == "skel" ]]; then
+    python3 "$SL_THEME" "$THEME" --skel || warn "theme apply failed"
+else
+    python3 "$SL_THEME" "$THEME" --user "$USER_NAME" || warn "theme apply failed"
 fi
 
 # --- system bits (installer / ISO only) -------------------------------
 if [[ "$MODE" == "skel" ]]; then
-    # SDDM: Breeze theme on the accent wallpaper, Wayland greeter
-    WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
-    WP="/usr/share/backgrounds/static-linux/$WP_PREFIX-$ACCENT.png"
+    # SDDM: Breeze theme, Wayland greeter (sl-theme --system sets its
+    # wallpaper from the theme)
     install -d /etc/sddm.conf.d
     cat > /etc/sddm.conf.d/10-static-linux.conf <<EOF
 [General]
@@ -96,11 +84,7 @@ GreeterEnvironment=QT_WAYLAND_SHELL_INTEGRATION=layer-shell
 Current=breeze
 CursorTheme=breeze_cursors
 EOF
-    if [[ -d /usr/share/sddm/themes/breeze && -f "$WP" ]]; then
-        printf '[General]\nbackground=%s\ntype=image\n' "$WP" \
-            > /usr/share/sddm/themes/breeze/theme.conf.user
-    fi
-    log "sddm -> breeze, background $WP"
+    log "sddm -> breeze"
 fi
 
 # --- ownership ---------------------------------------------------------

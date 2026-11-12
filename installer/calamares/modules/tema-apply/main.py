@@ -8,21 +8,17 @@
 # Input:  globalStorage["packagechooser_tema"]: a folder name under
 #         /usr/share/static-linux/themes/ (default: "ambar").
 #
-# sl-theme comes with staticlinux-base. The older accent tool still runs
-# first, with the accent closest to the theme, because the LightDM greeter,
-# the Hyprland bar and Openbox read its files until they move to sl-theme;
-# sl-theme then rewrites everything both tools touch.
+# sl-theme comes with staticlinux-base and themes every environment (XFCE,
+# KDE, Hyprland, Openbox). `--system` does the machine-wide part: login
+# screen, GRUB menu and Plymouth splash. The initramfs is built by the
+# initcpio job right after this one, so it is not rebuilt here.
 
 import os
 
 import libcalamares
 
 SL_THEME = "/usr/share/static-linux/themes/sl-theme"
-ACCENT_SH = "/usr/lib/static-linux/accents/apply.sh"
 DEFAULT = "ambar"
-# nearest of the 10 old accents, for the parts sl-theme does not draw yet
-ACCENT_FOR = {"ambar": "yellow", "papel": "grey", "nordico": "blue", "bosque": "green",
-              "sakura": "pink", "violeta": "purple", "aero": "blue", "ventanas": "blue"}
 
 
 def pretty_name():
@@ -51,19 +47,14 @@ def run():
         fh.write(theme + "\n")
 
     login = gs.value("username")  # set by the users module
-    accent = ACCENT_FOR.get(theme, "purple")
-    if os.path.isfile(os.path.join(root, ACCENT_SH.lstrip("/"))):
-        with open(os.path.join(root, "etc/static-linux/accent"), "w", encoding="utf-8") as fh:
-            fh.write(accent + "\n")
-        libcalamares.utils.target_env_call(["bash", ACCENT_SH, accent, "--skel"])
-        if login:
-            libcalamares.utils.target_env_call(["bash", ACCENT_SH, accent, "--user", login])
-
     rc = libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--skel"])
     if rc != 0:
         return ("No se pudo aplicar el tema", f"sl-theme --skel terminó con {rc}")
     if login:
         libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--user", login])
+    rc = libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--system", "--no-initramfs"])
+    if rc != 0:
+        libcalamares.utils.warning(f"sl-theme --system ended with {rc}; login/boot keep the defaults")
 
     libcalamares.utils.debug(f"theme applied: {theme}")
     return None

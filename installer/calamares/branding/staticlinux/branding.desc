@@ -19,7 +19,9 @@ strings:
   shortVersion: "2026.10"
   versionedName: "Static Linux 2026.10"
   shortVersionedName: "SL 2026.10"
-  bootloaderEntryName: "Static Linux"
+  # GRUB_DISTRIBUTOR: Arch's 10_linux appends " Linux", so menu entries read
+  # "Static Linux" (the EFI entry name is efiBootloaderId in bootloader.conf)
+  bootloaderEntryName: "Static"
   productUrl: "https://github.com/KCRooty/static-linux"
   supportUrl: "https://github.com/KCRooty/static-linux/issues"
   knownIssuesUrl: "https://github.com/KCRooty/static-linux/issues"

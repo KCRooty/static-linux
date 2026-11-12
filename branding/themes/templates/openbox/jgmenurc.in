@@ -1,0 +1,33 @@
+# Static Linux — jgmenu (Openbox minimal tier). Auto-discovers .desktop
+# entries — no menu.xml to hand-maintain.
+# Colours rendered by sl-theme from the active theme ({{name}}).
+stay_alive = 0
+hide_on_startup = 1
+terminal_exec = lxterminal
+terminal_args = -e
+
+icon_size = 20
+tint2_look = 0
+csv_cmd = 0
+
+color_menu_bg = #{{bg}} 96
+color_menu_fg = #{{text}} 100
+color_norm_bg = #{{bg}} 0
+color_norm_fg = #{{text}} 100
+color_sel_bg = #{{accent}} 20
+color_sel_fg = #{{accent}} 100
+color_sep_fg = #{{text_dim}} 40
+color_title_bg = #{{bg}} 96
+color_title_fg = #{{accent}} 100
+color_scroll_ind = #{{text}} 60
+color_border = #{{accent}} 40
+
+border = 1
+radius = 6
+item_height = 26
+item_padding_x = 8
+item_margin_x = 3
+
+font = Space Grotesk 10
+columns = 1
+arrow = 1

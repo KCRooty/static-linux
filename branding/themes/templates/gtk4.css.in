@@ -32,6 +32,10 @@
 @define-color thumbnail_bg_color  #{{surface}};
 @define-color thumbnail_fg_color  #{{text}};
 @define-color borders             #{{line}};
+/* short names the Hyprland bar (~/.config/ags/bar.css) uses */
+@define-color sl_bg               #{{bg}};
+@define-color sl_surface          #{{surface}};
+@define-color sl_text             #{{text}};
 
 button, entry, spinbutton { border-radius: {{radius_ctl}}px; }
 popover > contents, .card { border-radius: 8px; }

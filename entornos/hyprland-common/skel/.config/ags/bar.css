@@ -1,6 +1,6 @@
 /* Static Linux — Astal bar. Uses the @accent_color / @sl_bg / @sl_text named
- * colours from ~/.config/gtk-4.0/gtk.css (branding/accents/apply.sh), which
- * app.tsx loads first — so the bar follows the active accent. */
+ * colours from ~/.config/gtk-4.0/gtk.css (sl-theme), which
+ * app.tsx loads first — so the bar follows the active theme. */
 
 window.sl-bar {
   background: transparent;

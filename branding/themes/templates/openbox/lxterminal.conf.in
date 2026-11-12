@@ -1,0 +1,35 @@
+# Static Linux — LXTerminal. Colours rendered by sl-theme ({{name}}).
+[general]
+color_preset=Custom
+fontname=JetBrains Mono 11
+selchars=
+scrollback=1000
+bgcolor=rgb({{bg_rgb}})
+fgcolor=rgb({{text_rgb}})
+tabpos=top
+geometry_columns=100
+geometry_rows=28
+cursorunderline=0
+cursorblinks=1
+audiblebell=0
+disallowbold=0
+cursorcolor=rgb({{accent_rgb}})
+palette_color_0=rgb({{term0_rgb}})
+palette_color_1=rgb({{term1_rgb}})
+palette_color_2=rgb({{term2_rgb}})
+palette_color_3=rgb({{term3_rgb}})
+palette_color_4=rgb({{term4_rgb}})
+palette_color_5=rgb({{term5_rgb}})
+palette_color_6=rgb({{term6_rgb}})
+palette_color_7=rgb({{term7_rgb}})
+palette_color_8=rgb({{term8_rgb}})
+palette_color_9=rgb({{term9_rgb}})
+palette_color_10=rgb({{term10_rgb}})
+palette_color_11=rgb({{term11_rgb}})
+palette_color_12=rgb({{term12_rgb}})
+palette_color_13=rgb({{term13_rgb}})
+palette_color_14=rgb({{term14_rgb}})
+palette_color_15=rgb({{term15_rgb}})
+palette_color_16=rgb({{bg_rgb}})
+palette_color_17=rgb({{text_rgb}})
+bgalpha=63421

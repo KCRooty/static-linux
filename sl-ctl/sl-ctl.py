@@ -186,7 +186,15 @@ def cmd_theme(args) -> int:
         sys.exit("sl-ctl: sl-theme not found")
     if args.list or not args.name:
         return _sh(["python3", str(tool), "--list"]).returncode
-    return _sh(["python3", str(tool), args.name]).returncode
+    if os.geteuid() != 0:
+        rc = _sh(["python3", str(tool), args.name]).returncode
+        print("sl-ctl: con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque")
+        return rc
+    # as root: the invoking user's desktop, then the machine-wide pieces
+    rc = 0
+    if os.environ.get("SUDO_USER"):
+        rc = _sh(["python3", str(tool), args.name, "--user", os.environ["SUDO_USER"]]).returncode
+    return rc or _sh(["python3", str(tool), args.name, "--system"]).returncode
 
 
 # ---------------------------------------------------------------------------

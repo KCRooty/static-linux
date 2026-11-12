@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=Static Linux
+Description=Static Linux boot splash, rendered by sl-theme ({{name}})
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/static-linux
+ScriptFile=/usr/share/plymouth/themes/static-linux/static-linux.script

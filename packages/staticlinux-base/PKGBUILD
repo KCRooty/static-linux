@@ -59,7 +59,8 @@ optdepends=(
     'polkit: sl-welcome privileged actions (privacy profile, catalog installs)'
     'pacman-contrib: sl-ctl update (checkupdates etc.)'
     'fastfetch: branded system info'
-    'lightdm-gtk-greeter: accent-themed login screen'
+    'lightdm-gtk-greeter: login screen in the theme (sl-theme --system)'
+    'plymouth: boot splash in the theme (sl-theme --system)'
     'adw-gtk-theme: sl-theme (GTK3 apps in the theme colours)'
     'papirus-icon-theme: sl-theme (folders in the theme colour)'
     'reflector: sl-ctl mirror'
@@ -121,10 +122,16 @@ package() {
     # it is the tool that drew two of the wallpapers, not needed at runtime.
     local themes="$share/themes"
     install -Dm755 branding/themes/sl-theme "$themes/sl-theme"
-    install -Dm644 -t "$themes" branding/themes/check.py branding/themes/icons.py branding/themes/xfwm4.py
+    install -Dm644 -t "$themes" branding/themes/check.py branding/themes/icons.py branding/themes/xfwm4.py \
+        branding/themes/system.py
     install -Dm644 -t "$themes/templates" branding/themes/templates/MANIFEST branding/themes/templates/*.in
     install -Dm644 -t "$themes/templates/styles" branding/themes/templates/styles/*.in
     install -Dm644 -t "$themes/templates/panels" branding/themes/templates/panels/*.xml
+    for sub in openbox hypr kde system; do
+        install -Dm644 -t "$themes/templates/$sub" branding/themes/templates/$sub/*.in
+    done
+    # the Static Forge mark, white on transparent (Plymouth splash)
+    install -Dm644 branding/logo/sf-static-forge.png "$share/logo/sf-static-forge.png"
     for theme_dir in branding/themes/*/; do
         [[ -f "$theme_dir/theme.conf" ]] || continue
         id="$(basename "$theme_dir")"

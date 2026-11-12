@@ -1,0 +1,8 @@
+# Static Linux — wallpaper, written by sl-theme ({{name}}).
+# hyprpaper >= 0.8: an empty monitor is the fallback for all of them.
+wallpaper {
+    monitor =
+    path = {{wallpaper}}
+    fit_mode = cover
+}
+splash = false

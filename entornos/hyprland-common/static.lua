@@ -22,15 +22,13 @@ local function read_file(path)
     return s
 end
 
--- the accent the user picked (installer / sl-ctl accent), for the borders
-local function accent_colors()
-    local name = (read_file("/etc/static-linux/accent") or "purple"):gsub("%s+", "")
-    local palette = read_file("/usr/lib/static-linux/accents/palette.conf") or ""
-    for line in palette:gmatch("[^\n]+") do
-        local n, acc, dim, detail = line:match("^%s*([%w-]+)%s*|%s*(%x+)%s*|%s*(%x+)%s*|%s*(%x+)")
-        if n == name then return acc, dim, detail end
-    end
-    return "C0A0F0", "8A78AA", "F2C94C"
+-- the active theme (sl-theme writes ~/.config/hypr/theme.lua); without one,
+-- the Ámbar palette
+local function theme()
+    local ok, t = pcall(dofile, (os.getenv("HOME") or "") .. "/.config/hypr/theme.lua")
+    if ok and type(t) == "table" then return t end
+    return { style = "minimal", accent = "E0A84F", accent2 = "EAC283", line = "4A443F",
+             bg = "262321", rounding = 10 }
 end
 
 -- keyboard layout chosen in the installer (Calamares writes it for X11)
@@ -41,11 +39,10 @@ local function keyboard()
     return layout, variant
 end
 
-local accent, dim, detail = accent_colors()
--- look profile picked in the installer / sl-welcome: retro, cyberpunk, liquid
-local style = (read_file((os.getenv("HOME") or "") .. "/.config/static-linux/style")
-               or read_file("/etc/static-linux/style") or "retro"):gsub("%s+", "")
-local rounding = ({ cyberpunk = 2, liquid = 16 })[style] or (full and 12 or 8)
+local th = theme()
+-- window style of the theme: minimal (flat), aero (glass), ventanas (square)
+local style = th.style or "minimal"
+local rounding = full and (th.rounding or 10) or math.min(th.rounding or 10, 6)
 local kb_layout, kb_variant = keyboard()
 
 local terminal    = "kitty"
@@ -93,8 +90,8 @@ hl.config({
         gaps_out = full and 12 or 6,
         border_size = 2,
         col = {
-            active_border   = { colors = { "rgba(" .. accent .. "ff)", "rgba(" .. detail .. "ff)" }, angle = 45 },
-            inactive_border = "rgba(" .. dim .. "55)",
+            active_border   = { colors = { "rgba(" .. th.accent .. "ff)", "rgba(" .. th.accent2 .. "ff)" }, angle = 45 },
+            inactive_border = "rgba(" .. th.line .. "aa)",
         },
         resize_on_border = true,
         allow_tearing = false,
@@ -105,17 +102,17 @@ hl.config({
         rounding = rounding,
         rounding_power = 2,
         active_opacity = 1.0,
-        inactive_opacity = full and (style == "liquid" and 0.90 or 0.95) or 1.0,
+        inactive_opacity = full and (style == "aero" and 0.90 or 0.95) or 1.0,
         shadow = {
             enabled = full,
             range = 14,
             render_power = 3,
-            color = 0xaa0b0c10,
+            color = tonumber("aa" .. th.bg, 16),
         },
         blur = {
             enabled = full,
-            size = style == "liquid" and 9 or 6,
-            passes = style == "liquid" and 3 or 2,
+            size = style == "aero" and 9 or 6,
+            passes = style == "aero" and 3 or 2,
             vibrancy = 0.17,
         },
     },

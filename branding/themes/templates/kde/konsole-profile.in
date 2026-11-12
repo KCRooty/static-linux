@@ -1,0 +1,8 @@
+# Static Linux — Konsole profile, written by sl-theme ({{name}}).
+[Appearance]
+ColorScheme=StaticLinux
+Font=JetBrains Mono,11,-1,5,400,0,0,0,0,0,0,0,0,0,0,1
+
+[General]
+Name=Static Linux
+Parent=FALLBACK/

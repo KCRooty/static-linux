@@ -1,7 +1,20 @@
-# template                 destination (relative to the home being themed)
-gtk3.css.in                .config/gtk-3.0/gtk.css
-gtk4.css.in                .config/gtk-4.0/gtk.css
-fastfetch.jsonc.in         .config/fastfetch/config.jsonc
-xfce4-terminal.xml.in      .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml
-kitty-theme.conf.in        .config/kitty/static-linux-theme.conf
-cava.conf.in               .config/cava/config
+# template                     destination (relative to the home)                        only if this program exists
+gtk3.css.in                    .config/gtk-3.0/gtk.css
+gtk4.css.in                    .config/gtk-4.0/gtk.css
+gtk3-settings.ini.in           .config/gtk-3.0/settings.ini
+fastfetch.jsonc.in             .config/fastfetch/config.jsonc
+xfce4-terminal.xml.in          .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-terminal.xml  xfce4-terminal
+kitty-theme.conf.in            .config/kitty/static-linux-theme.conf
+cava.conf.in                   .config/cava/config
+dunstrc.in                     .config/dunst/dunstrc                                      dunst
+openbox/themerc.in             .local/share/themes/StaticLinux/openbox-3/themerc          openbox
+openbox/tint2rc.in             .config/tint2/tint2rc                                      tint2
+openbox/jgmenurc.in            .config/jgmenu/jgmenurc                                    jgmenu
+openbox/lxterminal.conf.in     .config/lxterminal/lxterminal.conf                         lxterminal
+openbox/fehbg.in               .fehbg                                                     feh
+hypr/theme.lua.in              .config/hypr/theme.lua                                     Hyprland
+hypr/hyprpaper.conf.in         .config/hypr/hyprpaper.conf                                hyprpaper
+hypr/hyprlock.conf.in          .config/hypr/hyprlock.conf                                 hyprlock
+kde/StaticLinux.colors.in      .local/share/color-schemes/StaticLinux.colors              plasmashell
+kde/StaticLinux.colorscheme.in .local/share/konsole/StaticLinux.colorscheme               konsole
+kde/konsole-profile.in         .local/share/konsole/StaticLinux.profile                   konsole

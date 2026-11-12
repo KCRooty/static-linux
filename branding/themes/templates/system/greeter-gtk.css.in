@@ -1,0 +1,51 @@
+/* Static Linux — LightDM greeter theme, rendered by sl-theme ({{name}}).
+   adw-gtk3 underneath, the theme palette on top. */
+@import url("/usr/share/themes/{{gtk_theme}}/gtk-3.0/gtk.css");
+
+@define-color accent_color        #{{accent}};
+@define-color accent_bg_color     #{{accent}};
+@define-color accent_fg_color     #{{accent_fg}};
+@define-color window_bg_color     #{{bg}};
+@define-color window_fg_color     #{{text}};
+@define-color view_bg_color       #{{surface}};
+@define-color view_fg_color       #{{text}};
+@define-color popover_bg_color    #{{surface}};
+@define-color popover_fg_color    #{{text}};
+@define-color headerbar_bg_color  #{{bg}};
+@define-color headerbar_fg_color  #{{text}};
+@define-color borders             #{{line}};
+@define-color theme_selected_bg_color #{{accent}};
+@define-color theme_selected_fg_color #{{accent_fg}};
+
+#panel_window {
+  background-color: rgba({{bg_rgb}}, 0.85);
+  color: #{{text}};
+  border-bottom: 1px solid #{{line}};
+}
+#panel_window menubar, #panel_window menubar > menuitem { background: transparent; color: #{{text}}; }
+#panel_window menubar > menuitem:hover { background-color: rgba({{accent_rgb}}, 0.18); }
+
+#login_window, #restart_dialog, #shutdown_dialog {
+  background-color: rgba({{bg_rgb}}, 0.92);
+  border: 1px solid #{{line}};
+  border-radius: {{radius_win}}px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+}
+#content_frame { padding: 18px 22px 6px; background: transparent; }
+#buttonbox_frame { padding: 6px 22px 18px; background: transparent; border-top: none; }
+#login_window entry {
+  min-height: 38px;
+  border-radius: {{radius_ctl}}px;
+  background-color: #{{surface}};
+  color: #{{text}};
+  border: 1px solid #{{line}};
+}
+#login_window entry:focus { border-color: #{{accent}}; }
+#login_window button { border-radius: {{radius_ctl}}px; }
+#login_button, #restart_dialog .default, #shutdown_dialog .default {
+  background-image: none;
+  background-color: #{{accent}};
+  color: #{{accent_fg}};
+  font-weight: bold;
+}
+#greeter_infobar { border-radius: {{radius_ctl}}px; }

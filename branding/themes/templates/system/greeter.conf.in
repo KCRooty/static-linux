@@ -1,0 +1,8 @@
+# Static Linux — LightDM GTK greeter, written by sl-theme ({{name}}).
+# Loads after 50-static-linux.conf, so the theme wins over the base config.
+[greeter]
+background = {{wallpaper}}
+user-background = false
+theme-name = StaticLinux-Greeter
+icon-theme-name = {{icon_base}}
+font-name = {{font_ui}} 11

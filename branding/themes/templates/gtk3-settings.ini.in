@@ -1,0 +1,13 @@
+# Static Linux — GTK settings for sessions without xsettings (Openbox,
+# Hyprland). Rendered by sl-theme from the active theme ({{name}}).
+[Settings]
+gtk-theme-name={{gtk_theme}}
+gtk-icon-theme-name=StaticLinux
+gtk-font-name={{font_ui}} 10
+gtk-cursor-theme-name=Adwaita
+gtk-application-prefer-dark-theme={{dark_int}}
+gtk-toolbar-style=GTK_TOOLBAR_ICONS
+gtk-menu-images=0
+gtk-button-images=0
+gtk-enable-event-sounds=0
+gtk-enable-input-feedback-sounds=0

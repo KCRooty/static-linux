@@ -1,29 +1,30 @@
-# Static Linux — tint2 panel (Openbox minimal tier)
-# Void background, Signal Green accent on the active task pill. Backgrounds
-# are numbered by the order they're defined below (tint2's config format has
-# no named sections) — background 1 = panel, background 2 = active task.
+# Static Linux — tint2 panel (Openbox minimal tier). Rendered by sl-theme
+# from the active theme ({{name}}): bar in the theme background, accent on the
+# active task pill. Backgrounds are numbered by the order they're defined
+# below (tint2's config format has no named sections): background 1 = panel,
+# background 2 = active task.
 
 #---- Backgrounds (defined once, referenced below by number) ----
 rounded = 6
 border_width = 0
 border_sides = TBLR
-background_color = #0B0C10 96
-border_color = #0B0C10 0
-background_color_hover = #0B0C10 96
-border_color_hover = #0B0C10 0
-background_color_pressed = #0B0C10 96
-border_color_pressed = #0B0C10 0
+background_color = #{{bg}} 96
+border_color = #{{bg}} 0
+background_color_hover = #{{bg}} 96
+border_color_hover = #{{bg}} 0
+background_color_pressed = #{{bg}} 96
+border_color_pressed = #{{bg}} 0
 # ^ background 1: panel
 
 rounded = 4
 border_width = 1
 border_sides = TBLR
-background_color = #00C8A0 18
-border_color = #00C8A0 60
-background_color_hover = #00C8A0 26
-border_color_hover = #00C8A0 80
-background_color_pressed = #00C8A0 32
-border_color_pressed = #00C8A0 100
+background_color = #{{accent}} 18
+border_color = #{{accent}} 60
+background_color_hover = #{{accent}} 26
+border_color_hover = #{{accent}} 80
+background_color_pressed = #{{accent}} 32
+border_color_pressed = #{{accent}} 100
 # ^ background 2: active task pill
 
 #---- Panel ----
@@ -58,8 +59,8 @@ task_centered = 0
 task_maximum_size = 200 26
 task_padding = 6 2
 task_font = Space Grotesk 9
-task_font_color = #D6D8E0 100
-task_active_font_color = #00C8A0 100
+task_font_color = #{{text}} 100
+task_active_font_color = #{{accent}} 100
 task_background_id = 0
 task_active_background_id = 2
 
@@ -75,7 +76,7 @@ time1_format = %H:%M
 time1_font = JetBrains Mono 10
 time2_format = %A %d %B
 time2_font = Space Grotesk 8
-clock_font_color = #D6D8E0 100
+clock_font_color = #{{text}} 100
 clock_padding = 8 0
 clock_background_id = 0
 clock_rclick_command =
@@ -85,5 +86,5 @@ tooltip_show_timeout = 0.5
 tooltip_hide_timeout = 0.1
 tooltip_padding = 4 4
 tooltip_background_id = 1
-tooltip_font_color = #D6D8E0 100
+tooltip_font_color = #{{text}} 100
 tooltip_font = Space Grotesk 9

@@ -21,7 +21,7 @@
   </placement>
 
   <theme>
-    <name>Clearlooks</name>
+    <name>StaticLinux</name>
     <titleLayout>NLIMC</titleLayout>
     <keepBorder>yes</keepBorder>
     <font place="ActiveWindow">
