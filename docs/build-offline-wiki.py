@@ -21,7 +21,7 @@ import yaml
 
 REPO = Path(__file__).resolve().parent.parent
 WIKI = REPO / "docs" / "wiki"
-ONLINE = "https://staticforge.dpdns.org/linux/"
+ONLINE = "https://staticforge.me/static-linux/"
 
 
 def flatten(nav, group=None):

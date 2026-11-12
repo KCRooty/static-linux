@@ -20,7 +20,7 @@ from pages import appearance  # noqa: E402
 OFFLINE_WIKI = Path("/usr/share/doc/static-linux/wiki/index.html")
 
 _LINKS = [
-    ("Wiki online", "https://staticforge.dpdns.org/linux/"),
+    ("Wiki online", "https://staticforge.me/static-linux/"),
     ("Repositorio (GitHub)", "https://github.com/KCRooty/static-linux"),
     ("Reportar un problema", "https://github.com/KCRooty/static-linux/issues/new/choose"),
 ]
