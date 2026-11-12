@@ -135,6 +135,15 @@ do
     cp -a "$RELENG/airootfs/$f" "$AIROOTFS/$f"
 done
 
+# The live session is the XFCE desktop: root gets the installed XFCE
+# skel, then airootfs-common's live bits on top (.xinitrc, the installer
+# autostart). The theme and the Spanish locale are rendered inside the
+# image during the package install (airootfs-common/etc/pacman.d/hooks/
+# 50-sl-live-setup.hook).
+log "airootfs: live desktop <- entornos/xfce-themed/skel"
+install -d -m 750 "$AIROOTFS/root"
+cp -a "$REPO/entornos/xfce-themed/skel/." "$AIROOTFS/root/"
+
 log "airootfs: hand-authored bits <- iso/airootfs-common"
 cp -a "$REPO/iso/airootfs-common/." "$AIROOTFS/"
 

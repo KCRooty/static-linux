@@ -28,13 +28,20 @@ gitignored:
 - **`efiboot/`, `syslinux/`, `grub/`, `pacman.conf`** — copied from archiso's
   own `releng` profile on the build host, so the boot chain never drifts
   from the installed archiso version.
-- **`airootfs/`**, from three sources:
+- **`airootfs/`**, from four sources:
   1. a handful of live-system files from `releng`'s airootfs (the initramfs
      hooks that find and mount the ISO, the pacman keyring bootstrap, the
      mirrorlist hooks);
-  2. `iso/airootfs-common/` — root account, autologin on tty1, and the
-     `.xinitrc`/`.bash_profile` that start Openbox + Calamares;
-  3. `installer/calamares/` copied to `airootfs/etc/calamares/`.
+  2. `entornos/xfce-themed/skel/` copied into `/root`: the live session is
+     the XFCE desktop;
+  3. `iso/airootfs-common/` — root account, autologin on tty1, Spanish
+     locale and keyboard, the `.xinitrc`/`.bash_profile` that start XFCE,
+     and `sl-live-install`, which opens Calamares at login and from the menu
+     ("Instalar Static Linux"). A build-only pacman hook
+     (`etc/pacman.d/hooks/50-sl-live-setup.hook`) runs `locale-gen` and
+     renders the default theme (Ámbar) into `/root` while mkarchiso installs
+     the packages, so the live desktop starts already themed;
+  4. `installer/calamares/` copied to `airootfs/etc/calamares/`.
 - **The local package repo** (`packages/aur-cache/`, built by
   `packages/local-repo.sh`). `calamares` and `staticlinux-base` aren't in any
   official repo, so the repo is added to the profile's `pacman.conf` for

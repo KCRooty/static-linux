@@ -1,0 +1,17 @@
+#!/bin/sh
+# Static Linux — open the installer from the live desktop (autostart and the
+# "Instalar Static Linux" menu entry). One Calamares at a time.
+pgrep -x calamares >/dev/null && exit 0
+# preselect sl-detect's recommended environment on the "Entorno" page
+env="$(sl-detect --recommend-env 2>/dev/null)"
+case "$env" in
+    xfce-themed|openbox-minimal|hyprland-astal-lite|hyprland-astal-full)
+        sed -i "s/^default: .*/default: $env/" /etc/calamares/modules/entorno/module.conf ;;
+esac
+# HiDPI: the scale .xinitrc measured; the installed system gets it too
+# (installer/calamares/modules/display)
+scale="$(cat /run/sl-display-scale 2>/dev/null || echo 1)"
+[ "$scale" != "1" ] && export QT_SCALE_FACTOR="$scale"
+# Spanish UI even when started outside the desktop session (ssh, a tty)
+export LANG="${LANG:-es_ES.UTF-8}"
+exec calamares

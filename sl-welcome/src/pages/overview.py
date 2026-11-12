@@ -33,12 +33,27 @@ def _row(title: str, value: str) -> Adw.ActionRow:
     return row
 
 
+def _theme_tones() -> dict | None:
+    """Banner tones from the active sl-theme theme (wallpaper + palette)."""
+    from paths import themes_dir
+    try:
+        tid = (Path.home() / ".config/static-linux/theme").read_text().strip()
+        conf = (themes_dir() / tid / "theme.conf").read_text()
+    except OSError:
+        return None
+    t = dict(line.split("=", 1) for line in conf.splitlines()
+             if "=" in line and not line.lstrip().startswith("#"))
+    if not all(k in t for k in ("bg", "line", "accent", "warning")):
+        return None
+    return {"bg": t["bg"], "dim": t["line"], "accent": t["accent"], "detail": t["warning"]}
+
+
 def build() -> Gtk.Widget:
     page = Adw.PreferencesPage()
 
     header = Adw.PreferencesGroup()
     accents = {a["name"]: a for a in appearance._load_palette()}
-    acc = accents.get(appearance._current_accent()) or accents.get("purple")
+    acc = _theme_tones() or accents.get(appearance._current_accent()) or accents.get("purple")
     if acc and GroovyBanner:
         header.add(GroovyBanner(acc))
     else:  # no palette (broken install): plain wordmark

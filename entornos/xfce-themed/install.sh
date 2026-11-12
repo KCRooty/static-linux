@@ -70,30 +70,8 @@ if [[ ! -d /usr/share/themes/Default/xfwm4 && ! -d /usr/share/themes/Adwaita/xfw
         "$TARGET/.config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml" || true
 fi
 
-# --- accent colour layer (fastfetch / GTK / xfwm4 / terminal / wallpaper) ---
-# Delegated to the accent system so there is one theming path. Default is
-# whatever is recorded, else "purple".
-ACCENT_SH_INSTALLED="/usr/lib/static-linux/accents/apply.sh"
-if [[ -x "$ACCENT_SH_INSTALLED" ]]; then
-    ACCENT_SH="$ACCENT_SH_INSTALLED"
-else
-    ACCENT_SH="$HERE/../../branding/accents/apply.sh"
-fi
-if [[ -x "$ACCENT_SH" ]]; then
-    ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
-    log "applying accent: $ACCENT"
-    if [[ "$MODE" == "skel" ]]; then
-        "$ACCENT_SH" "$ACCENT" --skel || warn "accent apply failed"
-    else
-        "$ACCENT_SH" "$ACCENT" --user "$USER_NAME" || warn "accent apply failed"
-    fi
-else
-    warn "branding/accents/apply.sh not found — skipping colour layer"
-fi
-
 # --- theme: wallpaper + palette + style (sl-theme, DESIGN.md) -------
-# Runs after the accent layer and rewrites what both touch. The theme is the
-# one recorded by the installer, else Ámbar.
+# The theme is the one recorded by the installer, else Ámbar.
 SL_THEME="/usr/share/static-linux/themes/sl-theme"
 [[ -f "$SL_THEME" ]] || SL_THEME="$HERE/../../branding/themes/sl-theme"
 if [[ -f "$SL_THEME" ]]; then

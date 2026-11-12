@@ -1,0 +1,13 @@
+# remove from airootfs!
+# ISO build only: Spanish locale + default theme for the live session.
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Package
+Target = staticlinux-base
+Target = xfce4-panel
+
+[Action]
+Description = Static Linux live session: locale and theme...
+When = PostTransaction
+Exec = /usr/local/lib/static-linux-live/setup.sh

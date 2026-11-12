@@ -43,14 +43,12 @@ wpa_supplicant
 modemmanager
 openssh
 
-# ---- Live GUI (bare — just enough to host Calamares) ---------------
+# ---- Live GUI: X, then the XFCE desktop listed at the end -----------
 xorg-server
 xorg-xinit
 xorg-xsetroot
 xorg-xrandr
 xf86-input-libinput
-openbox
-feh
 
 # ---- Installer -------------------------------------------------------
 # Static Linux's own build (packages/calamares/), from the local repo.
@@ -79,3 +77,23 @@ noto-fonts
 # Not in any official repo — comes from the local repo ../build.sh wires
 # into this profile's pacman.conf (packages/local-repo.sh builds it).
 staticlinux-base
+
+# ---- live desktop: XFCE in the default theme (the installer opens on top) ----
+xfce4-session
+xfwm4
+xfce4-panel
+xfdesktop
+xfce4-settings
+xfconf
+xfce4-terminal
+xfce4-whiskermenu-plugin
+xfce4-pulseaudio-plugin
+xfce4-notifyd
+thunar
+mousepad
+network-manager-applet
+xcape
+adw-gtk-theme
+papirus-icon-theme
+inter-font
+fastfetch

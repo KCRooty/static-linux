@@ -182,6 +182,7 @@ package() {
     install -Dm755 branding/wallpapers/gen-wallpaper.py "$share/wallpapers/gen-wallpaper.py"
     for accent_dir in branding/wallpapers/*/; do
         accent="$(basename "$accent_dir")"
+        compgen -G "$accent_dir*.png" >/dev/null || continue  # e.g. __pycache__
         # one per style: void- (retro), neon- (cyberpunk), liquid- (liquid)
         install -Dm644 -t "$share/wallpapers/$accent" "$accent_dir"/*.png
     done

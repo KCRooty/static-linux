@@ -11,6 +11,14 @@
 
 set -uo pipefail
 
+# xfdesktop creates each monitor's properties while it starts up and misses
+# changes made in that window (seen in the live session): wait for it first.
+for _ in $(seq 1 20); do
+  pgrep -u "$(id -u)" -x xfdesktop >/dev/null && break
+  sleep 0.5
+done
+sleep 2
+
 ACCENT="$(cat /etc/static-linux/accent 2>/dev/null || echo purple)"
 WP_PREFIX="$(case "$(cat /etc/static-linux/style 2>/dev/null)" in cyberpunk) echo neon ;; liquid) echo liquid ;; *) echo void ;; esac)"
 WP="$(xfconf-query -c xfce4-desktop -p /backdrop/screen0/monitor0/workspace0/last-image 2>/dev/null)"

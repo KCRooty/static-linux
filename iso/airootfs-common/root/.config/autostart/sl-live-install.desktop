@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Instalar Static Linux
+Name[en]=Install Static Linux
+Comment=Instala Static Linux en este equipo
+Comment[en]=Install Static Linux on this computer
+Exec=sl-live-install
+Icon=system-software-install
+Categories=System;
+Terminal=false
+X-XFCE-Autostart-Override=true

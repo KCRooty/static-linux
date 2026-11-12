@@ -20,6 +20,11 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   de tema. `base.list` suma `plymouth`.
 - Con la sesión abierta, Openbox, tint2, dunst, Hyprland y Plasma recargan
   el tema sin cerrar sesión.
+- **Sesión en vivo con escritorio.** La ISO arranca en XFCE con el tema Ámbar
+  y en español; el instalador se abre solo encima y, si lo cierras, vuelve
+  desde el menú con **Instalar Static Linux**. El tema y el idioma se generan
+  al construir la ISO, así que el arranque no espera.
+- La cabecera de sl-welcome usa los colores del tema activo.
 
 ### Arreglos
 - kitty no cargaba los colores del tema: faltaba el `include` en
@@ -28,6 +33,8 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - El menú de GRUB decía "Static Linux Linux".
 - La barra de Hyprland usaba colores (`@sl_bg`, `@sl_text`) que el tema no
   definía.
+- XFCE podía arrancar con su fondo de serie: el script que pone el fondo del
+  tema corría antes de que el escritorio estuviera listo. Ahora lo espera.
 
 ## 2026-11-12 · Temas, estilos y el código, abierto
 

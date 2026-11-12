@@ -25,4 +25,6 @@ file_permissions=(
     ["/root"]="0:0:750"
     ["/root/.bash_profile"]="0:0:644"
     ["/root/.xinitrc"]="0:0:755"
+    ["/usr/local/bin/sl-live-install"]="0:0:755"
+    ["/usr/local/lib/static-linux-live/setup.sh"]="0:0:755"
 )
