@@ -58,9 +58,26 @@ sl_record_profile() {
 sl_apply_baseline() {
     sl_log "applying baseline privacy defaults"
 
-    # DNS over HTTPS via dnscrypt-proxy (default resolver: Quad9)
+    # Encrypted DNS via dnscrypt-proxy. The packaged config listens on
+    # 127.0.0.1:53 itself, so run the service (the .socket unit binds the
+    # same port and needs listen_addresses = [] to work).
     sl_backup_file /etc/dnscrypt-proxy/dnscrypt-proxy.toml
-    sl_enable dnscrypt-proxy.socket
+    sl_enable dnscrypt-proxy.service
+    # Without this NetworkManager keeps writing the DHCP servers into
+    # resolv.conf and dnscrypt-proxy is never asked. Global DNS makes NM
+    # write 127.0.0.1 there itself, on every connection.
+    sl_write /etc/NetworkManager/conf.d/10-static-linux-dns.conf <<'EOF'
+[global-dns-domain-*]
+servers=127.0.0.1
+EOF
+    # On a running system (sl-welcome, sl-ctl) switch now: resolver first,
+    # then NM, so there is never a moment with 127.0.0.1 and nobody there.
+    if ! systemd-detect-virt --chroot -q 2>/dev/null; then
+        systemctl start dnscrypt-proxy.service \
+            && nmcli general reload conf 2>/dev/null \
+            && sl_log "DNS now goes through dnscrypt-proxy" \
+            || sl_warn "dnscrypt-proxy did not start; DNS left as it was until reboot"
+    fi
 
     # NetworkManager: randomize MAC on wifi + stable-per-connection on ethernet
     sl_write /etc/NetworkManager/conf.d/00-static-linux-privacy.conf <<'EOF'
