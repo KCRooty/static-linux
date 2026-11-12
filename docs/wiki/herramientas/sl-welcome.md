@@ -6,21 +6,19 @@ y también se puede relanzar con `sl-ctl welcome`.
 
 ## Por qué libadwaita
 
-`branding/accents/apply.sh` ya escribe los colores con nombre propios de
-libadwaita (`accent_color`, `accent_bg_color`, `theme_selected_bg_color`...)
-en `~/.config/gtk-4.0/gtk.css` para cada acento de la paleta. Una app
-libadwaita los hereda gratis — cero código específico de acento dentro de
-`sl-welcome`, un solo camino de theming para todo el sistema (fastfetch,
-GTK, xfwm4, terminal, greeter, fondo de pantalla y `sl-welcome`).
+`sl-theme` escribe los colores con nombre de libadwaita (`accent_color`,
+`accent_bg_color`, `window_bg_color`...) en `~/.config/gtk-4.0/gtk.css`. Una
+app libadwaita los hereda gratis: `sl-welcome` no lleva código de temas
+propio y se ve con la paleta del [tema](../temas.md) activo.
 
 ## Páginas
 
 | Página | Qué hace | Privilegios |
 |---|---|---|
 | General | Cabecera de marca + lectura en vivo de `sl-detect --json` | Ninguno |
-| Apariencia | Los 10 acentos de `branding/accents/palette.conf` | Ninguno (aplica al usuario actual) |
+| Apariencia | Selector de [temas](../temas.md) con su vista previa; ejecuta `sl-theme <id>` | Ninguno (aplica al usuario actual) |
 | Privacidad | Los 3 perfiles — ver [Privacidad](../privacidad.md) | `pkexec` |
-| Catálogo | ~56 apps extra en 8 categorías, más allá del entorno elegido | `pkexec` (paquetes AUR se listan pero no se instalan aquí) |
+| Catálogo | Apps de Static Forge y ~56 apps extra en 8 categorías | `pkexec` (paquetes AUR se listan pero no se instalan aquí) |
 
 ## Por qué un wrapper de pkexec dedicado
 
@@ -50,3 +48,18 @@ apps:
 Los paquetes con `aur: true` aparecen en la lista pero sin checkbox —
 `pacman` no puede compilar AUR como root durante una instalación
 automatizada, así que la fila indica el `paru -S <pkg>` a mano.
+
+## Sección Static Forge
+
+`catalog/00-static-forge.yaml` va primero y lista el software del estudio.
+Hoy trae **KC Downloader** (3.0.1). Sus filas usan `sf: <paquete>` en vez de
+`pkg:`: el PKGBUILD vive en `packages/sf/<paquete>/` (se instala en
+`/usr/lib/static-linux/packages/sf/`) y `sl-welcome` lo construye con
+`makepkg -si` en una terminal, como usuario normal.
+
+```yaml
+  - id: kc-downloader
+    name: KC Downloader
+    desc: Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio.
+    sf: kc-downloader-bin
+```

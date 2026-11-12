@@ -23,7 +23,8 @@ static-linux/
 ├── installer/calamares/
 │   ├── modules/
 │   │   ├── sl-detect/        job: publica el informe en globalStorage
-│   │   ├── accent/           job: aplica el acento elegido en el target
+│   │   ├── tema/             packagechooser: página Tema con capturas reales
+│   │   ├── tema-apply/       job: aplica el tema elegido (usuario y /etc/skel)
 │   │   ├── basepkgs/         job: instala packages/lists/base.list
 │   │   ├── entorno/          packagechooser: elige el entorno (solo UI)
 │   │   ├── entorno-pkgs/     job: instala el entorno elegido + su install.sh
@@ -50,10 +51,13 @@ static-linux/
 │   ├── lists/            base + 4 entornos + 3 perfiles de privacidad + 8 sabores
 │   │                     (sabor-*.list — no hay un directorio sabores/ aparte,
 │   │                     el job de Calamares lee estas listas directamente)
-│   └── staticlinux-base/ PKGBUILD real — lleva todo el repo a /usr/lib/static-linux/
+│   ├── staticlinux-base/ PKGBUILD real — lleva todo el repo a /usr/lib/static-linux/
+│   └── sf/               PKGBUILDs de las apps de Static Forge (kc-downloader-bin)
 │
 ├── branding/
-│   ├── accents/           10 acentos, apply.sh (fastfetch/GTK/xfwm4/terminal/greeter/wallpaper)
+│   ├── themes/            8 temas (theme.conf + fondo + CREDITS), sl-theme, plantillas,
+│   │                      estilos minimal/aero/ventanas, xfwm4.py, check.py
+│   ├── accents/           capa de acentos anterior (base del instalador, Openbox, Hyprland)
 │   ├── fastfetch/          logos ASCII + config.jsonc
 │   └── wallpapers/         gen-wallpaper.py (stdlib puro) + un PNG por acento
 │

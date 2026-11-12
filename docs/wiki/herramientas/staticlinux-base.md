@@ -20,10 +20,11 @@ que hay que ejecutarlo desde dentro de un checkout.
 | Dónde | Qué |
 |---|---|
 | `/usr/lib/static-linux/` | sl-detect, sl-ctl, sl-welcome, accents, privacidad, `packages/lists/*.list`, `entornos/*/{install.sh,skel/}` |
-| `/usr/share/static-linux/` | logos de fastfetch, un wallpaper por acento + el generador |
-| `/usr/bin/{sl-detect,sl-ctl,sl-welcome}` | symlinks a lo anterior |
+| `/usr/share/static-linux/` | logos de fastfetch, fondos por acento y `themes/` (sl-theme, plantillas, estilos y los ocho temas con fondo y vista previa) |
+| `/usr/lib/static-linux/packages/sf/` | PKGBUILDs de las apps de Static Forge del catálogo |
+| `/usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-theme}` | symlinks a lo anterior |
 | `/usr/lib/static-linux/os-release` | identidad del sistema (ver abajo) |
-| `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | valores por defecto — `sl-welcome`/`sl-ctl accent` los sobrescriben después |
+| `/etc/fastfetch/config.jsonc`, `/etc/static-linux/accent` | valores por defecto; el instalador escribe además `/etc/static-linux/theme` |
 
 ## `/etc/os-release` sin pelearse con `filesystem`
 

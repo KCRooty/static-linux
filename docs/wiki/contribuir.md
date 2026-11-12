@@ -21,8 +21,8 @@ en la raíz del repositorio — esta página es solo el resumen rápido.
   vivo (o corrección de lo que falle) es oro.
 - **Calamares**: página de selección de sabores/privacidad, y completar los
   módulos `entorno`/`privacidad` (hoy son stubs vacíos).
-- **Branding**: el acento no llega todavía al borde de ventana en Openbox ni
-  en Hyprland (ver [Branding y acentos § huecos conocidos](branding-accents.md#huecos-conocidos)).
+- **Temas**: llevarlos a KDE, Hyprland y Openbox, y a LightDM, Plymouth y
+  GRUB (ver [Temas y estilos](temas.md)). También fondos con licencia libre.
 - **Documentación**: páginas de esta wiki en otros idiomas.
 - **ARM64**: RPi 4/5, Pinebook Pro, RK3588 — `sl-detect` ya sabe detectar
   estas GPUs por device-tree, falta probarlo en las placas reales.

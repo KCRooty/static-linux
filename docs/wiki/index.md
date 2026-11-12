@@ -31,7 +31,8 @@ en vez de forzar un único perfil "recomendado" para todo el mundo.
 | [Entornos](entornos.md) | Hyprland+Astal (full/lite) · XFCE temático · Openbox minimal |
 | [Privacidad](privacidad.md) | 3 perfiles reversibles: Básico, Mejorado, Máximo |
 | [Sabores](sabores.md) | 9 presets de instalación (Gaming, Dev, Cybersecurity...) |
-| [Branding y acentos](branding-accents.md) | 10 acentos de color, un solo sistema de theming |
+| [Temas y estilos](temas.md) | 8 temas (fondo + paleta) y 3 estilos: minimal, aero, ventanas |
+| [Novedades](novedades.md) | Qué cambió en cada versión, arreglos y problemas conocidos |
 
 ## Reglas que no van a cambiar
 

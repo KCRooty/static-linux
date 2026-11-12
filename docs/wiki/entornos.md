@@ -82,9 +82,10 @@ Static Linux se adapta a la pantalla en la que se instala, de 800×600 a 4K:
 
 ## Theming compartido, con huecos conocidos
 
-`branding/accents/apply.sh` cubre fastfetch, GTK 3/4, la ventana de LightDM
-y el fondo de pantalla en los cuatro entornos. Lo que **no** cubre todavía,
-por entorno:
+En **XFCE** manda `sl-theme`: los [temas y estilos](temas.md) cubren GTK,
+ventanas, panel, iconos, terminal y fondo. En los demás entornos sigue la
+capa de acentos (`branding/accents/apply.sh`: fastfetch, GTK 3/4, LightDM y
+fondo) hasta que los temas lleguen allí. Lo que **no** cubre todavía:
 
 - **Openbox**: el borde de ventana de `rc.xml` no sigue el acento (tema fijo
   por ahora — necesitaría un tema Openbox propio con variantes por acento,

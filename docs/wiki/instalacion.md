@@ -31,7 +31,9 @@ ahí.
 hardware) → elegir entorno/privacidad (`packagechooser`, ver
 [Sabores](sabores.md) para cómo `entorno-pkgs`/`privacidad-apply` actúan
 sobre esa elección) → partición → usuarios → resumen → instalación real
-(paquetes base, entorno, sabores, acento, avisos de LUKS, bootloader...).
+(paquetes base, entorno, sabores, tema, avisos de LUKS, bootloader...). La
+página **Tema** enseña capturas reales de los ocho [temas](temas.md); el
+elegido se aplica al usuario y a `/etc/skel`.
 `installer/calamares/branding/staticlinux/branding.desc` todavía no tiene
 un logo real (Core hace su propio diseño).
 

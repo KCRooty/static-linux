@@ -47,6 +47,8 @@ extra_css:
 
 markdown_extensions:
   - admonition
+  - attr_list
+  - md_in_html
   - pymdownx.details
   - pymdownx.superfences
   - pymdownx.tabbed:
@@ -75,7 +77,8 @@ nav:
   - Entornos de escritorio: entornos.md
   - Privacidad: privacidad.md
   - Sabores y catálogo: sabores.md
-  - Branding y acentos: branding-accents.md
+  - Temas y estilos: temas.md
+  - Novedades: novedades.md
   - FAQ: faq.md
   - Contribuir: contribuir.md
   - "Desarrollo: estructura del repo": estructura.md

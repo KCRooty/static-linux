@@ -16,6 +16,8 @@ sl-ctl snapshot --rollback <id>
 sl-ctl flavor --add <sabor>      # añadir un sabor tras la instalación
 sl-ctl flavor --remove <sabor>
 sl-ctl privacy --profile <perfil>  # cambiar de perfil de privacidad
+sl-ctl theme --list              # temas disponibles y el activo
+sl-ctl theme <tema>              # aplicar un tema (fondo + paleta + estilo)
 sl-ctl info                      # info del sistema, con marca
 sl-ctl detect                    # ejecuta sl-detect
 sl-ctl welcome                   # relanza sl-welcome
@@ -32,6 +34,11 @@ sl-ctl mirror                    # actualiza mirrors
 
 Delega en `privacidad/<perfil>/apply.sh` (ver [Privacidad](../privacidad.md)).
 Sin argumento, muestra el perfil activo (`/var/lib/static-linux/privacy-profile`).
+
+## `sl-ctl theme`
+
+Delega en `sl-theme` (ver [Temas y estilos](../temas.md)). Sin argumento,
+muestra el tema activo. Aplica al usuario que lo ejecuta, sin `sudo`.
 
 ## `sl-ctl info`
 
