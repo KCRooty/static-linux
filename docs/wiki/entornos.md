@@ -13,6 +13,14 @@ decisión completa. Cada uno vive en `entornos/<nombre>/`, con su propio
 | [`xfce-themed`](https://github.com/KCRooty/static-linux/tree/main/entornos/xfce-themed) | ≥ 1 GB | Xorg | **Validado en el iMedia S2883** |
 | [`openbox-minimal`](https://github.com/KCRooty/static-linux/tree/main/entornos/openbox-minimal) | ≥ 512 MB | Xorg | Escrito, sin probar en hardware real |
 | [`kde-plasma`](https://github.com/KCRooty/static-linux/tree/main/entornos/kde-plasma) | ≥ 4 GB | Wayland | Nuevo (2026-10) |
+| [`gnome`](https://github.com/KCRooty/static-linux/tree/main/entornos/gnome) | ≥ 4 GB | Wayland | Nuevo (2026-11), probado en VM |
+| [`cinnamon`](https://github.com/KCRooty/static-linux/tree/main/entornos/cinnamon) | ≥ 2 GB | Xorg | Nuevo (2026-11), probado en VM |
+| [`i3`](https://github.com/KCRooty/static-linux/tree/main/entornos/i3) | ≥ 1 GB | Xorg | Nuevo (2026-11), probado en VM |
+| [`bspwm`](https://github.com/KCRooty/static-linux/tree/main/entornos/bspwm) | ≥ 1 GB | Xorg | Nuevo (2026-11), probado en VM |
+| [`sway`](https://github.com/KCRooty/static-linux/tree/main/entornos/sway) | ≥ 1 GB | Wayland | Nuevo (2026-11), probado en VM |
+
+KDE Plasma, GNOME, Cinnamon, i3, bspwm y sway se eligen a mano en el
+instalador; `sl-detect` no los recomienda.
 
 `xfce-themed` es el único que se ha visto arrancar en una máquina real hasta
 ahora — ver la [referencia del iMedia S2883](hardware/imedia-s2883.md).
@@ -60,6 +68,28 @@ la marca y el acento de Static Linux aplicado en el primer inicio de sesión
 pesado (~700-900 MB en reposo), por eso `sl-detect` nunca lo recomienda: está
 para quien quiera un escritorio completo y familiar.
 
+## GNOME
+
+GNOME de serie (Wayland) con GDM, que el instalador prefiere cuando está
+instalado (la pantalla de bloqueo de GNOME lo necesita). El tema pone modo
+claro u oscuro, el acento de GNOME más parecido al del tema, fuentes,
+iconos Papirus y fondo.
+
+## Cinnamon
+
+El escritorio clásico: barra abajo y menú de inicio. Además de lo que recibe
+GNOME, `sl-theme` genera un tema de panel (`~/.local/share/themes/StaticLinux/cinnamon`)
+recoloreando el de serie con la paleta del tema.
+
+## i3, bspwm y sway (mosaico)
+
+Tres gestores de ventanas en mosaico para quien vive en el teclado. Los tres
+arrancan con **Super + Intro** (terminal), **Super + Espacio** o **Super + D** (rofi)
+y **Super + Q** (cerrar ventana); el resto de atajos está en su
+`config` (en sxhkd para bspwm). Barra: i3bar + i3status en i3, polybar en
+bspwm, waybar en sway. Tus cambios van en `config.d/` (i3 y sway), que se
+carga al final y no se sobrescribe.
+
 ## Capturas de pantalla
 
 En todos los entornos, **Super + Shift + S** selecciona una zona de la pantalla
@@ -80,17 +110,13 @@ Static Linux se adapta a la pantalla en la que se instala, de 800×600 a 4K:
 - Los fondos son 4K y se recortan a cualquier proporción; las ventanas propias
   (`sl-welcome`, la guía de Hyprland) se encogen en pantallas pequeñas.
 
-## Theming compartido, con huecos conocidos
+## Temas en todos los entornos
 
-En **XFCE** manda `sl-theme`: los [temas y estilos](temas.md) cubren GTK,
-ventanas, panel, iconos, terminal y fondo. En los demás entornos sigue la
-capa de acentos (`branding/accents/apply.sh`: fastfetch, GTK 3/4, LightDM y
-fondo) hasta que los temas lleguen allí. Lo que **no** cubre todavía:
+`sl-theme` pinta los nueve escritorios con el mismo tema: ver
+[Temas y estilos](temas.md) para lo que recibe cada uno. Lo que **no**
+cubre todavía:
 
-- **Openbox**: el borde de ventana de `rc.xml` no sigue el acento (tema fijo
-  por ahora — necesitaría un tema Openbox propio con variantes por acento,
-  como `xfwm4-themerc.in` para XFCE).
-- **Hyprland/Astal**: la barra de Astal sí sigue el acento (lee el mismo
-  `gtk.css`), pero el color de borde de `hyprland.conf` es fijo.
-
-Ninguno de los dos es difícil de resolver — solo no estaba hecho todavía.
+- Los **estilos** (minimal, aero, ventanas, estante) solo cambian la forma de
+  XFCE; los demás escritorios cogen la paleta y el fondo.
+- En Cinnamon, los botones de bloquear y cerrar sesión del menú siguen
+  oscuros con temas claros.

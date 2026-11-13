@@ -5,12 +5,13 @@ es la forma del escritorio: ventanas, barra y controles. Cada tema trae su
 estilo; `sl-theme` lo pinta todo a la vez. La dirección visual completa está
 en [`DESIGN.md`](https://github.com/KCRooty/static-linux/blob/main/DESIGN.md).
 
-!!! note "Estado (2026-11-12)"
-    Los temas llegan a los cuatro entornos (XFCE, KDE Plasma, Hyprland y
-    Openbox) y al arranque: menú de GRUB, pantalla de carga (Plymouth) y
-    pantalla de inicio de sesión (LightDM o SDDM). Probado en la VM: XFCE,
-    Openbox, LightDM, Plymouth y GRUB. KDE e Hyprland están generados y
-    revisados, pero falta verlos arrancados en una instalación.
+!!! note "Estado (2026-11-13)"
+    Los temas llegan a los nueve escritorios (XFCE, KDE Plasma, Hyprland,
+    Openbox, GNOME, Cinnamon, i3, bspwm y sway) y al arranque: menú de GRUB,
+    pantalla de carga (Plymouth) y pantalla de inicio de sesión (LightDM o
+    SDDM). Todos se han visto arrancados con temas en la VM; los estilos
+    (minimal, aero, ventanas, estante) solo dan forma a XFCE, el resto coge
+    la paleta y el fondo.
 
 ## Los nueve temas
 
@@ -88,6 +89,15 @@ que tengas:
 | KDE Plasma | esquema de color `StaticLinux` (también dentro de `kdeglobals`), Konsole, fondo |
 | Hyprland | bordes y redondeo (`~/.config/hypr/theme.lua`), hyprpaper, hyprlock, barra de Astal, dunst |
 | Openbox | tema de ventanas `StaticLinux`, tint2, jgmenu, dunst, LXTerminal, fondo con feh |
+| GNOME | modo claro/oscuro, acento (el más cercano de GNOME), tema GTK, iconos, fuentes y fondo por gsettings |
+| Cinnamon | lo mismo que GNOME, más un tema de panel `StaticLinux` generado desde la paleta |
+| i3 | bordes, huecos, i3bar + i3status, rofi, dunst/mako, fondo con feh |
+| bspwm | bordes (`bspc config`), polybar, rofi, fondo con feh |
+| sway | bordes, fondo (`output * bg`), waybar, rofi, mako |
+
+GNOME y Cinnamon guardan sus ajustes en dconf: sin sesión abierta (y con
+`--skel`), `sl-theme` los escribe con `dbus-run-session` directamente en
+`~/.config/dconf/user`.
 
 Con `--system` (como root) pinta lo que es de toda la máquina, con copia de
 lo que sustituye en `/var/backups/static-linux/theme/<fecha>/`:
@@ -105,7 +115,9 @@ antes a `~/.local/state/static-linux/theme-backup/<fecha>/`.
 
 Con la sesión abierta, `sl-theme` avisa a lo que esté corriendo: el panel
 de XFCE se reconstruye al cambiar de estilo, Openbox, tint2 y dunst recargan,
-Hyprland recarga y relanza hyprpaper, y Plasma aplica el esquema y el fondo.
+Hyprland recarga y relanza hyprpaper (o swaybg), Plasma aplica el esquema y
+el fondo, GNOME y Cinnamon cambian al momento por gsettings, i3 y sway
+recargan, bspwm repinta los bordes, y polybar, waybar y mako se reinician.
 Las apps que ya estaban abiertas cambian al reabrirlas.
 
 ## Hacer un tema
