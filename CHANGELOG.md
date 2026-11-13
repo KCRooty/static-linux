@@ -41,6 +41,21 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - La cabecera de sl-welcome usa los colores del tema activo.
 
 ### Arreglos
+- **Temas probados en Openbox, KDE Plasma y Hyprland** (VM, 2026-11-13): fondo,
+  paleta de ventanas, barra y apps siguen al tema, también al cambiarlo en
+  vivo. Arreglos que salieron:
+  - Hyprland 0.57 ya no conoce `misc.vfr`: la config daba error al entrar.
+  - hyprpaper revienta en GPUs virtuales o por software: si falla, el fondo
+    lo pone `swaybg` (nuevo en las listas de Hyprland). `theme.lua` lleva
+    ahora la ruta del fondo.
+  - Al cambiar de tema en vivo, `sl-theme` no encontraba la sesión de
+    Hyprland (el compositor no exporta `HYPRLAND_INSTANCE_SIGNATURE` ni
+    `WAYLAND_DISPLAY` a sí mismo): ahora los saca de `$XDG_RUNTIME_DIR`.
+  - Las apps libadwaita (Nautilus, Loupe…) se quedaban siempre claras:
+    `sl-theme` escribe `org.gnome.desktop.interface` (modo claro/oscuro,
+    tema GTK, iconos, fuentes) en la sesión o, sin sesión, directamente en
+    `~/.config/dconf/user` (también con `--skel`). Las ventanas ya abiertas
+    lo cogen al reabrirlas.
 - **El tema elegido en el instalador ya se ve en el usuario nuevo.** El skel
   trae `xsettings.xml` y `xfwm4.xml` con Adwaita-dark y la decoración vieja,
   y `sl-theme` solo los cambiaba con `xfconf-query`, que en el chroot del

@@ -28,7 +28,8 @@ local function theme()
     local ok, t = pcall(dofile, (os.getenv("HOME") or "") .. "/.config/hypr/theme.lua")
     if ok and type(t) == "table" then return t end
     return { style = "minimal", accent = "E0A84F", accent2 = "EAC283", line = "4A443F",
-             bg = "262321", rounding = 10 }
+             bg = "262321", rounding = 10,
+             wallpaper = "/usr/share/static-linux/themes/ambar/wallpaper.jpg" }
 end
 
 -- keyboard layout chosen in the installer (Calamares writes it for X11)
@@ -59,7 +60,9 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" 
 -- autostart
 ------------------------------------------------------------------------
 hl.on("hyprland.start", function()
-    hl.exec_cmd("hyprpaper")
+    -- hyprpaper can't get a buffer on some virtual/software GPUs (it
+    -- segfaults in QEMU with llvmpipe): swaybg keeps the wallpaper there
+    hl.exec_cmd("hyprpaper || swaybg -m fill -i '" .. (th.wallpaper or "") .. "'")
     hl.exec_cmd("ags run ~/.config/ags/app.tsx")
     hl.exec_cmd("dunst")
     hl.exec_cmd("systemctl --user start hyprpolkitagent")
@@ -126,7 +129,6 @@ hl.config({
         force_default_wallpaper = 0,
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
-        vfr = true,
     },
 
     input = {

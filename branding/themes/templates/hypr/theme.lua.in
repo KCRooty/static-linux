@@ -12,4 +12,5 @@ return {
     accent2  = "{{accent_hi}}",
     rounding = {{radius_win}},
     font     = "{{font_ui}}",
+    wallpaper = "{{wallpaper}}",
 }
