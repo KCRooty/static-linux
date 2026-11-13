@@ -1,0 +1,1011 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: zh_CN\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Instalando los paquetes base"
+msgstr "正在安装基础软件包"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "正在设置屏幕缩放"
+
+msgid "Instalando el escritorio"
+msgstr "正在安装桌面"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "正在检查磁盘加密"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "正在应用隐私配置"
+
+msgid "Instalando los sabores"
+msgstr "正在安装风味包"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "正在检测硬件 (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "正在应用主题"
+
+msgid "Espacio"
+msgstr "空格"
+
+msgid "Impr Pant"
+msgstr "PrintScreen"
+
+msgid "Intro"
+msgstr "回车"
+
+msgid "clic derecho"
+msgstr "右键"
+
+msgid "clic izquierdo"
+msgstr "左键"
+
+msgid "rueda ↑"
+msgstr "滚轮 ↑"
+
+msgid "rueda ↓"
+msgstr "滚轮 ↓"
+
+msgid "Silencio"
+msgstr "静音"
+
+msgid "Brillo +"
+msgstr "亮度 +"
+
+msgid "Brillo −"
+msgstr "亮度 −"
+
+msgid "Micro"
+msgstr "麦克风"
+
+msgid "código {n}"
+msgstr "键码 {n}"
+
+msgid "flechas"
+msgstr "方向键"
+
+msgid "Otros"
+msgstr "其他"
+
+msgid "Atajos de Hyprland"
+msgstr "Hyprland 快捷键"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland 主要用键盘操作。Super 就是 Windows 键。随时按 Super + F1 重新打开本指南。"
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "无法读取快捷键（Hyprland 在运行吗？）。"
+
+msgid "%A, %-d de %B"
+msgstr "%-m月%-d日 %A"
+
+msgid "Cable"
+msgstr "有线"
+
+msgid "Red: {name}"
+msgstr "网络：{name}"
+
+msgid "Ajustes rápidos"
+msgstr "快速设置"
+
+msgid "Cerrar sesión"
+msgstr "注销"
+
+msgid "Apagar"
+msgstr "关机"
+
+msgid "Bloquear"
+msgstr "锁定"
+
+msgid "Ajustes"
+msgstr "设置"
+
+msgid "Activado"
+msgstr "已开启"
+
+msgid "Desactivado"
+msgstr "已关闭"
+
+msgid "Avisos activos"
+msgstr "通知已开启"
+
+msgid "No molestar"
+msgstr "勿扰"
+
+msgid "Sin avisos"
+msgstr "无通知"
+
+msgid "Luz nocturna"
+msgstr "夜灯"
+
+msgid "Tonos cálidos"
+msgstr "暖色调"
+
+msgid "Captura"
+msgstr "截图"
+
+msgid "Batería {pct} %"
+msgstr "电量 {pct} %"
+
+msgid "cargando"
+msgstr "充电中"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero，底部栏"
+
+msgid "barra fina arriba"
+msgstr "顶部细栏"
+
+msgid "como Windows, barra abajo"
+msgstr "类似 Windows，底部栏"
+
+msgid "lanzador y estante abajo"
+msgstr "启动器和底部架子"
+
+msgid "Tema"
+msgstr "主题"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "每个主题由一张壁纸、从中提取的配色和一套窗口与面板样式组成。一次全部更换，被替换的内容会备份。无需 sudo。"
+
+msgid "claro"
+msgstr "浅色"
+
+msgid "oscuro"
+msgstr "深色"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "找不到 Static Linux 的主题 (sl-theme)。"
+
+msgid "No se pudo aplicar el tema"
+msgstr "无法应用主题"
+
+msgid "Tema aplicado: {name}"
+msgstr "已应用主题：{name}"
+
+msgid "repos oficiales"
+msgstr "官方仓库"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "完成。按回车关闭… "
+
+msgid "instalado"
+msgstr "已安装"
+
+msgid "Pendiente de tus sabores"
+msgstr "风味包中未完成的"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "安装过程中没能装上的内容。已勾选。"
+
+msgid "Catálogo"
+msgstr "软件目录"
+
+msgid "No se encontró ningún catálogo."
+msgstr "未找到软件目录。"
+
+msgid "Instalar lo marcado"
+msgstr "安装已勾选项"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "官方仓库：需要你的密码 · Flathub：无需密码 · AUR 和 Static Forge：会打开终端"
+
+msgid "Instalar"
+msgstr "安装"
+
+msgid "No has marcado nada"
+msgstr "你什么都没勾选"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "没有终端可用来安装 Static Forge 的应用"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "没有终端：请运行 «{cmd}»"
+
+msgid "pacman falló"
+msgstr "pacman 失败"
+
+msgid "flatpak falló"
+msgstr "flatpak 失败"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "已安装 {n} 个应用"
+
+msgid "Falló: {error}"
+msgstr "失败：{error}"
+
+msgid "Wiki online"
+msgstr "在线维基"
+
+msgid "Repositorio (GitHub)"
+msgstr "代码仓库 (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "报告问题"
+
+msgid "Este equipo"
+msgstr "这台电脑"
+
+msgid "Driver gráfico"
+msgstr "显卡驱动"
+
+msgid "No"
+msgstr "否"
+
+msgid "Sí"
+msgstr "是"
+
+msgid "Almacenamiento"
+msgstr "存储"
+
+msgid "Arquitectura"
+msgstr "架构"
+
+msgid "Recomendación de sl-detect"
+msgstr "sl-detect 推荐"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "根据这台硬件计算得出。可在“外观”和“隐私”中更改。"
+
+msgid "Entorno"
+msgstr "环境"
+
+msgid "Sistema de archivos"
+msgstr "文件系统"
+
+msgid "Enlaces"
+msgstr "链接"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "本地副本，离线可用"
+
+msgid "Básico"
+msgstr "基础"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "从第一天起的安全设置 + UFW + 随机 MAC。内核 linux-zen。"
+
+msgid "Mejorado"
+msgstr "增强"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard。内核 linux-zen。"
+
+msgid "Máximo"
+msgstr "最高"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + 加密交换分区。内核 linux-hardened。"
+
+msgid "Perfil de privacidad"
+msgstr "隐私配置"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "每个配置都会备份它修改的内容 (/var/backups/static-linux/privacy/)，所以一切都可撤销。需要管理员密码。"
+
+msgid "Aplicar"
+msgstr "应用"
+
+msgid "Perfil {name} aplicado"
+msgstr "已应用“{name}”配置"
+
+msgid "mira el registro"
+msgstr "请查看日志"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "未安装 pkexec。请安装 «polkit» 以应用系统更改。"
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "未知的隐私配置：{name}"
+
+msgid "no encuentro {path}"
+msgstr "找不到 {path}"
+
+msgid "Bienvenido a Static Linux"
+msgstr "欢迎使用 Static Linux"
+
+msgid "General"
+msgstr "概览"
+
+msgid "Apariencia"
+msgstr "外观"
+
+msgid "Privacidad"
+msgstr "隐私"
+
+msgid "Capturas"
+msgstr "截图"
+
+msgid "Captura guardada"
+msgstr "截图已保存"
+
+msgid "Copiada al portapapeles"
+msgstr "已复制到剪贴板"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "应用程序 (Super + 空格)"
+
+msgid "Sin conexión"
+msgstr "未连接"
+
+msgid "Más ajustes de sonido"
+msgstr "更多声音设置"
+
+msgid "Suspender"
+msgstr "挂起"
+
+msgid "Reiniciar"
+msgstr "重启"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "从 YouTube、YouTube Music、Spotify 和 Pinterest 下载，工作室出品。"
+
+msgid "Internet"
+msgstr "互联网"
+
+msgid "El navegador de Mozilla."
+msgstr "Mozilla 的浏览器。"
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "基于 Firefox，带垂直标签页和工作区。"
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "Chrome 的自由基础，没有 Google 服务。"
+
+msgid "Correo, calendario y contactos."
+msgstr "邮件、日历和联系人。"
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "自由、无广告的 BitTorrent 客户端。"
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "无需云端，把文件发送到同一网络中的其他设备。"
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "与你自己的 Nextcloud 服务器同步。"
+
+msgid "Cliente FTP/SFTP."
+msgstr "FTP/SFTP 客户端。"
+
+msgid "Comunicación"
+msgstr "通讯"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "内置 Vencord 的 Discord：主题、插件，在 Linux 上性能更好。"
+
+msgid "El cliente oficial."
+msgstr "官方客户端。"
+
+msgid "Mensajería."
+msgstr "即时通讯。"
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "端到端加密通讯。"
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "去中心化聊天 (Matrix)。"
+
+msgid "Música y audio"
+msgstr "音乐与音频"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "官方客户端（通过 spotify-launcher 安装和更新）。"
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Spotify 的主题和扩展。请先安装 Spotify。"
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "把你的 Spotify 歌单下载到本地（来自 YouTube Music）。"
+
+msgid "Grabar y editar audio."
+msgstr "录制和编辑音频。"
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "自由的专业 DAW：多轨录音与混音。"
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "自由的音乐制作 DAW，FL Studio 风格。"
+
+msgid "Caja de ritmos."
+msgstr "鼓机。"
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "带试用版的商业 DAW；原生支持 Linux。"
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "轻量强大的 DAW（付费许可，完整试用）。"
+
+msgid "Software de DJ."
+msgstr "DJ 软件。"
+
+msgid "Reproductor de música ligero."
+msgstr "轻量音乐播放器。"
+
+msgid "Vídeo"
+msgstr "视频"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "自由且功能齐全的视频编辑器。"
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "自由的视频编辑器，简单快速。"
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "专业剪辑与调色（免费但不自由）。较重；需要独立显卡。"
+
+msgid "Grabar y emitir en directo."
+msgstr "录制和直播。"
+
+msgid "Convertir y comprimir vídeo."
+msgstr "转换和压缩视频。"
+
+msgid "Reproduce cualquier cosa."
+msgstr "什么都能播放。"
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "极简且非常快的播放器。"
+
+msgid "Grafismo y 3D"
+msgstr "图形与 3D"
+
+msgid "Pintura digital."
+msgstr "数字绘画。"
+
+msgid "Retoque fotográfico."
+msgstr "照片修饰。"
+
+msgid "Gráficos vectoriales."
+msgstr "矢量图形。"
+
+msgid "Modelado, animación y render 3D."
+msgstr "3D 建模、动画和渲染。"
+
+msgid "CAD 3D paramétrico."
+msgstr "参数化 3D CAD。"
+
+msgid "Revelado RAW."
+msgstr "RAW 冲洗。"
+
+msgid "Motor de videojuegos libre."
+msgstr "自由的游戏引擎。"
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "像素画与动画（从源码编译）。"
+
+msgid "Juegos"
+msgstr "游戏"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "借助 Proton 玩 Windows 游戏。"
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games、GOG 和 Amazon Prime Gaming。在 Linux 上使用 Epic 的方式。"
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "一个地方管理你所有的游戏和启动器（Battle.net、EA、Ubisoft…）。"
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "支持多实例和模组的 Minecraft Java。"
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "带 Modrinth 模组和整合包的 Minecraft Java。"
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "Mojang 官方的 Minecraft Java 启动器。"
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "基岩版启动器（需要已在 Google Play 购买）。"
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "一键安装 Proton-GE 及其他 Proton/Wine 版本。"
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "在隔离环境中运行 Windows 程序。"
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "游戏性能与帧率计数器。"
+
+msgid "Emulador multisistema."
+msgstr "多平台模拟器。"
+
+msgid "Emulador de GameCube y Wii."
+msgstr "GameCube 和 Wii 模拟器。"
+
+msgid "Emulador de PlayStation 2."
+msgstr "PlayStation 2 模拟器。"
+
+msgid "Desarrollo"
+msgstr "开发"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "版本控制（Static Linux 自带）。"
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "在终端使用 GitHub (gh)。"
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "容器，带 Compose 和 Buildx。记得把自己加入 docker 组。"
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "微软的构建版本，带其扩展市场。"
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "从开源代码构建的 VS Code（官方仓库）。"
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "没有微软遥测的 VS Code。"
+
+msgid "Editor modal en la terminal."
+msgstr "终端中的模式编辑器。"
+
+msgid "Git con interfaz en la terminal."
+msgstr "带终端界面的 Git。"
+
+msgid "Comparar archivos y carpetas."
+msgstr "比较文件和文件夹。"
+
+msgid "Cliente de bases de datos."
+msgstr "数据库客户端。"
+
+msgid "adb y fastboot."
+msgstr "adb 和 fastboot。"
+
+msgid "Productividad"
+msgstr "效率"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "完整的办公套件，带拼写检查。"
+
+msgid "Notas en Markdown enlazadas."
+msgstr "相互链接的 Markdown 笔记。"
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "本地、自由的密码管理器。"
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "云端密码管理器。"
+
+msgid "Notas con sincronización cifrada."
+msgstr "带加密同步的笔记。"
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "手写笔记和 PDF 批注。"
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "合并、拆分和重排 PDF。"
+
+msgid "Tareas y listas."
+msgstr "任务与清单。"
+
+msgid "Sistema y herramientas"
+msgstr "系统与工具"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "压缩和解压 7z、zip、rar…（Static Linux 自带）。"
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "转换音频和视频（Static Linux 自带）。"
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "从 YouTube 等网站下载视频和音频（Static Linux 自带）。"
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "SSH 客户端和服务器（自带；服务器在你启用前保持关闭）。"
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Flathub 应用的权限。"
+
+msgid "Copias del sistema para volver atrás."
+msgstr "用于回滚的系统快照。"
+
+msgid "Particionar discos."
+msgstr "磁盘分区。"
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "释放空间并清除痕迹。"
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "无需云端，在你的电脑之间同步文件夹。"
+
+msgid "Monitor de recursos en la terminal."
+msgstr "终端中的资源监视器。"
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "可同时放多个 ISO 的启动 U 盘。"
+
+msgid "Máquinas virtuales"
+msgstr "虚拟机"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "基于 KVM 的虚拟机，Linux 上最快。包含 QEMU 和 libvirt。"
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "两次点击就有虚拟机。"
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "经典选择；比 KVM 慢，并使用自己的内核模块。"
+
+msgid "Aero"
+msgstr "Aero"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "天空、水与草地，带光泽"
+
+msgid "Ámbar"
+msgstr "琥珀"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "70 年代的木色、芥末黄和蓝绿"
+
+msgid "Bosque"
+msgstr "森林"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "松林上的薄雾，暗绿与潮湿的灰"
+
+msgid "Nórdico"
+msgstr "北欧"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "带蓝的石板灰、冰与霜"
+
+msgid "Nube"
+msgstr "云朵"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "有云的清晨天空，明亮柔和"
+
+msgid "Papel"
+msgstr "纸张"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "旧纸、墨和橄榄绿"
+
+msgid "Sakura"
+msgstr "樱花"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "樱粉背景上的墨色窗口"
+
+msgid "Ventanas"
+msgstr "视窗"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "石墨灰与浅蓝，底部栏图标居中"
+
+msgid "Violeta"
+msgstr "紫罗兰"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "紫色单色，黄昏的群山"
+
+msgid "Apps"
+msgstr "应用"
+
+msgid "abrir la terminal"
+msgstr "打开终端"
+
+msgid "abrir el gestor de archivos"
+msgstr "打开文件管理器"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "打开浏览器 (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "应用启动器"
+
+msgid "Ayuda"
+msgstr "帮助"
+
+msgid "esta guía de atajos"
+msgstr "本快捷键指南"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "屏幕区域（文件 + 剪贴板）"
+
+msgid "cerrar la ventana"
+msgstr "关闭窗口"
+
+msgid "pantalla completa"
+msgstr "全屏"
+
+msgid "flotante / en mosaico"
+msgstr "浮动 / 平铺"
+
+msgid "pseudo-mosaico"
+msgstr "伪平铺"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "切换水平/垂直分割"
+
+msgid "pasar a la siguiente"
+msgstr "切换到下一个"
+
+msgid "mover el foco"
+msgstr "移动焦点"
+
+msgid "mover la ventana"
+msgstr "移动窗口"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "用 Super + 左键拖动"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "用 Super + 右键调整大小"
+
+msgid "Escritorios"
+msgstr "工作区"
+
+msgid "ir a un escritorio"
+msgstr "切换到工作区"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "把窗口移到其他工作区"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "下一个（鼠标滚轮）"
+
+msgid "anterior (rueda del ratón)"
+msgstr "上一个（鼠标滚轮）"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "显示/隐藏快速工作区"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "把窗口送到快速工作区"
+
+msgid "Sesión"
+msgstr "会话"
+
+msgid "bloquear la pantalla"
+msgstr "锁定屏幕"
+
+msgid "ver la última notificación"
+msgstr "显示最后一条通知"
+
+msgid "Multimedia"
+msgstr "媒体"
+
+msgid "subir volumen"
+msgstr "提高音量"
+
+msgid "bajar volumen"
+msgstr "降低音量"
+
+msgid "silenciar"
+msgstr "静音"
+
+msgid "silenciar el micrófono"
+msgstr "麦克风静音"
+
+msgid "subir brillo"
+msgstr "提高亮度"
+
+msgid "bajar brillo"
+msgstr "降低亮度"
+
+msgid "reproducir/pausar"
+msgstr "播放/暂停"
+
+msgid "siguiente pista"
+msgstr "下一首"
+
+msgid "pista anterior"
+msgstr "上一首"
+
+msgid "Entorno de escritorio"
+msgstr "桌面环境"
+
+msgid "XFCE (temático)"
+msgstr "XFCE（主题版）"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "已在真实硬件上验证的环境 (Packard Bell iMedia S2883)。Xorg，轻量，建议 1 GB 内存以上或显卡不支持 Wayland 时使用。"
+
+msgid "Openbox minimal"
+msgstr "Openbox 精简版"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "最低档：512 MB。Openbox + tint2 + jgmenu，默认不带合成器。"
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland，2-4 GB。与完整版相同的 Astal 外壳，去掉模糊、阴影和繁重动画。"
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland，建议上限 4 GB。模糊、阴影和完整动画。需要对 Wayland 支持良好的显卡。"
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "完整且熟悉的桌面：底部栏、开始菜单、Dolphin，什么都能设置。Wayland，4 GB 内存起。最重的环境；sl-detect 默认不推荐。"
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "原汁原味的 GNOME 桌面：活动概览、程序坞和 GNOME 应用。Wayland，4 GB 内存起。主题会作用于浅色/深色模式、强调色、壁纸和应用。通过 GDM 登录。"
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "经典舒适：底部栏、开始菜单和桌面图标。Xorg，2 GB 起。主题也会装扮面板和菜单。"
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "用键盘平铺：窗口自动排列。Xorg，1 GB 起。i3bar 状态栏，rofi 启动器。Super + 回车打开终端。"
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "二叉树平铺，快捷键在 sxhkd，状态栏用 polybar。Xorg，1 GB 起。适合想自己配置一切的人。"
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "i3 的平铺，运行在 Wayland 上。1-2 GB 起。waybar 状态栏，rofi 启动器，mako 通知。"
+
+msgid "Sabores"
+msgstr "风味包"
+
+msgid "Sabores (opcional)"
+msgstr "风味包（可选）"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "为你要做的事准备好的应用组合。勾选你想要的（可多选或不选）：它们随系统一起安装，并且都已调校好。之后都可以在欢迎应用中添加或移除。"
+
+msgid "Gaming"
+msgstr "游戏"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam 与 Proton、Lutris、Heroic（Epic、GOG、Amazon）、用于 Minecraft 的 Prism Launcher 和 Modrinth、MangoHud、GameMode 和 Gamescope。启用 32 位库和你显卡的 Vulkan 驱动。"
+
+msgid "Creación de contenido"
+msgstr "内容创作"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita、GIMP、Inkscape、Blender、Kdenlive、Shotcut、OBS、Audacity，以及 Ardour、LMMS 和 Hydrogen 等 DAW，带实时（低延迟）音频。"
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git 和 GitHub CLI、Docker（使用时自动启动）、VS Code (Code - OSS)、Python、Rust、Node 和 Java。"
+
+msgid "Oficina"
+msgstr "办公"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "带拼写检查的 LibreOffice、Obsidian、KeePassXC、Xournal++ 和 PDF 工具。"
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "KVM/QEMU 配 virt-manager 和 GNOME Boxes，为 Windows 11 客户机提供 TPM 和 UEFI。"
+
+msgid "Educación"
+msgstr "教育"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra、Stellarium、Anki、Jupyter 和 FreeCAD。"
+
+msgid "Ciberseguridad"
+msgstr "网络安全"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap、Wireshark、Hashcat、John、Metasploit、Ghidra 和 Tor。"
+
+msgid "Servidor / Homelab"
+msgstr "服务器 / 家庭实验室"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker、Nginx、MariaDB、WireGuard、Fail2ban 和 Cockpit。为了安全，在你启用之前没有任何服务监听网络。"
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Static Linux 的主题。深色温暖：木色、芥末黄和蓝绿，背景是葛饰北斋《山下白雨》。顶部细栏，实心窗口。"
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "浅色，旧纸、墨和橄榄绿的色调，背景是一幅北斋版画。适合在明亮环境中工作的人。"
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "深色清冷：带蓝的石板与冰，背景是歌川广重《蒲原 夜之雪》。"
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "深色，松与雾的绿，背景是歌川广重《土山 春之雨》。"
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "深色配樱粉，背景是葛饰北斋《御殿山》。"
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "深色，紫色单色，黄昏的群山。"
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Frutiger Aero 风格：浅色，天空、气泡和草地，带光泽的栏，任务栏在底部。"
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "类似 Windows：深色，任务栏在底部、应用居中，窗口按钮为 ─ □ ✕。"
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "浅色柔和，背景是多云的天空。圆形启动器和底部架子、应用居中；点时钟打开快速设置。"
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\n正在安装你的系统，这需要几分钟。"
+
+msgid "Tu escritorio, tu color"
+msgstr "你的桌面，你的颜色"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "九个主题覆盖整个系统：壁纸、窗口、终端和启动画面。\n随时可在欢迎应用中或用  sl-ctl theme 更换。"
+
+msgid "Privado de serie"
+msgstr "开箱即私密"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "零遥测。加密 DNS 和防火墙从首次启动起就开启。\n用  sl-ctl privacy 提高级别。"
+
+msgid "Todo a mano"
+msgstr "一切触手可及"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome：应用目录和入门。\nsl-ctl：更新、快照、调整等。"
+
+msgid "Hecho para tu equipo"
+msgstr "为你的电脑而生"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect 已根据你的硬件选好环境、内核和文件系统，\n从赛扬到 RTX 都适用。"
+
+msgid "Contraseña"
+msgstr "密码"
+
+msgid "Contraseña incorrecta"
+msgstr "密码错误"
+
+msgid "Contraseña del disco"
+msgstr "磁盘密码"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Static Linux 欢迎"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "入门、外观、隐私和应用目录"
+
+msgid "Captura de pantalla (zona)"
+msgstr "截图（区域）"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "保存到 图片/截图 并复制到剪贴板"
+
+msgid "Instalar Static Linux"
+msgstr "安装 Static Linux"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "在这台电脑上安装 Static Linux"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "应用 Static Linux 隐私配置"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome 需要管理员权限来应用隐私配置"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "从 sl-welcome 目录安装软件包"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome 需要管理员权限才能用 pacman 安装软件包"

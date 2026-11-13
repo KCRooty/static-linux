@@ -49,7 +49,8 @@ arch=('any')
 url="https://github.com/KCRooty/static-linux"
 license=('GPL-3.0-only')
 depends=('bash' 'python')
-makedepends=('python-markdown' 'python-yaml')  # offline wiki (docs/build-offline-wiki.py)
+makedepends=('python-markdown' 'python-yaml'  # offline wiki (docs/build-offline-wiki.py)
+             'gettext')                        # i18n/*.po -> .mo
 optdepends=(
     'python-gobject: sl-welcome (GTK4 first-boot app)'
     'python-cairo: sl-welcome overview banner'
@@ -85,6 +86,13 @@ package() {
     lib="$pkgdir/usr/lib/static-linux"
     share="$pkgdir/usr/share/static-linux"
     cd "$repo"
+
+    # ---- translations (i18n/) -------------------------------------------
+    # Spanish source strings; one gettext catalogue per language for the
+    # Python/shell tools, the installer jobs and the Astal bar.
+    install -Dm644 i18n/sl_i18n.py "$lib/i18n/sl_i18n.py"
+    install -Dm644 i18n/sl-i18n.sh "$lib/i18n/sl-i18n.sh"
+    bash i18n/build.sh "$pkgdir/usr/share/locale"
 
     # ---- sl-detect ------------------------------------------------------
     install -Dm755 sl-detect/detect.py "$lib/sl-detect/detect.py"

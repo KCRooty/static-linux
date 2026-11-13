@@ -28,9 +28,24 @@ import libcalamares
 
 SECURE_BOOT_EFIVAR = "/sys/firmware/efi/efivars/SecureBoot-8be4df61-93ca-11d2-aa0d-00e098032b8c"
 
+def _tr(text: str) -> str:
+    """Spanish source string -> the installer's language (gettext domain
+    static-linux, from staticlinux-base); English if there is no catalogue."""
+    import gettext
+    try:
+        import libcalamares
+        langs = list(libcalamares.utils.gettext_languages())
+    except Exception:  # outside Calamares (tests)
+        langs = []
+    if not langs or langs[0].startswith("es"):
+        return text
+    tr = gettext.translation("static-linux", "/usr/share/locale",
+                             languages=langs + ["en"], fallback=True)
+    return tr.gettext(text)
+
 
 def pretty_name():
-    return "Checking disk encryption setup"
+    return _tr("Comprobando el cifrado del disco")
 
 
 def _target_is_luks_encrypted(gs):

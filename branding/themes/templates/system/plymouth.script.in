@@ -65,7 +65,7 @@ fun show_prompt(text, bullets) {
 fun display_password_callback(text, count) {
     bullets = "";
     for (i = 0; i < count && i < 32; i++) bullets += "●";
-    if (text == "") text = "Contraseña del disco";
+    if (text == "") text = "{{_ "Contraseña del disco"}}";
     show_prompt(text, bullets + " ");
 }
 

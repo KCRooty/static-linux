@@ -32,13 +32,14 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
+from sl_i18n import N_, _, ngettext  # noqa: E402
 from catalog_loader import load_categories  # noqa: E402
 from paths import sf_pkgbuild_dir  # noqa: E402
 from privileged import PrivilegedActionError, install_packages  # noqa: E402
 
 PENDING = Path("/etc/static-linux/pending-aur")
 FLATHUB = "https://dl.flathub.org/repo/flathub.flatpakrepo"
-SOURCE_LABEL = {"pkg": "repos oficiales", "flatpak": "Flathub", "aur": "AUR", "sf": "Static Forge"}
+SOURCE_LABEL = {"pkg": N_("repos oficiales"), "flatpak": "Flathub", "aur": "AUR", "sf": "Static Forge"}
 
 # terminal -> argv prefix that runs a command
 TERMINALS = [
@@ -89,7 +90,7 @@ def _source(app: dict) -> tuple[str, list[str]] | None:
 def _run_in_terminal(command: str) -> bool:
     for name, prefix in TERMINALS:
         if shutil.which(name):
-            hold = f"{command}; echo; read -rp 'Listo. Pulsa Intro para cerrar… '"
+            hold = f"{command}; echo; read -rp {shlex.quote(_('Listo. Pulsa Intro para cerrar… '))}"
             subprocess.Popen([*prefix, "bash", "-lc", hold], start_new_session=True)
             return True
     return False
@@ -111,7 +112,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
         done = all(n in (have_pkgs if kind == "pkg" else have_flatpaks) for n in names) \
             if kind in ("pkg", "flatpak") else all(n in have_pkgs for n in names)
         row = Adw.ActionRow(title=title, subtitle=subtitle)
-        tag = Gtk.Label(label="instalado" if done else SOURCE_LABEL[kind],
+        tag = Gtk.Label(label=_("instalado") if done else _(SOURCE_LABEL[kind]),
                         css_classes=["dim-label", "caption"], valign=Gtk.Align.CENTER)
         row.add_suffix(tag)
         check = Gtk.CheckButton(valign=Gtk.Align.CENTER, sensitive=not done, active=active and not done)
@@ -124,8 +125,8 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     pending = _pending()
     if pending:
         group = Adw.PreferencesGroup(
-            title="Pendiente de tus sabores",
-            description="Lo que no se pudo instalar durante la instalación. Ya está marcado.")
+            title=_("Pendiente de tus sabores"),
+            description=_("Lo que no se pudo instalar durante la instalación. Ya está marcado."))
         for item in pending:
             kind, name = ("flatpak", item.split(":", 1)[1]) if item.startswith("flatpak:") else ("aur", item)
             if kind == "aur" and not shutil.which("paru"):
@@ -135,24 +136,24 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
 
     categories = load_categories()
     if not categories:
-        page.add(Adw.PreferencesGroup(title="Catálogo",
-                                      description="No se encontró ningún catálogo."))
+        page.add(Adw.PreferencesGroup(title=_("Catálogo"),
+                                      description=_("No se encontró ningún catálogo.")))
         return page
 
     for cat in categories:
-        group = Adw.PreferencesGroup(title=cat["category"])
+        group = Adw.PreferencesGroup(title=_(cat["category"]))
         for app in cat.get("apps", []):
             src = _source(app)
             if src:
-                add_row(group, app["name"], app.get("desc", ""), *src)
+                add_row(group, app["name"], _(app.get("desc", "")), *src)
         page.add(group)
 
     action_group = Adw.PreferencesGroup()
     install_row = Adw.ActionRow(
-        title="Instalar lo marcado",
-        subtitle="Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal")
+        title=_("Instalar lo marcado"),
+        subtitle=_("Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"))
     spinner = Gtk.Spinner(visible=False)
-    install_btn = Gtk.Button(label="Instalar", valign=Gtk.Align.CENTER,
+    install_btn = Gtk.Button(label=_("Instalar"), valign=Gtk.Align.CENTER,
                              css_classes=["suggested-action"])
     install_row.add_suffix(spinner)
     install_row.add_suffix(install_btn)
@@ -162,7 +163,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     def on_install(_btn):
         chosen = [(kind, names) for check, kind, names in checks if check.get_active()]
         if not chosen:
-            toast_overlay.add_toast(Adw.Toast(title="No has marcado nada"))
+            toast_overlay.add_toast(Adw.Toast(title=_("No has marcado nada")))
             return
         pkgs = [n for kind, names in chosen if kind == "pkg" for n in names]
         flatpaks = [n for kind, names in chosen if kind == "flatpak" for n in names]
@@ -177,12 +178,12 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
                      for n in sf]
             cmd = " ; ".join(steps)
             if not _run_in_terminal(cmd):
-                toast_overlay.add_toast(Adw.Toast(title="Sin terminal para instalar las apps de Static Forge"))
+                toast_overlay.add_toast(Adw.Toast(title=_("Sin terminal para instalar las apps de Static Forge")))
 
         if aur:
             cmd = "paru -S --needed " + " ".join(shlex.quote(a) for a in aur)
             if not _run_in_terminal(cmd):
-                toast_overlay.add_toast(Adw.Toast(title=f"Sin terminal: ejecuta «{cmd}»"))
+                toast_overlay.add_toast(Adw.Toast(title=_("Sin terminal: ejecuta «{cmd}»").format(cmd=cmd)))
 
         if not pkgs and not flatpaks:
             return
@@ -196,7 +197,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
                 try:
                     res = install_packages(pkgs)
                     if res.returncode != 0:
-                        errors.append(res.stderr[-200:] or "pacman falló")
+                        errors.append(res.stderr[-200:] or _("pacman falló"))
                 except PrivilegedActionError as exc:
                     errors.append(str(exc))
             if flatpaks:
@@ -205,14 +206,15 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
                 res = subprocess.run(["flatpak", "install", "--user", "-y", "--noninteractive",
                                       "flathub", *flatpaks], capture_output=True, text=True)
                 if res.returncode != 0:
-                    errors.append(res.stderr[-200:] or "flatpak falló")
+                    errors.append(res.stderr[-200:] or _("flatpak falló"))
             GLib.idle_add(done, errors, len(pkgs) + len(flatpaks))
 
         def done(errors, n):
             spinner.stop()
             spinner.set_visible(False)
             install_btn.set_sensitive(True)
-            title = f"{n} app(s) instaladas" if not errors else f"Falló: {errors[0]}"
+            title = (ngettext("{n} app instalada", "{n} apps instaladas", n).format(n=n) if not errors
+                     else _("Falló: {error}").format(error=errors[0]))
             toast_overlay.add_toast(Adw.Toast(title=title))
 
         threading.Thread(target=run, daemon=True).start()

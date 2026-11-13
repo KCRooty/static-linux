@@ -13,6 +13,8 @@ from __future__ import annotations
 import shutil
 import subprocess
 
+from sl_i18n import _
+
 from paths import apply_profile_wrapper_path, privacy_profile_apply_path
 
 PROFILE_FOLDERS = {
@@ -29,7 +31,7 @@ class PrivilegedActionError(RuntimeError):
 def _pkexec_run(cmd: list[str]) -> subprocess.CompletedProcess:
     if not shutil.which("pkexec"):
         raise PrivilegedActionError(
-            "pkexec no está instalado. Instala 'polkit' para aplicar cambios de sistema."
+            _("pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema.")
         )
     return subprocess.run(["pkexec", *cmd], capture_output=True, text=True)
 
@@ -37,7 +39,7 @@ def _pkexec_run(cmd: list[str]) -> subprocess.CompletedProcess:
 def apply_privacy_profile(profile: str) -> subprocess.CompletedProcess:
     folder = PROFILE_FOLDERS.get(profile)
     if not folder:
-        raise PrivilegedActionError(f"perfil de privacidad desconocido: {profile}")
+        raise PrivilegedActionError(_("perfil de privacidad desconocido: {name}").format(name=profile))
 
     wrapper = apply_profile_wrapper_path()
     if wrapper:
@@ -45,7 +47,7 @@ def apply_privacy_profile(profile: str) -> subprocess.CompletedProcess:
 
     script = privacy_profile_apply_path(folder)
     if not script.exists():
-        raise PrivilegedActionError(f"no encuentro {script}")
+        raise PrivilegedActionError(_("no encuentro {path}").format(path=script))
     return _pkexec_run(["bash", str(script)])
 
 

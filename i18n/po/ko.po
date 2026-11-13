@@ -1,0 +1,1011 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+msgid "Instalando los paquetes base"
+msgstr "기본 패키지 설치 중"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "화면 배율 설정 중"
+
+msgid "Instalando el escritorio"
+msgstr "데스크톱 설치 중"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "디스크 암호화 확인 중"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "개인정보 보호 프로필 적용 중"
+
+msgid "Instalando los sabores"
+msgstr "플레이버 설치 중"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "하드웨어 감지 중 (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "테마 적용 중"
+
+msgid "Espacio"
+msgstr "Space"
+
+msgid "Impr Pant"
+msgstr "PrintScreen"
+
+msgid "Intro"
+msgstr "Enter"
+
+msgid "clic derecho"
+msgstr "오른쪽 클릭"
+
+msgid "clic izquierdo"
+msgstr "왼쪽 클릭"
+
+msgid "rueda ↑"
+msgstr "휠 ↑"
+
+msgid "rueda ↓"
+msgstr "휠 ↓"
+
+msgid "Silencio"
+msgstr "음소거"
+
+msgid "Brillo +"
+msgstr "밝기 +"
+
+msgid "Brillo −"
+msgstr "밝기 −"
+
+msgid "Micro"
+msgstr "마이크"
+
+msgid "código {n}"
+msgstr "코드 {n}"
+
+msgid "flechas"
+msgstr "방향키"
+
+msgid "Otros"
+msgstr "기타"
+
+msgid "Atajos de Hyprland"
+msgstr "Hyprland 단축키"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland는 주로 키보드로 다룹니다. Super는 Windows 키입니다. 이 안내서는 언제든 Super + F1로 다시 열 수 있습니다."
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "단축키를 읽을 수 없습니다 (Hyprland가 실행 중인가요?)."
+
+msgid "%A, %-d de %B"
+msgstr "%-m월 %-d일 %A"
+
+msgid "Cable"
+msgstr "유선"
+
+msgid "Red: {name}"
+msgstr "네트워크: {name}"
+
+msgid "Ajustes rápidos"
+msgstr "빠른 설정"
+
+msgid "Cerrar sesión"
+msgstr "로그아웃"
+
+msgid "Apagar"
+msgstr "시스템 종료"
+
+msgid "Bloquear"
+msgstr "잠금"
+
+msgid "Ajustes"
+msgstr "설정"
+
+msgid "Activado"
+msgstr "켜짐"
+
+msgid "Desactivado"
+msgstr "꺼짐"
+
+msgid "Avisos activos"
+msgstr "알림 켜짐"
+
+msgid "No molestar"
+msgstr "방해 금지"
+
+msgid "Sin avisos"
+msgstr "알림 없음"
+
+msgid "Luz nocturna"
+msgstr "야간 조명"
+
+msgid "Tonos cálidos"
+msgstr "따뜻한 색조"
+
+msgid "Captura"
+msgstr "스크린샷"
+
+msgid "Batería {pct} %"
+msgstr "배터리 {pct} %"
+
+msgid "cargando"
+msgstr "충전 중"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero, 아래쪽 막대"
+
+msgid "barra fina arriba"
+msgstr "위쪽 얇은 막대"
+
+msgid "como Windows, barra abajo"
+msgstr "Windows 스타일, 아래쪽 막대"
+
+msgid "lanzador y estante abajo"
+msgstr "아래쪽 실행기와 선반"
+
+msgid "Tema"
+msgstr "테마"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "테마는 배경화면, 거기서 뽑은 팔레트, 창과 막대 스타일로 이루어집니다. 모두 한 번에 바뀌고, 바뀌는 것은 백업됩니다. sudo가 필요 없습니다."
+
+msgid "claro"
+msgstr "밝은"
+
+msgid "oscuro"
+msgstr "어두운"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "Static Linux 테마를 찾을 수 없습니다 (sl-theme)."
+
+msgid "No se pudo aplicar el tema"
+msgstr "테마를 적용하지 못했습니다"
+
+msgid "Tema aplicado: {name}"
+msgstr "테마 적용됨: {name}"
+
+msgid "repos oficiales"
+msgstr "공식 저장소"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "완료. Enter를 눌러 닫으세요… "
+
+msgid "instalado"
+msgstr "설치됨"
+
+msgid "Pendiente de tus sabores"
+msgstr "플레이버에서 남은 항목"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "설치 중에 설치하지 못한 항목입니다. 이미 선택되어 있습니다."
+
+msgid "Catálogo"
+msgstr "카탈로그"
+
+msgid "No se encontró ningún catálogo."
+msgstr "카탈로그를 찾을 수 없습니다."
+
+msgid "Instalar lo marcado"
+msgstr "선택한 항목 설치"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "공식 저장소: 비밀번호 필요 · Flathub: 비밀번호 없음 · AUR와 Static Forge: 터미널이 열립니다"
+
+msgid "Instalar"
+msgstr "설치"
+
+msgid "No has marcado nada"
+msgstr "선택한 항목이 없습니다"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "Static Forge 앱을 설치할 터미널이 없습니다"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "터미널 없음: «{cmd}»를 실행하세요"
+
+msgid "pacman falló"
+msgstr "pacman 실패"
+
+msgid "flatpak falló"
+msgstr "flatpak 실패"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "앱 {n}개 설치됨"
+
+msgid "Falló: {error}"
+msgstr "실패: {error}"
+
+msgid "Wiki online"
+msgstr "온라인 위키"
+
+msgid "Repositorio (GitHub)"
+msgstr "저장소 (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "문제 신고"
+
+msgid "Este equipo"
+msgstr "이 컴퓨터"
+
+msgid "Driver gráfico"
+msgstr "그래픽 드라이버"
+
+msgid "No"
+msgstr "아니요"
+
+msgid "Sí"
+msgstr "예"
+
+msgid "Almacenamiento"
+msgstr "저장 장치"
+
+msgid "Arquitectura"
+msgstr "아키텍처"
+
+msgid "Recomendación de sl-detect"
+msgstr "sl-detect 추천"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "이 하드웨어에 맞게 계산했습니다. 모양과 개인정보 보호에서 바꿀 수 있습니다."
+
+msgid "Entorno"
+msgstr "환경"
+
+msgid "Sistema de archivos"
+msgstr "파일 시스템"
+
+msgid "Enlaces"
+msgstr "링크"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "로컬 사본, 오프라인에서도 작동"
+
+msgid "Básico"
+msgstr "기본"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "첫날부터 안전한 설정 + UFW + 무작위 MAC. 커널 linux-zen."
+
+msgid "Mejorado"
+msgstr "강화"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard. 커널 linux-zen."
+
+msgid "Máximo"
+msgstr "최대"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + 암호화된 스왑. 커널 linux-hardened."
+
+msgid "Perfil de privacidad"
+msgstr "개인정보 보호 프로필"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "각 프로필은 바꾸는 내용을 백업하므로 (/var/backups/static-linux/privacy/) 모든 것을 되돌릴 수 있습니다. 관리자 비밀번호가 필요합니다."
+
+msgid "Aplicar"
+msgstr "적용"
+
+msgid "Perfil {name} aplicado"
+msgstr "{name} 프로필 적용됨"
+
+msgid "mira el registro"
+msgstr "로그를 확인하세요"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "pkexec가 설치되어 있지 않습니다. 시스템 변경을 적용하려면 «polkit»을 설치하세요."
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "알 수 없는 개인정보 보호 프로필: {name}"
+
+msgid "no encuentro {path}"
+msgstr "{path}을(를) 찾을 수 없습니다"
+
+msgid "Bienvenido a Static Linux"
+msgstr "Static Linux에 오신 것을 환영합니다"
+
+msgid "General"
+msgstr "개요"
+
+msgid "Apariencia"
+msgstr "모양"
+
+msgid "Privacidad"
+msgstr "개인정보 보호"
+
+msgid "Capturas"
+msgstr "스크린샷"
+
+msgid "Captura guardada"
+msgstr "스크린샷 저장됨"
+
+msgid "Copiada al portapapeles"
+msgstr "클립보드에 복사됨"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "응용 프로그램 (Super + Space)"
+
+msgid "Sin conexión"
+msgstr "연결 안 됨"
+
+msgid "Más ajustes de sonido"
+msgstr "사운드 설정 더 보기"
+
+msgid "Suspender"
+msgstr "절전"
+
+msgid "Reiniciar"
+msgstr "다시 시작"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "YouTube, YouTube Music, Spotify, Pinterest에서 다운로드. 스튜디오 제작."
+
+msgid "Internet"
+msgstr "인터넷"
+
+msgid "El navegador de Mozilla."
+msgstr "Mozilla의 브라우저."
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "Firefox 기반, 세로 탭과 작업 공간 지원."
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "Google 서비스가 없는 Chrome의 자유 기반."
+
+msgid "Correo, calendario y contactos."
+msgstr "메일, 캘린더, 연락처."
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "광고 없는 자유 BitTorrent 클라이언트."
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "클라우드 없이 네트워크의 다른 기기로 파일을 보냅니다."
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "내 Nextcloud 서버와 동기화합니다."
+
+msgid "Cliente FTP/SFTP."
+msgstr "FTP/SFTP 클라이언트."
+
+msgid "Comunicación"
+msgstr "커뮤니케이션"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "Vencord가 내장된 Discord: 테마, 플러그인, Linux에서 더 나은 성능."
+
+msgid "El cliente oficial."
+msgstr "공식 클라이언트."
+
+msgid "Mensajería."
+msgstr "메신저."
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "종단 간 암호화 메신저."
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "탈중앙화 채팅 (Matrix)."
+
+msgid "Música y audio"
+msgstr "음악과 오디오"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "공식 클라이언트 (spotify-launcher로 설치 및 업데이트)."
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Spotify용 테마와 확장. 먼저 Spotify를 설치하세요."
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "Spotify 재생목록을 로컬로 다운로드 (YouTube Music에서)."
+
+msgid "Grabar y editar audio."
+msgstr "오디오 녹음 및 편집."
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "자유 전문가용 DAW: 멀티트랙 녹음과 믹싱."
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "FL Studio 스타일의 음악 제작용 자유 DAW."
+
+msgid "Caja de ritmos."
+msgstr "드럼 머신."
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "체험판이 있는 상용 DAW, Linux 네이티브."
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "가볍고 강력한 DAW (유료 라이선스, 전체 기능 체험판)."
+
+msgid "Software de DJ."
+msgstr "DJ 소프트웨어."
+
+msgid "Reproductor de música ligero."
+msgstr "가벼운 음악 플레이어."
+
+msgid "Vídeo"
+msgstr "비디오"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "자유롭고 기능이 풍부한 동영상 편집기."
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "자유롭고 간단하며 빠른 동영상 편집기."
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "전문 편집과 색 보정 (무료지만 자유 소프트웨어는 아님). 무겁고 전용 GPU가 필요합니다."
+
+msgid "Grabar y emitir en directo."
+msgstr "녹화와 라이브 방송."
+
+msgid "Convertir y comprimir vídeo."
+msgstr "동영상 변환과 압축."
+
+msgid "Reproduce cualquier cosa."
+msgstr "무엇이든 재생합니다."
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "최소한으로 매우 빠른 플레이어."
+
+msgid "Grafismo y 3D"
+msgstr "그래픽과 3D"
+
+msgid "Pintura digital."
+msgstr "디지털 페인팅."
+
+msgid "Retoque fotográfico."
+msgstr "사진 보정."
+
+msgid "Gráficos vectoriales."
+msgstr "벡터 그래픽."
+
+msgid "Modelado, animación y render 3D."
+msgstr "3D 모델링, 애니메이션, 렌더링."
+
+msgid "CAD 3D paramétrico."
+msgstr "파라메트릭 3D CAD."
+
+msgid "Revelado RAW."
+msgstr "RAW 현상."
+
+msgid "Motor de videojuegos libre."
+msgstr "자유 게임 엔진."
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "픽셀 아트와 애니메이션 (소스에서 빌드)."
+
+msgid "Juegos"
+msgstr "게임"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "Proton으로 Windows 게임을 즐기세요."
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games, GOG, Amazon Prime Gaming. Linux에서 Epic을 쓰는 방법."
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "모든 게임과 런처를 한곳에 (Battle.net, EA, Ubisoft…)."
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "여러 인스턴스와 모드를 지원하는 Minecraft Java."
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "Modrinth의 모드와 모드팩을 쓰는 Minecraft Java."
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "Mojang의 공식 Minecraft Java 런처."
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "베드락 에디션 런처 (Google Play에서 구매해야 합니다)."
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "Proton-GE 등 여러 Proton/Wine 버전을 클릭 한 번으로 설치."
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "격리된 환경에서 Windows 프로그램 실행."
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "게임 성능과 FPS 표시."
+
+msgid "Emulador multisistema."
+msgstr "멀티 시스템 에뮬레이터."
+
+msgid "Emulador de GameCube y Wii."
+msgstr "게임큐브와 Wii 에뮬레이터."
+
+msgid "Emulador de PlayStation 2."
+msgstr "PlayStation 2 에뮬레이터."
+
+msgid "Desarrollo"
+msgstr "개발"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "버전 관리 (Static Linux에 포함)."
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "터미널에서 GitHub (gh)."
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "Compose와 Buildx가 있는 컨테이너. docker 그룹에 자신을 추가하는 것을 잊지 마세요."
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "마켓플레이스가 있는 Microsoft 빌드."
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "자유 소스로 빌드한 VS Code (공식 저장소)."
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "Microsoft 원격 측정이 없는 VS Code."
+
+msgid "Editor modal en la terminal."
+msgstr "터미널의 모달 편집기."
+
+msgid "Git con interfaz en la terminal."
+msgstr "터미널 UI가 있는 Git."
+
+msgid "Comparar archivos y carpetas."
+msgstr "파일과 폴더 비교."
+
+msgid "Cliente de bases de datos."
+msgstr "데이터베이스 클라이언트."
+
+msgid "adb y fastboot."
+msgstr "adb와 fastboot."
+
+msgid "Productividad"
+msgstr "생산성"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "맞춤법 검사가 있는 완전한 오피스 제품군."
+
+msgid "Notas en Markdown enlazadas."
+msgstr "서로 연결된 Markdown 노트."
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "로컬 자유 비밀번호 관리자."
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "클라우드 비밀번호 관리자."
+
+msgid "Notas con sincronización cifrada."
+msgstr "암호화 동기화가 되는 노트."
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "손글씨 노트와 PDF 주석."
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "PDF 병합, 분할, 순서 변경."
+
+msgid "Tareas y listas."
+msgstr "할 일과 목록."
+
+msgid "Sistema y herramientas"
+msgstr "시스템과 도구"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "7z, zip, rar… 압축과 해제 (Static Linux에 포함)."
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "오디오와 비디오 변환 (Static Linux에 포함)."
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "YouTube 등에서 동영상과 오디오 다운로드 (Static Linux에 포함)."
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "SSH 클라이언트와 서버 (포함. 서버는 켜기 전까지 꺼져 있습니다)."
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Flathub 앱 권한."
+
+msgid "Copias del sistema para volver atrás."
+msgstr "되돌리기 위한 시스템 스냅숏."
+
+msgid "Particionar discos."
+msgstr "디스크 파티션 나누기."
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "공간 확보와 흔적 삭제."
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "클라우드 없이 컴퓨터 사이에서 폴더 동기화."
+
+msgid "Monitor de recursos en la terminal."
+msgstr "터미널 리소스 모니터."
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "여러 ISO를 한 번에 담는 부팅 USB."
+
+msgid "Máquinas virtuales"
+msgstr "가상 머신"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "KVM 기반 가상 머신, Linux에서 가장 빠름. QEMU와 libvirt 포함."
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "두 번의 클릭으로 가상 머신."
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "전통적인 선택지. KVM보다 느리고 자체 커널 모듈을 씁니다."
+
+msgid "Aero"
+msgstr "에어로"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "하늘, 물, 풀, 광택"
+
+msgid "Ámbar"
+msgstr "호박"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "70년대의 나무, 겨자, 청록"
+
+msgid "Bosque"
+msgstr "숲"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "소나무 위 안개, 차분한 초록과 축축한 회색"
+
+msgid "Nórdico"
+msgstr "노르딕"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "푸른빛 슬레이트 그레이, 얼음과 서리"
+
+msgid "Nube"
+msgstr "구름"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "구름 낀 아침 하늘, 밝고 부드러움"
+
+msgid "Papel"
+msgstr "종이"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "오래된 종이, 먹, 올리브 그린"
+
+msgid "Sakura"
+msgstr "사쿠라"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "벚꽃 분홍 배경 위의 먹색 창"
+
+msgid "Ventanas"
+msgstr "윈도우즈"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "흑연 회색과 하늘색, 아이콘이 가운데인 아래쪽 막대"
+
+msgid "Violeta"
+msgstr "바이올렛"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "보라색 단색, 해 질 녘 산"
+
+msgid "Apps"
+msgstr "앱"
+
+msgid "abrir la terminal"
+msgstr "터미널 열기"
+
+msgid "abrir el gestor de archivos"
+msgstr "파일 관리자 열기"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "브라우저 열기 (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "앱 실행기"
+
+msgid "Ayuda"
+msgstr "도움말"
+
+msgid "esta guía de atajos"
+msgstr "이 단축키 안내서"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "화면 영역 (파일 + 클립보드)"
+
+msgid "cerrar la ventana"
+msgstr "창 닫기"
+
+msgid "pantalla completa"
+msgstr "전체 화면"
+
+msgid "flotante / en mosaico"
+msgstr "떠 있는 창 / 타일"
+
+msgid "pseudo-mosaico"
+msgstr "유사 타일"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "가로/세로 분할 전환"
+
+msgid "pasar a la siguiente"
+msgstr "다음으로 전환"
+
+msgid "mover el foco"
+msgstr "포커스 이동"
+
+msgid "mover la ventana"
+msgstr "창 이동"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "Super + 왼쪽 클릭으로 끌기"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "Super + 오른쪽 클릭으로 크기 조절"
+
+msgid "Escritorios"
+msgstr "작업 공간"
+
+msgid "ir a un escritorio"
+msgstr "작업 공간으로 이동"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "창을 다른 작업 공간으로 이동"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "다음 (마우스 휠)"
+
+msgid "anterior (rueda del ratón)"
+msgstr "이전 (마우스 휠)"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "임시 작업 공간 보이기/숨기기"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "창을 임시 작업 공간으로 보내기"
+
+msgid "Sesión"
+msgstr "세션"
+
+msgid "bloquear la pantalla"
+msgstr "화면 잠금"
+
+msgid "ver la última notificación"
+msgstr "마지막 알림 보기"
+
+msgid "Multimedia"
+msgstr "미디어"
+
+msgid "subir volumen"
+msgstr "볼륨 높이기"
+
+msgid "bajar volumen"
+msgstr "볼륨 낮추기"
+
+msgid "silenciar"
+msgstr "음소거"
+
+msgid "silenciar el micrófono"
+msgstr "마이크 음소거"
+
+msgid "subir brillo"
+msgstr "밝기 높이기"
+
+msgid "bajar brillo"
+msgstr "밝기 낮추기"
+
+msgid "reproducir/pausar"
+msgstr "재생/일시 정지"
+
+msgid "siguiente pista"
+msgstr "다음 트랙"
+
+msgid "pista anterior"
+msgstr "이전 트랙"
+
+msgid "Entorno de escritorio"
+msgstr "데스크톱 환경"
+
+msgid "XFCE (temático)"
+msgstr "XFCE (테마 적용)"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "실제 하드웨어에서 검증된 환경 (Packard Bell iMedia S2883). Xorg, 가벼움. RAM 1 GB 이상이거나 GPU가 Wayland를 지원하지 않을 때 추천합니다."
+
+msgid "Openbox minimal"
+msgstr "Openbox 최소"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "가장 낮은 단계: 512 MB. Openbox + tint2 + jgmenu, 기본적으로 컴포지터 없음."
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland, 2-4 GB. full 버전과 같은 Astal 셸, 흐림·그림자·무거운 애니메이션 없음."
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland, 권장 상한 4 GB. 흐림, 그림자, 전체 애니메이션. Wayland를 잘 지원하는 GPU가 필요합니다."
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "완전하고 익숙한 데스크톱: 아래쪽 막대, 시작 메뉴, Dolphin, 모든 것을 위한 설정. Wayland, RAM 4 GB 이상. 가장 무거운 환경이라 sl-detect는 기본으로 추천하지 않습니다."
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "있는 그대로의 GNOME 데스크톱: 현재 활동, 독, GNOME 앱. Wayland, RAM 4 GB 이상. 테마가 밝은/어두운 모드, 강조색, 배경화면, 앱에 적용됩니다. GDM으로 로그인."
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "클래식하고 편안함: 아래쪽 막대, 시작 메뉴, 바탕 화면 아이콘. Xorg, 2 GB 이상. 테마가 패널과 메뉴에도 적용됩니다."
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "키보드로 타일링: 창이 알아서 배치됩니다. Xorg, 1 GB 이상. i3bar 막대, rofi 실행기. Super + Enter로 터미널을 엽니다."
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "이진 트리 타일링, sxhkd 단축키, polybar 막대. Xorg, 1 GB 이상. 모든 것을 직접 설정하고 싶은 분께."
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "Wayland에서 쓰는 i3 타일링. 1-2 GB 이상. waybar 막대, rofi 실행기, mako 알림."
+
+msgid "Sabores"
+msgstr "플레이버"
+
+msgid "Sabores (opcional)"
+msgstr "플레이버 (선택)"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "하려는 일에 맞춘 앱 묶음입니다. 원하는 것을 선택하세요 (여러 개 또는 없음): 시스템과 함께 설치되며 각각 잘 돌아가도록 조정되어 있습니다. 나중에 환영 앱에서 추가하거나 뺄 수 있습니다."
+
+msgid "Gaming"
+msgstr "게이밍"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam과 Proton, Lutris, Heroic (Epic, GOG, Amazon), Minecraft용 Prism Launcher와 Modrinth, MangoHud, GameMode, Gamescope. 32비트 라이브러리와 GPU의 Vulkan 드라이버를 켭니다."
+
+msgid "Creación de contenido"
+msgstr "콘텐츠 제작"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity, 그리고 DAW인 Ardour, LMMS, Hydrogen. 실시간 (저지연) 오디오 포함."
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git과 GitHub CLI, Docker (쓸 때 자동 시작), VS Code (Code - OSS), Python, Rust, Node, Java."
+
+msgid "Oficina"
+msgstr "사무"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "맞춤법 검사가 있는 LibreOffice, Obsidian, KeePassXC, Xournal++, PDF 도구."
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "virt-manager와 GNOME Boxes가 있는 KVM/QEMU, Windows 11 게스트용 TPM과 UEFI 지원."
+
+msgid "Educación"
+msgstr "교육"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra, Stellarium, Anki, Jupyter, FreeCAD."
+
+msgid "Ciberseguridad"
+msgstr "사이버 보안"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra, Tor."
+
+msgid "Servidor / Homelab"
+msgstr "서버 / 홈랩"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit. 보안을 위해 켜기 전까지 어떤 서비스도 대기하지 않습니다."
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Static Linux의 테마. 어둡고 따뜻함: 나무, 겨자, 청록. 배경은 호쿠사이의 «산하백우». 위쪽 얇은 막대와 불투명한 창."
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "밝음, 오래된 종이와 먹과 올리브 그린의 색조. 배경은 호쿠사이의 판화. 밝은 곳에서 일하는 분께."
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "어둡고 차가움: 푸른빛 슬레이트와 얼음. 배경은 히로시게의 «가바라 밤의 눈»."
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "어두움, 소나무와 안개의 초록. 배경은 히로시게의 «쓰치야마 봄비»."
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "어두움에 벚꽃 분홍. 배경은 호쿠사이의 «고텐야마에서 본 후지»."
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "어두운 보라색 단색, 해 질 녘 산."
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Frutiger Aero 스타일: 밝고, 하늘과 거품과 풀, 광택 있는 막대, 작업 표시줄은 아래."
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "Windows 스타일: 어둡고, 앱이 가운데인 작업 표시줄이 아래, 창 버튼은 ─ □ ✕."
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "밝고 부드러움, 구름 낀 하늘 배경. 둥근 실행기와 앱이 가운데인 선반이 아래. 시계를 누르면 빠른 설정이 열립니다."
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\n시스템을 설치하는 중입니다. 몇 분 걸립니다."
+
+msgid "Tu escritorio, tu color"
+msgstr "나만의 데스크톱, 나만의 색"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "시스템 전체를 위한 9가지 테마: 배경화면, 창, 터미널, 부팅.\n환영 앱이나  sl-ctl theme으로 언제든 바꾸세요."
+
+msgid "Privado de serie"
+msgstr "처음부터 비공개"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "원격 측정 제로. 암호화 DNS와 방화벽이 첫 부팅부터 켜집니다.\n sl-ctl privacy로 수준을 높이세요."
+
+msgid "Todo a mano"
+msgstr "모든 것을 손쉽게"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome: 앱 카탈로그와 첫걸음.\nsl-ctl: 업데이트, 스냅숏, 조정 등."
+
+msgid "Hecho para tu equipo"
+msgstr "내 컴퓨터를 위해 만들어짐"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect가 하드웨어에 맞춰 환경, 커널, 파일 시스템을\n골랐습니다. 셀러론부터 RTX까지."
+
+msgid "Contraseña"
+msgstr "비밀번호"
+
+msgid "Contraseña incorrecta"
+msgstr "비밀번호가 틀렸습니다"
+
+msgid "Contraseña del disco"
+msgstr "디스크 비밀번호"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Static Linux 환영"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "첫걸음, 모양, 개인정보 보호, 앱 카탈로그"
+
+msgid "Captura de pantalla (zona)"
+msgstr "스크린샷 (영역)"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "사진/스크린샷에 저장하고 클립보드에 복사합니다"
+
+msgid "Instalar Static Linux"
+msgstr "Static Linux 설치"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "이 컴퓨터에 Static Linux 설치"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "Static Linux 개인정보 보호 프로필 적용"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome이 개인정보 보호 프로필을 적용하려면 관리자 권한이 필요합니다"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "sl-welcome 카탈로그에서 패키지 설치"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome이 pacman으로 패키지를 설치하려면 관리자 권한이 필요합니다"

@@ -19,6 +19,8 @@ from pathlib import Path
 SRC_DIR = Path(__file__).resolve().parent
 if str(SRC_DIR) not in sys.path:
     sys.path.insert(0, str(SRC_DIR))
+# i18n/sl_i18n.py: ../../i18n in the repo and in /usr/lib/static-linux
+sys.path.insert(0, str(SRC_DIR.parent.parent / "i18n"))
 
 import gi  # noqa: E402
 

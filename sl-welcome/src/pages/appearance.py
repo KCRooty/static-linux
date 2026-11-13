@@ -17,6 +17,7 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
+from sl_i18n import N_, _  # noqa: E402
 from paths import accent_apply_path, accent_palette_path, themes_dir  # noqa: E402
 
 
@@ -50,9 +51,9 @@ def _current_accent() -> str:
         return "purple"
 
 
-STYLE_LABEL = {"minimal": "barra fina arriba", "aero": "Frutiger Aero, barra abajo",
-               "ventanas": "como Windows, barra abajo",
-               "estante": "lanzador y estante abajo"}
+STYLE_LABEL = {"minimal": N_("barra fina arriba"), "aero": N_("Frutiger Aero, barra abajo"),
+               "ventanas": N_("como Windows, barra abajo"),
+               "estante": N_("lanzador y estante abajo")}
 
 
 def _themes() -> list[dict]:
@@ -86,19 +87,19 @@ def _current_theme() -> str:
 def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup(
-        title="Tema",
-        description="Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas "
-                    "y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo.",
+        title=_("Tema"),
+        description=_("Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas "
+                      "y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."),
     )
     page.add(group)
     tool = themes_dir() / "sl-theme"
     current = _current_theme()
     first = None
     for theme in _themes():
-        mode = "claro" if theme.get("mode") == "light" else "oscuro"
-        style = STYLE_LABEL.get(theme.get("style", "minimal"), "")
-        row = Adw.ActionRow(title=theme.get("name", theme["id"]),
-                            subtitle=f"{mode} · {style}" + (f" · {theme['comment']}" if theme.get("comment") else ""))
+        mode = _("claro") if theme.get("mode") == "light" else _("oscuro")
+        style = _(STYLE_LABEL.get(theme.get("style", "minimal"), ""))
+        row = Adw.ActionRow(title=_(theme.get("name", theme["id"])),
+                            subtitle=f"{mode} · {style}" + (f" · {_(theme['comment'])}" if theme.get("comment") else ""))
         preview = theme["dir"] / "preview.jpg"
         if preview.exists():
             pic = Gtk.Picture.new_for_filename(str(preview))
@@ -115,7 +116,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
         radio.connect("toggled", _on_theme, theme, tool, toast_overlay)
         group.add(row)
     if first is None:
-        group.set_description("No encuentro los temas de Static Linux (sl-theme).")
+        group.set_description(_("No encuentro los temas de Static Linux (sl-theme)."))
     return page
 
 
@@ -125,8 +126,8 @@ def _on_theme(radio: Gtk.CheckButton, theme: dict, tool: Path, toast_overlay) ->
 
     def run():
         res = subprocess.run(["python3", str(tool), theme["id"]], capture_output=True, text=True)
-        name = theme.get("name", theme["id"])
+        name = _(theme.get("name", theme["id"]))
         GLib.idle_add(lambda: toast_overlay.add_toast(Adw.Toast(
-            title=f"Tema aplicado: {name}" if res.returncode == 0 else "No se pudo aplicar el tema")))
+            title=_("Tema aplicado: {name}").format(name=name) if res.returncode == 0 else _("No se pudo aplicar el tema"))))
 
     threading.Thread(target=run, daemon=True).start()

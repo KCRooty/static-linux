@@ -18,6 +18,12 @@ import { For, With, createBinding, onCleanup } from "ags"
 import { createPoll } from "ags/time"
 import { execAsync } from "ags/process"
 
+// Static Linux's own catalogue (gettext domain static-linux); Spanish source
+// strings, English for languages without a catalogue.
+const lang = (GLib.getenv("LANGUAGE") || GLib.getenv("LC_ALL") || GLib.getenv("LC_MESSAGES") || GLib.getenv("LANG") || "en").split(/[:.@]/)[0]
+if (!lang.startsWith("es")) GLib.setenv("LANGUAGE", `${lang}:${lang.split("_")[0]}:en`, true)
+const _ = (s: string) => (lang.startsWith("es") ? s : GLib.dgettext("static-linux", s))
+
 // Hyprland >= 0.56 takes Lua dispatchers over IPC
 const dispatch = (lua: string) => execAsync(["hyprctl", "dispatch", lua]).catch(console.error)
 const run = (cmd: string) => execAsync(["bash", "-c", cmd]).catch(console.error)
@@ -26,7 +32,7 @@ function Launcher() {
   return (
     <button
       cssClasses={["launcher"]}
-      tooltipText="Aplicaciones (Super + Espacio)"
+      tooltipText={_("Aplicaciones (Super + Espacio)")}
       onClicked={() => run("rofi -show drun -show-icons")}
     >
       <image iconName="view-app-grid-symbolic" />
@@ -105,7 +111,7 @@ function Wifi() {
           w ? (
             <button
               cssClasses={["chip"]}
-              tooltipText={createBinding(w, "ssid")((s) => s || "Sin conexión")}
+              tooltipText={createBinding(w, "ssid")((s) => s || _("Sin conexión"))}
               onClicked={() => run("nm-connection-editor")}
             >
               <image iconName={createBinding(w, "iconName")} />
@@ -142,7 +148,7 @@ function Volume() {
             onChangeValue={({ value }) => speaker.set_volume(value)}
             value={createBinding(speaker, "volume")}
           />
-          <button tooltipText="Más ajustes de sonido" onClicked={() => run("pavucontrol")}>
+          <button tooltipText={_("Más ajustes de sonido")} onClicked={() => run("pavucontrol")}>
             <image iconName="emblem-system-symbolic" />
           </button>
         </box>
@@ -176,12 +182,12 @@ function Power() {
       <image iconName="system-shutdown-symbolic" />
       <popover>
         <box orientation={Gtk.Orientation.VERTICAL} cssClasses={["power-pop"]}>
-          {entry("Bloquear", "system-lock-screen-symbolic", "loginctl lock-session")}
-          {entry("Suspender", "weather-clear-night-symbolic", "systemctl suspend")}
-          {entry("Cerrar sesión", "system-log-out-symbolic",
+          {entry(_("Bloquear"), "system-lock-screen-symbolic", "loginctl lock-session")}
+          {entry(_("Suspender"), "weather-clear-night-symbolic", "systemctl suspend")}
+          {entry(_("Cerrar sesión"), "system-log-out-symbolic",
             "command -v hyprshutdown >/dev/null && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'")}
-          {entry("Reiniciar", "system-reboot-symbolic", "systemctl reboot")}
-          {entry("Apagar", "system-shutdown-symbolic", "systemctl poweroff")}
+          {entry(_("Reiniciar"), "system-reboot-symbolic", "systemctl reboot")}
+          {entry(_("Apagar"), "system-shutdown-symbolic", "systemctl poweroff")}
         </box>
       </popover>
     </menubutton>

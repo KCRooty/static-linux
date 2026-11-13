@@ -10,31 +10,33 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, GLib, Gtk  # noqa: E402
 
+from sl_i18n import N_, _  # noqa: E402
 from privileged import PrivilegedActionError, apply_privacy_profile  # noqa: E402
 
 _PROFILES = [
-    ("basico", "Básico",
-     "Defaults de día 0 + UFW + aleatorización de MAC. Kernel linux-zen."),
-    ("mejorado", "Mejorado",
-     "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."),
-    ("maximo", "Máximo",
-     "+ Tor + kloak + swap cifrado. Kernel linux-hardened."),
+    ("basico", N_("Básico"),
+     N_("Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen.")),
+    ("mejorado", N_("Mejorado"),
+     N_("+ Firejail + AppArmor + USBGuard. Kernel linux-zen.")),
+    ("maximo", N_("Máximo"),
+     N_("+ Tor + kloak + swap cifrado. Kernel linux-hardened.")),
 ]
 
 
 def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup(
-        title="Perfil de privacidad",
-        description="Cada perfil hace backup automático de lo que toca "
-                     "(/var/backups/static-linux/privacy/), así que todo se puede deshacer. "
-                     "Pide contraseña de administrador.",
+        title=_("Perfil de privacidad"),
+        description=_("Cada perfil guarda copia de lo que toca "
+                      "(/var/backups/static-linux/privacy/), así que todo se puede deshacer. "
+                      "Pide contraseña de administrador."),
     )
     page.add(group)
 
     for slug, label, desc in _PROFILES:
+        label, desc = _(label), _(desc)
         row = Adw.ActionRow(title=label, subtitle=desc)
-        button = Gtk.Button(label="Aplicar", valign=Gtk.Align.CENTER,
+        button = Gtk.Button(label=_("Aplicar"), valign=Gtk.Align.CENTER,
                              css_classes=["suggested-action"])
         spinner = Gtk.Spinner(visible=False)
         row.add_suffix(spinner)
@@ -57,7 +59,8 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
                 spinner.stop()
                 spinner.set_visible(False)
                 button.set_sensitive(True)
-                title = f"Perfil {label} aplicado" if ok else f"Falló: {msg or 'ver logs'}"
+                title = (_("Perfil {name} aplicado").format(name=label) if ok
+                         else _("Falló: {error}").format(error=msg or _("mira el registro")))
                 toast_overlay.add_toast(Adw.Toast(title=title))
 
             threading.Thread(target=run, daemon=True).start()

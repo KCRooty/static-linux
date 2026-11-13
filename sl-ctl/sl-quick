@@ -14,6 +14,7 @@ branding/themes/templates/styles/estante.gtk3.css.in).
 from __future__ import annotations
 
 import datetime
+import locale
 import os
 import shutil
 import signal
@@ -21,11 +22,23 @@ import subprocess
 import sys
 from pathlib import Path
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "i18n"))
+from sl_i18n import _  # noqa: E402
+
+try:
+    locale.setlocale(locale.LC_TIME, "")
+except locale.Error:
+    pass
+
 RUN = Path(os.environ.get("XDG_RUNTIME_DIR", "/tmp")) / "sl-quick.pid"
 NIGHT = RUN.with_name("sl-night-light")  # runtime dir: the xrandr gamma is gone after logout too
-DAYS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
-MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
-          "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def today(now: datetime.datetime) -> str:
+    """"Jueves, 13 de noviembre" in the session language (names from the C library)."""
+    # TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
+    text = now.strftime(_("%A, %-d de %B"))
+    return text[:1].upper() + text[1:]
 
 
 def sh(*cmd: str) -> str:
@@ -67,7 +80,7 @@ def wifi_name() -> str:
             return line[4:]
     for line in sh("nmcli", "-t", "-f", "TYPE,STATE", "dev").splitlines():
         if line.startswith("ethernet:connected"):
-            return "Cable"
+            return _("Cable")
     return ""
 
 
@@ -152,10 +165,10 @@ def pill() -> None:
     bat = battery()
     if bat:
         bits.append(f"{bat[0]} %")
-    tip = f"{DAYS[now.weekday()].capitalize()}, {now.day} de {MONTHS[now.month - 1]}"
+    tip = today(now)
     net = wifi_name()
     if net:
-        tip += f"\nRed: {net}"
+        tip += "\n" + _("Red: {name}").format(name=net)
     print(f"<txt> {'   '.join(bits)} </txt><txtclick>sl-quick</txtclick><tool>{tip}</tool>")
 
 
@@ -183,7 +196,7 @@ def panel() -> None:
 
     win = Gtk.Window(type=Gtk.WindowType.TOPLEVEL)
     win.set_name("sl-quick")
-    win.set_title("Ajustes rápidos")
+    win.set_title(_("Ajustes rápidos"))
     win.set_decorated(False)
     win.set_resizable(False)
     win.set_skip_taskbar_hint(True)
@@ -204,7 +217,7 @@ def panel() -> None:
     # top row: date (left) · round actions (right)
     top = Gtk.Box(spacing=8)
     now = datetime.datetime.now()
-    date = Gtk.Label(label=f"{DAYS[now.weekday()].capitalize()}, {now.day} de {MONTHS[now.month - 1]}", xalign=0)
+    date = Gtk.Label(label=today(now), xalign=0)
     date.get_style_context().add_class("sl-date")
     top.pack_start(date, True, True, 0)
 
@@ -214,10 +227,10 @@ def panel() -> None:
         b.get_style_context().add_class("sl-round")
         b.connect("clicked", lambda *_: (spawn(*cmd), Gtk.main_quit()))
         return b
-    for icon, tip, cmd in (("system-log-out-symbolic", "Cerrar sesión", ("xfce4-session-logout", "--logout")),
-                           ("system-shutdown-symbolic", "Apagar", ("xfce4-session-logout", "--halt")),
-                           ("system-lock-screen-symbolic", "Bloquear", ("xflock4",)),
-                           ("emblem-system-symbolic", "Ajustes", ("xfce4-settings-manager",))):
+    for icon, tip, cmd in (("system-log-out-symbolic", _("Cerrar sesión"), ("xfce4-session-logout", "--logout")),
+                           ("system-shutdown-symbolic", _("Apagar"), ("xfce4-session-logout", "--halt")),
+                           ("system-lock-screen-symbolic", _("Bloquear"), ("xflock4",)),
+                           ("emblem-system-symbolic", _("Ajustes"), ("xfce4-settings-manager",))):
         if shutil.which(cmd[0]):
             top.pack_start(round_button(icon, tip, cmd), False, False, 0)
     box.pack_start(top, False, False, 0)
@@ -246,11 +259,11 @@ def panel() -> None:
 
     w, b = wifi_on(), bt_on()
     tiles = [
-        tile("network-wireless-symbolic", "Wi‑Fi", wifi_name() or ("Activado" if w else "Desactivado"), w, set_wifi),
-        tile("bluetooth-active-symbolic", "Bluetooth", "Activado" if b else "Desactivado", b, set_bt),
-        tile("notifications-disabled-symbolic", "No molestar", "Sin avisos" if dnd_on() else "Avisos activos",
+        tile("network-wireless-symbolic", "Wi‑Fi", wifi_name() or (_("Activado") if w else _("Desactivado")), w, set_wifi),
+        tile("bluetooth-active-symbolic", "Bluetooth", _("Activado") if b else _("Desactivado"), b, set_bt),
+        tile("notifications-disabled-symbolic", _("No molestar"), _("Sin avisos") if dnd_on() else _("Avisos activos"),
              dnd_on() if shutil.which("xfconf-query") else None, set_dnd),
-        tile("night-light-symbolic", "Luz nocturna", "Tonos cálidos", NIGHT.exists() if shutil.which("xrandr") else None,
+        tile("night-light-symbolic", _("Luz nocturna"), _("Tonos cálidos"), NIGHT.exists() if shutil.which("xrandr") else None,
              set_night),
     ]
     for i, t in enumerate(tiles):
@@ -259,7 +272,7 @@ def panel() -> None:
     shot.get_style_context().add_class("sl-tile")
     sbox = Gtk.Box(spacing=10)
     sbox.pack_start(Gtk.Image.new_from_icon_name("camera-photo-symbolic", Gtk.IconSize.LARGE_TOOLBAR), False, False, 0)
-    sbox.pack_start(Gtk.Label(label="Captura", xalign=0), True, True, 0)
+    sbox.pack_start(Gtk.Label(label=_("Captura"), xalign=0), True, True, 0)
     shot.add(sbox)
     shot.set_sensitive(bool(shutil.which("sl-screenshot")))
     shot.connect("clicked", lambda *_: (Gtk.main_quit(), GLib.timeout_add(250, lambda: spawn("sl-screenshot"))))
@@ -285,7 +298,7 @@ def panel() -> None:
 
     bat = battery()
     if bat:
-        foot = Gtk.Label(label=f"Batería {bat[0]} %" + (" · cargando" if bat[1] else ""), xalign=0)
+        foot = Gtk.Label(label=_("Batería {pct} %").format(pct=bat[0]) + (" · " + _("cargando") if bat[1] else ""), xalign=0)
         foot.get_style_context().add_class("sl-sub")
         box.pack_start(foot, False, False, 0)
 
@@ -293,7 +306,7 @@ def panel() -> None:
     def place(*_):
         display = Gdk.Display.get_default()
         seat = display.get_default_seat()
-        _, px, py = seat.get_pointer().get_position()
+        _scr, px, py = seat.get_pointer().get_position()
         mon = display.get_monitor_at_point(px, py).get_workarea()
         ww, wh = win.get_size()
         win.move(mon.x + mon.width - ww - 12, mon.y + mon.height - wh - 12)

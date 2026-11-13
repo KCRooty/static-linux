@@ -7,6 +7,7 @@ import gi
 gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Gdk, Gtk  # noqa: E402
+from sl_i18n import _  # noqa: E402
 
 from pages import appearance, catalog, overview, privacy  # noqa: E402
 
@@ -24,7 +25,7 @@ def fit_to_screen(width: int, height: int) -> tuple[int, int]:
 class WelcomeWindow(Adw.ApplicationWindow):
     def __init__(self, app: Adw.Application) -> None:
         w, h = fit_to_screen(760, 620)
-        super().__init__(application=app, title="Bienvenido a Static Linux",
+        super().__init__(application=app, title=_("Bienvenido a Static Linux"),
                           default_width=w, default_height=h)
 
         self.toast_overlay = Adw.ToastOverlay()
@@ -36,15 +37,15 @@ class WelcomeWindow(Adw.ApplicationWindow):
         toolbar_view.add_top_bar(header)
 
         stack = Adw.ViewStack()
-        stack.add_titled_with_icon(overview.build(), "overview", "General",
+        stack.add_titled_with_icon(overview.build(), "overview", _("General"),
                                     "go-home-symbolic")
         stack.add_titled_with_icon(appearance.build(self.toast_overlay),
-                                    "appearance", "Apariencia",
+                                    "appearance", _("Apariencia"),
                                     "applications-graphics-symbolic")
         stack.add_titled_with_icon(privacy.build(self.toast_overlay), "privacy",
-                                    "Privacidad", "channel-secure-symbolic")
+                                    _("Privacidad"), "channel-secure-symbolic")
         stack.add_titled_with_icon(catalog.build(self.toast_overlay), "catalog",
-                                    "Catálogo", "system-software-install-symbolic")
+                                    _("Catálogo"), "system-software-install-symbolic")
 
         switcher.set_stack(stack)
         # short fade-in of the page being switched to

@@ -1,0 +1,1012 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Instalando los paquetes base"
+msgstr "Basispakketten installeren"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "Schermschaal instellen"
+
+msgid "Instalando el escritorio"
+msgstr "Bureaublad installeren"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "Schijfversleuteling controleren"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "Privacyprofiel toepassen"
+
+msgid "Instalando los sabores"
+msgstr "Smaken installeren"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "Hardware detecteren (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "Thema toepassen"
+
+msgid "Espacio"
+msgstr "Spatie"
+
+msgid "Impr Pant"
+msgstr "Print Screen"
+
+msgid "Intro"
+msgstr "Enter"
+
+msgid "clic derecho"
+msgstr "rechtsklik"
+
+msgid "clic izquierdo"
+msgstr "linksklik"
+
+msgid "rueda ↑"
+msgstr "scrollwiel ↑"
+
+msgid "rueda ↓"
+msgstr "scrollwiel ↓"
+
+msgid "Silencio"
+msgstr "Dempen"
+
+msgid "Brillo +"
+msgstr "Helderheid +"
+
+msgid "Brillo −"
+msgstr "Helderheid −"
+
+msgid "Micro"
+msgstr "Microfoon"
+
+msgid "código {n}"
+msgstr "code {n}"
+
+msgid "flechas"
+msgstr "pijltjes"
+
+msgid "Otros"
+msgstr "Overig"
+
+msgid "Atajos de Hyprland"
+msgstr "Sneltoetsen van Hyprland"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland bedien je vooral met het toetsenbord. Super is de Windows-toets. Open deze gids altijd opnieuw met Super + F1."
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "Kon de sneltoetsen niet lezen (draait Hyprland?)."
+
+msgid "%A, %-d de %B"
+msgstr "%A %-d %B"
+
+msgid "Cable"
+msgstr "Kabel"
+
+msgid "Red: {name}"
+msgstr "Netwerk: {name}"
+
+msgid "Ajustes rápidos"
+msgstr "Snelle instellingen"
+
+msgid "Cerrar sesión"
+msgstr "Afmelden"
+
+msgid "Apagar"
+msgstr "Uitschakelen"
+
+msgid "Bloquear"
+msgstr "Vergrendelen"
+
+msgid "Ajustes"
+msgstr "Instellingen"
+
+msgid "Activado"
+msgstr "Aan"
+
+msgid "Desactivado"
+msgstr "Uit"
+
+msgid "Avisos activos"
+msgstr "Meldingen aan"
+
+msgid "No molestar"
+msgstr "Niet storen"
+
+msgid "Sin avisos"
+msgstr "Geen meldingen"
+
+msgid "Luz nocturna"
+msgstr "Nachtlicht"
+
+msgid "Tonos cálidos"
+msgstr "Warme tinten"
+
+msgid "Captura"
+msgstr "Schermafbeelding"
+
+msgid "Batería {pct} %"
+msgstr "Accu {pct} %"
+
+msgid "cargando"
+msgstr "laadt op"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero, balk onderaan"
+
+msgid "barra fina arriba"
+msgstr "dunne balk bovenaan"
+
+msgid "como Windows, barra abajo"
+msgstr "zoals Windows, balk onderaan"
+
+msgid "lanzador y estante abajo"
+msgstr "starter en plank onderaan"
+
+msgid "Tema"
+msgstr "Thema"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "Elk thema is een achtergrond, een palet dat daaruit komt en een stijl voor vensters en balk. Alles verandert tegelijk en wat vervangen wordt, wordt bewaard. Zonder sudo."
+
+msgid "claro"
+msgstr "licht"
+
+msgid "oscuro"
+msgstr "donker"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "Kan de thema's van Static Linux niet vinden (sl-theme)."
+
+msgid "No se pudo aplicar el tema"
+msgstr "Kon het thema niet toepassen"
+
+msgid "Tema aplicado: {name}"
+msgstr "Thema toegepast: {name}"
+
+msgid "repos oficiales"
+msgstr "officiële repo's"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "Klaar. Druk op Enter om te sluiten… "
+
+msgid "instalado"
+msgstr "geïnstalleerd"
+
+msgid "Pendiente de tus sabores"
+msgstr "Nog open van je smaken"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "Wat tijdens de installatie niet geïnstalleerd kon worden. Al aangevinkt."
+
+msgid "Catálogo"
+msgstr "Catalogus"
+
+msgid "No se encontró ningún catálogo."
+msgstr "Geen catalogus gevonden."
+
+msgid "Instalar lo marcado"
+msgstr "Selectie installeren"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "Officiële repo's: vraagt je wachtwoord · Flathub: geen wachtwoord · AUR en Static Forge: er opent een terminal"
+
+msgid "Instalar"
+msgstr "Installeren"
+
+msgid "No has marcado nada"
+msgstr "Je hebt niets aangevinkt"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "Geen terminal om de apps van Static Forge te installeren"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "Geen terminal: voer «{cmd}» uit"
+
+msgid "pacman falló"
+msgstr "pacman is mislukt"
+
+msgid "flatpak falló"
+msgstr "flatpak is mislukt"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "{n} app geïnstalleerd"
+msgstr[1] "{n} apps geïnstalleerd"
+
+msgid "Falló: {error}"
+msgstr "Mislukt: {error}"
+
+msgid "Wiki online"
+msgstr "Online wiki"
+
+msgid "Repositorio (GitHub)"
+msgstr "Repository (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "Een probleem melden"
+
+msgid "Este equipo"
+msgstr "Deze computer"
+
+msgid "Driver gráfico"
+msgstr "Grafisch stuurprogramma"
+
+msgid "No"
+msgstr "Nee"
+
+msgid "Sí"
+msgstr "Ja"
+
+msgid "Almacenamiento"
+msgstr "Opslag"
+
+msgid "Arquitectura"
+msgstr "Architectuur"
+
+msgid "Recomendación de sl-detect"
+msgstr "Aanbeveling van sl-detect"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "Berekend voor deze hardware. Je kunt het wijzigen bij Uiterlijk en Privacy."
+
+msgid "Entorno"
+msgstr "Omgeving"
+
+msgid "Sistema de archivos"
+msgstr "Bestandssysteem"
+
+msgid "Enlaces"
+msgstr "Links"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "Lokale kopie, werkt offline"
+
+msgid "Básico"
+msgstr "Basis"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "Veilige instellingen vanaf dag één + UFW + willekeurig MAC-adres. Kernel linux-zen."
+
+msgid "Mejorado"
+msgstr "Verbeterd"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+
+msgid "Máximo"
+msgstr "Maximaal"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + versleutelde swap. Kernel linux-hardened."
+
+msgid "Perfil de privacidad"
+msgstr "Privacyprofiel"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "Elk profiel bewaart een kopie van wat het wijzigt (/var/backups/static-linux/privacy/), dus alles kan ongedaan worden gemaakt. Vraagt het beheerderswachtwoord."
+
+msgid "Aplicar"
+msgstr "Toepassen"
+
+msgid "Perfil {name} aplicado"
+msgstr "Profiel {name} toegepast"
+
+msgid "mira el registro"
+msgstr "zie het logboek"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "pkexec is niet geïnstalleerd. Installeer «polkit» om systeemwijzigingen toe te passen."
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "onbekend privacyprofiel: {name}"
+
+msgid "no encuentro {path}"
+msgstr "kan {path} niet vinden"
+
+msgid "Bienvenido a Static Linux"
+msgstr "Welkom bij Static Linux"
+
+msgid "General"
+msgstr "Overzicht"
+
+msgid "Apariencia"
+msgstr "Uiterlijk"
+
+msgid "Privacidad"
+msgstr "Privacy"
+
+msgid "Capturas"
+msgstr "Schermafbeeldingen"
+
+msgid "Captura guardada"
+msgstr "Schermafbeelding opgeslagen"
+
+msgid "Copiada al portapapeles"
+msgstr "Naar het klembord gekopieerd"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "Toepassingen (Super + Spatie)"
+
+msgid "Sin conexión"
+msgstr "Geen verbinding"
+
+msgid "Más ajustes de sonido"
+msgstr "Meer geluidsinstellingen"
+
+msgid "Suspender"
+msgstr "Pauzestand"
+
+msgid "Reiniciar"
+msgstr "Herstarten"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "Downloads van YouTube, YouTube Music, Spotify en Pinterest, gemaakt in de studio."
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "El navegador de Mozilla."
+msgstr "De browser van Mozilla."
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "Gebaseerd op Firefox, met verticale tabbladen en werkruimtes."
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "De vrije basis van Chrome, zonder Google-diensten."
+
+msgid "Correo, calendario y contactos."
+msgstr "Mail, agenda en contacten."
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "Vrije BitTorrent-client zonder reclame."
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "Stuur bestanden naar andere apparaten in je netwerk, zonder cloud."
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "Synchroniseert met je eigen Nextcloud-server."
+
+msgid "Cliente FTP/SFTP."
+msgstr "FTP/SFTP-client."
+
+msgid "Comunicación"
+msgstr "Communicatie"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "Discord met ingebouwde Vencord: thema's, plug-ins en betere prestaties op Linux."
+
+msgid "El cliente oficial."
+msgstr "De officiële client."
+
+msgid "Mensajería."
+msgstr "Berichten."
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "End-to-end versleutelde berichten."
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "Gedecentraliseerde chat (Matrix)."
+
+msgid "Música y audio"
+msgstr "Muziek en audio"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "De officiële client (geïnstalleerd en bijgewerkt met spotify-launcher)."
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Thema's en extensies voor Spotify. Installeer eerst Spotify."
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "Download je Spotify-afspeellijsten lokaal (via YouTube Music)."
+
+msgid "Grabar y editar audio."
+msgstr "Audio opnemen en bewerken."
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "Vrije professionele DAW: meersporenopname en mixen."
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "Vrije DAW om muziek te maken, in de stijl van FL Studio."
+
+msgid "Caja de ritmos."
+msgstr "Drumcomputer."
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "Commerciële DAW met proefversie; native op Linux."
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "Lichte, krachtige DAW (betaalde licentie, volledige proefversie)."
+
+msgid "Software de DJ."
+msgstr "DJ-software."
+
+msgid "Reproductor de música ligero."
+msgstr "Lichte muziekspeler."
+
+msgid "Vídeo"
+msgstr "Video"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "Vrije, volledige video-editor."
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "Vrije video-editor, eenvoudig en snel."
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "Professionele montage en kleurcorrectie (gratis, niet vrij). Zwaar; heeft een aparte GPU nodig."
+
+msgid "Grabar y emitir en directo."
+msgstr "Opnemen en live streamen."
+
+msgid "Convertir y comprimir vídeo."
+msgstr "Video omzetten en comprimeren."
+
+msgid "Reproduce cualquier cosa."
+msgstr "Speelt alles af."
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "Minimale, zeer snelle speler."
+
+msgid "Grafismo y 3D"
+msgstr "Grafisch en 3D"
+
+msgid "Pintura digital."
+msgstr "Digitaal schilderen."
+
+msgid "Retoque fotográfico."
+msgstr "Fotobewerking."
+
+msgid "Gráficos vectoriales."
+msgstr "Vectorafbeeldingen."
+
+msgid "Modelado, animación y render 3D."
+msgstr "3D-modelleren, animatie en rendering."
+
+msgid "CAD 3D paramétrico."
+msgstr "Parametrisch 3D-CAD."
+
+msgid "Revelado RAW."
+msgstr "RAW-ontwikkeling."
+
+msgid "Motor de videojuegos libre."
+msgstr "Vrije game-engine."
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "Pixelart en animatie (gebouwd uit de broncode)."
+
+msgid "Juegos"
+msgstr "Games"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "Met Proton om Windows-games te spelen."
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games, GOG en Amazon Prime Gaming. Zo gebruik je Epic op Linux."
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "Eén plek voor al je games en launchers (Battle.net, EA, Ubisoft…)."
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "Minecraft Java met meerdere instanties en mods."
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "Minecraft Java met de mods en modpacks van Modrinth."
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "De officiële launcher van Mojang voor Minecraft Java."
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "Launcher voor de Bedrock-editie (je moet die op Google Play gekocht hebben)."
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "Installeer Proton-GE en andere versies van Proton/Wine met één klik."
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "Windows-programma's in afgeschermde omgevingen."
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "Gameprestaties en FPS-teller."
+
+msgid "Emulador multisistema."
+msgstr "Multisysteem-emulator."
+
+msgid "Emulador de GameCube y Wii."
+msgstr "GameCube- en Wii-emulator."
+
+msgid "Emulador de PlayStation 2."
+msgstr "PlayStation 2-emulator."
+
+msgid "Desarrollo"
+msgstr "Ontwikkeling"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "Versiebeheer (meegeleverd met Static Linux)."
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "GitHub vanuit de terminal (gh)."
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "Containers, met Compose en Buildx. Vergeet niet jezelf aan de groep docker toe te voegen."
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "De build van Microsoft, met de marketplace."
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "VS Code gebouwd uit de vrije broncode (officiële repo's)."
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "VS Code zonder Microsoft-telemetrie."
+
+msgid "Editor modal en la terminal."
+msgstr "Modale editor in de terminal."
+
+msgid "Git con interfaz en la terminal."
+msgstr "Git met een terminalinterface."
+
+msgid "Comparar archivos y carpetas."
+msgstr "Bestanden en mappen vergelijken."
+
+msgid "Cliente de bases de datos."
+msgstr "Databaseclient."
+
+msgid "adb y fastboot."
+msgstr "adb en fastboot."
+
+msgid "Productividad"
+msgstr "Productiviteit"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "Volledig kantoorpakket, met spellingcontrole."
+
+msgid "Notas en Markdown enlazadas."
+msgstr "Gekoppelde Markdown-notities."
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "Lokale, vrije wachtwoordbeheerder."
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "Wachtwoordbeheerder in de cloud."
+
+msgid "Notas con sincronización cifrada."
+msgstr "Notities met versleutelde synchronisatie."
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "Handgeschreven notities en PDF's annoteren."
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "PDF's samenvoegen, splitsen en herschikken."
+
+msgid "Tareas y listas."
+msgstr "Taken en lijsten."
+
+msgid "Sistema y herramientas"
+msgstr "Systeem en hulpmiddelen"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "7z, zip, rar… in- en uitpakken (meegeleverd met Static Linux)."
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "Audio en video omzetten (meegeleverd met Static Linux)."
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "Video en audio downloaden van YouTube en meer (meegeleverd met Static Linux)."
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "SSH-client en -server (meegeleverd; de server blijft uit tot je hem inschakelt)."
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Rechten van Flathub-apps."
+
+msgid "Copias del sistema para volver atrás."
+msgstr "Systeemsnapshots om terug te gaan."
+
+msgid "Particionar discos."
+msgstr "Schijven partitioneren."
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "Ruimte vrijmaken en sporen wissen."
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "Mappen synchroniseren tussen je computers, zonder cloud."
+
+msgid "Monitor de recursos en la terminal."
+msgstr "Bronnenmonitor in de terminal."
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "Opstart-USB met meerdere ISO's tegelijk."
+
+msgid "Máquinas virtuales"
+msgstr "Virtuele machines"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "Virtuele machines met KVM, het snelst op Linux. Met QEMU en libvirt."
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "Virtuele machines in twee klikken."
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "De klassieke optie; trager dan KVM en met een eigen kernelmodule."
+
+msgid "Aero"
+msgstr "Aero"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "lucht, water en gras, met glans"
+
+msgid "Ámbar"
+msgstr "Amber"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "hout, mosterd en blauwgroen uit de jaren 70"
+
+msgid "Bosque"
+msgstr "Bos"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "mist boven dennen, gedempt groen en vochtig grijs"
+
+msgid "Nórdico"
+msgstr "Noords"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "blauwig leigrijs, ijs en rijp"
+
+msgid "Nube"
+msgstr "Wolk"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "ochtendlucht met wolken, licht en zacht"
+
+msgid "Papel"
+msgstr "Papier"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "vergeeld papier, inkt en olijfgroen"
+
+msgid "Sakura"
+msgstr "Sakura"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "inktvensters op een kersenroze achtergrond"
+
+msgid "Ventanas"
+msgstr "Vensters"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "grafietgrijs en lichtblauw, balk onderaan met gecentreerde pictogrammen"
+
+msgid "Violeta"
+msgstr "Violet"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "violet monochroom, bergen in de schemering"
+
+msgid "Apps"
+msgstr "Apps"
+
+msgid "abrir la terminal"
+msgstr "de terminal openen"
+
+msgid "abrir el gestor de archivos"
+msgstr "de bestandsbeheerder openen"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "de browser openen (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "toepassingenstarter"
+
+msgid "Ayuda"
+msgstr "Hulp"
+
+msgid "esta guía de atajos"
+msgstr "deze sneltoetsengids"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "schermgebied (bestand + klembord)"
+
+msgid "cerrar la ventana"
+msgstr "het venster sluiten"
+
+msgid "pantalla completa"
+msgstr "volledig scherm"
+
+msgid "flotante / en mosaico"
+msgstr "zwevend / getegeld"
+
+msgid "pseudo-mosaico"
+msgstr "pseudo-tegelen"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "horizontale/verticale splitsing wisselen"
+
+msgid "pasar a la siguiente"
+msgstr "naar de volgende"
+
+msgid "mover el foco"
+msgstr "focus verplaatsen"
+
+msgid "mover la ventana"
+msgstr "het venster verplaatsen"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "slepen met Super + linksklik"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "formaat wijzigen met Super + rechtsklik"
+
+msgid "Escritorios"
+msgstr "Werkbladen"
+
+msgid "ir a un escritorio"
+msgstr "naar een werkblad gaan"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "het venster naar een ander werkblad verplaatsen"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "volgende (scrollwiel)"
+
+msgid "anterior (rueda del ratón)"
+msgstr "vorige (scrollwiel)"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "het snelle werkblad tonen/verbergen"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "het venster naar het snelle werkblad sturen"
+
+msgid "Sesión"
+msgstr "Sessie"
+
+msgid "bloquear la pantalla"
+msgstr "het scherm vergrendelen"
+
+msgid "ver la última notificación"
+msgstr "de laatste melding tonen"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "subir volumen"
+msgstr "volume omhoog"
+
+msgid "bajar volumen"
+msgstr "volume omlaag"
+
+msgid "silenciar"
+msgstr "dempen"
+
+msgid "silenciar el micrófono"
+msgstr "microfoon dempen"
+
+msgid "subir brillo"
+msgstr "helderheid omhoog"
+
+msgid "bajar brillo"
+msgstr "helderheid omlaag"
+
+msgid "reproducir/pausar"
+msgstr "afspelen/pauzeren"
+
+msgid "siguiente pista"
+msgstr "volgend nummer"
+
+msgid "pista anterior"
+msgstr "vorig nummer"
+
+msgid "Entorno de escritorio"
+msgstr "Bureaubladomgeving"
+
+msgid "XFCE (temático)"
+msgstr "XFCE (met thema)"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "De omgeving die op echte hardware is getest (Packard Bell iMedia S2883). Xorg, licht, aanbevolen vanaf 1 GB RAM of als de GPU geen Wayland ondersteunt."
+
+msgid "Openbox minimal"
+msgstr "Openbox minimaal"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "Het laagste niveau: 512 MB. Openbox + tint2 + jgmenu, standaard zonder compositor."
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland, 2-4 GB. Dezelfde Astal-shell als de volledige versie, zonder vervaging, schaduwen of zware animaties."
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland, aanbevolen plafond van 4 GB. Vervaging, schaduwen en volledige animaties. Heeft een GPU met goede Wayland-ondersteuning nodig."
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "Het complete, vertrouwde bureaublad: balk onderaan, startmenu, Dolphin en instellingen voor alles. Wayland, vanaf 4 GB RAM. De zwaarste omgeving; sl-detect raadt hem standaard niet aan."
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "Het GNOME-bureaublad zoals het is: activiteitenoverzicht, dock en GNOME-apps. Wayland, vanaf 4 GB RAM. Het thema bereikt lichte of donkere modus, accent, achtergrond en apps. Aanmelden met GDM."
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "Klassiek en comfortabel: balk onderaan, startmenu en pictogrammen op het bureaublad. Xorg, vanaf 2 GB. Het thema kleedt ook het paneel en het menu aan."
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "Tegelen met het toetsenbord: vensters schikken zichzelf. Xorg, vanaf 1 GB. Balk i3bar, starter rofi. Super + Enter opent de terminal."
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "Tegelen in een binaire boom, sneltoetsen in sxhkd en balk polybar. Xorg, vanaf 1 GB. Voor wie alles zelf wil instellen."
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "Het tegelen van i3, op Wayland. Vanaf 1-2 GB. Balk waybar, starter rofi en meldingen met mako."
+
+msgid "Sabores"
+msgstr "Smaken"
+
+msgid "Sabores (opcional)"
+msgstr "Smaken (optioneel)"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "App-pakketten klaar voor wat je gaat doen. Vink aan wat je wilt (meerdere of geen): ze worden met het systeem geïnstalleerd en elk is afgesteld om goed te presteren. Alles kan later worden toegevoegd of verwijderd in de welkomst-app."
+
+msgid "Gaming"
+msgstr "Gaming"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam met Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher en Modrinth voor Minecraft, MangoHud, GameMode en Gamescope. Schakelt de 32-bits bibliotheken en het Vulkan-stuurprogramma van je GPU in."
+
+msgid "Creación de contenido"
+msgstr "Contentcreatie"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity en de DAW's Ardour, LMMS en Hydrogen, met realtime audio (lage latentie)."
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git en GitHub CLI, Docker (start vanzelf bij gebruik), VS Code (Code - OSS), Python, Rust, Node en Java."
+
+msgid "Oficina"
+msgstr "Kantoor"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "LibreOffice met spellingcontrole, Obsidian, KeePassXC, Xournal++ en PDF-hulpmiddelen."
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "KVM/QEMU met virt-manager en GNOME Boxes, met TPM en UEFI voor Windows 11-gasten."
+
+msgid "Educación"
+msgstr "Onderwijs"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra, Stellarium, Anki, Jupyter en FreeCAD."
+
+msgid "Ciberseguridad"
+msgstr "Cyberbeveiliging"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra en Tor."
+
+msgid "Servidor / Homelab"
+msgstr "Server / Homelab"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban en Cockpit. Voor de veiligheid luistert geen enkele dienst tot je hem inschakelt."
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Het thema van Static Linux. Donker en warm: hout, mosterd en blauwgroen, over «Onweer onder de Fuji» van Hokusai. Dunne balk bovenaan en massieve vensters."
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "Licht, in tinten van vergeeld papier, inkt en olijfgroen, over een prent van Hokusai. Voor wie bij veel licht werkt."
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "Donker en koel: blauwig leisteen en ijs, over «Avondsneeuw in Kanbara» van Hiroshige."
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "Donker, in dennen- en mistgroen, over «Voorjaarsregen in Tsuchiyama» van Hiroshige."
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "Donker met kersenroze, over «De Fuji vanaf Gotenyama» van Hokusai."
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "Donker en monochroom violet, met bergen in de schemering."
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Frutiger Aero-stijl: licht, met lucht, bellen en gras, glanzende balken en de taakbalk onderaan."
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "Zoals Windows: donker, taakbalk onderaan met gecentreerde apps en vensterknoppen ─ □ ✕."
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "Licht en zacht, over een bewolkte lucht. Ronde starter en plank onderaan met gecentreerde apps; de klok opent de snelle instellingen."
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\nJe systeem wordt geïnstalleerd. Dit duurt een paar minuten."
+
+msgid "Tu escritorio, tu color"
+msgstr "Jouw bureaublad, jouw kleur"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "Negen thema's voor het hele systeem: achtergrond, vensters, terminal en opstarten.\nWissel wanneer je wilt in de welkomst-app of met  sl-ctl theme."
+
+msgid "Privado de serie"
+msgstr "Standaard privé"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "Nul telemetrie. Versleutelde DNS en firewall aan vanaf de eerste start.\nZet het hoger met  sl-ctl privacy."
+
+msgid "Todo a mano"
+msgstr "Alles bij de hand"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome: app-catalogus en eerste stappen.\nsl-ctl: updates, snapshots, instellingen en meer."
+
+msgid "Hecho para tu equipo"
+msgstr "Gemaakt voor jouw computer"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect heeft omgeving, kernel en bestandssysteem gekozen\nop basis van je hardware, van een Celeron tot een RTX."
+
+msgid "Contraseña"
+msgstr "Wachtwoord"
+
+msgid "Contraseña incorrecta"
+msgstr "Onjuist wachtwoord"
+
+msgid "Contraseña del disco"
+msgstr "Schijfwachtwoord"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Welkom bij Static Linux"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "Eerste stappen, uiterlijk, privacy en app-catalogus"
+
+msgid "Captura de pantalla (zona)"
+msgstr "Schermafbeelding (gebied)"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "Slaat op in Afbeeldingen/Schermafbeeldingen en kopieert naar het klembord"
+
+msgid "Instalar Static Linux"
+msgstr "Static Linux installeren"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "Static Linux op deze computer installeren"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "Een privacyprofiel van Static Linux toepassen"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome heeft beheerdersrechten nodig om het privacyprofiel toe te passen"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "Pakketten uit de catalogus van sl-welcome installeren"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome heeft beheerdersrechten nodig om pakketten met pacman te installeren"

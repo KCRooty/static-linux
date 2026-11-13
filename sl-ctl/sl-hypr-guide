@@ -24,18 +24,21 @@ gi.require_version("Gtk", "4.0")
 gi.require_version("Adw", "1")
 from gi.repository import Adw, Gdk, Gtk  # noqa: E402
 
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "i18n"))
+from sl_i18n import N_, _  # noqa: E402
+
 APP_ID = "dev.staticforge.hyprguide"
 STATE = Path.home() / ".local/state/static-linux/hypr-guide-shown"
 WELCOME_SRC = Path("/usr/lib/static-linux/sl-welcome/src")
 
 MODS = [(64, "Super"), (4, "Ctrl"), (8, "Alt"), (1, "Shift")]
 KEYS = {
-    "Return": "Intro", "space": "Espacio", "Space": "Espacio", "Tab": "Tab", "Print": "Impr Pant",
+    "Return": N_("Intro"), "space": N_("Espacio"), "Space": N_("Espacio"), "Tab": "Tab", "Print": N_("Impr Pant"),
     "left": "←", "right": "→", "up": "↑", "down": "↓",
-    "mouse:272": "clic izquierdo", "mouse:273": "clic derecho",
-    "mouse_down": "rueda ↓", "mouse_up": "rueda ↑",
-    "XF86AudioRaiseVolume": "Vol +", "XF86AudioLowerVolume": "Vol −", "XF86AudioMute": "Silencio",
-    "XF86AudioMicMute": "Micro", "XF86MonBrightnessUp": "Brillo +", "XF86MonBrightnessDown": "Brillo −",
+    "mouse:272": N_("clic izquierdo"), "mouse:273": N_("clic derecho"),
+    "mouse_down": N_("rueda ↓"), "mouse_up": N_("rueda ↑"),
+    "XF86AudioRaiseVolume": "Vol +", "XF86AudioLowerVolume": "Vol −", "XF86AudioMute": N_("Silencio"),
+    "XF86AudioMicMute": N_("Micro"), "XF86MonBrightnessUp": N_("Brillo +"), "XF86MonBrightnessDown": N_("Brillo −"),
     "XF86AudioPlay": "▶︎❙❙", "XF86AudioNext": "⏭", "XF86AudioPrev": "⏮",
 }
 ORDER = ["Ayuda", "Apps", "Captura", "Ventanas", "Escritorios", "Sesión", "Multimedia"]
@@ -43,8 +46,8 @@ ORDER = ["Ayuda", "Apps", "Captura", "Ventanas", "Escritorios", "Sesión", "Mult
 
 def combo(b: dict) -> str:
     mods = [name for bit, name in MODS if b.get("modmask", 0) & bit]
-    key = b.get("key") or (f"código {b['keycode']}" if b.get("keycode") else "?")
-    return " + ".join(mods + [KEYS.get(key, key.upper() if len(key) == 1 else key)])
+    key = b.get("key") or (_("código {n}").format(n=b['keycode']) if b.get("keycode") else "?")
+    return " + ".join(mods + [_(KEYS[key]) if key in KEYS else (key.upper() if len(key) == 1 else key)])
 
 
 def merge(keys: list[str]) -> str:
@@ -56,7 +59,7 @@ def merge(keys: list[str]) -> str:
         if all(x.isdigit() for x in lasts):
             return f"{p} + {min(lasts)}…{max(lasts)}"
         if set(lasts) <= set("←→↑↓"):
-            return f"{p} + flechas"
+            return f"{p} + " + _("flechas")
     return "  /  ".join(dict.fromkeys(keys))
 
 
@@ -73,9 +76,10 @@ def load() -> "OrderedDict[str, list[tuple[str, str]]]":
             by_desc.setdefault(desc, []).append(combo(b))
     groups: "OrderedDict[str, list[tuple[str, str]]]" = OrderedDict((g, []) for g in ORDER)
     for desc, keys in by_desc.items():
-        cat, _, text = desc.partition(": ")
+        cat, _sep, text = desc.partition(": ")
         if not text:
-            cat, text = "Otros", desc
+            cat, text = N_("Otros"), desc
+        text = _(text)
         groups.setdefault(cat, []).append((merge(keys), text[:1].upper() + text[1:]))
     return OrderedDict((g, rows) for g, rows in groups.items() if rows)
 
@@ -123,7 +127,7 @@ class Guide(Adw.Application):
         if monitors.get_n_items():  # shrink on small screens; the list scrolls
             geo = monitors.get_item(0).get_geometry()
             w, h = min(w, geo.width - 40), min(h, geo.height - 80)
-        win = Adw.ApplicationWindow(application=app, title="Atajos de Hyprland",
+        win = Adw.ApplicationWindow(application=app, title=_("Atajos de Hyprland"),
                                     default_width=max(w, 360), default_height=max(h, 360))
         view = Adw.ToolbarView()
         view.add_top_bar(Adw.HeaderBar())
@@ -132,16 +136,16 @@ class Guide(Adw.Application):
                       margin_start=22, margin_end=22, margin_top=6, margin_bottom=22)
         box.append(header())
         intro = Gtk.Label(wrap=True, xalign=0, css_classes=["dim-label"],
-                          label="Hyprland se maneja sobre todo con el teclado. Super es la tecla "
-                                "de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1.")
+                          label=_("Hyprland se maneja sobre todo con el teclado. Super es la tecla "
+                                  "de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."))
         box.append(intro)
 
         groups = load()
         if not groups:
-            box.append(Gtk.Label(label="No se han podido leer los atajos (¿Hyprland está en marcha?).",
+            box.append(Gtk.Label(label=_("No se han podido leer los atajos (¿Hyprland está en marcha?)."),
                                  wrap=True))
         for title, rows in groups.items():
-            box.append(Gtk.Label(label=title, xalign=0, css_classes=["sl-group-title"]))
+            box.append(Gtk.Label(label=_(title), xalign=0, css_classes=["sl-group-title"]))
             lst = Gtk.ListBox(css_classes=["boxed-list"], selection_mode=Gtk.SelectionMode.NONE)
             for keys, text in rows:
                 row = Adw.ActionRow(title=text)

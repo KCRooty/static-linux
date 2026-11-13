@@ -36,9 +36,24 @@ TMP_CONF = "/tmp/sl-entorno-pacman.conf"
 TARGET_PREFIX = "usr/lib/static-linux"  # where staticlinux-base ships repo data, relative to target root
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
+def _tr(text: str) -> str:
+    """Spanish source string -> the installer's language (gettext domain
+    static-linux, from staticlinux-base); English if there is no catalogue."""
+    import gettext
+    try:
+        import libcalamares
+        langs = list(libcalamares.utils.gettext_languages())
+    except Exception:  # outside Calamares (tests)
+        langs = []
+    if not langs or langs[0].startswith("es"):
+        return text
+    tr = gettext.translation("static-linux", "/usr/share/locale",
+                             languages=langs + ["en"], fallback=True)
+    return tr.gettext(text)
+
 
 def pretty_name():
-    return "Installing the desktop environment"
+    return _tr("Instalando el escritorio")
 
 
 def _parse_list(path):

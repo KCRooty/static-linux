@@ -1,0 +1,1012 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: eu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Instalando los paquetes base"
+msgstr "Oinarrizko paketeak instalatzen"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "Pantailaren eskala doitzen"
+
+msgid "Instalando el escritorio"
+msgstr "Mahaigaina instalatzen"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "Diskoaren zifratzea egiaztatzen"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "Pribatutasun-profila aplikatzen"
+
+msgid "Instalando los sabores"
+msgstr "Zaporeak instalatzen"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "Hardwarea detektatzen (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "Gaia aplikatzen"
+
+msgid "Espacio"
+msgstr "Zuriunea"
+
+msgid "Impr Pant"
+msgstr "ImprPant"
+
+msgid "Intro"
+msgstr "Sartu"
+
+msgid "clic derecho"
+msgstr "eskuineko klika"
+
+msgid "clic izquierdo"
+msgstr "ezkerreko klika"
+
+msgid "rueda ↑"
+msgstr "gurpila ↑"
+
+msgid "rueda ↓"
+msgstr "gurpila ↓"
+
+msgid "Silencio"
+msgstr "Mututu"
+
+msgid "Brillo +"
+msgstr "Distira +"
+
+msgid "Brillo −"
+msgstr "Distira −"
+
+msgid "Micro"
+msgstr "Mikroa"
+
+msgid "código {n}"
+msgstr "{n} kodea"
+
+msgid "flechas"
+msgstr "geziak"
+
+msgid "Otros"
+msgstr "Beste batzuk"
+
+msgid "Atajos de Hyprland"
+msgstr "Hyprland-en lasterbideak"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland batez ere teklatuarekin erabiltzen da. Super Windows tekla da. Ireki gida hau berriro nahi duzunean Super + F1 sakatuta."
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "Ezin izan dira lasterbideak irakurri (Hyprland martxan dago?)."
+
+msgid "%A, %-d de %B"
+msgstr "%A, %B %-d"
+
+msgid "Cable"
+msgstr "Kablea"
+
+msgid "Red: {name}"
+msgstr "Sarea: {name}"
+
+msgid "Ajustes rápidos"
+msgstr "Ezarpen azkarrak"
+
+msgid "Cerrar sesión"
+msgstr "Amaitu saioa"
+
+msgid "Apagar"
+msgstr "Itzali"
+
+msgid "Bloquear"
+msgstr "Blokeatu"
+
+msgid "Ajustes"
+msgstr "Ezarpenak"
+
+msgid "Activado"
+msgstr "Aktibatuta"
+
+msgid "Desactivado"
+msgstr "Desaktibatuta"
+
+msgid "Avisos activos"
+msgstr "Jakinarazpenak aktibo"
+
+msgid "No molestar"
+msgstr "Ez molestatu"
+
+msgid "Sin avisos"
+msgstr "Jakinarazpenik ez"
+
+msgid "Luz nocturna"
+msgstr "Gaueko argia"
+
+msgid "Tonos cálidos"
+msgstr "Tonu beroak"
+
+msgid "Captura"
+msgstr "Pantaila-argazkia"
+
+msgid "Batería {pct} %"
+msgstr "Bateria % {pct}"
+
+msgid "cargando"
+msgstr "kargatzen"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero, barra behean"
+
+msgid "barra fina arriba"
+msgstr "barra mehea goian"
+
+msgid "como Windows, barra abajo"
+msgstr "Windows bezala, barra behean"
+
+msgid "lanzador y estante abajo"
+msgstr "abiarazlea eta apala behean"
+
+msgid "Tema"
+msgstr "Gaia"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "Gai bakoitza horma-paper bat da, hartatik ateratako paleta bat eta leiho eta barrarentzako estilo bat. Dena batera aldatzen da eta ordezten dena gordetzen da. sudo gabe."
+
+msgid "claro"
+msgstr "argia"
+
+msgid "oscuro"
+msgstr "iluna"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "Ez ditut Static Linux-en gaiak aurkitzen (sl-theme)."
+
+msgid "No se pudo aplicar el tema"
+msgstr "Ezin izan da gaia aplikatu"
+
+msgid "Tema aplicado: {name}"
+msgstr "Gaia aplikatuta: {name}"
+
+msgid "repos oficiales"
+msgstr "biltegi ofizialak"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "Eginda. Sakatu Sartu ixteko… "
+
+msgid "instalado"
+msgstr "instalatuta"
+
+msgid "Pendiente de tus sabores"
+msgstr "Zure zaporeetatik falta dena"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "Instalazioan zehar instalatu ezin izan dena. Markatuta dago jada."
+
+msgid "Catálogo"
+msgstr "Katalogoa"
+
+msgid "No se encontró ningún catálogo."
+msgstr "Ez da katalogorik aurkitu."
+
+msgid "Instalar lo marcado"
+msgstr "Instalatu markatutakoa"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "Biltegi ofizialak: pasahitza eskatzen du · Flathub: pasahitzik gabe · AUR eta Static Forge: terminal bat irekitzen da"
+
+msgid "Instalar"
+msgstr "Instalatu"
+
+msgid "No has marcado nada"
+msgstr "Ez duzu ezer markatu"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "Ez dago terminalik Static Forge-ren aplikazioak instalatzeko"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "Ez dago terminalik: exekutatu «{cmd}»"
+
+msgid "pacman falló"
+msgstr "pacman-ek huts egin du"
+
+msgid "flatpak falló"
+msgstr "flatpak-ek huts egin du"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "Aplikazio {n} instalatuta"
+msgstr[1] "{n} aplikazio instalatuta"
+
+msgid "Falló: {error}"
+msgstr "Huts egin du: {error}"
+
+msgid "Wiki online"
+msgstr "Wiki linean"
+
+msgid "Repositorio (GitHub)"
+msgstr "Biltegia (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "Jakinarazi arazo bat"
+
+msgid "Este equipo"
+msgstr "Ordenagailu hau"
+
+msgid "Driver gráfico"
+msgstr "Txartel grafikoaren kontrolatzailea"
+
+msgid "No"
+msgstr "Ez"
+
+msgid "Sí"
+msgstr "Bai"
+
+msgid "Almacenamiento"
+msgstr "Biltegiratzea"
+
+msgid "Arquitectura"
+msgstr "Arkitektura"
+
+msgid "Recomendación de sl-detect"
+msgstr "sl-detect-en gomendioa"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "Hardware honetarako kalkulatua. Itxura eta Pribatutasuna ataletan alda dezakezu."
+
+msgid "Entorno"
+msgstr "Ingurunea"
+
+msgid "Sistema de archivos"
+msgstr "Fitxategi-sistema"
+
+msgid "Enlaces"
+msgstr "Estekak"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "Kopia lokala, konexiorik gabe dabil"
+
+msgid "Básico"
+msgstr "Oinarrizkoa"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "Lehen egunetik ezarpen seguruak + UFW + ausazko MAC. linux-zen nukleoa."
+
+msgid "Mejorado"
+msgstr "Hobetua"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard. linux-zen nukleoa."
+
+msgid "Máximo"
+msgstr "Gehienezkoa"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + swap zifratua. linux-hardened nukleoa."
+
+msgid "Perfil de privacidad"
+msgstr "Pribatutasun-profila"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "Profil bakoitzak aldatzen duenaren kopia gordetzen du (/var/backups/static-linux/privacy/), beraz dena desegin daiteke. Administratzailearen pasahitza eskatzen du."
+
+msgid "Aplicar"
+msgstr "Aplikatu"
+
+msgid "Perfil {name} aplicado"
+msgstr "{name} profila aplikatuta"
+
+msgid "mira el registro"
+msgstr "begiratu erregistroa"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "pkexec ez dago instalatuta. Instalatu «polkit» sistemako aldaketak aplikatzeko."
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "pribatutasun-profil ezezaguna: {name}"
+
+msgid "no encuentro {path}"
+msgstr "ez dut {path} aurkitzen"
+
+msgid "Bienvenido a Static Linux"
+msgstr "Ongi etorri Static Linux-era"
+
+msgid "General"
+msgstr "Orokorra"
+
+msgid "Apariencia"
+msgstr "Itxura"
+
+msgid "Privacidad"
+msgstr "Pribatutasuna"
+
+msgid "Capturas"
+msgstr "Pantaila-argazkiak"
+
+msgid "Captura guardada"
+msgstr "Pantaila-argazkia gordeta"
+
+msgid "Copiada al portapapeles"
+msgstr "Arbelean kopiatuta"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "Aplikazioak (Super + Zuriunea)"
+
+msgid "Sin conexión"
+msgstr "Konexiorik gabe"
+
+msgid "Más ajustes de sonido"
+msgstr "Soinu-ezarpen gehiago"
+
+msgid "Suspender"
+msgstr "Eseki"
+
+msgid "Reiniciar"
+msgstr "Berrabiarazi"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "YouTube, YouTube Music, Spotify eta Pinterest-eko deskargak, estudioan egina."
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "El navegador de Mozilla."
+msgstr "Mozillaren nabigatzailea."
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "Firefoxen oinarritua, fitxa bertikalekin eta lan-eremuekin."
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "Chromeren oinarri librea, Googleren zerbitzurik gabe."
+
+msgid "Correo, calendario y contactos."
+msgstr "Posta, egutegia eta kontaktuak."
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "BitTorrent bezero librea eta iragarkirik gabea."
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "Bidali fitxategiak zure sareko beste gailu batzuetara, hodeirik gabe."
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "Zure Nextcloud zerbitzariarekin sinkronizatzen du."
+
+msgid "Cliente FTP/SFTP."
+msgstr "FTP/SFTP bezeroa."
+
+msgid "Comunicación"
+msgstr "Komunikazioa"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "Discord, Vencord integratuta: gaiak, pluginak eta errendimendu hobea Linuxen."
+
+msgid "El cliente oficial."
+msgstr "Bezero ofiziala."
+
+msgid "Mensajería."
+msgstr "Mezularitza."
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "Muturretik muturrera zifratutako mezularitza."
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "Txat deszentralizatua (Matrix)."
+
+msgid "Música y audio"
+msgstr "Musika eta audioa"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "Bezero ofiziala (spotify-launcher-ekin instalatu eta eguneratzen da)."
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Spotifyrako gaiak eta hedapenak. Instalatu Spotify lehenik."
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "Deskargatu zure Spotify zerrendak lokalean (YouTube Music-etik)."
+
+msgid "Grabar y editar audio."
+msgstr "Audioa grabatu eta editatu."
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "DAW profesional librea: pista anitzeko grabazioa eta nahasketa."
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "Musika ekoizteko DAW librea, FL Studio estiloan."
+
+msgid "Caja de ritmos."
+msgstr "Erritmo-kutxa."
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "DAW komertziala proba-bertsioarekin; Linuxen natiboa."
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "DAW arin eta indartsua (ordainpeko lizentzia, proba osoa)."
+
+msgid "Software de DJ."
+msgstr "DJ softwarea."
+
+msgid "Reproductor de música ligero."
+msgstr "Musika-erreproduzigailu arina."
+
+msgid "Vídeo"
+msgstr "Bideoa"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "Bideo-editore libre eta osoa."
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "Bideo-editore librea, erraza eta azkarra."
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "Edizio eta kolore profesionala (doakoa, ez librea). Astuna; GPU dedikatua behar du."
+
+msgid "Grabar y emitir en directo."
+msgstr "Grabatu eta zuzenean igorri."
+
+msgid "Convertir y comprimir vídeo."
+msgstr "Bideoa bihurtu eta konprimitu."
+
+msgid "Reproduce cualquier cosa."
+msgstr "Edozer erreproduzitzen du."
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "Erreproduzigailu minimoa eta oso azkarra."
+
+msgid "Grafismo y 3D"
+msgstr "Grafismoa eta 3D"
+
+msgid "Pintura digital."
+msgstr "Margolan digitala."
+
+msgid "Retoque fotográfico."
+msgstr "Argazkiak ukitu."
+
+msgid "Gráficos vectoriales."
+msgstr "Grafiko bektorialak."
+
+msgid "Modelado, animación y render 3D."
+msgstr "3D modelatzea, animazioa eta errendatzea."
+
+msgid "CAD 3D paramétrico."
+msgstr "3D CAD parametrikoa."
+
+msgid "Revelado RAW."
+msgstr "RAW errebelatzea."
+
+msgid "Motor de videojuegos libre."
+msgstr "Bideo-joko motor librea."
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "Pixel art eta animazioa (iturburu-kodetik konpilatzen da)."
+
+msgid "Juegos"
+msgstr "Jokoak"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "Protonekin Windows jokoetan jolasteko."
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games, GOG eta Amazon Prime Gaming. Epic Linuxen erabiltzeko modua."
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "Zure joko eta abiarazle guztientzako leku bat (Battle.net, EA, Ubisoft…)."
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "Minecraft Java hainbat instantzia eta modekin."
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "Minecraft Java Modrinth-eko mod eta modpack-ekin."
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "Mojangen abiarazle ofiziala Minecraft Javarako."
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "Bedrock bertsioaren abiarazlea (Google Play-n erosita izan behar duzu)."
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "Proton-GE eta Proton/Wine-ren beste bertsio batzuk klik batez instalatzen ditu."
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "Windows programak ingurune isolatuetan."
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "Jokoetako errendimendua eta FPS kontagailua."
+
+msgid "Emulador multisistema."
+msgstr "Sistema anitzeko emuladorea."
+
+msgid "Emulador de GameCube y Wii."
+msgstr "GameCube eta Wii emuladorea."
+
+msgid "Emulador de PlayStation 2."
+msgstr "PlayStation 2 emuladorea."
+
+msgid "Desarrollo"
+msgstr "Garapena"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "Bertsio-kontrola (Static Linux-en barne)."
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "GitHub terminaletik (gh)."
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "Edukiontziak, Compose eta Buildx-ekin. Gogoratu zeure burua docker taldera gehitzea."
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "Microsoften konpilazioa, bere marketplace-arekin."
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "Kode libretik konpilatutako VS Code (biltegi ofizialak)."
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "VS Code Microsoften telemetriarik gabe."
+
+msgid "Editor modal en la terminal."
+msgstr "Editore modala terminalean."
+
+msgid "Git con interfaz en la terminal."
+msgstr "Git terminaleko interfazearekin."
+
+msgid "Comparar archivos y carpetas."
+msgstr "Fitxategiak eta karpetak alderatu."
+
+msgid "Cliente de bases de datos."
+msgstr "Datu-baseen bezeroa."
+
+msgid "adb y fastboot."
+msgstr "adb eta fastboot."
+
+msgid "Productividad"
+msgstr "Produktibitatea"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "Bulegotika-sorta osoa, zuzentzailearekin."
+
+msgid "Notas en Markdown enlazadas."
+msgstr "Lotutako Markdown oharrak."
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "Pasahitz-kudeatzaile lokala eta librea."
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "Hodeiko pasahitz-kudeatzailea."
+
+msgid "Notas con sincronización cifrada."
+msgstr "Oharrak sinkronizazio zifratuarekin."
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "Eskuzko oharrak eta PDFak oharpenekin."
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "PDFak batu, zatitu eta berrantolatu."
+
+msgid "Tareas y listas."
+msgstr "Zereginak eta zerrendak."
+
+msgid "Sistema y herramientas"
+msgstr "Sistema eta tresnak"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "7z, zip, rar… konprimitu eta deskonprimitu (Static Linux-en barne)."
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "Audioa eta bideoa bihurtu (Static Linux-en barne)."
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "YouTube-tik eta gehiagotik bideoa eta audioa deskargatu (Static Linux-en barne)."
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "SSH bezeroa eta zerbitzaria (barne; zerbitzaria itzalita dago aktibatzen duzun arte)."
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Flathub aplikazioen baimenak."
+
+msgid "Copias del sistema para volver atrás."
+msgstr "Atzera egiteko sistemaren kopiak."
+
+msgid "Particionar discos."
+msgstr "Diskoak partizionatu."
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "Lekua askatu eta aztarnak ezabatu."
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "Karpetak zure ordenagailuen artean sinkronizatu, hodeirik gabe."
+
+msgid "Monitor de recursos en la terminal."
+msgstr "Baliabide-monitorea terminalean."
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "Abioko USBa hainbat ISOrekin batera."
+
+msgid "Máquinas virtuales"
+msgstr "Makina birtualak"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "KVM bidezko makina birtualak, Linuxen azkarrena. QEMU eta libvirt barne."
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "Makina birtualak bi klikatan."
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "Aukera klasikoa; KVM baino motelagoa eta nukleo-modulu propioarekin."
+
+msgid "Aero"
+msgstr "Aero"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "zerua, ura eta belarra, distirarekin"
+
+msgid "Ámbar"
+msgstr "Anbarra"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "70eko hamarkadako egurra, ziapea eta berde urdinxka"
+
+msgid "Bosque"
+msgstr "Basoa"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "lainoa pinuen gainean, berde itzaliak eta gris hezea"
+
+msgid "Nórdico"
+msgstr "Nordikoa"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "arbel-gris urdinxka, izotza eta izozteak"
+
+msgid "Nube"
+msgstr "Hodeia"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "goizeko zerua hodeiekin, argia eta leuna"
+
+msgid "Papel"
+msgstr "Papera"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "paper zahartua, tinta eta oliba-berde bat"
+
+msgid "Sakura"
+msgstr "Sakura"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "tinta-leihoak gerezi-arrosa hondo baten gainean"
+
+msgid "Ventanas"
+msgstr "Leihoak"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "grafito-grisa eta urdin argia, barra behean ikonoak erdian"
+
+msgid "Violeta"
+msgstr "Bioleta"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "bioleta monokromoa, mendiak ilunabarrean"
+
+msgid "Apps"
+msgstr "Aplikazioak"
+
+msgid "abrir la terminal"
+msgstr "ireki terminala"
+
+msgid "abrir el gestor de archivos"
+msgstr "ireki fitxategi-kudeatzailea"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "ireki nabigatzailea (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "aplikazio-abiarazlea"
+
+msgid "Ayuda"
+msgstr "Laguntza"
+
+msgid "esta guía de atajos"
+msgstr "lasterbideen gida hau"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "pantailaren eremua (fitxategia + arbela)"
+
+msgid "cerrar la ventana"
+msgstr "itxi leihoa"
+
+msgid "pantalla completa"
+msgstr "pantaila osoa"
+
+msgid "flotante / en mosaico"
+msgstr "flotatzailea / mosaikoan"
+
+msgid "pseudo-mosaico"
+msgstr "sasi-mosaikoa"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "aldatu zatiketa horizontala/bertikala"
+
+msgid "pasar a la siguiente"
+msgstr "pasatu hurrengora"
+
+msgid "mover el foco"
+msgstr "mugitu fokua"
+
+msgid "mover la ventana"
+msgstr "mugitu leihoa"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "arrastatu Super + ezkerreko klikarekin"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "tamaina aldatu Super + eskuineko klikarekin"
+
+msgid "Escritorios"
+msgstr "Mahaigainak"
+
+msgid "ir a un escritorio"
+msgstr "joan mahaigain batera"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "mugitu leihoa beste mahaigain batera"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "hurrengoa (saguaren gurpila)"
+
+msgid "anterior (rueda del ratón)"
+msgstr "aurrekoa (saguaren gurpila)"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "erakutsi/ezkutatu mahaigain azkarra"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "bidali leihoa mahaigain azkarrera"
+
+msgid "Sesión"
+msgstr "Saioa"
+
+msgid "bloquear la pantalla"
+msgstr "blokeatu pantaila"
+
+msgid "ver la última notificación"
+msgstr "ikusi azken jakinarazpena"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "subir volumen"
+msgstr "igo bolumena"
+
+msgid "bajar volumen"
+msgstr "jaitsi bolumena"
+
+msgid "silenciar"
+msgstr "mututu"
+
+msgid "silenciar el micrófono"
+msgstr "mututu mikrofonoa"
+
+msgid "subir brillo"
+msgstr "igo distira"
+
+msgid "bajar brillo"
+msgstr "jaitsi distira"
+
+msgid "reproducir/pausar"
+msgstr "erreproduzitu/pausatu"
+
+msgid "siguiente pista"
+msgstr "hurrengo pista"
+
+msgid "pista anterior"
+msgstr "aurreko pista"
+
+msgid "Entorno de escritorio"
+msgstr "Mahaigain-ingurunea"
+
+msgid "XFCE (temático)"
+msgstr "XFCE (gaiarekin)"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "Benetako hardwarean balioztatutako ingurunea (Packard Bell iMedia S2883). Xorg, arina, 1 GB RAMetik aurrera edo GPUak Wayland onartzen ez duenean gomendatua."
+
+msgid "Openbox minimal"
+msgstr "Openbox minimoa"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "Mailarik baxuena: 512 MB. Openbox + tint2 + jgmenu, lehenespenez konposatzailerik gabe."
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland, 2-4 GB. Full bertsioaren Astal shell bera, lausotzerik, itzalik eta animazio astunik gabe."
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland, gomendatutako sabaia 4 GB. Lausotzea, itzalak eta animazio osoak. Wayland ondo onartzen duen GPU bat behar du."
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "Mahaigain osoa eta ezaguna: barra behean, hasiera-menua, Dolphin eta denetarako ezarpenak. Wayland, 4 GB RAMetik aurrera. Ingurunerik astunena da; sl-detect-ek ez du lehenespenez gomendatzen."
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "GNOME mahaigaina den bezala: jarduerak ikuspegia, kaia eta GNOME aplikazioak. Wayland, 4 GB RAMetik aurrera. Gaia modu argi edo ilunera, nabarmentze-kolorera, horma-paperera eta aplikazioetara iristen da. GDMrekin sartzen da."
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "Klasikoa eta erosoa: barra behean, hasiera-menua eta ikonoak mahaigainean. Xorg, 2 GBtik aurrera. Gaiak panela eta menua ere janzten ditu."
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "Mosaikoa teklatuarekin: leihoak berez kokatzen dira. Xorg, 1 GBtik aurrera. i3bar barra, rofi abiarazlea. Super + Sartu-k terminala irekitzen du."
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "Zuhaitz bitarreko mosaikoa, lasterbideak sxhkd-n eta polybar barra. Xorg, 1 GBtik aurrera. Dena konfiguratu nahi duenarentzat."
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "i3-ren mosaikoa, Waylanden. 1-2 GBtik aurrera. waybar barra, rofi abiarazlea eta mako-rekin jakinarazpenak."
+
+msgid "Sabores"
+msgstr "Zaporeak"
+
+msgid "Sabores (opcional)"
+msgstr "Zaporeak (aukerakoa)"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "Egingo duzunerako prest dauden aplikazio-paketeak. Markatu nahi dituzunak (hainbat edo bat ere ez): sistemarekin batera instalatzen dira eta bakoitza ondo errenditzeko doituta dator. Dena gehitu edo kendu daiteke gero ongietorri-aplikaziotik."
+
+msgid "Gaming"
+msgstr "Jokoak"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam Protonekin, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher eta Modrinth Minecrafterako, MangoHud, GameMode eta Gamescope. 32 biteko liburutegiak eta zure GPUaren Vulkan kontrolatzailea aktibatzen ditu."
+
+msgid "Creación de contenido"
+msgstr "Eduki-sorkuntza"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity eta Ardour, LMMS eta Hydrogen DAWak, denbora errealeko audioarekin (latentzia baxua)."
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git eta GitHub CLI, Docker (erabiltzean berez abiarazten da), VS Code (Code - OSS), Python, Rust, Node eta Java."
+
+msgid "Oficina"
+msgstr "Bulegoa"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "LibreOffice zuzentzailearekin, Obsidian, KeePassXC, Xournal++ eta PDF tresnak."
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "KVM/QEMU virt-manager eta GNOME Boxes-ekin, TPM eta UEFIrekin Windows 11 gonbidatuentzat."
+
+msgid "Educación"
+msgstr "Hezkuntza"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra, Stellarium, Anki, Jupyter eta FreeCAD."
+
+msgid "Ciberseguridad"
+msgstr "Zibersegurtasuna"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra eta Tor."
+
+msgid "Servidor / Homelab"
+msgstr "Zerbitzaria / Homelab"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban eta Cockpit. Segurtasunagatik, zerbitzu batek ere ez du entzuten zuk aktibatu arte."
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Static Linux-en gaia. Iluna eta beroa: egurra, ziapea eta berde urdinxka, Hokusairen «Ekaitza Fujiren azpian» lanaren gainean. Barra mehea goian eta leiho sendoak."
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "Argia, paper zahartu, tinta eta oliba-berde tonuetan, Hokusairen grabatu baten gainean. Argi askorekin lan egiten duenarentzat."
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "Iluna eta hotza: arbel urdinxka eta izotza, Hiroshigeren «Arratsaldeko elurra Kanbaran» lanaren gainean."
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "Iluna, pinu- eta laino-berdeetan, Hiroshigeren «Udaberriko euria Tsuchiyaman» lanaren gainean."
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "Iluna gerezi-arrosarekin, Hokusairen «Fuji Gotenyamatik» lanaren gainean."
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "Iluna eta monokromoa bioletan, mendiak ilunabarrean."
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Frutiger Aero estiloa: argia, zeru, burbuila eta belarrarekin, barra distiratsuekin eta ataza-barra behean."
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "Windowsen antzekoa: iluna, ataza-barra behean aplikazioak erdian eta leiho-botoiak ─ □ ✕."
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "Argia eta leuna, hodeiz betetako zeru baten gainean. Abiarazle biribila eta apala behean aplikazioak erdian; orduak ezarpen azkarrak irekitzen ditu."
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\nZure sistema instalatzen ari da. Minutu batzuk behar ditu."
+
+msgid "Tu escritorio, tu color"
+msgstr "Zure mahaigaina, zure kolorea"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "Bederatzi gai sistema osorako: horma-papera, leihoak, terminala eta abioa.\nAldatu nahi duzunean ongietorri-aplikaziotik edo  sl-ctl theme erabiliz."
+
+msgid "Privado de serie"
+msgstr "Pribatua jatorritik"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "Zero telemetria. DNS zifratua eta suebakia aktibo lehen abiotik.\nIgo maila  sl-ctl privacy erabiliz."
+
+msgid "Todo a mano"
+msgstr "Dena eskura"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome: aplikazio-katalogoa eta lehen urratsak.\nsl-ctl: eguneratzeak, argazkiak, doikuntzak eta gehiago."
+
+msgid "Hecho para tu equipo"
+msgstr "Zure ordenagailurako egina"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect-ek ingurunea, nukleoa eta fitxategi-sistema aukeratu ditu\nzure hardwarearen arabera, Celeron batetik RTX bateraino."
+
+msgid "Contraseña"
+msgstr "Pasahitza"
+
+msgid "Contraseña incorrecta"
+msgstr "Pasahitz okerra"
+
+msgid "Contraseña del disco"
+msgstr "Diskoaren pasahitza"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Static Linux-en ongietorria"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "Lehen urratsak, itxura, pribatutasuna eta aplikazio-katalogoa"
+
+msgid "Captura de pantalla (zona)"
+msgstr "Pantaila-argazkia (eremua)"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "Irudiak/Pantaila-argazkiak karpetan gordetzen du eta arbelean kopiatzen du"
+
+msgid "Instalar Static Linux"
+msgstr "Instalatu Static Linux"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "Instalatu Static Linux ordenagailu honetan"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "Aplikatu Static Linux-en pribatutasun-profil bat"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome-k administratzaile-baimenak behar ditu pribatutasun-profila aplikatzeko"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "Instalatu sl-welcome-ren katalogoko paketeak"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome-k administratzaile-baimenak behar ditu pacman-ekin paketeak instalatzeko"

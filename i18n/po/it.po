@@ -1,0 +1,1012 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgid "Instalando los paquetes base"
+msgstr "Installazione dei pacchetti di base"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "Regolazione della scala dello schermo"
+
+msgid "Instalando el escritorio"
+msgstr "Installazione del desktop"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "Verifica della cifratura del disco"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "Applicazione del profilo di privacy"
+
+msgid "Instalando los sabores"
+msgstr "Installazione dei gusti"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "Rilevamento dell'hardware (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "Applicazione del tema"
+
+msgid "Espacio"
+msgstr "Spazio"
+
+msgid "Impr Pant"
+msgstr "Stamp"
+
+msgid "Intro"
+msgstr "Invio"
+
+msgid "clic derecho"
+msgstr "clic destro"
+
+msgid "clic izquierdo"
+msgstr "clic sinistro"
+
+msgid "rueda ↑"
+msgstr "rotella ↑"
+
+msgid "rueda ↓"
+msgstr "rotella ↓"
+
+msgid "Silencio"
+msgstr "Muto"
+
+msgid "Brillo +"
+msgstr "Luminosità +"
+
+msgid "Brillo −"
+msgstr "Luminosità −"
+
+msgid "Micro"
+msgstr "Microfono"
+
+msgid "código {n}"
+msgstr "codice {n}"
+
+msgid "flechas"
+msgstr "frecce"
+
+msgid "Otros"
+msgstr "Altro"
+
+msgid "Atajos de Hyprland"
+msgstr "Scorciatoie di Hyprland"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland si usa soprattutto con la tastiera. Super è il tasto Windows. Riapri questa guida quando vuoi con Super + F1."
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "Impossibile leggere le scorciatoie (Hyprland è in esecuzione?)."
+
+msgid "%A, %-d de %B"
+msgstr "%A %-d %B"
+
+msgid "Cable"
+msgstr "Cavo"
+
+msgid "Red: {name}"
+msgstr "Rete: {name}"
+
+msgid "Ajustes rápidos"
+msgstr "Impostazioni rapide"
+
+msgid "Cerrar sesión"
+msgstr "Esci"
+
+msgid "Apagar"
+msgstr "Spegni"
+
+msgid "Bloquear"
+msgstr "Blocca"
+
+msgid "Ajustes"
+msgstr "Impostazioni"
+
+msgid "Activado"
+msgstr "Attivo"
+
+msgid "Desactivado"
+msgstr "Disattivo"
+
+msgid "Avisos activos"
+msgstr "Notifiche attive"
+
+msgid "No molestar"
+msgstr "Non disturbare"
+
+msgid "Sin avisos"
+msgstr "Nessuna notifica"
+
+msgid "Luz nocturna"
+msgstr "Luce notturna"
+
+msgid "Tonos cálidos"
+msgstr "Toni caldi"
+
+msgid "Captura"
+msgstr "Screenshot"
+
+msgid "Batería {pct} %"
+msgstr "Batteria {pct} %"
+
+msgid "cargando"
+msgstr "in carica"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero, barra in basso"
+
+msgid "barra fina arriba"
+msgstr "barra sottile in alto"
+
+msgid "como Windows, barra abajo"
+msgstr "come Windows, barra in basso"
+
+msgid "lanzador y estante abajo"
+msgstr "launcher e scaffale in basso"
+
+msgid "Tema"
+msgstr "Tema"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "Ogni tema è uno sfondo, una tavolozza ricavata da esso e uno stile di finestre e barra. Cambia tutto insieme e salva una copia di ciò che sostituisce. Senza sudo."
+
+msgid "claro"
+msgstr "chiaro"
+
+msgid "oscuro"
+msgstr "scuro"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "Non trovo i temi di Static Linux (sl-theme)."
+
+msgid "No se pudo aplicar el tema"
+msgstr "Impossibile applicare il tema"
+
+msgid "Tema aplicado: {name}"
+msgstr "Tema applicato: {name}"
+
+msgid "repos oficiales"
+msgstr "repository ufficiali"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "Fatto. Premi Invio per chiudere… "
+
+msgid "instalado"
+msgstr "installato"
+
+msgid "Pendiente de tus sabores"
+msgstr "In sospeso dai tuoi gusti"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "Ciò che non è stato possibile installare durante l'installazione. Già selezionato."
+
+msgid "Catálogo"
+msgstr "Catalogo"
+
+msgid "No se encontró ningún catálogo."
+msgstr "Nessun catalogo trovato."
+
+msgid "Instalar lo marcado"
+msgstr "Installa la selezione"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "Repository ufficiali: chiede la password · Flathub: senza password · AUR e Static Forge: si apre un terminale"
+
+msgid "Instalar"
+msgstr "Installa"
+
+msgid "No has marcado nada"
+msgstr "Non hai selezionato nulla"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "Nessun terminale per installare le app di Static Forge"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "Nessun terminale: esegui «{cmd}»"
+
+msgid "pacman falló"
+msgstr "pacman non è riuscito"
+
+msgid "flatpak falló"
+msgstr "flatpak non è riuscito"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "{n} app installata"
+msgstr[1] "{n} app installate"
+
+msgid "Falló: {error}"
+msgstr "Errore: {error}"
+
+msgid "Wiki online"
+msgstr "Wiki online"
+
+msgid "Repositorio (GitHub)"
+msgstr "Repository (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "Segnala un problema"
+
+msgid "Este equipo"
+msgstr "Questo computer"
+
+msgid "Driver gráfico"
+msgstr "Driver grafico"
+
+msgid "No"
+msgstr "No"
+
+msgid "Sí"
+msgstr "Sì"
+
+msgid "Almacenamiento"
+msgstr "Archiviazione"
+
+msgid "Arquitectura"
+msgstr "Architettura"
+
+msgid "Recomendación de sl-detect"
+msgstr "Raccomandazione di sl-detect"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "Calcolata per questo hardware. Puoi cambiarla in Aspetto e Privacy."
+
+msgid "Entorno"
+msgstr "Ambiente"
+
+msgid "Sistema de archivos"
+msgstr "File system"
+
+msgid "Enlaces"
+msgstr "Link"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "Copia locale, funziona offline"
+
+msgid "Básico"
+msgstr "Base"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "Impostazioni sicure dal primo giorno + UFW + MAC casuale. Kernel linux-zen."
+
+msgid "Mejorado"
+msgstr "Migliorato"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+
+msgid "Máximo"
+msgstr "Massimo"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + swap cifrato. Kernel linux-hardened."
+
+msgid "Perfil de privacidad"
+msgstr "Profilo di privacy"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "Ogni profilo salva una copia di ciò che modifica (/var/backups/static-linux/privacy/), quindi tutto si può annullare. Chiede la password di amministratore."
+
+msgid "Aplicar"
+msgstr "Applica"
+
+msgid "Perfil {name} aplicado"
+msgstr "Profilo {name} applicato"
+
+msgid "mira el registro"
+msgstr "guarda il registro"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "pkexec non è installato. Installa «polkit» per applicare modifiche di sistema."
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "profilo di privacy sconosciuto: {name}"
+
+msgid "no encuentro {path}"
+msgstr "non trovo {path}"
+
+msgid "Bienvenido a Static Linux"
+msgstr "Benvenuto in Static Linux"
+
+msgid "General"
+msgstr "Generale"
+
+msgid "Apariencia"
+msgstr "Aspetto"
+
+msgid "Privacidad"
+msgstr "Privacy"
+
+msgid "Capturas"
+msgstr "Screenshot"
+
+msgid "Captura guardada"
+msgstr "Screenshot salvato"
+
+msgid "Copiada al portapapeles"
+msgstr "Copiato negli appunti"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "Applicazioni (Super + Spazio)"
+
+msgid "Sin conexión"
+msgstr "Non connesso"
+
+msgid "Más ajustes de sonido"
+msgstr "Altre impostazioni audio"
+
+msgid "Suspender"
+msgstr "Sospendi"
+
+msgid "Reiniciar"
+msgstr "Riavvia"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "Download da YouTube, YouTube Music, Spotify e Pinterest, fatto in studio."
+
+msgid "Internet"
+msgstr "Internet"
+
+msgid "El navegador de Mozilla."
+msgstr "Il browser di Mozilla."
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "Basato su Firefox, con schede verticali e spazi di lavoro."
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "La base libera di Chrome, senza servizi Google."
+
+msgid "Correo, calendario y contactos."
+msgstr "Posta, calendario e contatti."
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "Client BitTorrent libero e senza pubblicità."
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "Invia file ad altri dispositivi della tua rete, senza cloud."
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "Sincronizza con il tuo server Nextcloud."
+
+msgid "Cliente FTP/SFTP."
+msgstr "Client FTP/SFTP."
+
+msgid "Comunicación"
+msgstr "Comunicazione"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "Discord con Vencord integrato: temi, plugin e prestazioni migliori su Linux."
+
+msgid "El cliente oficial."
+msgstr "Il client ufficiale."
+
+msgid "Mensajería."
+msgstr "Messaggistica."
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "Messaggistica cifrata end-to-end."
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "Chat decentralizzata (Matrix)."
+
+msgid "Música y audio"
+msgstr "Musica e audio"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "Il client ufficiale (installato e aggiornato con spotify-launcher)."
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Temi ed estensioni per Spotify. Installa prima Spotify."
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "Scarica le tue playlist di Spotify in locale (da YouTube Music)."
+
+msgid "Grabar y editar audio."
+msgstr "Registrare e modificare audio."
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "DAW professionale libera: registrazione multitraccia e missaggio."
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "DAW libera per produrre musica, in stile FL Studio."
+
+msgid "Caja de ritmos."
+msgstr "Drum machine."
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "DAW commerciale con versione di prova; nativa su Linux."
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "DAW leggera e potente (licenza a pagamento, prova completa)."
+
+msgid "Software de DJ."
+msgstr "Software per DJ."
+
+msgid "Reproductor de música ligero."
+msgstr "Lettore musicale leggero."
+
+msgid "Vídeo"
+msgstr "Video"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "Editor video libero e completo."
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "Editor video libero, semplice e veloce."
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "Montaggio e color grading professionali (gratuito, non libero). Pesante; serve una GPU dedicata."
+
+msgid "Grabar y emitir en directo."
+msgstr "Registrare e trasmettere in diretta."
+
+msgid "Convertir y comprimir vídeo."
+msgstr "Convertire e comprimere video."
+
+msgid "Reproduce cualquier cosa."
+msgstr "Riproduce qualsiasi cosa."
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "Lettore minimale e velocissimo."
+
+msgid "Grafismo y 3D"
+msgstr "Grafica e 3D"
+
+msgid "Pintura digital."
+msgstr "Pittura digitale."
+
+msgid "Retoque fotográfico."
+msgstr "Fotoritocco."
+
+msgid "Gráficos vectoriales."
+msgstr "Grafica vettoriale."
+
+msgid "Modelado, animación y render 3D."
+msgstr "Modellazione, animazione e rendering 3D."
+
+msgid "CAD 3D paramétrico."
+msgstr "CAD 3D parametrico."
+
+msgid "Revelado RAW."
+msgstr "Sviluppo RAW."
+
+msgid "Motor de videojuegos libre."
+msgstr "Motore di videogiochi libero."
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "Pixel art e animazione (compilato dal codice)."
+
+msgid "Juegos"
+msgstr "Giochi"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "Con Proton per giocare ai giochi Windows."
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games, GOG e Amazon Prime Gaming. Il modo per usare Epic su Linux."
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "Un posto per tutti i tuoi giochi e launcher (Battle.net, EA, Ubisoft…)."
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "Minecraft Java con più istanze e mod."
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "Minecraft Java con le mod e i modpack di Modrinth."
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "Il launcher ufficiale di Mojang per Minecraft Java."
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "Launcher dell'edizione Bedrock (devi averla acquistata su Google Play)."
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "Installa Proton-GE e altre versioni di Proton/Wine con un clic."
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "Programmi Windows in ambienti isolati."
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "Prestazioni di gioco e contatore FPS."
+
+msgid "Emulador multisistema."
+msgstr "Emulatore multisistema."
+
+msgid "Emulador de GameCube y Wii."
+msgstr "Emulatore GameCube e Wii."
+
+msgid "Emulador de PlayStation 2."
+msgstr "Emulatore PlayStation 2."
+
+msgid "Desarrollo"
+msgstr "Sviluppo"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "Controllo di versione (incluso in Static Linux)."
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "GitHub dal terminale (gh)."
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "Container, con Compose e Buildx. Ricorda di aggiungerti al gruppo docker."
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "La build di Microsoft, con il suo marketplace."
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "VS Code compilato dal codice libero (repository ufficiali)."
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "VS Code senza la telemetria di Microsoft."
+
+msgid "Editor modal en la terminal."
+msgstr "Editor modale nel terminale."
+
+msgid "Git con interfaz en la terminal."
+msgstr "Git con interfaccia nel terminale."
+
+msgid "Comparar archivos y carpetas."
+msgstr "Confrontare file e cartelle."
+
+msgid "Cliente de bases de datos."
+msgstr "Client di database."
+
+msgid "adb y fastboot."
+msgstr "adb e fastboot."
+
+msgid "Productividad"
+msgstr "Produttività"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "Suite per ufficio completa, con correttore."
+
+msgid "Notas en Markdown enlazadas."
+msgstr "Note Markdown collegate."
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "Gestore di password locale e libero."
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "Gestore di password nel cloud."
+
+msgid "Notas con sincronización cifrada."
+msgstr "Note con sincronizzazione cifrata."
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "Note a mano e annotazione di PDF."
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "Unire, dividere e riordinare PDF."
+
+msgid "Tareas y listas."
+msgstr "Attività ed elenchi."
+
+msgid "Sistema y herramientas"
+msgstr "Sistema e strumenti"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "Comprimere ed estrarre 7z, zip, rar… (incluso in Static Linux)."
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "Convertire audio e video (incluso in Static Linux)."
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "Scaricare video e audio da YouTube e altro (incluso in Static Linux)."
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "Client e server SSH (inclusi; il server resta spento finché non lo attivi)."
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Permessi delle app di Flathub."
+
+msgid "Copias del sistema para volver atrás."
+msgstr "Istantanee del sistema per tornare indietro."
+
+msgid "Particionar discos."
+msgstr "Partizionare dischi."
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "Liberare spazio e cancellare tracce."
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "Sincronizzare cartelle tra i tuoi computer, senza cloud."
+
+msgid "Monitor de recursos en la terminal."
+msgstr "Monitor delle risorse nel terminale."
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "USB avviabile con più ISO insieme."
+
+msgid "Máquinas virtuales"
+msgstr "Macchine virtuali"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "Macchine virtuali con KVM, il più veloce su Linux. Include QEMU e libvirt."
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "Macchine virtuali in due clic."
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "L'opzione classica; più lenta di KVM e con un proprio modulo del kernel."
+
+msgid "Aero"
+msgstr "Aero"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "cielo, acqua ed erba, con riflessi"
+
+msgid "Ámbar"
+msgstr "Ambra"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "legno, senape e verde acqua anni '70"
+
+msgid "Bosque"
+msgstr "Bosco"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "nebbia sui pini, verdi spenti e grigio umido"
+
+msgid "Nórdico"
+msgstr "Nordico"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "grigio ardesia bluastro, ghiaccio e brina"
+
+msgid "Nube"
+msgstr "Nuvola"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "cielo del mattino con nuvole, chiaro e morbido"
+
+msgid "Papel"
+msgstr "Carta"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "carta invecchiata, inchiostro e un verde oliva"
+
+msgid "Sakura"
+msgstr "Sakura"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "finestre d'inchiostro su sfondo rosa ciliegio"
+
+msgid "Ventanas"
+msgstr "Finestre"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "grigio grafite e azzurro, barra in basso con le icone al centro"
+
+msgid "Violeta"
+msgstr "Viola"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "monocromo viola, montagne al tramonto"
+
+msgid "Apps"
+msgstr "App"
+
+msgid "abrir la terminal"
+msgstr "aprire il terminale"
+
+msgid "abrir el gestor de archivos"
+msgstr "aprire il gestore di file"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "aprire il browser (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "launcher delle applicazioni"
+
+msgid "Ayuda"
+msgstr "Aiuto"
+
+msgid "esta guía de atajos"
+msgstr "questa guida alle scorciatoie"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "area dello schermo (file + appunti)"
+
+msgid "cerrar la ventana"
+msgstr "chiudere la finestra"
+
+msgid "pantalla completa"
+msgstr "schermo intero"
+
+msgid "flotante / en mosaico"
+msgstr "fluttuante / affiancata"
+
+msgid "pseudo-mosaico"
+msgstr "pseudo-affiancamento"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "cambiare divisione orizzontale/verticale"
+
+msgid "pasar a la siguiente"
+msgstr "passare alla successiva"
+
+msgid "mover el foco"
+msgstr "spostare il focus"
+
+msgid "mover la ventana"
+msgstr "spostare la finestra"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "trascinare con Super + clic sinistro"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "ridimensionare con Super + clic destro"
+
+msgid "Escritorios"
+msgstr "Spazi di lavoro"
+
+msgid "ir a un escritorio"
+msgstr "andare a uno spazio di lavoro"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "spostare la finestra in un altro spazio di lavoro"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "successivo (rotella del mouse)"
+
+msgid "anterior (rueda del ratón)"
+msgstr "precedente (rotella del mouse)"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "mostrare/nascondere lo spazio rapido"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "mandare la finestra allo spazio rapido"
+
+msgid "Sesión"
+msgstr "Sessione"
+
+msgid "bloquear la pantalla"
+msgstr "bloccare lo schermo"
+
+msgid "ver la última notificación"
+msgstr "vedere l'ultima notifica"
+
+msgid "Multimedia"
+msgstr "Multimedia"
+
+msgid "subir volumen"
+msgstr "alzare il volume"
+
+msgid "bajar volumen"
+msgstr "abbassare il volume"
+
+msgid "silenciar"
+msgstr "silenziare"
+
+msgid "silenciar el micrófono"
+msgstr "silenziare il microfono"
+
+msgid "subir brillo"
+msgstr "aumentare la luminosità"
+
+msgid "bajar brillo"
+msgstr "ridurre la luminosità"
+
+msgid "reproducir/pausar"
+msgstr "riproduci/pausa"
+
+msgid "siguiente pista"
+msgstr "traccia successiva"
+
+msgid "pista anterior"
+msgstr "traccia precedente"
+
+msgid "Entorno de escritorio"
+msgstr "Ambiente desktop"
+
+msgid "XFCE (temático)"
+msgstr "XFCE (a tema)"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "L'ambiente convalidato su hardware reale (Packard Bell iMedia S2883). Xorg, leggero, consigliato da 1 GB di RAM o quando la GPU non supporta Wayland."
+
+msgid "Openbox minimal"
+msgstr "Openbox minimale"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "Il livello più basso: 512 MB. Openbox + tint2 + jgmenu, senza compositor predefinito."
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland, 2-4 GB. Stessa shell Astal della versione full, senza sfocatura, ombre o animazioni pesanti."
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland, tetto consigliato di 4 GB. Sfocatura, ombre e animazioni complete. Serve una GPU con un buon supporto a Wayland."
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "Il desktop completo e familiare: barra in basso, menu start, Dolphin e impostazioni per tutto. Wayland, da 4 GB di RAM. È l'ambiente più pesante; sl-detect non lo consiglia di default."
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "Il desktop GNOME così com'è: panoramica delle attività, dock e app GNOME. Wayland, da 4 GB di RAM. Il tema arriva a modalità chiara o scura, accento, sfondo e app. Accesso con GDM."
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "Classico e comodo: barra in basso, menu start e icone sul desktop. Xorg, da 2 GB. Il tema veste anche il pannello e il menu."
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "Affiancamento da tastiera: le finestre si dispongono da sole. Xorg, da 1 GB. Barra i3bar, launcher rofi. Super + Invio apre il terminale."
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "Affiancamento ad albero binario, scorciatoie in sxhkd e barra polybar. Xorg, da 1 GB. Per chi vuole configurare tutto."
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "L'affiancamento di i3, su Wayland. Da 1-2 GB. Barra waybar, launcher rofi e notifiche con mako."
+
+msgid "Sabores"
+msgstr "Gusti"
+
+msgid "Sabores (opcional)"
+msgstr "Gusti (facoltativo)"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "Pacchetti di app pronti per quello che devi fare. Seleziona quelli che vuoi (più d'uno o nessuno): si installano con il sistema e ognuno è regolato per rendere bene. Tutto si può aggiungere o togliere dopo dal benvenuto."
+
+msgid "Gaming"
+msgstr "Gaming"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher e Modrinth per Minecraft, MangoHud, GameMode e Gamescope. Attiva le librerie a 32 bit e il driver Vulkan della tua GPU."
+
+msgid "Creación de contenido"
+msgstr "Creazione di contenuti"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity e le DAW Ardour, LMMS e Hydrogen, con audio in tempo reale (bassa latenza)."
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git e GitHub CLI, Docker (parte da solo quando lo usi), VS Code (Code - OSS), Python, Rust, Node e Java."
+
+msgid "Oficina"
+msgstr "Ufficio"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "LibreOffice con correttore, Obsidian, KeePassXC, Xournal++ e strumenti PDF."
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "KVM/QEMU con virt-manager e GNOME Boxes, con TPM e UEFI per guest Windows 11."
+
+msgid "Educación"
+msgstr "Istruzione"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra, Stellarium, Anki, Jupyter e FreeCAD."
+
+msgid "Ciberseguridad"
+msgstr "Cybersicurezza"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra e Tor."
+
+msgid "Servidor / Homelab"
+msgstr "Server / Homelab"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban e Cockpit. Per sicurezza nessun servizio resta in ascolto finché non lo attivi."
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Il tema di Static Linux. Scuro e caldo: legno, senape e verde acqua, su «Temporale sotto il Fuji» di Hokusai. Barra sottile in alto e finestre piene."
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "Chiaro, nei toni della carta invecchiata, dell'inchiostro e del verde oliva, su una stampa di Hokusai. Per chi lavora con molta luce."
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "Scuro e freddo: ardesia bluastra e ghiaccio, su «Neve serale a Kanbara» di Hiroshige."
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "Scuro, nei verdi di pino e nebbia, su «Pioggia di primavera a Tsuchiyama» di Hiroshige."
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "Scuro con rosa ciliegio, su «Il Fuji da Gotenyama» di Hokusai."
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "Scuro e monocromo in viola, con montagne al tramonto."
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Stile Frutiger Aero: chiaro, con cielo, bolle ed erba, barre lucide e la barra delle applicazioni in basso."
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "Simile a Windows: scuro, barra delle applicazioni in basso con le app al centro e pulsanti di finestra ─ □ ✕."
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "Chiaro e morbido, su un cielo nuvoloso. Launcher rotondo e scaffale in basso con le app al centro; l'ora apre le impostazioni rapide."
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\nIl tuo sistema si sta installando. Ci vogliono alcuni minuti."
+
+msgid "Tu escritorio, tu color"
+msgstr "Il tuo desktop, il tuo colore"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "Nove temi per tutto il sistema: sfondo, finestre, terminale e avvio.\nCambialo quando vuoi dal benvenuto o con  sl-ctl theme."
+
+msgid "Privado de serie"
+msgstr "Privato di serie"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "Zero telemetria. DNS cifrato e firewall attivi dal primo avvio.\nAlza il livello con  sl-ctl privacy."
+
+msgid "Todo a mano"
+msgstr "Tutto a portata di mano"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome: catalogo di app e primi passi.\nsl-ctl: aggiornamenti, istantanee, regolazioni e altro."
+
+msgid "Hecho para tu equipo"
+msgstr "Fatto per il tuo computer"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect ha scelto ambiente, kernel e file system\nin base al tuo hardware, da un Celeron a una RTX."
+
+msgid "Contraseña"
+msgstr "Password"
+
+msgid "Contraseña incorrecta"
+msgstr "Password errata"
+
+msgid "Contraseña del disco"
+msgstr "Password del disco"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Benvenuto di Static Linux"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "Primi passi, aspetto, privacy e catalogo di app"
+
+msgid "Captura de pantalla (zona)"
+msgstr "Screenshot (area)"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "Salva in Immagini/Screenshot e copia negli appunti"
+
+msgid "Instalar Static Linux"
+msgstr "Installa Static Linux"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "Installa Static Linux su questo computer"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "Applica un profilo di privacy di Static Linux"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome ha bisogno dei privilegi di amministratore per applicare il profilo di privacy"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "Installa pacchetti dal catalogo di sl-welcome"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome ha bisogno dei privilegi di amministratore per installare pacchetti con pacman"

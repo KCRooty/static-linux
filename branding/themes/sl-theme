@@ -35,6 +35,27 @@ TEMPLATES = THEMES / "templates"
 DEFAULT = "ambar"
 
 sys.path.insert(0, str(THEMES))
+
+# Machine-wide pieces (login screen, Plymouth) speak the system language.
+if "--system" in sys.argv and os.geteuid() == 0:
+    try:
+        for line in Path("/etc/locale.conf").read_text().splitlines():
+            if line.startswith("LANG="):
+                os.environ["LANG"] = line.split("=", 1)[1].strip().strip('"')
+                os.environ.pop("LANGUAGE", None)
+                os.environ.pop("LC_ALL", None)
+                os.environ.pop("LC_MESSAGES", None)
+    except OSError:
+        pass
+for _d in (HERE.parent.parent / "i18n", Path("/usr/lib/static-linux/i18n")):
+    if (_d / "sl_i18n.py").is_file():
+        sys.path.insert(0, str(_d))
+        break
+try:
+    from sl_i18n import _ as tr  # noqa: E402
+except ImportError:
+    def tr(text: str) -> str:
+        return text
 import check  # noqa: E402  (same folder: contrast rules)
 import icons  # noqa: E402  (folder-coloured Papirus)
 import system  # noqa: E402  (login screen, GRUB, Plymouth)
@@ -102,6 +123,8 @@ def render(text: str, theme: dict[str, str]) -> str:
         if key not in theme:
             die(f"template uses unknown key {{{{{key}}}}}")
         return theme[key]
+    # {{_ "Texto"}}: a visible string, in the session (or, with --system, the system) language
+    text = re.sub(r'\{\{_\s*"([^"]+)"\s*\}\}', lambda m: tr(m.group(1)).replace('"', "'"), text)
     return re.sub(r"\{\{\s*([a-z0-9_]+)\s*\}\}", sub, text)
 
 

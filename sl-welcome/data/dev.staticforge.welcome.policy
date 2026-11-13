@@ -7,9 +7,41 @@
 
   <action id="dev.staticforge.welcome.apply-privacy-profile">
     <description>Aplicar un perfil de privacidad de Static Linux</description>
+    <description xml:lang="ca">Aplica un perfil de privadesa de Static Linux</description>
+    <description xml:lang="de">Ein Datenschutzprofil von Static Linux anwenden</description>
     <description xml:lang="en">Apply a Static Linux privacy profile</description>
+    <description xml:lang="eu">Aplikatu Static Linux-en pribatutasun-profil bat</description>
+    <description xml:lang="fr">Appliquer un profil de confidentialité de Static Linux</description>
+    <description xml:lang="gl">Aplicar un perfil de privacidade de Static Linux</description>
+    <description xml:lang="it">Applica un profilo di privacy di Static Linux</description>
+    <description xml:lang="ja">Static Linux のプライバシープロファイルを適用</description>
+    <description xml:lang="ko">Static Linux 개인정보 보호 프로필 적용</description>
+    <description xml:lang="nl">Een privacyprofiel van Static Linux toepassen</description>
+    <description xml:lang="pl">Zastosuj profil prywatności Static Linux</description>
+    <description xml:lang="pt">Aplicar um perfil de privacidade do Static Linux</description>
+    <description xml:lang="pt_BR">Aplicar um perfil de privacidade do Static Linux</description>
+    <description xml:lang="ru">Применить профиль приватности Static Linux</description>
+    <description xml:lang="tr">Bir Static Linux gizlilik profili uygula</description>
+    <description xml:lang="uk">Застосувати профіль приватності Static Linux</description>
+    <description xml:lang="zh_CN">应用 Static Linux 隐私配置</description>
     <message>sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad</message>
+    <message xml:lang="ca">sl-welcome necessita privilegis d'administrador per aplicar el perfil de privadesa</message>
+    <message xml:lang="de">sl-welcome braucht Administratorrechte, um das Datenschutzprofil anzuwenden</message>
     <message xml:lang="en">sl-welcome needs administrator privileges to apply the privacy profile</message>
+    <message xml:lang="eu">sl-welcome-k administratzaile-baimenak behar ditu pribatutasun-profila aplikatzeko</message>
+    <message xml:lang="fr">sl-welcome a besoin des droits d'administrateur pour appliquer le profil de confidentialité</message>
+    <message xml:lang="gl">sl-welcome precisa privilexios de administración para aplicar o perfil de privacidade</message>
+    <message xml:lang="it">sl-welcome ha bisogno dei privilegi di amministratore per applicare il profilo di privacy</message>
+    <message xml:lang="ja">プライバシープロファイルの適用には管理者権限が必要です (sl-welcome)</message>
+    <message xml:lang="ko">sl-welcome이 개인정보 보호 프로필을 적용하려면 관리자 권한이 필요합니다</message>
+    <message xml:lang="nl">sl-welcome heeft beheerdersrechten nodig om het privacyprofiel toe te passen</message>
+    <message xml:lang="pl">sl-welcome potrzebuje uprawnień administratora, aby zastosować profil prywatności</message>
+    <message xml:lang="pt">O sl-welcome precisa de privilégios de administrador para aplicar o perfil de privacidade</message>
+    <message xml:lang="pt_BR">O sl-welcome precisa de privilégios de administrador para aplicar o perfil de privacidade</message>
+    <message xml:lang="ru">sl-welcome нужны права администратора, чтобы применить профиль приватности</message>
+    <message xml:lang="tr">sl-welcome gizlilik profilini uygulamak için yönetici yetkisi istiyor</message>
+    <message xml:lang="uk">sl-welcome потрібні права адміністратора, щоб застосувати профіль приватності</message>
+    <message xml:lang="zh_CN">sl-welcome 需要管理员权限来应用隐私配置</message>
     <icon_name>security-high-symbolic</icon_name>
     <defaults>
       <allow_any>auth_admin</allow_any>
@@ -21,9 +53,41 @@
 
   <action id="dev.staticforge.welcome.install-packages">
     <description>Instalar paquetes del catálogo de sl-welcome</description>
+    <description xml:lang="ca">Instal·la paquets del catàleg de sl-welcome</description>
+    <description xml:lang="de">Pakete aus dem sl-welcome-Katalog installieren</description>
     <description xml:lang="en">Install packages from the sl-welcome catalog</description>
+    <description xml:lang="eu">Instalatu sl-welcome-ren katalogoko paketeak</description>
+    <description xml:lang="fr">Installer des paquets du catalogue de sl-welcome</description>
+    <description xml:lang="gl">Instalar paquetes do catálogo de sl-welcome</description>
+    <description xml:lang="it">Installa pacchetti dal catalogo di sl-welcome</description>
+    <description xml:lang="ja">sl-welcome のカタログからパッケージをインストール</description>
+    <description xml:lang="ko">sl-welcome 카탈로그에서 패키지 설치</description>
+    <description xml:lang="nl">Pakketten uit de catalogus van sl-welcome installeren</description>
+    <description xml:lang="pl">Zainstaluj pakiety z katalogu sl-welcome</description>
+    <description xml:lang="pt">Instalar pacotes do catálogo do sl-welcome</description>
+    <description xml:lang="pt_BR">Instalar pacotes do catálogo do sl-welcome</description>
+    <description xml:lang="ru">Установить пакеты из каталога sl-welcome</description>
+    <description xml:lang="tr">sl-welcome kataloğundan paket kur</description>
+    <description xml:lang="uk">Встановити пакети з каталогу sl-welcome</description>
+    <description xml:lang="zh_CN">从 sl-welcome 目录安装软件包</description>
     <message>sl-welcome necesita privilegios de administrador para instalar paquetes con pacman</message>
+    <message xml:lang="ca">sl-welcome necessita privilegis d'administrador per instal·lar paquets amb pacman</message>
+    <message xml:lang="de">sl-welcome braucht Administratorrechte, um Pakete mit pacman zu installieren</message>
     <message xml:lang="en">sl-welcome needs administrator privileges to install packages with pacman</message>
+    <message xml:lang="eu">sl-welcome-k administratzaile-baimenak behar ditu pacman-ekin paketeak instalatzeko</message>
+    <message xml:lang="fr">sl-welcome a besoin des droits d'administrateur pour installer des paquets avec pacman</message>
+    <message xml:lang="gl">sl-welcome precisa privilexios de administración para instalar paquetes con pacman</message>
+    <message xml:lang="it">sl-welcome ha bisogno dei privilegi di amministratore per installare pacchetti con pacman</message>
+    <message xml:lang="ja">pacman でパッケージをインストールするには管理者権限が必要です (sl-welcome)</message>
+    <message xml:lang="ko">sl-welcome이 pacman으로 패키지를 설치하려면 관리자 권한이 필요합니다</message>
+    <message xml:lang="nl">sl-welcome heeft beheerdersrechten nodig om pakketten met pacman te installeren</message>
+    <message xml:lang="pl">sl-welcome potrzebuje uprawnień administratora, aby instalować pakiety przez pacman</message>
+    <message xml:lang="pt">O sl-welcome precisa de privilégios de administrador para instalar pacotes com o pacman</message>
+    <message xml:lang="pt_BR">O sl-welcome precisa de privilégios de administrador para instalar pacotes com o pacman</message>
+    <message xml:lang="ru">sl-welcome нужны права администратора, чтобы установить пакеты через pacman</message>
+    <message xml:lang="tr">sl-welcome pacman ile paket kurmak için yönetici yetkisi istiyor</message>
+    <message xml:lang="uk">sl-welcome потрібні права адміністратора, щоб встановити пакети через pacman</message>
+    <message xml:lang="zh_CN">sl-welcome 需要管理员权限才能用 pacman 安装软件包</message>
     <icon_name>system-software-install-symbolic</icon_name>
     <defaults>
       <allow_any>auth_admin</allow_any>

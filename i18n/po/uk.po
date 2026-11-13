@@ -1,0 +1,1013 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+
+msgid "Instalando los paquetes base"
+msgstr "Встановлення базових пакетів"
+
+msgid "Ajustando la escala de pantalla"
+msgstr "Налаштування масштабу екрана"
+
+msgid "Instalando el escritorio"
+msgstr "Встановлення робочого столу"
+
+msgid "Comprobando el cifrado del disco"
+msgstr "Перевірка шифрування диска"
+
+msgid "Aplicando el perfil de privacidad"
+msgstr "Застосування профілю приватності"
+
+msgid "Instalando los sabores"
+msgstr "Встановлення наборів"
+
+msgid "Detectando el hardware (sl-detect)"
+msgstr "Визначення обладнання (sl-detect)"
+
+msgid "Aplicando el tema"
+msgstr "Застосування теми"
+
+msgid "Espacio"
+msgstr "Пробіл"
+
+msgid "Impr Pant"
+msgstr "Print Screen"
+
+msgid "Intro"
+msgstr "Enter"
+
+msgid "clic derecho"
+msgstr "правий клік"
+
+msgid "clic izquierdo"
+msgstr "лівий клік"
+
+msgid "rueda ↑"
+msgstr "коліщатко ↑"
+
+msgid "rueda ↓"
+msgstr "коліщатко ↓"
+
+msgid "Silencio"
+msgstr "Без звуку"
+
+msgid "Brillo +"
+msgstr "Яскравість +"
+
+msgid "Brillo −"
+msgstr "Яскравість −"
+
+msgid "Micro"
+msgstr "Мікрофон"
+
+msgid "código {n}"
+msgstr "код {n}"
+
+msgid "flechas"
+msgstr "стрілки"
+
+msgid "Otros"
+msgstr "Інше"
+
+msgid "Atajos de Hyprland"
+msgstr "Сполучення клавіш Hyprland"
+
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr "Hyprland керується переважно з клавіатури. Super — це клавіша Windows. Відкрити цей посібник знову можна будь-коли через Super + F1."
+
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr "Не вдалося прочитати сполучення клавіш (Hyprland запущено?)."
+
+msgid "%A, %-d de %B"
+msgstr "%A, %-d %B"
+
+msgid "Cable"
+msgstr "Кабель"
+
+msgid "Red: {name}"
+msgstr "Мережа: {name}"
+
+msgid "Ajustes rápidos"
+msgstr "Швидкі налаштування"
+
+msgid "Cerrar sesión"
+msgstr "Вийти"
+
+msgid "Apagar"
+msgstr "Вимкнути"
+
+msgid "Bloquear"
+msgstr "Заблокувати"
+
+msgid "Ajustes"
+msgstr "Налаштування"
+
+msgid "Activado"
+msgstr "Увімкнено"
+
+msgid "Desactivado"
+msgstr "Вимкнено"
+
+msgid "Avisos activos"
+msgstr "Сповіщення увімкнено"
+
+msgid "No molestar"
+msgstr "Не турбувати"
+
+msgid "Sin avisos"
+msgstr "Без сповіщень"
+
+msgid "Luz nocturna"
+msgstr "Нічне світло"
+
+msgid "Tonos cálidos"
+msgstr "Теплі тони"
+
+msgid "Captura"
+msgstr "Знімок екрана"
+
+msgid "Batería {pct} %"
+msgstr "Батарея {pct} %"
+
+msgid "cargando"
+msgstr "заряджається"
+
+msgid "Frutiger Aero, barra abajo"
+msgstr "Frutiger Aero, панель унизу"
+
+msgid "barra fina arriba"
+msgstr "тонка панель угорі"
+
+msgid "como Windows, barra abajo"
+msgstr "як у Windows, панель унизу"
+
+msgid "lanzador y estante abajo"
+msgstr "лаунчер і полиця внизу"
+
+msgid "Tema"
+msgstr "Тема"
+
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr "Кожна тема — це шпалери, палітра, взята з них, і стиль вікон та панелі. Усе змінюється одразу, а замінене зберігається в резервній копії. Без sudo."
+
+msgid "claro"
+msgstr "світла"
+
+msgid "oscuro"
+msgstr "темна"
+
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr "Не вдалося знайти теми Static Linux (sl-theme)."
+
+msgid "No se pudo aplicar el tema"
+msgstr "Не вдалося застосувати тему"
+
+msgid "Tema aplicado: {name}"
+msgstr "Тему застосовано: {name}"
+
+msgid "repos oficiales"
+msgstr "офіційні репозиторії"
+
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr "Готово. Натисніть Enter, щоб закрити… "
+
+msgid "instalado"
+msgstr "встановлено"
+
+msgid "Pendiente de tus sabores"
+msgstr "Не встановлено з ваших наборів"
+
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr "Те, що не вдалося встановити під час інсталяції. Уже позначено."
+
+msgid "Catálogo"
+msgstr "Каталог"
+
+msgid "No se encontró ningún catálogo."
+msgstr "Каталог не знайдено."
+
+msgid "Instalar lo marcado"
+msgstr "Встановити позначене"
+
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr "Офіційні репозиторії: запитає пароль · Flathub: без пароля · AUR і Static Forge: відкриється термінал"
+
+msgid "Instalar"
+msgstr "Встановити"
+
+msgid "No has marcado nada"
+msgstr "Нічого не позначено"
+
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr "Немає термінала для встановлення застосунків Static Forge"
+
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr "Немає термінала: виконайте «{cmd}»"
+
+msgid "pacman falló"
+msgstr "помилка pacman"
+
+msgid "flatpak falló"
+msgstr "помилка flatpak"
+
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] "Встановлено {n} застосунок"
+msgstr[1] "Встановлено {n} застосунки"
+msgstr[2] "Встановлено {n} застосунків"
+
+msgid "Falló: {error}"
+msgstr "Помилка: {error}"
+
+msgid "Wiki online"
+msgstr "Онлайн-вікі"
+
+msgid "Repositorio (GitHub)"
+msgstr "Репозиторій (GitHub)"
+
+msgid "Reportar un problema"
+msgstr "Повідомити про проблему"
+
+msgid "Este equipo"
+msgstr "Цей комп'ютер"
+
+msgid "Driver gráfico"
+msgstr "Графічний драйвер"
+
+msgid "No"
+msgstr "Ні"
+
+msgid "Sí"
+msgstr "Так"
+
+msgid "Almacenamiento"
+msgstr "Накопичувач"
+
+msgid "Arquitectura"
+msgstr "Архітектура"
+
+msgid "Recomendación de sl-detect"
+msgstr "Рекомендація sl-detect"
+
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr "Розраховано для цього обладнання. Змінити можна в розділах «Вигляд» і «Приватність»."
+
+msgid "Entorno"
+msgstr "Середовище"
+
+msgid "Sistema de archivos"
+msgstr "Файлова система"
+
+msgid "Enlaces"
+msgstr "Посилання"
+
+msgid "Copia local, funciona sin conexión"
+msgstr "Локальна копія, працює без мережі"
+
+msgid "Básico"
+msgstr "Базовий"
+
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr "Безпечні налаштування з першого дня + UFW + випадкова MAC-адреса. Ядро linux-zen."
+
+msgid "Mejorado"
+msgstr "Покращений"
+
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr "+ Firejail + AppArmor + USBGuard. Ядро linux-zen."
+
+msgid "Máximo"
+msgstr "Максимальний"
+
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr "+ Tor + kloak + зашифрований swap. Ядро linux-hardened."
+
+msgid "Perfil de privacidad"
+msgstr "Профіль приватності"
+
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr "Кожен профіль зберігає копію того, що змінює (/var/backups/static-linux/privacy/), тож усе можна скасувати. Запитує пароль адміністратора."
+
+msgid "Aplicar"
+msgstr "Застосувати"
+
+msgid "Perfil {name} aplicado"
+msgstr "Профіль «{name}» застосовано"
+
+msgid "mira el registro"
+msgstr "дивіться журнал"
+
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr "pkexec не встановлено. Встановіть «polkit», щоб застосовувати системні зміни."
+
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "невідомий профіль приватності: {name}"
+
+msgid "no encuentro {path}"
+msgstr "не знайдено: {path}"
+
+msgid "Bienvenido a Static Linux"
+msgstr "Ласкаво просимо до Static Linux"
+
+msgid "General"
+msgstr "Огляд"
+
+msgid "Apariencia"
+msgstr "Вигляд"
+
+msgid "Privacidad"
+msgstr "Приватність"
+
+msgid "Capturas"
+msgstr "Знімки екрана"
+
+msgid "Captura guardada"
+msgstr "Знімок збережено"
+
+msgid "Copiada al portapapeles"
+msgstr "Скопійовано в буфер обміну"
+
+msgid "Aplicaciones (Super + Espacio)"
+msgstr "Застосунки (Super + Пробіл)"
+
+msgid "Sin conexión"
+msgstr "Немає з'єднання"
+
+msgid "Más ajustes de sonido"
+msgstr "Інші налаштування звуку"
+
+msgid "Suspender"
+msgstr "Призупинити"
+
+msgid "Reiniciar"
+msgstr "Перезавантажити"
+
+msgid "Static Forge"
+msgstr "Static Forge"
+
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr "Завантаження з YouTube, YouTube Music, Spotify і Pinterest, зроблено в студії."
+
+msgid "Internet"
+msgstr "Інтернет"
+
+msgid "El navegador de Mozilla."
+msgstr "Браузер від Mozilla."
+
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr "На основі Firefox, з вертикальними вкладками та робочими просторами."
+
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr "Вільна основа Chrome, без сервісів Google."
+
+msgid "Correo, calendario y contactos."
+msgstr "Пошта, календар і контакти."
+
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr "Вільний BitTorrent-клієнт без реклами."
+
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr "Передавання файлів на інші пристрої у вашій мережі, без хмари."
+
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr "Синхронізація з вашим власним сервером Nextcloud."
+
+msgid "Cliente FTP/SFTP."
+msgstr "FTP/SFTP-клієнт."
+
+msgid "Comunicación"
+msgstr "Спілкування"
+
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr "Discord із вбудованим Vencord: теми, плагіни та краща продуктивність у Linux."
+
+msgid "El cliente oficial."
+msgstr "Офіційний клієнт."
+
+msgid "Mensajería."
+msgstr "Месенджер."
+
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr "Месенджер із наскрізним шифруванням."
+
+msgid "Chat descentralizado (Matrix)."
+msgstr "Децентралізований чат (Matrix)."
+
+msgid "Música y audio"
+msgstr "Музика й аудіо"
+
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr "Офіційний клієнт (встановлюється й оновлюється через spotify-launcher)."
+
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr "Теми та розширення для Spotify. Спочатку встановіть Spotify."
+
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr "Завантажуйте свої плейлисти Spotify локально (через YouTube Music)."
+
+msgid "Grabar y editar audio."
+msgstr "Запис і редагування аудіо."
+
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr "Вільна професійна DAW: багатодоріжковий запис і зведення."
+
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr "Вільна DAW для створення музики у стилі FL Studio."
+
+msgid "Caja de ritmos."
+msgstr "Драм-машина."
+
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr "Комерційна DAW з пробною версією; нативна для Linux."
+
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr "Легка й потужна DAW (платна ліцензія, повна пробна версія)."
+
+msgid "Software de DJ."
+msgstr "Програма для діджеїв."
+
+msgid "Reproductor de música ligero."
+msgstr "Легкий музичний програвач."
+
+msgid "Vídeo"
+msgstr "Відео"
+
+msgid "Editor de vídeo libre y completo."
+msgstr "Вільний і повноцінний відеоредактор."
+
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr "Вільний відеоредактор, простий і швидкий."
+
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr "Професійний монтаж і корекція кольору (безкоштовно, але не вільно). Важкий; потрібна дискретна відеокарта."
+
+msgid "Grabar y emitir en directo."
+msgstr "Запис і прямі трансляції."
+
+msgid "Convertir y comprimir vídeo."
+msgstr "Конвертація та стиснення відео."
+
+msgid "Reproduce cualquier cosa."
+msgstr "Відтворює будь-що."
+
+msgid "Reproductor mínimo y muy rápido."
+msgstr "Мінімалістичний і дуже швидкий програвач."
+
+msgid "Grafismo y 3D"
+msgstr "Графіка та 3D"
+
+msgid "Pintura digital."
+msgstr "Цифровий живопис."
+
+msgid "Retoque fotográfico."
+msgstr "Ретуш фотографій."
+
+msgid "Gráficos vectoriales."
+msgstr "Векторна графіка."
+
+msgid "Modelado, animación y render 3D."
+msgstr "3D-моделювання, анімація та рендеринг."
+
+msgid "CAD 3D paramétrico."
+msgstr "Параметрична 3D САПР."
+
+msgid "Revelado RAW."
+msgstr "Обробка RAW."
+
+msgid "Motor de videojuegos libre."
+msgstr "Вільний ігровий рушій."
+
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr "Піксель-арт і анімація (збирається з вихідного коду)."
+
+msgid "Juegos"
+msgstr "Ігри"
+
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr "З Proton для ігор під Windows."
+
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr "Epic Games, GOG і Amazon Prime Gaming. Спосіб користуватися Epic у Linux."
+
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr "Одне місце для всіх ваших ігор і лаунчерів (Battle.net, EA, Ubisoft…)."
+
+msgid "Minecraft Java con varias instancias y mods."
+msgstr "Minecraft Java з кількома екземплярами та модами."
+
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr "Minecraft Java з модами та збірками Modrinth."
+
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr "Офіційний лаунчер Mojang для Minecraft Java."
+
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr "Лаунчер версії Bedrock (її треба мати купленою в Google Play)."
+
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr "Встановлює Proton-GE та інші версії Proton/Wine в один клік."
+
+msgid "Programas de Windows en entornos aislados."
+msgstr "Програми Windows в ізольованих середовищах."
+
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr "Продуктивність в іграх і лічильник FPS."
+
+msgid "Emulador multisistema."
+msgstr "Багатосистемний емулятор."
+
+msgid "Emulador de GameCube y Wii."
+msgstr "Емулятор GameCube і Wii."
+
+msgid "Emulador de PlayStation 2."
+msgstr "Емулятор PlayStation 2."
+
+msgid "Desarrollo"
+msgstr "Розробка"
+
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr "Контроль версій (входить до Static Linux)."
+
+msgid "GitHub desde la terminal (gh)."
+msgstr "GitHub з термінала (gh)."
+
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr "Контейнери, з Compose і Buildx. Не забудьте додати себе до групи docker."
+
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr "Збірка від Microsoft, з її маркетплейсом."
+
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr "VS Code, зібраний з вільного коду (офіційні репозиторії)."
+
+msgid "VS Code sin telemetría de Microsoft."
+msgstr "VS Code без телеметрії Microsoft."
+
+msgid "Editor modal en la terminal."
+msgstr "Модальний редактор у терміналі."
+
+msgid "Git con interfaz en la terminal."
+msgstr "Git з інтерфейсом у терміналі."
+
+msgid "Comparar archivos y carpetas."
+msgstr "Порівняння файлів і тек."
+
+msgid "Cliente de bases de datos."
+msgstr "Клієнт баз даних."
+
+msgid "adb y fastboot."
+msgstr "adb і fastboot."
+
+msgid "Productividad"
+msgstr "Продуктивність"
+
+msgid "Ofimática completa, en español y con corrector."
+msgstr "Повний офісний пакет із перевіркою правопису."
+
+msgid "Notas en Markdown enlazadas."
+msgstr "Пов'язані нотатки в Markdown."
+
+msgid "Gestor de contraseñas local y libre."
+msgstr "Локальний вільний менеджер паролів."
+
+msgid "Gestor de contraseñas en la nube."
+msgstr "Хмарний менеджер паролів."
+
+msgid "Notas con sincronización cifrada."
+msgstr "Нотатки із зашифрованою синхронізацією."
+
+msgid "Notas a mano y anotar PDFs."
+msgstr "Рукописні нотатки та анотації PDF."
+
+msgid "Unir, dividir y reordenar PDFs."
+msgstr "Об'єднання, поділ і впорядкування PDF."
+
+msgid "Tareas y listas."
+msgstr "Завдання та списки."
+
+msgid "Sistema y herramientas"
+msgstr "Система та інструменти"
+
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr "Стиснення й розпакування 7z, zip, rar… (входить до Static Linux)."
+
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr "Конвертація аудіо та відео (входить до Static Linux)."
+
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr "Завантаження відео й аудіо з YouTube та інших сайтів (входить до Static Linux)."
+
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr "SSH-клієнт і сервер (входять; сервер вимкнено, доки ви його не ввімкнете)."
+
+msgid "Permisos de las apps de Flathub."
+msgstr "Дозволи застосунків Flathub."
+
+msgid "Copias del sistema para volver atrás."
+msgstr "Знімки системи для відкату."
+
+msgid "Particionar discos."
+msgstr "Розмітка дисків."
+
+msgid "Liberar espacio y borrar rastros."
+msgstr "Звільнення місця та видалення слідів."
+
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr "Синхронізація тек між вашими комп'ютерами, без хмари."
+
+msgid "Monitor de recursos en la terminal."
+msgstr "Монітор ресурсів у терміналі."
+
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr "Завантажувальна флешка з кількома ISO одночасно."
+
+msgid "Máquinas virtuales"
+msgstr "Віртуальні машини"
+
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr "Віртуальні машини на KVM, найшвидші в Linux. Містить QEMU і libvirt."
+
+msgid "Máquinas virtuales en dos clics."
+msgstr "Віртуальні машини у два кліки."
+
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr "Класичний варіант; повільніший за KVM і зі своїм модулем ядра."
+
+msgid "Aero"
+msgstr "Аеро"
+
+msgid "cielo, agua y hierba, con brillo"
+msgstr "небо, вода й трава, з глянцем"
+
+msgid "Ámbar"
+msgstr "Бурштин"
+
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr "дерево, гірчиця й бірюза 70-х"
+
+msgid "Bosque"
+msgstr "Ліс"
+
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr "туман над соснами, приглушена зелень і вологий сірий"
+
+msgid "Nórdico"
+msgstr "Північна"
+
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr "блакитно-сланцевий сірий, лід та іній"
+
+msgid "Nube"
+msgstr "Хмара"
+
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr "ранкове небо з хмарами, світле й м'яке"
+
+msgid "Papel"
+msgstr "Папір"
+
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr "старий папір, туш і оливковий зелений"
+
+msgid "Sakura"
+msgstr "Сакура"
+
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr "вікна кольору туші на вишнево-рожевому тлі"
+
+msgid "Ventanas"
+msgstr "Вікна"
+
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr "графітовий сірий і блакитний, панель унизу зі значками по центру"
+
+msgid "Violeta"
+msgstr "Фіолетова"
+
+msgid "monocromo violeta, montañas al anochecer"
+msgstr "фіолетовий монохром, гори в сутінках"
+
+msgid "Apps"
+msgstr "Застосунки"
+
+msgid "abrir la terminal"
+msgstr "відкрити термінал"
+
+msgid "abrir el gestor de archivos"
+msgstr "відкрити файловий менеджер"
+
+msgid "abrir el navegador (Brave Origin)"
+msgstr "відкрити браузер (Brave Origin)"
+
+msgid "lanzador de aplicaciones"
+msgstr "запуск застосунків"
+
+msgid "Ayuda"
+msgstr "Довідка"
+
+msgid "esta guía de atajos"
+msgstr "цей посібник зі сполучень"
+
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr "область екрана (файл + буфер обміну)"
+
+msgid "cerrar la ventana"
+msgstr "закрити вікно"
+
+msgid "pantalla completa"
+msgstr "повний екран"
+
+msgid "flotante / en mosaico"
+msgstr "плаваюче / мозаїка"
+
+msgid "pseudo-mosaico"
+msgstr "псевдомозаїка"
+
+msgid "cambiar división horizontal/vertical"
+msgstr "перемкнути горизонтальний/вертикальний поділ"
+
+msgid "pasar a la siguiente"
+msgstr "перейти до наступного"
+
+msgid "mover el foco"
+msgstr "перемістити фокус"
+
+msgid "mover la ventana"
+msgstr "перемістити вікно"
+
+msgid "arrastrar con Super + clic izquierdo"
+msgstr "перетягувати із Super + лівий клік"
+
+msgid "redimensionar con Super + clic derecho"
+msgstr "змінювати розмір із Super + правий клік"
+
+msgid "Escritorios"
+msgstr "Робочі столи"
+
+msgid "ir a un escritorio"
+msgstr "перейти на робочий стіл"
+
+msgid "mover la ventana a otro escritorio"
+msgstr "перемістити вікно на інший робочий стіл"
+
+msgid "siguiente (rueda del ratón)"
+msgstr "наступний (коліщатко миші)"
+
+msgid "anterior (rueda del ratón)"
+msgstr "попередній (коліщатко миші)"
+
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr "показати/сховати швидкий робочий стіл"
+
+msgid "mandar la ventana al escritorio rápido"
+msgstr "надіслати вікно на швидкий робочий стіл"
+
+msgid "Sesión"
+msgstr "Сеанс"
+
+msgid "bloquear la pantalla"
+msgstr "заблокувати екран"
+
+msgid "ver la última notificación"
+msgstr "показати останнє сповіщення"
+
+msgid "Multimedia"
+msgstr "Мультимедіа"
+
+msgid "subir volumen"
+msgstr "гучніше"
+
+msgid "bajar volumen"
+msgstr "тихіше"
+
+msgid "silenciar"
+msgstr "вимкнути звук"
+
+msgid "silenciar el micrófono"
+msgstr "вимкнути мікрофон"
+
+msgid "subir brillo"
+msgstr "яскравіше"
+
+msgid "bajar brillo"
+msgstr "темніше"
+
+msgid "reproducir/pausar"
+msgstr "відтворення/пауза"
+
+msgid "siguiente pista"
+msgstr "наступний трек"
+
+msgid "pista anterior"
+msgstr "попередній трек"
+
+msgid "Entorno de escritorio"
+msgstr "Середовище робочого столу"
+
+msgid "XFCE (temático)"
+msgstr "XFCE (з темою)"
+
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr "Середовище, перевірене на справжньому обладнанні (Packard Bell iMedia S2883). Xorg, легке, рекомендоване від 1 ГБ ОЗП або коли відеокарта не підтримує Wayland."
+
+msgid "Openbox minimal"
+msgstr "Openbox мінімальний"
+
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr "Найнижчий рівень: 512 МБ. Openbox + tint2 + jgmenu, типово без композитора."
+
+msgid "Hyprland + Astal (lite)"
+msgstr "Hyprland + Astal (lite)"
+
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr "Wayland, 2-4 ГБ. Та сама оболонка Astal, що й у повній версії, без розмиття, тіней і важких анімацій."
+
+msgid "Hyprland + Astal (full)"
+msgstr "Hyprland + Astal (full)"
+
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr "Wayland, рекомендована стеля 4 ГБ. Розмиття, тіні та повні анімації. Потрібна відеокарта з доброю підтримкою Wayland."
+
+msgid "KDE Plasma"
+msgstr "KDE Plasma"
+
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr "Повний і звичний робочий стіл: панель унизу, меню «Пуск», Dolphin і налаштування для всього. Wayland, від 4 ГБ ОЗП. Найважче середовище; sl-detect типово його не рекомендує."
+
+msgid "GNOME"
+msgstr "GNOME"
+
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr "Робочий стіл GNOME як є: огляд діяльності, док і застосунки GNOME. Wayland, від 4 ГБ ОЗП. Тема охоплює світлий чи темний режим, акцент, шпалери й застосунки. Вхід через GDM."
+
+msgid "Cinnamon"
+msgstr "Cinnamon"
+
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr "Класичний і зручний: панель унизу, меню «Пуск» і значки на робочому столі. Xorg, від 2 ГБ. Тема оформлює і панель, і меню."
+
+msgid "i3"
+msgstr "i3"
+
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr "Мозаїка з клавіатури: вікна розташовуються самі. Xorg, від 1 ГБ. Панель i3bar, лаунчер rofi. Super + Enter відкриває термінал."
+
+msgid "bspwm"
+msgstr "bspwm"
+
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr "Мозаїка за двійковим деревом, сполучення в sxhkd і панель polybar. Xorg, від 1 ГБ. Для тих, хто хоче налаштувати все сам."
+
+msgid "sway"
+msgstr "sway"
+
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr "Мозаїка i3, але у Wayland. Від 1-2 ГБ. Панель waybar, лаунчер rofi та сповіщення через mako."
+
+msgid "Sabores"
+msgstr "Набори"
+
+msgid "Sabores (opcional)"
+msgstr "Набори (необов'язково)"
+
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr "Набори застосунків для того, чим ви збираєтеся займатися. Позначте потрібні (кілька або жодного): вони встановлюються разом із системою, і кожен налаштований на добру продуктивність. Усе можна додати чи прибрати пізніше в застосунку привітання."
+
+msgid "Gaming"
+msgstr "Ігри"
+
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr "Steam з Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher і Modrinth для Minecraft, MangoHud, GameMode і Gamescope. Вмикає 32-бітні бібліотеки та драйвер Vulkan вашої відеокарти."
+
+msgid "Creación de contenido"
+msgstr "Створення контенту"
+
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity і DAW Ardour, LMMS та Hydrogen, зі звуком у реальному часі (низька затримка)."
+
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr "Git і GitHub CLI, Docker (запускається сам під час використання), VS Code (Code - OSS), Python, Rust, Node і Java."
+
+msgid "Oficina"
+msgstr "Офіс"
+
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr "LibreOffice з перевіркою правопису, Obsidian, KeePassXC, Xournal++ та інструменти для PDF."
+
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr "KVM/QEMU з virt-manager і GNOME Boxes, з TPM і UEFI для гостьових Windows 11."
+
+msgid "Educación"
+msgstr "Освіта"
+
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr "GeoGebra, Stellarium, Anki, Jupyter і FreeCAD."
+
+msgid "Ciberseguridad"
+msgstr "Кібербезпека"
+
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra і Tor."
+
+msgid "Servidor / Homelab"
+msgstr "Сервер / Домашня лабораторія"
+
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban і Cockpit. Задля безпеки жодна служба не слухає мережу, доки ви її не ввімкнете."
+
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr "Тема Static Linux. Темна й тепла: дерево, гірчиця й бірюза, на тлі «Грози під Фудзі» Хокусая. Тонка панель угорі та суцільні вікна."
+
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr "Світла, у тонах старого паперу, туші й оливкового, на тлі гравюри Хокусая. Для тих, хто працює при яскравому світлі."
+
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr "Темна й холодна: блакитнуватий сланець і лід, на тлі «Вечірнього снігу в Камбарі» Хіросіґе."
+
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr "Темна, у зелені сосен і туману, на тлі «Весняного дощу в Цутіямі» Хіросіґе."
+
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr "Темна з вишнево-рожевим, на тлі «Фудзі з Ґотенʼями» Хокусая."
+
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr "Темна, монохромно-фіолетова, з горами в сутінках."
+
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr "Стиль Frutiger Aero: світла, з небом, бульбашками й травою, глянцевими панелями та панеллю завдань унизу."
+
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr "Як Windows: темна, панель завдань унизу із застосунками по центру та кнопками вікон ─ □ ✕."
+
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr "Світла й м'яка, на тлі хмарного неба. Круглий лаунчер і полиця внизу із застосунками по центру; годинник відкриває швидкі налаштування."
+
+msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
+msgstr "fast · private · yours\nВаша система встановлюється. Це займе кілька хвилин."
+
+msgid "Tu escritorio, tu color"
+msgstr "Ваш робочий стіл, ваш колір"
+
+msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr "Дев'ять тем для всієї системи: шпалери, вікна, термінал і завантаження.\nЗмінюйте будь-коли в застосунку привітання або через  sl-ctl theme."
+
+msgid "Privado de serie"
+msgstr "Приватність одразу"
+
+msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
+msgstr "Нуль телеметрії. Зашифрований DNS і брандмауер увімкнені з першого завантаження.\nПідвищте рівень через  sl-ctl privacy."
+
+msgid "Todo a mano"
+msgstr "Усе під рукою"
+
+msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
+msgstr "sl-welcome: каталог застосунків і перші кроки.\nsl-ctl: оновлення, знімки, налаштування та інше."
+
+msgid "Hecho para tu equipo"
+msgstr "Зроблено для вашого комп'ютера"
+
+msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
+msgstr "sl-detect вибрав середовище, ядро та файлову систему\nпід ваше обладнання, від Celeron до RTX."
+
+msgid "Contraseña"
+msgstr "Пароль"
+
+msgid "Contraseña incorrecta"
+msgstr "Неправильний пароль"
+
+msgid "Contraseña del disco"
+msgstr "Пароль диска"
+
+msgid "Bienvenida a Static Linux"
+msgstr "Привітання Static Linux"
+
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr "Перші кроки, вигляд, приватність і каталог застосунків"
+
+msgid "Captura de pantalla (zona)"
+msgstr "Знімок екрана (область)"
+
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr "Зберігає в Зображення/Знімки екрана і копіює в буфер обміну"
+
+msgid "Instalar Static Linux"
+msgstr "Встановити Static Linux"
+
+msgid "Instala Static Linux en este equipo"
+msgstr "Встановити Static Linux на цей комп'ютер"
+
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr "Застосувати профіль приватності Static Linux"
+
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr "sl-welcome потрібні права адміністратора, щоб застосувати профіль приватності"
+
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr "Встановити пакети з каталогу sl-welcome"
+
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr "sl-welcome потрібні права адміністратора, щоб встановити пакети через pacman"

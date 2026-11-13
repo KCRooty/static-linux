@@ -36,8 +36,8 @@ input-field {
     inner_color = rgba({{bg}}E6)
     font_color = rgba({{text}}FF)
     font_family = {{font_ui}}
-    placeholder_text = <i>Contraseña</i>
-    fail_text = <i>Contraseña incorrecta</i>
+    placeholder_text = <i>{{_ "Contraseña"}}</i>
+    fail_text = <i>{{_ "Contraseña incorrecta"}}</i>
     check_color = rgba({{warning}}FF)
     fail_color = rgba({{danger}}FF)
     rounding = {{radius_win}}

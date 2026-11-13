@@ -1,0 +1,1649 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the static-linux package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: static-linux\n"
+"Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
+"POT-Creation-Date: 2026-11-13 20:07+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: installer/calamares/modules/basepkgs/main.py:65
+msgid "Instalando los paquetes base"
+msgstr ""
+
+#: installer/calamares/modules/display/main.py:38
+msgid "Ajustando la escala de pantalla"
+msgstr ""
+
+#: installer/calamares/modules/entorno-pkgs/main.py:56
+msgid "Instalando el escritorio"
+msgstr ""
+
+#: installer/calamares/modules/luks/main.py:48
+msgid "Comprobando el cifrado del disco"
+msgstr ""
+
+#: installer/calamares/modules/privacidad-apply/main.py:42
+msgid "Aplicando el perfil de privacidad"
+msgstr ""
+
+#: installer/calamares/modules/sabores/main.py:63
+msgid "Instalando los sabores"
+msgstr ""
+
+#: installer/calamares/modules/sl-detect/main.py:49
+msgid "Detectando el hardware (sl-detect)"
+msgstr ""
+
+#: installer/calamares/modules/tema-apply/main.py:40
+msgid "Aplicando el tema"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:36
+msgid "Espacio"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:36
+msgid "Impr Pant"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:36
+msgid "Intro"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:38
+msgid "clic derecho"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:38
+msgid "clic izquierdo"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:39
+msgid "rueda ↑"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:39
+msgid "rueda ↓"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:40
+msgid "Silencio"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:41
+msgid "Brillo +"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:41
+msgid "Brillo −"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:41
+msgid "Micro"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:49
+#, python-brace-format
+msgid "código {n}"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:62
+msgid "flechas"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:81
+msgid "Otros"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:130
+msgid "Atajos de Hyprland"
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:139
+msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
+msgstr ""
+
+#: sl-ctl/sl-hypr-guide:145
+msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
+msgstr ""
+
+#. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
+#: sl-ctl/sl-quick:40
+msgid "%A, %-d de %B"
+msgstr ""
+
+#: sl-ctl/sl-quick:83
+msgid "Cable"
+msgstr ""
+
+#: sl-ctl/sl-quick:171
+#, python-brace-format
+msgid "Red: {name}"
+msgstr ""
+
+#: sl-ctl/sl-quick:199
+msgid "Ajustes rápidos"
+msgstr ""
+
+#: sl-ctl/sl-quick:230
+msgid "Cerrar sesión"
+msgstr ""
+
+#: sl-ctl/sl-quick:231
+msgid "Apagar"
+msgstr ""
+
+#: sl-ctl/sl-quick:232
+msgid "Bloquear"
+msgstr ""
+
+#: sl-ctl/sl-quick:233
+msgid "Ajustes"
+msgstr ""
+
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
+msgid "Activado"
+msgstr ""
+
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
+msgid "Desactivado"
+msgstr ""
+
+#: sl-ctl/sl-quick:264
+msgid "Avisos activos"
+msgstr ""
+
+#: sl-ctl/sl-quick:264
+msgid "No molestar"
+msgstr ""
+
+#: sl-ctl/sl-quick:264
+msgid "Sin avisos"
+msgstr ""
+
+#: sl-ctl/sl-quick:266
+msgid "Luz nocturna"
+msgstr ""
+
+#: sl-ctl/sl-quick:266
+msgid "Tonos cálidos"
+msgstr ""
+
+#: sl-ctl/sl-quick:275
+msgid "Captura"
+msgstr ""
+
+#: sl-ctl/sl-quick:301
+#, python-brace-format
+msgid "Batería {pct} %"
+msgstr ""
+
+#: sl-ctl/sl-quick:301
+msgid "cargando"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:54
+msgid "Frutiger Aero, barra abajo"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:54
+msgid "barra fina arriba"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:55
+msgid "como Windows, barra abajo"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:56
+msgid "lanzador y estante abajo"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:90
+msgid "Tema"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:91
+msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:99
+msgid "claro"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:99
+msgid "oscuro"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:119
+msgid "No encuentro los temas de Static Linux (sl-theme)."
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:131
+msgid "No se pudo aplicar el tema"
+msgstr ""
+
+#: sl-welcome/src/pages/appearance.py:131
+#, python-brace-format
+msgid "Tema aplicado: {name}"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:42
+msgid "repos oficiales"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:93
+msgid "Listo. Pulsa Intro para cerrar… "
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:115
+msgid "instalado"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:128
+msgid "Pendiente de tus sabores"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:129
+msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:139 sl-welcome/src/window.py:48
+msgid "Catálogo"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:140
+msgid "No se encontró ningún catálogo."
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:153
+msgid "Instalar lo marcado"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:154
+msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:156
+msgid "Instalar"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:166
+msgid "No has marcado nada"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:181
+msgid "Sin terminal para instalar las apps de Static Forge"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:186
+#, python-brace-format
+msgid "Sin terminal: ejecuta «{cmd}»"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:200
+msgid "pacman falló"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:209
+msgid "flatpak falló"
+msgstr ""
+
+#: sl-welcome/src/pages/catalog.py:216
+#, python-brace-format
+msgid "{n} app instalada"
+msgid_plural "{n} apps instaladas"
+msgstr[0] ""
+msgstr[1] ""
+
+#: sl-welcome/src/pages/catalog.py:217 sl-welcome/src/pages/privacy.py:63
+#, python-brace-format
+msgid "Falló: {error}"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:24
+msgid "Wiki online"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:25
+msgid "Repositorio (GitHub)"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:26
+msgid "Reportar un problema"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:74
+msgid "Este equipo"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:78
+msgid "Driver gráfico"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:79
+msgid "No"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:79
+msgid "Sí"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:81
+msgid "Almacenamiento"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:82
+msgid "Arquitectura"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:86
+msgid "Recomendación de sl-detect"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:87
+msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:89
+msgid "Entorno"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:90
+msgid "Sistema de archivos"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:94
+msgid "Enlaces"
+msgstr ""
+
+#: sl-welcome/src/pages/overview.py:96
+msgid "Copia local, funciona sin conexión"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:17
+msgid "Básico"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:18
+msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:19
+msgid "Mejorado"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:20
+msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:21
+msgid "Máximo"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:22
+msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:29
+msgid "Perfil de privacidad"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:30
+msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:39
+msgid "Aplicar"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:62
+#, python-brace-format
+msgid "Perfil {name} aplicado"
+msgstr ""
+
+#: sl-welcome/src/pages/privacy.py:63
+msgid "mira el registro"
+msgstr ""
+
+#: sl-welcome/src/privileged.py:34
+msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
+msgstr ""
+
+#: sl-welcome/src/privileged.py:42
+#, python-brace-format
+msgid "perfil de privacidad desconocido: {name}"
+msgstr ""
+
+#: sl-welcome/src/privileged.py:50
+#, python-brace-format
+msgid "no encuentro {path}"
+msgstr ""
+
+#: sl-welcome/src/window.py:28
+msgid "Bienvenido a Static Linux"
+msgstr ""
+
+#: sl-welcome/src/window.py:40
+msgid "General"
+msgstr ""
+
+#: sl-welcome/src/window.py:43
+msgid "Apariencia"
+msgstr ""
+
+#: sl-welcome/src/window.py:46
+msgid "Privacidad"
+msgstr ""
+
+#: sl-ctl/sl-screenshot:20 sl-ctl/sl-screenshot:24
+msgid "Capturas"
+msgstr ""
+
+#: sl-ctl/sl-screenshot:24
+msgid "Captura guardada"
+msgstr ""
+
+#: sl-ctl/sl-screenshot:24
+msgid "Copiada al portapapeles"
+msgstr ""
+
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:35
+msgid "Aplicaciones (Super + Espacio)"
+msgstr ""
+
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:114
+msgid "Sin conexión"
+msgstr ""
+
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:151
+msgid "Más ajustes de sonido"
+msgstr ""
+
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:186
+msgid "Suspender"
+msgstr ""
+
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:189
+msgid "Reiniciar"
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:1
+msgid "Static Forge"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:5
+msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:6
+msgid "Internet"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:10
+msgid "El navegador de Mozilla."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:14
+msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:19
+msgid "La base libre de Chrome, sin servicios de Google."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:23
+msgid "Correo, calendario y contactos."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:27
+msgid "Cliente BitTorrent libre y sin publicidad."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:31
+msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:35
+msgid "Sincroniza con tu propio servidor Nextcloud."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:39
+msgid "Cliente FTP/SFTP."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:1
+msgid "Comunicación"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:5
+msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:10
+msgid "El cliente oficial."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:14
+msgid "Mensajería."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:18
+msgid "Mensajería cifrada de extremo a extremo."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:22
+msgid "Chat descentralizado (Matrix)."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:1
+msgid "Música y audio"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:5
+msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:9
+msgid "Temas y extensiones para Spotify. Instala Spotify primero."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:13
+msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:17
+msgid "Grabar y editar audio."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:21
+msgid "DAW profesional libre: grabación multipista y mezcla."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:25
+msgid "DAW libre para producir música, al estilo FL Studio."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:29
+msgid "Caja de ritmos."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:33
+msgid "DAW comercial con versión de prueba; nativo en Linux."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:37
+msgid "DAW ligero y potente (licencia de pago, prueba completa)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:41
+msgid "Software de DJ."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:45
+msgid "Reproductor de música ligero."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:1
+msgid "Vídeo"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:5
+msgid "Editor de vídeo libre y completo."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:9
+msgid "Editor de vídeo libre, sencillo y rápido."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:13
+msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:17
+msgid "Grabar y emitir en directo."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:21
+msgid "Convertir y comprimir vídeo."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:25
+msgid "Reproduce cualquier cosa."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:29
+msgid "Reproductor mínimo y muy rápido."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:1
+msgid "Grafismo y 3D"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:5
+msgid "Pintura digital."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:9
+msgid "Retoque fotográfico."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:13
+msgid "Gráficos vectoriales."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:17
+msgid "Modelado, animación y render 3D."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:21
+msgid "CAD 3D paramétrico."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:25
+msgid "Revelado RAW."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:29
+msgid "Motor de videojuegos libre."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:33
+msgid "Pixel art y animación (se compila desde el código)."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:1
+msgid "Juegos"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:5
+msgid "Con Proton para jugar a juegos de Windows."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:9
+msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:14
+msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:18
+msgid "Minecraft Java con varias instancias y mods."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:22
+msgid "Minecraft Java con los mods y modpacks de Modrinth."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:26
+msgid "El launcher oficial de Mojang para Minecraft Java."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:30
+msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:34
+msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:38
+msgid "Programas de Windows en entornos aislados."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:42
+msgid "Rendimiento al jugar y contador de FPS."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:46
+msgid "Emulador multisistema."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:50
+msgid "Emulador de GameCube y Wii."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:54
+msgid "Emulador de PlayStation 2."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#. installer page (name)
+#: sl-welcome/catalog/07-desarrollo.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:39
+msgid "Desarrollo"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:5
+msgid "Control de versiones (incluido en Static Linux)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:9
+msgid "GitHub desde la terminal (gh)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:13
+msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:17
+msgid "La compilación de Microsoft, con su marketplace."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:21
+msgid "VS Code compilado desde el código libre (repos oficiales)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:25
+msgid "VS Code sin telemetría de Microsoft."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:30
+msgid "Editor modal en la terminal."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:34
+msgid "Git con interfaz en la terminal."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:38
+msgid "Comparar archivos y carpetas."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:42
+msgid "Cliente de bases de datos."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:46
+msgid "adb y fastboot."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:1
+msgid "Productividad"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:5
+msgid "Ofimática completa, en español y con corrector."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:9
+msgid "Notas en Markdown enlazadas."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:13
+msgid "Gestor de contraseñas local y libre."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:17
+msgid "Gestor de contraseñas en la nube."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:21
+msgid "Notas con sincronización cifrada."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:25
+msgid "Notas a mano y anotar PDFs."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:29
+msgid "Unir, dividir y reordenar PDFs."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:33
+msgid "Tareas y listas."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:1
+msgid "Sistema y herramientas"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:5
+msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:9
+msgid "Convertir audio y vídeo (incluido en Static Linux)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:13
+msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:17
+msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:21
+msgid "Permisos de las apps de Flathub."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:25
+msgid "Copias del sistema para volver atrás."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:29
+msgid "Particionar discos."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:33
+msgid "Liberar espacio y borrar rastros."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:37
+msgid "Sincronizar carpetas entre tus equipos, sin nube."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:41
+msgid "Monitor de recursos en la terminal."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:45
+msgid "USB de arranque con varias ISOs a la vez."
+msgstr ""
+
+#. app category in the sl-welcome catalog
+#. installer page (name)
+#: sl-welcome/catalog/10-virtualizacion.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:53
+msgid "Máquinas virtuales"
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:5
+msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:9
+msgid "Máquinas virtuales en dos clics."
+msgstr ""
+
+#. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:13
+msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/aero/theme.conf
+#: installer/calamares/modules/tema/module.conf:60
+msgid "Aero"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/aero/theme.conf
+msgid "cielo, agua y hierba, con brillo"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/ambar/theme.conf
+#: installer/calamares/modules/tema/module.conf:19
+msgid "Ámbar"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/ambar/theme.conf
+msgid "madera, mostaza y verde azulado de los 70"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/bosque/theme.conf
+#: installer/calamares/modules/tema/module.conf:41
+msgid "Bosque"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/bosque/theme.conf
+msgid "niebla sobre pinos, verdes apagados y gris húmedo"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/nordico/theme.conf
+#: installer/calamares/modules/tema/module.conf:34
+msgid "Nórdico"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/nordico/theme.conf
+msgid "gris pizarra azulado, hielo y escarcha"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/nube/theme.conf
+#: installer/calamares/modules/tema/module.conf:74
+msgid "Nube"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/nube/theme.conf
+msgid "cielo de mañana con nubes, claro y suave"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/papel/theme.conf
+#: installer/calamares/modules/tema/module.conf:27
+msgid "Papel"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/papel/theme.conf
+msgid "papel envejecido, tinta y un verde oliva"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/sakura/theme.conf
+#: installer/calamares/modules/tema/module.conf:48
+msgid "Sakura"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/sakura/theme.conf
+msgid "ventanas de tinta sobre un fondo rosa cerezo"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#. installer page (name)
+#. theme name
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:188
+#: entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:195
+#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:198
+#: entornos/hyprland-common/static.lua:199
+#: installer/calamares/modules/tema/module.conf:67
+msgid "Ventanas"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/ventanas/theme.conf
+msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
+msgstr ""
+
+#. installer page (name)
+#. theme name
+#: branding/themes/violeta/theme.conf
+#: installer/calamares/modules/tema/module.conf:54
+msgid "Violeta"
+msgstr ""
+
+#. short description of a theme
+#: branding/themes/violeta/theme.conf
+msgid "monocromo violeta, montañas al anochecer"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:174
+#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:178
+msgid "Apps"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:174
+msgid "abrir la terminal"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:175
+msgid "abrir el gestor de archivos"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:176
+msgid "abrir el navegador (Brave Origin)"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:178
+msgid "lanzador de aplicaciones"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:181
+msgid "Ayuda"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:181
+msgid "esta guía de atajos"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:184
+#: entornos/hyprland-common/static.lua:185
+msgid "zona de pantalla (archivo + portapapeles)"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:188
+msgid "cerrar la ventana"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:189
+msgid "pantalla completa"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:190
+msgid "flotante / en mosaico"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:191
+msgid "pseudo-mosaico"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:192
+msgid "cambiar división horizontal/vertical"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:193
+msgid "pasar a la siguiente"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:195
+msgid "mover el foco"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:196
+msgid "mover la ventana"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:198
+msgid "arrastrar con Super + clic izquierdo"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:199
+msgid "redimensionar con Super + clic derecho"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:203
+#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:206
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+msgid "Escritorios"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:203
+msgid "ir a un escritorio"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:204
+msgid "mover la ventana a otro escritorio"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:206
+msgid "siguiente (rueda del ratón)"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:207
+msgid "anterior (rueda del ratón)"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:208
+msgid "mostrar/ocultar el escritorio rápido"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:209
+msgid "mandar la ventana al escritorio rápido"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:212
+#: entornos/hyprland-common/static.lua:213
+msgid "Sesión"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:212
+msgid "bloquear la pantalla"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:213
+msgid "ver la última notificación"
+msgstr ""
+
+#. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:219
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:227
+msgid "Multimedia"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:219
+msgid "subir volumen"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:220
+msgid "bajar volumen"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:221
+msgid "silenciar"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:222
+msgid "silenciar el micrófono"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:223
+msgid "subir brillo"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:224
+msgid "bajar brillo"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:225
+msgid "reproducir/pausar"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:226
+msgid "siguiente pista"
+msgstr ""
+
+#. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:227
+msgid "pista anterior"
+msgstr ""
+
+#. installer page (step)
+#: installer/calamares/modules/entorno/module.conf:24
+msgid "Entorno de escritorio"
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:29
+msgid "XFCE (temático)"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:30
+msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:37
+msgid "Openbox minimal"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:38
+msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:44
+msgid "Hyprland + Astal (lite)"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:45
+msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:51
+msgid "Hyprland + Astal (full)"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:52
+msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:58
+msgid "KDE Plasma"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:59
+msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:66
+msgid "GNOME"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:67
+msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:74
+msgid "Cinnamon"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:75
+msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:82
+msgid "i3"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:83
+msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:89
+msgid "bspwm"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:90
+msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:96
+msgid "sway"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:97
+msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
+msgstr ""
+
+#. installer page (step)
+#: installer/calamares/modules/sabores-picker/module.conf:10
+msgid "Sabores"
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:15
+msgid "Sabores (opcional)"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:16
+msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:24
+msgid "Gaming"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:25
+msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:32
+msgid "Creación de contenido"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:33
+msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:40
+msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:46
+msgid "Oficina"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:47
+msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:54
+msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:60
+msgid "Educación"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:61
+msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:66
+msgid "Ciberseguridad"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:67
+msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:72
+msgid "Servidor / Homelab"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:73
+msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:20
+msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:28
+msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:35
+msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:42
+msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:49
+msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:55
+msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:61
+msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:68
+msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/tema/module.conf:75
+msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:18
+msgid ""
+"fast · private · yours\n"
+"Tu sistema se está instalando. Esto tarda unos minutos."
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:20
+msgid "Tu escritorio, tu color"
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:21
+msgid ""
+"Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
+"Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:23
+msgid "Privado de serie"
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:24
+msgid ""
+"Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
+"Sube el nivel con  sl-ctl privacy."
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:26
+msgid "Todo a mano"
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:27
+msgid ""
+"sl-welcome: catálogo de apps y primeros pasos.\n"
+"sl-ctl: actualizar, snapshots, ajustes y más."
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:29
+msgid "Hecho para tu equipo"
+msgstr ""
+
+#. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:30
+msgid ""
+"sl-detect ha elegido entorno, kernel y sistema de archivos\n"
+"según tu hardware, de un Celeron a una RTX."
+msgstr ""
+
+#: branding/themes/templates/hypr/hyprlock.conf.in:39
+msgid "Contraseña"
+msgstr ""
+
+#: branding/themes/templates/hypr/hyprlock.conf.in:40
+msgid "Contraseña incorrecta"
+msgstr ""
+
+#: branding/themes/templates/system/plymouth.script.in:68
+msgid "Contraseña del disco"
+msgstr ""
+
+#. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:3
+msgid "Bienvenida a Static Linux"
+msgstr ""
+
+#. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:5
+msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
+msgstr ""
+
+#. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:3
+msgid "Captura de pantalla (zona)"
+msgstr ""
+
+#. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:5
+msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
+msgstr ""
+
+#. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:3
+msgid "Instalar Static Linux"
+msgstr ""
+
+#. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:5
+msgid "Instala Static Linux en este equipo"
+msgstr ""
+
+#. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:9
+msgid "Aplicar un perfil de privacidad de Static Linux"
+msgstr ""
+
+#. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:11
+msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
+msgstr ""
+
+#. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:23
+msgid "Instalar paquetes del catálogo de sl-welcome"
+msgstr ""
+
+#. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:25
+msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
+msgstr ""
