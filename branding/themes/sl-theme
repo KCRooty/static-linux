@@ -265,9 +265,10 @@ def xfconf_from_xml(xml_text: str) -> list[tuple[str, str, str, str]]:
     return out
 
 
-def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None:
-    """Point the running XFCE session at the new files (no-op outside one)."""
-    settings = [
+def session_settings(theme: dict[str, str]) -> list[tuple[str, str, str]]:
+    """(channel, prop, value) the XFCE session needs to pick up the theme:
+    GTK theme, icons, fonts and the generated xfwm4 decorations."""
+    return [
         ("xsettings", "/Net/ThemeName", theme["gtk_theme"]),
         ("xsettings", "/Net/IconThemeName", "StaticLinux"),
         ("xsettings", "/Gtk/FontName", f"{theme['font_ui']} 10"),
@@ -276,7 +277,11 @@ def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None
         ("xfwm4", "/general/title_font", f"{theme['font_ui']} Medium 10"),
         ("xfwm4", "/general/button_layout", xfwm4.BUTTON_LAYOUT[theme["style"]]),
     ]
-    typed = [(c, p, "string", v) for c, p, v in settings]
+
+
+def xfconf(theme: dict[str, str], user: str | None, channels: list[str]) -> None:
+    """Point the running XFCE session at the new files (no-op outside one)."""
+    typed = [(c, p, "string", v) for c, p, v in session_settings(theme)]
     for xml_text in channels:
         typed += xfconf_from_xml(xml_text)
     env = dict(os.environ)
@@ -529,6 +534,11 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     if new_panel:
         w.write(PANEL_STYLE, theme["style"] + "\n")
     log(f"{theme['name']} ({theme['style']}) written to {home}")
+    # the channel files too: skel ships them with the old defaults and, with
+    # no session running (installer, --skel), nothing else would update them
+    if (home / XFCONF_DIR).is_dir():
+        for channel, prop, value in session_settings(theme):
+            xfconf_xml_set(w, channel, prop, "string", value)
     if new_panel:
         for channel, prop, kind, value in style_settings(theme["style"]):
             xfconf_xml_set(w, channel, prop, kind, value)

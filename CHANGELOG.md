@@ -41,6 +41,13 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - La cabecera de sl-welcome usa los colores del tema activo.
 
 ### Arreglos
+- **El tema elegido en el instalador ya se ve en el usuario nuevo.** El skel
+  trae `xsettings.xml` y `xfwm4.xml` con Adwaita-dark y la decoración vieja,
+  y `sl-theme` solo los cambiaba con `xfconf-query`, que en el chroot del
+  instalador no existe: un tema claro como Nube salía con GTK oscuro y sin
+  sus ventanas. Ahora escribe esas claves (tema GTK, iconos, fuentes,
+  decoración y botones) también en los ficheros. Probado instalando la ISO
+  del 2026-11-13 en QEMU con Nube.
 - kitty no cargaba los colores del tema: faltaba el `include` en
   `kitty.conf`.
 - LXTerminal ignoraba su paleta (faltaba `color_preset=Custom`).
