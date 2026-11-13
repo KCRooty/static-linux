@@ -1,6 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
+"Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
+"POT-Creation-Date: 2026-11-13 20:42+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +24,9 @@ msgstr "ディスクの暗号化を確認中"
 msgid "Aplicando el perfil de privacidad"
 msgstr "プライバシープロファイルを適用中"
 
+msgid "Ajustando el rendimiento"
+msgstr "パフォーマンスを調整中"
+
 msgid "Instalando los sabores"
 msgstr "フレーバーをインストール中"
 
@@ -30,6 +35,196 @@ msgstr "ハードウェアを検出中 (sl-detect)"
 
 msgid "Aplicando el tema"
 msgstr "テーマを適用中"
+
+msgid "este comando necesita root (usa sudo)"
+msgstr "このコマンドには root が必要です（sudo を使ってください）"
+
+msgid "desconocido"
+msgstr "不明"
+
+msgid "Kernel"
+msgstr "カーネル"
+
+msgid "Arquitectura"
+msgstr "アーキテクチャ"
+
+msgid "Disco"
+msgstr "ディスク"
+
+msgid "Escritorio recomendado"
+msgstr "おすすめのデスクトップ"
+
+msgid "Privacidad"
+msgstr "プライバシー"
+
+#, python-brace-format
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "不明なプライバシープロファイル: {name}"
+
+#, python-brace-format
+msgid "no se encuentra {path}"
+msgstr "{path} が見つかりません"
+
+msgid "no se encuentra la herramienta de acentos"
+msgstr "アクセントツールが見つかりません"
+
+msgid "'accent <nombre>' necesita root (cambia /etc)"
+msgstr "'accent <名前>' には root が必要です（/etc を変更します）"
+
+msgid "no se encuentra sl-theme"
+msgstr "sl-theme が見つかりません"
+
+msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
+msgstr "sudo を使うとログイン画面、GRUB、起動画面も変わります"
+
+msgid "fstrim.timer semanal (solo SSD)"
+msgstr "毎週の fstrim.timer（SSD のみ）"
+
+msgid "Volver a frenar los split locks (desactivado por rendimiento)"
+msgstr "split lock の抑制を戻す（パフォーマンスのため無効）"
+
+msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
+msgstr "ハードウェア watchdog を再び読み込む（既定では外しています）"
+
+msgid "aplicado"
+msgstr "適用済み"
+
+#, python-brace-format
+msgid "ajuste desconocido: {name}"
+msgstr "不明な調整: {name}"
+
+#, python-brace-format
+msgid "el ajuste {name} no está aplicado"
+msgstr "調整 {name} は適用されていません"
+
+#, python-brace-format
+msgid "revertido: {name}"
+msgstr "元に戻しました: {name}"
+
+msgid "el del kernel (este kernel no tiene sched_ext)"
+msgstr "カーネル標準（このカーネルには sched_ext がありません）"
+
+msgid "el del kernel (EEVDF)"
+msgstr "カーネル標準（EEVDF）"
+
+msgid "sin power-profiles-daemon"
+msgstr "power-profiles-daemon なし"
+
+msgid "ninguna"
+msgstr "なし"
+
+msgid "rendimiento"
+msgstr "パフォーマンス"
+
+msgid "Planificador de CPU"
+msgstr "CPU スケジューラ"
+
+msgid "Perfil de energía"
+msgstr "電源プロファイル"
+
+msgid "Planificador de disco"
+msgstr "ディスクスケジューラ"
+
+msgid "activo"
+msgstr "有効"
+
+msgid "parado"
+msgstr "停止"
+
+#, no-python-format
+msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
+msgstr "ゲーム: Steam の起動オプションに  sl-game %command%  と入力します。"
+
+msgid "power-profiles-daemon no está instalado"
+msgstr "power-profiles-daemon がインストールされていません"
+
+#, python-brace-format
+msgid "perfil desconocido: {name}"
+msgstr "不明なプロファイル: {name}"
+
+#, python-brace-format
+msgid "Planificadores: {list}, off"
+msgstr "スケジューラ: {list}, off"
+
+msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
+msgstr "おすすめは lavd: 負荷に自動で追従し、ゲーム・音声・デスクトップを優先します。"
+
+#, python-brace-format
+msgid "planificador desconocido: {name}"
+msgstr "不明なスケジューラ: {name}"
+
+msgid "Vuelve el planificador del kernel."
+msgstr "カーネルのスケジューラに戻りました。"
+
+msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
+msgstr "このカーネルには sched_ext がありません。linux-zen か linux を使ってください"
+
+msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
+msgstr "スケジューラが起動しませんでした。 journalctl -u scx_loader  を確認してください"
+
+#, python-brace-format
+msgid "Planificador: scx_{name} (también en el próximo arranque)."
+msgstr "スケジューラ: scx_{name}（次回の起動でも有効）。"
+
+msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
+msgstr "AUR は更新されていません: 一般ユーザーが見つかりません。自分のユーザーで `paru -Sua` を実行してください。"
+
+msgid "snapper no está instalado (solo BTRFS)"
+msgstr "snapper がインストールされていません（BTRFS のみ）"
+
+msgid "reflector no está instalado"
+msgstr "reflector がインストールされていません"
+
+msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+msgstr "まだ未実装です。フレーバーは sl-welcome のカタログから追加します。"
+
+msgid "sl-welcome no está instalado."
+msgstr "sl-welcome がインストールされていません。"
+
+msgid "Gestión de Static Linux"
+msgstr "Static Linux の管理"
+
+msgid "ejecuta sl-detect y muestra el resultado"
+msgstr "sl-detect を実行して結果を表示"
+
+msgid "información del sistema"
+msgstr "システム情報"
+
+msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+msgstr "システム全体を更新（pacman + AUR + Flatpak）"
+
+msgid "renueva los mirrors con reflector"
+msgstr "reflector でミラーを更新"
+
+msgid "abre otra vez sl-welcome"
+msgstr "sl-welcome をもう一度開く"
+
+msgid "ajustes del sistema reversibles"
+msgstr "元に戻せるシステム調整"
+
+msgid "instantáneas de Snapper"
+msgstr "Snapper スナップショット"
+
+msgid "añade o quita sabores"
+msgstr "フレーバーを追加・削除"
+
+msgid "muestra o cambia el perfil de privacidad"
+msgstr "プライバシープロファイルを表示・変更"
+
+msgid "muestra o cambia el color de acento"
+msgstr "アクセントカラーを表示・変更"
+
+msgid "lista los acentos"
+msgstr "アクセントの一覧"
+
+msgid "muestra o cambia el tema (fondo + paleta + estilo)"
+msgstr "テーマを表示・変更（壁紙 + パレット + スタイル）"
+
+msgid "lista los temas"
+msgstr "テーマの一覧"
+
+msgid "rendimiento: estado, perfil de energía y planificador de CPU"
+msgstr "パフォーマンス: 状態、電源プロファイル、CPU スケジューラ"
 
 msgid "Espacio"
 msgstr "スペース"
@@ -64,6 +259,7 @@ msgstr "明るさ −"
 msgid "Micro"
 msgstr "マイク"
 
+#, python-brace-format
 msgid "código {n}"
 msgstr "コード {n}"
 
@@ -82,12 +278,14 @@ msgstr "Hyprland は主にキーボードで操作します。Super は Windows 
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "ショートカットを読み込めませんでした (Hyprland は起動していますか?)。"
 
+#. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
 msgid "%A, %-d de %B"
 msgstr "%-m月%-d日 %A"
 
 msgid "Cable"
 msgstr "有線"
 
+#, python-brace-format
 msgid "Red: {name}"
 msgstr "ネットワーク: {name}"
 
@@ -130,6 +328,7 @@ msgstr "暖色"
 msgid "Captura"
 msgstr "スクリーンショット"
 
+#, python-brace-format
 msgid "Batería {pct} %"
 msgstr "バッテリー {pct} %"
 
@@ -166,6 +365,7 @@ msgstr "Static Linux のテーマが見つかりません (sl-theme)。"
 msgid "No se pudo aplicar el tema"
 msgstr "テーマを適用できませんでした"
 
+#, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "テーマを適用しました: {name}"
 
@@ -205,6 +405,7 @@ msgstr "何も選ばれていません"
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Static Forge のアプリをインストールするターミナルがありません"
 
+#, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "ターミナルがありません: «{cmd}» を実行してください"
 
@@ -214,10 +415,12 @@ msgstr "pacman が失敗しました"
 msgid "flatpak falló"
 msgstr "flatpak が失敗しました"
 
+#, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "{n} 個のアプリをインストールしました"
 
+#, python-brace-format
 msgid "Falló: {error}"
 msgstr "失敗: {error}"
 
@@ -244,9 +447,6 @@ msgstr "はい"
 
 msgid "Almacenamiento"
 msgstr "ストレージ"
-
-msgid "Arquitectura"
-msgstr "アーキテクチャ"
 
 msgid "Recomendación de sl-detect"
 msgstr "sl-detect のおすすめ"
@@ -293,6 +493,7 @@ msgstr "各プロファイルは変更内容をバックアップします (/var
 msgid "Aplicar"
 msgstr "適用"
 
+#, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "プロファイル「{name}」を適用しました"
 
@@ -302,9 +503,7 @@ msgstr "ログを確認してください"
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec がインストールされていません。システムの変更を適用するには «polkit» をインストールしてください。"
 
-msgid "perfil de privacidad desconocido: {name}"
-msgstr "不明なプライバシープロファイル: {name}"
-
+#, python-brace-format
 msgid "no encuentro {path}"
 msgstr "{path} が見つかりません"
 
@@ -317,8 +516,8 @@ msgstr "概要"
 msgid "Apariencia"
 msgstr "外観"
 
-msgid "Privacidad"
-msgstr "プライバシー"
+msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
+msgstr "使い方: sl-game <コマンド…>   （Steam では: sl-game %command%）"
 
 msgid "Capturas"
 msgstr "スクリーンショット"
@@ -344,632 +543,873 @@ msgstr "サスペンド"
 msgid "Reiniciar"
 msgstr "再起動"
 
+#. app category in the sl-welcome catalog
 msgid "Static Forge"
 msgstr "Static Forge"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "YouTube、YouTube Music、Spotify、Pinterest からのダウンロード。スタジオ製。"
 
+#. app category in the sl-welcome catalog
 msgid "Internet"
 msgstr "インターネット"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El navegador de Mozilla."
 msgstr "Mozilla のブラウザー。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "Firefox ベース、縦タブとワークスペース付き。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "Chrome の自由なベース、Google のサービスなし。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Correo, calendario y contactos."
 msgstr "メール、カレンダー、連絡先。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "自由で広告なしの BitTorrent クライアント。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "クラウドなしでネットワーク内の他の端末にファイルを送ります。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "自分の Nextcloud サーバーと同期します。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP クライアント。"
 
+#. app category in the sl-welcome catalog
 msgid "Comunicación"
 msgstr "コミュニケーション"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Vencord 内蔵の Discord: テーマ、プラグイン、Linux での性能向上。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial."
 msgstr "公式クライアント。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería."
 msgstr "メッセージアプリ。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "エンドツーエンド暗号化メッセージ。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Chat descentralizado (Matrix)."
 msgstr "分散型チャット (Matrix)。"
 
+#. app category in the sl-welcome catalog
 msgid "Música y audio"
 msgstr "音楽とオーディオ"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "公式クライアント (spotify-launcher でインストールと更新)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Spotify のテーマと拡張。先に Spotify をインストールしてください。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Spotify のプレイリストをローカルにダウンロード (YouTube Music から)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y editar audio."
 msgstr "音声の録音と編集。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "自由なプロ向け DAW: マルチトラック録音とミックス。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "FL Studio 風の音楽制作用の自由な DAW。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Caja de ritmos."
 msgstr "ドラムマシン。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "体験版のある商用 DAW。Linux ネイティブ。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "軽くて強力な DAW (有料ライセンス、フル体験版)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Software de DJ."
 msgstr "DJ ソフト。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor de música ligero."
 msgstr "軽量な音楽プレーヤー。"
 
+#. app category in the sl-welcome catalog
 msgid "Vídeo"
 msgstr "動画"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre y completo."
 msgstr "自由で多機能な動画エディター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "自由でシンプル、速い動画エディター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "プロ向けの編集とカラー (無料だが自由ではない)。重く、専用 GPU が必要です。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y emitir en directo."
 msgstr "録画とライブ配信。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir y comprimir vídeo."
 msgstr "動画の変換と圧縮。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproduce cualquier cosa."
 msgstr "何でも再生します。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor mínimo y muy rápido."
 msgstr "最小限でとても速いプレーヤー。"
 
+#. app category in the sl-welcome catalog
 msgid "Grafismo y 3D"
 msgstr "グラフィックと 3D"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pintura digital."
 msgstr "デジタルペイント。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Retoque fotográfico."
 msgstr "写真の補正。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gráficos vectoriales."
 msgstr "ベクターグラフィック。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Modelado, animación y render 3D."
 msgstr "3D モデリング、アニメーション、レンダリング。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "CAD 3D paramétrico."
 msgstr "パラメトリック 3D CAD。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Revelado RAW."
 msgstr "RAW 現像。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Motor de videojuegos libre."
 msgstr "自由なゲームエンジン。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "ピクセルアートとアニメーション (ソースからビルド)。"
 
+#. app category in the sl-welcome catalog
 msgid "Juegos"
 msgstr "ゲーム"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "Proton で Windows のゲームを遊べます。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games、GOG、Amazon Prime Gaming。Linux で Epic を使う方法。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "すべてのゲームとランチャーを一か所に (Battle.net、EA、Ubisoft…)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "複数インスタンスと MOD に対応した Minecraft Java。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Modrinth の MOD と MOD パック付きの Minecraft Java。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "Mojang 公式の Minecraft Java ランチャー。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "統合版 (Bedrock) のランチャー (Google Play で購入済みである必要があります)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Proton-GE などの Proton/Wine をワンクリックでインストール。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Programas de Windows en entornos aislados."
 msgstr "隔離された環境で Windows のプログラムを動かします。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "ゲーム中の性能と FPS 表示。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador multisistema."
 msgstr "マルチシステムエミュレーター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de GameCube y Wii."
 msgstr "ゲームキューブと Wii のエミュレーター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de PlayStation 2."
 msgstr "PlayStation 2 のエミュレーター。"
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Desarrollo"
 msgstr "開発"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "バージョン管理 (Static Linux に同梱)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "GitHub desde la terminal (gh)."
 msgstr "ターミナルから GitHub (gh)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Compose と Buildx 付きのコンテナー。docker グループへの追加をお忘れなく。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "Microsoft のビルド、マーケットプレイス付き。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "自由なソースからビルドした VS Code (公式リポジトリ)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "Microsoft のテレメトリーなしの VS Code。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor modal en la terminal."
 msgstr "ターミナルのモーダルエディター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Git con interfaz en la terminal."
 msgstr "ターミナル UI の Git。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comparar archivos y carpetas."
 msgstr "ファイルとフォルダーの比較。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente de bases de datos."
 msgstr "データベースクライアント。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "adb y fastboot."
 msgstr "adb と fastboot。"
 
+#. app category in the sl-welcome catalog
 msgid "Productividad"
 msgstr "生産性"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Ofimática completa, en español y con corrector."
 msgstr "スペルチェック付きの完全なオフィススイート。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas en Markdown enlazadas."
 msgstr "リンクで結ぶ Markdown ノート。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas local y libre."
 msgstr "ローカルで自由なパスワードマネージャー。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas en la nube."
 msgstr "クラウドのパスワードマネージャー。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas con sincronización cifrada."
 msgstr "暗号化同期のノート。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas a mano y anotar PDFs."
 msgstr "手書きノートと PDF への書き込み。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "PDF の結合、分割、並べ替え。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Tareas y listas."
 msgstr "タスクとリスト。"
 
+#. app category in the sl-welcome catalog
 msgid "Sistema y herramientas"
 msgstr "システムとツール"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "7z、zip、rar… の圧縮と展開 (Static Linux に同梱)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "音声と動画の変換 (Static Linux に同梱)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "YouTube などから動画と音声をダウンロード (Static Linux に同梱)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH クライアントとサーバー (同梱。サーバーは有効にするまでオフ)。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Permisos de las apps de Flathub."
 msgstr "Flathub アプリの権限。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Copias del sistema para volver atrás."
 msgstr "元に戻すためのシステムスナップショット。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Particionar discos."
 msgstr "ディスクのパーティション作成。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Liberar espacio y borrar rastros."
 msgstr "空き容量を増やし、痕跡を消します。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "クラウドなしでコンピューター間のフォルダーを同期。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Monitor de recursos en la terminal."
 msgstr "ターミナルのリソースモニター。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "複数の ISO を入れられる起動用 USB。"
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Máquinas virtuales"
 msgstr "仮想マシン"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "KVM による仮想マシン、Linux で最速。QEMU と libvirt 付き。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales en dos clics."
 msgstr "2 クリックで仮想マシン。"
 
+#. one-line app description in the sl-welcome catalog
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "定番の選択肢。KVM より遅く、独自のカーネルモジュールを使います。"
 
+#. installer page (name)
+#. theme name
 msgid "Aero"
 msgstr "エアロ"
 
+#. short description of a theme
 msgid "cielo, agua y hierba, con brillo"
 msgstr "空と水と草、光沢あり"
 
+#. installer page (name)
+#. theme name
 msgid "Ámbar"
 msgstr "琥珀"
 
+#. short description of a theme
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "70 年代の木、マスタード、ティール"
 
+#. installer page (name)
+#. theme name
 msgid "Bosque"
 msgstr "森"
 
+#. short description of a theme
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "松林にかかる霧、くすんだ緑、湿った灰色"
 
+#. installer page (name)
+#. theme name
 msgid "Nórdico"
 msgstr "ノルディック"
 
+#. short description of a theme
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "青みがかったスレートグレー、氷と霜"
 
+#. installer page (name)
+#. theme name
 msgid "Nube"
 msgstr "雲"
 
+#. short description of a theme
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "雲のある朝の空、明るくやわらか"
 
+#. installer page (name)
+#. theme name
 msgid "Papel"
 msgstr "紙"
 
+#. short description of a theme
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "古びた紙、墨、オリーブグリーン"
 
+#. installer page (name)
+#. theme name
 msgid "Sakura"
 msgstr "桜"
 
+#. short description of a theme
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "桜色の背景に墨色のウィンドウ"
 
+#. group of keyboard shortcuts in the Hyprland guide
+#. installer page (name)
+#. theme name
 msgid "Ventanas"
 msgstr "ウィンドウズ"
 
+#. short description of a theme
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "グラファイトグレーと水色、アイコン中央寄せの下部バー"
 
+#. installer page (name)
+#. theme name
 msgid "Violeta"
 msgstr "すみれ"
 
+#. short description of a theme
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "すみれ色のモノクローム、夕暮れの山々"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Apps"
 msgstr "アプリ"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir la terminal"
 msgstr "ターミナルを開く"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el gestor de archivos"
 msgstr "ファイルマネージャーを開く"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el navegador (Brave Origin)"
 msgstr "ブラウザーを開く (Brave Origin)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "lanzador de aplicaciones"
 msgstr "アプリケーションランチャー"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Ayuda"
 msgstr "ヘルプ"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "esta guía de atajos"
 msgstr "このショートカットガイド"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "画面の範囲 (ファイル + クリップボード)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cerrar la ventana"
 msgstr "ウィンドウを閉じる"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pantalla completa"
 msgstr "全画面"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "flotante / en mosaico"
 msgstr "フローティング / タイル"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pseudo-mosaico"
 msgstr "疑似タイル"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cambiar división horizontal/vertical"
 msgstr "縦横の分割を切り替え"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pasar a la siguiente"
 msgstr "次へ切り替え"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover el foco"
 msgstr "フォーカスを移動"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana"
 msgstr "ウィンドウを移動"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "Super + 左クリックでドラッグ"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "redimensionar con Super + clic derecho"
 msgstr "Super + 右クリックでサイズ変更"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Escritorios"
 msgstr "ワークスペース"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ir a un escritorio"
 msgstr "ワークスペースへ移動"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana a otro escritorio"
 msgstr "ウィンドウを別のワークスペースへ移動"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente (rueda del ratón)"
 msgstr "次へ (マウスホイール)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "anterior (rueda del ratón)"
 msgstr "前へ (マウスホイール)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "スクラッチパッドの表示/非表示"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mandar la ventana al escritorio rápido"
 msgstr "ウィンドウをスクラッチパッドへ送る"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Sesión"
 msgstr "セッション"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bloquear la pantalla"
 msgstr "画面をロック"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ver la última notificación"
 msgstr "最後の通知を表示"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Multimedia"
 msgstr "メディア"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir volumen"
 msgstr "音量を上げる"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar volumen"
 msgstr "音量を下げる"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar"
 msgstr "ミュート"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar el micrófono"
 msgstr "マイクをミュート"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir brillo"
 msgstr "明るさを上げる"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar brillo"
 msgstr "明るさを下げる"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "reproducir/pausar"
 msgstr "再生/一時停止"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente pista"
 msgstr "次のトラック"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pista anterior"
 msgstr "前のトラック"
 
+#. installer page (step)
 msgid "Entorno de escritorio"
 msgstr "デスクトップ環境"
 
+#. installer page (name)
 msgid "XFCE (temático)"
 msgstr "XFCE (テーマ付き)"
 
+#. installer page (description)
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "実機で検証済みの環境 (Packard Bell iMedia S2883)。Xorg、軽量。RAM 1 GB 以上、または GPU が Wayland に対応しない場合におすすめ。"
 
+#. installer page (name)
 msgid "Openbox minimal"
 msgstr "Openbox 最小構成"
 
+#. installer page (description)
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "最も軽い構成: 512 MB。Openbox + tint2 + jgmenu、既定ではコンポジターなし。"
 
+#. installer page (name)
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
+#. installer page (description)
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland、2〜4 GB。full 版と同じ Astal シェルで、ぼかし・影・重いアニメーションなし。"
 
+#. installer page (name)
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
+#. installer page (description)
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland、推奨上限 4 GB。ぼかし、影、フルアニメーション。Wayland 対応の良い GPU が必要です。"
 
+#. installer page (name)
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
+#. installer page (description)
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "完全でなじみのあるデスクトップ: 下部バー、スタートメニュー、Dolphin、何でも設定可能。Wayland、RAM 4 GB 以上。最も重い環境のため、sl-detect は既定ではすすめません。"
 
+#. installer page (name)
 msgid "GNOME"
 msgstr "GNOME"
 
+#. installer page (description)
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "そのままの GNOME デスクトップ: アクティビティ画面、ドック、GNOME アプリ。Wayland、RAM 4 GB 以上。テーマはライト/ダークモード、アクセント、壁紙、アプリに反映されます。GDM でログイン。"
 
+#. installer page (name)
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
+#. installer page (description)
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "クラシックで快適: 下部バー、スタートメニュー、デスクトップアイコン。Xorg、2 GB 以上。テーマはパネルとメニューにも反映されます。"
 
+#. installer page (name)
 msgid "i3"
 msgstr "i3"
 
+#. installer page (description)
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "キーボードでタイル: ウィンドウが自動で並びます。Xorg、1 GB 以上。i3bar、ランチャーは rofi。Super + Enter でターミナル。"
 
+#. installer page (name)
 msgid "bspwm"
 msgstr "bspwm"
 
+#. installer page (description)
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "二分木タイル、ショートカットは sxhkd、バーは polybar。Xorg、1 GB 以上。すべて自分で設定したい人向け。"
 
+#. installer page (name)
 msgid "sway"
 msgstr "sway"
 
+#. installer page (description)
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3 のタイルを Wayland で。1〜2 GB 以上。バーは waybar、ランチャーは rofi、通知は mako。"
 
+#. installer page (step)
 msgid "Sabores"
 msgstr "フレーバー"
 
+#. installer page (name)
 msgid "Sabores (opcional)"
 msgstr "フレーバー (任意)"
 
+#. installer page (description)
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "やりたいことに合わせたアプリのセット。好きなものを選べます (複数でもなしでも)。システムと一緒にインストールされ、それぞれ快適に動くよう調整済み。あとからウェルカムアプリで追加・削除できます。"
 
+#. installer page (name)
 msgid "Gaming"
 msgstr "ゲーム"
 
+#. installer page (description)
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Steam と Proton、Lutris、Heroic (Epic、GOG、Amazon)、Minecraft 用の Prism Launcher と Modrinth、MangoHud、GameMode、Gamescope。32 ビットライブラリと GPU の Vulkan ドライバーを有効にします。"
 
+#. installer page (name)
 msgid "Creación de contenido"
 msgstr "コンテンツ制作"
 
+#. installer page (description)
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita、GIMP、Inkscape、Blender、Kdenlive、Shotcut、OBS、Audacity、DAW の Ardour・LMMS・Hydrogen。リアルタイム (低遅延) オーディオ付き。"
 
+#. installer page (description)
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git と GitHub CLI、Docker (使うときに自動起動)、VS Code (Code - OSS)、Python、Rust、Node、Java。"
 
+#. installer page (name)
 msgid "Oficina"
 msgstr "オフィス"
 
+#. installer page (description)
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "スペルチェック付き LibreOffice、Obsidian、KeePassXC、Xournal++、PDF ツール。"
 
+#. installer page (description)
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "virt-manager と GNOME Boxes 付きの KVM/QEMU。Windows 11 ゲスト用の TPM と UEFI 対応。"
 
+#. installer page (name)
 msgid "Educación"
 msgstr "教育"
 
+#. installer page (description)
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra、Stellarium、Anki、Jupyter、FreeCAD。"
 
+#. installer page (name)
 msgid "Ciberseguridad"
 msgstr "サイバーセキュリティ"
 
+#. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap、Wireshark、Hashcat、John、Metasploit、Ghidra、Tor。"
 
+#. installer page (name)
 msgid "Servidor / Homelab"
 msgstr "サーバー / ホームラボ"
 
+#. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker、Nginx、MariaDB、WireGuard、Fail2ban、Cockpit。安全のため、有効にするまでどのサービスも待ち受けません。"
 
+#. installer page (description)
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Static Linux のテーマ。暗く温かい: 木、マスタード、ティール。背景は北斎「山下白雨」。上部に細いバー、不透明なウィンドウ。"
 
+#. installer page (description)
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "明るく、古びた紙と墨とオリーブグリーンの色合い。背景は北斎の版画。明るい場所で作業する人に。"
 
+#. installer page (description)
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "暗く冷たい: 青みのスレートと氷。背景は広重「蒲原 夜之雪」。"
 
+#. installer page (description)
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "暗く、松と霧の緑。背景は広重「土山 春之雨」。"
 
+#. installer page (description)
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "暗く、桜色をあしらって。背景は北斎「御殿山」。"
 
+#. installer page (description)
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "暗く、すみれ色のモノクローム。夕暮れの山々。"
 
+#. installer page (description)
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Frutiger Aero スタイル: 明るく、空と泡と草、光沢のあるバー、タスクバーは下。"
 
+#. installer page (description)
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Windows 風: 暗く、アプリ中央寄せのタスクバーが下、ウィンドウボタンは ─ □ ✕。"
 
+#. installer page (description)
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "明るくやわらか、雲のある空を背景に。丸いランチャーとアプリ中央寄せのシェルフが下。時計でクイック設定が開きます。"
 
-msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
-msgstr "fast · private · yours\nシステムをインストールしています。数分かかります。"
+#. installer slideshow
+msgid ""
+"fast · private · yours\n"
+"Tu sistema se está instalando. Esto tarda unos minutos."
+msgstr ""
+"fast · private · yours\n"
+"システムをインストールしています。数分かかります。"
 
+#. installer slideshow
 msgid "Tu escritorio, tu color"
 msgstr "あなたのデスクトップ、あなたの色"
 
-msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
-msgstr "システム全体に 9 つのテーマ: 壁紙、ウィンドウ、ターミナル、起動画面。\nウェルカムアプリか  sl-ctl theme でいつでも変更できます。"
+#. installer slideshow
+msgid ""
+"Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
+"Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr ""
+"システム全体に 9 つのテーマ: 壁紙、ウィンドウ、ターミナル、起動画面。\n"
+"ウェルカムアプリか  sl-ctl theme でいつでも変更できます。"
 
+#. installer slideshow
 msgid "Privado de serie"
 msgstr "最初からプライベート"
 
-msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
-msgstr "テレメトリーはゼロ。暗号化 DNS とファイアウォールは初回起動から有効。\n sl-ctl privacy でレベルを上げられます。"
+#. installer slideshow
+msgid ""
+"Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
+"Sube el nivel con  sl-ctl privacy."
+msgstr ""
+"テレメトリーはゼロ。暗号化 DNS とファイアウォールは初回起動から有効。\n"
+" sl-ctl privacy でレベルを上げられます。"
 
+#. installer slideshow
 msgid "Todo a mano"
 msgstr "すべて手元に"
 
-msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
-msgstr "sl-welcome: アプリカタログと最初の一歩。\nsl-ctl: 更新、スナップショット、調整など。"
+#. installer slideshow
+msgid ""
+"sl-welcome: catálogo de apps y primeros pasos.\n"
+"sl-ctl: actualizar, snapshots, ajustes y más."
+msgstr ""
+"sl-welcome: アプリカタログと最初の一歩。\n"
+"sl-ctl: 更新、スナップショット、調整など。"
 
+#. installer slideshow
 msgid "Hecho para tu equipo"
 msgstr "あなたのコンピューターのために"
 
-msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
-msgstr "sl-detect がハードウェアに合わせて環境、カーネル、\nファイルシステムを選びました。Celeron から RTX まで。"
+#. installer slideshow
+msgid ""
+"sl-detect ha elegido entorno, kernel y sistema de archivos\n"
+"según tu hardware, de un Celeron a una RTX."
+msgstr ""
+"sl-detect がハードウェアに合わせて環境、カーネル、\n"
+"ファイルシステムを選びました。Celeron から RTX まで。"
 
 msgid "Contraseña"
 msgstr "パスワード"
@@ -980,32 +1420,42 @@ msgstr "パスワードが違います"
 msgid "Contraseña del disco"
 msgstr "ディスクのパスワード"
 
+#. menu entry
 msgid "Bienvenida a Static Linux"
 msgstr "Static Linux ウェルカム"
 
+#. menu entry
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "最初の一歩、外観、プライバシー、アプリカタログ"
 
+#. menu entry
 msgid "Captura de pantalla (zona)"
 msgstr "スクリーンショット (範囲)"
 
+#. menu entry
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "ピクチャ/スクリーンショットに保存し、クリップボードにコピーします"
 
+#. menu entry
 msgid "Instalar Static Linux"
 msgstr "Static Linux をインストール"
 
+#. menu entry
 msgid "Instala Static Linux en este equipo"
 msgstr "このコンピューターに Static Linux をインストール"
 
+#. password prompt
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Static Linux のプライバシープロファイルを適用"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "プライバシープロファイルの適用には管理者権限が必要です (sl-welcome)"
 
+#. password prompt
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "sl-welcome のカタログからパッケージをインストール"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "pacman でパッケージをインストールするには管理者権限が必要です (sl-welcome)"

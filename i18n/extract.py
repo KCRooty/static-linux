@@ -26,7 +26,7 @@ POT = I18N / "static-linux.pot"
 PY = (sorted(ROOT.glob("sl-welcome/src/**/*.py"))
       + [ROOT / "sl-ctl" / n for n in ("sl-ctl.py", "sl-quick", "sl-hypr-guide")]
       + sorted(ROOT.glob("installer/calamares/modules/*/main.py")))
-SH = [ROOT / "sl-ctl" / "sl-screenshot"] + sorted(ROOT.glob("sl-ctl/sl-*.sh"))
+SH = [ROOT / "sl-ctl" / "sl-screenshot", ROOT / "sl-ctl" / "sl-game"] + sorted(ROOT.glob("sl-ctl/sl-*.sh"))
 JS = [ROOT / "entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx"]
 
 

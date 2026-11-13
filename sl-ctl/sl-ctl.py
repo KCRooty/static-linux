@@ -22,7 +22,14 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-__version__ = "0.1.0"
+sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "i18n"))
+try:
+    from sl_i18n import _  # noqa: E402
+except ImportError:  # running without the i18n folder
+    def _(text: str) -> str:
+        return text
+
+__version__ = "0.2.0"
 
 STATE_DIR = Path("/var/lib/static-linux")
 BACKUP_DIR = Path("/var/backups/static-linux/tweaks")
@@ -41,7 +48,7 @@ def _sh(cmd: list[str], **kw) -> subprocess.CompletedProcess:
 
 def _need_root() -> None:
     if os.geteuid() != 0:
-        sys.exit("sl-ctl: this command must be run as root")
+        sys.exit("sl-ctl: " + _("este comando necesita root (usa sudo)"))
 
 
 def _invoking_user() -> str | None:
@@ -90,6 +97,10 @@ def cmd_detect(args) -> int:
     return _sh(["python3", _sl_detect_path(), "--all"]).returncode
 
 
+def _row(label: str, value) -> str:
+    return f"  {GREEN}{label:<24}{RESET}{value}"
+
+
 def cmd_info(args) -> int:
     try:
         report = json.loads(
@@ -99,7 +110,7 @@ def cmd_info(args) -> int:
     except (ValueError, subprocess.SubprocessError):
         report = {}
 
-    profile = "unknown"
+    profile = _("desconocido")
     pf = STATE_DIR / "privacy-profile"
     if pf.exists():
         profile = pf.read_text().strip()
@@ -108,15 +119,15 @@ def cmd_info(args) -> int:
     gpu = report.get("gpu", {})
     print(f"""{GREEN}  ▞▚  Static Linux{RESET}  {DIM}by Static Forge · fast. private. yours.{RESET}
 
-  {GREEN}Kernel{RESET}    {os.uname().release}
-  {GREEN}CPU{RESET}       {report.get('cpu', {}).get('model', 'n/a')}
-  {GREEN}RAM{RESET}       {report.get('ram_mb', 0)} MB
-  {GREEN}GPU{RESET}       {gpu.get('model', 'n/a')} ({gpu.get('driver', '?')})
-  {GREEN}Arch{RESET}      {report.get('arch', 'n/a')} / {report.get('firmware', 'n/a')}
-  {GREEN}Storage{RESET}   {report.get('storage', 'n/a')}
-  {GREEN}Wayland{RESET}   {report.get('wayland', 'n/a')}
-  {GREEN}Env (rec){RESET} {rec.get('env', 'n/a')}
-  {GREEN}Privacy{RESET}   {profile}
+{_row(_("Kernel"), os.uname().release)}
+{_row("CPU", report.get('cpu', {}).get('model', 'n/a'))}
+{_row("RAM", f"{report.get('ram_mb', 0)} MB")}
+{_row("GPU", f"{gpu.get('model', 'n/a')} ({gpu.get('driver', '?')})")}
+{_row(_("Arquitectura"), f"{report.get('arch', 'n/a')} / {report.get('firmware', 'n/a')}")}
+{_row(_("Disco"), report.get('storage', 'n/a'))}
+{_row("Wayland", report.get('wayland', 'n/a'))}
+{_row(_("Escritorio recomendado"), rec.get('env', 'n/a'))}
+{_row(_("Privacidad"), profile)}
 """)
     return 0
 
@@ -133,17 +144,17 @@ def cmd_privacy(args) -> int:
     }
     if not args.profile:
         pf = STATE_DIR / "privacy-profile"
-        print(pf.read_text().strip() if pf.exists() else "unknown")
+        print(pf.read_text().strip() if pf.exists() else _("desconocido"))
         return 0
     folder = mapping.get(args.profile.lower())
     if not folder:
-        sys.exit(f"sl-ctl: unknown privacy profile '{args.profile}'")
+        sys.exit("sl-ctl: " + _("perfil de privacidad desconocido: {name}").format(name=args.profile))
     apply_sh = PRIVACY_DIR / folder / "apply.sh"
     if not apply_sh.exists():
         local = Path(__file__).resolve().parents[1] / "privacidad" / folder / "apply.sh"
         apply_sh = local
     if not apply_sh.exists():
-        sys.exit(f"sl-ctl: {apply_sh} not found")
+        sys.exit("sl-ctl: " + _("no se encuentra {path}").format(path=apply_sh))
     return _sh(["bash", str(apply_sh)]).returncode
 
 
@@ -161,13 +172,13 @@ def _accent_apply() -> Path | None:
 def cmd_accent(args) -> int:
     apply = _accent_apply()
     if apply is None:
-        sys.exit("sl-ctl: accent tool not found")
+        sys.exit("sl-ctl: " + _("no se encuentra la herramienta de acentos"))
     if args.list:
         return _sh(["bash", str(apply), "--list"]).returncode
     if not args.name:
         return _sh(["bash", str(apply), "--current"]).returncode
     if os.geteuid() != 0:
-        sys.exit("sl-ctl: 'accent <name>' must be run as root (touches /etc)")
+        sys.exit("sl-ctl: " + _("'accent <nombre>' necesita root (cambia /etc)"))
     return _sh(["bash", str(apply), args.name]).returncode
 
 
@@ -183,12 +194,12 @@ def cmd_theme(args) -> int:
     """Wallpaper + palette + style for the whole look (DESIGN.md), via sl-theme."""
     tool = _theme_tool()
     if tool is None:
-        sys.exit("sl-ctl: sl-theme not found")
+        sys.exit("sl-ctl: " + _("no se encuentra sl-theme"))
     if args.list or not args.name:
         return _sh(["python3", str(tool), "--list"]).returncode
     if os.geteuid() != 0:
         rc = _sh(["python3", str(tool), args.name]).returncode
-        print("sl-ctl: con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque")
+        print("sl-ctl: " + _("con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"))
         return rc
     # as root: the invoking user's desktop, then the machine-wide pieces
     rc = 0
@@ -202,24 +213,26 @@ def cmd_theme(args) -> int:
 # ---------------------------------------------------------------------------
 def _tweaks_registry() -> dict:
     """name -> {'desc', 'files': [...], 'apply': [...], 'check': cmd}."""
+    # swappiness-10 and hdd-bfq are gone (2026-11-13): with zram as swap a
+    # high swappiness is the right value, and every disk type already gets
+    # its I/O scheduler from rendimiento/ (see `sl-ctl perf`).
     return {
-        "swappiness-10": {
-            "desc": "Lower vm.swappiness to 10 (favor RAM over swap)",
-            "file": "/etc/sysctl.d/99-sl-swappiness.conf",
-            "content": "vm.swappiness=10\n",
-            "post": ["sysctl", "--system"],
-        },
         "trim-timer": {
-            "desc": "Enable weekly fstrim.timer (SSD only)",
+            "desc": _("fstrim.timer semanal (solo SSD)"),
             "unit": "fstrim.timer",
         },
-        "hdd-bfq": {
-            "desc": "Set the bfq I/O scheduler for rotational disks",
-            "file": "/etc/udev/rules.d/60-sl-ioschedulers.rules",
-            "content": 'ACTION=="add|change", KERNEL=="sd[a-z]", '
-                       'ATTR{queue/rotational}=="1", '
-                       'ATTR{queue/scheduler}="bfq"\n',
-            "post": ["udevadm", "control", "--reload"],
+        "split-lock": {
+            "desc": _("Volver a frenar los split locks (desactivado por rendimiento)"),
+            "file": "/etc/sysctl.d/99-sl-split-lock.conf",
+            "content": "kernel.split_lock_mitigate=1\n",
+            "post": ["sysctl", "--system"],
+        },
+        "watchdog": {
+            "desc": _("Volver a cargar los watchdogs de hardware (quitados por defecto)"),
+            # same name in /etc shadows the vendor file (and its blacklist)
+            "file": "/etc/modprobe.d/static-linux.conf",
+            "content": "# sl-ctl tweak 'watchdog': shadows /usr/lib/modprobe.d/static-linux.conf,\n"
+                       "# so iTCO_wdt / sp5100_tco load again (next boot).\n",
         },
     }
 
@@ -245,14 +258,14 @@ def cmd_tweaks(args) -> int:
 
     if args.list or not (args.apply or args.revert):
         for name, meta in reg.items():
-            mark = f"{GREEN}applied{RESET}" if state.get(name) else "-"
+            mark = f"{GREEN}{_('aplicado')}{RESET}" if state.get(name) else "-"
             print(f"  {name:18} [{mark}]  {meta['desc']}")
         return 0
 
     _need_root()
     name = args.apply or args.revert
     if name not in reg:
-        sys.exit(f"sl-ctl: unknown tweak '{name}'")
+        sys.exit("sl-ctl: " + _("ajuste desconocido: {name}").format(name=name))
     meta = reg[name]
     stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
 
@@ -274,12 +287,12 @@ def cmd_tweaks(args) -> int:
             _sh(meta["post"])
         state[name] = {"applied": stamp}
         _save_state(state)
-        print(f"{GREEN}applied{RESET} {name}")
+        print(f"{GREEN}{_('aplicado')}{RESET} {name}")
         return 0
 
     # revert
     if name not in state:
-        sys.exit(f"sl-ctl: tweak '{name}' is not applied")
+        sys.exit("sl-ctl: " + _("el ajuste {name} no está aplicado").format(name=name))
     if "file" in meta:
         target = Path(meta["file"])
         backups = sorted((BACKUP_DIR / name).glob(f"{target.name}.*"))
@@ -293,8 +306,144 @@ def cmd_tweaks(args) -> int:
         _sh(meta["post"])
     del state[name]
     _save_state(state)
-    print(f"reverted {name}")
+    print(_("revertido: {name}").format(name=name))
     return 0
+
+
+# ---------------------------------------------------------------------------
+# perf  (rendimiento/: what the system is doing, and the two knobs)
+# ---------------------------------------------------------------------------
+SCX_CONF = Path("/etc/scx_loader/config.toml")
+SCX_TEMPLATE = Path("/usr/share/static-linux/rendimiento/scx/config.toml")
+SCHEDULERS = ("lavd", "bpfland", "cosmos", "flash", "rusty")
+PROFILES = ("power-saver", "balanced", "performance")
+
+
+def _read(path: str, default: str = "") -> str:
+    try:
+        return Path(path).read_text().strip()
+    except OSError:
+        return default
+
+
+def _out(cmd: list[str]) -> str:
+    if not shutil.which(cmd[0]):
+        return ""
+    try:
+        return _sh(cmd, capture_output=True, timeout=5).stdout.strip()
+    except (subprocess.SubprocessError, OSError):
+        return ""
+
+
+def _active(unit: str) -> bool:
+    return _out(["systemctl", "is-active", unit]) == "active"
+
+
+def _perf_status() -> int:
+    ext = Path("/sys/kernel/sched_ext")
+    if not ext.exists():
+        sched = _("el del kernel (este kernel no tiene sched_ext)")
+    elif _read(str(ext / "state")) == "enabled":
+        ops = _read(str(ext / "root/ops"), "sched_ext").split("_")  # lavd_1.1.4_x86_64_…
+        sched = f"scx_{ops[0]} {ops[1]}" if len(ops) > 1 else f"scx_{ops[0]}"
+    else:
+        sched = _("el del kernel (EEVDF)")
+
+    profile = _out(["powerprofilesctl", "get"]) or _("sin power-profiles-daemon")
+
+    zram = []
+    for line in _read("/proc/swaps").splitlines()[1:]:
+        f = line.split()
+        if len(f) >= 3:
+            zram.append(f"{Path(f[0]).name} {int(f[2]) // 1024} MB")
+    swap = ", ".join(zram) or _("ninguna")
+
+    disks = []
+    for q in sorted(Path("/sys/block").glob("*/queue/scheduler")):
+        dev = q.parent.parent.name
+        if dev.startswith(("loop", "zram", "ram", "dm-", "sr", "nbd", "md")):
+            continue
+        cur = next((w.strip("[]") for w in _read(str(q)).split() if w.startswith("[")), "?")
+        disks.append(f"{dev} {cur}")
+
+    print(f"{GREEN}  ▞▚  Static Linux{RESET}  {DIM}{_('rendimiento')}{RESET}\n")
+    print(_row(_("Kernel"), os.uname().release))
+    print(_row(_("Planificador de CPU"), sched))
+    print(_row(_("Perfil de energía"), profile))
+    print(_row("swap", swap))
+    print(_row("swappiness", _read("/proc/sys/vm/swappiness", "?")))
+    print(_row(_("Planificador de disco"), ", ".join(disks) or "-"))
+    print(_row("earlyoom", _("activo") if _active("earlyoom.service") else _("parado")))
+    print()
+    # xgettext:no-python-format
+    print(f"  {DIM}" + _("Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento.") + RESET)
+    return 0
+
+
+def _perf_profile(name: str | None) -> int:
+    if not shutil.which("powerprofilesctl"):
+        sys.exit("sl-ctl: " + _("power-profiles-daemon no está instalado"))
+    if not name:
+        return _sh(["powerprofilesctl", "list"]).returncode
+    if name not in PROFILES:
+        sys.exit("sl-ctl: " + _("perfil desconocido: {name}").format(name=name)
+                 + f" ({', '.join(PROFILES)})")
+    return _sh(["powerprofilesctl", "set", name]).returncode
+
+
+def _perf_scheduler(name: str | None) -> int:
+    if not name:
+        print(_("Planificadores: {list}, off").format(list=", ".join(SCHEDULERS)))
+        print(_("lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."))
+        return 0
+    name = name.removeprefix("scx_")
+    if name not in SCHEDULERS + ("off",):
+        sys.exit("sl-ctl: " + _("planificador desconocido: {name}").format(name=name))
+    _need_root()
+    if name == "off":
+        _sh(["systemctl", "disable", "--now", "scx_loader.service"])
+        print(_("Vuelve el planificador del kernel."))
+        return 0
+    if not Path("/sys/kernel/sched_ext").exists():
+        sys.exit("sl-ctl: " + _("este kernel no tiene sched_ext; usa linux-zen o linux"))
+    if not shutil.which("scx_loader") or not shutil.which("scx_lavd"):
+        rc = _sh(["pacman", "-S", "--needed", "--noconfirm", "scx-scheds", "scx-tools"]).returncode
+        if rc != 0:
+            return rc
+    # backup like any tweak, then write the default the loader starts at boot
+    if SCX_CONF.exists():
+        stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+        bak = BACKUP_DIR / "scx" / f"config.toml.{stamp}"
+        bak.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(SCX_CONF, bak)
+    text = SCX_TEMPLATE.read_text() if SCX_TEMPLATE.exists() else \
+        'default_sched = "scx_lavd"\ndefault_mode = "Auto"\n'
+    lines = [f'default_sched = "scx_{name}"' if ln.startswith("default_sched") else ln
+             for ln in text.splitlines()]
+    SCX_CONF.parent.mkdir(parents=True, exist_ok=True)
+    SCX_CONF.write_text("\n".join(lines) + "\n")
+    _sh(["systemctl", "enable", "scx_loader.service"])
+    _sh(["systemctl", "restart", "scx_loader.service"])
+    # the BPF program takes a few seconds to verify and attach
+    import time
+    for _i in range(30):
+        if _read("/sys/kernel/sched_ext/state") == "enabled":
+            break
+        time.sleep(0.5)
+    else:
+        print("sl-ctl: " + _("el planificador no ha arrancado; mira  journalctl -u scx_loader"),
+              file=sys.stderr)
+        return 1
+    print(_("Planificador: scx_{name} (también en el próximo arranque).").format(name=name))
+    return 0
+
+
+def cmd_perf(args) -> int:
+    if args.what == "profile":
+        return _perf_profile(args.value)
+    if args.what == "scheduler":
+        return _perf_scheduler(args.value)
+    return _perf_status()
 
 
 # ---------------------------------------------------------------------------
@@ -309,8 +458,8 @@ def cmd_update(args) -> int:
             _sh(["sudo", "-u", user, "paru", "-Syu"])
         else:
             # paru refuses to build as root, and there is no user to drop to.
-            print("sl-ctl: AUR update skipped: no non-root user found. "
-                  "Run `paru -Sua` as your own user.", file=sys.stderr)
+            print("sl-ctl: " + _("AUR sin actualizar: no hay un usuario normal al que pasar. "
+                  "Ejecuta `paru -Sua` con tu usuario."), file=sys.stderr)
     if shutil.which("flatpak"):
         _sh(["flatpak", "update"])
     return rc
@@ -318,7 +467,7 @@ def cmd_update(args) -> int:
 
 def cmd_snapshot(args) -> int:
     if not shutil.which("snapper"):
-        sys.exit("sl-ctl: snapper not installed (BTRFS only)")
+        sys.exit("sl-ctl: " + _("snapper no está instalado (solo BTRFS)"))
     if args.create:
         return _sh(["snapper", "create", "-d", "sl-ctl manual"]).returncode
     if args.list:
@@ -332,66 +481,70 @@ def cmd_snapshot(args) -> int:
 def cmd_mirror(args) -> int:
     _need_root()
     if not shutil.which("reflector"):
-        sys.exit("sl-ctl: reflector not installed")
+        sys.exit("sl-ctl: " + _("reflector no está instalado"))
     return _sh(["reflector", "--latest", "20", "--sort", "rate",
                 "--protocol", "https", "--save", "/etc/pacman.d/mirrorlist"]).returncode
 
 
 def cmd_flavor(args) -> int:
-    print("sl-ctl flavor: not yet implemented (Phase 6). "
-          "Flavor package lists live in sabores/.")
+    print("sl-ctl flavor: " + _("aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."))
     return 1
 
 
 def cmd_welcome(args) -> int:
     if shutil.which("sl-welcome"):
         return _sh(["sl-welcome"]).returncode
-    print("sl-ctl welcome: sl-welcome not installed (Phase 7).")
+    print("sl-ctl welcome: " + _("sl-welcome no está instalado."))
     return 1
 
 
 # ---------------------------------------------------------------------------
 def build_parser() -> argparse.ArgumentParser:
-    p = argparse.ArgumentParser(prog="sl-ctl", description="Static Linux management")
+    p = argparse.ArgumentParser(prog="sl-ctl", description=_("Gestión de Static Linux"))
     p.add_argument("--version", action="version", version=f"sl-ctl {__version__}")
     sub = p.add_subparsers(dest="cmd", required=True)
 
-    sub.add_parser("detect", help="run sl-detect and show the result").set_defaults(fn=cmd_detect)
-    sub.add_parser("info", help="branded system info").set_defaults(fn=cmd_info)
-    sub.add_parser("update", help="full system update (pacman + AUR + Flatpak)").set_defaults(fn=cmd_update)
-    sub.add_parser("mirror", help="refresh mirrorlist with reflector").set_defaults(fn=cmd_mirror)
-    sub.add_parser("welcome", help="relaunch sl-welcome").set_defaults(fn=cmd_welcome)
+    sub.add_parser("detect", help=_("ejecuta sl-detect y muestra el resultado")).set_defaults(fn=cmd_detect)
+    sub.add_parser("info", help=_("información del sistema")).set_defaults(fn=cmd_info)
+    sub.add_parser("update", help=_("actualiza todo el sistema (pacman + AUR + Flatpak)")).set_defaults(fn=cmd_update)
+    sub.add_parser("mirror", help=_("renueva los mirrors con reflector")).set_defaults(fn=cmd_mirror)
+    sub.add_parser("welcome", help=_("abre otra vez sl-welcome")).set_defaults(fn=cmd_welcome)
 
-    t = sub.add_parser("tweaks", help="reversible system tweaks")
+    t = sub.add_parser("tweaks", help=_("ajustes del sistema reversibles"))
     t.add_argument("--list", action="store_true")
     t.add_argument("--apply", metavar="NAME")
     t.add_argument("--revert", metavar="NAME")
     t.set_defaults(fn=cmd_tweaks)
 
-    s = sub.add_parser("snapshot", help="Snapper snapshots")
+    s = sub.add_parser("snapshot", help=_("instantáneas de Snapper"))
     s.add_argument("--create", action="store_true")
     s.add_argument("--list", action="store_true")
     s.add_argument("--rollback", metavar="ID")
     s.set_defaults(fn=cmd_snapshot)
 
-    f = sub.add_parser("flavor", help="add/remove flavors post-install")
+    f = sub.add_parser("flavor", help=_("añade o quita sabores"))
     f.add_argument("--add", metavar="FLAVOR")
     f.add_argument("--remove", metavar="FLAVOR")
     f.set_defaults(fn=cmd_flavor)
 
-    pr = sub.add_parser("privacy", help="show or change the privacy profile")
+    pr = sub.add_parser("privacy", help=_("muestra o cambia el perfil de privacidad"))
     pr.add_argument("--profile", metavar="basic|improved|maximum")
     pr.set_defaults(fn=cmd_privacy)
 
-    ac = sub.add_parser("accent", help="show or change the accent colour")
+    ac = sub.add_parser("accent", help=_("muestra o cambia el color de acento"))
     ac.add_argument("name", nargs="?", metavar="purple|blue|green|...")
-    ac.add_argument("--list", action="store_true", help="list available accents")
+    ac.add_argument("--list", action="store_true", help=_("lista los acentos"))
     ac.set_defaults(fn=cmd_accent)
 
-    th = sub.add_parser("theme", help="show or change the theme (wallpaper + palette + style)")
+    th = sub.add_parser("theme", help=_("muestra o cambia el tema (fondo + paleta + estilo)"))
     th.add_argument("name", nargs="?", metavar="ambar|papel|aero|ventanas|...")
-    th.add_argument("--list", action="store_true", help="list available themes")
+    th.add_argument("--list", action="store_true", help=_("lista los temas"))
     th.set_defaults(fn=cmd_theme)
+
+    pf = sub.add_parser("perf", help=_("rendimiento: estado, perfil de energía y planificador de CPU"))
+    pf.add_argument("what", nargs="?", choices=("status", "profile", "scheduler"), default="status")
+    pf.add_argument("value", nargs="?", metavar="performance|lavd|off|...")
+    pf.set_defaults(fn=cmd_perf)
 
     return p
 

@@ -18,6 +18,9 @@ sl-ctl flavor --remove <sabor>
 sl-ctl privacy --profile <perfil>  # cambiar de perfil de privacidad
 sl-ctl theme --list              # temas disponibles y el activo
 sl-ctl theme <tema>              # aplicar un tema (fondo + paleta + estilo)
+sl-ctl perf                      # rendimiento: planificador, energía, swap, discos
+sl-ctl perf profile performance  # perfil de energía
+sudo sl-ctl perf scheduler lavd  # planificador de CPU (sched_ext) u off
 sl-ctl info                      # info del sistema, con marca
 sl-ctl detect                    # ejecuta sl-detect
 sl-ctl welcome                   # relanza sl-welcome
@@ -39,6 +42,26 @@ Sin argumento, muestra el perfil activo (`/var/lib/static-linux/privacy-profile`
 
 Delega en `sl-theme` (ver [Temas y estilos](../temas.md)). Sin argumento,
 muestra el tema activo. Aplica al usuario que lo ejecuta, sin `sudo`.
+
+## `sl-ctl perf`
+
+Muestra el kernel, el planificador de CPU (el del kernel o uno de sched_ext),
+el perfil de energía, la swap, el `swappiness`, el planificador de cada disco
+y si earlyoom está activo. `perf profile` cambia el perfil de
+power-profiles-daemon; `perf scheduler <lavd|bpfland|cosmos|flash|rusty|off>`
+instala scx si falta, guarda la configuración anterior y deja el cambio
+también para el próximo arranque. Ver [Rendimiento](../rendimiento.md).
+
+## `sl-ctl tweaks`
+
+| Tweak | Qué hace |
+|---|---|
+| `trim-timer` | Activa `fstrim.timer` (ya viene activado de serie) |
+| `split-lock` | Vuelve a frenar los split locks (de serie no se frenan) |
+| `watchdog` | Vuelve a cargar los watchdogs de hardware (de serie no se cargan) |
+
+`swappiness-10` y `hdd-bfq` desaparecieron: con zram, un swappiness alto es
+lo correcto, y cada tipo de disco ya recibe su planificador.
 
 ## `sl-ctl info`
 

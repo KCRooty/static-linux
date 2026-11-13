@@ -1,0 +1,7 @@
+---
+# Static Linux — Calamares job: performance and stability on the target.
+# Runs after "sabores" (needs the flavor list and the final fstab). See main.py.
+type:       "job"
+name:       "rendimiento"
+interface:  "python"
+script:     "main.py"

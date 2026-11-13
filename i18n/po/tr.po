@@ -1,6 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
+"Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
+"POT-Creation-Date: 2026-11-13 20:42+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +24,9 @@ msgstr "Disk şifrelemesi denetleniyor"
 msgid "Aplicando el perfil de privacidad"
 msgstr "Gizlilik profili uygulanıyor"
 
+msgid "Ajustando el rendimiento"
+msgstr "Performans ayarlanıyor"
+
 msgid "Instalando los sabores"
 msgstr "Çeşitler kuruluyor"
 
@@ -30,6 +35,196 @@ msgstr "Donanım algılanıyor (sl-detect)"
 
 msgid "Aplicando el tema"
 msgstr "Tema uygulanıyor"
+
+msgid "este comando necesita root (usa sudo)"
+msgstr "bu komut root gerektirir (sudo kullanın)"
+
+msgid "desconocido"
+msgstr "bilinmiyor"
+
+msgid "Kernel"
+msgstr "Çekirdek"
+
+msgid "Arquitectura"
+msgstr "Mimari"
+
+msgid "Disco"
+msgstr "Disk"
+
+msgid "Escritorio recomendado"
+msgstr "Önerilen masaüstü"
+
+msgid "Privacidad"
+msgstr "Gizlilik"
+
+#, python-brace-format
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "bilinmeyen gizlilik profili: {name}"
+
+#, python-brace-format
+msgid "no se encuentra {path}"
+msgstr "{path} bulunamadı"
+
+msgid "no se encuentra la herramienta de acentos"
+msgstr "vurgu aracı bulunamadı"
+
+msgid "'accent <nombre>' necesita root (cambia /etc)"
+msgstr "'accent <ad>' root gerektirir (/etc'yi değiştirir)"
+
+msgid "no se encuentra sl-theme"
+msgstr "sl-theme bulunamadı"
+
+msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
+msgstr "sudo ile giriş ekranı, GRUB ve açılış ekranı da değişir"
+
+msgid "fstrim.timer semanal (solo SSD)"
+msgstr "Haftalık fstrim.timer (yalnızca SSD)"
+
+msgid "Volver a frenar los split locks (desactivado por rendimiento)"
+msgstr "Split lock'ları yeniden yavaşlat (performans için kapalı)"
+
+msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
+msgstr "Donanım watchdog'larını yeniden yükle (varsayılan olarak kaldırıldı)"
+
+msgid "aplicado"
+msgstr "uygulandı"
+
+#, python-brace-format
+msgid "ajuste desconocido: {name}"
+msgstr "bilinmeyen ayar: {name}"
+
+#, python-brace-format
+msgid "el ajuste {name} no está aplicado"
+msgstr "{name} ayarı uygulanmamış"
+
+#, python-brace-format
+msgid "revertido: {name}"
+msgstr "geri alındı: {name}"
+
+msgid "el del kernel (este kernel no tiene sched_ext)"
+msgstr "çekirdeğinki (bu çekirdekte sched_ext yok)"
+
+msgid "el del kernel (EEVDF)"
+msgstr "çekirdeğinki (EEVDF)"
+
+msgid "sin power-profiles-daemon"
+msgstr "power-profiles-daemon yok"
+
+msgid "ninguna"
+msgstr "yok"
+
+msgid "rendimiento"
+msgstr "performans"
+
+msgid "Planificador de CPU"
+msgstr "CPU zamanlayıcı"
+
+msgid "Perfil de energía"
+msgstr "Güç profili"
+
+msgid "Planificador de disco"
+msgstr "Disk zamanlayıcı"
+
+msgid "activo"
+msgstr "etkin"
+
+msgid "parado"
+msgstr "durduruldu"
+
+#, no-python-format
+msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
+msgstr "Oyunlar: Steam'de başlatma seçeneklerine  sl-game %command%  yazın."
+
+msgid "power-profiles-daemon no está instalado"
+msgstr "power-profiles-daemon kurulu değil"
+
+#, python-brace-format
+msgid "perfil desconocido: {name}"
+msgstr "bilinmeyen profil: {name}"
+
+#, python-brace-format
+msgid "Planificadores: {list}, off"
+msgstr "Zamanlayıcılar: {list}, off"
+
+msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
+msgstr "önerilen lavd: yükü kendi izler ve oyunlara, sese ve masaüstüne öncelik verir."
+
+#, python-brace-format
+msgid "planificador desconocido: {name}"
+msgstr "bilinmeyen zamanlayıcı: {name}"
+
+msgid "Vuelve el planificador del kernel."
+msgstr "Çekirdeğin zamanlayıcısına dönüldü."
+
+msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
+msgstr "bu çekirdekte sched_ext yok; linux-zen veya linux kullanın"
+
+msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
+msgstr "zamanlayıcı başlamadı;  journalctl -u scx_loader  çıktısına bakın"
+
+#, python-brace-format
+msgid "Planificador: scx_{name} (también en el próximo arranque)."
+msgstr "Zamanlayıcı: scx_{name} (sonraki açılışta da)."
+
+msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
+msgstr "AUR güncellenmedi: normal kullanıcı bulunamadı. Kendi kullanıcınızla `paru -Sua` çalıştırın."
+
+msgid "snapper no está instalado (solo BTRFS)"
+msgstr "snapper kurulu değil (yalnızca BTRFS)"
+
+msgid "reflector no está instalado"
+msgstr "reflector kurulu değil"
+
+msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+msgstr "henüz hazır değil; çeşitler sl-welcome kataloğundan eklenir."
+
+msgid "sl-welcome no está instalado."
+msgstr "sl-welcome kurulu değil."
+
+msgid "Gestión de Static Linux"
+msgstr "Static Linux yönetimi"
+
+msgid "ejecuta sl-detect y muestra el resultado"
+msgstr "sl-detect'i çalıştırır ve sonucu gösterir"
+
+msgid "información del sistema"
+msgstr "sistem bilgisi"
+
+msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+msgstr "tüm sistemi günceller (pacman + AUR + Flatpak)"
+
+msgid "renueva los mirrors con reflector"
+msgstr "aynaları reflector ile yeniler"
+
+msgid "abre otra vez sl-welcome"
+msgstr "sl-welcome'ı yeniden açar"
+
+msgid "ajustes del sistema reversibles"
+msgstr "geri alınabilir sistem ayarları"
+
+msgid "instantáneas de Snapper"
+msgstr "Snapper anlık görüntüleri"
+
+msgid "añade o quita sabores"
+msgstr "çeşit ekler veya kaldırır"
+
+msgid "muestra o cambia el perfil de privacidad"
+msgstr "gizlilik profilini gösterir veya değiştirir"
+
+msgid "muestra o cambia el color de acento"
+msgstr "vurgu rengini gösterir veya değiştirir"
+
+msgid "lista los acentos"
+msgstr "vurguları listeler"
+
+msgid "muestra o cambia el tema (fondo + paleta + estilo)"
+msgstr "temayı gösterir veya değiştirir (duvar kâğıdı + palet + stil)"
+
+msgid "lista los temas"
+msgstr "temaları listeler"
+
+msgid "rendimiento: estado, perfil de energía y planificador de CPU"
+msgstr "performans: durum, güç profili ve CPU zamanlayıcı"
 
 msgid "Espacio"
 msgstr "Boşluk"
@@ -64,6 +259,7 @@ msgstr "Parlaklık −"
 msgid "Micro"
 msgstr "Mikrofon"
 
+#, python-brace-format
 msgid "código {n}"
 msgstr "kod {n}"
 
@@ -82,12 +278,14 @@ msgstr "Hyprland çoğunlukla klavyeyle kullanılır. Super, Windows tuşudur. B
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "Kısayollar okunamadı (Hyprland çalışıyor mu?)."
 
+#. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
 msgid "%A, %-d de %B"
 msgstr "%-d %B %A"
 
 msgid "Cable"
 msgstr "Kablo"
 
+#, python-brace-format
 msgid "Red: {name}"
 msgstr "Ağ: {name}"
 
@@ -130,6 +328,7 @@ msgstr "Sıcak tonlar"
 msgid "Captura"
 msgstr "Ekran görüntüsü"
 
+#, python-brace-format
 msgid "Batería {pct} %"
 msgstr "Pil %{pct}"
 
@@ -166,6 +365,7 @@ msgstr "Static Linux temaları bulunamadı (sl-theme)."
 msgid "No se pudo aplicar el tema"
 msgstr "Tema uygulanamadı"
 
+#, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "Tema uygulandı: {name}"
 
@@ -205,6 +405,7 @@ msgstr "Hiçbir şey işaretlemedin"
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Static Forge uygulamalarını kurmak için uçbirim yok"
 
+#, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "Uçbirim yok: «{cmd}» komutunu çalıştır"
 
@@ -214,11 +415,13 @@ msgstr "pacman başarısız oldu"
 msgid "flatpak falló"
 msgstr "flatpak başarısız oldu"
 
+#, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "{n} uygulama kuruldu"
 msgstr[1] "{n} uygulama kuruldu"
 
+#, python-brace-format
 msgid "Falló: {error}"
 msgstr "Başarısız: {error}"
 
@@ -245,9 +448,6 @@ msgstr "Evet"
 
 msgid "Almacenamiento"
 msgstr "Depolama"
-
-msgid "Arquitectura"
-msgstr "Mimari"
 
 msgid "Recomendación de sl-detect"
 msgstr "sl-detect önerisi"
@@ -294,6 +494,7 @@ msgstr "Her profil değiştirdiği şeylerin yedeğini alır (/var/backups/stati
 msgid "Aplicar"
 msgstr "Uygula"
 
+#, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "{name} profili uygulandı"
 
@@ -303,9 +504,7 @@ msgstr "günlüğe bak"
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec kurulu değil. Sistem değişikliklerini uygulamak için «polkit» kur."
 
-msgid "perfil de privacidad desconocido: {name}"
-msgstr "bilinmeyen gizlilik profili: {name}"
-
+#, python-brace-format
 msgid "no encuentro {path}"
 msgstr "{path} bulunamadı"
 
@@ -318,8 +517,8 @@ msgstr "Genel"
 msgid "Apariencia"
 msgstr "Görünüm"
 
-msgid "Privacidad"
-msgstr "Gizlilik"
+msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
+msgstr "kullanım: sl-game <komut…>   (Steam'de: sl-game %command%)"
 
 msgid "Capturas"
 msgstr "Ekran görüntüleri"
@@ -345,632 +544,873 @@ msgstr "Askıya al"
 msgid "Reiniciar"
 msgstr "Yeniden başlat"
 
+#. app category in the sl-welcome catalog
 msgid "Static Forge"
 msgstr "Static Forge"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "YouTube, YouTube Music, Spotify ve Pinterest'ten indirme, stüdyoda yapıldı."
 
+#. app category in the sl-welcome catalog
 msgid "Internet"
 msgstr "İnternet"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El navegador de Mozilla."
 msgstr "Mozilla'nın tarayıcısı."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "Firefox tabanlı, dikey sekmeler ve çalışma alanlarıyla."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "Chrome'un özgür temeli, Google hizmetleri olmadan."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Correo, calendario y contactos."
 msgstr "E-posta, takvim ve kişiler."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "Özgür, reklamsız BitTorrent istemcisi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "Ağındaki diğer cihazlara bulut olmadan dosya gönder."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "Kendi Nextcloud sunucunla eşitler."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP istemcisi."
 
+#. app category in the sl-welcome catalog
 msgid "Comunicación"
 msgstr "İletişim"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Vencord yerleşik Discord: temalar, eklentiler ve Linux'ta daha iyi performans."
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial."
 msgstr "Resmî istemci."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería."
 msgstr "Mesajlaşma."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "Uçtan uca şifreli mesajlaşma."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Chat descentralizado (Matrix)."
 msgstr "Merkeziyetsiz sohbet (Matrix)."
 
+#. app category in the sl-welcome catalog
 msgid "Música y audio"
 msgstr "Müzik ve ses"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "Resmî istemci (spotify-launcher ile kurulur ve güncellenir)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Spotify için temalar ve eklentiler. Önce Spotify'ı kur."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Spotify çalma listelerini yerel olarak indir (YouTube Music üzerinden)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y editar audio."
 msgstr "Ses kaydet ve düzenle."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "Özgür profesyonel DAW: çok kanallı kayıt ve miks."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "FL Studio tarzında müzik yapmak için özgür DAW."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Caja de ritmos."
 msgstr "Davul makinesi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "Deneme sürümü olan ticari DAW; Linux'ta yerel."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "Hafif ve güçlü DAW (ücretli lisans, tam deneme)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Software de DJ."
 msgstr "DJ yazılımı."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor de música ligero."
 msgstr "Hafif müzik çalar."
 
+#. app category in the sl-welcome catalog
 msgid "Vídeo"
 msgstr "Video"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre y completo."
 msgstr "Özgür ve eksiksiz video düzenleyici."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "Özgür video düzenleyici, basit ve hızlı."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "Profesyonel kurgu ve renk (ücretsiz, özgür değil). Ağır; ayrı bir GPU gerekir."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y emitir en directo."
 msgstr "Kaydet ve canlı yayın yap."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir y comprimir vídeo."
 msgstr "Video dönüştür ve sıkıştır."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproduce cualquier cosa."
 msgstr "Her şeyi oynatır."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor mínimo y muy rápido."
 msgstr "Sade ve çok hızlı oynatıcı."
 
+#. app category in the sl-welcome catalog
 msgid "Grafismo y 3D"
 msgstr "Grafik ve 3B"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pintura digital."
 msgstr "Dijital resim."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Retoque fotográfico."
 msgstr "Fotoğraf rötuşu."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gráficos vectoriales."
 msgstr "Vektör grafikler."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Modelado, animación y render 3D."
 msgstr "3B modelleme, animasyon ve işleme."
 
+#. one-line app description in the sl-welcome catalog
 msgid "CAD 3D paramétrico."
 msgstr "Parametrik 3B CAD."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Revelado RAW."
 msgstr "RAW geliştirme."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Motor de videojuegos libre."
 msgstr "Özgür oyun motoru."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "Piksel sanatı ve animasyon (kaynaktan derlenir)."
 
+#. app category in the sl-welcome catalog
 msgid "Juegos"
 msgstr "Oyunlar"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "Windows oyunlarını oynamak için Proton ile."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games, GOG ve Amazon Prime Gaming. Linux'ta Epic'i kullanmanın yolu."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "Tüm oyunların ve başlatıcıların için tek yer (Battle.net, EA, Ubisoft…)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "Birden çok örnek ve modla Minecraft Java."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Modrinth modları ve mod paketleriyle Minecraft Java."
 
+#. one-line app description in the sl-welcome catalog
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "Mojang'ın Minecraft Java için resmî başlatıcısı."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "Bedrock sürümü başlatıcısı (Google Play'den satın almış olman gerekir)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Proton-GE ve diğer Proton/Wine sürümlerini tek tıkla kurar."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Programas de Windows en entornos aislados."
 msgstr "Yalıtılmış ortamlarda Windows programları."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "Oyun performansı ve FPS sayacı."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador multisistema."
 msgstr "Çok sistemli emülatör."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de GameCube y Wii."
 msgstr "GameCube ve Wii emülatörü."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de PlayStation 2."
 msgstr "PlayStation 2 emülatörü."
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Desarrollo"
 msgstr "Geliştirme"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "Sürüm denetimi (Static Linux'ta dahil)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "GitHub desde la terminal (gh)."
 msgstr "Uçbirimden GitHub (gh)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Konteynerler, Compose ve Buildx ile. Kendini docker grubuna eklemeyi unutma."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "Microsoft'un derlemesi, kendi marketplace'iyle."
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "Özgür koddan derlenmiş VS Code (resmî depolar)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "Microsoft telemetrisi olmayan VS Code."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor modal en la terminal."
 msgstr "Uçbirimde kipli düzenleyici."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Git con interfaz en la terminal."
 msgstr "Uçbirim arayüzlü Git."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comparar archivos y carpetas."
 msgstr "Dosya ve klasör karşılaştır."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente de bases de datos."
 msgstr "Veritabanı istemcisi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "adb y fastboot."
 msgstr "adb ve fastboot."
 
+#. app category in the sl-welcome catalog
 msgid "Productividad"
 msgstr "Verimlilik"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Ofimática completa, en español y con corrector."
 msgstr "Yazım denetimli eksiksiz ofis paketi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas en Markdown enlazadas."
 msgstr "Bağlantılı Markdown notları."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas local y libre."
 msgstr "Yerel ve özgür parola yöneticisi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas en la nube."
 msgstr "Bulutta parola yöneticisi."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas con sincronización cifrada."
 msgstr "Şifreli eşitlemeli notlar."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas a mano y anotar PDFs."
 msgstr "El yazısı notlar ve PDF açıklama."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "PDF birleştir, böl ve yeniden sırala."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Tareas y listas."
 msgstr "Görevler ve listeler."
 
+#. app category in the sl-welcome catalog
 msgid "Sistema y herramientas"
 msgstr "Sistem ve araçlar"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "7z, zip, rar… sıkıştır ve aç (Static Linux'ta dahil)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "Ses ve video dönüştür (Static Linux'ta dahil)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "YouTube ve daha fazlasından video ve ses indir (Static Linux'ta dahil)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH istemcisi ve sunucusu (dahil; sunucu sen etkinleştirene kadar kapalı kalır)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Permisos de las apps de Flathub."
 msgstr "Flathub uygulamalarının izinleri."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Copias del sistema para volver atrás."
 msgstr "Geri dönmek için sistem anlık görüntüleri."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Particionar discos."
 msgstr "Diskleri bölümle."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Liberar espacio y borrar rastros."
 msgstr "Yer aç ve izleri sil."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "Bilgisayarların arasında bulut olmadan klasör eşitle."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Monitor de recursos en la terminal."
 msgstr "Uçbirimde kaynak izleyici."
 
+#. one-line app description in the sl-welcome catalog
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "Aynı anda birkaç ISO içeren önyüklenebilir USB."
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Máquinas virtuales"
 msgstr "Sanal makineler"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "KVM ile sanal makineler, Linux'ta en hızlısı. QEMU ve libvirt dahil."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales en dos clics."
 msgstr "İki tıkla sanal makineler."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "Klasik seçenek; KVM'den yavaş ve kendi çekirdek modülüyle."
 
+#. installer page (name)
+#. theme name
 msgid "Aero"
 msgstr "Aero"
 
+#. short description of a theme
 msgid "cielo, agua y hierba, con brillo"
 msgstr "gökyüzü, su ve çimen, parlak"
 
+#. installer page (name)
+#. theme name
 msgid "Ámbar"
 msgstr "Kehribar"
 
+#. short description of a theme
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "70'lerin ahşap, hardal ve camgöbeği tonları"
 
+#. installer page (name)
+#. theme name
 msgid "Bosque"
 msgstr "Orman"
 
+#. short description of a theme
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "çamların üstünde sis, soluk yeşiller ve nemli gri"
 
+#. installer page (name)
+#. theme name
 msgid "Nórdico"
 msgstr "Kuzey"
 
+#. short description of a theme
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "mavimsi arduvaz grisi, buz ve kırağı"
 
+#. installer page (name)
+#. theme name
 msgid "Nube"
 msgstr "Bulut"
 
+#. short description of a theme
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "bulutlu sabah gökyüzü, açık ve yumuşak"
 
+#. installer page (name)
+#. theme name
 msgid "Papel"
 msgstr "Kâğıt"
 
+#. short description of a theme
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "eskimiş kâğıt, mürekkep ve zeytin yeşili"
 
+#. installer page (name)
+#. theme name
 msgid "Sakura"
 msgstr "Sakura"
 
+#. short description of a theme
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "kiraz pembesi zemin üstünde mürekkep pencereler"
 
+#. group of keyboard shortcuts in the Hyprland guide
+#. installer page (name)
+#. theme name
 msgid "Ventanas"
 msgstr "Pencereler"
 
+#. short description of a theme
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "grafit gri ve açık mavi, ortada simgelerle alt çubuk"
 
+#. installer page (name)
+#. theme name
 msgid "Violeta"
 msgstr "Mor"
 
+#. short description of a theme
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "mor tek renk, alacakaranlıkta dağlar"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Apps"
 msgstr "Uygulamalar"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir la terminal"
 msgstr "uçbirimi aç"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el gestor de archivos"
 msgstr "dosya yöneticisini aç"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el navegador (Brave Origin)"
 msgstr "tarayıcıyı aç (Brave Origin)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "lanzador de aplicaciones"
 msgstr "uygulama başlatıcı"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Ayuda"
 msgstr "Yardım"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "esta guía de atajos"
 msgstr "bu kısayol kılavuzu"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "ekran alanı (dosya + pano)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cerrar la ventana"
 msgstr "pencereyi kapat"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pantalla completa"
 msgstr "tam ekran"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "flotante / en mosaico"
 msgstr "yüzen / döşeli"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pseudo-mosaico"
 msgstr "sözde döşeme"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cambiar división horizontal/vertical"
 msgstr "yatay/dikey bölmeyi değiştir"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pasar a la siguiente"
 msgstr "sonrakine geç"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover el foco"
 msgstr "odağı taşı"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana"
 msgstr "pencereyi taşı"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "Super + sol tık ile sürükle"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "redimensionar con Super + clic derecho"
 msgstr "Super + sağ tık ile boyutlandır"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Escritorios"
 msgstr "Çalışma alanları"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ir a un escritorio"
 msgstr "bir çalışma alanına git"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana a otro escritorio"
 msgstr "pencereyi başka bir çalışma alanına taşı"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente (rueda del ratón)"
 msgstr "sonraki (fare tekerleği)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "anterior (rueda del ratón)"
 msgstr "önceki (fare tekerleği)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "hızlı çalışma alanını göster/gizle"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mandar la ventana al escritorio rápido"
 msgstr "pencereyi hızlı çalışma alanına gönder"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Sesión"
 msgstr "Oturum"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bloquear la pantalla"
 msgstr "ekranı kilitle"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ver la última notificación"
 msgstr "son bildirimi göster"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Multimedia"
 msgstr "Medya"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir volumen"
 msgstr "sesi aç"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar volumen"
 msgstr "sesi kıs"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar"
 msgstr "sessize al"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar el micrófono"
 msgstr "mikrofonu sessize al"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir brillo"
 msgstr "parlaklığı artır"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar brillo"
 msgstr "parlaklığı azalt"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "reproducir/pausar"
 msgstr "oynat/duraklat"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente pista"
 msgstr "sonraki parça"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pista anterior"
 msgstr "önceki parça"
 
+#. installer page (step)
 msgid "Entorno de escritorio"
 msgstr "Masaüstü ortamı"
 
+#. installer page (name)
 msgid "XFCE (temático)"
 msgstr "XFCE (temalı)"
 
+#. installer page (description)
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "Gerçek donanımda doğrulanmış ortam (Packard Bell iMedia S2883). Xorg, hafif; 1 GB RAM'den itibaren veya GPU Wayland desteklemediğinde önerilir."
 
+#. installer page (name)
 msgid "Openbox minimal"
 msgstr "Openbox minimal"
 
+#. installer page (description)
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "En düşük seviye: 512 MB. Openbox + tint2 + jgmenu, varsayılan olarak bileşikleyici yok."
 
+#. installer page (name)
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
+#. installer page (description)
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland, 2-4 GB. Full sürümle aynı Astal kabuğu; bulanıklık, gölge ve ağır animasyonlar olmadan."
 
+#. installer page (name)
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
+#. installer page (description)
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland, önerilen tavan 4 GB. Bulanıklık, gölgeler ve tam animasyonlar. Wayland desteği iyi bir GPU gerekir."
 
+#. installer page (name)
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
+#. installer page (description)
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "Eksiksiz ve tanıdık masaüstü: altta çubuk, başlat menüsü, Dolphin ve her şey için ayarlar. Wayland, 4 GB RAM'den itibaren. En ağır ortam; sl-detect varsayılan olarak önermez."
 
+#. installer page (name)
 msgid "GNOME"
 msgstr "GNOME"
 
+#. installer page (description)
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "GNOME masaüstü olduğu gibi: etkinlikler görünümü, rıhtım ve GNOME uygulamaları. Wayland, 4 GB RAM'den itibaren. Tema açık veya koyu kipe, vurgu rengine, duvar kâğıdına ve uygulamalara ulaşır. GDM ile giriş."
 
+#. installer page (name)
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
+#. installer page (description)
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "Klasik ve rahat: altta çubuk, başlat menüsü ve masaüstünde simgeler. Xorg, 2 GB'tan itibaren. Tema paneli ve menüyü de giydirir."
 
+#. installer page (name)
 msgid "i3"
 msgstr "i3"
 
+#. installer page (description)
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "Klavyeyle döşeme: pencereler kendiliğinden yerleşir. Xorg, 1 GB'tan itibaren. i3bar çubuğu, rofi başlatıcı. Super + Enter uçbirimi açar."
 
+#. installer page (name)
 msgid "bspwm"
 msgstr "bspwm"
 
+#. installer page (description)
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "İkili ağaçla döşeme, sxhkd'de kısayollar ve polybar çubuğu. Xorg, 1 GB'tan itibaren. Her şeyi yapılandırmak isteyenler için."
 
+#. installer page (name)
 msgid "sway"
 msgstr "sway"
 
+#. installer page (description)
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3'ün döşemesi, Wayland'de. 1-2 GB'tan itibaren. waybar çubuğu, rofi başlatıcı ve mako ile bildirimler."
 
+#. installer page (step)
 msgid "Sabores"
 msgstr "Çeşitler"
 
+#. installer page (name)
 msgid "Sabores (opcional)"
 msgstr "Çeşitler (isteğe bağlı)"
 
+#. installer page (description)
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "Yapacağın işe hazır uygulama paketleri. İstediklerini işaretle (birkaç tane veya hiç): sistemle birlikte kurulur ve her biri iyi çalışacak şekilde ayarlıdır. Her şey sonradan karşılama uygulamasından eklenip çıkarılabilir."
 
+#. installer page (name)
 msgid "Gaming"
 msgstr "Oyun"
 
+#. installer page (description)
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Proton ile Steam, Lutris, Heroic (Epic, GOG, Amazon), Minecraft için Prism Launcher ve Modrinth, MangoHud, GameMode ve Gamescope. 32 bit kütüphaneleri ve GPU'nun Vulkan sürücüsünü etkinleştirir."
 
+#. installer page (name)
 msgid "Creación de contenido"
 msgstr "İçerik üretimi"
 
+#. installer page (description)
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity ve Ardour, LMMS ile Hydrogen DAW'ları; gerçek zamanlı (düşük gecikmeli) ses ile."
 
+#. installer page (description)
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git ve GitHub CLI, Docker (kullanınca kendiliğinden başlar), VS Code (Code - OSS), Python, Rust, Node ve Java."
 
+#. installer page (name)
 msgid "Oficina"
 msgstr "Ofis"
 
+#. installer page (description)
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "Yazım denetimli LibreOffice, Obsidian, KeePassXC, Xournal++ ve PDF araçları."
 
+#. installer page (description)
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "virt-manager ve GNOME Boxes ile KVM/QEMU; Windows 11 konukları için TPM ve UEFI ile."
 
+#. installer page (name)
 msgid "Educación"
 msgstr "Eğitim"
 
+#. installer page (description)
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra, Stellarium, Anki, Jupyter ve FreeCAD."
 
+#. installer page (name)
 msgid "Ciberseguridad"
 msgstr "Siber güvenlik"
 
+#. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra ve Tor."
 
+#. installer page (name)
 msgid "Servidor / Homelab"
 msgstr "Sunucu / Homelab"
 
+#. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban ve Cockpit. Güvenlik için hiçbir hizmet sen etkinleştirene kadar dinlemez."
 
+#. installer page (description)
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Static Linux'un teması. Koyu ve sıcak: ahşap, hardal ve camgöbeği; Hokusai'nin «Fuji'nin altında fırtına» eserinin üstünde. Üstte ince çubuk ve dolu pencereler."
 
+#. installer page (description)
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "Açık; eskimiş kâğıt, mürekkep ve zeytin yeşili tonlarında, bir Hokusai baskısının üstünde. Bol ışıkta çalışanlar için."
 
+#. installer page (description)
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "Koyu ve soğuk: mavimsi arduvaz ve buz; Hiroshige'nin «Kanbara'da akşam karı» eserinin üstünde."
 
+#. installer page (description)
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "Koyu, çam ve sis yeşillerinde; Hiroshige'nin «Tsuchiyama'da bahar yağmuru» eserinin üstünde."
 
+#. installer page (description)
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "Kiraz pembesiyle koyu; Hokusai'nin «Gotenyama'dan Fuji» eserinin üstünde."
 
+#. installer page (description)
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "Koyu ve tek renk mor, alacakaranlıkta dağlarla."
 
+#. installer page (description)
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Frutiger Aero stili: açık; gökyüzü, kabarcıklar ve çimen, parlak çubuklar ve altta görev çubuğu."
 
+#. installer page (description)
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Windows'a benzer: koyu, ortada uygulamalarla altta görev çubuğu ve ─ □ ✕ pencere düğmeleri."
 
+#. installer page (description)
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "Açık ve yumuşak, bulutlu bir gökyüzünün üstünde. Yuvarlak başlatıcı ve ortada uygulamalarla altta raf; saat hızlı ayarları açar."
 
-msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
-msgstr "fast · private · yours\nSistemin kuruluyor. Bu birkaç dakika sürer."
+#. installer slideshow
+msgid ""
+"fast · private · yours\n"
+"Tu sistema se está instalando. Esto tarda unos minutos."
+msgstr ""
+"fast · private · yours\n"
+"Sistemin kuruluyor. Bu birkaç dakika sürer."
 
+#. installer slideshow
 msgid "Tu escritorio, tu color"
 msgstr "Senin masaüstün, senin rengin"
 
-msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
-msgstr "Tüm sistem için dokuz tema: duvar kâğıdı, pencereler, uçbirim ve açılış.\nİstediğin zaman karşılama uygulamasından ya da  sl-ctl theme ile değiştir."
+#. installer slideshow
+msgid ""
+"Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
+"Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr ""
+"Tüm sistem için dokuz tema: duvar kâğıdı, pencereler, uçbirim ve açılış.\n"
+"İstediğin zaman karşılama uygulamasından ya da  sl-ctl theme ile değiştir."
 
+#. installer slideshow
 msgid "Privado de serie"
 msgstr "Kutudan çıktığı gibi gizli"
 
-msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
-msgstr "Sıfır telemetri. Şifreli DNS ve güvenlik duvarı ilk açılıştan itibaren etkin.\nSeviyeyi  sl-ctl privacy ile yükselt."
+#. installer slideshow
+msgid ""
+"Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
+"Sube el nivel con  sl-ctl privacy."
+msgstr ""
+"Sıfır telemetri. Şifreli DNS ve güvenlik duvarı ilk açılıştan itibaren etkin.\n"
+"Seviyeyi  sl-ctl privacy ile yükselt."
 
+#. installer slideshow
 msgid "Todo a mano"
 msgstr "Her şey elinin altında"
 
-msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
-msgstr "sl-welcome: uygulama kataloğu ve ilk adımlar.\nsl-ctl: güncellemeler, anlık görüntüler, ayarlar ve daha fazlası."
+#. installer slideshow
+msgid ""
+"sl-welcome: catálogo de apps y primeros pasos.\n"
+"sl-ctl: actualizar, snapshots, ajustes y más."
+msgstr ""
+"sl-welcome: uygulama kataloğu ve ilk adımlar.\n"
+"sl-ctl: güncellemeler, anlık görüntüler, ayarlar ve daha fazlası."
 
+#. installer slideshow
 msgid "Hecho para tu equipo"
 msgstr "Bilgisayarın için yapıldı"
 
-msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
-msgstr "sl-detect ortamı, çekirdeği ve dosya sistemini\ndonanımına göre seçti; Celeron'dan RTX'e kadar."
+#. installer slideshow
+msgid ""
+"sl-detect ha elegido entorno, kernel y sistema de archivos\n"
+"según tu hardware, de un Celeron a una RTX."
+msgstr ""
+"sl-detect ortamı, çekirdeği ve dosya sistemini\n"
+"donanımına göre seçti; Celeron'dan RTX'e kadar."
 
 msgid "Contraseña"
 msgstr "Parola"
@@ -981,32 +1421,42 @@ msgstr "Yanlış parola"
 msgid "Contraseña del disco"
 msgstr "Disk parolası"
 
+#. menu entry
 msgid "Bienvenida a Static Linux"
 msgstr "Static Linux karşılama"
 
+#. menu entry
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "İlk adımlar, görünüm, gizlilik ve uygulama kataloğu"
 
+#. menu entry
 msgid "Captura de pantalla (zona)"
 msgstr "Ekran görüntüsü (alan)"
 
+#. menu entry
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "Resimler/Ekran görüntüleri klasörüne kaydeder ve panoya kopyalar"
 
+#. menu entry
 msgid "Instalar Static Linux"
 msgstr "Static Linux'u kur"
 
+#. menu entry
 msgid "Instala Static Linux en este equipo"
 msgstr "Static Linux'u bu bilgisayara kur"
 
+#. password prompt
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Bir Static Linux gizlilik profili uygula"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "sl-welcome gizlilik profilini uygulamak için yönetici yetkisi istiyor"
 
+#. password prompt
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "sl-welcome kataloğundan paket kur"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome pacman ile paket kurmak için yönetici yetkisi istiyor"

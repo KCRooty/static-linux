@@ -1,0 +1,42 @@
+#!/usr/bin/env bash
+# Static Linux — sl-game: run a game with the machine in "performance".
+#
+#   sl-game <command…>          e.g. Steam launch options:  sl-game %command%
+#
+# While the game runs (and only then):
+#   - power-profiles-daemon holds the "performance" profile
+#     (powerprofilesctl launch; released when the game exits, even on crash)
+#   - if a sched_ext scheduler is running (scx_loader, Gaming flavor), it is
+#     switched to its Gaming mode and back to Auto afterwards
+# Stack it with the rest as usual:  sl-game gamemoderun mangohud %command%
+# Same idea as CachyOS' game-performance. Nothing stays changed after exit.
+set -u
+
+for f in "$(dirname "$(readlink -f "$0")")/../i18n/sl-i18n.sh" /usr/lib/static-linux/i18n/sl-i18n.sh; do
+    [[ -f "$f" ]] && { source "$f"; break; }
+done
+type t >/dev/null 2>&1 || t() { printf '%s' "$1"; }
+
+if [[ $# -eq 0 ]]; then
+    echo "$(t "uso: sl-game <comando…>   (en Steam: sl-game %command%)")" >&2
+    exit 2
+fi
+
+scx_mode=""
+if command -v scxctl >/dev/null 2>&1 && systemctl is-active --quiet scx_loader.service 2>/dev/null; then
+    if scxctl get 2>/dev/null | grep -qv "no scx scheduler running"; then
+        scxctl switch --mode gaming >/dev/null 2>&1 && scx_mode="gaming"
+    fi
+fi
+
+restore() {
+    [[ -n "$scx_mode" ]] && scxctl switch --mode auto >/dev/null 2>&1
+}
+trap restore EXIT
+
+if command -v powerprofilesctl >/dev/null 2>&1 \
+   && powerprofilesctl list 2>/dev/null | grep -q "performance:"; then
+    powerprofilesctl launch --profile performance --reason "sl-game" -- "$@"
+else
+    "$@"
+fi

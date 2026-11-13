@@ -6,7 +6,7 @@ eso no es un perfil, es la línea base de Static Linux.
 
 | Perfil | Qué añade | Kernel |
 |---|---|---|
-| **Básico** | Defaults de día 0 + UFW + aleatorización de MAC | `linux-zen` |
+| **Básico** | Ajustes seguros desde el primer día + UFW + MAC aleatoria | `linux-zen` |
 | **Mejorado** | + Firejail + AppArmor + USBGuard | `linux-zen` |
 | **Máximo** | + Tor + kloak + swap cifrado | `linux-hardened` |
 

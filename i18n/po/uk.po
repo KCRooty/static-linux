@@ -1,6 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
+"Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
+"POT-Creation-Date: 2026-11-13 20:42+0100\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,6 +24,9 @@ msgstr "Перевірка шифрування диска"
 msgid "Aplicando el perfil de privacidad"
 msgstr "Застосування профілю приватності"
 
+msgid "Ajustando el rendimiento"
+msgstr "Налаштування продуктивності"
+
 msgid "Instalando los sabores"
 msgstr "Встановлення наборів"
 
@@ -30,6 +35,196 @@ msgstr "Визначення обладнання (sl-detect)"
 
 msgid "Aplicando el tema"
 msgstr "Застосування теми"
+
+msgid "este comando necesita root (usa sudo)"
+msgstr "цій команді потрібен root (використайте sudo)"
+
+msgid "desconocido"
+msgstr "невідомо"
+
+msgid "Kernel"
+msgstr "Ядро"
+
+msgid "Arquitectura"
+msgstr "Архітектура"
+
+msgid "Disco"
+msgstr "Диск"
+
+msgid "Escritorio recomendado"
+msgstr "Рекомендована стільниця"
+
+msgid "Privacidad"
+msgstr "Приватність"
+
+#, python-brace-format
+msgid "perfil de privacidad desconocido: {name}"
+msgstr "невідомий профіль приватності: {name}"
+
+#, python-brace-format
+msgid "no se encuentra {path}"
+msgstr "{path} не знайдено"
+
+msgid "no se encuentra la herramienta de acentos"
+msgstr "інструмент акцентів не знайдено"
+
+msgid "'accent <nombre>' necesita root (cambia /etc)"
+msgstr "'accent <назва>' потребує root (змінює /etc)"
+
+msgid "no se encuentra sl-theme"
+msgstr "sl-theme не знайдено"
+
+msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
+msgstr "з sudo змінюються також екран входу, GRUB і екран завантаження"
+
+msgid "fstrim.timer semanal (solo SSD)"
+msgstr "Щотижневий fstrim.timer (лише SSD)"
+
+msgid "Volver a frenar los split locks (desactivado por rendimiento)"
+msgstr "Знову гальмувати split lock (вимкнено заради продуктивності)"
+
+msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
+msgstr "Знову завантажувати апаратні watchdog (типово прибрані)"
+
+msgid "aplicado"
+msgstr "застосовано"
+
+#, python-brace-format
+msgid "ajuste desconocido: {name}"
+msgstr "невідоме налаштування: {name}"
+
+#, python-brace-format
+msgid "el ajuste {name} no está aplicado"
+msgstr "налаштування {name} не застосоване"
+
+#, python-brace-format
+msgid "revertido: {name}"
+msgstr "скасовано: {name}"
+
+msgid "el del kernel (este kernel no tiene sched_ext)"
+msgstr "планувальник ядра (у цьому ядрі немає sched_ext)"
+
+msgid "el del kernel (EEVDF)"
+msgstr "планувальник ядра (EEVDF)"
+
+msgid "sin power-profiles-daemon"
+msgstr "немає power-profiles-daemon"
+
+msgid "ninguna"
+msgstr "немає"
+
+msgid "rendimiento"
+msgstr "продуктивність"
+
+msgid "Planificador de CPU"
+msgstr "Планувальник CPU"
+
+msgid "Perfil de energía"
+msgstr "Профіль живлення"
+
+msgid "Planificador de disco"
+msgstr "Планувальник диска"
+
+msgid "activo"
+msgstr "активний"
+
+msgid "parado"
+msgstr "зупинений"
+
+#, no-python-format
+msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
+msgstr "Ігри: у Steam вкажіть  sl-game %command%  у параметрах запуску."
+
+msgid "power-profiles-daemon no está instalado"
+msgstr "power-profiles-daemon не встановлено"
+
+#, python-brace-format
+msgid "perfil desconocido: {name}"
+msgstr "невідомий профіль: {name}"
+
+#, python-brace-format
+msgid "Planificadores: {list}, off"
+msgstr "Планувальники: {list}, off"
+
+msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
+msgstr "рекомендовано lavd: сам стежить за навантаженням і надає перевагу іграм, звуку та стільниці."
+
+#, python-brace-format
+msgid "planificador desconocido: {name}"
+msgstr "невідомий планувальник: {name}"
+
+msgid "Vuelve el planificador del kernel."
+msgstr "Повернуто планувальник ядра."
+
+msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
+msgstr "у цьому ядрі немає sched_ext; використайте linux-zen або linux"
+
+msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
+msgstr "планувальник не запустився; дивіться  journalctl -u scx_loader"
+
+#, python-brace-format
+msgid "Planificador: scx_{name} (también en el próximo arranque)."
+msgstr "Планувальник: scx_{name} (і під час наступного завантаження)."
+
+msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
+msgstr "AUR не оновлено: звичайного користувача не знайдено. Запустіть `paru -Sua` від свого користувача."
+
+msgid "snapper no está instalado (solo BTRFS)"
+msgstr "snapper не встановлено (лише BTRFS)"
+
+msgid "reflector no está instalado"
+msgstr "reflector не встановлено"
+
+msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+msgstr "ще не готово; варіанти додаються з каталогу sl-welcome."
+
+msgid "sl-welcome no está instalado."
+msgstr "sl-welcome не встановлено."
+
+msgid "Gestión de Static Linux"
+msgstr "Керування Static Linux"
+
+msgid "ejecuta sl-detect y muestra el resultado"
+msgstr "запускає sl-detect і показує результат"
+
+msgid "información del sistema"
+msgstr "відомості про систему"
+
+msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+msgstr "оновлює всю систему (pacman + AUR + Flatpak)"
+
+msgid "renueva los mirrors con reflector"
+msgstr "оновлює дзеркала через reflector"
+
+msgid "abre otra vez sl-welcome"
+msgstr "знову відкриває sl-welcome"
+
+msgid "ajustes del sistema reversibles"
+msgstr "оборотні налаштування системи"
+
+msgid "instantáneas de Snapper"
+msgstr "знімки Snapper"
+
+msgid "añade o quita sabores"
+msgstr "додає або вилучає варіанти"
+
+msgid "muestra o cambia el perfil de privacidad"
+msgstr "показує або змінює профіль приватності"
+
+msgid "muestra o cambia el color de acento"
+msgstr "показує або змінює колір акценту"
+
+msgid "lista los acentos"
+msgstr "список акцентів"
+
+msgid "muestra o cambia el tema (fondo + paleta + estilo)"
+msgstr "показує або змінює тему (шпалери + палітра + стиль)"
+
+msgid "lista los temas"
+msgstr "список тем"
+
+msgid "rendimiento: estado, perfil de energía y planificador de CPU"
+msgstr "продуктивність: стан, профіль живлення і планувальник CPU"
 
 msgid "Espacio"
 msgstr "Пробіл"
@@ -64,6 +259,7 @@ msgstr "Яскравість −"
 msgid "Micro"
 msgstr "Мікрофон"
 
+#, python-brace-format
 msgid "código {n}"
 msgstr "код {n}"
 
@@ -82,12 +278,14 @@ msgstr "Hyprland керується переважно з клавіатури. 
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "Не вдалося прочитати сполучення клавіш (Hyprland запущено?)."
 
+#. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
 msgid "%A, %-d de %B"
 msgstr "%A, %-d %B"
 
 msgid "Cable"
 msgstr "Кабель"
 
+#, python-brace-format
 msgid "Red: {name}"
 msgstr "Мережа: {name}"
 
@@ -130,6 +328,7 @@ msgstr "Теплі тони"
 msgid "Captura"
 msgstr "Знімок екрана"
 
+#, python-brace-format
 msgid "Batería {pct} %"
 msgstr "Батарея {pct} %"
 
@@ -166,6 +365,7 @@ msgstr "Не вдалося знайти теми Static Linux (sl-theme)."
 msgid "No se pudo aplicar el tema"
 msgstr "Не вдалося застосувати тему"
 
+#, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "Тему застосовано: {name}"
 
@@ -205,6 +405,7 @@ msgstr "Нічого не позначено"
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Немає термінала для встановлення застосунків Static Forge"
 
+#, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "Немає термінала: виконайте «{cmd}»"
 
@@ -214,12 +415,14 @@ msgstr "помилка pacman"
 msgid "flatpak falló"
 msgstr "помилка flatpak"
 
+#, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "Встановлено {n} застосунок"
 msgstr[1] "Встановлено {n} застосунки"
 msgstr[2] "Встановлено {n} застосунків"
 
+#, python-brace-format
 msgid "Falló: {error}"
 msgstr "Помилка: {error}"
 
@@ -246,9 +449,6 @@ msgstr "Так"
 
 msgid "Almacenamiento"
 msgstr "Накопичувач"
-
-msgid "Arquitectura"
-msgstr "Архітектура"
 
 msgid "Recomendación de sl-detect"
 msgstr "Рекомендація sl-detect"
@@ -295,6 +495,7 @@ msgstr "Кожен профіль зберігає копію того, що з�
 msgid "Aplicar"
 msgstr "Застосувати"
 
+#, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "Профіль «{name}» застосовано"
 
@@ -304,9 +505,7 @@ msgstr "дивіться журнал"
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec не встановлено. Встановіть «polkit», щоб застосовувати системні зміни."
 
-msgid "perfil de privacidad desconocido: {name}"
-msgstr "невідомий профіль приватності: {name}"
-
+#, python-brace-format
 msgid "no encuentro {path}"
 msgstr "не знайдено: {path}"
 
@@ -319,8 +518,8 @@ msgstr "Огляд"
 msgid "Apariencia"
 msgstr "Вигляд"
 
-msgid "Privacidad"
-msgstr "Приватність"
+msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
+msgstr "використання: sl-game <команда…>   (у Steam: sl-game %command%)"
 
 msgid "Capturas"
 msgstr "Знімки екрана"
@@ -346,632 +545,873 @@ msgstr "Призупинити"
 msgid "Reiniciar"
 msgstr "Перезавантажити"
 
+#. app category in the sl-welcome catalog
 msgid "Static Forge"
 msgstr "Static Forge"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "Завантаження з YouTube, YouTube Music, Spotify і Pinterest, зроблено в студії."
 
+#. app category in the sl-welcome catalog
 msgid "Internet"
 msgstr "Інтернет"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El navegador de Mozilla."
 msgstr "Браузер від Mozilla."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "На основі Firefox, з вертикальними вкладками та робочими просторами."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "Вільна основа Chrome, без сервісів Google."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Correo, calendario y contactos."
 msgstr "Пошта, календар і контакти."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "Вільний BitTorrent-клієнт без реклами."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "Передавання файлів на інші пристрої у вашій мережі, без хмари."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "Синхронізація з вашим власним сервером Nextcloud."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP-клієнт."
 
+#. app category in the sl-welcome catalog
 msgid "Comunicación"
 msgstr "Спілкування"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Discord із вбудованим Vencord: теми, плагіни та краща продуктивність у Linux."
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial."
 msgstr "Офіційний клієнт."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería."
 msgstr "Месенджер."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "Месенджер із наскрізним шифруванням."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Chat descentralizado (Matrix)."
 msgstr "Децентралізований чат (Matrix)."
 
+#. app category in the sl-welcome catalog
 msgid "Música y audio"
 msgstr "Музика й аудіо"
 
+#. one-line app description in the sl-welcome catalog
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "Офіційний клієнт (встановлюється й оновлюється через spotify-launcher)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Теми та розширення для Spotify. Спочатку встановіть Spotify."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Завантажуйте свої плейлисти Spotify локально (через YouTube Music)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y editar audio."
 msgstr "Запис і редагування аудіо."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "Вільна професійна DAW: багатодоріжковий запис і зведення."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "Вільна DAW для створення музики у стилі FL Studio."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Caja de ritmos."
 msgstr "Драм-машина."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "Комерційна DAW з пробною версією; нативна для Linux."
 
+#. one-line app description in the sl-welcome catalog
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "Легка й потужна DAW (платна ліцензія, повна пробна версія)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Software de DJ."
 msgstr "Програма для діджеїв."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor de música ligero."
 msgstr "Легкий музичний програвач."
 
+#. app category in the sl-welcome catalog
 msgid "Vídeo"
 msgstr "Відео"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre y completo."
 msgstr "Вільний і повноцінний відеоредактор."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "Вільний відеоредактор, простий і швидкий."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "Професійний монтаж і корекція кольору (безкоштовно, але не вільно). Важкий; потрібна дискретна відеокарта."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Grabar y emitir en directo."
 msgstr "Запис і прямі трансляції."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir y comprimir vídeo."
 msgstr "Конвертація та стиснення відео."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproduce cualquier cosa."
 msgstr "Відтворює будь-що."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Reproductor mínimo y muy rápido."
 msgstr "Мінімалістичний і дуже швидкий програвач."
 
+#. app category in the sl-welcome catalog
 msgid "Grafismo y 3D"
 msgstr "Графіка та 3D"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pintura digital."
 msgstr "Цифровий живопис."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Retoque fotográfico."
 msgstr "Ретуш фотографій."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gráficos vectoriales."
 msgstr "Векторна графіка."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Modelado, animación y render 3D."
 msgstr "3D-моделювання, анімація та рендеринг."
 
+#. one-line app description in the sl-welcome catalog
 msgid "CAD 3D paramétrico."
 msgstr "Параметрична 3D САПР."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Revelado RAW."
 msgstr "Обробка RAW."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Motor de videojuegos libre."
 msgstr "Вільний ігровий рушій."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "Піксель-арт і анімація (збирається з вихідного коду)."
 
+#. app category in the sl-welcome catalog
 msgid "Juegos"
 msgstr "Ігри"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "З Proton для ігор під Windows."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games, GOG і Amazon Prime Gaming. Спосіб користуватися Epic у Linux."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "Одне місце для всіх ваших ігор і лаунчерів (Battle.net, EA, Ubisoft…)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "Minecraft Java з кількома екземплярами та модами."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Minecraft Java з модами та збірками Modrinth."
 
+#. one-line app description in the sl-welcome catalog
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "Офіційний лаунчер Mojang для Minecraft Java."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "Лаунчер версії Bedrock (її треба мати купленою в Google Play)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Встановлює Proton-GE та інші версії Proton/Wine в один клік."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Programas de Windows en entornos aislados."
 msgstr "Програми Windows в ізольованих середовищах."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "Продуктивність в іграх і лічильник FPS."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador multisistema."
 msgstr "Багатосистемний емулятор."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de GameCube y Wii."
 msgstr "Емулятор GameCube і Wii."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Emulador de PlayStation 2."
 msgstr "Емулятор PlayStation 2."
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Desarrollo"
 msgstr "Розробка"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "Контроль версій (входить до Static Linux)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "GitHub desde la terminal (gh)."
 msgstr "GitHub з термінала (gh)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Контейнери, з Compose і Buildx. Не забудьте додати себе до групи docker."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "Збірка від Microsoft, з її маркетплейсом."
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "VS Code, зібраний з вільного коду (офіційні репозиторії)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "VS Code без телеметрії Microsoft."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Editor modal en la terminal."
 msgstr "Модальний редактор у терміналі."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Git con interfaz en la terminal."
 msgstr "Git з інтерфейсом у терміналі."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comparar archivos y carpetas."
 msgstr "Порівняння файлів і тек."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente de bases de datos."
 msgstr "Клієнт баз даних."
 
+#. one-line app description in the sl-welcome catalog
 msgid "adb y fastboot."
 msgstr "adb і fastboot."
 
+#. app category in the sl-welcome catalog
 msgid "Productividad"
 msgstr "Продуктивність"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Ofimática completa, en español y con corrector."
 msgstr "Повний офісний пакет із перевіркою правопису."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas en Markdown enlazadas."
 msgstr "Пов'язані нотатки в Markdown."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas local y libre."
 msgstr "Локальний вільний менеджер паролів."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Gestor de contraseñas en la nube."
 msgstr "Хмарний менеджер паролів."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas con sincronización cifrada."
 msgstr "Нотатки із зашифрованою синхронізацією."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Notas a mano y anotar PDFs."
 msgstr "Рукописні нотатки та анотації PDF."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "Об'єднання, поділ і впорядкування PDF."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Tareas y listas."
 msgstr "Завдання та списки."
 
+#. app category in the sl-welcome catalog
 msgid "Sistema y herramientas"
 msgstr "Система та інструменти"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "Стиснення й розпакування 7z, zip, rar… (входить до Static Linux)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "Конвертація аудіо та відео (входить до Static Linux)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "Завантаження відео й аудіо з YouTube та інших сайтів (входить до Static Linux)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH-клієнт і сервер (входять; сервер вимкнено, доки ви його не ввімкнете)."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Permisos de las apps de Flathub."
 msgstr "Дозволи застосунків Flathub."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Copias del sistema para volver atrás."
 msgstr "Знімки системи для відкату."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Particionar discos."
 msgstr "Розмітка дисків."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Liberar espacio y borrar rastros."
 msgstr "Звільнення місця та видалення слідів."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "Синхронізація тек між вашими комп'ютерами, без хмари."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Monitor de recursos en la terminal."
 msgstr "Монітор ресурсів у терміналі."
 
+#. one-line app description in the sl-welcome catalog
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "Завантажувальна флешка з кількома ISO одночасно."
 
+#. app category in the sl-welcome catalog
+#. installer page (name)
 msgid "Máquinas virtuales"
 msgstr "Віртуальні машини"
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "Віртуальні машини на KVM, найшвидші в Linux. Містить QEMU і libvirt."
 
+#. one-line app description in the sl-welcome catalog
 msgid "Máquinas virtuales en dos clics."
 msgstr "Віртуальні машини у два кліки."
 
+#. one-line app description in the sl-welcome catalog
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "Класичний варіант; повільніший за KVM і зі своїм модулем ядра."
 
+#. installer page (name)
+#. theme name
 msgid "Aero"
 msgstr "Аеро"
 
+#. short description of a theme
 msgid "cielo, agua y hierba, con brillo"
 msgstr "небо, вода й трава, з глянцем"
 
+#. installer page (name)
+#. theme name
 msgid "Ámbar"
 msgstr "Бурштин"
 
+#. short description of a theme
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "дерево, гірчиця й бірюза 70-х"
 
+#. installer page (name)
+#. theme name
 msgid "Bosque"
 msgstr "Ліс"
 
+#. short description of a theme
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "туман над соснами, приглушена зелень і вологий сірий"
 
+#. installer page (name)
+#. theme name
 msgid "Nórdico"
 msgstr "Північна"
 
+#. short description of a theme
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "блакитно-сланцевий сірий, лід та іній"
 
+#. installer page (name)
+#. theme name
 msgid "Nube"
 msgstr "Хмара"
 
+#. short description of a theme
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "ранкове небо з хмарами, світле й м'яке"
 
+#. installer page (name)
+#. theme name
 msgid "Papel"
 msgstr "Папір"
 
+#. short description of a theme
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "старий папір, туш і оливковий зелений"
 
+#. installer page (name)
+#. theme name
 msgid "Sakura"
 msgstr "Сакура"
 
+#. short description of a theme
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "вікна кольору туші на вишнево-рожевому тлі"
 
+#. group of keyboard shortcuts in the Hyprland guide
+#. installer page (name)
+#. theme name
 msgid "Ventanas"
 msgstr "Вікна"
 
+#. short description of a theme
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "графітовий сірий і блакитний, панель унизу зі значками по центру"
 
+#. installer page (name)
+#. theme name
 msgid "Violeta"
 msgstr "Фіолетова"
 
+#. short description of a theme
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "фіолетовий монохром, гори в сутінках"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Apps"
 msgstr "Застосунки"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir la terminal"
 msgstr "відкрити термінал"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el gestor de archivos"
 msgstr "відкрити файловий менеджер"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "abrir el navegador (Brave Origin)"
 msgstr "відкрити браузер (Brave Origin)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "lanzador de aplicaciones"
 msgstr "запуск застосунків"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Ayuda"
 msgstr "Довідка"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "esta guía de atajos"
 msgstr "цей посібник зі сполучень"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "область екрана (файл + буфер обміну)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cerrar la ventana"
 msgstr "закрити вікно"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pantalla completa"
 msgstr "повний екран"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "flotante / en mosaico"
 msgstr "плаваюче / мозаїка"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pseudo-mosaico"
 msgstr "псевдомозаїка"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "cambiar división horizontal/vertical"
 msgstr "перемкнути горизонтальний/вертикальний поділ"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pasar a la siguiente"
 msgstr "перейти до наступного"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover el foco"
 msgstr "перемістити фокус"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana"
 msgstr "перемістити вікно"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "перетягувати із Super + лівий клік"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "redimensionar con Super + clic derecho"
 msgstr "змінювати розмір із Super + правий клік"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Escritorios"
 msgstr "Робочі столи"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ir a un escritorio"
 msgstr "перейти на робочий стіл"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mover la ventana a otro escritorio"
 msgstr "перемістити вікно на інший робочий стіл"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente (rueda del ratón)"
 msgstr "наступний (коліщатко миші)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "anterior (rueda del ratón)"
 msgstr "попередній (коліщатко миші)"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "показати/сховати швидкий робочий стіл"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "mandar la ventana al escritorio rápido"
 msgstr "надіслати вікно на швидкий робочий стіл"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Sesión"
 msgstr "Сеанс"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bloquear la pantalla"
 msgstr "заблокувати екран"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "ver la última notificación"
 msgstr "показати останнє сповіщення"
 
+#. group of keyboard shortcuts in the Hyprland guide
 msgid "Multimedia"
 msgstr "Мультимедіа"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir volumen"
 msgstr "гучніше"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar volumen"
 msgstr "тихіше"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar"
 msgstr "вимкнути звук"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "silenciar el micrófono"
 msgstr "вимкнути мікрофон"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "subir brillo"
 msgstr "яскравіше"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "bajar brillo"
 msgstr "темніше"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "reproducir/pausar"
 msgstr "відтворення/пауза"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "siguiente pista"
 msgstr "наступний трек"
 
+#. what a keyboard shortcut does (Hyprland guide)
 msgid "pista anterior"
 msgstr "попередній трек"
 
+#. installer page (step)
 msgid "Entorno de escritorio"
 msgstr "Середовище робочого столу"
 
+#. installer page (name)
 msgid "XFCE (temático)"
 msgstr "XFCE (з темою)"
 
+#. installer page (description)
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "Середовище, перевірене на справжньому обладнанні (Packard Bell iMedia S2883). Xorg, легке, рекомендоване від 1 ГБ ОЗП або коли відеокарта не підтримує Wayland."
 
+#. installer page (name)
 msgid "Openbox minimal"
 msgstr "Openbox мінімальний"
 
+#. installer page (description)
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "Найнижчий рівень: 512 МБ. Openbox + tint2 + jgmenu, типово без композитора."
 
+#. installer page (name)
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
+#. installer page (description)
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland, 2-4 ГБ. Та сама оболонка Astal, що й у повній версії, без розмиття, тіней і важких анімацій."
 
+#. installer page (name)
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
+#. installer page (description)
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland, рекомендована стеля 4 ГБ. Розмиття, тіні та повні анімації. Потрібна відеокарта з доброю підтримкою Wayland."
 
+#. installer page (name)
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
+#. installer page (description)
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "Повний і звичний робочий стіл: панель унизу, меню «Пуск», Dolphin і налаштування для всього. Wayland, від 4 ГБ ОЗП. Найважче середовище; sl-detect типово його не рекомендує."
 
+#. installer page (name)
 msgid "GNOME"
 msgstr "GNOME"
 
+#. installer page (description)
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "Робочий стіл GNOME як є: огляд діяльності, док і застосунки GNOME. Wayland, від 4 ГБ ОЗП. Тема охоплює світлий чи темний режим, акцент, шпалери й застосунки. Вхід через GDM."
 
+#. installer page (name)
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
+#. installer page (description)
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "Класичний і зручний: панель унизу, меню «Пуск» і значки на робочому столі. Xorg, від 2 ГБ. Тема оформлює і панель, і меню."
 
+#. installer page (name)
 msgid "i3"
 msgstr "i3"
 
+#. installer page (description)
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "Мозаїка з клавіатури: вікна розташовуються самі. Xorg, від 1 ГБ. Панель i3bar, лаунчер rofi. Super + Enter відкриває термінал."
 
+#. installer page (name)
 msgid "bspwm"
 msgstr "bspwm"
 
+#. installer page (description)
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "Мозаїка за двійковим деревом, сполучення в sxhkd і панель polybar. Xorg, від 1 ГБ. Для тих, хто хоче налаштувати все сам."
 
+#. installer page (name)
 msgid "sway"
 msgstr "sway"
 
+#. installer page (description)
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "Мозаїка i3, але у Wayland. Від 1-2 ГБ. Панель waybar, лаунчер rofi та сповіщення через mako."
 
+#. installer page (step)
 msgid "Sabores"
 msgstr "Набори"
 
+#. installer page (name)
 msgid "Sabores (opcional)"
 msgstr "Набори (необов'язково)"
 
+#. installer page (description)
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "Набори застосунків для того, чим ви збираєтеся займатися. Позначте потрібні (кілька або жодного): вони встановлюються разом із системою, і кожен налаштований на добру продуктивність. Усе можна додати чи прибрати пізніше в застосунку привітання."
 
+#. installer page (name)
 msgid "Gaming"
 msgstr "Ігри"
 
+#. installer page (description)
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Steam з Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher і Modrinth для Minecraft, MangoHud, GameMode і Gamescope. Вмикає 32-бітні бібліотеки та драйвер Vulkan вашої відеокарти."
 
+#. installer page (name)
 msgid "Creación de contenido"
 msgstr "Створення контенту"
 
+#. installer page (description)
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity і DAW Ardour, LMMS та Hydrogen, зі звуком у реальному часі (низька затримка)."
 
+#. installer page (description)
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git і GitHub CLI, Docker (запускається сам під час використання), VS Code (Code - OSS), Python, Rust, Node і Java."
 
+#. installer page (name)
 msgid "Oficina"
 msgstr "Офіс"
 
+#. installer page (description)
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "LibreOffice з перевіркою правопису, Obsidian, KeePassXC, Xournal++ та інструменти для PDF."
 
+#. installer page (description)
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "KVM/QEMU з virt-manager і GNOME Boxes, з TPM і UEFI для гостьових Windows 11."
 
+#. installer page (name)
 msgid "Educación"
 msgstr "Освіта"
 
+#. installer page (description)
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra, Stellarium, Anki, Jupyter і FreeCAD."
 
+#. installer page (name)
 msgid "Ciberseguridad"
 msgstr "Кібербезпека"
 
+#. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra і Tor."
 
+#. installer page (name)
 msgid "Servidor / Homelab"
 msgstr "Сервер / Домашня лабораторія"
 
+#. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban і Cockpit. Задля безпеки жодна служба не слухає мережу, доки ви її не ввімкнете."
 
+#. installer page (description)
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Тема Static Linux. Темна й тепла: дерево, гірчиця й бірюза, на тлі «Грози під Фудзі» Хокусая. Тонка панель угорі та суцільні вікна."
 
+#. installer page (description)
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "Світла, у тонах старого паперу, туші й оливкового, на тлі гравюри Хокусая. Для тих, хто працює при яскравому світлі."
 
+#. installer page (description)
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "Темна й холодна: блакитнуватий сланець і лід, на тлі «Вечірнього снігу в Камбарі» Хіросіґе."
 
+#. installer page (description)
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "Темна, у зелені сосен і туману, на тлі «Весняного дощу в Цутіямі» Хіросіґе."
 
+#. installer page (description)
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "Темна з вишнево-рожевим, на тлі «Фудзі з Ґотенʼями» Хокусая."
 
+#. installer page (description)
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "Темна, монохромно-фіолетова, з горами в сутінках."
 
+#. installer page (description)
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Стиль Frutiger Aero: світла, з небом, бульбашками й травою, глянцевими панелями та панеллю завдань унизу."
 
+#. installer page (description)
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Як Windows: темна, панель завдань унизу із застосунками по центру та кнопками вікон ─ □ ✕."
 
+#. installer page (description)
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "Світла й м'яка, на тлі хмарного неба. Круглий лаунчер і полиця внизу із застосунками по центру; годинник відкриває швидкі налаштування."
 
-msgid "fast · private · yours\nTu sistema se está instalando. Esto tarda unos minutos."
-msgstr "fast · private · yours\nВаша система встановлюється. Це займе кілька хвилин."
+#. installer slideshow
+msgid ""
+"fast · private · yours\n"
+"Tu sistema se está instalando. Esto tarda unos minutos."
+msgstr ""
+"fast · private · yours\n"
+"Ваша система встановлюється. Це займе кілька хвилин."
 
+#. installer slideshow
 msgid "Tu escritorio, tu color"
 msgstr "Ваш робочий стіл, ваш колір"
 
-msgid "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\nCámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
-msgstr "Дев'ять тем для всієї системи: шпалери, вікна, термінал і завантаження.\nЗмінюйте будь-коли в застосунку привітання або через  sl-ctl theme."
+#. installer slideshow
+msgid ""
+"Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
+"Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
+msgstr ""
+"Дев'ять тем для всієї системи: шпалери, вікна, термінал і завантаження.\n"
+"Змінюйте будь-коли в застосунку привітання або через  sl-ctl theme."
 
+#. installer slideshow
 msgid "Privado de serie"
 msgstr "Приватність одразу"
 
-msgid "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\nSube el nivel con  sl-ctl privacy."
-msgstr "Нуль телеметрії. Зашифрований DNS і брандмауер увімкнені з першого завантаження.\nПідвищте рівень через  sl-ctl privacy."
+#. installer slideshow
+msgid ""
+"Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
+"Sube el nivel con  sl-ctl privacy."
+msgstr ""
+"Нуль телеметрії. Зашифрований DNS і брандмауер увімкнені з першого завантаження.\n"
+"Підвищте рівень через  sl-ctl privacy."
 
+#. installer slideshow
 msgid "Todo a mano"
 msgstr "Усе під рукою"
 
-msgid "sl-welcome: catálogo de apps y primeros pasos.\nsl-ctl: actualizar, snapshots, ajustes y más."
-msgstr "sl-welcome: каталог застосунків і перші кроки.\nsl-ctl: оновлення, знімки, налаштування та інше."
+#. installer slideshow
+msgid ""
+"sl-welcome: catálogo de apps y primeros pasos.\n"
+"sl-ctl: actualizar, snapshots, ajustes y más."
+msgstr ""
+"sl-welcome: каталог застосунків і перші кроки.\n"
+"sl-ctl: оновлення, знімки, налаштування та інше."
 
+#. installer slideshow
 msgid "Hecho para tu equipo"
 msgstr "Зроблено для вашого комп'ютера"
 
-msgid "sl-detect ha elegido entorno, kernel y sistema de archivos\nsegún tu hardware, de un Celeron a una RTX."
-msgstr "sl-detect вибрав середовище, ядро та файлову систему\nпід ваше обладнання, від Celeron до RTX."
+#. installer slideshow
+msgid ""
+"sl-detect ha elegido entorno, kernel y sistema de archivos\n"
+"según tu hardware, de un Celeron a una RTX."
+msgstr ""
+"sl-detect вибрав середовище, ядро та файлову систему\n"
+"під ваше обладнання, від Celeron до RTX."
 
 msgid "Contraseña"
 msgstr "Пароль"
@@ -982,32 +1422,42 @@ msgstr "Неправильний пароль"
 msgid "Contraseña del disco"
 msgstr "Пароль диска"
 
+#. menu entry
 msgid "Bienvenida a Static Linux"
 msgstr "Привітання Static Linux"
 
+#. menu entry
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "Перші кроки, вигляд, приватність і каталог застосунків"
 
+#. menu entry
 msgid "Captura de pantalla (zona)"
 msgstr "Знімок екрана (область)"
 
+#. menu entry
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "Зберігає в Зображення/Знімки екрана і копіює в буфер обміну"
 
+#. menu entry
 msgid "Instalar Static Linux"
 msgstr "Встановити Static Linux"
 
+#. menu entry
 msgid "Instala Static Linux en este equipo"
 msgstr "Встановити Static Linux на цей комп'ютер"
 
+#. password prompt
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Застосувати профіль приватності Static Linux"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "sl-welcome потрібні права адміністратора, щоб застосувати профіль приватності"
 
+#. password prompt
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "Встановити пакети з каталогу sl-welcome"
 
+#. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome потрібні права адміністратора, щоб встановити пакети через pacman"

@@ -24,7 +24,7 @@
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
 #   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
 #   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
-#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick} symlinks into the paths above
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick,sl-game} symlinks into the paths above
 #
 # Identity: the Static Linux os-release ships as
 # /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
@@ -42,7 +42,7 @@
 # anyway, so it reports Static Linux without it.
 
 pkgname=staticlinux-base
-pkgver=2026.09.21
+pkgver=2026.11.13
 pkgrel=1
 pkgdesc="Static Linux base: identity files, sl-detect/sl-ctl/sl-welcome, environment and privacy-profile data"
 arch=('any')
@@ -71,6 +71,8 @@ backup=(
     'etc/fastfetch/config.jsonc'
     'etc/xdg/mimeapps.list'
     'etc/static-linux/accent'
+    'etc/makepkg.conf.d/static-linux.conf'
+    'etc/profile.d/static-linux-gpu.sh'
 )
 install=staticlinux-base.install
 source=()
@@ -104,6 +106,7 @@ package() {
     install -Dm755 sl-ctl/sl-hypr-guide "$lib/sl-ctl/sl-hypr-guide"
     install -Dm755 sl-ctl/sl-display-scale "$lib/sl-ctl/sl-display-scale"
     install -Dm755 sl-ctl/sl-quick "$lib/sl-ctl/sl-quick"
+    install -Dm755 sl-ctl/sl-game "$lib/sl-ctl/sl-game"
     install -Dm644 branding/logo/sl-launcher.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/sl-launcher.svg"
 
     # ---- sl-welcome ---------------------------------------------------
@@ -215,6 +218,7 @@ package() {
     ln -s /usr/lib/static-linux/sl-ctl/sl-hypr-guide "$pkgdir/usr/bin/sl-hypr-guide"
     ln -s /usr/lib/static-linux/sl-ctl/sl-display-scale "$pkgdir/usr/bin/sl-display-scale"
     ln -s /usr/lib/static-linux/sl-ctl/sl-quick "$pkgdir/usr/bin/sl-quick"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-game "$pkgdir/usr/bin/sl-game"
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"
@@ -227,6 +231,22 @@ package() {
         "$pkgdir/usr/share/applications/sl-screenshot.desktop"
     install -d "$pkgdir/etc/static-linux"
     echo "purple" > "$pkgdir/etc/static-linux/accent"
+
+    # ---- performance & stability (rendimiento/README.md) ------------------
+    # vendor paths under /usr/lib so an admin's /etc file of the same name wins
+    local r=rendimiento
+    install -Dm644 $r/sysctl.d/70-static-linux.conf "$pkgdir/usr/lib/sysctl.d/70-static-linux.conf"
+    install -Dm644 $r/zram-generator.conf "$pkgdir/usr/lib/systemd/zram-generator.conf"
+    install -Dm644 $r/udev/60-static-linux-ioschedulers.rules \
+        "$pkgdir/usr/lib/udev/rules.d/60-static-linux-ioschedulers.rules"
+    install -Dm644 $r/modprobe.d/static-linux.conf "$pkgdir/usr/lib/modprobe.d/static-linux.conf"
+    install -Dm644 $r/systemd/journald.conf "$pkgdir/usr/lib/systemd/journald.conf.d/static-linux.conf"
+    install -Dm644 $r/systemd/earlyoom.conf \
+        "$pkgdir/usr/lib/systemd/system/earlyoom.service.d/static-linux.conf"
+    install -Dm644 $r/environment.d/60-static-linux.conf "$pkgdir/usr/lib/environment.d/60-static-linux.conf"
+    install -Dm644 $r/profile.d/static-linux-gpu.sh "$pkgdir/etc/profile.d/static-linux-gpu.sh"
+    install -Dm644 $r/makepkg.conf.d/static-linux.conf "$pkgdir/etc/makepkg.conf.d/static-linux.conf"
+    install -Dm644 $r/scx/config.toml "$share/rendimiento/scx/config.toml"
 
     # ---- offline wiki: docs/wiki rendered to one HTML page, opened by
     # sl-welcome's "Wiki" link so it works without a network ---------------

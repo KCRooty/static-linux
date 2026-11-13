@@ -4,7 +4,53 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 Aún no hay ISO pública: todo se construye desde este repositorio.
 
-## Sin publicar · Los temas, en todos los escritorios y en el arranque
+## Sin publicar · 18 idiomas, y rendimiento de serie
+
+### Nuevo
+- **Static Linux en 18 idiomas**: español (el original), inglés, catalán,
+  euskera, gallego, francés, alemán, italiano, portugués, portugués de
+  Brasil, neerlandés, polaco, ruso, ucraniano, turco, japonés, coreano y
+  chino simplificado. Se traducen el instalador (páginas, presentación y
+  pasos), sl-welcome, sl-quick, la guía de atajos de Hyprland, las capturas,
+  la barra de Hyprland, `sl-ctl`, `sl-game`, temas, catálogo, lanzadores, la
+  pantalla de bloqueo y la contraseña del disco al arrancar. Sin traducción,
+  inglés. Todo con gettext, en `i18n/` ([wiki](docs/wiki/idiomas.md)).
+- **Rendimiento y estabilidad de serie**, a partir de la guía de gaming de
+  CachyOS (`rendimiento/`, [wiki](docs/wiki/rendimiento.md)):
+  - zram por fin activo: la mitad de la RAM (8 GB como mucho), zstd y
+    ajustes de memoria pensados para ella. Con menos de 4 GB de RAM se añade
+    un swapfile de 2 GB por debajo (salvo en btrfs).
+  - Planificador de disco según el tipo (NVMe, SSD, disco duro), escritura a
+    disco en bloques pequeños para que una copia grande no congele el
+    escritorio, red con BBR, sin watchdogs y sin frenar los split locks.
+  - earlyoom activo y configurado: cierra lo más grande antes de que el
+    escritorio se congele, nunca la sesión ni el audio.
+  - journal limitado a 256 MB, caché de paquetes que se limpia sola
+    (`paccache.timer`), caché de shaders de 12 GB y makepkg con todos los
+    núcleos.
+  - power-profiles-daemon en `base.list`.
+  - **Sabor Gaming:** planificador de CPU `scx_lavd` (sched_ext) desde el
+    primer arranque, y **`sl-game %command%`** en Steam pone la máquina en
+    `performance` (y lavd en modo Gaming) solo mientras el juego está
+    abierto.
+- **`sl-ctl perf`**: estado del rendimiento, `perf profile` (perfil de
+  energía) y `perf scheduler` (planificador de CPU u `off`). `sl-ctl` habla
+  ya el idioma del sistema.
+- Nuevos tweaks reversibles `split-lock` y `watchdog`, para deshacer esos dos
+  ajustes.
+
+### Cambios
+- Quitados los tweaks `swappiness-10` (iba en contra de zram) y `hdd-bfq`
+  (ya va de serie para cada tipo de disco).
+- Texto del perfil de privacidad básico más claro, también en la wiki.
+
+### Problemas conocidos
+- Las alertas de i3 y sway siguen en español.
+- Probado en una VM instalando el paquete (zram, sysctl, earlyoom, perfiles,
+  lavd con `sl-game`); falta una instalación completa desde la ISO con el
+  sabor Gaming.
+
+## 2026-11-13 · Los temas, en todos los escritorios y en el arranque
 
 ### Nuevo
 - **Estilo `estante` y tema Nube.** Un escritorio de lanzador y estante en

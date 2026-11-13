@@ -1,0 +1,9 @@
+# Static Linux — sched_ext scheduler (scx_loader, /etc/scx_loader/config.toml).
+# Written by the installer for the Gaming flavor, or by `sl-ctl perf scheduler`.
+#
+# scx_lavd follows the load on its own (power saving when idle, performance
+# under load) and favours interactive tasks: games, audio, the desktop. If it
+# ever misbehaves the kernel drops it and goes back to its default scheduler.
+# `sl-game` switches it to Gaming mode while a game runs.
+default_sched = "scx_lavd"
+default_mode = "Auto"

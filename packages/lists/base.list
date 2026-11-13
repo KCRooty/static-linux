@@ -35,9 +35,10 @@ snapper
 snap-pac
 inotify-tools
 
-# ---- Memory / OOM --------------------------------------------------
+# ---- Memory / OOM / power (config: rendimiento/) -------------------
 zram-generator
 earlyoom
+power-profiles-daemon
 
 # ---- Network -------------------------------------------------------
 networkmanager

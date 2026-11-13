@@ -46,28 +46,33 @@ Funciona hoy:
   device-tree); recomienda entorno, sistema de archivos y kernel.
 - **Instalador Calamares** en español y a pantalla completa: entorno, tema,
   sabores, privacidad y catálogo de apps.
-- **Temas** en XFCE con `sl-theme`: GTK 3/4, ventanas, panel, iconos,
-  terminal, fastfetch y fondo.
+- **9 temas** en los 9 escritorios con `sl-theme`: GTK 3/4, ventanas, panel,
+  iconos, terminal y fondo, más LightDM/SDDM, GRUB y Plymouth.
+- **18 idiomas** en el instalador, las herramientas y los escritorios.
+- **Rendimiento de serie**: zram, earlyoom, planificadores de disco,
+  power-profiles-daemon; con el sabor Gaming, `scx_lavd` y `sl-game`.
 - **`sl-welcome`** (GTK4/libadwaita): resumen, selector de temas,
   privacidad y catálogo, con una sección de apps de Static Forge.
-- **`sl-ctl`**: `detect`, `info`, `privacy`, `theme` y `tweaks` con backup;
-  `update`, `snapshot`, `mirror` y `flavor` en desarrollo.
-- **5 entornos** empaquetados: XFCE temático, KDE Plasma, Hyprland+Astal
-  (full/lite) y Openbox minimal.
+- **`sl-ctl`**: `detect`, `info`, `privacy`, `theme`, `perf` y `tweaks` con
+  backup; `update`, `snapshot`, `mirror` y `flavor` en desarrollo.
+- **9 escritorios**: XFCE, KDE Plasma, GNOME, Cinnamon, Hyprland+Astal
+  (full/lite), Openbox, i3, bspwm y sway.
 - **DNS cifrado** por dnscrypt-proxy desde el primer arranque; 3 perfiles de
   privacidad y 8 sabores, todos reversibles.
 
-Pendiente: temas en KDE, Hyprland, Openbox, LightDM, Plymouth y GRUB; sesión
-en vivo con escritorio; ISO offline sin red; BIOS antigua; btrfs y LUKS. La
-lista de cambios está en [`CHANGELOG.md`](CHANGELOG.md).
+Pendiente: estilos fuera de XFCE; ISO offline sin red; BIOS antigua; btrfs y
+LUKS en instalación real. La lista de cambios está en
+[`CHANGELOG.md`](CHANGELOG.md).
 
 ## Arquitectura
 
 - Base: Arch Linux, systemd
 - Instalador: Calamares + sl-detect (live pacman, sin unpackfs)
-- Entornos: XFCE temático / KDE Plasma / Hyprland+Astal (full/lite) / Openbox minimal
-- Aspecto: temas (fondo + paleta) y estilos minimal / aero / ventanas, ver [`DESIGN.md`](DESIGN.md)
+- Entornos: XFCE / KDE Plasma / GNOME / Cinnamon / Hyprland+Astal (full/lite) / Openbox / i3 / bspwm / sway
+- Aspecto: temas (fondo + paleta) y estilos minimal / aero / ventanas / estante, ver [`DESIGN.md`](DESIGN.md)
 - Privacidad: 3 perfiles configurables, reversibles
+- Rendimiento: zram + earlyoom + power-profiles-daemon; sched_ext (`scx_lavd`) con el sabor Gaming, ver [`rendimiento/`](rendimiento/README.md)
+- Idiomas: 18, con gettext, ver [`i18n/`](i18n/)
 - Sistemas de archivos: EXT4 (HDD/RAM baja) / BTRFS (SSD + ≥4 GB) / F2FS (eMMC)
 - Boot: GRUB (Secure Boot no soportado)
 
