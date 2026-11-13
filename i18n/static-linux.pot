@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 23:57+0100\n"
+"POT-Creation-Date: 2026-11-14 00:00+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -757,6 +757,18 @@ msgstr ""
 
 #: sl-ctl/sl-game:21
 msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
+msgstr ""
+
+#: sl-ctl/sl-logout:11
+msgid "¿Cerrar la sesión?"
+msgstr ""
+
+#: sl-ctl/sl-logout:12
+msgid "Sí, cerrar la sesión"
+msgstr ""
+
+#: sl-ctl/sl-logout:18
+msgid "Cancelar"
 msgstr ""
 
 #: sl-ctl/sl-screenshot:20 sl-ctl/sl-screenshot:24
@@ -1730,7 +1742,7 @@ msgid "Servidor / Homelab"
 msgstr ""
 
 #. installer page (description)
-#: installer/calamares/modules/entorno/module.conf:381
+#: installer/calamares/modules/entorno/module.conf:377
 msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
 msgstr ""
 

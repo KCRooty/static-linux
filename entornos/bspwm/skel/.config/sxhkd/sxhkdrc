@@ -30,7 +30,7 @@ super + l
 super + shift + r
 	bspc wm -r; pkill -USR1 -x sxhkd
 super + shift + e
-	bspc quit
+	sl-logout
 XF86Audio{RaiseVolume,LowerVolume}
 	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%{+,-}
 XF86AudioMute

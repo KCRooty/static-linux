@@ -54,7 +54,7 @@ bindsym $mod+Shift+5 move container to workspace number 5
 # session
 bindsym $mod+l exec swaylock -f -c 000000
 bindsym $mod+Shift+r reload
-bindsym $mod+Shift+e exec swaynag -t warning -m '¿Cerrar la sesión?' -B 'Sí' 'swaymsg exit'
+bindsym $mod+Shift+e exec sl-logout
 
 # media keys
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+

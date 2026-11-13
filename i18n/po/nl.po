@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 23:57+0100\n"
+"POT-Creation-Date: 2026-11-14 00:00+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -571,6 +571,15 @@ msgstr "Uiterlijk"
 
 msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
 msgstr "gebruik: sl-game <opdracht…>   (in Steam: sl-game %command%)"
+
+msgid "¿Cerrar la sesión?"
+msgstr "Afmelden?"
+
+msgid "Sí, cerrar la sesión"
+msgstr "Ja, afmelden"
+
+msgid "Cancelar"
+msgstr "Annuleren"
 
 msgid "Capturas"
 msgstr "Schermafbeeldingen"

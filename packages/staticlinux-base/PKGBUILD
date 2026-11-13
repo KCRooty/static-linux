@@ -24,7 +24,7 @@
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
 #   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
 #   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
-#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick,sl-game} symlinks into the paths above
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick,sl-game,sl-logout} symlinks into the paths above
 #
 # Identity: the Static Linux os-release ships as
 # /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
@@ -107,6 +107,7 @@ package() {
     install -Dm755 sl-ctl/sl-display-scale "$lib/sl-ctl/sl-display-scale"
     install -Dm755 sl-ctl/sl-quick "$lib/sl-ctl/sl-quick"
     install -Dm755 sl-ctl/sl-game "$lib/sl-ctl/sl-game"
+    install -Dm755 sl-ctl/sl-logout "$lib/sl-ctl/sl-logout"
     install -Dm644 branding/logo/sl-launcher.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/sl-launcher.svg"
 
     # ---- sl-welcome ---------------------------------------------------
@@ -219,6 +220,7 @@ package() {
     ln -s /usr/lib/static-linux/sl-ctl/sl-display-scale "$pkgdir/usr/bin/sl-display-scale"
     ln -s /usr/lib/static-linux/sl-ctl/sl-quick "$pkgdir/usr/bin/sl-quick"
     ln -s /usr/lib/static-linux/sl-ctl/sl-game "$pkgdir/usr/bin/sl-game"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-logout "$pkgdir/usr/bin/sl-logout"
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"

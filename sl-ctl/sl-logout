@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# Static Linux — sl-logout: the "log out?" prompt of the tiling desktops
+# (Super+Shift+E), in the system language. i3 → i3-nagbar, sway → swaynag,
+# bspwm → rofi (no nag bar of its own).
+set -u
+for f in "$(dirname "$(readlink -f "$0")")/../i18n/sl-i18n.sh" /usr/lib/static-linux/i18n/sl-i18n.sh; do
+    [[ -f "$f" ]] && { source "$f"; break; }
+done
+type t >/dev/null 2>&1 || t() { printf '%s' "$1"; }
+
+msg="$(t "¿Cerrar la sesión?")"
+yes="$(t "Sí, cerrar la sesión")"
+if [[ -n "${SWAYSOCK:-}" ]]; then
+    exec swaynag -t warning -m "$msg" -B "$yes" 'swaymsg exit'
+elif pgrep -x i3 >/dev/null; then
+    exec i3-nagbar -t warning -m "$msg" -B "$yes" 'i3-msg exit'
+elif pgrep -x bspwm >/dev/null; then
+    choice="$(printf '%s\n%s\n' "$yes" "$(t "Cancelar")" | rofi -dmenu -i -p "$msg")"
+    [[ "$choice" == "$yes" ]] && bspc quit
+fi
