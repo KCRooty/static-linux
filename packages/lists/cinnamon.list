@@ -1,0 +1,13 @@
+# Static Linux — Cinnamon
+# Tier: 2 GB. Xorg. A classic desktop (bottom panel, menu, desktop icons);
+# the theme reaches it through gsettings.
+
+cinnamon
+cinnamon-translations
+nemo
+nemo-fileroller
+gnome-terminal
+gnome-text-editor
+gnome-screenshot
+loupe
+xdg-user-dirs-gtk

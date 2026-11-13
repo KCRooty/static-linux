@@ -1,0 +1,14 @@
+// Static Linux — waybar for sway. Colours: style.css imports colors.css (sl-theme).
+{
+  "layer": "top",
+  "position": "top",
+  "height": 30,
+  "modules-left": ["sway/workspaces", "sway/mode"],
+  "modules-center": ["clock"],
+  "modules-right": ["tray", "network", "pulseaudio", "battery"],
+  "clock": { "format": "{:%a %d %b  %H:%M}", "tooltip": false },
+  "network": { "format-wifi": "{essid}", "format-ethernet": "cable", "format-disconnected": "sin red" },
+  "pulseaudio": { "format": "vol {volume}%", "format-muted": "vol —", "on-click": "pavucontrol" },
+  "battery": { "format": "{capacity}%", "states": { "warning": 25, "critical": 10 } },
+  "tray": { "spacing": 8 }
+}

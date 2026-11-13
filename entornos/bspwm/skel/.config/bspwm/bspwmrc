@@ -1,0 +1,17 @@
+#!/bin/sh
+# Static Linux — bspwm. Colours come from the theme (theme.sh, written by sl-theme).
+pgrep -x sxhkd >/dev/null || sxhkd &
+bspc monitor -d 1 2 3 4 5
+bspc config split_ratio 0.52
+bspc config borderless_monocle true
+bspc config gapless_monocle true
+bspc config focus_follows_pointer true
+[ -f ~/.config/bspwm/theme.sh ] && . ~/.config/bspwm/theme.sh
+[ -f ~/.config/bspwm/local.sh ] && . ~/.config/bspwm/local.sh   # your own settings
+
+[ -x ~/.fehbg ] && ~/.fehbg &
+pgrep -x picom >/dev/null || picom -b
+pgrep -x dunst >/dev/null || dunst &
+pgrep -x nm-applet >/dev/null || nm-applet &
+~/.config/polybar/launch.sh &
+sl-welcome --autostart &

@@ -27,6 +27,17 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   hyprpaper, hyprlock y barra en Hyprland; tema de ventanas, tint2, jgmenu,
   dunst, LXTerminal y fondo en Openbox. Los `install.sh` de esos entornos ya
   no usan los acentos viejos.
+- **Cinco escritorios nuevos en el instalador: GNOME, Cinnamon, i3, bspwm y
+  sway**, cada uno con su lista de paquetes, su `install.sh` (lógica común en
+  `entornos/common/deploy.sh`) y su tarjeta. Los 9 temas también llegan a
+  ellos: en GNOME y Cinnamon, modo claro/oscuro, acento, tipografías y fondo
+  por gsettings (también en `/etc/skel`, vía dconf); en Cinnamon, además, un
+  tema de panel propio generado desde la paleta. En i3, sway y bspwm, colores
+  de bordes, barra (i3bar, waybar o polybar), rofi, mako y fondo, con
+  plantillas nuevas en `templates/tiling/`. Se recargan sin cerrar sesión.
+  GNOME trae GDM y el instalador lo prefiere cuando está.
+- Hyprland: si hyprpaper falla (pasa en máquinas virtuales sin GPU), el fondo
+  lo pone swaybg.
 - **Arranque e inicio de sesión con el tema:** `sl-theme <id> --system` pinta
   LightDM (o el fondo de SDDM), el menú de GRUB y una pantalla de Plymouth
   propia con la petición de contraseña de LUKS. El instalador lo ejecuta
@@ -71,6 +82,15 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   definía.
 - XFCE podía arrancar con su fondo de serie: el script que pone el fondo del
   tema corría antes de que el escritorio estuviera listo. Ahora lo espera.
+
+### Problemas conocidos
+- Los estilos (`minimal`, `aero`, `ventanas`, `estante`) solo dan forma a
+  XFCE; el resto de escritorios coge la paleta y el fondo del tema.
+- sway arranca con el teclado en español fijo (`config` de sway).
+- En Cinnamon, los botones de bloquear y cerrar sesión del menú siguen
+  oscuros con temas claros.
+- GNOME, Cinnamon, i3, bspwm y sway aún no se han probado en una instalación
+  completa desde la ISO, solo instalando los paquetes en una VM.
 
 ## 2026-11-12 · Temas, estilos y el código, abierto
 

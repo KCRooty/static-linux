@@ -1,0 +1,18 @@
+# Static Linux — i3status (i3 bar), written by sl-theme ({{name}}).
+general {
+    colors = true
+    color_good = "#{{accent}}"
+    color_degraded = "#{{warning}}"
+    color_bad = "#{{danger}}"
+    interval = 5
+}
+order += "wireless _first_"
+order += "ethernet _first_"
+order += "battery all"
+order += "volume master"
+order += "tztime local"
+wireless _first_ { format_up = "W %essid" format_down = "" }
+ethernet _first_ { format_up = "cable" format_down = "" }
+battery all { format = "%status %percentage" format_down = "" }
+volume master { format = "vol %volume" format_muted = "vol —" }
+tztime local { format = "%a %d %b  %H:%M" }

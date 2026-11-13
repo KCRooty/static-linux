@@ -18,3 +18,11 @@ hypr/hyprlock.conf.in          .config/hypr/hyprlock.conf                       
 kde/StaticLinux.colors.in      .local/share/color-schemes/StaticLinux.colors              plasmashell
 kde/StaticLinux.colorscheme.in .local/share/konsole/StaticLinux.colorscheme               konsole
 kde/konsole-profile.in         .local/share/konsole/StaticLinux.profile                   konsole
+tiling/i3-theme.in             .config/i3/theme                                           i3
+tiling/i3status.in             .config/i3status/config                                    i3status
+tiling/sway-theme.in           .config/sway/theme                                         sway
+tiling/bspwm-theme.sh.in       .config/bspwm/theme.sh                                     bspwm
+tiling/polybar-colors.ini.in   .config/polybar/colors.ini                                 polybar
+tiling/waybar-colors.css.in    .config/waybar/colors.css                                  waybar
+tiling/rofi.rasi.in            .local/share/rofi/themes/static-linux.rasi                 rofi
+tiling/mako.in                 .config/mako/config                                        mako

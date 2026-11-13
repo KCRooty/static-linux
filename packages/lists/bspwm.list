@@ -1,0 +1,20 @@
+# Static Linux — bspwm
+# Tier: 1 GB. Xorg. Tiling with sxhkd for the keys and polybar.
+
+bspwm
+sxhkd
+polybar
+rofi
+dunst
+libnotify
+feh
+picom
+i3lock
+kitty
+thunar
+gvfs
+network-manager-applet
+maim
+xclip
+brightnessctl
+pavucontrol

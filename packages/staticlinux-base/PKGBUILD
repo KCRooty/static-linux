@@ -163,7 +163,7 @@ package() {
 
     # ---- environments (install.sh + full skel/ dotfile tree) ------------
     for env in xfce-themed openbox-minimal hyprland-astal-full hyprland-astal-lite \
-               hyprland-common kde-plasma; do
+               hyprland-common kde-plasma gnome cinnamon i3 bspwm sway; do
         [[ -f "entornos/$env/install.sh" ]] && \
             install -Dm755 "entornos/$env/install.sh" "$lib/entornos/$env/install.sh"
         if [[ -d "entornos/$env/skel" ]]; then
@@ -175,6 +175,9 @@ package() {
     done
     # autostart scripts/hooks need +x even though the rest of skel/ is data
     chmod 755 "$lib/entornos/openbox-minimal/skel/.config/openbox/autostart" 2>/dev/null || true
+    chmod 755 "$lib/entornos/bspwm/skel/.config/bspwm/bspwmrc" \
+              "$lib/entornos/bspwm/skel/.config/polybar/launch.sh" 2>/dev/null || true
+    install -Dm644 entornos/common/deploy.sh "$lib/entornos/common/deploy.sh"
     install -Dm755 entornos/kde-plasma/firstrun.sh "$lib/entornos/kde-plasma/firstrun.sh"
     # Hyprland base config (Lua), loaded by every user's ~/.config/hypr/hyprland.lua
     install -Dm644 entornos/hyprland-common/static.lua "$pkgdir/usr/share/static-linux/hypr/static.lua"

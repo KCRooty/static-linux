@@ -1,0 +1,39 @@
+# Static Linux — bspwm keys (sxhkd)
+super + Return
+	kitty
+super + e
+	thunar
+super + b
+	brave-origin
+super + {space,d}
+	rofi -show drun
+Print
+	sl-screenshot
+super + shift + s
+	sl-screenshot
+super + q
+	bspc node -c
+super + f
+	bspc node -t ~fullscreen
+super + v
+	bspc node -t ~floating
+super + {Left,Down,Up,Right}
+	bspc node -f {west,south,north,east}
+super + shift + {Left,Down,Up,Right}
+	bspc node -s {west,south,north,east}
+super + {1-5}
+	bspc desktop -f '^{1-5}'
+super + shift + {1-5}
+	bspc node -d '^{1-5}'
+super + l
+	xflock4 || i3lock -c 000000
+super + shift + r
+	bspc wm -r; pkill -USR1 -x sxhkd
+super + shift + e
+	bspc quit
+XF86Audio{RaiseVolume,LowerVolume}
+	wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%{+,-}
+XF86AudioMute
+	wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+XF86MonBrightness{Up,Down}
+	brightnessctl set 5%{+,-}

@@ -1,0 +1,22 @@
+# Static Linux — GNOME
+# Tier: 4 GB. Wayland. The full GNOME desktop; the theme reaches it through
+# gsettings (light/dark, accent, wallpaper, GTK theme, icons, fonts).
+
+gnome-shell
+gnome-session
+gnome-control-center
+gnome-settings-daemon
+gnome-keyring
+gdm
+gnome-backgrounds
+gnome-tweaks
+gnome-shell-extensions
+xdg-desktop-portal-gnome
+xdg-user-dirs-gtk
+
+nautilus
+gnome-console
+gnome-text-editor
+loupe
+gnome-system-monitor
+file-roller

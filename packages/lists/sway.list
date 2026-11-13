@@ -1,0 +1,22 @@
+# Static Linux — sway
+# Tier: 1-2 GB. Wayland. i3-style tiling on Wayland; waybar, rofi, mako.
+
+sway
+swaybg
+swayidle
+swaylock
+waybar
+rofi
+mako
+libnotify
+kitty
+thunar
+gvfs
+grim
+slurp
+wl-clipboard
+network-manager-applet
+brightnessctl
+pavucontrol
+xdg-desktop-portal-wlr
+xorg-xwayland

@@ -1,0 +1,9 @@
+/* Static Linux — waybar. Colours come from colors.css, written by sl-theme. */
+@import "colors.css";
+window#waybar { background: @bg; color: @fg; border-bottom: 1px solid @line; }
+#workspaces button { padding: 0 10px; color: @dim; border-radius: 6px; margin: 4px 2px; }
+#workspaces button.focused { background: @accent; color: @accent_fg; }
+#workspaces button.urgent { background: @danger; color: @bg; }
+#clock, #network, #pulseaudio, #battery, #tray { padding: 0 12px; }
+#battery.warning { color: @warning; }
+#battery.critical { color: @danger; }

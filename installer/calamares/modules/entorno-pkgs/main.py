@@ -21,6 +21,11 @@ ENVS = {
     "hyprland-astal-lite": ("packages/lists/hyprland-lite.list", "entornos/hyprland-astal-lite/install.sh"),
     "hyprland-astal-full": ("packages/lists/hyprland-full.list", "entornos/hyprland-astal-full/install.sh"),
     "kde-plasma": ("packages/lists/kde.list", "entornos/kde-plasma/install.sh"),
+    "gnome": ("packages/lists/gnome.list", "entornos/gnome/install.sh"),
+    "cinnamon": ("packages/lists/cinnamon.list", "entornos/cinnamon/install.sh"),
+    "i3": ("packages/lists/i3.list", "entornos/i3/install.sh"),
+    "bspwm": ("packages/lists/bspwm.list", "entornos/bspwm/install.sh"),
+    "sway": ("packages/lists/sway.list", "entornos/sway/install.sh"),
 }
 # The live ISO carries the local repo (Astal for Hyprland, Brave, ...) at this
 # path — see iso/build.sh. The target's own pacman.conf doesn't know it, so

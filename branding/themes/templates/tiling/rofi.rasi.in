@@ -1,0 +1,18 @@
+/* Static Linux — rofi launcher, written by sl-theme ({{name}}).
+   ~/.config/rofi/config.rasi uses it: @theme "static-linux" */
+* {
+    bg: #{{bg}}; surface: #{{surface}}; line: #{{line}};
+    fg: #{{text}}; dim: #{{text_dim}}; accent: #{{accent}}; accent-fg: #{{accent_fg}};
+    background-color: transparent; text-color: @fg;
+    font: "{{font_ui}} 11";
+}
+window { width: 560px; background-color: @bg; border: 1px; border-color: @line; border-radius: {{radius_win}}px; padding: 14px; }
+mainbox { spacing: 10px; }
+inputbar { background-color: @surface; border-radius: {{radius_ctl}}px; padding: 10px 12px; children: [prompt, entry]; spacing: 8px; }
+prompt { text-color: @accent; }
+entry { placeholder: "Buscar"; placeholder-color: @dim; }
+listview { lines: 8; spacing: 4px; scrollbar: false; }
+element { padding: 8px 10px; border-radius: {{radius_ctl}}px; spacing: 10px; }
+element-icon { size: 22px; }
+element selected { background-color: @accent; text-color: @accent-fg; }
+element-text { text-color: inherit; vertical-align: 0.5; }

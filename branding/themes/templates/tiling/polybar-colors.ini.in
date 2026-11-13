@@ -1,0 +1,13 @@
+; Static Linux — polybar colours, written by sl-theme ({{name}}).
+; ~/.config/polybar/config.ini includes this file.
+[colors]
+bg = #{{bg}}
+surface = #{{surface}}
+line = #{{line}}
+fg = #{{text}}
+dim = #{{text_dim}}
+accent = #{{accent}}
+accent-fg = #{{accent_fg}}
+danger = #{{danger}}
+warning = #{{warning}}
+font = {{font_ui}}:size=10;2

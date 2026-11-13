@@ -463,6 +463,58 @@ GNOME_PROCS = ["gnome-shell", "cinnamon", "Hyprland", ".Hyprland-wrapped", "plas
                "xfce4-session", "openbox", "sway", "i3", "bspwm"]
 
 
+CINNAMON_CSS = Path("/usr/share/cinnamon/theme/cinnamon.css")
+
+
+def cinnamon_theme(w: Writer, theme: dict[str, str]) -> None:
+    """Cinnamon's panel, menu and popups come from its own St theme, drawn
+    with a fixed dark palette: rebuild it with the theme's colours, mapping
+    each stock colour to the role it plays (base, raised, hover, line...)."""
+    if not CINNAMON_CSS.is_file():
+        return
+    css = CINNAMON_CSS.read_text()
+    roles = {
+        "bg": ["242428", "1a1a1f", "303034", "323234", "1e1e21"],
+        "surface": ["39393c"],
+        "tint15": ["454549", "484850"],
+        "tint25": ["656569", "55555c"],
+        "line": ["333337"],
+        "text_dim": ["7c7c7e", "b2b2b4", "cccccc"],
+        "accent": ["3584e4", "1f76e1"],
+        "accent_hi": ["629fea", "78aeed"],
+        "danger": ["c01c28", "aa1923", "e4705b", "ff7b63"],
+        "warning": ["f8e45c"],
+    }
+    for role, stock in roles.items():
+        for hexc in stock:
+            css = re.sub(f"#{hexc}\\b", f"#{theme[role]}", css, flags=re.I)
+    rgba = {"255, 255, 255": "text", "36, 36, 40": "bg", "26, 26, 31": "bg", "51, 51, 55": "line"}
+    for stock, role in rgba.items():
+        css = css.replace(f"rgba({stock},", f"rgba({theme[role + '_r']}, {theme[role + '_g']}, {theme[role + '_b']},")
+    css = re.sub(r"(?<=[:\s])white(?=\s*[;}])", f"#{theme['text']}", css)
+    css = re.sub(r"(?<=[:\s])black(?=\s*[;}])", f"#{theme['accent_fg']}", css)
+    # images stay in the stock theme folder
+    css = re.sub(r'url\("(?!/)([^"]+)"\)', f'url("{CINNAMON_CSS.parent}/\\1")', css)
+    w.write(".local/share/themes/StaticLinux/cinnamon/cinnamon.css",
+            f"/* Static Linux — Cinnamon theme from {theme['name']}, built by sl-theme from\n"
+            f"   {CINNAMON_CSS}. Don't edit: run sl-theme. */\n" + css)
+
+
+# GNOME 47+ only takes a named accent: the closest hue wins
+GNOME_ACCENTS = {"blue": 214, "teal": 180, "green": 135, "yellow": 48, "orange": 28,
+                 "red": 357, "pink": 330, "purple": 270}
+
+
+def gnome_accent(hexcolour: str) -> str:
+    import colorsys
+    r, g, b = (int(hexcolour[i:i + 2], 16) / 255 for i in (0, 2, 4))
+    h, l, sat = colorsys.rgb_to_hls(r, g, b)
+    if sat < 0.18:
+        return "slate"
+    hue = h * 360
+    return min(GNOME_ACCENTS, key=lambda n: min(abs(hue - GNOME_ACCENTS[n]), 360 - abs(hue - GNOME_ACCENTS[n])))
+
+
 def gnome_prefs(theme: dict[str, str], home: Path, user: str | None) -> None:
     """org.gnome.desktop.interface: libadwaita apps (Nautilus, Loupe...) follow
     color-scheme, not the GTK theme, and GNOME/Cinnamon read the rest from here.
@@ -473,7 +525,21 @@ def gnome_prefs(theme: dict[str, str], home: Path, user: str | None) -> None:
     keys = [("color-scheme", theme["color_scheme"]), ("gtk-theme", theme["gtk_theme"]),
             ("icon-theme", "StaticLinux"), ("font-name", f"{theme['font_ui']} 10"),
             ("monospace-font-name", "JetBrains Mono 10")]
-    script = "; ".join(f"gsettings set org.gnome.desktop.interface {k} '{v}'" for k, v in keys)
+    uri = f"file://{theme['wallpaper']}"
+    rows = [("org.gnome.desktop.interface", k, v) for k, v in keys]
+    rows += [("org.gnome.desktop.interface", "accent-color", gnome_accent(theme["accent"])),
+             ("org.gnome.desktop.background", "picture-uri", uri),
+             ("org.gnome.desktop.background", "picture-uri-dark", uri),
+             ("org.gnome.desktop.background", "picture-options", "zoom"),
+             ("org.cinnamon.desktop.interface", "gtk-theme", theme["gtk_theme"]),
+             ("org.cinnamon.desktop.interface", "icon-theme", "StaticLinux"),
+             ("org.cinnamon.desktop.interface", "font-name", f"{theme['font_ui']} 10"),
+             ("org.cinnamon.desktop.wm.preferences", "theme", theme["gtk_theme"]),
+             ("org.cinnamon.theme", "name", "StaticLinux" if CINNAMON_CSS.is_file() else "cinnamon"),
+             ("org.cinnamon.desktop.background", "picture-uri", uri),
+             ("org.cinnamon.desktop.background", "picture-options", "zoom")]
+    # a schema that isn't installed just fails that line; the rest still runs
+    script = "; ".join(f"gsettings set {sch} {k} '{v}' 2>/dev/null" for sch, k, v in rows)
     s = session_env(user, GNOME_PROCS) if user else None
     if s and s[1].get("DBUS_SESSION_BUS_ADDRESS"):
         prefix, env = s
@@ -510,6 +576,23 @@ def refresh_session(theme: dict[str, str], user: str | None) -> None:
         run(*s, "pkill", "-USR1", "-x", "tint2")
     if (s := session_env(user, ["dunst"])):
         run(*s, "dunstctl", "reload")
+    if (s := session_env(user, ["i3"])):
+        run(*s, "sh", "-c", "[ -x ~/.fehbg ] && ~/.fehbg")
+        run(*s, "i3-msg", "reload")
+    if (s := session_env(user, ["bspwm"])):
+        run(*s, "sh", "-c", ". ~/.config/bspwm/theme.sh; [ -x ~/.fehbg ] && ~/.fehbg")
+    if (s := session_env(user, ["polybar"])):
+        run(*s, "polybar-msg", "cmd", "restart")
+    if (s := session_env(user, ["sway"])):
+        run(*s, "swaymsg", "reload")
+    if (s := session_env(user, ["waybar"])):
+        run(*s, "pkill", "-SIGUSR2", "-x", "waybar")
+    if (s := session_env(user, ["mako"])):
+        run(*s, "makoctl", "reload")
+    if (s := session_env(user, ["cinnamon"])) and CINNAMON_CSS.is_file():
+        # same theme name = no reload: bounce through the stock theme
+        run(*s, "gsettings", "set", "org.cinnamon.theme", "name", "cinnamon")
+        run(*s, "gsettings", "set", "org.cinnamon.theme", "name", "StaticLinux")
     if (s := session_env(user, ["Hyprland", ".Hyprland-wrapped"])):
         run(*s, "hyprctl", "reload")
         run(*s, "pkill", "-x", "hyprpaper")
@@ -571,6 +654,8 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
                     "# Your kitty settings. sl-theme only adds the include below.\n")
     if shutil.which("plasmashell"):
         kde_globals(w, theme)
+    if shutil.which("cinnamon"):
+        cinnamon_theme(w, theme)
     w.write(".config/static-linux/theme", theme_id + "\n")
     # the bar's layout belongs to the style: only rewrite it when the style
     # changes, so a user's own panel tweaks survive palette-only switches

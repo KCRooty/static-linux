@@ -1,0 +1,20 @@
+# Static Linux — i3
+# Tier: 1 GB. Xorg. Tiling with the keyboard; i3bar + i3status, rofi, dunst.
+
+i3-wm
+i3status
+i3lock
+xss-lock
+rofi
+dunst
+libnotify
+feh
+picom
+kitty
+thunar
+gvfs
+network-manager-applet
+maim
+xclip
+brightnessctl
+pavucontrol

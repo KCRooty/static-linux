@@ -1,0 +1,12 @@
+/* Static Linux — waybar colours, written by sl-theme ({{name}}).
+   ~/.config/waybar/style.css imports this file. */
+@define-color bg #{{bg}};
+@define-color surface #{{surface}};
+@define-color line #{{line}};
+@define-color fg #{{text}};
+@define-color dim #{{text_dim}};
+@define-color accent #{{accent}};
+@define-color accent_fg #{{accent_fg}};
+@define-color danger #{{danger}};
+@define-color warning #{{warning}};
+* { font-family: "{{font_ui}}", "Symbols Nerd Font", sans-serif; }

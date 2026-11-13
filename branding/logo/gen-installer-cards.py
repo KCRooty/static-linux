@@ -69,6 +69,38 @@ ENVS = {
         f'<rect x="60" y="238" width="16" height="10" rx="3" fill="#F2B33D"/>'
         f'<rect x="82" y="238" width="16" height="10" rx="3" fill="#E8792B"/>'
         f'<rect x="372" y="238" width="30" height="10" rx="3" fill="{LINE}"/>'),
+    "gnome": ("GNOME", "Actividades, dock y apps GNOME · Wayland", "≥ 4 GB",
+        f'<rect x="32" y="74" width="380" height="14" rx="7" fill="{PANEL}"/>'
+        f'<rect x="200" y="78" width="44" height="6" rx="3" fill="{LINE}"/>'
+        + win(80, 100, 280, 112, "#2A9D8F", rx=12, title=False)
+        + f'<rect x="160" y="222" width="120" height="26" rx="13" fill="{PANEL}" stroke="{LINE}"/>'
+        f'<circle cx="184" cy="235" r="7" fill="#F2B33D"/><circle cx="208" cy="235" r="7" fill="#2A9D8F"/>'
+        f'<circle cx="232" cy="235" r="7" fill="#E8792B"/><circle cx="256" cy="235" r="7" fill="{LINE}"/>'),
+    "cinnamon": ("Cinnamon", "Clásico: barra abajo y menú de inicio · Xorg", "≥ 2 GB",
+        win(70, 80, 300, 140, "#E8792B", rx=8)
+        + f'<rect x="20" y="234" width="400" height="20" rx="0" fill="{PANEL}" stroke="{LINE}"/>'
+        f'<circle cx="36" cy="244" r="7" fill="#E8792B"/>'
+        f'<rect x="54" y="238" width="22" height="12" rx="3" fill="#F2B33D"/>'
+        f'<rect x="370" y="239" width="40" height="10" rx="3" fill="{LINE}"/>'),
+    "i3": ("i3", "Mosaico con el teclado · Xorg", "≥ 1 GB",
+        f'<rect x="32" y="74" width="380" height="14" rx="2" fill="{PANEL}"/>'
+        f'<rect x="32" y="74" width="16" height="14" fill="#F2B33D"/>'
+        + win(32, 96, 186, 150, "#F2B33D", rx=2, title=False)
+        + win(226, 96, 186, 71, "#262A34", rx=2, title=False)
+        + win(226, 175, 186, 71, "#262A34", rx=2, title=False)
+        + f'<rect x="32" y="96" width="186" height="150" rx="2" fill="none" stroke="#F2B33D" stroke-width="2"/>'),
+    "bspwm": ("bspwm", "Mosaico en árbol, sxhkd y polybar · Xorg", "≥ 1 GB",
+        f'<rect x="32" y="74" width="380" height="14" rx="2" fill="{PANEL}"/>'
+        + win(36, 98, 180, 146, "#262A34", rx=2, title=False)
+        + win(226, 98, 182, 146, "#262A34", rx=2, title=False)
+        + f'<rect x="226" y="98" width="182" height="146" rx="2" fill="none" stroke="#2A9D8F" stroke-width="2"/>'),
+    "sway": ("sway", "El mosaico de i3, en Wayland", "≥ 1 GB",
+        f'<rect x="32" y="74" width="380" height="16" rx="4" fill="{PANEL}"/>'
+        f'<rect x="36" y="78" width="20" height="8" rx="4" fill="#C2452D"/>'
+        + win(32, 98, 120, 148, "#262A34", rx=4, title=False)
+        + win(160, 98, 120, 148, "#262A34", rx=4, title=False)
+        + win(288, 98, 124, 148, "#262A34", rx=4, title=False)
+        + f'<rect x="160" y="98" width="120" height="148" rx="4" fill="none" stroke="#C2452D" stroke-width="2"/>'),
 }
 
 

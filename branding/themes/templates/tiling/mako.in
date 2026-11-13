@@ -1,0 +1,15 @@
+# Static Linux — mako notifications (sway), written by sl-theme ({{name}}).
+font={{font_ui}} 10
+background-color=#{{surface}}
+text-color=#{{text}}
+border-color=#{{accent}}
+border-size=1
+border-radius={{radius_win}}
+padding=10
+margin=10
+width=320
+default-timeout=6000
+anchor=top-right
+
+[urgency=high]
+border-color=#{{danger}}
