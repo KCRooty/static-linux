@@ -466,7 +466,15 @@ def _installed(pkg: str) -> bool:
 
 
 def _ufw_active() -> bool:
-    return "Status: active" in _out(["ufw", "status"])
+    # `ufw status` needs root; without it, read the config ufw itself reads at boot.
+    if os.geteuid() == 0:
+        return "Status: active" in _out(["ufw", "status"])
+    try:
+        with open("/etc/ufw/ufw.conf") as f:
+            enabled = any(l.strip() == "ENABLED=yes" for l in f)
+    except OSError:
+        return False
+    return enabled and _active("ufw.service")
 
 
 def _server_status() -> int:
