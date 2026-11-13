@@ -36,7 +36,7 @@ Los escaneos son de The Metropolitan Museum of Art (Open Access).
 | **minimal** | borde de 2 px, botones como tres puntos | arriba, 30 px, escritorios como puntos y reloj al centro | Space Grotesk |
 | **aero** | barra de título con brillo, botones cápsula, cerrar en rojo | abajo, 40 px con brillo; reloj con fecha y "mostrar escritorio" | Noto Sans |
 | **ventanas** | plana, botones de 46 px ─ □ ✕ | abajo, 48 px, apps al centro, la activa subrayada | Inter |
-| **estante** | alta y plana, esquinas de 12 px, círculo neutro al pasar el ratón (cerrar no se pone rojo) | abajo, 48 px: lanzador redondo con búsqueda y apps en cuadrícula, dock centrado, píldora de hora que abre los ajustes rápidos (`sl-quick`) | Roboto |
+| **estante** | alta y plana, esquinas de 12 px, círculo neutro al pasar el ratón (cerrar no se pone rojo) | abajo, 48 px: lanzador redondo con búsqueda y apps en cuadrícula, dock centrado, píldora de hora que abre los ajustes rápidos (`sl-quick`); avisos abajo a la derecha, escritorio sin iconos, Alt+[ / Alt+] / Alt+= para ajustar ventanas | Roboto |
 
 <div class="grid" markdown>
 ![Aero](img/temas/aero.webp)

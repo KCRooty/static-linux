@@ -191,6 +191,11 @@ def panel() -> None:
     win.set_keep_above(True)
     win.set_type_hint(Gdk.WindowTypeHint.DIALOG)
     win.set_default_size(360, -1)
+    # with a compositor (xfwm4's is on by default) the 16 px corners from
+    # gtk.css are see-through instead of square
+    screen = win.get_screen()
+    if screen.is_composited() and screen.get_rgba_visual():
+        win.set_visual(screen.get_rgba_visual())
 
     box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
     box.set_border_width(16)

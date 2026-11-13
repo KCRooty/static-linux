@@ -16,6 +16,11 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   Ventanas planas con esquinas de 12 px. Nube es el primer tema que lo usa:
   claro, Roboto, fondo de nubes dibujado por código. `xfce.list` suma
   `xfce4-docklike-plugin` y `ttf-roboto`.
+- Con `estante`, el escritorio también se comporta como el estilo: avisos
+  abajo a la derecha, escritorio sin iconos y **Alt+[ / Alt+]** para ajustar
+  la ventana a la mitad izquierda o derecha (**Alt+=** maximiza). Al cambiar
+  a otro estilo se quitan y vuelven los valores de XFCE. Los ajustes rápidos
+  tienen esquinas redondeadas cuando hay compositor.
 - **KDE Plasma, Hyprland y Openbox siguen el tema.** `sl-theme` escribe cada
   pieza solo si su programa está instalado (columna nueva en
   `templates/MANIFEST`): esquema de color y Konsole en Plasma; bordes,

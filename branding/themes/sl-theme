@@ -172,6 +172,83 @@ class Writer:
             os.chown(p, *self.owner)
 
 
+# Per-style desktop behaviour: (channel, property, type, value with the style,
+# value without it). None removes the property, so the XFCE default is back.
+XFCONF_DIR = ".config/xfce4/xfconf/xfce-perchannel-xml"
+STYLE_XFCONF = {
+    "estante": [
+        # notifications pop up above the shelf, bottom right
+        ("xfce4-notifyd", "/notify-location", "uint", "3", None),
+        # a clean desktop: no icons on it, files live in the launcher and Thunar
+        ("xfce4-desktop", "/desktop-icons/style", "int", "0", None),
+        # Alt+[ / Alt+] snap the window to the left/right half, Alt+= maximises
+        ("xfce4-keyboard-shortcuts", "/xfwm4/custom/<Alt>bracketleft", "string", "tile_left_key", None),
+        ("xfce4-keyboard-shortcuts", "/xfwm4/custom/<Alt>bracketright", "string", "tile_right_key", None),
+        ("xfce4-keyboard-shortcuts", "/xfwm4/custom/<Alt>equal", "string", "maximize_window_key", None),
+    ],
+}
+
+
+def style_settings(style: str) -> list[tuple[str, str, str, str | None]]:
+    """(channel, prop, type, value-or-None) for every per-style key."""
+    out = []
+    for owner, rows in STYLE_XFCONF.items():
+        for channel, prop, kind, on, off in rows:
+            out.append((channel, prop, kind, on if owner == style else off))
+    return out
+
+
+def xfconf_xml_set(w: Writer, channel: str, prop: str, kind: str, value: str | None) -> None:
+    """Set (or remove) one property in a channel's XML under the home, keeping
+    everything else. Used when no xfconfd is running (installer, skel)."""
+    import xml.etree.ElementTree as ET
+    rel = f"{XFCONF_DIR}/{channel}.xml"
+    path = w.home / rel
+    if path.is_file():
+        # keep the comments that explain the defaults (skel files have them)
+        root = ET.fromstring(path.read_text(), parser=ET.XMLParser(target=ET.TreeBuilder(insert_comments=True)))
+    elif value is None:
+        return
+    else:
+        root = ET.Element("channel", {"name": channel, "version": "1.0"})
+    node = root
+    parts = prop.strip("/").split("/")
+    for i, name in enumerate(parts):
+        child = next((c for c in node.findall("property") if c.get("name") == name), None)
+        last = i == len(parts) - 1
+        if child is None:
+            if value is None:
+                return
+            child = ET.SubElement(node, "property", {"name": name, "type": kind if last else "empty"})
+        if last:
+            if value is None:
+                node.remove(child)
+            else:
+                child.set("type", kind)
+                child.set("value", value)
+        node = child
+    ET.indent(root, "  ")
+    w.write(rel, '<?xml version="1.0" encoding="UTF-8"?>\n' + ET.tostring(root, encoding="unicode") + "\n")
+
+
+def xfconf_live(theme: dict[str, str], user: str | None) -> None:
+    """The same per-style keys in a running session (xfconfd owns them there)."""
+    if not shutil.which("xfconf-query"):
+        return
+    env = dict(os.environ)
+    prefix: list[str] = []
+    if user and os.geteuid() == 0:
+        bus = f"/run/user/{pwd.getpwnam(user).pw_uid}/bus"
+        if not Path(bus).exists():
+            return
+        prefix = ["runuser", "-u", user, "--"]
+        env["DBUS_SESSION_BUS_ADDRESS"] = f"unix:path={bus}"
+    for channel, prop, kind, value in style_settings(theme["style"]):
+        cmd = prefix + ["xfconf-query", "-c", channel, "-p", prop]
+        cmd += ["-r"] if value is None else ["-n", "-t", kind, "-s", value]
+        subprocess.run(cmd, env=env, stderr=subprocess.DEVNULL, check=False)
+
+
 def xfconf_from_xml(xml_text: str) -> list[tuple[str, str, str, str]]:
     """(channel, property, type, value) for every leaf property of a rendered
     xfconf channel file, so the running session gets exactly what skel gets."""
@@ -452,6 +529,9 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     if new_panel:
         w.write(PANEL_STYLE, theme["style"] + "\n")
     log(f"{theme['name']} ({theme['style']}) written to {home}")
+    if new_panel:
+        for channel, prop, kind, value in style_settings(theme["style"]):
+            xfconf_xml_set(w, channel, prop, kind, value)
     if new_panel and theme["style"] == "estante":
         # the dock keeps its pinned apps in its own rc file, not in xfconf
         w.write(DOCKLIKE_RC, (TEMPLATES / "panels" / "docklike.rc").read_text())
@@ -461,6 +541,7 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
         xfconf(theme, user, channels)
         if new_panel:
             swap_panel(w, theme, user)
+            xfconf_live(theme, user)
         refresh_session(theme, user)
 
 
