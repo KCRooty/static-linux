@@ -1,0 +1,4 @@
+/* style: estante — pill buttons and 12 px popovers in GTK4/libadwaita apps. */
+button { border-radius: 999px; }
+popover > contents { border-radius: 12px; }
+entry { border-radius: 10px; }

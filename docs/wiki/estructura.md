@@ -56,7 +56,7 @@ static-linux/
 │
 ├── branding/
 │   ├── themes/            8 temas (theme.conf + fondo + CREDITS), sl-theme, plantillas,
-│   │                      estilos minimal/aero/ventanas, xfwm4.py, check.py
+│   │                      estilos minimal/aero/ventanas/estante, xfwm4.py, check.py
 │   ├── accents/           capa de acentos anterior (base del instalador, Openbox, Hyprland)
 │   ├── fastfetch/          logos ASCII + config.jsonc
 │   └── wallpapers/         gen-wallpaper.py (stdlib puro) + un PNG por acento

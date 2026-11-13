@@ -1,0 +1,10 @@
+[user]
+pinned=/usr/share/applications/brave-origin.desktop;/usr/share/applications/thunar.desktop;/usr/share/applications/xfce4-terminal.desktop;/usr/share/applications/mousepad.desktop;
+indicatorStyle=1
+inactiveIndicatorStyle=1
+indicatorOrientation=0
+indicatorColorFromTheme=true
+showPreviews=false
+showWindowCount=false
+forceIconSize=true
+iconSize=28

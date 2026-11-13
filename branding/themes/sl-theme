@@ -78,8 +78,8 @@ def load_theme(theme_id: str) -> dict[str, str]:
     theme["dark_mode"] = "false" if theme["mode"] == "light" else "true"
     theme["dark_int"] = "0" if theme["mode"] == "light" else "1"
     theme["icon_base"] = "Papirus-Light" if theme["mode"] == "light" else "Papirus-Dark"
-    theme["radius_ctl"] = {"minimal": "6", "aero": "4", "ventanas": "4"}[theme["style"]]
-    theme["radius_win"] = {"minimal": "10", "aero": "8", "ventanas": "3"}[theme["style"]]
+    theme["radius_ctl"] = {"minimal": "6", "aero": "4", "ventanas": "4", "estante": "16"}[theme["style"]]
+    theme["radius_win"] = {"minimal": "10", "aero": "8", "ventanas": "3", "estante": "12"}[theme["style"]]
     # tints the styles draw with (gloss, hover rows): bg pulled towards the accent
     for pct in (8, 15, 25, 40):
         theme[f"tint{pct}"] = xfwm4._mix(theme["bg"], theme["accent"], pct / 100)
@@ -113,6 +113,7 @@ def style_partial(theme: dict[str, str], kind: str) -> str:
 
 PANEL = ".config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml"
 PANEL_STYLE = ".config/static-linux/panel-style"
+DOCKLIKE_RC = ".config/xfce4/panel/docklike-3.rc"
 
 
 def manifest() -> list[tuple[str, str, str | None]]:
@@ -451,6 +452,9 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     if new_panel:
         w.write(PANEL_STYLE, theme["style"] + "\n")
     log(f"{theme['name']} ({theme['style']}) written to {home}")
+    if new_panel and theme["style"] == "estante":
+        # the dock keeps its pinned apps in its own rc file, not in xfconf
+        w.write(DOCKLIKE_RC, (TEMPLATES / "panels" / "docklike.rc").read_text())
     if mode == "skel":
         w.write(PANEL, render((TEMPLATES / "panels" / f"{theme['style']}.xml").read_text(), theme))
     else:

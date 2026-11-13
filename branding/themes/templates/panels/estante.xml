@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Static Linux · Estante: a shelf at the bottom. Launcher circle on the left,
+     pinned and open apps centred (docklike), tray and a clock/status pill on the
+     right that opens sl-quick. Written by sl-theme when the style changes; the
+     dock's pinned apps live in ~/.config/xfce4/panel/docklike-3.rc.
+     Colours come from the theme's gtk.css (background-style 0), not from here. -->
+<channel name="xfce4-panel" version="1.0">
+  <property name="configver" type="int" value="2"/>
+  <property name="panels" type="array">
+    <value type="int" value="1"/>
+    <property name="dark-mode" type="bool" value="{{dark_mode}}"/>
+    <property name="panel-1" type="empty">
+      <property name="position" type="string" value="p=8;x=0;y=0"/>
+      <property name="length" type="uint" value="100"/>
+      <property name="position-locked" type="bool" value="true"/>
+      <property name="autohide-behavior" type="uint" value="0"/>
+      <property name="size" type="uint" value="48"/>
+      <property name="icon-size" type="uint" value="28"/>
+      <property name="background-style" type="uint" value="0"/>
+      <property name="plugin-ids" type="array">
+        <value type="int" value="1"/>
+        <value type="int" value="2"/>
+        <value type="int" value="3"/>
+        <value type="int" value="4"/>
+        <value type="int" value="5"/>
+        <value type="int" value="6"/>
+      </property>
+    </property>
+  </property>
+  <property name="plugins" type="empty">
+    <property name="plugin-1" type="string" value="whiskermenu">
+      <property name="button-title" type="string" value="Static Linux"/>
+      <property name="button-icon" type="string" value="sl-launcher"/>
+      <property name="show-button-title" type="bool" value="false"/>
+      <property name="view-mode" type="int" value="0"/>
+      <property name="view-as-icons" type="bool" value="true"/>
+      <property name="position-search-alternate" type="bool" value="false"/>
+      <property name="position-commands-alternate" type="bool" value="false"/>
+      <property name="favorites" type="array">
+        <value type="string" value="brave-origin.desktop"/>
+        <value type="string" value="thunar.desktop"/>
+        <value type="string" value="xfce4-terminal.desktop"/>
+        <value type="string" value="mousepad.desktop"/>
+        <value type="string" value="xfce4-settings-manager.desktop"/>
+      </property>
+      <property name="recent-items-max" type="int" value="0"/>
+    </property>
+    <property name="plugin-2" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-3" type="string" value="docklike"/>
+    <property name="plugin-4" type="string" value="separator">
+      <property name="expand" type="bool" value="true"/>
+      <property name="style" type="uint" value="0"/>
+    </property>
+    <property name="plugin-5" type="string" value="systray">
+      <property name="square-icons" type="bool" value="true"/>
+      <property name="symbolic-icons" type="bool" value="true"/>
+      <property name="menu-is-primary" type="bool" value="false"/>
+    </property>
+    <property name="plugin-6" type="string" value="genmon">
+      <property name="command" type="string" value="sl-quick --pill"/>
+      <property name="use-label" type="bool" value="false"/>
+      <property name="update-period" type="int" value="15000"/>
+      <property name="enable-single-row" type="bool" value="true"/>
+    </property>
+  </property>
+</channel>

@@ -7,6 +7,15 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 ## Sin publicar · Los temas, en todos los escritorios y en el arranque
 
 ### Nuevo
+- **Estilo `estante` y tema Nube.** Un escritorio de lanzador y estante en
+  XFCE: barra abajo de 48 px con un lanzador redondo (búsqueda arriba y apps
+  en cuadrícula), las apps fijadas y abiertas al centro
+  (`xfce4-docklike-plugin`) y una píldora con la hora que abre **sl-quick**,
+  los ajustes rápidos: cerrar sesión, apagar, bloquear, ajustes, Wi‑Fi,
+  Bluetooth, No molestar, Luz nocturna, captura, volumen, brillo y batería.
+  Ventanas planas con esquinas de 12 px. Nube es el primer tema que lo usa:
+  claro, Roboto, fondo de nubes dibujado por código. `xfce.list` suma
+  `xfce4-docklike-plugin` y `ttf-roboto`.
 - **KDE Plasma, Hyprland y Openbox siguen el tema.** `sl-theme` escribe cada
   pieza solo si su programa está instalado (columna nueva en
   `templates/MANIFEST`): esquema de color y Konsole en Plasma; bordes,

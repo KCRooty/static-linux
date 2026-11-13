@@ -126,7 +126,34 @@ def violeta(rng: np.random.Generator) -> Image.Image:
     return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(0.8))
 
 
-MAKERS = {"aero": aero, "ventanas": ventanas, "violeta": violeta}
+def nube(rng: np.random.Generator) -> Image.Image:
+    """Nube: a pale morning sky with big soft clouds and two pastel hills. Light theme."""
+    y, x = np.mgrid[0:H, 0:W].astype(np.float32)
+    u, v = x / W, y / H
+    img = _grad([(0, "BFD9F6"), (0.55, "E3EEFB"), (1, "F4F7FC")], v)
+    glow = np.exp(-(((u - 0.78) / 0.30) ** 2 + ((v - 0.18) / 0.25) ** 2))
+    img = _over(img, _hex("FFF6E6"), glow * 0.55)
+    # clouds: clusters of soft discs, each cluster a cloud
+    for _ in range(7):
+        cx, cy = rng.uniform(0.0, 1.0), rng.uniform(0.12, 0.55)
+        scale = rng.uniform(0.05, 0.11)
+        cloud = np.zeros_like(u)
+        for _ in range(6):
+            dx, dy = rng.normal(0, scale * 1.4), rng.normal(0, scale * 0.35)
+            r = scale * rng.uniform(0.6, 1.1)
+            d = ((u - cx - dx) * W / H) ** 2 + (v - cy - dy) ** 2
+            cloud = np.maximum(cloud, np.clip(1.2 - d / (r * r), 0, 1))
+        img = _over(img, _hex("FFFFFF"), cloud * rng.uniform(0.55, 0.85))
+    # hills: two sine horizons, back one bluish, front one soft green
+    for base, amp, col, a in ((0.78, 0.05, "AFC8EA", 0.85), (0.86, 0.04, "B9DDC6", 0.95)):
+        phase = rng.uniform(0, 6.28)
+        edge = base + amp * np.sin(u * rng.uniform(2.0, 3.5) + phase) + 0.012 * np.sin(u * 11 + phase)
+        hill = np.clip((v - edge) * H / 6.0, 0, 1)
+        img = _over(img, _grad([(0, col), (1, "FFFFFF")], np.clip((v - base) * 3, 0, 1)), hill * a)
+    return Image.fromarray(np.clip(img, 0, 255).astype(np.uint8)).filter(ImageFilter.GaussianBlur(2.0))
+
+
+MAKERS = {"aero": aero, "ventanas": ventanas, "violeta": violeta, "nube": nube}
 
 
 def main(argv: list[str]) -> int:

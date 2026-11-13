@@ -24,7 +24,7 @@
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
 #   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
 #   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
-#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale} symlinks into the paths above
+#   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick} symlinks into the paths above
 #
 # Identity: the Static Linux os-release ships as
 # /usr/lib/static-linux/os-release, and staticlinux-base.install repoints the
@@ -95,6 +95,8 @@ package() {
     install -Dm755 sl-ctl/sl-screenshot "$lib/sl-ctl/sl-screenshot"
     install -Dm755 sl-ctl/sl-hypr-guide "$lib/sl-ctl/sl-hypr-guide"
     install -Dm755 sl-ctl/sl-display-scale "$lib/sl-ctl/sl-display-scale"
+    install -Dm755 sl-ctl/sl-quick "$lib/sl-ctl/sl-quick"
+    install -Dm644 branding/logo/sl-launcher.svg "$pkgdir/usr/share/icons/hicolor/scalable/apps/sl-launcher.svg"
 
     # ---- sl-welcome ---------------------------------------------------
     install -Dm755 sl-welcome/sl-welcome "$lib/sl-welcome/sl-welcome"
@@ -126,7 +128,7 @@ package() {
         branding/themes/system.py
     install -Dm644 -t "$themes/templates" branding/themes/templates/MANIFEST branding/themes/templates/*.in
     install -Dm644 -t "$themes/templates/styles" branding/themes/templates/styles/*.in
-    install -Dm644 -t "$themes/templates/panels" branding/themes/templates/panels/*.xml
+    install -Dm644 -t "$themes/templates/panels" branding/themes/templates/panels/*.xml branding/themes/templates/panels/docklike.rc
     for sub in openbox hypr kde system; do
         install -Dm644 -t "$themes/templates/$sub" branding/themes/templates/$sub/*.in
     done
@@ -201,6 +203,7 @@ package() {
     ln -s /usr/lib/static-linux/sl-ctl/sl-screenshot "$pkgdir/usr/bin/sl-screenshot"
     ln -s /usr/lib/static-linux/sl-ctl/sl-hypr-guide "$pkgdir/usr/bin/sl-hypr-guide"
     ln -s /usr/lib/static-linux/sl-ctl/sl-display-scale "$pkgdir/usr/bin/sl-display-scale"
+    ln -s /usr/lib/static-linux/sl-ctl/sl-quick "$pkgdir/usr/bin/sl-quick"
 
     # ---- system defaults --------------------------------------------------
     install -Dm644 packages/staticlinux-base/os-release "$lib/os-release"

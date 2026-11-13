@@ -11,6 +11,9 @@ xfce4
 xfce4-goodies
 xfce4-pulseaudio-plugin
 xfce4-whiskermenu-plugin
+# estante style: centred dock on the shelf + Roboto as its UI font (OFL)
+xfce4-docklike-plugin
+ttf-roboto
 xfce4-screenshooter
 xfce4-notifyd
 xfce4-power-manager

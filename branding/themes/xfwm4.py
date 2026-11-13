@@ -11,6 +11,10 @@ Three styles (theme.conf `style=`), all solid, all from the same palette:
   ventanas  Close to Windows 11: flat title bar, 1 px border, 46 px wide
             buttons with thin glyphs (minimise, maximise, close); close turns
             red on hover.
+  estante   A shelf-and-launcher desktop (ChromeOS-like, no Google assets):
+            tall flat title bar in the surface colour, 1 px border, 12 px
+            corners, thin glyphs; hover draws a neutral circle and close is
+            never red.
 
 xfwm4 themes are XPM images. Corners are shaped with the XPM "None" colour
 (xfwm4 uses it as the window mask); everything else is antialiased by
@@ -38,6 +42,7 @@ STYLES = {
     "minimal": Style(title_h=30, border=2, radius=8, button_w=20, button_offset=6, title_align="center"),
     "aero": Style(title_h=30, border=4, radius=8, button_w=30, button_offset=6, title_align="left"),
     "ventanas": Style(title_h=32, border=1, radius=8, button_w=46, button_offset=0, title_align="left"),
+    "estante": Style(title_h=34, border=1, radius=12, button_w=34, button_offset=4, title_align="left"),
 }
 
 
@@ -138,6 +143,8 @@ def _rows(theme: dict[str, str], style: str, active: bool) -> tuple[list[str], s
         return rows, rows[-1]
     if style == "ventanas":
         return [bg] * s.title_h, line
+    if style == "estante":
+        return [theme["surface"] if active else bg] * s.title_h, line
     return [bg] * s.title_h, accent if active else line
 
 
@@ -268,6 +275,17 @@ def _button(theme, style: str, active: bool, button: str, state: str) -> Canvas:
             _paint(c, shape, glyph)
         return c
 
+    if style == "estante":
+        # neutral circle on hover/press, the same for every button
+        if state != "normal":
+            ring = _mix(rows[0], theme["text"], 0.12 if state == "prelight" else 0.20)
+            r = min(s.button_w, s.title_h - top) / 2 - 3
+            _paint(c, lambda px, py: (px - cx) ** 2 + (py - cy) ** 2 <= r * r, ring)
+        glyph = theme["text"] if active else theme["text_dim"]
+        for shape in GLYPHS[button](cx, cy, 4.5, 1.4):
+            _paint(c, shape, glyph)
+        return c
+
     # ventanas: flat cell, hover tint; close turns red
     if state != "normal":
         hover = "C42B1C" if button == "close" else _mix(theme["bg"], theme["text"], 0.10 if state == "prelight" else 0.06)
@@ -331,4 +349,4 @@ def generate(theme: dict[str, str]) -> dict[str, str]:
     return files
 
 
-BUTTON_LAYOUT = {"minimal": "|HMC", "aero": "|HMC", "ventanas": "|HMC"}
+BUTTON_LAYOUT = {"minimal": "|HMC", "aero": "|HMC", "ventanas": "|HMC", "estante": "|HMC"}

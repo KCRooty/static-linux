@@ -1,0 +1,42 @@
+/* style: estante (a launcher and a shelf, ChromeOS-like without Google's
+ * assets). Pill buttons, 12 px menus and popovers, a floating light shelf,
+ * the clock pill and the sl-quick panel. Accent only on toggles that are on,
+ * the default button and the focus ring. */
+button { border-radius: 999px; padding: 4px 14px; }
+button.suggested-action, button.default { background-color: #{{accent}}; color: #{{accent_fg}}; }
+menu, .menu, .context-menu, popover, popover.background { border-radius: 12px; }
+menu menuitem { border-radius: 8px; margin: 1px 4px; padding: 6px 10px; }
+headerbar, .titlebar { background-color: #{{surface}}; border-bottom: none; box-shadow: none; }
+entry { border-radius: 10px; }
+
+/* ---- the shelf: 48 px at the bottom ---- */
+.xfce4-panel.background { background-color: #{{surface}}; border-top: 1px solid #{{line}}; }
+.xfce4-panel button { border-radius: 999px; padding: 0 6px; margin: 6px 2px; color: #{{text}}; transition: background-color 120ms ease-out; }
+.xfce4-panel button:hover { background-color: alpha(#{{text}}, 0.08); }
+.xfce4-panel button:checked { background-color: alpha(#{{text}}, 0.10); }
+.xfce4-panel label { font-family: "{{font_ui}}"; font-size: 10pt; }
+
+/* clock/status pill (genmon) */
+#genmon-6 button, .genmon_valuebutton { background-color: alpha(#{{text}}, 0.07); border-radius: 999px; padding: 0 14px; margin: 7px 8px 7px 2px; }
+#genmon-6 button:hover, .genmon_valuebutton:hover { background-color: alpha(#{{text}}, 0.13); }
+
+/* ---- launcher (whisker): search on top, apps as a grid ---- */
+#whiskermenu-window { background-color: #{{surface}}; border: 1px solid #{{line}}; border-radius: 16px; }
+#whiskermenu-window entry { background-color: #{{bg}}; border-radius: 999px; border: none; padding: 8px 16px; min-height: 22px; }
+#whiskermenu-window button { border-radius: 12px; }
+#whiskermenu-window button:hover, #whiskermenu-window treeview:selected,
+#whiskermenu-window iconview:selected { background-color: alpha(#{{accent}}, 0.12); color: #{{text}}; }
+
+/* ---- sl-quick: quick settings above the shelf ---- */
+#sl-quick { background-color: #{{surface}}; border: 1px solid #{{line}}; border-radius: 16px; }
+#sl-quick .sl-date { font-weight: 600; color: #{{text}}; }
+#sl-quick .sl-sub { font-size: 9pt; color: #{{text_dim}}; }
+#sl-quick button.sl-round { border-radius: 999px; padding: 8px; min-width: 20px; min-height: 20px; background-color: alpha(#{{text}}, 0.07); border: none; }
+#sl-quick button.sl-round:hover { background-color: alpha(#{{text}}, 0.14); }
+#sl-quick .sl-tile { border-radius: 999px; padding: 10px 14px; background-color: alpha(#{{text}}, 0.07); border: none; color: #{{text}}; }
+#sl-quick .sl-tile:hover { background-color: alpha(#{{text}}, 0.12); }
+#sl-quick .sl-tile:checked { background-color: #{{accent}}; color: #{{accent_fg}}; }
+#sl-quick .sl-tile:checked .sl-sub { color: alpha(#{{accent_fg}}, 0.85); }
+#sl-quick scale trough { min-height: 6px; border-radius: 999px; background-color: alpha(#{{text}}, 0.12); }
+#sl-quick scale highlight { border-radius: 999px; background-color: #{{accent}}; }
+#sl-quick scale slider { min-width: 18px; min-height: 18px; border-radius: 999px; background-color: #{{accent}}; border: none; box-shadow: none; }

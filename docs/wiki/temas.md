@@ -12,7 +12,7 @@ en [`DESIGN.md`](https://github.com/KCRooty/static-linux/blob/main/DESIGN.md).
     Openbox, LightDM, Plymouth y GRUB. KDE e Hyprland están generados y
     revisados, pero falta verlos arrancados en una instalación.
 
-## Los ocho temas
+## Los nueve temas
 
 | | Tema | Modo | Estilo | Acento | Fondo |
 |---|---|---|---|---|---|
@@ -24,21 +24,24 @@ en [`DESIGN.md`](https://github.com/KCRooty/static-linux/blob/main/DESIGN.md).
 | ![Violeta](img/temas/violeta.webp){ width=160 } | **Violeta** | oscuro | minimal | `#8F86F2` | provisional, dibujado por código (GPL-3.0) |
 | ![Aero](img/temas/aero.webp){ width=160 } | **Aero** | claro | aero | `#1667A8` | original, dibujado por código (GPL-3.0) |
 | ![Ventanas](img/temas/ventanas.webp){ width=160 } | **Ventanas** | oscuro | ventanas | `#4CC2FF` | original, dibujado por código (GPL-3.0) |
+| ![Nube](img/temas/nube.webp){ width=160 } | **Nube** | claro | estante | `#0B57D0` | original, dibujado por código (GPL-3.0) |
 
 Cada fondo lleva autor, licencia y cambios en `branding/themes/<id>/CREDITS`.
 Los escaneos son de The Metropolitan Museum of Art (Open Access).
 
-## Los tres estilos
+## Los cuatro estilos
 
 | Estilo | Ventanas | Barra | Fuente |
 |---|---|---|---|
 | **minimal** | borde de 2 px, botones como tres puntos | arriba, 30 px, escritorios como puntos y reloj al centro | Space Grotesk |
 | **aero** | barra de título con brillo, botones cápsula, cerrar en rojo | abajo, 40 px con brillo; reloj con fecha y "mostrar escritorio" | Noto Sans |
 | **ventanas** | plana, botones de 46 px ─ □ ✕ | abajo, 48 px, apps al centro, la activa subrayada | Inter |
+| **estante** | alta y plana, esquinas de 12 px, círculo neutro al pasar el ratón (cerrar no se pone rojo) | abajo, 48 px: lanzador redondo con búsqueda y apps en cuadrícula, dock centrado, píldora de hora que abre los ajustes rápidos (`sl-quick`) | Roboto |
 
 <div class="grid" markdown>
 ![Aero](img/temas/aero.webp)
 ![Ventanas](img/temas/ventanas.webp)
+![Nube](img/temas/nube.webp)
 </div>
 
 El brillo de aero son degradados sobre color sólido: ningún estilo usa
@@ -111,7 +114,7 @@ Las apps que ya estaban abiertas cambian al reabrirlas.
 # branding/themes/<id>/theme.conf
 name=Mi tema
 mode=dark            # dark | light
-style=minimal        # minimal | aero | ventanas (opcional, minimal si falta)
+style=minimal        # minimal | aero | ventanas | estante (opcional, minimal si falta)
 font_ui=Inter        # opcional, Space Grotesk si falta
 folders=yellow       # opcional, color de carpetas de Papirus
 bg=262321            # fondo de ventana

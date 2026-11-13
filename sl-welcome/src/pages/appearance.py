@@ -51,7 +51,8 @@ def _current_accent() -> str:
 
 
 STYLE_LABEL = {"minimal": "barra fina arriba", "aero": "Frutiger Aero, barra abajo",
-               "ventanas": "como Windows, barra abajo"}
+               "ventanas": "como Windows, barra abajo",
+               "estante": "lanzador y estante abajo"}
 
 
 def _themes() -> list[dict]:

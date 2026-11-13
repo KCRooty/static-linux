@@ -1,0 +1,317 @@
+#!/usr/bin/env python3
+"""Static Linux — quick settings for the estante style (XFCE, X11).
+
+  sl-quick          open the panel above the shelf, bottom right (again = close)
+  sl-quick --pill   one line for xfce4-genmon-plugin: the clock pill on the shelf
+
+The panel closes when it loses focus. Every tile only calls a normal desktop
+tool (nmcli, rfkill, xfconf-query, xrandr, wpctl/pactl, brightnessctl,
+sl-screenshot, xflock4, xfce4-session-logout) and does nothing if the tool is
+missing. Colours and shapes come from the theme's gtk.css (#sl-quick rules in
+branding/themes/templates/styles/estante.gtk3.css.in).
+"""
+
+from __future__ import annotations
+
+import datetime
+import os
+import shutil
+import signal
+import subprocess
+import sys
+from pathlib import Path
+
+RUN = Path(os.environ.get("XDG_RUNTIME_DIR", "/tmp")) / "sl-quick.pid"
+NIGHT = RUN.with_name("sl-night-light")  # runtime dir: the xrandr gamma is gone after logout too
+DAYS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
+MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
+          "septiembre", "octubre", "noviembre", "diciembre"]
+
+
+def sh(*cmd: str) -> str:
+    """Run a tool; '' if it is missing or fails."""
+    if not shutil.which(cmd[0]):
+        return ""
+    try:
+        return subprocess.run(cmd, capture_output=True, text=True, timeout=4).stdout.strip()
+    except (subprocess.SubprocessError, OSError):
+        return ""
+
+
+def spawn(*cmd: str) -> None:
+    if shutil.which(cmd[0]):
+        subprocess.Popen(cmd, start_new_session=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+
+
+# ---------------------------------------------------------------- state readers
+
+def battery() -> tuple[int, bool] | None:
+    for bat in sorted(Path("/sys/class/power_supply").glob("BAT*")):
+        try:
+            cap = int((bat / "capacity").read_text())
+            charging = (bat / "status").read_text().strip() in ("Charging", "Full")
+            return cap, charging
+        except (OSError, ValueError):
+            continue
+    return None
+
+
+def wifi_on() -> bool | None:
+    out = sh("nmcli", "radio", "wifi")
+    return None if not out else out == "enabled"
+
+
+def wifi_name() -> str:
+    for line in sh("nmcli", "-t", "-f", "ACTIVE,SSID", "dev", "wifi").splitlines():
+        if line.startswith("yes:"):
+            return line[4:]
+    for line in sh("nmcli", "-t", "-f", "TYPE,STATE", "dev").splitlines():
+        if line.startswith("ethernet:connected"):
+            return "Cable"
+    return ""
+
+
+def bt_on() -> bool | None:
+    out = sh("rfkill", "list", "bluetooth")
+    if not out:
+        return None
+    return "Soft blocked: yes" not in out
+
+
+def dnd_on() -> bool:
+    return sh("xfconf-query", "-c", "xfce4-notifyd", "-p", "/do-not-disturb") == "true"
+
+
+def volume() -> tuple[int, bool] | None:
+    out = sh("wpctl", "get-volume", "@DEFAULT_AUDIO_SINK@")
+    if out.startswith("Volume:"):
+        parts = out.split()
+        return round(float(parts[1]) * 100), "[MUTED]" in out
+    out = sh("pactl", "get-sink-volume", "@DEFAULT_SINK@")
+    if "%" in out:
+        pct = int(out.split("%")[0].split()[-1])
+        return pct, sh("pactl", "get-sink-mute", "@DEFAULT_SINK@").endswith("yes")
+    return None
+
+
+def brightness() -> int | None:
+    if not shutil.which("brightnessctl"):
+        return None
+    cur, mx = sh("brightnessctl", "get"), sh("brightnessctl", "max")
+    try:
+        return round(int(cur) * 100 / int(mx)) if int(mx) else None
+    except ValueError:
+        return None
+
+
+# ---------------------------------------------------------------- actions
+
+def set_wifi(on: bool) -> None:
+    spawn("nmcli", "radio", "wifi", "on" if on else "off")
+
+
+def set_bt(on: bool) -> None:
+    spawn("rfkill", "unblock" if on else "block", "bluetooth")
+
+
+def set_dnd(on: bool) -> None:
+    spawn("xfconf-query", "-c", "xfce4-notifyd", "-p", "/do-not-disturb", "-n", "-t", "bool",
+          "-s", "true" if on else "false")
+
+
+def outputs() -> list[str]:
+    return [l.split()[0] for l in sh("xrandr", "--query").splitlines() if " connected" in l]
+
+
+def set_night(on: bool) -> None:
+    gamma = "1.0:0.82:0.62" if on else "1.0:1.0:1.0"
+    for out in outputs():
+        spawn("xrandr", "--output", out, "--gamma", gamma)
+    if on:
+        NIGHT.write_text("on\n")
+    else:
+        NIGHT.unlink(missing_ok=True)
+
+
+def set_volume(pct: int) -> None:
+    if shutil.which("wpctl"):
+        spawn("wpctl", "set-volume", "-l", "1.0", "@DEFAULT_AUDIO_SINK@", f"{pct}%")
+    else:
+        spawn("pactl", "set-sink-volume", "@DEFAULT_SINK@", f"{pct}%")
+
+
+def set_brightness(pct: int) -> None:
+    spawn("brightnessctl", "-q", "set", f"{max(pct, 5)}%")
+
+
+# ---------------------------------------------------------------- pill
+
+def pill() -> None:
+    now = datetime.datetime.now()
+    bits = [now.strftime("%H:%M")]
+    bat = battery()
+    if bat:
+        bits.append(f"{bat[0]} %")
+    tip = f"{DAYS[now.weekday()].capitalize()}, {now.day} de {MONTHS[now.month - 1]}"
+    net = wifi_name()
+    if net:
+        tip += f"\nRed: {net}"
+    print(f"<txt> {'   '.join(bits)} </txt><txtclick>sl-quick</txtclick><tool>{tip}</tool>")
+
+
+# ---------------------------------------------------------------- panel
+
+def toggle_existing() -> bool:
+    """If a panel is open, close it and return True."""
+    try:
+        pid = int(RUN.read_text())
+        os.kill(pid, signal.SIGTERM)
+        RUN.unlink(missing_ok=True)
+        return True
+    except (OSError, ValueError):
+        RUN.unlink(missing_ok=True)
+        return False
+
+
+def panel() -> None:
+    import gi
+    gi.require_version("Gtk", "3.0")
+    from gi.repository import GLib, Gtk, Gdk
+
+    RUN.write_text(str(os.getpid()))
+    signal.signal(signal.SIGTERM, lambda *_: Gtk.main_quit())
+
+    win = Gtk.Window(type=Gtk.WindowType.TOPLEVEL)
+    win.set_name("sl-quick")
+    win.set_title("Ajustes rápidos")
+    win.set_decorated(False)
+    win.set_resizable(False)
+    win.set_skip_taskbar_hint(True)
+    win.set_skip_pager_hint(True)
+    win.set_keep_above(True)
+    win.set_type_hint(Gdk.WindowTypeHint.DIALOG)
+    win.set_default_size(360, -1)
+
+    box = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=14)
+    box.set_border_width(16)
+    win.add(box)
+
+    # top row: date (left) · round actions (right)
+    top = Gtk.Box(spacing=8)
+    now = datetime.datetime.now()
+    date = Gtk.Label(label=f"{DAYS[now.weekday()].capitalize()}, {now.day} de {MONTHS[now.month - 1]}", xalign=0)
+    date.get_style_context().add_class("sl-date")
+    top.pack_start(date, True, True, 0)
+
+    def round_button(icon: str, tip: str, cmd: tuple[str, ...]) -> Gtk.Button:
+        b = Gtk.Button.new_from_icon_name(icon, Gtk.IconSize.BUTTON)
+        b.set_tooltip_text(tip)
+        b.get_style_context().add_class("sl-round")
+        b.connect("clicked", lambda *_: (spawn(*cmd), Gtk.main_quit()))
+        return b
+    for icon, tip, cmd in (("system-log-out-symbolic", "Cerrar sesión", ("xfce4-session-logout", "--logout")),
+                           ("system-shutdown-symbolic", "Apagar", ("xfce4-session-logout", "--halt")),
+                           ("system-lock-screen-symbolic", "Bloquear", ("xflock4",)),
+                           ("emblem-system-symbolic", "Ajustes", ("xfce4-settings-manager",))):
+        if shutil.which(cmd[0]):
+            top.pack_start(round_button(icon, tip, cmd), False, False, 0)
+    box.pack_start(top, False, False, 0)
+
+    # tiles, two per row
+    grid = Gtk.Grid(column_spacing=10, row_spacing=10, column_homogeneous=True)
+
+    def tile(icon: str, title: str, sub: str, state: bool | None, on_toggle) -> Gtk.ToggleButton:
+        t = Gtk.ToggleButton()
+        t.get_style_context().add_class("sl-tile")
+        inner = Gtk.Box(spacing=10)
+        inner.pack_start(Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.LARGE_TOOLBAR), False, False, 0)
+        text = Gtk.Box(orientation=Gtk.Orientation.VERTICAL)
+        text.pack_start(Gtk.Label(label=title, xalign=0), False, False, 0)
+        subl = Gtk.Label(label=sub, xalign=0)
+        subl.get_style_context().add_class("sl-sub")
+        subl.set_ellipsize(3)  # Pango.EllipsizeMode.END
+        text.pack_start(subl, False, False, 0)
+        inner.pack_start(text, True, True, 0)
+        t.add(inner)
+        t.set_active(bool(state))
+        if state is None:
+            t.set_sensitive(False)
+        t.connect("toggled", lambda b: on_toggle(b.get_active()))
+        return t
+
+    w, b = wifi_on(), bt_on()
+    tiles = [
+        tile("network-wireless-symbolic", "Wi‑Fi", wifi_name() or ("Activado" if w else "Desactivado"), w, set_wifi),
+        tile("bluetooth-active-symbolic", "Bluetooth", "Activado" if b else "Desactivado", b, set_bt),
+        tile("notifications-disabled-symbolic", "No molestar", "Sin avisos" if dnd_on() else "Avisos activos",
+             dnd_on() if shutil.which("xfconf-query") else None, set_dnd),
+        tile("night-light-symbolic", "Luz nocturna", "Tonos cálidos", NIGHT.exists() if shutil.which("xrandr") else None,
+             set_night),
+    ]
+    for i, t in enumerate(tiles):
+        grid.attach(t, i % 2, i // 2, 1, 1)
+    shot = Gtk.Button()
+    shot.get_style_context().add_class("sl-tile")
+    sbox = Gtk.Box(spacing=10)
+    sbox.pack_start(Gtk.Image.new_from_icon_name("camera-photo-symbolic", Gtk.IconSize.LARGE_TOOLBAR), False, False, 0)
+    sbox.pack_start(Gtk.Label(label="Captura", xalign=0), True, True, 0)
+    shot.add(sbox)
+    shot.set_sensitive(bool(shutil.which("sl-screenshot")))
+    shot.connect("clicked", lambda *_: (Gtk.main_quit(), GLib.timeout_add(250, lambda: spawn("sl-screenshot"))))
+    grid.attach(shot, 0, 2, 2, 1)
+    box.pack_start(grid, False, False, 0)
+
+    # sliders
+    def slider(icon: str, value: int, on_change) -> Gtk.Box:
+        row = Gtk.Box(spacing=10)
+        row.pack_start(Gtk.Image.new_from_icon_name(icon, Gtk.IconSize.LARGE_TOOLBAR), False, False, 0)
+        scale = Gtk.Scale.new_with_range(Gtk.Orientation.HORIZONTAL, 0, 100, 1)
+        scale.set_draw_value(False)
+        scale.set_value(value)
+        scale.connect("value-changed", lambda s: on_change(int(s.get_value())))
+        row.pack_start(scale, True, True, 0)
+        return row
+    vol = volume()
+    if vol:
+        box.pack_start(slider("audio-volume-high-symbolic", vol[0], set_volume), False, False, 0)
+    br = brightness()
+    if br is not None:
+        box.pack_start(slider("display-brightness-symbolic", br, set_brightness), False, False, 0)
+
+    bat = battery()
+    if bat:
+        foot = Gtk.Label(label=f"Batería {bat[0]} %" + (" · cargando" if bat[1] else ""), xalign=0)
+        foot.get_style_context().add_class("sl-sub")
+        box.pack_start(foot, False, False, 0)
+
+    # place it above the shelf, bottom right of the monitor under the pointer
+    def place(*_):
+        display = Gdk.Display.get_default()
+        seat = display.get_default_seat()
+        _, px, py = seat.get_pointer().get_position()
+        mon = display.get_monitor_at_point(px, py).get_workarea()
+        ww, wh = win.get_size()
+        win.move(mon.x + mon.width - ww - 12, mon.y + mon.height - wh - 12)
+    win.connect("realize", place)
+    win.connect("size-allocate", place)
+    win.connect("focus-out-event", lambda *_: Gtk.main_quit())
+    win.connect("key-press-event", lambda _w, e: e.keyval == Gdk.KEY_Escape and Gtk.main_quit())
+    win.show_all()
+    win.present()
+    try:
+        Gtk.main()
+    finally:
+        RUN.unlink(missing_ok=True)
+
+
+def main() -> None:
+    if "--pill" in sys.argv:
+        pill()
+        return
+    if toggle_existing():
+        return
+    panel()
+
+
+if __name__ == "__main__":
+    main()
