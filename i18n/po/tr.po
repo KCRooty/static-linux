@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "zamanlayıcı başlamadı;  journalctl -u scx_loader  çıktısına bak�
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Zamanlayıcı: scx_{name} (sonraki açılışta da)."
 
+msgid "no instalado"
+msgstr "kurulu değil"
+
+msgid "Escuchando"
+msgstr "Dinleniyor"
+
+msgid "nada"
+msgstr "hiçbir şey"
+
+msgid "Cortafuegos"
+msgstr "Güvenlik duvarı"
+
+msgid "desactivado"
+msgstr "kapalı"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "Aç: sudo sl-ctl server on <hizmet> · kapat: sudo sl-ctl server off <hizmet>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} kurulu değil: sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "/etc/wireguard/wg0.conf eksik: önce oluştur (wiki: Servidor)."
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} docker grubunda (bir sonraki oturumdan itibaren geçerli)."
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "Güvenlik duvarı: {port} açık."
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "Güvenlik duvarı kapalı: {port} ağdan erişilebilir."
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name}: açık."
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name}: durduruldu, açık port yok."
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "Hizmetler: {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR güncellenmedi: normal kullanıcı bulunamadı. Kendi kullanıcınızla `paru -Sua` çalıştırın."
 
@@ -225,6 +274,9 @@ msgstr "temaları listeler"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "performans: durum, güç profili ve CPU zamanlayıcı"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "sunucu: hizmet durumu, açma ve kapatma"
 
 msgid "Espacio"
 msgstr "Boşluk"
@@ -1252,6 +1304,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3'ün döşemesi, Wayland'de. 1-2 GB'tan itibaren. waybar çubuğu, rofi başlatıcı ve mako ile bildirimler."
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "Grafik ortam yok"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "Yalnızca konsol: komut satırına açılır; grafik sunucu, tarayıcı ve ses yok. tmux, btop ve sl-ctl ile. 512 MB'tan itibaren."
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "Sunucu / Homelab"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "Grafik ortam olmadan, Sunucu çeşidiyle: Docker, Nginx, MariaDB, WireGuard, Fail2ban ve Cockpit (web paneli). «sl-ctl server» ile etkinleştirene kadar ağda hiçbir şey dinlemez."
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "Çeşitler"
@@ -1311,10 +1379,6 @@ msgstr "Siber güvenlik"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra ve Tor."
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "Sunucu / Homelab"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

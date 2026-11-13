@@ -16,7 +16,7 @@ serie.
 | 🧪 Máquinas virtuales | QEMU/KVM, virt-manager, GNOME Boxes, UEFI y TPM para invitados | libvirt por *socket*, grupo `libvirt` |
 | 🎓 Educación | GeoGebra, Stellarium, Anki, Jupyter, FreeCAD | — |
 | 🔒 Ciberseguridad | Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra, Tor | — |
-| 🖥️ Servidor | Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit | nada escuchando hasta que lo actives |
+| 🖥️ Servidor | Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit | nada escuchando hasta que lo actives con [`sl-ctl server`](servidor.md) |
 
 Las listas viven en `packages/lists/sabor-<slug>.list`: una línea por paquete
 oficial, `# flatpak: <id>` para apps de Flathub (se instalan durante la

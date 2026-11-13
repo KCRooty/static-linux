@@ -29,7 +29,7 @@ except ImportError:  # running without the i18n folder
     def _(text: str) -> str:
         return text
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 
 STATE_DIR = Path("/var/lib/static-linux")
 BACKUP_DIR = Path("/var/backups/static-linux/tweaks")
@@ -447,6 +447,100 @@ def cmd_perf(args) -> int:
 
 
 # ---------------------------------------------------------------------------
+# server  (Server/Homelab flavor: nothing listens until it is turned on here)
+# ---------------------------------------------------------------------------
+SERVER_SERVICES = {
+    # name: (unit, package, firewall ports)
+    "ssh": ("sshd.service", "openssh", ["22/tcp"]),
+    "cockpit": ("cockpit.socket", "cockpit", ["9090/tcp"]),
+    "docker": ("docker.socket", "docker", []),
+    "nginx": ("nginx.service", "nginx", ["80/tcp", "443/tcp"]),
+    "mariadb": ("mariadb.service", "mariadb", []),
+    "fail2ban": ("fail2ban.service", "fail2ban", []),
+    "wireguard": ("wg-quick@wg0.service", "wireguard-tools", ["51820/udp"]),
+}
+
+
+def _installed(pkg: str) -> bool:
+    return _sh(["pacman", "-Q", pkg], capture_output=True).returncode == 0
+
+
+def _ufw_active() -> bool:
+    return "Status: active" in _out(["ufw", "status"])
+
+
+def _server_status() -> int:
+    print(f"{GREEN}sl-ctl server{RESET}")
+    for name, (unit, pkg, ports) in SERVER_SERVICES.items():
+        if not _installed(pkg):
+            state = DIM + _("no instalado") + RESET
+        elif _active(unit):
+            state = _("activo")
+        else:
+            state = _("parado")
+        extra = f"  {DIM}{', '.join(ports)}{RESET}" if ports else ""
+        print(_row(name, state + extra))
+    listening = _out(["ss", "-tulnH"])
+    public = [l.split()[4] for l in listening.splitlines()
+              if len(l.split()) > 4 and not l.split()[4].startswith(("127.", "[::1]", "::1", "[fe80"))]
+    print(_row(_("Escuchando"), ", ".join(sorted(set(public))) or _("nada")))
+    print(_row(_("Cortafuegos"), "ufw " + (_("activo") if _ufw_active() else _("desactivado"))))
+    print()
+    print(DIM + _("Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>") + RESET)
+    return 0
+
+
+def _server_on(name: str) -> int:
+    unit, pkg, ports = SERVER_SERVICES[name]
+    if not _installed(pkg):
+        print(_("{pkg} no está instalado: sudo pacman -S {pkg}").format(pkg=pkg))
+        return 1
+    if name == "mariadb" and not any(Path("/var/lib/mysql").glob("mysql")):
+        _sh(["mariadb-install-db", "--user=mysql", "--basedir=/usr", "--datadir=/var/lib/mysql"],
+            capture_output=True)
+    if name == "wireguard" and not Path("/etc/wireguard/wg0.conf").exists():
+        print(_("Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."))
+        return 1
+    if _sh(["systemctl", "enable", "--now", unit]).returncode != 0:
+        return 1
+    if name == "docker":
+        user = _invoking_user()
+        if user:
+            _sh(["usermod", "-aG", "docker", user])
+            print(_("{user} está en el grupo docker (vale desde el próximo inicio de sesión).").format(user=user))
+    for port in ports:
+        if _ufw_active():
+            _sh(["ufw", "allow", port, "comment", f"sl-ctl server {name}"], capture_output=True)
+            print(_("Cortafuegos: {port} abierto.").format(port=port))
+        else:
+            print(_("Cortafuegos desactivado: {port} queda accesible desde la red.").format(port=port))
+    print(_("{name}: activo.").format(name=name))
+    return 0
+
+
+def _server_off(name: str) -> int:
+    unit, _pkg, ports = SERVER_SERVICES[name]
+    _sh(["systemctl", "disable", "--now", unit], capture_output=True)
+    if unit.endswith(".socket"):  # the socket can leave its service running
+        _sh(["systemctl", "stop", unit.replace(".socket", ".service")], capture_output=True)
+    for port in ports:
+        if shutil.which("ufw"):
+            _sh(["ufw", "delete", "allow", port], capture_output=True)
+    print(_("{name}: parado y sin puertos abiertos.").format(name=name))
+    return 0
+
+
+def cmd_server(args) -> int:
+    if args.action in ("on", "off"):
+        if args.service not in SERVER_SERVICES:
+            print(_("Servicios: {names}").format(names=", ".join(SERVER_SERVICES)))
+            return 2
+        _need_root()
+        return _server_on(args.service) if args.action == "on" else _server_off(args.service)
+    return _server_status()
+
+
+# ---------------------------------------------------------------------------
 # thin wrappers  (EXPERIMENTAL — real logic lands in later phases)
 # ---------------------------------------------------------------------------
 def cmd_update(args) -> int:
@@ -545,6 +639,11 @@ def build_parser() -> argparse.ArgumentParser:
     pf.add_argument("what", nargs="?", choices=("status", "profile", "scheduler"), default="status")
     pf.add_argument("value", nargs="?", metavar="performance|lavd|off|...")
     pf.set_defaults(fn=cmd_perf)
+
+    sv = sub.add_parser("server", help=_("servidor: estado de los servicios y activarlos o apagarlos"))
+    sv.add_argument("action", nargs="?", choices=("status", "on", "off"), default="status")
+    sv.add_argument("service", nargs="?", metavar="ssh|cockpit|docker|nginx|mariadb|fail2ban|wireguard")
+    sv.set_defaults(fn=cmd_server)
 
     return p
 

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "the scheduler did not start; see  journalctl -u scx_loader"
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Scheduler: scx_{name} (also on next boot)."
 
+msgid "no instalado"
+msgstr "not installed"
+
+msgid "Escuchando"
+msgstr "Listening"
+
+msgid "nada"
+msgstr "nothing"
+
+msgid "Cortafuegos"
+msgstr "Firewall"
+
+msgid "desactivado"
+msgstr "disabled"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "Turn on: sudo sl-ctl server on <service> · turn off: sudo sl-ctl server off <service>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} is not installed: sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "/etc/wireguard/wg0.conf is missing: create it first (wiki: Servidor)."
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} is in the docker group (takes effect at the next login)."
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "Firewall: {port} open."
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "Firewall disabled: {port} is reachable from the network."
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name}: on."
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name}: stopped, no ports open."
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "Services: {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR not updated: there is no regular user to switch to. Run `paru -Sua` as your user."
 
@@ -225,6 +274,9 @@ msgstr "list the themes"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "performance: status, power profile and CPU scheduler"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "server: service status, and turn them on or off"
 
 msgid "Espacio"
 msgstr "Space"
@@ -1252,6 +1304,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3's tiling, on Wayland. From 1-2 GB. waybar bar, rofi launcher and notifications with mako."
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "No graphical environment"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "Just the console: boots to the command line, with no display server, no browser and no audio. With tmux, btop and sl-ctl. From 512 MB."
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "Server / Homelab"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "No graphical environment, with the Server flavor: Docker, Nginx, MariaDB, WireGuard, Fail2ban and Cockpit (web panel). Nothing listens on the network until you enable it with «sl-ctl server»."
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "Flavors"
@@ -1311,10 +1379,6 @@ msgstr "Cybersecurity"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra and Tor."
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "Server / Homelab"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

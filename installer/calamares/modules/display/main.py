@@ -17,6 +17,9 @@ import os
 import libcalamares
 
 SCALES = {"1": 96, "1.25": 120, "1.5": 144, "2": 192}
+# No graphical environment: the console font (terminus-font, from
+# sin-escritorio.list) sized for the same screen
+CONSOLE_FONTS = {"1": "ter-v18n", "1.25": "ter-v22n", "1.5": "ter-v24n", "2": "ter-v32n"}
 
 def _tr(text: str) -> str:
     """Spanish source string -> the installer's language (gettext domain
@@ -45,6 +48,20 @@ def _write(root, path, text):
         fh.write(text)
 
 
+def _console_font(root, font):
+    """FONT= in /etc/vconsole.conf, keeping the KEYMAP the keyboard job wrote."""
+    if not os.path.exists(os.path.join(root, f"usr/share/kbd/consolefonts/{font}.psf.gz")):
+        libcalamares.utils.warning(f"display: console font {font} not installed")
+        return
+    path = os.path.join(root, "etc/vconsole.conf")
+    try:
+        with open(path, encoding="utf-8") as fh:
+            lines = [l for l in fh.read().splitlines() if not l.startswith("FONT=")]
+    except OSError:
+        lines = []
+    _write(root, "/etc/vconsole.conf", "\n".join(lines + [f"FONT={font}"]) + "\n")
+
+
 def run():
     root = libcalamares.globalstorage.value("rootMountPoint")
     if not root:
@@ -59,6 +76,8 @@ def run():
     dpi = SCALES[scale]
 
     _write(root, "/etc/static-linux/display-scale", scale + "\n")
+    if libcalamares.globalstorage.value("slHeadless"):
+        _console_font(root, CONSOLE_FONTS[scale])
     if scale == "1":
         return None
 

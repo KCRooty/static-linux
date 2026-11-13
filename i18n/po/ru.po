@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "планировщик не запустился; смотрите  jour
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Планировщик: scx_{name} (и при следующей загрузке)."
 
+msgid "no instalado"
+msgstr "не установлен"
+
+msgid "Escuchando"
+msgstr "Слушает"
+
+msgid "nada"
+msgstr "ничего"
+
+msgid "Cortafuegos"
+msgstr "Брандмауэр"
+
+msgid "desactivado"
+msgstr "выключен"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "Включить: sudo sl-ctl server on <служба> · выключить: sudo sl-ctl server off <служба>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} не установлен: sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "Нет /etc/wireguard/wg0.conf: сначала создайте его (вики: Servidor)."
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} в группе docker (действует со следующего входа)."
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "Брандмауэр: {port} открыт."
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "Брандмауэр выключен: {port} доступен из сети."
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name}: включён."
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name}: остановлен, открытых портов нет."
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "Службы: {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR не обновлён: обычный пользователь не найден. Запустите `paru -Sua` от своего пользователя."
 
@@ -225,6 +274,9 @@ msgstr "список тем"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "производительность: состояние, профиль питания и планировщик CPU"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "сервер: состояние служб, включение и выключение"
 
 msgid "Espacio"
 msgstr "Пробел"
@@ -1253,6 +1305,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "Мозаика i3, но в Wayland. От 1-2 ГБ. Панель waybar, лаунчер rofi и уведомления через mako."
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "Без графического окружения"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "Только консоль: загрузка в командную строку, без графического сервера, браузера и звука. С tmux, btop и sl-ctl. От 512 МБ."
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "Сервер / Домашняя лаборатория"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "Без графического окружения, с вариантом «Сервер»: Docker, Nginx, MariaDB, WireGuard, Fail2ban и Cockpit (веб-панель). Ничего не слушает сеть, пока вы не включите это через «sl-ctl server»."
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "Наборы"
@@ -1312,10 +1380,6 @@ msgstr "Кибербезопасность"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra и Tor."
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "Сервер / Домашняя лаборатория"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

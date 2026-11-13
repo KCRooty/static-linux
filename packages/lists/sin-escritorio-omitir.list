@@ -1,0 +1,25 @@
+# Static Linux — base.list packages that basepkgs leaves out when the
+# environment is "tty" or "servidor" (no display server, browser or audio).
+# Everything else in base.list (kernel, boot, network, privacy, sl-ctl,
+# podman/distrobox, CLI tools, plymouth) stays.
+
+brave-origin-bin
+python-gobject
+python-cairo
+gtk4
+libadwaita
+xorg-server
+xorg-xinit
+vulkan-icd-loader
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
+wireplumber
+noto-fonts-emoji
+staticlinux-fonts
+inter-font
+libnotify
+adw-gtk-theme
+papirus-icon-theme
+cava

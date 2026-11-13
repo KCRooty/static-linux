@@ -62,11 +62,14 @@ def run():
         fh.write(theme + "\n")
 
     login = gs.value("username")  # set by the users module
-    rc = libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--skel"])
-    if rc != 0:
-        return ("No se pudo aplicar el tema", f"sl-theme --skel terminó con {rc}")
-    if login:
-        libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--user", login])
+    # no graphical environment: nothing to theme in the home folder, only the
+    # boot splash (--system)
+    if not gs.value("slHeadless"):
+        rc = libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--skel"])
+        if rc != 0:
+            return ("No se pudo aplicar el tema", f"sl-theme --skel terminó con {rc}")
+        if login:
+            libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--user", login])
     rc = libcalamares.utils.target_env_call(["python3", SL_THEME, theme, "--system", "--no-initramfs"])
     if rc != 0:
         libcalamares.utils.warning(f"sl-theme --system ended with {rc}; login/boot keep the defaults")

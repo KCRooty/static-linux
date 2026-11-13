@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "スケジューラが起動しませんでした。 journalctl -u scx_lo
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "スケジューラ: scx_{name}（次回の起動でも有効）。"
 
+msgid "no instalado"
+msgstr "未インストール"
+
+msgid "Escuchando"
+msgstr "待ち受け中"
+
+msgid "nada"
+msgstr "なし"
+
+msgid "Cortafuegos"
+msgstr "ファイアウォール"
+
+msgid "desactivado"
+msgstr "無効"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "有効化: sudo sl-ctl server on <サービス> · 停止: sudo sl-ctl server off <サービス>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} はインストールされていません: sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "/etc/wireguard/wg0.conf がありません: 先に作成してください (wiki: Servidor)。"
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} は docker グループに入りました (次回ログインから有効)。"
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "ファイアウォール: {port} を開放。"
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "ファイアウォール無効: {port} はネットワークから到達可能です。"
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name}: 有効。"
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name}: 停止、開いているポートなし。"
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "サービス: {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR は更新されていません: 一般ユーザーが見つかりません。自分のユーザーで `paru -Sua` を実行してください。"
 
@@ -225,6 +274,9 @@ msgstr "テーマの一覧"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "パフォーマンス: 状態、電源プロファイル、CPU スケジューラ"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "サーバー: サービスの状態と有効化・停止"
 
 msgid "Espacio"
 msgstr "スペース"
@@ -1251,6 +1303,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3 のタイルを Wayland で。1〜2 GB 以上。バーは waybar、ランチャーは rofi、通知は mako。"
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "グラフィカル環境なし"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "コンソールのみ: コマンドラインで起動し、ディスプレイサーバー・ブラウザー・音声なし。tmux、btop、sl-ctl 付き。512 MB 以上。"
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "サーバー / ホームラボ"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "グラフィカル環境なし、サーバーフレーバー付き: Docker、Nginx、MariaDB、WireGuard、Fail2ban、Cockpit (Web パネル)。「sl-ctl server」で有効にするまでネットワークで何も待ち受けません。"
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "フレーバー"
@@ -1310,10 +1378,6 @@ msgstr "サイバーセキュリティ"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap、Wireshark、Hashcat、John、Metasploit、Ghidra、Tor。"
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "サーバー / ホームラボ"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

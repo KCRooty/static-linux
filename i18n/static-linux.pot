@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: installer/calamares/modules/basepkgs/main.py:65
+#: installer/calamares/modules/basepkgs/main.py:69
 msgid "Instalando los paquetes base"
 msgstr ""
 
-#: installer/calamares/modules/display/main.py:38
+#: installer/calamares/modules/display/main.py:41
 msgid "Ajustando la escala de pantalla"
 msgstr ""
 
-#: installer/calamares/modules/entorno-pkgs/main.py:56
+#: installer/calamares/modules/entorno-pkgs/main.py:63
 msgid "Instalando el escritorio"
 msgstr ""
 
@@ -171,11 +171,11 @@ msgstr ""
 msgid "Planificador de disco"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:376
+#: sl-ctl/sl-ctl.py:376 sl-ctl/sl-ctl.py:478 sl-ctl/sl-ctl.py:487
 msgid "activo"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:376
+#: sl-ctl/sl-ctl.py:376 sl-ctl/sl-ctl.py:480
 msgid "parado"
 msgstr ""
 
@@ -224,84 +224,151 @@ msgstr ""
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:461
-msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
+#: sl-ctl/sl-ctl.py:476
+msgid "no instalado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:470
-msgid "snapper no está instalado (solo BTRFS)"
+#: sl-ctl/sl-ctl.py:486
+msgid "Escuchando"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:484
-msgid "reflector no está instalado"
+#: sl-ctl/sl-ctl.py:486
+msgid "nada"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:490
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#: sl-ctl/sl-ctl.py:487
+msgid "Cortafuegos"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:497
-msgid "sl-welcome no está instalado."
+#: sl-ctl/sl-ctl.py:487
+msgid "desactivado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:503
-msgid "Gestión de Static Linux"
+#: sl-ctl/sl-ctl.py:489
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:507
-msgid "ejecuta sl-detect y muestra el resultado"
+#: sl-ctl/sl-ctl.py:496
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:508
-msgid "información del sistema"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:509
-msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+#: sl-ctl/sl-ctl.py:502
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:510
-msgid "renueva los mirrors con reflector"
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:511
-msgid "abre otra vez sl-welcome"
+#: sl-ctl/sl-ctl.py:514
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:513
-msgid "ajustes del sistema reversibles"
+#: sl-ctl/sl-ctl.py:516
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:519
-msgid "instantáneas de Snapper"
+#: sl-ctl/sl-ctl.py:517
+#, python-brace-format
+msgid "{name}: activo."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:525
-msgid "añade o quita sabores"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:530
-msgid "muestra o cambia el perfil de privacidad"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:534
-msgid "muestra o cambia el color de acento"
+#: sl-ctl/sl-ctl.py:529
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:536
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:555
+msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:564
+msgid "snapper no está instalado (solo BTRFS)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:578
+msgid "reflector no está instalado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:584
+msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:591
+msgid "sl-welcome no está instalado."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:597
+msgid "Gestión de Static Linux"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:601
+msgid "ejecuta sl-detect y muestra el resultado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:602
+msgid "información del sistema"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:603
+msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:604
+msgid "renueva los mirrors con reflector"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:605
+msgid "abre otra vez sl-welcome"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:607
+msgid "ajustes del sistema reversibles"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:613
+msgid "instantáneas de Snapper"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:619
+msgid "añade o quita sabores"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:624
+msgid "muestra o cambia el perfil de privacidad"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:628
+msgid "muestra o cambia el color de acento"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:630
 msgid "lista los acentos"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:539
+#: sl-ctl/sl-ctl.py:633
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:541
+#: sl-ctl/sl-ctl.py:635
 msgid "lista los temas"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:544
+#: sl-ctl/sl-ctl.py:638
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:643
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr ""
 
 #: sl-ctl/sl-hypr-guide:36
@@ -708,19 +775,19 @@ msgstr ""
 msgid "Aplicaciones (Super + Espacio)"
 msgstr ""
 
-#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:114
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:117
 msgid "Sin conexión"
 msgstr ""
 
-#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:151
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:160
 msgid "Más ajustes de sonido"
 msgstr ""
 
-#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:186
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:195
 msgid "Suspender"
 msgstr ""
 
-#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:189
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:198
 msgid "Reiniciar"
 msgstr ""
 
@@ -1646,6 +1713,27 @@ msgstr ""
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr ""
 
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:320
+msgid "Sin entorno gráfico"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:338
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr ""
+
+#. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:363
+#: installer/calamares/modules/sabores-picker/module.conf:348
+msgid "Servidor / Homelab"
+msgstr ""
+
+#. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:381
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr ""
+
 #. installer page (step)
 #: installer/calamares/modules/sabores-picker/module.conf:10
 msgid "Sabores"
@@ -1719,11 +1807,6 @@ msgstr ""
 #. installer page (description)
 #: installer/calamares/modules/sabores-picker/module.conf:326
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
-msgstr ""
-
-#. installer page (name)
-#: installer/calamares/modules/sabores-picker/module.conf:348
-msgid "Servidor / Homelab"
 msgstr ""
 
 #. installer page (description)

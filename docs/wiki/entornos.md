@@ -18,6 +18,8 @@ decisión completa. Cada uno vive en `entornos/<nombre>/`, con su propio
 | [`i3`](https://github.com/KCRooty/static-linux/tree/main/entornos/i3) | ≥ 1 GB | Xorg | Nuevo (2026-11), probado en VM |
 | [`bspwm`](https://github.com/KCRooty/static-linux/tree/main/entornos/bspwm) | ≥ 1 GB | Xorg | Nuevo (2026-11), probado en VM |
 | [`sway`](https://github.com/KCRooty/static-linux/tree/main/entornos/sway) | ≥ 1 GB | Wayland | Nuevo (2026-11), probado en VM |
+| `tty` — sin entorno gráfico | ≥ 512 MB | consola | Nuevo (2026-11) |
+| `servidor` — Servidor / Homelab | ≥ 512 MB | consola | Nuevo (2026-11), ver [Servidor](servidor.md) |
 
 KDE Plasma, GNOME, Cinnamon, i3, bspwm y sway se eligen a mano en el
 instalador; `sl-detect` no los recomienda.
@@ -89,6 +91,29 @@ y **Super + Q** (cerrar ventana); el resto de atajos está en su
 `config` (en sxhkd para bspwm). Barra: i3bar + i3status en i3, polybar en
 bspwm, waybar en sway. Tus cambios van en `config.d/` (i3 y sway), que se
 carga al final y no se sobrescribe.
+
+## Sin entorno gráfico y Servidor / Homelab
+
+Las dos últimas opciones de la página de escritorio no instalan ninguno:
+el sistema arranca a la consola (`multi-user.target`). `basepkgs` deja fuera
+la parte gráfica de `base.list` (servidor gráfico, navegador, audio, GTK,
+temas; la lista está en `packages/lists/sin-escritorio-omitir.list`) y en su
+lugar entra `sin-escritorio.list`: tmux, btop, la fuente de consola Terminus
+(a un tamaño según la pantalla) y gpm para copiar y pegar con el ratón.
+Se mantienen el kernel, el arranque, la red, la privacidad, el rendimiento,
+podman/distrobox y `sl-ctl`. El tema elegido solo se aplica a la pantalla de
+arranque.
+
+**Servidor / Homelab** es lo mismo más el sabor Servidor, aunque no lo
+marques en la página de sabores. Los servicios se activan con
+`sl-ctl server` — ver [Servidor](servidor.md).
+
+## Vistas previas del instalador
+
+Cada opción de la página de escritorio enseña una captura real del entorno
+con el tema Ámbar (`installer/calamares/branding/staticlinux/cards/<id>.png`),
+sacada de una instalación en la VM: la terminal con fastfetch y el gestor de
+archivos de ese entorno. La consola y el servidor, igual: fastfetch y btop.
 
 ## Capturas de pantalla
 

@@ -144,6 +144,8 @@ def run():
 
     chosen = gs.value("packagechooser_sabores") or ""
     selected = [s.strip() for s in chosen.split(",") if s.strip()] or (gs.value("slSabores") or [])
+    # the "servidor" environment brings its flavor even if it wasn't ticked
+    selected += [s for s in (gs.value("slSaboresExtra") or []) if s not in selected]
     slugs = [s for s in selected if s in VALID_SLUGS]
     if not slugs:
         libcalamares.utils.debug("sabores: none selected")

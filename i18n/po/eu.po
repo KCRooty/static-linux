@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "planifikatzailea ez da abiarazi; begiratu  journalctl -u scx_loader"
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Planifikatzailea: scx_{name} (hurrengo abioan ere bai)."
 
+msgid "no instalado"
+msgstr "instalatu gabe"
+
+msgid "Escuchando"
+msgstr "Entzuten"
+
+msgid "nada"
+msgstr "ezer ez"
+
+msgid "Cortafuegos"
+msgstr "Suebakia"
+
+msgid "desactivado"
+msgstr "desgaituta"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "Aktibatu: sudo sl-ctl server on <zerbitzua> · itzali: sudo sl-ctl server off <zerbitzua>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} ez dago instalatuta: sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "/etc/wireguard/wg0.conf falta da: sortu lehenik (wikia: Servidor)."
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} docker taldean dago (hurrengo saio-hasieratik balio du)."
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "Suebakia: {port} irekita."
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "Suebakia desgaituta: {port} saretik eskuragarri dago."
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name}: aktibo."
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name}: geldituta eta ataka irekirik gabe."
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "Zerbitzuak: {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR eguneratu gabe: ez dago erabiltzaile arruntik. Exekutatu `paru -Sua` zure erabiltzailearekin."
 
@@ -225,6 +274,9 @@ msgstr "zerrendatu gaiak"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "errendimendua: egoera, energia profila eta CPU planifikatzailea"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "zerbitzaria: zerbitzuen egoera, eta aktibatu edo itzali"
 
 msgid "Espacio"
 msgstr "Zuriunea"
@@ -1252,6 +1304,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3-ren mosaikoa, Waylanden. 1-2 GBtik aurrera. waybar barra, rofi abiarazlea eta mako-rekin jakinarazpenak."
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "Ingurune grafikorik gabe"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "Kontsola soilik: komando-lerrora abiarazten da, zerbitzari grafikorik, nabigatzailerik eta audiorik gabe. tmux, btop eta sl-ctl-ekin. 512 MBtik aurrera."
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "Zerbitzaria / Homelab"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "Ingurune grafikorik gabe eta Zerbitzari zaporearekin: Docker, Nginx, MariaDB, WireGuard, Fail2ban eta Cockpit (web panela). Ezerk ez du sarean entzuten «sl-ctl server»-ekin aktibatu arte."
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "Zaporeak"
@@ -1311,10 +1379,6 @@ msgstr "Zibersegurtasuna"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra eta Tor."
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "Zerbitzaria / Homelab"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

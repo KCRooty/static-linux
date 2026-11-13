@@ -27,6 +27,10 @@ import subprocess
 import libcalamares
 
 LIST_PATH = "/usr/lib/static-linux/packages/lists/base.list"  # in the live system
+# "tty"/"servidor" on the environment page: no display server, browser or
+# audio, so the graphical part of base.list is left out
+HEADLESS = ("tty", "servidor")
+HEADLESS_SKIP = "/usr/lib/static-linux/packages/lists/sin-escritorio-omitir.list"
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
 
@@ -94,6 +98,12 @@ def run():
     pkgs, aur_pkgs = _parse_list(LIST_PATH)
     if not pkgs:
         return ("base.list is empty", f"no installable packages found in {LIST_PATH}")
+
+    env = (gs.value("packagechooser_entorno") or "").split(",")[0].strip()
+    if env in HEADLESS and os.path.exists(HEADLESS_SKIP):
+        skip, _ = _parse_list(HEADLESS_SKIP)
+        pkgs = [p for p in pkgs if p not in skip]
+        libcalamares.utils.debug(f"basepkgs: {env}, leaving out {len(skip)} graphical packages")
 
     kernel = gs.value("slRecommendedKernel") or "linux-lts"
     for extra in (kernel, f"{kernel}-headers", "staticlinux-base"):

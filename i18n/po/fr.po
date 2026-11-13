@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-13 20:42+0100\n"
+"POT-Creation-Date: 2026-11-13 23:57+0100\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -166,6 +166,55 @@ msgstr "l'ordonnanceur n'a pas démarré ; voir  journalctl -u scx_loader"
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Ordonnanceur : scx_{name} (aussi au prochain démarrage)."
 
+msgid "no instalado"
+msgstr "non installé"
+
+msgid "Escuchando"
+msgstr "En écoute"
+
+msgid "nada"
+msgstr "rien"
+
+msgid "Cortafuegos"
+msgstr "Pare-feu"
+
+msgid "desactivado"
+msgstr "désactivé"
+
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr "Activer : sudo sl-ctl server on <service> · arrêter : sudo sl-ctl server off <service>"
+
+#, python-brace-format
+msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
+msgstr "{pkg} n'est pas installé : sudo pacman -S {pkg}"
+
+msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
+msgstr "/etc/wireguard/wg0.conf manque : crée-le d'abord (wiki : Servidor)."
+
+#, python-brace-format
+msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
+msgstr "{user} est dans le groupe docker (effectif à la prochaine connexion)."
+
+#, python-brace-format
+msgid "Cortafuegos: {port} abierto."
+msgstr "Pare-feu : {port} ouvert."
+
+#, python-brace-format
+msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
+msgstr "Pare-feu désactivé : {port} est accessible depuis le réseau."
+
+#, python-brace-format
+msgid "{name}: activo."
+msgstr "{name} : actif."
+
+#, python-brace-format
+msgid "{name}: parado y sin puertos abiertos."
+msgstr "{name} : arrêté, aucun port ouvert."
+
+#, python-brace-format
+msgid "Servicios: {names}"
+msgstr "Services : {names}"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR non mis à jour : aucun utilisateur normal trouvé. Lancez `paru -Sua` avec votre utilisateur."
 
@@ -225,6 +274,9 @@ msgstr "liste les thèmes"
 
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "performances : état, profil d'énergie et ordonnanceur CPU"
+
+msgid "servidor: estado de los servicios y activarlos o apagarlos"
+msgstr "serveur : état des services, et les activer ou les arrêter"
 
 msgid "Espacio"
 msgstr "Espace"
@@ -1252,6 +1304,22 @@ msgstr "sway"
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "La mosaïque d'i3, sous Wayland. Dès 1-2 Go. Barre waybar, lanceur rofi et notifications avec mako."
 
+#. installer page (name)
+msgid "Sin entorno gráfico"
+msgstr "Sans environnement graphique"
+
+#. installer page (description)
+msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
+msgstr "Seulement la console : démarre en ligne de commande, sans serveur graphique, sans navigateur et sans audio. Avec tmux, btop et sl-ctl. Dès 512 Mo."
+
+#. installer page (name)
+msgid "Servidor / Homelab"
+msgstr "Serveur / Homelab"
+
+#. installer page (description)
+msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
+msgstr "Sans environnement graphique, avec la saveur Serveur : Docker, Nginx, MariaDB, WireGuard, Fail2ban et Cockpit (panneau web). Rien n'écoute sur le réseau tant que tu ne l'actives pas avec «sl-ctl server»."
+
 #. installer page (step)
 msgid "Sabores"
 msgstr "Saveurs"
@@ -1311,10 +1379,6 @@ msgstr "Cybersécurité"
 #. installer page (description)
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra et Tor."
-
-#. installer page (name)
-msgid "Servidor / Homelab"
-msgstr "Serveur / Homelab"
 
 #. installer page (description)
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."

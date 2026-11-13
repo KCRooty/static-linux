@@ -1,0 +1,11 @@
+# Static Linux — no graphical environment ("tty" and "servidor" on the
+# installer's environment page). Installed instead of a desktop list.
+# The graphical packages base.list would bring are left out by basepkgs:
+# see sin-escritorio-omitir.list.
+
+tmux
+btop
+# console font with full Latin/Cyrillic/Greek coverage, readable on HiDPI
+terminus-font
+# mouse copy/paste in the Linux console
+gpm

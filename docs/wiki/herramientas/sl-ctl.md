@@ -21,6 +21,9 @@ sl-ctl theme <tema>              # aplicar un tema (fondo + paleta + estilo)
 sl-ctl perf                      # rendimiento: planificador, energía, swap, discos
 sl-ctl perf profile performance  # perfil de energía
 sudo sl-ctl perf scheduler lavd  # planificador de CPU (sched_ext) u off
+sl-ctl server                    # servicios del servidor y qué escucha en la red
+sudo sl-ctl server on cockpit    # activar un servicio (y abrir su puerto en ufw)
+sudo sl-ctl server off cockpit   # pararlo y cerrar su puerto
 sl-ctl info                      # info del sistema, con marca
 sl-ctl detect                    # ejecuta sl-detect
 sl-ctl welcome                   # relanza sl-welcome
@@ -51,6 +54,19 @@ y si earlyoom está activo. `perf profile` cambia el perfil de
 power-profiles-daemon; `perf scheduler <lavd|bpfland|cosmos|flash|rusty|off>`
 instala scx si falta, guarda la configuración anterior y deja el cambio
 también para el próximo arranque. Ver [Rendimiento](../rendimiento.md).
+
+## `sl-ctl server`
+
+Para el sabor Servidor / Homelab, que se instala con todo apagado. Sin
+argumentos enseña cada servicio (instalado, activo o parado, y sus puertos),
+lo que escucha en la red fuera de `localhost` y si ufw está activo.
+`server on <servicio>` lo activa y arranca, y si ufw está activo abre sus
+puertos con el comentario `sl-ctl server <servicio>`; `server off` lo para,
+lo desactiva y borra esas reglas. Servicios: `ssh` (22), `cockpit` (9090),
+`docker` (añade tu usuario al grupo), `nginx` (80, 443), `mariadb`
+(inicializa la base de datos la primera vez; el 3306 no se abre),
+`fail2ban` y `wireguard` (51820/udp, necesita `/etc/wireguard/wg0.conf`).
+Ver [Servidor](../servidor.md).
 
 ## `sl-ctl tweaks`
 

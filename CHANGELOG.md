@@ -7,6 +7,17 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 ## Sin publicar · 18 idiomas, y rendimiento de serie
 
 ### Nuevo
+- **Vistas previas reales en el instalador**: cada escritorio de la página
+  de entornos enseña una captura de verdad (tema Ámbar, terminal y gestor de
+  archivos) en lugar del dibujo genérico.
+- **Sin entorno gráfico** y **Servidor / Homelab** en la página de
+  escritorio: arrancan a la consola, sin servidor gráfico, navegador ni audio
+  (tmux, btop, fuente Terminus a la medida de la pantalla). Servidor añade
+  el sabor Servidor ([wiki](docs/wiki/servidor.md)).
+- **`sl-ctl server`**: estado de los servicios del servidor y de lo que
+  escucha en la red; `server on/off <servicio>` los activa o apaga y abre o
+  cierra su puerto en ufw (ssh, cockpit, docker, nginx, mariadb, fail2ban,
+  wireguard).
 - **Static Linux en 18 idiomas**: español (el original), inglés, catalán,
   euskera, gallego, francés, alemán, italiano, portugués, portugués de
   Brasil, neerlandés, polaco, ruso, ucraniano, turco, japonés, coreano y
@@ -43,6 +54,11 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - Quitados los tweaks `swappiness-10` (iba en contra de zram) y `hdd-bfq`
   (ya va de serie para cada tipo de disco).
 - Texto del perfil de privacidad básico más claro, también en la wiki.
+
+### Arreglos
+- La barra de Hyprland (Astal) no aparecía en equipos sin Wi-Fi: el icono
+  de red anidaba dos `<With>` y gnim tumbaba la barra entera. Visto al
+  sacar las vistas previas en la VM (solo cable).
 
 ### Problemas conocidos
 - Las alertas de i3 y sway siguen en español.

@@ -104,11 +104,14 @@ function Wifi() {
   const network = AstalNetwork.get_default()
   const wifi = createBinding(network, "wifi")
   const wired = createBinding(network, "wired")
+  // Two sibling <With>s: a <With> nested inside another one's callback is a
+  // nested Fragment, which gnim refuses ("nesting Fragments are not yet
+  // supported") — on a machine without Wi-Fi that took the whole bar down.
   return (
     <box>
       <With value={wifi}>
         {(w) =>
-          w ? (
+          w && (
             <button
               cssClasses={["chip"]}
               tooltipText={createBinding(w, "ssid")((s) => s || _("Sin conexión"))}
@@ -116,14 +119,20 @@ function Wifi() {
             >
               <image iconName={createBinding(w, "iconName")} />
             </button>
-          ) : (
-            <With value={wired}>
-              {(e) => e && (
-                <button cssClasses={["chip"]} tooltipText="Cable" onClicked={() => run("nm-connection-editor")}>
-                  <image iconName={createBinding(e, "iconName")} />
-                </button>
-              )}
-            </With>
+          )
+        }
+      </With>
+      <With value={wired}>
+        {(e) =>
+          e && (
+            <button
+              cssClasses={["chip"]}
+              tooltipText="Cable"
+              visible={wifi((w) => !w)}
+              onClicked={() => run("nm-connection-editor")}
+            >
+              <image iconName={createBinding(e, "iconName")} />
+            </button>
           )
         }
       </With>

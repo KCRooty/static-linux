@@ -27,6 +27,13 @@ ENVS = {
     "bspwm": ("packages/lists/bspwm.list", "entornos/bspwm/install.sh"),
     "sway": ("packages/lists/sway.list", "entornos/sway/install.sh"),
 }
+# No graphical environment: the console extras instead of a desktop, and the
+# system boots to multi-user.target. "servidor" also brings the Server/Homelab
+# flavor (the sabores job reads slSaboresExtra).
+HEADLESS = {
+    "tty": "packages/lists/sin-escritorio.list",
+    "servidor": "packages/lists/sin-escritorio.list",
+}
 # The live ISO carries the local repo (Astal for Hyprland, Brave, ...) at this
 # path — see iso/build.sh. The target's own pacman.conf doesn't know it, so
 # while installing it is bind-mounted in and a temporary pacman.conf adds it.
@@ -105,6 +112,26 @@ def _install_with_local_repo(root, pkgs):
                 pass
 
 
+def _headless(gs, root, slug):
+    list_path = os.path.join(root, TARGET_PREFIX, HEADLESS[slug])
+    if os.path.exists(list_path):
+        pkgs, _ = _parse_list(list_path)
+        if pkgs:
+            rc = _install_with_local_repo(root, pkgs)
+            if rc != 0:
+                return ("Environment package install failed", f"pacman exited {rc} for {slug}")
+    else:
+        libcalamares.utils.warning(f"entorno-pkgs: {list_path} missing; console extras skipped")
+    libcalamares.utils.target_env_call(["systemctl", "set-default", "multi-user.target"])
+    libcalamares.utils.target_env_call(["systemctl", "enable", "gpm.service"])
+    if slug == "servidor":
+        gs.insert("slSaboresExtra", ["server"])
+    gs.insert("slHeadless", True)
+    gs.insert("slEntornoApplied", slug)
+    libcalamares.utils.debug(f"entorno-pkgs: {slug}, no graphical environment")
+    return None
+
+
 def run():
     gs = libcalamares.globalstorage
     root = gs.value("rootMountPoint")
@@ -112,6 +139,8 @@ def run():
         return ("No target", "rootMountPoint is not set")
 
     chosen = (gs.value("packagechooser_entorno") or "").split(",")[0].strip()
+    if chosen in HEADLESS:
+        return _headless(gs, root, chosen)
     slug = chosen if chosen in ENVS else "xfce-themed"
     if chosen and chosen not in ENVS:
         libcalamares.utils.warning(f"entorno-pkgs: unknown id {chosen!r}, falling back to xfce-themed")
