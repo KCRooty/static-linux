@@ -75,13 +75,22 @@ build_in_chroot() {  # <aur pkg>: clone, build against the local repo, add it
     rm -rf "$src"
     git clone --quiet --depth 1 "https://aur.archlinux.org/$pkg.git" "$src"
     log "building $pkg (clean chroot)"
-    rm -f "$REPO_DIR/$pkg"-[0-9r]*.pkg.tar.zst
-    (
+    # The old build is only replaced once the new one exists: these are -git
+    # packages and upstream breaks now and then (libastal-tray, 2026-11-14) —
+    # a failed build must leave the last good package in the repo.
+    if ! (
         cd "$src"
         makechrootpkg -c -u -r "$CHROOT" -- --noconfirm
-        rm -f ./*-debug-*.pkg.tar.zst   # devtools builds debug splits by default
-        mv ./*.pkg.tar.zst "$REPO_DIR/"
-    )
+    ); then
+        if ls "$REPO_DIR/$pkg"-[0-9r]*.pkg.tar.zst >/dev/null 2>&1; then
+            log "$pkg failed to build — keeping the previous package"
+            return 0
+        fi
+        die "$pkg failed to build and there is no previous package"
+    fi
+    rm -f "$src"/*-debug-*.pkg.tar.zst   # devtools builds debug splits by default
+    rm -f "$REPO_DIR/$pkg"-[0-9r]*.pkg.tar.zst
+    mv "$src"/*.pkg.tar.zst "$REPO_DIR/"
     refresh_db   # the next package in the chain resolves this one from the repo
 }
 
