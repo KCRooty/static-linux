@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "pribatutasun-profil ezezaguna: {name}"
 msgid "no se encuentra {path}"
 msgstr "ez da aurkitu {path}"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "sudo gabe, ez dira beste erabiltzaileen ezta root-en prozesuak ikusten."
+
+msgid "Escuchando fuera"
+msgstr "Kanpora entzuten"
+
+msgid "nada"
+msgstr "ezer ez"
+
+msgid "Conexiones"
+msgstr "Konexioak"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(zifratuta, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(zifratu gabe)"
+
+msgid "Cortafuegos"
+msgstr "Suebakia"
+
+msgid "activo"
+msgstr "aktibo"
+
+msgid "desactivado"
+msgstr "desgaituta"
+
+msgid "Temporizadores"
+msgstr "Tenporizadoreak"
+
+msgid "ninguno"
+msgstr "bat ere ez"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux-ek ez du telemetriarik bidaltzen. Goiko konexioak zureak dira: nabigatzailea, zuk abiarazitako eguneraketak, ordu-sinkronizazioa (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "ez da aurkitu azentuen tresna"
 
@@ -125,9 +161,6 @@ msgstr "Energia profila"
 msgid "Planificador de disco"
 msgstr "Disko planifikatzailea"
 
-msgid "activo"
-msgstr "aktibo"
-
 msgid "parado"
 msgstr "geldituta"
 
@@ -172,15 +205,6 @@ msgstr "instalatu gabe"
 msgid "Escuchando"
 msgstr "Entzuten"
 
-msgid "nada"
-msgstr "ezer ez"
-
-msgid "Cortafuegos"
-msgstr "Suebakia"
-
-msgid "desactivado"
-msgstr "desgaituta"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Aktibatu: sudo sl-ctl server on <zerbitzua> · itzali: sudo sl-ctl server off <zerbitzua>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: geldituta eta ataka irekirik gabe."
 msgid "Servicios: {names}"
 msgstr "Zerbitzuak: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Argazkia eguneratu aurretik eta ondoren (snap-pac): zerbait gaizki ateratzen bada, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR eguneratu gabe: ez dago erabiltzaile arruntik. Exekutatu `paru -Sua` zure erabiltzailearekin."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper ez dago instalatuta (BTRFS soilik)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "ez dago argazkirik: sistema ez dago BTRFS-n edo Snapper ez dago konfiguratuta"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Sistemaren fitxategiak {n} argazkiko egoerara itzuliko dira."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Aurretik beste argazki bat sortzen da, oraingo egoerara itzuli nahi baduzu."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Eginda. Berrabiarazi dena berreskuratutako bertsioarekin kargatzeko."
+
 msgid "reflector no está instalado"
 msgstr "reflector ez dago instalatuta"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "oraindik ez dago eginda; zaporeak sl-welcome-ren katalogotik gehitzen dira."
+msgid "instalado"
+msgstr "instalatuta"
+
+msgid "pendiente (instalación sin red)"
+msgstr "zain (sarerik gabe instalatua)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Konexioarekin: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Gehitu: sudo sl-ctl flavor add <zaporea> · kendu: sudo sl-ctl flavor remove <zaporea>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "{name} zaporea instalatzen: {n} pakete"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "ezin izan da {app} Flathub-etik instalatu"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "AURetik, zure erabiltzailearekin:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Itxi saioa eta sartu berriro talde berriak erabiltzeko."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "{name} zaporea instalatuta."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "{name} zaporea kenduta."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "erabilera: sl-ctl flavor [list | add <zaporea> | remove <zaporea>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "zapore ezezaguna: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome ez dago instalatuta."
@@ -254,8 +332,14 @@ msgstr "sistemaren doikuntza itzulgarriak"
 msgid "instantáneas de Snapper"
 msgstr "Snapper argazkiak"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "sistemaren fitxategiak argazki horretara itzultzen ditu"
+
 msgid "añade o quita sabores"
 msgstr "gehitu edo kendu zaporeak"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "zer dagoen sarera konektatuta oraintxe"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "erakutsi edo aldatu pribatutasun profila"
@@ -426,9 +510,6 @@ msgstr "biltegi ofizialak"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Eginda. Sakatu Sartu ixteko… "
-
-msgid "instalado"
-msgstr "instalatuta"
 
 msgid "Pendiente de tus sabores"
 msgstr "Zure zaporeetatik falta dena"
@@ -1533,3 +1614,6 @@ msgstr "Instalatu sl-welcome-ren katalogoko paketeak"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome-k administratzaile-baimenak behar ditu pacman-ekin paketeak instalatzeko"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "oraindik ez dago eginda; zaporeak sl-welcome-ren katalogotik gehitzen dira."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "неизвестный профиль приватности: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} не найден"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Без sudo не видны процессы других пользователей и root."
+
+msgid "Escuchando fuera"
+msgstr "Слушает снаружи"
+
+msgid "nada"
+msgstr "ничего"
+
+msgid "Conexiones"
+msgstr "Соединения"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(зашифрован, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(без шифрования)"
+
+msgid "Cortafuegos"
+msgstr "Брандмауэр"
+
+msgid "activo"
+msgstr "активен"
+
+msgid "desactivado"
+msgstr "выключен"
+
+msgid "Temporizadores"
+msgstr "Таймеры"
+
+msgid "ninguno"
+msgstr "нет"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux не отправляет телеметрию. Соединения выше — ваши: браузер, запущенные вами обновления, синхронизация времени (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "инструмент акцентов не найден"
 
@@ -125,9 +161,6 @@ msgstr "Профиль питания"
 msgid "Planificador de disco"
 msgstr "Планировщик диска"
 
-msgid "activo"
-msgstr "активен"
-
 msgid "parado"
 msgstr "остановлен"
 
@@ -172,15 +205,6 @@ msgstr "не установлен"
 msgid "Escuchando"
 msgstr "Слушает"
 
-msgid "nada"
-msgstr "ничего"
-
-msgid "Cortafuegos"
-msgstr "Брандмауэр"
-
-msgid "desactivado"
-msgstr "выключен"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Включить: sudo sl-ctl server on <служба> · выключить: sudo sl-ctl server off <служба>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: остановлен, открытых портов нет."
 msgid "Servicios: {names}"
 msgstr "Службы: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Снимок до и после обновления (snap-pac): если что-то пойдёт не так, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR не обновлён: обычный пользователь не найден. Запустите `paru -Sua` от своего пользователя."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper не установлен (только BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "снимков нет: система не на BTRFS или Snapper не настроен"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Системные файлы будут возвращены к состоянию снимка {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Сначала создаётся ещё один снимок — на случай, если захотите вернуться к текущему состоянию."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Готово. Перезагрузитесь, чтобы всё загрузило восстановленную версию."
+
 msgid "reflector no está instalado"
 msgstr "reflector не установлен"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "пока не готово; варианты добавляются из каталога sl-welcome."
+msgid "instalado"
+msgstr "установлено"
+
+msgid "pendiente (instalación sin red)"
+msgstr "ожидает (установка без сети)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "После подключения: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Добавить: sudo sl-ctl flavor add <вариант> · удалить: sudo sl-ctl flavor remove <вариант>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Установка варианта {name}: пакетов — {n}"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "не удалось установить {app} из Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "Из AUR, от своего пользователя:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Выйдите и войдите снова, чтобы использовать новые группы."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Вариант {name} установлен."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Вариант {name} удалён."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "использование: sl-ctl flavor [list | add <вариант> | remove <вариант>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "неизвестный вариант: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome не установлен."
@@ -254,8 +332,14 @@ msgstr "обратимые настройки системы"
 msgid "instantáneas de Snapper"
 msgstr "снимки Snapper"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "возвращает системные файлы к этому снимку"
+
 msgid "añade o quita sabores"
 msgstr "добавляет или удаляет варианты"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "что сейчас подключается к сети"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "показывает или меняет профиль приватности"
@@ -426,9 +510,6 @@ msgstr "официальные репозитории"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Готово. Нажмите Enter, чтобы закрыть… "
-
-msgid "instalado"
-msgstr "установлено"
 
 msgid "Pendiente de tus sabores"
 msgstr "Не установлено из ваших наборов"
@@ -1534,3 +1615,6 @@ msgstr "Установить пакеты из каталога sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome нужны права администратора, чтобы установить пакеты через pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "пока не готово; варианты добавляются из каталога sl-welcome."

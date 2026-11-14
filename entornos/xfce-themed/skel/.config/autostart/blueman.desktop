@@ -1,0 +1,11 @@
+[Desktop Entry]
+# Static Linux: overrides /etc/xdg/autostart/blueman.desktop. The applet costs
+# ~40 MB of RAM all session long, so it only starts when the machine has a
+# Bluetooth adapter (plug a dongle in later → it shows up at the next login).
+Type=Application
+Name=Blueman Applet
+Comment=Blueman Bluetooth Manager
+Icon=blueman
+Exec=sh -c 'for a in /sys/class/bluetooth/hci*; do [ -e "$a" ] && exec blueman-applet; done; exit 0'
+NotShowIn=KDE;GNOME;
+X-GNOME-Autostart-enabled=true

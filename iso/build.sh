@@ -1,11 +1,12 @@
 #!/bin/bash
 # Static Linux — ISO build wrapper around mkarchiso.
 #
-#   sudo ./build.sh online     build the ~1 GB online ISO (network at install time)
-#   sudo ./build.sh offline    build the ~4 GB offline-shaped ISO (see README.md —
-#                               packages are bundled, Calamares still needs
-#                               network today; that wiring isn't done)
-#   sudo ./build.sh online --dev-ssh-key ~/.ssh/id_ed25519.pub
+#   sudo ./build.sh universal  the public ISO (~5 GB): base system, every
+#                               desktop, the three kernels and the privacy
+#                               tools travel inside it, so it installs with no
+#                               network; with one, it updates and adds flavors
+#   sudo ./build.sh online     ~2 GB, downloads everything at install time
+#   sudo ./build.sh universal --dev-ssh-key ~/.ssh/id_ed25519.pub
 #                               development build: also enables root SSH into
 #                               the live session for that key (QEMU testing)
 #
@@ -52,7 +53,7 @@ log()  { printf '\033[1;38;5;43m[iso-build]\033[0m %s\n' "$*"; }
 warn() { printf '\033[1;33m[iso-build]\033[0m %s\n' "$*" >&2; }
 die()  { printf '\033[1;31m[iso-build]\033[0m %s\n' "$*" >&2; exit 1; }
 
-[[ "$FLAVOR" == "online" || "$FLAVOR" == "offline" ]] || die "usage: $0 online|offline [--dev-ssh-key PUBKEY]"
+[[ "$FLAVOR" == "online" || "$FLAVOR" == "universal" ]] || die "usage: $0 universal|online [--dev-ssh-key PUBKEY]"
 [[ $EUID -eq 0 ]] || die "mkarchiso needs root (pacstrap/mount namespaces)"
 command -v mkarchiso >/dev/null || die "mkarchiso not found — pacman -S archiso"
 [[ -d "$RELENG" ]] || die "$RELENG not found — archiso package looks incomplete"
@@ -70,7 +71,7 @@ LOCAL_REPO_NAME="staticlinux-local"
 # ---- 0. the local repo must hold what pacstrap can't get elsewhere -----
 [[ -f "$LOCAL_REPO/$LOCAL_REPO_NAME.db" ]] || die "local repo missing at $LOCAL_REPO — \
 run packages/local-repo.sh as your normal user first"
-for pkg in calamares staticlinux-base staticlinux-fonts brave-origin-bin paru-bin; do
+for pkg in calamares staticlinux-base staticlinux-fonts staticlinux-keyring brave-origin-bin paru-bin; do
     compgen -G "$LOCAL_REPO/$pkg-[0-9]*.pkg.tar.zst" >/dev/null || die "$pkg isn't in \
 the local repo — run packages/local-repo.sh $pkg as your normal user"
 done
@@ -168,6 +169,26 @@ log "airootfs: installer/calamares/ -> etc/calamares/"
 rm -rf "$AIROOTFS/etc/calamares"  # no stale modules from an older tree
 mkdir -p "$AIROOTFS/etc/calamares"
 cp -a "$REPO/installer/calamares/." "$AIROOTFS/etc/calamares/"
+# the installer shows the ISO's own version (same date as iso_version), not
+# whatever was last typed into branding.desc
+SL_VER="$(date +%Y.%m.%d)"
+sed -i -E "s/^(  (short)?[vV]ersion: ).*/\1\"$SL_VER\"/; s/^(  versionedName: ).*/\1\"Static Linux $SL_VER\"/; s/^(  shortVersionedName: ).*/\1\"SL $SL_VER\"/" \
+    "$AIROOTFS/etc/calamares/branding/staticlinux/branding.desc"
+
+# The universal ISO installs without a network: the welcome page still
+# checks for one (and says so), but no longer refuses to go on.
+if [[ "$FLAVOR" == "universal" ]]; then
+    python3 - "$AIROOTFS/etc/calamares/modules/welcome.conf" <<'PY'
+import re, sys
+p = sys.argv[1]
+s = open(p).read()
+head, sep, tail = s.partition("    required:")
+tail = re.sub(r"(?m)^        - internet\n", "", tail, count=1)
+open(p, "w").write(head + sep + tail)
+PY
+    grep -A6 '    required:' "$AIROOTFS/etc/calamares/modules/welcome.conf" | grep -q internet \
+        && die "welcome.conf: could not drop the internet requirement"
+fi
 
 # The installer pacstraps the target from inside the live session, and
 # staticlinux-base has to be installable there too — so the live image
@@ -181,6 +202,50 @@ cp -L "$LOCAL_REPO"/*.pkg.tar.zst \
 cp "$RELENG/pacman.conf" "$AIROOTFS/etc/pacman.conf"
 printf '\n[%s]\nSigLevel = Optional TrustAll\nServer = file://%s\n' \
     "$LOCAL_REPO_NAME" "$LIVE_REPO_DIR" >> "$AIROOTFS/etc/pacman.conf"
+
+# ---- 2b. universal ISO: the packages an install needs, as a repo --------
+# Everything basepkgs, entorno-pkgs and privacidad-apply can ask for: base
+# (+ console extras), each desktop, the three kernels, the privacy tools.
+# Downloaded against an empty package database, so every dependency comes
+# along; one pacman call per desktop, because some lists conflict with each
+# other (they are never installed together). Flavors stay out: with them the
+# ISO would double in size, and they need a network for Flathub anyway.
+OFFLINE_DIR="/opt/staticlinux-offline"
+OFFLINE_NAME="staticlinux-offline"
+if [[ "$FLAVOR" == "universal" ]]; then
+    log "universal: downloading the offline package set -> ${OFFLINE_DIR#/}"
+    LISTS="$REPO/packages/lists"
+    readlist() { grep -hv -e '^#' -e '^[[:space:]]*$' "$@" | awk '{print $1}' | sort -u; }
+    DL="$WORK.dl"
+    rm -rf "$DL"; mkdir -p "$DL/db" "$DL/pkg"
+    # the official repos plus our local one (its packages' dependencies
+    # have to come along); multilib stays off, nothing here needs it
+    PCONF="$DL/pacman.conf"
+    cp "$PROFILE/pacman.conf" "$PCONF"
+    pac() { pacman --config "$PCONF" --dbpath "$DL/db" --cachedir "$DL/pkg" \
+                   --noconfirm --logfile /dev/null "$@"; }
+    pac -Sy >/dev/null
+    BASE=$(readlist "$LISTS/base.list" "$LISTS/sin-escritorio.list" \
+                    "$LISTS"/privacy-*.list)
+    EXTRA="linux-lts linux-lts-headers linux-zen linux-zen-headers \
+           linux-hardened linux-hardened-headers staticlinux-base staticlinux-keyring"
+    for env in xfce openbox hyprland-lite hyprland-full kde gnome cinnamon i3 bspwm sway; do
+        log "universal: base + $env"
+        # shellcheck disable=SC2046,SC2086
+        pac -Sw $BASE $EXTRA $(readlist "$LISTS/$env.list") >/dev/null \
+            || die "pacman -Sw failed for $env — a package in base.list/$env.list is gone from the repos?"
+    done
+    # our own packages are already in /opt/staticlinux-repo
+    for f in "$LOCAL_REPO"/*.pkg.tar.zst; do rm -f "$DL/pkg/$(basename "$f")"; done
+    install -d "$AIROOTFS$OFFLINE_DIR"
+    mv "$DL"/pkg/*.pkg.tar.zst "$AIROOTFS$OFFLINE_DIR/"
+    mv "$DL"/pkg/*.pkg.tar.zst.sig "$AIROOTFS$OFFLINE_DIR/" 2>/dev/null || true
+    repo-add -q "$AIROOTFS$OFFLINE_DIR/$OFFLINE_NAME.db.tar.gz" \
+        "$AIROOTFS$OFFLINE_DIR"/*.pkg.tar.zst
+    rm -rf "$DL"
+    log "universal: $(ls "$AIROOTFS$OFFLINE_DIR"/*.pkg.tar.zst | wc -l) packages, \
+$(du -sh "$AIROOTFS$OFFLINE_DIR" | cut -f1)"
+fi
 
 # ---- 3. build ------------------------------------------------------------
 # mkarchiso skips every stage it already finished in an existing work dir,

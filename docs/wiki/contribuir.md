@@ -35,4 +35,4 @@ Incluye siempre:
 - Salida de `sl-detect --all`
 - Logs relevantes de `journalctl`
 - Modelo de hardware
-- Qué ISO (online/offline) y su fecha de build
+- Qué ISO (universal u online) y su fecha de build

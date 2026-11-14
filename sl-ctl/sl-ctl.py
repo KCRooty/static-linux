@@ -39,6 +39,7 @@ ACCENT_DIR = Path("/usr/lib/static-linux/accents")
 
 GREEN = "\033[1;38;5;43m"   # Signal Green-ish for a 256-color terminal
 DIM = "\033[2m"
+AMBER = "\033[38;5;214m"  # warnings, the offline ISO color
 RESET = "\033[0m"
 
 
@@ -155,7 +156,65 @@ def cmd_privacy(args) -> int:
         apply_sh = local
     if not apply_sh.exists():
         sys.exit("sl-ctl: " + _("no se encuentra {path}").format(path=apply_sh))
+    # the profile's tools (firejail, usbguard, tor…) — not its kernel, which
+    # stays whatever the machine boots now
+    lst = {"perfil-basico": "privacy-basic", "perfil-mejorado": "privacy-enhanced",
+           "perfil-maximo": "privacy-max"}[folder]
+    lst_path = _flavor_lists_dir() / f"{lst}.list"
+    if lst_path.exists():
+        pkgs = [x.strip() for x in lst_path.read_text().splitlines()
+                if x.strip() and not x.lstrip().startswith("#") and not x.strip().startswith("linux")]
+        if pkgs:
+            rc = _sh(["pacman", "-S", "--needed", "--noconfirm", *pkgs]).returncode
+            if rc != 0:
+                return rc
     return _sh(["bash", str(apply_sh)]).returncode
+
+
+# ---------------------------------------------------------------------------
+# audit  (what talks to the network, right now)
+# ---------------------------------------------------------------------------
+def _sockets(listening: bool) -> list[tuple[str, str, str]]:
+    """(local, peer, process) from ss, loopback and link-local left out."""
+    cmd = ["ss", "-Htunp"] + (["-l"] if listening else ["state", "established"])
+    col = 4 if listening else 3  # a state filter drops ss's State column
+    rows = []
+    for line in _out(cmd).splitlines():
+        parts = line.split()
+        if len(parts) <= col + 1:
+            continue
+        local, peer = parts[col], parts[col + 1]
+        host = (local if listening else peer).rsplit(":", 1)[0].strip("[]").split("%")[0]
+        if host.startswith(("127.", "::1", "fe80:")) or host == "::ffff:127.0.0.1":
+            continue
+        proc = line.split('users:(("', 1)[1].split('"', 1)[0] if 'users:(("' in line else "?"
+        rows.append((local, peer, proc))
+    return rows
+
+
+def cmd_audit(args) -> int:
+    print(f"{GREEN}sl-ctl audit{RESET}")
+    if os.geteuid() != 0:
+        print(DIM + _("Sin sudo no se ven los procesos de otros usuarios ni de root.") + RESET)
+    listen = _sockets(True)
+    print(_row(_("Escuchando fuera"), ", ".join(f"{l} ({p})" for l, _x, p in listen) or _("nada")))
+    out = _sockets(False)
+    print(_row(_("Conexiones"), str(len(out))))
+    for local, peer, proc in out:
+        print(f"    {peer:<44} {proc}")
+    resolv = _read("/etc/resolv.conf")
+    servers = [ln.split()[1] for ln in resolv.splitlines() if ln.startswith("nameserver")]
+    dns_ok = servers and all(x.startswith("127.") or x == "::1" for x in servers)
+    print(_row("DNS", (", ".join(servers) or "?") + "  " +
+               (_("(cifrado, dnscrypt-proxy)") if dns_ok and _active("dnscrypt-proxy.service")
+                else _("(sin cifrar)"))))
+    print(_row(_("Cortafuegos"), "ufw " + (_("activo") if _ufw_active() else _("desactivado"))))
+    timers = [t for t in _out(["systemctl", "list-timers", "--no-legend", "--plain"]).split()
+              if t.endswith(".timer")]
+    print(_row(_("Temporizadores"), ", ".join(timers) or _("ninguno")))
+    print()
+    print(DIM + _("Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP).") + RESET)
+    return 0
 
 
 # ---------------------------------------------------------------------------
@@ -553,6 +612,8 @@ def cmd_server(args) -> int:
 # ---------------------------------------------------------------------------
 def cmd_update(args) -> int:
     _need_root()
+    if Path("/etc/snapper/configs/root").exists() and Path("/usr/share/libalpm/hooks/05-snap-pac-pre.hook").exists():
+        print(DIM + _("Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>") + RESET)
     rc = _sh(["pacman", "-Syu"]).returncode
     if shutil.which("paru"):
         user = _invoking_user()
@@ -570,13 +631,25 @@ def cmd_update(args) -> int:
 def cmd_snapshot(args) -> int:
     if not shutil.which("snapper"):
         sys.exit("sl-ctl: " + _("snapper no está instalado (solo BTRFS)"))
+    if not Path("/etc/snapper/configs/root").exists():
+        sys.exit("sl-ctl: " + _("no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"))
     if args.create:
-        return _sh(["snapper", "create", "-d", "sl-ctl manual"]).returncode
-    if args.list:
-        return _sh(["snapper", "list"]).returncode
-    if args.rollback:
         _need_root()
-        return _sh(["snapper", "rollback", args.rollback]).returncode
+        return _sh(["snapper", "create", "-c", "number", "-d", "sl-ctl manual",
+                    "--userdata", "important=yes"]).returncode
+    if args.rollback:
+        # The installer mounts subvol=@ explicitly, so `snapper rollback`
+        # (new default subvolume) would change nothing at the next boot.
+        # undochange puts the files back as they were in that snapshot.
+        _need_root()
+        snap = args.rollback
+        print(_("Se devolverán los archivos del sistema al estado de la instantánea {n}.").format(n=snap))
+        print(_("Antes se crea otra instantánea, por si quieres volver a lo de ahora."))
+        _sh(["snapper", "create", "-c", "number", "-d", f"sl-ctl antes de deshacer hasta {snap}"])
+        rc = _sh(["snapper", "undochange", f"{snap}..0"]).returncode
+        if rc == 0:
+            print(_("Hecho. Reinicia para que todo cargue la versión restaurada."))
+        return rc
     return _sh(["snapper", "list"]).returncode
 
 
@@ -588,9 +661,205 @@ def cmd_mirror(args) -> int:
                 "--protocol", "https", "--save", "/etc/pacman.d/mirrorlist"]).returncode
 
 
+# ---------------------------------------------------------------------------
+# flavor  (same package lists the installer uses: packages/lists/sabor-*.list)
+# ---------------------------------------------------------------------------
+FLAVORS = ("gaming", "content-creation", "development", "cybersecurity",
+           "office", "server", "vm", "education")
+FLAVOR_LISTS = Path("/usr/lib/static-linux/packages/lists")
+FLAVOR_STATE = Path("/etc/static-linux/flavors")
+FLAVOR_GROUPS = {"gaming": ["gamemode"], "content-creation": ["realtime"],
+                 "development": ["docker"], "vm": ["libvirt"]}
+FLAVOR_SOCKETS = {"development": ["docker.socket"], "vm": ["libvirtd.socket"]}
+NTSYNC = Path("/etc/modules-load.d/ntsync.conf")
+FLATHUB = "https://dl.flathub.org/repo/flathub.flatpakrepo"
+
+
+def _flavor_lists_dir() -> Path:
+    if FLAVOR_LISTS.is_dir():
+        return FLAVOR_LISTS
+    return Path(__file__).resolve().parents[1] / "packages" / "lists"
+
+
+def _flavor_parse(slug: str) -> tuple[list[str], list[str], list[str]]:
+    """(official packages, Flathub ids, AUR packages) of one flavor."""
+    pkgs, flatpaks, aur = [], [], []
+    for raw in (_flavor_lists_dir() / f"sabor-{slug}.list").read_text().splitlines():
+        line = raw.strip()
+        if line.startswith("# flatpak:"):
+            flatpaks.append(line.split(":", 1)[1].strip())
+        elif line.startswith("#") and line.endswith("(AUR)"):
+            aur.append(line[1:-5].strip())
+        elif line and not line.startswith("#"):
+            pkgs.append(line)
+    return pkgs, flatpaks, aur
+
+
+def _flavors_installed() -> list[str]:
+    try:
+        return [x for x in FLAVOR_STATE.read_text().split() if x in FLAVORS]
+    except OSError:
+        return []
+
+
+def _flavors_save(slugs: list[str]) -> None:
+    FLAVOR_STATE.parent.mkdir(parents=True, exist_ok=True)
+    FLAVOR_STATE.write_text("".join(f"{x}\n" for x in slugs))
+
+
+def _gpu_lib32() -> list[str]:
+    """32-bit Vulkan driver for the GPU sl-detect finds (the installer does the same)."""
+    out = _sh([sys.executable, _sl_detect_path(), "--json"], capture_output=True)
+    try:
+        driver = (json.loads(out.stdout).get("gpu") or {}).get("driver", "").lower()
+    except (ValueError, AttributeError):
+        return []
+    if "nvidia" in driver and "nouveau" not in driver:
+        return ["lib32-nvidia-utils"]
+    if "amdgpu" in driver or "radeon" in driver:
+        return ["lib32-vulkan-radeon"]
+    if "i915" in driver or driver == "xe" or "intel" in driver:
+        return ["lib32-vulkan-intel"]
+    return []
+
+
+FLAVOR_PENDING = Path("/etc/static-linux/pending-flavors")
+
+
+def _flavors_pending() -> list[str]:
+    """Flavors picked in an installer with no network (universal ISO, offline)."""
+    try:
+        return [x for x in FLAVOR_PENDING.read_text().split() if x in FLAVORS]
+    except OSError:
+        return []
+
+
+def _flavor_pending_done(slug: str) -> None:
+    left = [x for x in _flavors_pending() if x != slug]
+    try:
+        if left:
+            FLAVOR_PENDING.write_text("\n".join(left) + "\n")
+        elif FLAVOR_PENDING.exists():
+            FLAVOR_PENDING.unlink()
+    except OSError:
+        pass
+
+
+def _flavor_list() -> int:
+    have, pending = _flavors_installed(), _flavors_pending()
+    print(f"{GREEN}sl-ctl flavor{RESET}")
+    for slug in FLAVORS:
+        if slug in have:
+            mark = _("instalado")
+        elif slug in pending:
+            mark = AMBER + _("pendiente (instalación sin red)") + RESET
+        else:
+            mark = DIM + "-" + RESET
+        print(_row(slug, mark))
+    print()
+    if pending:
+        print(AMBER + _("Con conexión: sudo sl-ctl flavor add pending") + RESET)
+    print(DIM + _("Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>") + RESET)
+    return 0
+
+
+def _flavor_add(slug: str) -> int:
+    _need_root()
+    pkgs, flatpaks, aur = _flavor_parse(slug)
+    if slug == "gaming":
+        pkgs += [p for p in _gpu_lib32() if p not in pkgs]
+    print(_("Instalando el sabor {name}: {n} paquetes").format(name=slug, n=len(pkgs)))
+    # -Syu, never a bare -S: after an offline install the system is still at
+    # the ISO's snapshot, and new packages from today's mirrors would be a
+    # partial upgrade
+    rc = _sh(["pacman", "-Syu", "--needed", "--noconfirm", *pkgs]).returncode
+    if rc != 0:
+        return rc
+    _flavor_pending_done(slug)
+    if flatpaks and shutil.which("flatpak"):
+        _sh(["flatpak", "remote-add", "--if-not-exists", "--system", "flathub", FLATHUB])
+        for app in flatpaks:
+            if _sh(["flatpak", "install", "--system", "--noninteractive", "-y", "flathub", app]).returncode != 0:
+                print("sl-ctl: " + _("no se pudo instalar {app} desde Flathub").format(app=app), file=sys.stderr)
+    user = _invoking_user()
+    for group in FLAVOR_GROUPS.get(slug, []):
+        _sh(["groupadd", "-f", group])
+        if user:
+            _sh(["usermod", "-aG", group, user])
+    for unit in FLAVOR_SOCKETS.get(slug, []):
+        _sh(["systemctl", "enable", "--now", unit])
+    if slug == "gaming":
+        NTSYNC.parent.mkdir(parents=True, exist_ok=True)
+        NTSYNC.write_text("# Static Linux gaming flavor: Wine/Proton NT sync primitives\nntsync\n")
+        _sh(["modprobe", "ntsync"], stderr=subprocess.DEVNULL)
+        if Path("/sys/kernel/sched_ext").exists():
+            _perf_scheduler("lavd")
+    if aur:
+        if shutil.which("paru") and user:
+            _sh(["sudo", "-u", user, "paru", "-S", "--needed", *aur])
+        else:
+            print(_("Del AUR, con tu usuario:") + f" paru -S {' '.join(aur)}")
+    have = _flavors_installed()
+    _flavors_save(have + [slug] if slug not in have else have)
+    if FLAVOR_GROUPS.get(slug):
+        print(_("Cierra la sesión y vuelve a entrar para usar los grupos nuevos."))
+    print(_("Sabor {name} instalado.").format(name=slug))
+    return 0
+
+
+def _flavor_remove(slug: str) -> int:
+    _need_root()
+    pkgs, flatpaks, _aur = _flavor_parse(slug)
+    if slug == "gaming":
+        pkgs += _gpu_lib32()
+    keep: set[str] = set()
+    for other in _flavors_installed():
+        if other != slug:
+            keep.update(_flavor_parse(other)[0])
+    # never take away what the base system or the desktop installed
+    for lst in _flavor_lists_dir().glob("*.list"):
+        if not lst.name.startswith("sabor-"):
+            keep.update(x.strip() for x in lst.read_text().splitlines()
+                        if x.strip() and not x.lstrip().startswith("#"))
+    installed = set(_sh(["pacman", "-Qq"], capture_output=True).stdout.split())
+    targets = [p for p in pkgs if p in installed and p not in keep]
+    for unit in FLAVOR_SOCKETS.get(slug, []):
+        _sh(["systemctl", "disable", "--now", unit])
+    if slug == "gaming":
+        if shutil.which("scx_loader"):
+            _perf_scheduler("off")
+        NTSYNC.unlink(missing_ok=True)
+    rc = 0
+    if targets:
+        # -u: whatever another package still needs stays; config files are kept (.pacsave)
+        rc = _sh(["pacman", "-Rsu", "--noconfirm", *targets]).returncode
+    if flatpaks and shutil.which("flatpak"):
+        for app in flatpaks:
+            _sh(["flatpak", "uninstall", "--system", "--noninteractive", "-y", app],
+                stderr=subprocess.DEVNULL)
+    _flavors_save([x for x in _flavors_installed() if x != slug])
+    print(_("Sabor {name} quitado.").format(name=slug))
+    return rc
+
+
 def cmd_flavor(args) -> int:
-    print("sl-ctl flavor: " + _("aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."))
-    return 1
+    action, name = args.action, args.name
+    if args.add:
+        action, name = "add", args.add
+    elif args.remove:
+        action, name = "remove", args.remove
+    if action in (None, "list"):
+        return _flavor_list()
+    if action == "add" and name == "pending":
+        rc = 0
+        for slug in _flavors_pending():
+            rc = _flavor_add(slug) or rc
+        return rc
+    if action not in ("add", "remove") or not name:
+        sys.exit("sl-ctl: " + _("uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"))
+    if name not in FLAVORS:
+        sys.exit("sl-ctl: " + _("sabor desconocido: {name}").format(name=name) + f" ({', '.join(FLAVORS)})")
+    return _flavor_add(name) if action == "add" else _flavor_remove(name)
 
 
 def cmd_welcome(args) -> int:
@@ -621,13 +890,17 @@ def build_parser() -> argparse.ArgumentParser:
     s = sub.add_parser("snapshot", help=_("instantáneas de Snapper"))
     s.add_argument("--create", action="store_true")
     s.add_argument("--list", action="store_true")
-    s.add_argument("--rollback", metavar="ID")
+    s.add_argument("--rollback", metavar="ID", help=_("devuelve los archivos del sistema a esa instantánea"))
     s.set_defaults(fn=cmd_snapshot)
 
     f = sub.add_parser("flavor", help=_("añade o quita sabores"))
+    f.add_argument("action", nargs="?", choices=["list", "add", "remove"])
+    f.add_argument("name", nargs="?", metavar="FLAVOR")
     f.add_argument("--add", metavar="FLAVOR")
     f.add_argument("--remove", metavar="FLAVOR")
     f.set_defaults(fn=cmd_flavor)
+
+    sub.add_parser("audit", help=_("qué se conecta a la red ahora mismo")).set_defaults(fn=cmd_audit)
 
     pr = sub.add_parser("privacy", help=_("muestra o cambia el perfil de privacidad"))
     pr.add_argument("--profile", metavar="basic|improved|maximum")

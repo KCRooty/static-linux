@@ -13,7 +13,12 @@ import os
 import re
 import subprocess
 
+import sys
+
 import libcalamares
+
+sys.path.insert(0, "/etc/calamares/lib")
+import slinstall  # noqa: E402
 
 ENVS = {
     "xfce-themed": ("packages/lists/xfce.list", "entornos/xfce-themed/install.sh"),
@@ -34,12 +39,6 @@ HEADLESS = {
     "tty": "packages/lists/sin-escritorio.list",
     "servidor": "packages/lists/sin-escritorio.list",
 }
-# The live ISO carries the local repo (Astal for Hyprland, Brave, ...) at this
-# path — see iso/build.sh. The target's own pacman.conf doesn't know it, so
-# while installing it is bind-mounted in and a temporary pacman.conf adds it.
-LIVE_REPO = "/opt/staticlinux-repo"
-LIVE_REPO_NAME = "staticlinux-local"
-TMP_CONF = "/tmp/sl-entorno-pacman.conf"
 TARGET_PREFIX = "usr/lib/static-linux"  # where staticlinux-base ships repo data, relative to target root
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 
@@ -81,35 +80,9 @@ def _parse_list(path):
 
 
 def _install_with_local_repo(root, pkgs):
-    """pacman -S in the target, with the live ISO's local repo reachable."""
-    mnt = root.rstrip("/") + LIVE_REPO
-    mounted = False
-    conf_args = []
-    if os.path.isdir(LIVE_REPO):
-        os.makedirs(mnt, exist_ok=True)
-        mounted = subprocess.run(["mount", "--bind", "-o", "ro", LIVE_REPO, mnt]).returncode == 0
-        if mounted:
-            with open(os.path.join(root, "etc/pacman.conf"), encoding="utf-8") as fh:
-                base = fh.read()
-            with open(root.rstrip("/") + TMP_CONF, "w", encoding="utf-8") as fh:
-                fh.write(base + f"\n[{LIVE_REPO_NAME}]\nSigLevel = Optional TrustAll\n"
-                              f"Server = file://{LIVE_REPO}\n")
-            conf_args = ["--config", TMP_CONF, "-Sy"]
-    try:
-        return libcalamares.utils.target_env_call(
-            ["pacman", *(conf_args or ["-S"]), "--needed", "--noconfirm", *pkgs]
-        )
-    finally:
-        if mounted:
-            subprocess.run(["umount", mnt])
-            try:
-                os.rmdir(mnt)  # /opt itself belongs to the filesystem package
-            except OSError:
-                pass
-            try:
-                os.remove(root.rstrip("/") + TMP_CONF)
-            except OSError:
-                pass
+    """pacman -S in the target, with the live ISO's repositories reachable
+    (and only those when it is the universal ISO: no network needed)."""
+    return slinstall.target_pacman(root, pkgs)
 
 
 def _headless(gs, root, slug):

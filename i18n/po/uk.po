@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "невідомий профіль приватності: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} не знайдено"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Без sudo не видно процесів інших користувачів і root."
+
+msgid "Escuchando fuera"
+msgstr "Слухає назовні"
+
+msgid "nada"
+msgstr "нічого"
+
+msgid "Conexiones"
+msgstr "З'єднання"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(зашифровано, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(без шифрування)"
+
+msgid "Cortafuegos"
+msgstr "Брандмауер"
+
+msgid "activo"
+msgstr "активний"
+
+msgid "desactivado"
+msgstr "вимкнено"
+
+msgid "Temporizadores"
+msgstr "Таймери"
+
+msgid "ninguno"
+msgstr "немає"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux не надсилає телеметрію. З'єднання вище — ваші: браузер, оновлення, які ви запускаєте, синхронізація часу (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "інструмент акцентів не знайдено"
 
@@ -125,9 +161,6 @@ msgstr "Профіль живлення"
 msgid "Planificador de disco"
 msgstr "Планувальник диска"
 
-msgid "activo"
-msgstr "активний"
-
 msgid "parado"
 msgstr "зупинений"
 
@@ -172,15 +205,6 @@ msgstr "не встановлено"
 msgid "Escuchando"
 msgstr "Слухає"
 
-msgid "nada"
-msgstr "нічого"
-
-msgid "Cortafuegos"
-msgstr "Брандмауер"
-
-msgid "desactivado"
-msgstr "вимкнено"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Увімкнути: sudo sl-ctl server on <служба> · вимкнути: sudo sl-ctl server off <служба>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: зупинено, відкритих портів немає."
 msgid "Servicios: {names}"
 msgstr "Служби: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Знімок до і після оновлення (snap-pac): якщо щось піде не так, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR не оновлено: звичайного користувача не знайдено. Запустіть `paru -Sua` від свого користувача."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper не встановлено (лише BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "знімків немає: система не на BTRFS або Snapper не налаштовано"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Системні файли буде повернуто до стану знімка {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Спершу створюється ще один знімок — на випадок, якщо захочете повернутися до поточного стану."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Готово. Перезавантажтеся, щоб усе завантажило відновлену версію."
+
 msgid "reflector no está instalado"
 msgstr "reflector не встановлено"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "ще не готово; варіанти додаються з каталогу sl-welcome."
+msgid "instalado"
+msgstr "встановлено"
+
+msgid "pendiente (instalación sin red)"
+msgstr "очікує (встановлено без мережі)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Після підключення: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Додати: sudo sl-ctl flavor add <варіант> · прибрати: sudo sl-ctl flavor remove <варіант>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Встановлення варіанта {name}: пакетів — {n}"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "не вдалося встановити {app} з Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "З AUR, від свого користувача:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Вийдіть і увійдіть знову, щоб користуватися новими групами."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Варіант {name} встановлено."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Варіант {name} прибрано."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "використання: sl-ctl flavor [list | add <варіант> | remove <варіант>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "невідомий варіант: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome не встановлено."
@@ -254,8 +332,14 @@ msgstr "оборотні налаштування системи"
 msgid "instantáneas de Snapper"
 msgstr "знімки Snapper"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "повертає системні файли до цього знімка"
+
 msgid "añade o quita sabores"
 msgstr "додає або вилучає варіанти"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "що зараз підключається до мережі"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "показує або змінює профіль приватності"
@@ -426,9 +510,6 @@ msgstr "офіційні репозиторії"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Готово. Натисніть Enter, щоб закрити… "
-
-msgid "instalado"
-msgstr "встановлено"
 
 msgid "Pendiente de tus sabores"
 msgstr "Не встановлено з ваших наборів"
@@ -1534,3 +1615,6 @@ msgstr "Встановити пакети з каталогу sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome потрібні права адміністратора, щоб встановити пакети через pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "ще не готово; варіанти додаються з каталогу sl-welcome."

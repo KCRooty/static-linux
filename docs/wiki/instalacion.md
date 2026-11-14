@@ -1,29 +1,21 @@
 # Instalación
 
-!!! warning "Nada de esto está probado en hardware real todavía"
-    `installer/calamares/settings.conf` tiene la secuencia completa y
-    `iso/build.sh` sabe construir la ISO, pero ninguno de los dos se ha
-    corrido en una máquina Arch de verdad esta sesión (sin hardware
-    disponible — ver el estado de hardware en `docs/PROYECTO.md`). La vía manual
-    de abajo es la única validada en hardware real hasta ahora ([iMedia
-    S2883](hardware/imedia-s2883.md)).
+!!! note "Probado en máquinas virtuales"
+    La ISO se instala de principio a fin en QEMU/KVM (UEFI), con y sin
+    conexión. En hardware real solo se ha probado la vía manual del final
+    ([iMedia S2883](hardware/imedia-s2883.md)); la prueba con la ISO en
+    otro equipo está pendiente.
 
-## Construir la ISO
+## Conseguir la ISO
 
-```bash
-sudo pacman -S archiso
-cd iso
-sudo ./build.sh online     # ~1 GB, necesita red al instalar
-sudo ./build.sh offline    # ~4 GB, paquetes empaquetados (ver iso/README.md)
-```
+Descárgala desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/)
+o constrúyela: [Construir la ISO](iso.md). Grábala en un USB con
+`dd`, Ventoy, balenaEtcher o Rufus (modo DD) y arranca desde él con UEFI y
+Secure Boot apagado.
 
-`calamares` es un paquete solo-AUR — `build.sh` lo comprueba al principio y
-para con un mensaje claro si tu máquina de build no lo tiene en ningún repo
-configurado (necesitas tu propio repo local con `calamares` compilado antes
-de construir; ver `iso/README.md` para el porqué). El ISO offline hoy solo
-empaqueta los paquetes en la caché de la imagen — que Calamares los use sin
-red durante la instalación todavía no está resuelto, también documentado
-ahí.
+La ISO **universal** instala sin conexión: el sistema base, el escritorio,
+el kernel y el perfil de privacidad van dentro. Los sabores necesitan red;
+si no la hay, se añaden después con `sudo sl-ctl flavor add pending`.
 
 ## Vía Calamares
 

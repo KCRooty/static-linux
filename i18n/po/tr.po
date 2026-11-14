@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "bilinmeyen gizlilik profili: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} bulunamadı"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "sudo olmadan diğer kullanıcıların ve root'un süreçleri görünmez."
+
+msgid "Escuchando fuera"
+msgstr "Dışarıyı dinleyen"
+
+msgid "nada"
+msgstr "hiçbir şey"
+
+msgid "Conexiones"
+msgstr "Bağlantılar"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(şifreli, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(şifresiz)"
+
+msgid "Cortafuegos"
+msgstr "Güvenlik duvarı"
+
+msgid "activo"
+msgstr "etkin"
+
+msgid "desactivado"
+msgstr "kapalı"
+
+msgid "Temporizadores"
+msgstr "Zamanlayıcılar"
+
+msgid "ninguno"
+msgstr "yok"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux telemetri göndermez. Yukarıdaki bağlantılar sizindir: tarayıcı, başlattığınız güncellemeler, saat eşitleme (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "vurgu aracı bulunamadı"
 
@@ -125,9 +161,6 @@ msgstr "Güç profili"
 msgid "Planificador de disco"
 msgstr "Disk zamanlayıcı"
 
-msgid "activo"
-msgstr "etkin"
-
 msgid "parado"
 msgstr "durduruldu"
 
@@ -172,15 +205,6 @@ msgstr "kurulu değil"
 msgid "Escuchando"
 msgstr "Dinleniyor"
 
-msgid "nada"
-msgstr "hiçbir şey"
-
-msgid "Cortafuegos"
-msgstr "Güvenlik duvarı"
-
-msgid "desactivado"
-msgstr "kapalı"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Aç: sudo sl-ctl server on <hizmet> · kapat: sudo sl-ctl server off <hizmet>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: durduruldu, açık port yok."
 msgid "Servicios: {names}"
 msgstr "Hizmetler: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Güncellemeden önce ve sonra anlık görüntü (snap-pac): bir sorun olursa sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR güncellenmedi: normal kullanıcı bulunamadı. Kendi kullanıcınızla `paru -Sua` çalıştırın."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper kurulu değil (yalnızca BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "anlık görüntü yok: sistem BTRFS üzerinde değil ya da Snapper yapılandırılmamış"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Sistem dosyaları {n} numaralı anlık görüntüdeki hâline döndürülecek."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Önce, şimdiki hâle dönmek isterseniz diye başka bir anlık görüntü alınır."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Tamam. Her şeyin geri yüklenen sürümü yüklemesi için yeniden başlatın."
+
 msgid "reflector no está instalado"
 msgstr "reflector kurulu değil"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "henüz hazır değil; çeşitler sl-welcome kataloğundan eklenir."
+msgid "instalado"
+msgstr "kurulu"
+
+msgid "pendiente (instalación sin red)"
+msgstr "bekliyor (ağ olmadan kuruldu)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Bağlantı olunca: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Ekle: sudo sl-ctl flavor add <tat> · kaldır: sudo sl-ctl flavor remove <tat>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "{name} tadı kuruluyor: {n} paket"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "{app} Flathub'dan kurulamadı"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "AUR'dan, kendi kullanıcınızla:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Yeni grupları kullanmak için oturumu kapatıp yeniden açın."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "{name} tadı kuruldu."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "{name} tadı kaldırıldı."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "kullanım: sl-ctl flavor [list | add <tat> | remove <tat>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "bilinmeyen tat: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome kurulu değil."
@@ -254,8 +332,14 @@ msgstr "geri alınabilir sistem ayarları"
 msgid "instantáneas de Snapper"
 msgstr "Snapper anlık görüntüleri"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "sistem dosyalarını o anlık görüntüye döndürür"
+
 msgid "añade o quita sabores"
 msgstr "çeşit ekler veya kaldırır"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "şu anda ağa ne bağlanıyor"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "gizlilik profilini gösterir veya değiştirir"
@@ -426,9 +510,6 @@ msgstr "resmî depolar"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Bitti. Kapatmak için Enter'a bas… "
-
-msgid "instalado"
-msgstr "kurulu"
 
 msgid "Pendiente de tus sabores"
 msgstr "Çeşitlerinden kalanlar"
@@ -1533,3 +1614,6 @@ msgstr "sl-welcome kataloğundan paket kur"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome pacman ile paket kurmak için yönetici yetkisi istiyor"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "henüz hazır değil; çeşitler sl-welcome kataloğundan eklenir."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "不明なプライバシープロファイル: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} が見つかりません"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "sudo なしでは、他のユーザーや root のプロセスは表示されません。"
+
+msgid "Escuchando fuera"
+msgstr "外部で待ち受け"
+
+msgid "nada"
+msgstr "なし"
+
+msgid "Conexiones"
+msgstr "接続"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(暗号化、dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(暗号化なし)"
+
+msgid "Cortafuegos"
+msgstr "ファイアウォール"
+
+msgid "activo"
+msgstr "有効"
+
+msgid "desactivado"
+msgstr "無効"
+
+msgid "Temporizadores"
+msgstr "タイマー"
+
+msgid "ninguno"
+msgstr "なし"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux はテレメトリを送信しません。上の接続はあなたのものです：ブラウザ、自分で始めた更新、時刻同期（NTP）。"
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "アクセントツールが見つかりません"
 
@@ -125,9 +161,6 @@ msgstr "電源プロファイル"
 msgid "Planificador de disco"
 msgstr "ディスクスケジューラ"
 
-msgid "activo"
-msgstr "有効"
-
 msgid "parado"
 msgstr "停止"
 
@@ -172,15 +205,6 @@ msgstr "未インストール"
 msgid "Escuchando"
 msgstr "待ち受け中"
 
-msgid "nada"
-msgstr "なし"
-
-msgid "Cortafuegos"
-msgstr "ファイアウォール"
-
-msgid "desactivado"
-msgstr "無効"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "有効化: sudo sl-ctl server on <サービス> · 停止: sudo sl-ctl server off <サービス>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: 停止、開いているポートなし。"
 msgid "Servicios: {names}"
 msgstr "サービス: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "更新の前後にスナップショット（snap-pac）：問題が起きたら sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR は更新されていません: 一般ユーザーが見つかりません。自分のユーザーで `paru -Sua` を実行してください。"
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper がインストールされていません（BTRFS のみ）"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "スナップショットなし：システムが BTRFS 上にないか、Snapper が設定されていません"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "システムファイルをスナップショット {n} の状態に戻します。"
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "現在の状態に戻れるよう、先に別のスナップショットを作成します。"
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "完了。復元したバージョンを読み込むために再起動してください。"
+
 msgid "reflector no está instalado"
 msgstr "reflector がインストールされていません"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "まだ未実装です。フレーバーは sl-welcome のカタログから追加します。"
+msgid "instalado"
+msgstr "インストール済み"
+
+msgid "pendiente (instalación sin red)"
+msgstr "保留中（ネットワークなしでインストール）"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "接続後: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "追加：sudo sl-ctl flavor add <フレーバー> · 削除：sudo sl-ctl flavor remove <フレーバー>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "フレーバー {name} をインストール中：{n} 個のパッケージ"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "Flathub から {app} をインストールできませんでした"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "AUR から、自分のユーザーで："
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "新しいグループを使うには、ログアウトして再ログインしてください。"
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "フレーバー {name} をインストールしました。"
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "フレーバー {name} を削除しました。"
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "使い方：sl-ctl flavor [list | add <フレーバー> | remove <フレーバー>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "不明なフレーバー：{name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome がインストールされていません。"
@@ -254,8 +332,14 @@ msgstr "元に戻せるシステム調整"
 msgid "instantáneas de Snapper"
 msgstr "Snapper スナップショット"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "システムファイルをそのスナップショットの状態に戻す"
+
 msgid "añade o quita sabores"
 msgstr "フレーバーを追加・削除"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "今ネットワークに接続しているもの"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "プライバシープロファイルを表示・変更"
@@ -426,9 +510,6 @@ msgstr "公式リポジトリ"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "完了。Enter で閉じます… "
-
-msgid "instalado"
-msgstr "インストール済み"
 
 msgid "Pendiente de tus sabores"
 msgstr "フレーバーで残ったもの"
@@ -1532,3 +1613,6 @@ msgstr "sl-welcome のカタログからパッケージをインストール"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "pacman でパッケージをインストールするには管理者権限が必要です (sl-welcome)"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "まだ未実装です。フレーバーは sl-welcome のカタログから追加します。"

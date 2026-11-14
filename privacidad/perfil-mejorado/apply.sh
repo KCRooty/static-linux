@@ -12,8 +12,9 @@ sl_log "=== Applying privacy profile: Improved ==="
 
 sl_apply_baseline
 
-# AppArmor (kernel param apparmor=1 security=apparmor is set by the installer
-# in the GRUB cmdline for this profile).
+# AppArmor: the service loads the profiles, but only once the kernel runs
+# AppArmor as an LSM (lsm=… on the kernel command line, next boot).
+sl_apparmor_cmdline on
 sl_enable apparmor
 
 # Firejail: sandbox common risk apps by symlinking them through firejail.

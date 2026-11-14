@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "未知的隐私配置：{name}"
 msgid "no se encuentra {path}"
 msgstr "找不到 {path}"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "不使用 sudo 时看不到其他用户和 root 的进程。"
+
+msgid "Escuchando fuera"
+msgstr "对外监听"
+
+msgid "nada"
+msgstr "无"
+
+msgid "Conexiones"
+msgstr "连接"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "（加密，dnscrypt-proxy）"
+
+msgid "(sin cifrar)"
+msgstr "（未加密）"
+
+msgid "Cortafuegos"
+msgstr "防火墙"
+
+msgid "activo"
+msgstr "运行中"
+
+msgid "desactivado"
+msgstr "已禁用"
+
+msgid "Temporizadores"
+msgstr "定时器"
+
+msgid "ninguno"
+msgstr "无"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux 不发送任何遥测数据。上面的连接都是你自己的：浏览器、你启动的更新、时间同步（NTP）。"
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "找不到强调色工具"
 
@@ -125,9 +161,6 @@ msgstr "电源配置"
 msgid "Planificador de disco"
 msgstr "磁盘调度器"
 
-msgid "activo"
-msgstr "运行中"
-
 msgid "parado"
 msgstr "已停止"
 
@@ -172,15 +205,6 @@ msgstr "未安装"
 msgid "Escuchando"
 msgstr "监听中"
 
-msgid "nada"
-msgstr "无"
-
-msgid "Cortafuegos"
-msgstr "防火墙"
-
-msgid "desactivado"
-msgstr "已禁用"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "启用：sudo sl-ctl server on <服务> · 关闭：sudo sl-ctl server off <服务>"
 
@@ -215,17 +239,71 @@ msgstr "{name}：已停止，没有开放端口。"
 msgid "Servicios: {names}"
 msgstr "服务：{names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "更新前后各拍一个快照（snap-pac）：出问题时运行 sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR 未更新：找不到普通用户。请用你自己的用户运行 `paru -Sua`。"
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "未安装 snapper（仅 BTRFS）"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "没有快照：系统不在 BTRFS 上，或者未配置 Snapper"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "系统文件将恢复到快照 {n} 时的状态。"
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "会先再拍一个快照，以便你想回到现在的状态。"
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "完成。请重启，让所有内容加载恢复后的版本。"
+
 msgid "reflector no está instalado"
 msgstr "未安装 reflector"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "尚未实现；请在 sl-welcome 的目录中添加风味。"
+msgid "instalado"
+msgstr "已安装"
+
+msgid "pendiente (instalación sin red)"
+msgstr "待安装（无网络安装）"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "联网后：sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "添加：sudo sl-ctl flavor add <风味> · 移除：sudo sl-ctl flavor remove <风味>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "正在安装 {name} 风味：{n} 个软件包"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "无法从 Flathub 安装 {app}"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "来自 AUR，用你自己的用户："
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "注销后重新登录即可使用新的用户组。"
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "{name} 风味已安装。"
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "{name} 风味已移除。"
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "用法：sl-ctl flavor [list | add <风味> | remove <风味>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "未知风味：{name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "未安装 sl-welcome。"
@@ -254,8 +332,14 @@ msgstr "可还原的系统调整"
 msgid "instantáneas de Snapper"
 msgstr "Snapper 快照"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "将系统文件恢复到该快照"
+
 msgid "añade o quita sabores"
 msgstr "添加或移除风味"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "此刻有哪些程序在连网"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "显示或更改隐私配置"
@@ -426,9 +510,6 @@ msgstr "官方仓库"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "完成。按回车关闭… "
-
-msgid "instalado"
-msgstr "已安装"
 
 msgid "Pendiente de tus sabores"
 msgstr "风味包中未完成的"
@@ -1532,3 +1613,6 @@ msgstr "从 sl-welcome 目录安装软件包"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome 需要管理员权限才能用 pacman 安装软件包"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "尚未实现；请在 sl-welcome 的目录中添加风味。"

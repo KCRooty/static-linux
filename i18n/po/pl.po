@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "nieznany profil prywatności: {name}"
 msgid "no se encuentra {path}"
 msgstr "nie znaleziono {path}"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Bez sudo nie widać procesów innych użytkowników ani roota."
+
+msgid "Escuchando fuera"
+msgstr "Nasłuchuje na zewnątrz"
+
+msgid "nada"
+msgstr "nic"
+
+msgid "Conexiones"
+msgstr "Połączenia"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(szyfrowany, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(nieszyfrowany)"
+
+msgid "Cortafuegos"
+msgstr "Zapora"
+
+msgid "activo"
+msgstr "aktywny"
+
+msgid "desactivado"
+msgstr "wyłączona"
+
+msgid "Temporizadores"
+msgstr "Timery"
+
+msgid "ninguno"
+msgstr "brak"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux nie wysyła telemetrii. Połączenia powyżej są twoje: przeglądarka, uruchomione przez ciebie aktualizacje, synchronizacja czasu (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "nie znaleziono narzędzia akcentów"
 
@@ -125,9 +161,6 @@ msgstr "Profil zasilania"
 msgid "Planificador de disco"
 msgstr "Planista dysku"
 
-msgid "activo"
-msgstr "aktywny"
-
 msgid "parado"
 msgstr "zatrzymany"
 
@@ -172,15 +205,6 @@ msgstr "nie zainstalowano"
 msgid "Escuchando"
 msgstr "Nasłuchuje"
 
-msgid "nada"
-msgstr "nic"
-
-msgid "Cortafuegos"
-msgstr "Zapora"
-
-msgid "desactivado"
-msgstr "wyłączona"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Włącz: sudo sl-ctl server on <usługa> · wyłącz: sudo sl-ctl server off <usługa>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: zatrzymana, brak otwartych portów."
 msgid "Servicios: {names}"
 msgstr "Usługi: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Migawka przed i po aktualizacji (snap-pac): jeśli coś pójdzie nie tak, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR nie zaktualizowano: brak zwykłego użytkownika. Uruchom `paru -Sua` jako swój użytkownik."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper nie jest zainstalowany (tylko BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "brak migawek: system nie jest na BTRFS albo Snapper nie jest skonfigurowany"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Pliki systemowe wrócą do stanu z migawki {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Najpierw powstaje nowa migawka, na wypadek gdybyś chciał wrócić do obecnego stanu."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Gotowe. Uruchom ponownie, aby wszystko wczytało przywróconą wersję."
+
 msgid "reflector no está instalado"
 msgstr "reflector nie jest zainstalowany"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "jeszcze nie gotowe; smaki dodajesz z katalogu sl-welcome."
+msgid "instalado"
+msgstr "zainstalowano"
+
+msgid "pendiente (instalación sin red)"
+msgstr "oczekuje (instalacja bez sieci)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Po połączeniu: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Dodaj: sudo sl-ctl flavor add <wariant> · usuń: sudo sl-ctl flavor remove <wariant>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Instalowanie wariantu {name}: {n} pakietów"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "nie udało się zainstalować {app} z Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "Z AUR, jako twój użytkownik:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Wyloguj się i zaloguj ponownie, aby używać nowych grup."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Wariant {name} zainstalowany."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Wariant {name} usunięty."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "użycie: sl-ctl flavor [list | add <wariant> | remove <wariant>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "nieznany wariant: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome nie jest zainstalowany."
@@ -254,8 +332,14 @@ msgstr "odwracalne poprawki systemu"
 msgid "instantáneas de Snapper"
 msgstr "migawki Snappera"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "przywraca pliki systemowe do stanu z tej migawki"
+
 msgid "añade o quita sabores"
 msgstr "dodaje lub usuwa smaki"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "co teraz łączy się z siecią"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "pokazuje lub zmienia profil prywatności"
@@ -426,9 +510,6 @@ msgstr "oficjalne repozytoria"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Gotowe. Naciśnij Enter, aby zamknąć… "
-
-msgid "instalado"
-msgstr "zainstalowano"
 
 msgid "Pendiente de tus sabores"
 msgstr "Zaległe z twoich smaków"
@@ -1534,3 +1615,6 @@ msgstr "Zainstaluj pakiety z katalogu sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome potrzebuje uprawnień administratora, aby instalować pakiety przez pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "jeszcze nie gotowe; smaki dodajesz z katalogu sl-welcome."

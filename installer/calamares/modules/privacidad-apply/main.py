@@ -12,8 +12,12 @@
 # run.
 
 import os
+import sys
 
 import libcalamares
+
+sys.path.insert(0, "/etc/calamares/lib")
+import slinstall  # noqa: E402
 
 PROFILE_FOLDERS = {
     "basico": "perfil-basico",
@@ -21,6 +25,23 @@ PROFILE_FOLDERS = {
     "maximo": "perfil-maximo",
 }
 TARGET_PREFIX = "usr/lib/static-linux"
+# the tools each profile uses (firejail, usbguard, tor…); kernels are left
+# out, basepkgs already installed the right one
+PROFILE_LISTS = {
+    "basico": "privacy-basic.list",
+    "mejorado": "privacy-enhanced.list",
+    "maximo": "privacy-max.list",
+}
+
+
+def _profile_pkgs(root, chosen):
+    path = os.path.join(root, TARGET_PREFIX, "packages/lists", PROFILE_LISTS[chosen])
+    try:
+        with open(path, encoding="utf-8") as fh:
+            lines = [l.strip() for l in fh]
+    except OSError:
+        return []
+    return [l for l in lines if l and not l.startswith("#") and not l.startswith("linux-")]
 
 def _tr(text: str) -> str:
     """Spanish source string -> the installer's language (gettext domain
@@ -61,6 +82,12 @@ def run():
     apply_host_path = os.path.join(root, TARGET_PREFIX, "privacidad", folder, "apply.sh")
     if not os.path.exists(apply_host_path):
         return ("Privacy profile script missing", f"expected it at {apply_host_path}")
+
+    pkgs = _profile_pkgs(root, chosen)
+    if pkgs:
+        rc = slinstall.target_pacman(root, pkgs)
+        if rc != 0:
+            return ("Privacy profile packages failed", f"pacman exited {rc} for {pkgs}")
 
     rc = libcalamares.utils.target_env_call(["bash", apply_target])
     if rc != 0:

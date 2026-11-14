@@ -54,14 +54,14 @@ Funciona hoy:
 - **`sl-welcome`** (GTK4/libadwaita): resumen, selector de temas,
   privacidad y catálogo, con una sección de apps de Static Forge.
 - **`sl-ctl`**: `detect`, `info`, `privacy`, `theme`, `perf` y `tweaks` con
-  backup; `update`, `snapshot`, `mirror` y `flavor` en desarrollo.
+  backup; `update`, `snapshot`, `flavor`, `audit`, `server` y `mirror`.
 - **9 escritorios**: XFCE, KDE Plasma, GNOME, Cinnamon, Hyprland+Astal
   (full/lite), Openbox, i3, bspwm y sway.
 - **DNS cifrado** por dnscrypt-proxy desde el primer arranque; 3 perfiles de
   privacidad y 8 sabores, todos reversibles.
 
-Pendiente: estilos fuera de XFCE; ISO offline sin red; BIOS antigua; btrfs y
-LUKS en instalación real. La lista de cambios está en
+Pendiente: estilos fuera de XFCE; BIOS antigua; LUKS; pruebas en hardware
+real con la ISO. La lista de cambios está en
 [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Arquitectura

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "profil de confidentialité inconnu : {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} introuvable"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Sans sudo, les processus des autres utilisateurs et de root ne sont pas visibles."
+
+msgid "Escuchando fuera"
+msgstr "À l'écoute de l'extérieur"
+
+msgid "nada"
+msgstr "rien"
+
+msgid "Conexiones"
+msgstr "Connexions"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(chiffré, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(non chiffré)"
+
+msgid "Cortafuegos"
+msgstr "Pare-feu"
+
+msgid "activo"
+msgstr "actif"
+
+msgid "desactivado"
+msgstr "désactivé"
+
+msgid "Temporizadores"
+msgstr "Minuteurs"
+
+msgid "ninguno"
+msgstr "aucun"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux n'envoie aucune télémétrie. Les connexions ci-dessus sont les vôtres : navigateur, mises à jour que vous lancez, synchronisation de l'heure (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "outil d'accents introuvable"
 
@@ -125,9 +161,6 @@ msgstr "Profil d'énergie"
 msgid "Planificador de disco"
 msgstr "Ordonnanceur disque"
 
-msgid "activo"
-msgstr "actif"
-
 msgid "parado"
 msgstr "arrêté"
 
@@ -172,15 +205,6 @@ msgstr "non installé"
 msgid "Escuchando"
 msgstr "En écoute"
 
-msgid "nada"
-msgstr "rien"
-
-msgid "Cortafuegos"
-msgstr "Pare-feu"
-
-msgid "desactivado"
-msgstr "désactivé"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Activer : sudo sl-ctl server on <service> · arrêter : sudo sl-ctl server off <service>"
 
@@ -215,17 +239,71 @@ msgstr "{name} : arrêté, aucun port ouvert."
 msgid "Servicios: {names}"
 msgstr "Services : {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Instantané avant et après la mise à jour (snap-pac) : en cas de problème, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR non mis à jour : aucun utilisateur normal trouvé. Lancez `paru -Sua` avec votre utilisateur."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper n'est pas installé (BTRFS uniquement)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "aucun instantané : le système n'est pas sur BTRFS ou Snapper n'est pas configuré"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Les fichiers système vont revenir à l'état de l'instantané {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Un autre instantané est d'abord créé, au cas où vous voudriez revenir à l'état actuel."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Terminé. Redémarrez pour que tout charge la version restaurée."
+
 msgid "reflector no está instalado"
 msgstr "reflector n'est pas installé"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "pas encore fait ; ajoutez des saveurs depuis le catalogue de sl-welcome."
+msgid "instalado"
+msgstr "installé"
+
+msgid "pendiente (instalación sin red)"
+msgstr "en attente (installé sans réseau)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Une fois connecté : sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Ajouter : sudo sl-ctl flavor add <saveur> · retirer : sudo sl-ctl flavor remove <saveur>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Installation de la saveur {name} : {n} paquets"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "impossible d'installer {app} depuis Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "Depuis l'AUR, avec votre utilisateur :"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Déconnectez-vous puis reconnectez-vous pour utiliser les nouveaux groupes."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Saveur {name} installée."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Saveur {name} retirée."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "usage : sl-ctl flavor [list | add <saveur> | remove <saveur>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "saveur inconnue : {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome n'est pas installé."
@@ -254,8 +332,14 @@ msgstr "réglages système réversibles"
 msgid "instantáneas de Snapper"
 msgstr "instantanés Snapper"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "remet les fichiers système dans l'état de cet instantané"
+
 msgid "añade o quita sabores"
 msgstr "ajoute ou retire des saveurs"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "ce qui se connecte au réseau en ce moment"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "affiche ou change le profil de confidentialité"
@@ -426,9 +510,6 @@ msgstr "dépôts officiels"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Terminé. Appuie sur Entrée pour fermer… "
-
-msgid "instalado"
-msgstr "installé"
 
 msgid "Pendiente de tus sabores"
 msgstr "En attente de tes saveurs"
@@ -1533,3 +1614,6 @@ msgstr "Installer des paquets du catalogue de sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome a besoin des droits d'administrateur pour installer des paquets avec pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "pas encore fait ; ajoutez des saveurs depuis le catalogue de sl-welcome."

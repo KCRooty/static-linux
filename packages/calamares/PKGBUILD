@@ -17,7 +17,7 @@
 
 pkgname=calamares
 pkgver=3.4.2
-pkgrel=1
+pkgrel=2
 pkgdesc="Distribution-independent installer framework (Static Linux build: Python jobs + packagechooser)"
 arch=('x86_64')
 url="https://codeberg.org/Calamares/calamares"
@@ -44,6 +44,13 @@ makedepends=(
 )
 source=("$pkgname-$pkgver.tar.gz::$url/releases/download/v$pkgver/$pkgname-$pkgver.tar.gz")
 sha256sums=('733bbbb00dc9f84874bd5c22960952f317ea2537565431179fa2152b2fbfdccc')
+
+prepare() {
+    # upstream's Spanish catalogue has "%Regresar" for "Go &Back": the
+    # confirmation dialog showed a literal % (2026-11-14)
+    sed -i 's|<translation>%Regresar</translation>|<translation>\&amp;Regresar</translation>|' \
+        "$pkgname-$pkgver/lang/calamares_es.ts"
+}
 
 build() {
     # Modules Static Linux never uses: other init systems / initramfs

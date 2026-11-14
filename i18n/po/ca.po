@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: ca\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "perfil de privadesa desconegut: {name}"
 msgid "no se encuentra {path}"
 msgstr "no es troba {path}"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Sense sudo no es veuen els processos d'altres usuaris ni de root."
+
+msgid "Escuchando fuera"
+msgstr "Escoltant cap a fora"
+
+msgid "nada"
+msgstr "res"
+
+msgid "Conexiones"
+msgstr "Connexions"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(xifrat, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(sense xifrar)"
+
+msgid "Cortafuegos"
+msgstr "Tallafoc"
+
+msgid "activo"
+msgstr "actiu"
+
+msgid "desactivado"
+msgstr "desactivat"
+
+msgid "Temporizadores"
+msgstr "Temporitzadors"
+
+msgid "ninguno"
+msgstr "cap"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux no envia telemetria. Les connexions de dalt són teves: navegador, actualitzacions que llancis, sincronització de l'hora (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "no es troba l'eina d'accents"
 
@@ -125,9 +161,6 @@ msgstr "Perfil d'energia"
 msgid "Planificador de disco"
 msgstr "Planificador de disc"
 
-msgid "activo"
-msgstr "actiu"
-
 msgid "parado"
 msgstr "aturat"
 
@@ -172,15 +205,6 @@ msgstr "no instal·lat"
 msgid "Escuchando"
 msgstr "Escoltant"
 
-msgid "nada"
-msgstr "res"
-
-msgid "Cortafuegos"
-msgstr "Tallafoc"
-
-msgid "desactivado"
-msgstr "desactivat"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Activar: sudo sl-ctl server on <servei> · apagar: sudo sl-ctl server off <servei>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: aturat i sense ports oberts."
 msgid "Servicios: {names}"
 msgstr "Serveis: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Instantània abans i després d'actualitzar (snap-pac): si alguna cosa va malament, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR sense actualitzar: no hi ha cap usuari normal a qui passar. Executa `paru -Sua` amb el teu usuari."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper no està instal·lat (només BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "no hi ha instantànies: el sistema no és en BTRFS o Snapper no està configurat"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Els fitxers del sistema tornaran a l'estat de la instantània {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Abans es crea una altra instantània, per si vols tornar a com està ara."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Fet. Reinicia perquè tot carregui la versió restaurada."
+
 msgid "reflector no está instalado"
 msgstr "reflector no està instal·lat"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "encara no està fet; els sabors s'afegeixen des del catàleg de sl-welcome."
+msgid "instalado"
+msgstr "instal·lat"
+
+msgid "pendiente (instalación sin red)"
+msgstr "pendent (instal·lació sense xarxa)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Amb connexió: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Afegir: sudo sl-ctl flavor add <sabor> · treure: sudo sl-ctl flavor remove <sabor>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Instal·lant el sabor {name}: {n} paquets"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "no s'ha pogut instal·lar {app} des de Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "De l'AUR, amb el teu usuari:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Tanca la sessió i torna a entrar per fer servir els grups nous."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Sabor {name} instal·lat."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Sabor {name} tret."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "ús: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "sabor desconegut: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome no està instal·lat."
@@ -254,8 +332,14 @@ msgstr "ajustos del sistema reversibles"
 msgid "instantáneas de Snapper"
 msgstr "instantànies de Snapper"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "torna els fitxers del sistema a aquella instantània"
+
 msgid "añade o quita sabores"
 msgstr "afegeix o treu sabors"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "què es connecta a la xarxa ara mateix"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "mostra o canvia el perfil de privadesa"
@@ -426,9 +510,6 @@ msgstr "repos oficials"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Fet. Prem Retorn per tancar… "
-
-msgid "instalado"
-msgstr "instal·lat"
 
 msgid "Pendiente de tus sabores"
 msgstr "Pendent dels teus sabors"
@@ -1533,3 +1614,6 @@ msgstr "Instal·la paquets del catàleg de sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome necessita privilegis d'administrador per instal·lar paquets amb pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "encara no està fet; els sabors s'afegeixen des del catàleg de sl-welcome."

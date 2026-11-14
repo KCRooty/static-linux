@@ -1,0 +1,17 @@
+# Maintainer: Static Forge <staticforge@staticforge.me>
+# The key the [staticlinux] repository is signed with, for pacman's keyring.
+pkgname=staticlinux-keyring
+pkgver=2026.11.14
+pkgrel=1
+pkgdesc="Static Linux PGP keyring (Static Forge release key)"
+arch=('any')
+url="https://staticforge.me/linux/"
+license=('GPL-3.0-or-later')
+install=$pkgname.install
+source=('staticlinux.gpg' 'staticlinux-trusted' 'staticlinux-revoked')
+sha256sums=('SKIP' 'SKIP' 'SKIP')
+
+package() {
+    install -Dm644 -t "$pkgdir/usr/share/pacman/keyrings" \
+        staticlinux.gpg staticlinux-trusted staticlinux-revoked
+}

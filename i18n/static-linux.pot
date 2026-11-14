@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
-#: installer/calamares/modules/basepkgs/main.py:69
+#: installer/calamares/modules/basepkgs/main.py:93
 msgid "Instalando los paquetes base"
 msgstr ""
 
@@ -26,7 +26,7 @@ msgstr ""
 msgid "Ajustando la escala de pantalla"
 msgstr ""
 
-#: installer/calamares/modules/entorno-pkgs/main.py:63
+#: installer/calamares/modules/entorno-pkgs/main.py:62
 msgid "Instalando el escritorio"
 msgstr ""
 
@@ -34,15 +34,15 @@ msgstr ""
 msgid "Comprobando el cifrado del disco"
 msgstr ""
 
-#: installer/calamares/modules/privacidad-apply/main.py:42
+#: installer/calamares/modules/privacidad-apply/main.py:63
 msgid "Aplicando el perfil de privacidad"
 msgstr ""
 
-#: installer/calamares/modules/rendimiento/main.py:44
+#: installer/calamares/modules/rendimiento/main.py:49
 msgid "Ajustando el rendimiento"
 msgstr ""
 
-#: installer/calamares/modules/sabores/main.py:63
+#: installer/calamares/modules/sabores/main.py:65
 msgid "Instalando los sabores"
 msgstr ""
 
@@ -54,320 +54,431 @@ msgstr ""
 msgid "Aplicando el tema"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:51
+#: sl-ctl/sl-ctl.py:52
 msgid "este comando necesita root (usa sudo)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:113 sl-ctl/sl-ctl.py:147
+#: sl-ctl/sl-ctl.py:114 sl-ctl/sl-ctl.py:148
 msgid "desconocido"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:122 sl-ctl/sl-ctl.py:370
+#: sl-ctl/sl-ctl.py:123 sl-ctl/sl-ctl.py:429
 msgid "Kernel"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:126 sl-welcome/src/pages/overview.py:82
+#: sl-ctl/sl-ctl.py:127 sl-welcome/src/pages/overview.py:82
 msgid "Arquitectura"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:127
+#: sl-ctl/sl-ctl.py:128
 msgid "Disco"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:129
+#: sl-ctl/sl-ctl.py:130
 msgid "Escritorio recomendado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:130 sl-welcome/src/window.py:46
+#: sl-ctl/sl-ctl.py:131 sl-welcome/src/window.py:46
 msgid "Privacidad"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:151 sl-welcome/src/privileged.py:42
+#: sl-ctl/sl-ctl.py:152 sl-welcome/src/privileged.py:42
 #, python-brace-format
 msgid "perfil de privacidad desconocido: {name}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:157
+#: sl-ctl/sl-ctl.py:158
 #, python-brace-format
 msgid "no se encuentra {path}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:175
-msgid "no se encuentra la herramienta de acentos"
+#: sl-ctl/sl-ctl.py:198
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:181
-msgid "'accent <nombre>' necesita root (cambia /etc)"
+#: sl-ctl/sl-ctl.py:200
+msgid "Escuchando fuera"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:197
-msgid "no se encuentra sl-theme"
+#: sl-ctl/sl-ctl.py:200 sl-ctl/sl-ctl.py:553
+msgid "nada"
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:202
+msgid "Conexiones"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:209
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:210
+msgid "(sin cifrar)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
+msgid "Cortafuegos"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:545
+#: sl-ctl/sl-ctl.py:554
+msgid "activo"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
+msgid "desactivado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:214
+msgid "Temporizadores"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:214
+msgid "ninguno"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:216
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:234
+msgid "no se encuentra la herramienta de acentos"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:240
+msgid "'accent <nombre>' necesita root (cambia /etc)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:256
+msgid "no se encuentra sl-theme"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:261
 msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:221
+#: sl-ctl/sl-ctl.py:280
 msgid "fstrim.timer semanal (solo SSD)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:225
+#: sl-ctl/sl-ctl.py:284
 msgid "Volver a frenar los split locks (desactivado por rendimiento)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:231
+#: sl-ctl/sl-ctl.py:290
 msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:261 sl-ctl/sl-ctl.py:290
+#: sl-ctl/sl-ctl.py:320 sl-ctl/sl-ctl.py:349
 msgid "aplicado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:268
+#: sl-ctl/sl-ctl.py:327
 #, python-brace-format
 msgid "ajuste desconocido: {name}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:295
+#: sl-ctl/sl-ctl.py:354
 #, python-brace-format
 msgid "el ajuste {name} no está aplicado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:309
+#: sl-ctl/sl-ctl.py:368
 #, python-brace-format
 msgid "revertido: {name}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:345
+#: sl-ctl/sl-ctl.py:404
 msgid "el del kernel (este kernel no tiene sched_ext)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:350
+#: sl-ctl/sl-ctl.py:409
 msgid "el del kernel (EEVDF)"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:352
+#: sl-ctl/sl-ctl.py:411
 msgid "sin power-profiles-daemon"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:359
+#: sl-ctl/sl-ctl.py:418
 msgid "ninguna"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:369
+#: sl-ctl/sl-ctl.py:428
 msgid "rendimiento"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:371
+#: sl-ctl/sl-ctl.py:430
 msgid "Planificador de CPU"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:372
+#: sl-ctl/sl-ctl.py:431
 msgid "Perfil de energía"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:375
+#: sl-ctl/sl-ctl.py:434
 msgid "Planificador de disco"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:376 sl-ctl/sl-ctl.py:478 sl-ctl/sl-ctl.py:487
-msgid "activo"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:376 sl-ctl/sl-ctl.py:480
+#: sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:547
 msgid "parado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:379
+#: sl-ctl/sl-ctl.py:438
 #, no-python-format
 msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:385
+#: sl-ctl/sl-ctl.py:444
 msgid "power-profiles-daemon no está instalado"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:389
+#: sl-ctl/sl-ctl.py:448
 #, python-brace-format
 msgid "perfil desconocido: {name}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:396
+#: sl-ctl/sl-ctl.py:455
 #, python-brace-format
 msgid "Planificadores: {list}, off"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:397
+#: sl-ctl/sl-ctl.py:456
 msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:401
+#: sl-ctl/sl-ctl.py:460
 #, python-brace-format
 msgid "planificador desconocido: {name}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:405
+#: sl-ctl/sl-ctl.py:464
 msgid "Vuelve el planificador del kernel."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:408
+#: sl-ctl/sl-ctl.py:467
 msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:434
+#: sl-ctl/sl-ctl.py:493
 msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:437
-#, python-brace-format
-msgid "Planificador: scx_{name} (también en el próximo arranque)."
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:476
-msgid "no instalado"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:486
-msgid "Escuchando"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:486
-msgid "nada"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:487
-msgid "Cortafuegos"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:487
-msgid "desactivado"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:489
-msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:496
 #, python-brace-format
+msgid "Planificador: scx_{name} (también en el próximo arranque)."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:543
+msgid "no instalado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:553
+msgid "Escuchando"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:556
+msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:563
+#, python-brace-format
 msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:502
+#: sl-ctl/sl-ctl.py:569
 msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:510
+#: sl-ctl/sl-ctl.py:577
 #, python-brace-format
 msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:514
+#: sl-ctl/sl-ctl.py:581
 #, python-brace-format
 msgid "Cortafuegos: {port} abierto."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:516
+#: sl-ctl/sl-ctl.py:583
 #, python-brace-format
 msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:517
+#: sl-ctl/sl-ctl.py:584
 #, python-brace-format
 msgid "{name}: activo."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:529
+#: sl-ctl/sl-ctl.py:596
 #, python-brace-format
 msgid "{name}: parado y sin puertos abiertos."
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:536
+#: sl-ctl/sl-ctl.py:603
 #, python-brace-format
 msgid "Servicios: {names}"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:555
-msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:564
-msgid "snapper no está instalado (solo BTRFS)"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:578
-msgid "reflector no está instalado"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:584
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:591
-msgid "sl-welcome no está instalado."
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:597
-msgid "Gestión de Static Linux"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:601
-msgid "ejecuta sl-detect y muestra el resultado"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:602
-msgid "información del sistema"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:603
-msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:604
-msgid "renueva los mirrors con reflector"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:605
-msgid "abre otra vez sl-welcome"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:607
-msgid "ajustes del sistema reversibles"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:613
-msgid "instantáneas de Snapper"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:619
-msgid "añade o quita sabores"
+#: sl-ctl/sl-ctl.py:616
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:624
-msgid "muestra o cambia el perfil de privacidad"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:628
-msgid "muestra o cambia el color de acento"
-msgstr ""
-
-#: sl-ctl/sl-ctl.py:630
-msgid "lista los acentos"
+msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:633
-msgid "muestra o cambia el tema (fondo + paleta + estilo)"
+msgid "snapper no está instalado (solo BTRFS)"
 msgstr ""
 
 #: sl-ctl/sl-ctl.py:635
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:646
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:647
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:651
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:659
+msgid "reflector no está instalado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:753 sl-welcome/src/pages/catalog.py:115
+msgid "instalado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:755
+msgid "pendiente (instalación sin red)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:761
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:762
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:771
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:783
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:801
+msgid "Del AUR, con tu usuario:"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:805
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:806
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:841
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:859
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:861
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:868
+msgid "sl-welcome no está instalado."
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:874
+msgid "Gestión de Static Linux"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:878
+msgid "ejecuta sl-detect y muestra el resultado"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:879
+msgid "información del sistema"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:880
+msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:881
+msgid "renueva los mirrors con reflector"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:882
+msgid "abre otra vez sl-welcome"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:884
+msgid "ajustes del sistema reversibles"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:890
+msgid "instantáneas de Snapper"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:893
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:896
+msgid "añade o quita sabores"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:903
+msgid "qué se conecta a la red ahora mismo"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:905
+msgid "muestra o cambia el perfil de privacidad"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:909
+msgid "muestra o cambia el color de acento"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:911
+msgid "lista los acentos"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:914
+msgid "muestra o cambia el tema (fondo + paleta + estilo)"
+msgstr ""
+
+#: sl-ctl/sl-ctl.py:916
 msgid "lista los temas"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:638
+#: sl-ctl/sl-ctl.py:919
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr ""
 
-#: sl-ctl/sl-ctl.py:643
+#: sl-ctl/sl-ctl.py:924
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr ""
 
@@ -566,10 +677,6 @@ msgstr ""
 
 #: sl-welcome/src/pages/catalog.py:93
 msgid "Listo. Pulsa Intro para cerrar… "
-msgstr ""
-
-#: sl-welcome/src/pages/catalog.py:115
-msgid "instalado"
 msgstr ""
 
 #: sl-welcome/src/pages/catalog.py:128

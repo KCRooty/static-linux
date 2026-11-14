@@ -19,6 +19,16 @@ sudo sl-ctl privacy --profile basico    # o mejorado / maximo
 O desde [`sl-welcome`](herramientas/sl-welcome.md), página Privacidad (pide
 contraseña de administrador vía `pkexec`).
 
+## AppArmor
+
+En Mejorado y Máximo, el perfil añade
+`lsm=landlock,lockdown,yama,integrity,apparmor,bpf` a
+`GRUB_CMDLINE_LINUX_DEFAULT` (con copia en `/var/backups/static-linux/privacy/`)
+y activa `apparmor.service`. Los kernels de Arch no cargan AppArmor si no se
+pide así, y sin eso el servicio no hace nada. Volver a Básico lo quita de la
+línea de arranque. Hace falta reiniciar; `aa-status` dice cuántos perfiles
+hay cargados.
+
 ## Cómo están construidos
 
 `privacidad/<perfil>/apply.sh` — todos comparten `privacidad/scripts/lib.sh`

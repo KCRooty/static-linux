@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "onbekend privacyprofiel: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} niet gevonden"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Zonder sudo zijn processen van andere gebruikers en root niet zichtbaar."
+
+msgid "Escuchando fuera"
+msgstr "Luistert naar buiten"
+
+msgid "nada"
+msgstr "niets"
+
+msgid "Conexiones"
+msgstr "Verbindingen"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(versleuteld, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(onversleuteld)"
+
+msgid "Cortafuegos"
+msgstr "Firewall"
+
+msgid "activo"
+msgstr "actief"
+
+msgid "desactivado"
+msgstr "uitgeschakeld"
+
+msgid "Temporizadores"
+msgstr "Timers"
+
+msgid "ninguno"
+msgstr "geen"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux stuurt geen telemetrie. De verbindingen hierboven zijn van jou: browser, updates die je start, tijdsynchronisatie (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "accenthulpmiddel niet gevonden"
 
@@ -125,9 +161,6 @@ msgstr "Energieprofiel"
 msgid "Planificador de disco"
 msgstr "Schijfplanner"
 
-msgid "activo"
-msgstr "actief"
-
 msgid "parado"
 msgstr "gestopt"
 
@@ -172,15 +205,6 @@ msgstr "niet geïnstalleerd"
 msgid "Escuchando"
 msgstr "Luistert"
 
-msgid "nada"
-msgstr "niets"
-
-msgid "Cortafuegos"
-msgstr "Firewall"
-
-msgid "desactivado"
-msgstr "uitgeschakeld"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Aanzetten: sudo sl-ctl server on <dienst> · uitzetten: sudo sl-ctl server off <dienst>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: gestopt, geen open poorten."
 msgid "Servicios: {names}"
 msgstr "Diensten: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Snapshot voor en na het bijwerken (snap-pac): als er iets misgaat, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR niet bijgewerkt: geen gewone gebruiker gevonden. Voer `paru -Sua` uit als je eigen gebruiker."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper is niet geïnstalleerd (alleen BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "geen snapshots: het systeem staat niet op BTRFS of Snapper is niet ingesteld"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "De systeembestanden gaan terug naar de toestand van snapshot {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Eerst wordt een nieuwe snapshot gemaakt, voor als je terug wilt naar hoe het nu is."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Klaar. Herstart zodat alles de herstelde versie laadt."
+
 msgid "reflector no está instalado"
 msgstr "reflector is niet geïnstalleerd"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "nog niet klaar; smaken voeg je toe via de catalogus van sl-welcome."
+msgid "instalado"
+msgstr "geïnstalleerd"
+
+msgid "pendiente (instalación sin red)"
+msgstr "in afwachting (zonder netwerk geïnstalleerd)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Met verbinding: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Toevoegen: sudo sl-ctl flavor add <smaak> · verwijderen: sudo sl-ctl flavor remove <smaak>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "De smaak {name} installeren: {n} pakketten"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "kon {app} niet vanaf Flathub installeren"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "Uit de AUR, met je eigen gebruiker:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Log uit en weer in om de nieuwe groepen te gebruiken."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Smaak {name} geïnstalleerd."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Smaak {name} verwijderd."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "gebruik: sl-ctl flavor [list | add <smaak> | remove <smaak>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "onbekende smaak: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome is niet geïnstalleerd."
@@ -254,8 +332,14 @@ msgstr "omkeerbare systeemaanpassingen"
 msgid "instantáneas de Snapper"
 msgstr "Snapper-momentopnamen"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "zet systeembestanden terug naar die snapshot"
+
 msgid "añade o quita sabores"
 msgstr "voegt smaken toe of verwijdert ze"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "wat er nu met het netwerk verbindt"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "toont of wijzigt het privacyprofiel"
@@ -426,9 +510,6 @@ msgstr "officiële repo's"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Klaar. Druk op Enter om te sluiten… "
-
-msgid "instalado"
-msgstr "geïnstalleerd"
 
 msgid "Pendiente de tus sabores"
 msgstr "Nog open van je smaken"
@@ -1533,3 +1614,6 @@ msgstr "Pakketten uit de catalogus van sl-welcome installeren"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome heeft beheerdersrechten nodig om pakketten met pacman te installeren"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "nog niet klaar; smaken voeg je toe via de catalogus van sl-welcome."

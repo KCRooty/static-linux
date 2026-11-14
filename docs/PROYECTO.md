@@ -308,7 +308,7 @@ gpg --verify static-linux-2025.06-x86_64.iso.sig \
 5. StaticOS (from-scratch) is future. Static Linux is now. Keep separate.
 6. Before any USB operation → verify target is not critical storage.
 7. All ISOs must be GPG signed before public distribution.
-8. > 500 MB idle RAM = design bug, fix it.
+8. > 600 MB idle RAM = design bug, fix it.
 9. Bay Trail (Z36xxx) → always XFCE, never Wayland. CONFIRMED.
 10. J1900 class hardware → always linux-lts, always EXT4 on HDD.
 

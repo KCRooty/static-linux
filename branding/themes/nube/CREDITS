@@ -1,1 +1,3 @@
-Fondo: original de Static Forge, dibujado por código con branding/themes/gen_wallpaper.py (nube). Misma licencia que el repositorio (GPL-3.0).
+Fondo: Palouse hills near Moscow — Cheryl Dudley (Idaho, EE. UU.), CC BY 2.0 (https://creativecommons.org/licenses/by/2.0/).
+https://commons.wikimedia.org/wiki/File:Palouse_hills_near_Moscow.jpg
+Cambios: recorte 16:9, escalado a 3840x2160 y color (branding/themes/photo_wallpaper.py).

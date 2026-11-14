@@ -79,7 +79,8 @@ source=()
 sha256sums=()
 
 pkgver() {
-    date +%Y.%m.%d
+    # date + time: several builds a day must still be upgrades for pacman
+    date +%Y.%m.%d.%H%M
 }
 
 package() {

@@ -7,6 +7,35 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 ## Sin publicar · 18 idiomas, y rendimiento de serie
 
 ### Nuevo
+- **ISO universal** (`sudo iso/build.sh universal`, ~4,5 GB): sustituye a la
+  "offline" a medias. Lleva dentro el sistema base, los diez escritorios, los
+  tres kernels y las herramientas de privacidad (1.300 paquetes, 2,6 GB, en
+  `/opt/staticlinux-offline`), así que **instala sin conexión**. Con red,
+  pone el sistema al día (`pacman -Syu`) antes de añadir los sabores; sin
+  ella, los sabores quedan pendientes para `sudo sl-ctl flavor add pending`.
+  La ISO online (~2 GB) sigue existiendo.
+- **Fondos nuevos para Aero y Nube**, a partir de fotos libres de Wikimedia
+  Commons (laguna de Malapascua, CC BY 4.0, con burbujas de cristal encima;
+  colinas de Palouse, CC BY 2.0), a 3840×2160
+  (`branding/themes/photo_wallpaper.py`; autoría en cada `CREDITS`).
+- **Repositorio propio firmado, `[staticlinux]`** ([wiki](docs/wiki/repositorio.md)):
+  staticlinux-base, Brave Origin, paru, Astal y las fuentes llegan con un
+  `pacman -Syu`, sin ISO nueva. Todo firmado con la **clave de Static
+  Forge** (`3E61 7ED0 6C90 C757 35C9  C45E 51D5 8FA3 5045 B8D0`), que va en
+  el nuevo paquete `staticlinux-keyring`; el instalador añade el repositorio
+  con `SigLevel = Required`. `packages/publish-repo.sh` firma y lo sube.
+- **Instantáneas antes de cada actualización** en BTRFS: el instalador
+  configura Snapper para `/` (10 como máximo, sin las horarias), `snap-pac`
+  hace una antes y otra después de cada operación de pacman y `grub-btrfsd`
+  las pone en el menú de GRUB. `sl-ctl snapshot --rollback <n>` devuelve los
+  archivos a esa instantánea (`snapper undochange`).
+- **`sl-ctl flavor add/remove <sabor>`**: los sabores se añaden o quitan
+  después de instalar, con las mismas listas y ajustes que el instalador;
+  `remove` no toca lo que otro sabor, el escritorio o la base necesitan.
+- **`sl-ctl audit`**: qué escucha fuera, qué conexiones hay abiertas y de
+  qué proceso, si el DNS va cifrado, ufw y temporizadores.
+- `sl-ctl privacy --profile` instala también las herramientas del perfil
+  (firejail, usbguard, tor…), no solo su configuración.
 - **Vistas previas reales en el instalador**: cada escritorio de la página
   de entornos enseña una captura de verdad (tema Ámbar, terminal y gestor de
   archivos) en lugar del dibujo genérico.
@@ -56,6 +85,28 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - Texto del perfil de privacidad básico más claro, también en la wiki.
 
 ### Arreglos
+- **DNS cifrado con una lista corta de servidores**: dnscrypt-proxy sondeaba
+  unos 170 resolvers públicos en cada arranque (algunos, servidores caseros)
+  y podía usar cualquiera. Ahora solo Quad9 (sin filtro), Mullvad y
+  dnscry.pt (Madrid, París, Fráncfort, Ámsterdam). Visto en la auditoría de
+  tráfico.
+- **NetworkManager ya no pregunta a `ping.archlinux.org`** cada 5 minutos
+  (HTTP en claro: tu IP y que usas Arch). Solo se pierde la página automática
+  de los wifis de hotel.
+- El perfil **Máximo** prometía `linux-hardened` y no lo instalaba, y
+  ningún perfil instalaba sus herramientas (firejail, usbguard, tor…) desde
+  el instalador: ahora sí.
+- **AppArmor no se cargaba** en los perfiles Mejorado y Máximo: se
+  activaba el servicio, pero nadie ponía AppArmor en la línea de arranque
+  del kernel (los de Arch no lo cargan si no se pide). Ahora el perfil añade
+  `lsm=…,apparmor,bpf` a GRUB, y Básico lo quita.
+- XFCE arrancaba blueman-applet (~40 MB de RAM) también en equipos sin
+  Bluetooth; ahora solo si hay un adaptador.
+- El instalador decía "2026.10": ahora enseña la fecha de la ISO. Y el botón
+  del diálogo de confirmación ya no sale como "%Regresar" (errata de la
+  traducción de Calamares, corregida en nuestro paquete).
+- La regla de diseño de RAM pasa de 500 a **600 MB en reposo**, para tener
+  margen.
 - La barra de Hyprland (Astal) no aparecía en equipos sin Wi-Fi: el icono
   de red anidaba dos `<With>` y gnim tumbaba la barra entera. Visto al
   sacar las vistas previas en la VM (solo cable).
@@ -88,7 +139,7 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   power-profiles-daemon solo ofrece `balanced` y `power-saver`. Falta
   probarlo en hardware real.
 - XFCE con una terminal abierta usa ~750 MB de RAM en reposo (la regla es
-  500 MB). Hay que recortar applets que arrancan aunque no hagan falta
+  600 MB). Hay que recortar applets que arrancan aunque no hagan falta
   (blueman sin Bluetooth, por ejemplo).
 
 ## 2026-11-13 · Los temas, en todos los escritorios y en el arranque

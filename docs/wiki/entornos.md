@@ -59,7 +59,7 @@ greeter de LightDM y el overlay de acento GTK — todo con marca Static Forge
 
 Nivel 512 MB. Sin `lxsession` (un demonio menos residente), sin compositor
 por defecto (`picom` está listado pero no se arranca —
-`>500 MB de RAM en reposo = bug de diseño`, docs/PROYECTO.md). tint2 + jgmenu en
+`>600 MB de RAM en reposo = bug de diseño`, docs/PROYECTO.md). tint2 + jgmenu en
 vez de un panel completo.
 
 ## KDE Plasma

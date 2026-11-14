@@ -39,7 +39,7 @@ CHROOT_AUR_PKGS=(paru-bin appmenu-glib-translator-git libastal-io-git libastal-g
                  libastal-hyprland-git libastal-tray-git libastal-wireplumber-git
                  libastal-network-git libastal-battery-git aylurs-gtk-shell)
 PKGS=("$@")
-[[ ${#PKGS[@]} -gt 0 ]] || PKGS=(calamares staticlinux-base staticlinux-fonts "${AUR_PKGS[@]}"
+[[ ${#PKGS[@]} -gt 0 ]] || PKGS=(calamares staticlinux-base staticlinux-fonts staticlinux-keyring "${AUR_PKGS[@]}"
                                   "${CHROOT_AUR_PKGS[@]}")
 
 log() { printf '\033[1;38;5;43m[local-repo]\033[0m %s\n' "$*"; }

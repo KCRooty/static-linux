@@ -15,7 +15,7 @@ resident process. `~/.config/openbox/autostart` starts everything explicitly.
 | Terminal | LXTerminal |
 | Wallpaper | feh (`~/.fehbg`) |
 | Notifications | dunst |
-| Compositor | picom — shipped, **not autostarted** (`>500 MB idle RAM = design bug`) |
+| Compositor | picom — shipped, **not autostarted** (`>600 MB idle RAM = design bug`) |
 
 Right-click or middle-click the desktop, or `Super+D`, opens jgmenu.
 `Super+Return` opens a terminal, `Super+E` opens the file manager.

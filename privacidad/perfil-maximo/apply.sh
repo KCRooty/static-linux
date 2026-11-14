@@ -16,6 +16,7 @@ sl_log "=== Applying privacy profile: Maximum ==="
 sl_apply_baseline
 
 # --- Improved layer -----------------------------------------------------
+sl_apparmor_cmdline on
 sl_enable apparmor
 command -v firecfg >/dev/null && { sl_backup_file /usr/local/bin; firecfg >/dev/null; }
 if command -v usbguard >/dev/null; then

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: en\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "unknown privacy profile: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} not found"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Without sudo, processes of other users and root are not shown."
+
+msgid "Escuchando fuera"
+msgstr "Listening outside"
+
+msgid "nada"
+msgstr "nothing"
+
+msgid "Conexiones"
+msgstr "Connections"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(encrypted, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(unencrypted)"
+
+msgid "Cortafuegos"
+msgstr "Firewall"
+
+msgid "activo"
+msgstr "active"
+
+msgid "desactivado"
+msgstr "disabled"
+
+msgid "Temporizadores"
+msgstr "Timers"
+
+msgid "ninguno"
+msgstr "none"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux sends no telemetry. The connections above are yours: browser, updates you start, time sync (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "accent tool not found"
 
@@ -125,9 +161,6 @@ msgstr "Power profile"
 msgid "Planificador de disco"
 msgstr "Disk scheduler"
 
-msgid "activo"
-msgstr "active"
-
 msgid "parado"
 msgstr "stopped"
 
@@ -172,15 +205,6 @@ msgstr "not installed"
 msgid "Escuchando"
 msgstr "Listening"
 
-msgid "nada"
-msgstr "nothing"
-
-msgid "Cortafuegos"
-msgstr "Firewall"
-
-msgid "desactivado"
-msgstr "disabled"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Turn on: sudo sl-ctl server on <service> · turn off: sudo sl-ctl server off <service>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: stopped, no ports open."
 msgid "Servicios: {names}"
 msgstr "Services: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Snapshot before and after updating (snap-pac): if something goes wrong, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR not updated: there is no regular user to switch to. Run `paru -Sua` as your user."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper is not installed (BTRFS only)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "no snapshots: the system is not on BTRFS or Snapper is not configured"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "System files will be put back as they were in snapshot {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "A new snapshot is taken first, in case you want to come back to how things are now."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Done. Reboot so everything loads the restored version."
+
 msgid "reflector no está instalado"
 msgstr "reflector is not installed"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "not done yet; add flavors from the sl-welcome catalog."
+msgid "instalado"
+msgstr "installed"
+
+msgid "pendiente (instalación sin red)"
+msgstr "pending (installed without a network)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Once online: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Add: sudo sl-ctl flavor add <flavor> · remove: sudo sl-ctl flavor remove <flavor>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Installing the {name} flavor: {n} packages"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "could not install {app} from Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "From the AUR, as your user:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Log out and back in to use the new groups."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "{name} flavor installed."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "{name} flavor removed."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "usage: sl-ctl flavor [list | add <flavor> | remove <flavor>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "unknown flavor: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome is not installed."
@@ -254,8 +332,14 @@ msgstr "reversible system tweaks"
 msgid "instantáneas de Snapper"
 msgstr "Snapper snapshots"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "puts system files back as they were in that snapshot"
+
 msgid "añade o quita sabores"
 msgstr "add or remove flavors"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "what is talking to the network right now"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "show or change the privacy profile"
@@ -426,9 +510,6 @@ msgstr "official repos"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Done. Press Enter to close… "
-
-msgid "instalado"
-msgstr "installed"
 
 msgid "Pendiente de tus sabores"
 msgstr "Left over from your flavors"
@@ -1533,3 +1614,6 @@ msgstr "Install packages from the sl-welcome catalog"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome needs administrator privileges to install packages with pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "not done yet; add flavors from the sl-welcome catalog."

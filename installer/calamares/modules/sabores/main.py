@@ -25,7 +25,12 @@ import os
 import re
 import subprocess
 
+import sys
+
 import libcalamares
+
+sys.path.insert(0, "/etc/calamares/lib")
+import slinstall  # noqa: E402
 
 VALID_SLUGS = (
     "gaming", "content-creation", "development", "cybersecurity",
@@ -34,9 +39,6 @@ VALID_SLUGS = (
 LISTS_DIR = "usr/lib/static-linux/packages/lists"  # relative to target root
 AUR_RE = re.compile(r"^#\s*(\S+)\s*\(AUR\)\s*$")
 FLATPAK_RE = re.compile(r"^#\s*flatpak:\s*(\S+)\s*$")
-LIVE_REPO = "/opt/staticlinux-repo"
-LIVE_REPO_NAME = "staticlinux-local"
-TMP_CONF = "/tmp/sl-sabores-pacman.conf"
 FLATHUB = "https://dl.flathub.org/repo/flathub.flatpakrepo"
 
 GROUPS = {"gaming": ["gamemode"], "content-creation": ["realtime"],
@@ -97,30 +99,8 @@ def _gpu_lib32(gs):
 
 
 def _pacman(root, pkgs):
-    """pacman -Sy in the target, with the live ISO's local repo reachable."""
-    mnt = root.rstrip("/") + LIVE_REPO
-    mounted = False
-    if os.path.isdir(LIVE_REPO):
-        os.makedirs(mnt, exist_ok=True)
-        mounted = subprocess.run(["mount", "--bind", "-o", "ro", LIVE_REPO, mnt]).returncode == 0
-    conf = ["--config", TMP_CONF] if mounted else []
-    if mounted:
-        with open(os.path.join(root, "etc/pacman.conf"), encoding="utf-8") as fh:
-            base = fh.read()
-        with open(root.rstrip("/") + TMP_CONF, "w", encoding="utf-8") as fh:
-            fh.write(base + f"\n[{LIVE_REPO_NAME}]\nSigLevel = Optional TrustAll\n"
-                            f"Server = file://{LIVE_REPO}\n")
-    try:
-        return libcalamares.utils.target_env_call(
-            ["pacman", *conf, "-Sy", "--needed", "--noconfirm", *pkgs])
-    finally:
-        if mounted:
-            subprocess.run(["umount", mnt])
-            try:
-                os.rmdir(mnt)
-                os.remove(root.rstrip("/") + TMP_CONF)
-            except OSError:
-                pass
+    """pacman -Sy in the target: the mirrors plus the live ISO's local repo."""
+    return slinstall.target_pacman(root, pkgs, use_mirrors=True)
 
 
 def _flatpaks(apps):
@@ -163,6 +143,22 @@ def run():
         aur += [x for x in a if x not in aur]
     if "gaming" in slugs:
         pkgs += [x for x in _gpu_lib32(gs) if x not in pkgs]
+
+    # Universal ISO with no network: the flavors aren't on it (they'd double
+    # its size). Recorded so sl-welcome / `sl-ctl flavor add` finish the job.
+    if slinstall.offline_repo() and not slinstall.online():
+        path = os.path.join(root, "etc/static-linux/pending-flavors")
+        os.makedirs(os.path.dirname(path), exist_ok=True)
+        with open(path, "w", encoding="utf-8") as fh:
+            fh.write("\n".join(slugs) + "\n")
+        gs.insert("slSaboresPending", slugs)
+        libcalamares.utils.warning(f"sabores: no network, pending for after first boot: {slugs}")
+        return None
+    # Installed from the ISO's snapshot: catch up with the mirrors first, so
+    # the flavors don't pull libraries newer than what the snapshot has
+    if slinstall.offline_repo():
+        if slinstall.target_upgrade(root) != 0:
+            libcalamares.utils.warning("sabores: pacman -Syu failed, installing flavors anyway")
 
     if pkgs:
         rc = _pacman(root, pkgs)

@@ -24,7 +24,12 @@ import re
 import shutil
 import subprocess
 
+import sys
+
 import libcalamares
+
+sys.path.insert(0, "/etc/calamares/lib")
+import slinstall  # noqa: E402
 
 LIST_PATH = "/usr/lib/static-linux/packages/lists/base.list"  # in the live system
 # "tty"/"servidor" on the environment page: no display server, browser or
@@ -48,6 +53,40 @@ def _enable_multilib(conf):
         new = text.rstrip("\n") + "\n\n[multilib]\nInclude = /etc/pacman.d/mirrorlist\n"
     with open(conf, "w", encoding="utf-8") as fh:
         fh.write(new)
+
+SL_REPO = ("\n# Static Linux: staticlinux-base, Brave Origin, paru, Astal… signed with\n"
+           "# the Static Forge release key (staticlinux-keyring)\n"
+           "[staticlinux]\nSigLevel = Required\n"
+           "Server = https://github.com/KCRooty/static-linux/releases/download/repo\n")
+
+
+def _enable_staticlinux_repo(conf):
+    """Updates to Static Linux's own packages come from here, not from a new ISO."""
+    try:
+        with open(conf, encoding="utf-8") as fh:
+            text = fh.read()
+    except OSError:
+        return
+    if re.search(r"(?m)^\[staticlinux\]", text):
+        return
+    with open(conf, "w", encoding="utf-8") as fh:
+        fh.write(text.rstrip("\n") + "\n" + SL_REPO)
+
+
+def _grub_top_level(path, kernel):
+    line = f'GRUB_TOP_LEVEL="/boot/vmlinuz-{kernel}"'
+    try:
+        with open(path, encoding="utf-8") as fh:
+            text = fh.read()
+    except OSError:
+        return
+    if re.search(r"(?m)^GRUB_TOP_LEVEL=", text):
+        text = re.sub(r"(?m)^GRUB_TOP_LEVEL=.*$", line, text)
+    else:
+        text = text.rstrip("\n") + "\n\n# Static Linux: the kernel picked at install time boots by default\n" + line + "\n"
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write(text)
+
 
 def _tr(text: str) -> str:
     """Spanish source string -> the installer's language (gettext domain
@@ -106,7 +145,11 @@ def run():
         libcalamares.utils.debug(f"basepkgs: {env}, leaving out {len(skip)} graphical packages")
 
     kernel = gs.value("slRecommendedKernel") or "linux-lts"
-    for extra in (kernel, f"{kernel}-headers", "staticlinux-base"):
+    # the "Máximo" privacy profile promises linux-hardened instead
+    if (gs.value("packagechooser_privacidad") or "").split(",")[0].strip() == "maximo":
+        kernel = "linux-hardened"
+        gs.insert("slRecommendedKernel", kernel)
+    for extra in (kernel, f"{kernel}-headers", "staticlinux-base", "staticlinux-keyring"):
         if extra not in pkgs:
             pkgs.append(extra)
 
@@ -114,8 +157,15 @@ def run():
     # the live session's.
     # Plain subprocess: this runs in the live session, and libcalamares only
     # has helpers for running things inside the target.
+    # Universal ISO: everything comes from the packages it carries
+    # (/opt/staticlinux-offline), so the install works with no network.
+    cmd = ["pacstrap", "-K"]
+    conf = slinstall.host_conf()
+    if conf:
+        cmd += ["-C", conf]
+    slinstall.online()   # recorded in globalStorage for sabores
     proc = subprocess.run(
-        ["pacstrap", "-K", root, *pkgs],
+        [*cmd, root, *pkgs],
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True,
     )
     if proc.returncode != 0:
@@ -123,6 +173,8 @@ def run():
         libcalamares.utils.warning(f"basepkgs: pacstrap output (tail):\n{tail}")
         return ("Base system install failed",
                 f"pacstrap exited {proc.returncode}\n\n{tail}")
+
+    slinstall.drop_cached_copies(root)
 
     # The jobs after this one run pacman in a plain chroot of the target
     # (unlike arch-chroot, Calamares doesn't bind the live resolv.conf in),
@@ -144,6 +196,13 @@ def run():
     # drivers. Enabled up front so the gaming flavor and sl-welcome's
     # catalog can just pacman -S them.
     _enable_multilib(os.path.join(root, "etc/pacman.conf"))
+    _enable_staticlinux_repo(os.path.join(root, "etc/pacman.conf"))
+
+    # base.list also brings linux-lts as a fallback, and grub-mkconfig puts
+    # the highest kernel version first: linux-hardened (Máximo) lost to it.
+    # GRUB_TOP_LEVEL keeps the chosen kernel as the default entry; grubcfg
+    # leaves lines it doesn't manage alone.
+    _grub_top_level(os.path.join(root, "etc/default/grub"), kernel)
 
     if aur_pkgs:
         gs.insert("slBaseAurPending", sorted(set(aur_pkgs)))

@@ -10,6 +10,11 @@
 #       big build (paru, Rust) still has somewhere to go. Skipped on btrfs: a
 #       swapfile inside the snapshotted @ subvolume breaks snapper, and btrfs
 #       is only picked with 4 GB or more anyway.
+#   btrfs root
+#       Snapper config for / (snap-pac then takes a pre/post snapshot around
+#       every pacman transaction, sl-ctl update included), at most 10 kept,
+#       no hourly timeline; grub-btrfsd lists them in the GRUB menu so a
+#       broken update can be booted around.
 #   Gaming flavor
 #       /etc/scx_loader/config.toml (scx_lavd, Auto) + scx_loader.service, so
 #       the sched_ext scheduler runs from the first boot. `sl-game` switches
@@ -73,6 +78,36 @@ def _swapfile(root):
             fh.write("\n# Static Linux: 2 GB swapfile (RAM < 4 GB), below zram\n" + FSTAB_LINE)
 
 
+SNAPPER_SET = {"TIMELINE_CREATE": "no", "NUMBER_LIMIT": "10",
+               "NUMBER_LIMIT_IMPORTANT": "5", "ALLOW_GROUPS": "wheel"}
+
+
+def _snapper(root):
+    if _root_fstype(root) != "btrfs":
+        return
+    if not os.path.exists(os.path.join(root, "usr/bin/snapper")):
+        libcalamares.utils.warning("rendimiento: btrfs root but snapper is not installed")
+        return
+    call = libcalamares.utils.target_env_call
+    conf = os.path.join(root, "etc/snapper/configs/root")
+    if not os.path.exists(conf):
+        rc = call(["snapper", "--no-dbus", "-c", "root", "create-config", "/"])
+        if rc != 0 or not os.path.exists(conf):
+            libcalamares.utils.warning(f"rendimiento: snapper create-config failed ({rc})")
+            return
+    with open(conf, encoding="utf-8") as fh:
+        lines = fh.read().splitlines()
+    out = []
+    for line in lines:
+        key = line.split("=", 1)[0]
+        out.append(f'{key}="{SNAPPER_SET[key]}"' if key in SNAPPER_SET else line)
+    with open(conf, "w", encoding="utf-8") as fh:
+        fh.write("\n".join(out) + "\n")
+    for unit in ("snapper-cleanup.timer", "grub-btrfsd.service"):
+        call(["systemctl", "enable", unit])
+    libcalamares.utils.debug("rendimiento: snapper config for / (snap-pac, grub-btrfs)")
+
+
 def _scx(root):
     src = os.path.join(root, SCX_SRC)
     if not os.path.exists(os.path.join(root, "usr/bin/scx_loader")) or not os.path.exists(src):
@@ -93,6 +128,7 @@ def run():
 
     if gs.value("slCreateSwapfile"):
         _swapfile(root)
+    _snapper(root)
 
     chosen = gs.value("packagechooser_sabores") or ""
     slugs = [s.strip() for s in chosen.split(",") if s.strip()] or (gs.value("slSabores") or [])

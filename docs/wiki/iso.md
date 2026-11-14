@@ -1,66 +1,94 @@
 # Construir la ISO
 
 ```bash
-sudo pacman -S archiso
-cd iso
-sudo ./build.sh online     # ~1 GB, necesita red al instalar
-sudo ./build.sh offline    # ~4 GB, paquetes empaquetados
+sudo pacman -S --needed archiso git base-devel
+packages/local-repo.sh               # paquetes propios, como usuario normal
+sudo iso/build.sh universal          # ~4,5 GB, instala con o sin red
+sudo iso/build.sh online             # ~2 GB, descarga todo al instalar
 ```
 
-`iso/build.sh` monta el `airootfs/` de la sesión live desde tres sitios en
-cada build (nada de esto se guarda en el repo, se genera siempre fresco):
+La ISO sale en `iso/out/`. Hacen falta unos 25 GB libres para la universal
+(paquetes descargados, el directorio de trabajo de archiso y la ISO).
 
-1. `iso/airootfs-common/` — lo escrito a mano: autologin en tty1, `motd`,
-   `hostname`, y el `.xinitrc` que arranca Openbox + Calamares directamente.
-2. La función `package()` del propio `packages/staticlinux-base/PKGBUILD`,
-   apuntando `pkgdir` al `airootfs/` en vez de a un paquete real — la sesión
-   live acaba con el mismo árbol `/usr/lib/static-linux` que produciría
-   `pacman -S staticlinux-base`, sin duplicar la lógica de empaquetado.
-3. `installer/calamares/` copiado a `airootfs/etc/calamares/`.
+## Universal u online
 
-La cadena de arranque (`efiboot/`, `syslinux/`, `grub/`, `pacman.conf`) se
-copia tal cual del perfil `releng` del propio paquete `archiso` — no tiene
-sentido mantener a mano una copia que se desincroniza de la versión de
-archiso instalada en la máquina de build.
+| | Universal | Online |
+|---|---|---|
+| Tamaño | ~4,5 GB | ~2 GB |
+| Sin conexión | instala base, cualquier escritorio, los tres kernels y el perfil de privacidad | no instala |
+| Con conexión | instala lo mismo desde la ISO, pone el sistema al día (`pacman -Syu`) y añade los sabores | descarga todo |
+| Sabores | con red al instalar, o después con `sudo sl-ctl flavor add pending` | con red al instalar |
 
-## `calamares` es solo-AUR
+La que se publica es la **universal**: sirve en cualquier situación. La
+online queda para pruebas rápidas.
 
-Comprobado contra la API real de Arch:
-`archlinux.org/packages/search/json/?name=calamares` da cero resultados; sí
-está en AUR. `mkarchiso` solo puede tirar de los repos pacman configurados
-en la máquina de build (nunca del AUR directamente), así que hace falta un
-repo local propio con `calamares` ya compilado antes de construir la ISO —
-lo mismo que hacen EndeavourOS, Manjaro, etc., ya que Static Linux todavía
-no tiene su propio repo (ver
-[staticlinux-base](herramientas/staticlinux-base.md)). `build.sh` comprueba
-esto al principio (`pacman -Si calamares`) y para con un mensaje claro en
-vez de fallar a mitad de build.
+### Qué lleva dentro la universal
 
-## El ISO offline: empaquetado, no funcional todavía
+`build.sh` descarga, contra una base de datos de pacman vacía (así llegan
+todas las dependencias), todo lo que el instalador puede pedir:
 
-`profiledir-offline/packages.x86_64` mete en la caché de pacman de la
-imagen live todos los paquetes oficiales que aparecen en
-`packages/lists/*.list` (base + los 4 entornos + los 8 sabores + los 3
-perfiles de privacidad). Eso no es lo mismo que hacer que las llamadas
-`pacman -S` en vivo de Calamares (`basepkgs`, `entorno-pkgs`, `sabores`,
-`privacidad-apply`) lean de esa caché en vez de tirar de red durante la
-instalación — falta esa parte (un `CacheDir` apuntado al punto de montaje
-del ISO, o un repo local, antes de que corra `basepkgs`). Hasta que eso
-exista, las dos ISOs necesitan red al instalar; la offline solo lleva ya
-los paquetes descargados, lista para quien complete ese cableado.
+- `base.list` + `sin-escritorio.list` (consola) + `privacy-*.list`
+- cada escritorio (`xfce.list`, `kde.list`, …), en una llamada por
+  escritorio porque algunas listas chocan entre sí
+- `linux-lts`, `linux-zen` y `linux-hardened`, con sus cabeceras
 
-Diez paquetes de `packages/lists/*.list` son solo-AUR (`paru`, `ttf-outfit`,
-`otf-space-grotesk`, `nwg-dock-hyprland`, `davinci-resolve`, `thonny`,
-`heroic-games-launcher-bin`, `proton-ge-custom-bin`, `joplin-desktop`,
-`bridge-utils`) y tienen el mismo problema que `calamares` para el
-empaquetado offline.
+Queda como repositorio `staticlinux-offline` en `/opt/staticlinux-offline`
+de la imagen (1.300 paquetes, 2,6 GB el 2026-11-14). Los sabores no van: la
+ISO doblaría su tamaño y varios necesitan Flathub igualmente.
 
-## Sin probar en hardware real
+El arranque lleva `copytoram=n`: la imagen no se copia entera a la RAM, así
+que también arranca en equipos de 2 GB.
 
-Nada de esto se ha construido de verdad esta sesión — sin máquina Arch
-disponible (`archiso`/`mkarchiso` tampoco se pueden instalar en este
-sandbox). Verificado con lo que sí había a mano: sintaxis de `build.sh`,
-el ensamblado del `airootfs/` corrido de punta a punta contra un directorio
-de prueba, y cada nombre de paquete de ambos `packages.x86_64` contrastado
-contra `archlinux.org/packages/search/json`. Un `sudo ./build.sh online`
-real, en Arch de verdad, es el siguiente paso.
+### Cómo instala sin red
+
+Lo hace `installer/calamares/lib/slinstall.py`, que comparten los trabajos
+del instalador:
+
+- **basepkgs**: `pacstrap -C` con un `pacman.conf` que solo conoce los dos
+  repositorios de la ISO (`staticlinux-offline` y `staticlinux-local`).
+- **entorno-pkgs** y **privacidad-apply**: montan esos repositorios dentro
+  del sistema nuevo e instalan solo desde ellos, para no mezclar la foto de
+  la ISO con paquetes más nuevos de los mirrors a mitad de instalación.
+- **sabores**: con red, primero `pacman -Syu` y después los sabores desde
+  los mirrors; sin red, los apunta en `/etc/static-linux/pending-flavors`.
+- Al final se borran de `/var/cache/pacman/pkg` las copias de lo que vino de
+  la ISO (~1,5 GB que no hacen falta).
+
+La comprobación de red tiene un tope de 6 segundos, y la página de
+bienvenida avisa de que no hay conexión pero deja seguir.
+
+## Cómo se monta la imagen
+
+`iso/build.sh` monta el `airootfs/` de la sesión en vivo en cada build
+(nada de esto se guarda en el repositorio):
+
+1. La fontanería de archiso (hooks del initramfs, llavero de pacman…) y la
+   cadena de arranque (`efiboot/`, `syslinux/`, `grub/`, `pacman.conf`), tal
+   cual del perfil `releng` del paquete `archiso`, con los menús renombrados
+   a Static Linux.
+2. El escritorio en vivo: el `skel` de XFCE con el tema Ámbar y
+   `iso/airootfs-common/` encima (autologin, `sl-live-install`).
+3. `installer/calamares/` en `/etc/calamares/`, con la fecha de la ISO como
+   versión.
+4. El repositorio local (`packages/aur-cache/`) en `/opt/staticlinux-repo`:
+   `calamares`, `staticlinux-base`, Brave Origin, paru y Astal no están en
+   los repositorios oficiales.
+
+`calamares` solo está en el AUR, y el paquete del AUR no trae los trabajos
+en Python que usa este instalador: se compila con
+`packages/calamares/PKGBUILD` dentro de `local-repo.sh`.
+
+## Builds de desarrollo
+
+`--dev-ssh-key CLAVE.pub` añade SSH de root con esa clave a la sesión en
+vivo, para manejar el instalador desde la máquina de build (QEMU). **Una ISO
+así no se distribuye nunca.**
+
+## Publicar
+
+1. `sudo iso/build.sh universal` (sin `--dev-ssh-key`).
+2. Suma y firma con la clave de Static Forge:
+   `sha256sum ISO > ISO.sha256` y `gpg --detach-sign --armor ISO` (deja
+   `ISO.asc`; se publica también como `ISO.sig`).
+3. Subir los tres archivos a SourceForge y a los demás espejos.
+4. Nota de la versión: cambios, arreglos y problemas conocidos.

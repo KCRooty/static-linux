@@ -15,5 +15,10 @@ sl_log "=== Applying privacy profile: Basic ==="
 
 sl_apply_baseline
 
+# Coming back from Improved/Maximum: AppArmor out of the kernel command line
+# and its service off (the profiles stay installed, unused).
+sl_apparmor_cmdline off
+systemctl disable apparmor.service >/dev/null 2>&1 || true
+
 sl_record_profile "basic"
 sl_log "Basic profile applied. Reboot recommended (kernel/journald changes)."

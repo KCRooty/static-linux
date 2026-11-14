@@ -5,8 +5,8 @@ Builds Static Linux's live/install medium with [archiso](https://gitlab.archlinu
 ```bash
 sudo pacman -S archiso
 packages/local-repo.sh      # as your normal user: builds calamares, staticlinux-base, brave-origin-bin
-sudo iso/build.sh online    # ~1.7 GB, needs network at install time
-sudo iso/build.sh offline   # packages bundled (see caveat below)
+sudo iso/build.sh universal # ~4.5 GB, installs with or without a network (the public one)
+sudo iso/build.sh online    # ~2 GB, downloads everything at install time
 ```
 
 `packages/local-repo.sh` lists the build dependencies it needs in its
@@ -16,7 +16,7 @@ For a development build that can be driven over SSH from the build host
 (QEMU with `hostfwd=tcp:127.0.0.1:2222-:22`):
 
 ```bash
-sudo iso/build.sh online --dev-ssh-key ~/.ssh/id_ed25519.pub   # never distribute this ISO
+sudo iso/build.sh universal --dev-ssh-key ~/.ssh/id_ed25519.pub   # never distribute this ISO
 ```
 
 ## What `build.sh` assembles
@@ -59,8 +59,10 @@ the online ISO boots into Calamares, a default install (erase disk, ext4,
 XFCE, basic privacy profile) completes, and the installed system boots to
 LightDM and the XFCE session with `sl-welcome`.
 
-Not tested yet: BIOS boot, the other three environments, the improved and
-maximum privacy profiles, LUKS, btrfs, real hardware, and the offline ISO.
+Since then (VM): every environment, the three privacy profiles, btrfs with
+Snapper, the Server and Gaming setups, and on 2026-11-14 the universal ISO
+installing with no network at all. Not tested yet: BIOS boot, LUKS, real
+hardware. How the universal ISO works: `docs/wiki/iso.md`.
 
 ## Known gaps
 
@@ -70,9 +72,5 @@ maximum privacy profiles, LUKS, btrfs, real hardware, and the offline ISO.
   `joplin-desktop`, `bridge-utils`) are skipped by the installer and left
   for `paru` after first boot. They'd need building into the local repo to
   be installable from the ISO.
-- **The offline ISO is offline-*shaped*, not offline-*functional*.** Its
-  live image carries the packages, but Calamares' pacstrap/pacman calls
-  still download from the network. Wiring the bundled cache in is not done.
-- **The installed system doesn't know the local repo**, so `staticlinux-base`
-  is a foreign package there and never updates. Needs a real Static Forge
-  repo.
+- Flavors are not on the universal ISO: with no network at install time
+  they are left for `sudo sl-ctl flavor add pending`.

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "perfil de privacidade desconhecido: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path} não encontrado"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "Sem sudo não aparecem os processos de outros usuários nem do root."
+
+msgid "Escuchando fuera"
+msgstr "Escutando para fora"
+
+msgid "nada"
+msgstr "nada"
+
+msgid "Conexiones"
+msgstr "Conexões"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(criptografado, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(sem criptografia)"
+
+msgid "Cortafuegos"
+msgstr "Firewall"
+
+msgid "activo"
+msgstr "ativo"
+
+msgid "desactivado"
+msgstr "desativado"
+
+msgid "Temporizadores"
+msgstr "Temporizadores"
+
+msgid "ninguno"
+msgstr "nenhum"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "O Static Linux não envia telemetria. As conexões acima são suas: navegador, atualizações que você iniciar, sincronização de hora (NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "ferramenta de destaques não encontrada"
 
@@ -125,9 +161,6 @@ msgstr "Perfil de energia"
 msgid "Planificador de disco"
 msgstr "Escalonador de disco"
 
-msgid "activo"
-msgstr "ativo"
-
 msgid "parado"
 msgstr "parado"
 
@@ -172,15 +205,6 @@ msgstr "não instalado"
 msgid "Escuchando"
 msgstr "Escutando"
 
-msgid "nada"
-msgstr "nada"
-
-msgid "Cortafuegos"
-msgstr "Firewall"
-
-msgid "desactivado"
-msgstr "desativado"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Ativar: sudo sl-ctl server on <serviço> · desligar: sudo sl-ctl server off <serviço>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: parado e sem portas abertas."
 msgid "Servicios: {names}"
 msgstr "Serviços: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Snapshot antes e depois de atualizar (snap-pac): se algo der errado, sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR não atualizado: não há um usuário comum. Rode `paru -Sua` com o seu usuário."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "o snapper não está instalado (só BTRFS)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "não há snapshots: o sistema não está em BTRFS ou o Snapper não está configurado"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "Os arquivos do sistema voltarão ao estado do snapshot {n}."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "Antes é criado outro snapshot, caso você queira voltar ao estado atual."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "Pronto. Reinicie para que tudo carregue a versão restaurada."
+
 msgid "reflector no está instalado"
 msgstr "o reflector não está instalado"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "ainda não foi feito; os sabores são adicionados pelo catálogo do sl-welcome."
+msgid "instalado"
+msgstr "instalado"
+
+msgid "pendiente (instalación sin red)"
+msgstr "pendente (instalado sem rede)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "Com conexão: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "Adicionar: sudo sl-ctl flavor add <sabor> · remover: sudo sl-ctl flavor remove <sabor>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "Instalando o sabor {name}: {n} pacotes"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "não foi possível instalar {app} do Flathub"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "Do AUR, com seu usuário:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "Saia e entre novamente para usar os novos grupos."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "Sabor {name} instalado."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "Sabor {name} removido."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "sabor desconhecido: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "o sl-welcome não está instalado."
@@ -254,8 +332,14 @@ msgstr "ajustes do sistema reversíveis"
 msgid "instantáneas de Snapper"
 msgstr "snapshots do Snapper"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "devolve os arquivos do sistema a esse snapshot"
+
 msgid "añade o quita sabores"
 msgstr "adiciona ou remove sabores"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "o que está se conectando à rede agora"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "mostra ou muda o perfil de privacidade"
@@ -426,9 +510,6 @@ msgstr "repositórios oficiais"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Pronto. Pressione Enter para fechar… "
-
-msgid "instalado"
-msgstr "instalado"
 
 msgid "Pendiente de tus sabores"
 msgstr "Pendente dos seus sabores"
@@ -1533,3 +1614,6 @@ msgstr "Instalar pacotes do catálogo do sl-welcome"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "O sl-welcome precisa de privilégios de administrador para instalar pacotes com o pacman"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "ainda não foi feito; os sabores são adicionados pelo catálogo do sl-welcome."

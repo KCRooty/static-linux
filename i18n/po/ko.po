@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 00:00+0100\n"
+"POT-Creation-Date: 2026-11-14 10:17+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -65,6 +65,42 @@ msgstr "알 수 없는 개인정보 보호 프로필: {name}"
 msgid "no se encuentra {path}"
 msgstr "{path}을(를) 찾을 수 없습니다"
 
+msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
+msgstr "sudo 없이는 다른 사용자와 root의 프로세스가 보이지 않습니다."
+
+msgid "Escuchando fuera"
+msgstr "외부 수신 대기"
+
+msgid "nada"
+msgstr "없음"
+
+msgid "Conexiones"
+msgstr "연결"
+
+msgid "(cifrado, dnscrypt-proxy)"
+msgstr "(암호화, dnscrypt-proxy)"
+
+msgid "(sin cifrar)"
+msgstr "(암호화 안 됨)"
+
+msgid "Cortafuegos"
+msgstr "방화벽"
+
+msgid "activo"
+msgstr "활성"
+
+msgid "desactivado"
+msgstr "꺼짐"
+
+msgid "Temporizadores"
+msgstr "타이머"
+
+msgid "ninguno"
+msgstr "없음"
+
+msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
+msgstr "Static Linux는 원격 측정 데이터를 보내지 않습니다. 위의 연결은 사용자 것입니다: 브라우저, 직접 시작한 업데이트, 시간 동기화(NTP)."
+
 msgid "no se encuentra la herramienta de acentos"
 msgstr "강조색 도구를 찾을 수 없습니다"
 
@@ -125,9 +161,6 @@ msgstr "전원 프로필"
 msgid "Planificador de disco"
 msgstr "디스크 스케줄러"
 
-msgid "activo"
-msgstr "활성"
-
 msgid "parado"
 msgstr "중지됨"
 
@@ -172,15 +205,6 @@ msgstr "설치 안 됨"
 msgid "Escuchando"
 msgstr "대기 중"
 
-msgid "nada"
-msgstr "없음"
-
-msgid "Cortafuegos"
-msgstr "방화벽"
-
-msgid "desactivado"
-msgstr "꺼짐"
-
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "켜기: sudo sl-ctl server on <서비스> · 끄기: sudo sl-ctl server off <서비스>"
 
@@ -215,17 +239,71 @@ msgstr "{name}: 중지됨, 열린 포트 없음."
 msgid "Servicios: {names}"
 msgstr "서비스: {names}"
 
+msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "업데이트 전후 스냅샷(snap-pac): 문제가 생기면 sl-ctl snapshot --rollback <n>"
+
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR 업데이트 안 됨: 일반 사용자를 찾을 수 없습니다. 본인 계정으로 `paru -Sua`를 실행하세요."
 
 msgid "snapper no está instalado (solo BTRFS)"
 msgstr "snapper가 설치되어 있지 않습니다 (BTRFS 전용)"
 
+msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+msgstr "스냅샷 없음: 시스템이 BTRFS가 아니거나 Snapper가 설정되지 않았습니다"
+
+#, python-brace-format
+msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
+msgstr "시스템 파일을 스냅샷 {n} 상태로 되돌립니다."
+
+msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
+msgstr "현재 상태로 돌아올 수 있도록 먼저 스냅샷을 하나 더 만듭니다."
+
+msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
+msgstr "완료. 복원된 버전을 불러오도록 다시 시작하세요."
+
 msgid "reflector no está instalado"
 msgstr "reflector가 설치되어 있지 않습니다"
 
-msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
-msgstr "아직 구현되지 않았습니다. 플레이버는 sl-welcome 카탈로그에서 추가하세요."
+msgid "instalado"
+msgstr "설치됨"
+
+msgid "pendiente (instalación sin red)"
+msgstr "대기 중 (네트워크 없이 설치됨)"
+
+msgid "Con conexión: sudo sl-ctl flavor add pending"
+msgstr "연결 후: sudo sl-ctl flavor add pending"
+
+msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
+msgstr "추가: sudo sl-ctl flavor add <플레이버> · 제거: sudo sl-ctl flavor remove <플레이버>"
+
+#, python-brace-format
+msgid "Instalando el sabor {name}: {n} paquetes"
+msgstr "{name} 플레이버 설치 중: 패키지 {n}개"
+
+#, python-brace-format
+msgid "no se pudo instalar {app} desde Flathub"
+msgstr "Flathub에서 {app}을(를) 설치할 수 없습니다"
+
+msgid "Del AUR, con tu usuario:"
+msgstr "AUR에서, 본인 사용자로:"
+
+msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
+msgstr "새 그룹을 사용하려면 로그아웃했다가 다시 로그인하세요."
+
+#, python-brace-format
+msgid "Sabor {name} instalado."
+msgstr "{name} 플레이버를 설치했습니다."
+
+#, python-brace-format
+msgid "Sabor {name} quitado."
+msgstr "{name} 플레이버를 제거했습니다."
+
+msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
+msgstr "사용법: sl-ctl flavor [list | add <플레이버> | remove <플레이버>]"
+
+#, python-brace-format
+msgid "sabor desconocido: {name}"
+msgstr "알 수 없는 플레이버: {name}"
 
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome이 설치되어 있지 않습니다."
@@ -254,8 +332,14 @@ msgstr "되돌릴 수 있는 시스템 조정"
 msgid "instantáneas de Snapper"
 msgstr "Snapper 스냅샷"
 
+msgid "devuelve los archivos del sistema a esa instantánea"
+msgstr "시스템 파일을 그 스냅샷 상태로 되돌립니다"
+
 msgid "añade o quita sabores"
 msgstr "플레이버 추가 또는 제거"
+
+msgid "qué se conecta a la red ahora mismo"
+msgstr "지금 네트워크에 연결된 것"
 
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "개인정보 프로필 표시 또는 변경"
@@ -426,9 +510,6 @@ msgstr "공식 저장소"
 
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "완료. Enter를 눌러 닫으세요… "
-
-msgid "instalado"
-msgstr "설치됨"
 
 msgid "Pendiente de tus sabores"
 msgstr "플레이버에서 남은 항목"
@@ -1532,3 +1613,6 @@ msgstr "sl-welcome 카탈로그에서 패키지 설치"
 #. password prompt
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome이 pacman으로 패키지를 설치하려면 관리자 권한이 필요합니다"
+
+#~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
+#~ msgstr "아직 구현되지 않았습니다. 플레이버는 sl-welcome 카탈로그에서 추가하세요."
