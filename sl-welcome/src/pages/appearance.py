@@ -7,6 +7,7 @@ $HOME and talks to the running session), so this page runs it directly.
 
 from __future__ import annotations
 
+import os
 import subprocess
 import threading
 from pathlib import Path
@@ -84,6 +85,21 @@ def _current_theme() -> str:
         return "ambar"
 
 
+# XDG_CURRENT_DESKTOP -> previews/<name>.jpg (the theme seen on this desktop)
+DESKTOP_PREVIEW = {"xfce": "xfce", "kde": "kde", "gnome": "gnome", "x-cinnamon": "cinnamon",
+                   "cinnamon": "cinnamon", "hyprland": "hyprland", "openbox": "openbox",
+                   "i3": "i3", "bspwm": "bspwm", "sway": "sway"}
+
+
+def _preview(theme_dir: Path) -> Path:
+    """The theme on the running desktop if there is a capture of it, else the XFCE one."""
+    for part in os.environ.get("XDG_CURRENT_DESKTOP", "").lower().split(":"):
+        name = DESKTOP_PREVIEW.get(part)
+        if name and (theme_dir / "previews" / f"{name}.jpg").exists():
+            return theme_dir / "previews" / f"{name}.jpg"
+    return theme_dir / "preview.jpg"
+
+
 def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
     page = Adw.PreferencesPage()
     group = Adw.PreferencesGroup(
@@ -100,7 +116,7 @@ def build(toast_overlay: Adw.ToastOverlay) -> Gtk.Widget:
         style = _(STYLE_LABEL.get(theme.get("style", "minimal"), ""))
         row = Adw.ActionRow(title=_(theme.get("name", theme["id"])),
                             subtitle=f"{mode} · {style}" + (f" · {_(theme['comment'])}" if theme.get("comment") else ""))
-        preview = theme["dir"] / "preview.jpg"
+        preview = _preview(theme["dir"])
         if preview.exists():
             pic = Gtk.Picture.new_for_filename(str(preview))
             pic.set_size_request(128, 72)

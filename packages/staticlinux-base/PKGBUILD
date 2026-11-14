@@ -142,7 +142,7 @@ package() {
     install -Dm644 -t "$themes/templates" branding/themes/templates/MANIFEST branding/themes/templates/*.in
     install -Dm644 -t "$themes/templates/styles" branding/themes/templates/styles/*.in
     install -Dm644 -t "$themes/templates/panels" branding/themes/templates/panels/*.xml branding/themes/templates/panels/docklike.rc
-    for sub in openbox hypr kde system; do
+    for sub in openbox hypr kde system tiling; do
         install -Dm644 -t "$themes/templates/$sub" branding/themes/templates/$sub/*.in
     done
     # the Static Forge mark, white on transparent (Plymouth splash)
@@ -153,6 +153,10 @@ package() {
         install -Dm644 -t "$themes/$id" "$theme_dir"theme.conf "$theme_dir"CREDITS
         for f in wallpaper.jpg preview.jpg; do
             [[ -f "$theme_dir/$f" ]] && install -Dm644 "$theme_dir/$f" "$themes/$id/$f"
+        done
+        # the theme on each desktop (sl-welcome picks the running one)
+        for f in "$theme_dir"previews/*.jpg; do
+            [[ -f "$f" ]] && install -Dm644 "$f" "$themes/$id/previews/$(basename "$f")"
         done
     done
 
