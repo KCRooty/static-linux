@@ -143,6 +143,10 @@ term_bright=...      # 8 colores brillantes
 ```
 
 Al lado, `wallpaper.jpg` (3840×2160), `preview.jpg` (320×180) y `CREDITS`.
+`previews/<escritorio>.jpg` (320×180) son las capturas de ese tema en KDE,
+GNOME, Cinnamon, Hyprland, Sway, i3, bspwm y Openbox; sl-welcome usa la del
+escritorio en el que estás (por `XDG_CURRENT_DESKTOP`) y, si no la hay,
+`preview.jpg`, que es la de XFCE.
 `branding/themes/check.py` comprueba el contraste AA de texto y terminal: un
 tema que falla no entra en la ISO. Los fondos originales se generan con
 `branding/themes/gen_wallpaper.py`.

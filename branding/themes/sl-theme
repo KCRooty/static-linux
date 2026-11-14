@@ -554,6 +554,8 @@ def gnome_prefs(theme: dict[str, str], home: Path, user: str | None) -> None:
              ("org.gnome.desktop.background", "picture-uri", uri),
              ("org.gnome.desktop.background", "picture-uri-dark", uri),
              ("org.gnome.desktop.background", "picture-options", "zoom"),
+             # Console ships 'night' and ignores color-scheme: light themes got a dark terminal
+             ("org.gnome.Console", "theme", "auto"),
              ("org.cinnamon.desktop.interface", "gtk-theme", theme["gtk_theme"]),
              ("org.cinnamon.desktop.interface", "icon-theme", "StaticLinux"),
              ("org.cinnamon.desktop.interface", "font-name", f"{theme['font_ui']} 10"),

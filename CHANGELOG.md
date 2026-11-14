@@ -4,6 +4,28 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
+## 2026.11.14.2 · Los temas, vistos en los nueve escritorios
+
+### Arreglos
+- **Cambiar de tema fallaba** en cuanto había instalado i3, sway, bspwm,
+  waybar, rofi o mako (Hyprland incluido): el paquete `staticlinux-base` no
+  instalaba las plantillas `tiling/` y `sl-theme` se paraba con
+  `FileNotFoundError`. Afectaba a la ISO 2026.11.14.1; llega con
+  `pacman -Syu`.
+- GNOME: con un tema claro, Console seguía oscura (su valor por defecto es
+  `night` e ignora `color-scheme`) y el texto de fastfetch no se leía.
+  `sl-theme` la pone en `auto`.
+
+### Nuevo
+- **81 capturas**: los 9 temas en los 9 escritorios (XFCE, KDE Plasma,
+  GNOME, Cinnamon, Hyprland, Sway, i3, bspwm y Openbox), hechas en la VM con
+  cada tema aplicado y la sesión reiniciada.
+  - sl-welcome enseña la del escritorio en el que estás
+    (`themes/<tema>/previews/<escritorio>.jpg`; si no la hay, la de XFCE).
+  - La galería de la web tiene selector de escritorio.
+  - Las tarjetas del instalador siguen siendo las de XFCE: la página de
+    tema de Calamares es estática y no sabe qué escritorio has elegido.
+
 ## 2026.11.14.1 · XFCE por debajo de 650 MB
 
 ### Arreglos
