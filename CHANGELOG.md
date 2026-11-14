@@ -26,7 +26,7 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
 
 ### Nuevo
 - Tercer espejo: **archive.org**, con torrent (`iso/release.sh archive`).
-- `SL_ISO_VERSION=2026.11.14.1 sudo iso/build.sh universal`: una segunda
+- `sudo SL_ISO_VERSION=2026.11.14.1 iso/build.sh universal`: una segunda
   ISO el mismo día sin pisar el nombre de la primera.
 
 ## 2026.11.14 · La primera ISO pública de prueba
