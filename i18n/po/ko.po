@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 18:13+0100\n"
+"POT-Creation-Date: 2026-11-14 23:08+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,193 +311,210 @@ msgstr "{name}: 중지됨, 열린 포트 없음."
 msgid "Servicios: {names}"
 msgstr "서비스: {names}"
 
-#: sl-ctl/sl-ctl.py:657
+#: sl-ctl/sl-ctl.py:661
+#, python-brace-format
 msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
 msgstr "복원 지점 {n}이(가) 없습니다 (sl-ctl snapshot --list)"
 
-#: sl-ctl/sl-ctl.py:668
+#: sl-ctl/sl-ctl.py:672
+#, python-brace-format
 msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
 msgstr "복원 지점 {n}: 패키지 {a}개를 당시 버전으로 되돌립니다."
 
-#: sl-ctl/sl-ctl.py:670
+#: sl-ctl/sl-ctl.py:674
 msgid "Sin copia en la caché (se quedan como están): "
 msgstr "캐시에 사본 없음 (그대로 둠): "
 
-#: sl-ctl/sl-ctl.py:673
+#: sl-ctl/sl-ctl.py:677
 msgid "Instalados después (no se tocan): "
 msgstr "이후에 설치됨 (건드리지 않음): "
 
-#: sl-ctl/sl-ctl.py:678
+#: sl-ctl/sl-ctl.py:682
+#, python-brace-format
 msgid "La configuración de entonces está en {f} (no se restaura sola)."
 msgstr "당시 설정은 {f}에 있습니다 (자동으로 복원되지 않음)."
 
-#: sl-ctl/sl-ctl.py:685
+#: sl-ctl/sl-ctl.py:689
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "업데이트 전후 스냅샷(snap-pac): 문제가 생기면 sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:687
+#: sl-ctl/sl-ctl.py:691
 msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "복원 지점을 만들었습니다 (패키지 버전과 /etc): 문제가 생기면 sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:695
+#: sl-ctl/sl-ctl.py:699
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR 업데이트 안 됨: 일반 사용자를 찾을 수 없습니다. 본인 계정으로 `paru -Sua`를 실행하세요."
 
-#: sl-ctl/sl-ctl.py:710
+#: sl-ctl/sl-ctl.py:730
+#, python-brace-format
+msgid "Falta el agente de contraseñas ({a}): sin él la bienvenida no puede instalar nada. Instalando..."
+msgstr "암호 에이전트({a})가 없습니다. 없으면 환영 앱이 아무것도 설치할 수 없습니다. 설치 중..."
+
+#: sl-ctl/sl-ctl.py:736
+msgid "Añade al inicio de tu escritorio: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+msgstr "데스크톱 자동 시작에 추가하세요: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+#: sl-ctl/sl-ctl.py:737
+msgid "Cierra sesión y vuelve a entrar para que funcione."
+msgstr "적용하려면 로그아웃한 뒤 다시 로그인하세요."
+
+#: sl-ctl/sl-ctl.py:748
+#, python-brace-format
 msgid "Punto de restauración {n} creado."
 msgstr "복원 지점 {n}을(를) 만들었습니다."
 
-#: sl-ctl/sl-ctl.py:716
+#: sl-ctl/sl-ctl.py:754
 msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
 msgstr "(BTRFS 없음: 패키지와 /etc 복원 지점)"
 
-#: sl-ctl/sl-ctl.py:721
+#: sl-ctl/sl-ctl.py:759
 msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
 msgstr "아직 없음: sl-ctl update가 업데이트 전에 하나 만듭니다"
 
-#: sl-ctl/sl-ctl.py:733
+#: sl-ctl/sl-ctl.py:771
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "시스템 파일을 스냅샷 {n} 상태로 되돌립니다."
 
-#: sl-ctl/sl-ctl.py:734
+#: sl-ctl/sl-ctl.py:772
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "현재 상태로 돌아올 수 있도록 먼저 스냅샷을 하나 더 만듭니다."
 
-#: sl-ctl/sl-ctl.py:738
+#: sl-ctl/sl-ctl.py:776
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "완료. 복원된 버전을 불러오도록 다시 시작하세요."
 
-#: sl-ctl/sl-ctl.py:746
+#: sl-ctl/sl-ctl.py:784
 msgid "reflector no está instalado"
 msgstr "reflector가 설치되어 있지 않습니다"
 
-#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
+#: sl-ctl/sl-ctl.py:878 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "설치됨"
 
-#: sl-ctl/sl-ctl.py:842
+#: sl-ctl/sl-ctl.py:880
 msgid "pendiente (instalación sin red)"
 msgstr "대기 중 (네트워크 없이 설치됨)"
 
-#: sl-ctl/sl-ctl.py:848
+#: sl-ctl/sl-ctl.py:886
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "연결 후: sudo sl-ctl flavor add pending"
 
-#: sl-ctl/sl-ctl.py:849
+#: sl-ctl/sl-ctl.py:887
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "추가: sudo sl-ctl flavor add <플레이버> · 제거: sudo sl-ctl flavor remove <플레이버>"
 
-#: sl-ctl/sl-ctl.py:858
+#: sl-ctl/sl-ctl.py:896
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "{name} 플레이버 설치 중: 패키지 {n}개"
 
-#: sl-ctl/sl-ctl.py:870
+#: sl-ctl/sl-ctl.py:908
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "Flathub에서 {app}을(를) 설치할 수 없습니다"
 
-#: sl-ctl/sl-ctl.py:888
+#: sl-ctl/sl-ctl.py:926
 msgid "Del AUR, con tu usuario:"
 msgstr "AUR에서, 본인 사용자로:"
 
-#: sl-ctl/sl-ctl.py:892
+#: sl-ctl/sl-ctl.py:930
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "새 그룹을 사용하려면 로그아웃했다가 다시 로그인하세요."
 
-#: sl-ctl/sl-ctl.py:893
+#: sl-ctl/sl-ctl.py:931
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "{name} 플레이버를 설치했습니다."
 
-#: sl-ctl/sl-ctl.py:928
+#: sl-ctl/sl-ctl.py:966
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "{name} 플레이버를 제거했습니다."
 
-#: sl-ctl/sl-ctl.py:946
+#: sl-ctl/sl-ctl.py:984
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "사용법: sl-ctl flavor [list | add <플레이버> | remove <플레이버>]"
 
-#: sl-ctl/sl-ctl.py:948
+#: sl-ctl/sl-ctl.py:986
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "알 수 없는 플레이버: {name}"
 
-#: sl-ctl/sl-ctl.py:955
+#: sl-ctl/sl-ctl.py:993
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome이 설치되어 있지 않습니다."
 
-#: sl-ctl/sl-ctl.py:961
+#: sl-ctl/sl-ctl.py:999
 msgid "Gestión de Static Linux"
 msgstr "Static Linux 관리"
 
-#: sl-ctl/sl-ctl.py:965
+#: sl-ctl/sl-ctl.py:1003
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "sl-detect를 실행하고 결과 표시"
 
-#: sl-ctl/sl-ctl.py:966
+#: sl-ctl/sl-ctl.py:1004
 msgid "información del sistema"
 msgstr "시스템 정보"
 
-#: sl-ctl/sl-ctl.py:967
+#: sl-ctl/sl-ctl.py:1005
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "시스템 전체 업데이트 (pacman + AUR + Flatpak)"
 
-#: sl-ctl/sl-ctl.py:968
+#: sl-ctl/sl-ctl.py:1006
 msgid "renueva los mirrors con reflector"
 msgstr "reflector로 미러 갱신"
 
-#: sl-ctl/sl-ctl.py:969
+#: sl-ctl/sl-ctl.py:1007
 msgid "abre otra vez sl-welcome"
 msgstr "sl-welcome 다시 열기"
 
-#: sl-ctl/sl-ctl.py:971
+#: sl-ctl/sl-ctl.py:1009
 msgid "ajustes del sistema reversibles"
 msgstr "되돌릴 수 있는 시스템 조정"
 
-#: sl-ctl/sl-ctl.py:977
+#: sl-ctl/sl-ctl.py:1015
 msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
 msgstr "스냅샷 (BTRFS는 Snapper, ext4는 복원 지점)"
 
-#: sl-ctl/sl-ctl.py:980
+#: sl-ctl/sl-ctl.py:1018
 msgid "devuelve el sistema a esa instantánea o punto de restauración"
 msgstr "시스템을 해당 스냅샷이나 복원 지점으로 되돌립니다"
 
-#: sl-ctl/sl-ctl.py:983
+#: sl-ctl/sl-ctl.py:1021
 msgid "añade o quita sabores"
 msgstr "플레이버 추가 또는 제거"
 
-#: sl-ctl/sl-ctl.py:990
+#: sl-ctl/sl-ctl.py:1028
 msgid "qué se conecta a la red ahora mismo"
 msgstr "지금 네트워크에 연결된 것"
 
-#: sl-ctl/sl-ctl.py:992
+#: sl-ctl/sl-ctl.py:1030
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "개인정보 프로필 표시 또는 변경"
 
-#: sl-ctl/sl-ctl.py:996
+#: sl-ctl/sl-ctl.py:1034
 msgid "muestra o cambia el color de acento"
 msgstr "강조색 표시 또는 변경"
 
-#: sl-ctl/sl-ctl.py:998
+#: sl-ctl/sl-ctl.py:1036
 msgid "lista los acentos"
 msgstr "강조색 목록"
 
-#: sl-ctl/sl-ctl.py:1001
+#: sl-ctl/sl-ctl.py:1039
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "테마 표시 또는 변경 (배경화면 + 팔레트 + 스타일)"
 
-#: sl-ctl/sl-ctl.py:1003
+#: sl-ctl/sl-ctl.py:1041
 msgid "lista los temas"
 msgstr "테마 목록"
 
-#: sl-ctl/sl-ctl.py:1006
+#: sl-ctl/sl-ctl.py:1044
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "성능: 상태, 전원 프로필, CPU 스케줄러"
 
-#: sl-ctl/sl-ctl.py:1011
+#: sl-ctl/sl-ctl.py:1049
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "서버: 서비스 상태 확인 및 켜기/끄기"
 
@@ -1504,16 +1521,16 @@ msgstr "벚꽃 분홍 배경 위의 먹색 창"
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
-#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
-#: entornos/hyprland-common/static.lua:190
-#: entornos/hyprland-common/static.lua:191
-#: entornos/hyprland-common/static.lua:192
-#: entornos/hyprland-common/static.lua:193
-#: entornos/hyprland-common/static.lua:194
-#: entornos/hyprland-common/static.lua:196
-#: entornos/hyprland-common/static.lua:197
-#: entornos/hyprland-common/static.lua:199
-#: entornos/hyprland-common/static.lua:200
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:206
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:212
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:215
+#: entornos/hyprland-common/static.lua:216
 #: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "윈도우즈"
@@ -1536,212 +1553,212 @@ msgid "monocromo violeta, montañas al anochecer"
 msgstr "보라색 단색, 해 질 녘 산"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:175
-#: entornos/hyprland-common/static.lua:176
-#: entornos/hyprland-common/static.lua:177
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "Apps"
 msgstr "앱"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:191
 msgid "abrir la terminal"
 msgstr "터미널 열기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:192
 msgid "abrir el gestor de archivos"
 msgstr "파일 관리자 열기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:193
 msgid "abrir el navegador (Brave Origin)"
 msgstr "브라우저 열기 (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "lanzador de aplicaciones"
 msgstr "앱 실행기"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "Ayuda"
 msgstr "도움말"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "esta guía de atajos"
 msgstr "이 단축키 안내서"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:185
-#: entornos/hyprland-common/static.lua:186
+#: entornos/hyprland-common/static.lua:201
+#: entornos/hyprland-common/static.lua:202
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "화면 영역 (파일 + 클립보드)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:205
 msgid "cerrar la ventana"
 msgstr "창 닫기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:206
 msgid "pantalla completa"
 msgstr "전체 화면"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:207
 msgid "flotante / en mosaico"
 msgstr "떠 있는 창 / 타일"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:208
 msgid "pseudo-mosaico"
 msgstr "유사 타일"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:209
 msgid "cambiar división horizontal/vertical"
 msgstr "가로/세로 분할 전환"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:210
 msgid "pasar a la siguiente"
 msgstr "다음으로 전환"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:212
 msgid "mover el foco"
 msgstr "포커스 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:213
 msgid "mover la ventana"
 msgstr "창 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:215
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "Super + 왼쪽 클릭으로 끌기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:200
+#: entornos/hyprland-common/static.lua:216
 msgid "redimensionar con Super + clic derecho"
 msgstr "Super + 오른쪽 클릭으로 크기 조절"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:204
-#: entornos/hyprland-common/static.lua:205
-#: entornos/hyprland-common/static.lua:207
-#: entornos/hyprland-common/static.lua:208
-#: entornos/hyprland-common/static.lua:209
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
 msgid "Escritorios"
 msgstr "작업 공간"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:220
 msgid "ir a un escritorio"
 msgstr "작업 공간으로 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:221
 msgid "mover la ventana a otro escritorio"
 msgstr "창을 다른 작업 공간으로 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:223
 msgid "siguiente (rueda del ratón)"
 msgstr "다음 (마우스 휠)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:224
 msgid "anterior (rueda del ratón)"
 msgstr "이전 (마우스 휠)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:225
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "임시 작업 공간 보이기/숨기기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:226
 msgid "mandar la ventana al escritorio rápido"
 msgstr "창을 임시 작업 공간으로 보내기"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:213
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:229
+#: entornos/hyprland-common/static.lua:230
 msgid "Sesión"
 msgstr "세션"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:229
 msgid "bloquear la pantalla"
 msgstr "화면 잠금"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:230
 msgid "ver la última notificación"
 msgstr "마지막 알림 보기"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:220
-#: entornos/hyprland-common/static.lua:221
-#: entornos/hyprland-common/static.lua:222
-#: entornos/hyprland-common/static.lua:223
-#: entornos/hyprland-common/static.lua:224
-#: entornos/hyprland-common/static.lua:225
-#: entornos/hyprland-common/static.lua:226
-#: entornos/hyprland-common/static.lua:227
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:236
+#: entornos/hyprland-common/static.lua:237
+#: entornos/hyprland-common/static.lua:238
+#: entornos/hyprland-common/static.lua:239
+#: entornos/hyprland-common/static.lua:240
+#: entornos/hyprland-common/static.lua:241
+#: entornos/hyprland-common/static.lua:242
+#: entornos/hyprland-common/static.lua:243
+#: entornos/hyprland-common/static.lua:244
 msgid "Multimedia"
 msgstr "미디어"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:236
 msgid "subir volumen"
 msgstr "볼륨 높이기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:237
 msgid "bajar volumen"
 msgstr "볼륨 낮추기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:238
 msgid "silenciar"
 msgstr "음소거"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:239
 msgid "silenciar el micrófono"
 msgstr "마이크 음소거"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:240
 msgid "subir brillo"
 msgstr "밝기 높이기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:241
 msgid "bajar brillo"
 msgstr "밝기 낮추기"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:242
 msgid "reproducir/pausar"
 msgstr "재생/일시 정지"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:243
 msgid "siguiente pista"
 msgstr "다음 트랙"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:244
 msgid "pista anterior"
 msgstr "이전 트랙"
 

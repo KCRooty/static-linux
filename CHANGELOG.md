@@ -4,7 +4,7 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
-## Sin publicar
+## 2026.11.14.3 · Hyprland vuelve a instalarse y la bienvenida pide la contraseña
 
 ### Arreglos
 - **Hyprland (lite y full) no se podía instalar** ("Environment package
@@ -56,10 +56,11 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   agent"). Faltaba el agente de polkit, la ventanita que pide la contraseña;
   solo lo traían Hyprland, GNOME y Cinnamon. Visto en una instalación real.
   Ahora cada escritorio trae uno (polkit-gnome, o polkit-kde-agent en KDE) y
-  un test lo comprueba. En un sistema ya instalado: `sudo pacman -S
-  polkit-gnome` y añadir `/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1`
-  al inicio de sesión (en KDE: `sudo pacman -S polkit-kde-agent` y volver a
-  entrar).
+  un test lo comprueba. En un sistema ya instalado: `sudo sl-ctl update`
+  instala el que falta; en XFCE y KDE basta con cerrar sesión y volver a
+  entrar, en Openbox, i3, bspwm y sway hay que añadir
+  `/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1` al inicio del
+  escritorio (sl-ctl lo recuerda).
 - bspwm y sway: la fecha de la barra salía en inglés ("Sat 14 Nov"); ahora
   usa el idioma del sistema.
 

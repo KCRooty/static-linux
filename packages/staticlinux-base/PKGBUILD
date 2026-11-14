@@ -117,6 +117,9 @@ package() {
     install -Dm644 -t "$lib/sl-welcome/src/pages" sl-welcome/src/pages/*.py
     install -Dm644 -t "$lib/sl-welcome/catalog" sl-welcome/catalog/*.yaml
     install -Dm755 sl-welcome/data/apply-profile "$lib/sl-welcome/apply-profile"
+    # polkit agent for XFCE (the other desktops start theirs from their own config)
+    install -Dm644 entornos/xfce-themed/dev.staticforge.polkit-agent.desktop \
+        "$pkgdir/etc/xdg/autostart/dev.staticforge.polkit-agent.desktop"
     install -Dm644 sl-welcome/data/dev.staticforge.welcome.desktop \
         "$pkgdir/usr/share/applications/dev.staticforge.welcome.desktop"
     install -Dm644 sl-welcome/data/dev.staticforge.welcome.policy \

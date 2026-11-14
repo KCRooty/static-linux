@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 18:13+0100\n"
+"POT-Creation-Date: 2026-11-14 23:08+0100\n"
 "Language: zh_CN\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,193 +311,210 @@ msgstr "{name}：已停止，没有开放端口。"
 msgid "Servicios: {names}"
 msgstr "服务：{names}"
 
-#: sl-ctl/sl-ctl.py:657
+#: sl-ctl/sl-ctl.py:661
+#, python-brace-format
 msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
 msgstr "还原点 {n} 不存在 (sl-ctl snapshot --list)"
 
-#: sl-ctl/sl-ctl.py:668
+#: sl-ctl/sl-ctl.py:672
+#, python-brace-format
 msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
 msgstr "还原点 {n}：{a} 个软件包将回到当时的版本。"
 
-#: sl-ctl/sl-ctl.py:670
+#: sl-ctl/sl-ctl.py:674
 msgid "Sin copia en la caché (se quedan como están): "
 msgstr "缓存中没有副本（保持不变）："
 
-#: sl-ctl/sl-ctl.py:673
+#: sl-ctl/sl-ctl.py:677
 msgid "Instalados después (no se tocan): "
 msgstr "之后安装的（不做改动）："
 
-#: sl-ctl/sl-ctl.py:678
+#: sl-ctl/sl-ctl.py:682
+#, python-brace-format
 msgid "La configuración de entonces está en {f} (no se restaura sola)."
 msgstr "当时的配置保存在 {f}（不会自动还原）。"
 
-#: sl-ctl/sl-ctl.py:685
+#: sl-ctl/sl-ctl.py:689
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "更新前后各拍一个快照（snap-pac）：出问题时运行 sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:687
+#: sl-ctl/sl-ctl.py:691
 msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "已创建还原点（软件包版本和 /etc）：如果出了问题，运行 sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:695
+#: sl-ctl/sl-ctl.py:699
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR 未更新：找不到普通用户。请用你自己的用户运行 `paru -Sua`。"
 
-#: sl-ctl/sl-ctl.py:710
+#: sl-ctl/sl-ctl.py:730
+#, python-brace-format
+msgid "Falta el agente de contraseñas ({a}): sin él la bienvenida no puede instalar nada. Instalando..."
+msgstr "缺少密码代理（{a}）：没有它，欢迎程序无法安装任何东西。正在安装..."
+
+#: sl-ctl/sl-ctl.py:736
+msgid "Añade al inicio de tu escritorio: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+msgstr "请将其加入桌面的自动启动：/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+#: sl-ctl/sl-ctl.py:737
+msgid "Cierra sesión y vuelve a entrar para que funcione."
+msgstr "注销并重新登录后生效。"
+
+#: sl-ctl/sl-ctl.py:748
+#, python-brace-format
 msgid "Punto de restauración {n} creado."
 msgstr "已创建还原点 {n}。"
 
-#: sl-ctl/sl-ctl.py:716
+#: sl-ctl/sl-ctl.py:754
 msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
 msgstr "（无 BTRFS：软件包和 /etc 的还原点）"
 
-#: sl-ctl/sl-ctl.py:721
+#: sl-ctl/sl-ctl.py:759
 msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
 msgstr "还没有：sl-ctl update 会在更新前创建一个"
 
-#: sl-ctl/sl-ctl.py:733
+#: sl-ctl/sl-ctl.py:771
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "系统文件将恢复到快照 {n} 时的状态。"
 
-#: sl-ctl/sl-ctl.py:734
+#: sl-ctl/sl-ctl.py:772
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "会先再拍一个快照，以便你想回到现在的状态。"
 
-#: sl-ctl/sl-ctl.py:738
+#: sl-ctl/sl-ctl.py:776
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "完成。请重启，让所有内容加载恢复后的版本。"
 
-#: sl-ctl/sl-ctl.py:746
+#: sl-ctl/sl-ctl.py:784
 msgid "reflector no está instalado"
 msgstr "未安装 reflector"
 
-#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
+#: sl-ctl/sl-ctl.py:878 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "已安装"
 
-#: sl-ctl/sl-ctl.py:842
+#: sl-ctl/sl-ctl.py:880
 msgid "pendiente (instalación sin red)"
 msgstr "待安装（无网络安装）"
 
-#: sl-ctl/sl-ctl.py:848
+#: sl-ctl/sl-ctl.py:886
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "联网后：sudo sl-ctl flavor add pending"
 
-#: sl-ctl/sl-ctl.py:849
+#: sl-ctl/sl-ctl.py:887
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "添加：sudo sl-ctl flavor add <风味> · 移除：sudo sl-ctl flavor remove <风味>"
 
-#: sl-ctl/sl-ctl.py:858
+#: sl-ctl/sl-ctl.py:896
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "正在安装 {name} 风味：{n} 个软件包"
 
-#: sl-ctl/sl-ctl.py:870
+#: sl-ctl/sl-ctl.py:908
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "无法从 Flathub 安装 {app}"
 
-#: sl-ctl/sl-ctl.py:888
+#: sl-ctl/sl-ctl.py:926
 msgid "Del AUR, con tu usuario:"
 msgstr "来自 AUR，用你自己的用户："
 
-#: sl-ctl/sl-ctl.py:892
+#: sl-ctl/sl-ctl.py:930
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "注销后重新登录即可使用新的用户组。"
 
-#: sl-ctl/sl-ctl.py:893
+#: sl-ctl/sl-ctl.py:931
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "{name} 风味已安装。"
 
-#: sl-ctl/sl-ctl.py:928
+#: sl-ctl/sl-ctl.py:966
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "{name} 风味已移除。"
 
-#: sl-ctl/sl-ctl.py:946
+#: sl-ctl/sl-ctl.py:984
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "用法：sl-ctl flavor [list | add <风味> | remove <风味>]"
 
-#: sl-ctl/sl-ctl.py:948
+#: sl-ctl/sl-ctl.py:986
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "未知风味：{name}"
 
-#: sl-ctl/sl-ctl.py:955
+#: sl-ctl/sl-ctl.py:993
 msgid "sl-welcome no está instalado."
 msgstr "未安装 sl-welcome。"
 
-#: sl-ctl/sl-ctl.py:961
+#: sl-ctl/sl-ctl.py:999
 msgid "Gestión de Static Linux"
 msgstr "Static Linux 管理"
 
-#: sl-ctl/sl-ctl.py:965
+#: sl-ctl/sl-ctl.py:1003
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "运行 sl-detect 并显示结果"
 
-#: sl-ctl/sl-ctl.py:966
+#: sl-ctl/sl-ctl.py:1004
 msgid "información del sistema"
 msgstr "系统信息"
 
-#: sl-ctl/sl-ctl.py:967
+#: sl-ctl/sl-ctl.py:1005
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "更新整个系统（pacman + AUR + Flatpak）"
 
-#: sl-ctl/sl-ctl.py:968
+#: sl-ctl/sl-ctl.py:1006
 msgid "renueva los mirrors con reflector"
 msgstr "用 reflector 刷新镜像"
 
-#: sl-ctl/sl-ctl.py:969
+#: sl-ctl/sl-ctl.py:1007
 msgid "abre otra vez sl-welcome"
 msgstr "重新打开 sl-welcome"
 
-#: sl-ctl/sl-ctl.py:971
+#: sl-ctl/sl-ctl.py:1009
 msgid "ajustes del sistema reversibles"
 msgstr "可还原的系统调整"
 
-#: sl-ctl/sl-ctl.py:977
+#: sl-ctl/sl-ctl.py:1015
 msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
 msgstr "快照（BTRFS 上用 Snapper，ext4 上用还原点）"
 
-#: sl-ctl/sl-ctl.py:980
+#: sl-ctl/sl-ctl.py:1018
 msgid "devuelve el sistema a esa instantánea o punto de restauración"
 msgstr "将系统恢复到该快照或还原点"
 
-#: sl-ctl/sl-ctl.py:983
+#: sl-ctl/sl-ctl.py:1021
 msgid "añade o quita sabores"
 msgstr "添加或移除风味"
 
-#: sl-ctl/sl-ctl.py:990
+#: sl-ctl/sl-ctl.py:1028
 msgid "qué se conecta a la red ahora mismo"
 msgstr "此刻有哪些程序在连网"
 
-#: sl-ctl/sl-ctl.py:992
+#: sl-ctl/sl-ctl.py:1030
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "显示或更改隐私配置"
 
-#: sl-ctl/sl-ctl.py:996
+#: sl-ctl/sl-ctl.py:1034
 msgid "muestra o cambia el color de acento"
 msgstr "显示或更改强调色"
 
-#: sl-ctl/sl-ctl.py:998
+#: sl-ctl/sl-ctl.py:1036
 msgid "lista los acentos"
 msgstr "列出强调色"
 
-#: sl-ctl/sl-ctl.py:1001
+#: sl-ctl/sl-ctl.py:1039
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "显示或更改主题（壁纸 + 调色板 + 风格）"
 
-#: sl-ctl/sl-ctl.py:1003
+#: sl-ctl/sl-ctl.py:1041
 msgid "lista los temas"
 msgstr "列出主题"
 
-#: sl-ctl/sl-ctl.py:1006
+#: sl-ctl/sl-ctl.py:1044
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "性能：状态、电源配置和 CPU 调度器"
 
-#: sl-ctl/sl-ctl.py:1011
+#: sl-ctl/sl-ctl.py:1049
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "服务器：查看服务状态，启用或关闭"
 
@@ -1504,16 +1521,16 @@ msgstr "樱粉背景上的墨色窗口"
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
-#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
-#: entornos/hyprland-common/static.lua:190
-#: entornos/hyprland-common/static.lua:191
-#: entornos/hyprland-common/static.lua:192
-#: entornos/hyprland-common/static.lua:193
-#: entornos/hyprland-common/static.lua:194
-#: entornos/hyprland-common/static.lua:196
-#: entornos/hyprland-common/static.lua:197
-#: entornos/hyprland-common/static.lua:199
-#: entornos/hyprland-common/static.lua:200
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:206
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:212
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:215
+#: entornos/hyprland-common/static.lua:216
 #: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "视窗"
@@ -1536,212 +1553,212 @@ msgid "monocromo violeta, montañas al anochecer"
 msgstr "紫色单色，黄昏的群山"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:175
-#: entornos/hyprland-common/static.lua:176
-#: entornos/hyprland-common/static.lua:177
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "Apps"
 msgstr "应用"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:191
 msgid "abrir la terminal"
 msgstr "打开终端"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:192
 msgid "abrir el gestor de archivos"
 msgstr "打开文件管理器"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:193
 msgid "abrir el navegador (Brave Origin)"
 msgstr "打开浏览器 (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "lanzador de aplicaciones"
 msgstr "应用启动器"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "Ayuda"
 msgstr "帮助"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "esta guía de atajos"
 msgstr "本快捷键指南"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:185
-#: entornos/hyprland-common/static.lua:186
+#: entornos/hyprland-common/static.lua:201
+#: entornos/hyprland-common/static.lua:202
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "屏幕区域（文件 + 剪贴板）"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:205
 msgid "cerrar la ventana"
 msgstr "关闭窗口"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:206
 msgid "pantalla completa"
 msgstr "全屏"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:207
 msgid "flotante / en mosaico"
 msgstr "浮动 / 平铺"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:208
 msgid "pseudo-mosaico"
 msgstr "伪平铺"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:209
 msgid "cambiar división horizontal/vertical"
 msgstr "切换水平/垂直分割"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:210
 msgid "pasar a la siguiente"
 msgstr "切换到下一个"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:212
 msgid "mover el foco"
 msgstr "移动焦点"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:213
 msgid "mover la ventana"
 msgstr "移动窗口"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:215
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "用 Super + 左键拖动"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:200
+#: entornos/hyprland-common/static.lua:216
 msgid "redimensionar con Super + clic derecho"
 msgstr "用 Super + 右键调整大小"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:204
-#: entornos/hyprland-common/static.lua:205
-#: entornos/hyprland-common/static.lua:207
-#: entornos/hyprland-common/static.lua:208
-#: entornos/hyprland-common/static.lua:209
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
 msgid "Escritorios"
 msgstr "工作区"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:220
 msgid "ir a un escritorio"
 msgstr "切换到工作区"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:221
 msgid "mover la ventana a otro escritorio"
 msgstr "把窗口移到其他工作区"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:223
 msgid "siguiente (rueda del ratón)"
 msgstr "下一个（鼠标滚轮）"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:224
 msgid "anterior (rueda del ratón)"
 msgstr "上一个（鼠标滚轮）"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:225
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "显示/隐藏快速工作区"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:226
 msgid "mandar la ventana al escritorio rápido"
 msgstr "把窗口送到快速工作区"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:213
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:229
+#: entornos/hyprland-common/static.lua:230
 msgid "Sesión"
 msgstr "会话"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:229
 msgid "bloquear la pantalla"
 msgstr "锁定屏幕"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:230
 msgid "ver la última notificación"
 msgstr "显示最后一条通知"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:220
-#: entornos/hyprland-common/static.lua:221
-#: entornos/hyprland-common/static.lua:222
-#: entornos/hyprland-common/static.lua:223
-#: entornos/hyprland-common/static.lua:224
-#: entornos/hyprland-common/static.lua:225
-#: entornos/hyprland-common/static.lua:226
-#: entornos/hyprland-common/static.lua:227
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:236
+#: entornos/hyprland-common/static.lua:237
+#: entornos/hyprland-common/static.lua:238
+#: entornos/hyprland-common/static.lua:239
+#: entornos/hyprland-common/static.lua:240
+#: entornos/hyprland-common/static.lua:241
+#: entornos/hyprland-common/static.lua:242
+#: entornos/hyprland-common/static.lua:243
+#: entornos/hyprland-common/static.lua:244
 msgid "Multimedia"
 msgstr "媒体"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:236
 msgid "subir volumen"
 msgstr "提高音量"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:237
 msgid "bajar volumen"
 msgstr "降低音量"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:238
 msgid "silenciar"
 msgstr "静音"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:239
 msgid "silenciar el micrófono"
 msgstr "麦克风静音"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:240
 msgid "subir brillo"
 msgstr "提高亮度"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:241
 msgid "bajar brillo"
 msgstr "降低亮度"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:242
 msgid "reproducir/pausar"
 msgstr "播放/暂停"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:243
 msgid "siguiente pista"
 msgstr "下一首"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:244
 msgid "pista anterior"
 msgstr "上一首"
 

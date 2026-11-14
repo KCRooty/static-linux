@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 18:13+0100\n"
+"POT-Creation-Date: 2026-11-14 23:08+0100\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,193 +311,210 @@ msgstr "{name}: зупинено, відкритих портів немає."
 msgid "Servicios: {names}"
 msgstr "Служби: {names}"
 
-#: sl-ctl/sl-ctl.py:657
+#: sl-ctl/sl-ctl.py:661
+#, python-brace-format
 msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
 msgstr "точки відновлення {n} немає (sl-ctl snapshot --list)"
 
-#: sl-ctl/sl-ctl.py:668
+#: sl-ctl/sl-ctl.py:672
+#, python-brace-format
 msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
 msgstr "Точка відновлення {n}: {a} пакетів повернуться до тодішньої версії."
 
-#: sl-ctl/sl-ctl.py:670
+#: sl-ctl/sl-ctl.py:674
 msgid "Sin copia en la caché (se quedan como están): "
 msgstr "Немає копії в кеші (лишаються як є): "
 
-#: sl-ctl/sl-ctl.py:673
+#: sl-ctl/sl-ctl.py:677
 msgid "Instalados después (no se tocan): "
 msgstr "Встановлені пізніше (не чіпаються): "
 
-#: sl-ctl/sl-ctl.py:678
+#: sl-ctl/sl-ctl.py:682
+#, python-brace-format
 msgid "La configuración de entonces está en {f} (no se restaura sola)."
 msgstr "Тодішня конфігурація лежить у {f} (сама не відновлюється)."
 
-#: sl-ctl/sl-ctl.py:685
+#: sl-ctl/sl-ctl.py:689
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Знімок до і після оновлення (snap-pac): якщо щось піде не так, sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:687
+#: sl-ctl/sl-ctl.py:691
 msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Точку відновлення створено (версії пакетів і /etc): якщо щось піде не так, sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:695
+#: sl-ctl/sl-ctl.py:699
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR не оновлено: звичайного користувача не знайдено. Запустіть `paru -Sua` від свого користувача."
 
-#: sl-ctl/sl-ctl.py:710
+#: sl-ctl/sl-ctl.py:730
+#, python-brace-format
+msgid "Falta el agente de contraseñas ({a}): sin él la bienvenida no puede instalar nada. Instalando..."
+msgstr "Немає агента паролів ({a}): без нього програма вітання нічого не встановить. Встановлення..."
+
+#: sl-ctl/sl-ctl.py:736
+msgid "Añade al inicio de tu escritorio: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+msgstr "Додайте в автозапуск стільниці: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+#: sl-ctl/sl-ctl.py:737
+msgid "Cierra sesión y vuelve a entrar para que funcione."
+msgstr "Вийдіть із сеансу й увійдіть знову, щоб це запрацювало."
+
+#: sl-ctl/sl-ctl.py:748
+#, python-brace-format
 msgid "Punto de restauración {n} creado."
 msgstr "Точку відновлення {n} створено."
 
-#: sl-ctl/sl-ctl.py:716
+#: sl-ctl/sl-ctl.py:754
 msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
 msgstr "(без BTRFS: точки відновлення пакетів і /etc)"
 
-#: sl-ctl/sl-ctl.py:721
+#: sl-ctl/sl-ctl.py:759
 msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
 msgstr "поки жодної: sl-ctl update створює її перед оновленням"
 
-#: sl-ctl/sl-ctl.py:733
+#: sl-ctl/sl-ctl.py:771
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "Системні файли буде повернуто до стану знімка {n}."
 
-#: sl-ctl/sl-ctl.py:734
+#: sl-ctl/sl-ctl.py:772
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "Спершу створюється ще один знімок — на випадок, якщо захочете повернутися до поточного стану."
 
-#: sl-ctl/sl-ctl.py:738
+#: sl-ctl/sl-ctl.py:776
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "Готово. Перезавантажтеся, щоб усе завантажило відновлену версію."
 
-#: sl-ctl/sl-ctl.py:746
+#: sl-ctl/sl-ctl.py:784
 msgid "reflector no está instalado"
 msgstr "reflector не встановлено"
 
-#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
+#: sl-ctl/sl-ctl.py:878 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "встановлено"
 
-#: sl-ctl/sl-ctl.py:842
+#: sl-ctl/sl-ctl.py:880
 msgid "pendiente (instalación sin red)"
 msgstr "очікує (встановлено без мережі)"
 
-#: sl-ctl/sl-ctl.py:848
+#: sl-ctl/sl-ctl.py:886
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "Після підключення: sudo sl-ctl flavor add pending"
 
-#: sl-ctl/sl-ctl.py:849
+#: sl-ctl/sl-ctl.py:887
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "Додати: sudo sl-ctl flavor add <варіант> · прибрати: sudo sl-ctl flavor remove <варіант>"
 
-#: sl-ctl/sl-ctl.py:858
+#: sl-ctl/sl-ctl.py:896
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "Встановлення варіанта {name}: пакетів — {n}"
 
-#: sl-ctl/sl-ctl.py:870
+#: sl-ctl/sl-ctl.py:908
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "не вдалося встановити {app} з Flathub"
 
-#: sl-ctl/sl-ctl.py:888
+#: sl-ctl/sl-ctl.py:926
 msgid "Del AUR, con tu usuario:"
 msgstr "З AUR, від свого користувача:"
 
-#: sl-ctl/sl-ctl.py:892
+#: sl-ctl/sl-ctl.py:930
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "Вийдіть і увійдіть знову, щоб користуватися новими групами."
 
-#: sl-ctl/sl-ctl.py:893
+#: sl-ctl/sl-ctl.py:931
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "Варіант {name} встановлено."
 
-#: sl-ctl/sl-ctl.py:928
+#: sl-ctl/sl-ctl.py:966
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "Варіант {name} прибрано."
 
-#: sl-ctl/sl-ctl.py:946
+#: sl-ctl/sl-ctl.py:984
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "використання: sl-ctl flavor [list | add <варіант> | remove <варіант>]"
 
-#: sl-ctl/sl-ctl.py:948
+#: sl-ctl/sl-ctl.py:986
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "невідомий варіант: {name}"
 
-#: sl-ctl/sl-ctl.py:955
+#: sl-ctl/sl-ctl.py:993
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome не встановлено."
 
-#: sl-ctl/sl-ctl.py:961
+#: sl-ctl/sl-ctl.py:999
 msgid "Gestión de Static Linux"
 msgstr "Керування Static Linux"
 
-#: sl-ctl/sl-ctl.py:965
+#: sl-ctl/sl-ctl.py:1003
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "запускає sl-detect і показує результат"
 
-#: sl-ctl/sl-ctl.py:966
+#: sl-ctl/sl-ctl.py:1004
 msgid "información del sistema"
 msgstr "відомості про систему"
 
-#: sl-ctl/sl-ctl.py:967
+#: sl-ctl/sl-ctl.py:1005
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "оновлює всю систему (pacman + AUR + Flatpak)"
 
-#: sl-ctl/sl-ctl.py:968
+#: sl-ctl/sl-ctl.py:1006
 msgid "renueva los mirrors con reflector"
 msgstr "оновлює дзеркала через reflector"
 
-#: sl-ctl/sl-ctl.py:969
+#: sl-ctl/sl-ctl.py:1007
 msgid "abre otra vez sl-welcome"
 msgstr "знову відкриває sl-welcome"
 
-#: sl-ctl/sl-ctl.py:971
+#: sl-ctl/sl-ctl.py:1009
 msgid "ajustes del sistema reversibles"
 msgstr "оборотні налаштування системи"
 
-#: sl-ctl/sl-ctl.py:977
+#: sl-ctl/sl-ctl.py:1015
 msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
 msgstr "знімки (Snapper на BTRFS, точки відновлення на ext4)"
 
-#: sl-ctl/sl-ctl.py:980
+#: sl-ctl/sl-ctl.py:1018
 msgid "devuelve el sistema a esa instantánea o punto de restauración"
 msgstr "повертає систему до цього знімка або точки відновлення"
 
-#: sl-ctl/sl-ctl.py:983
+#: sl-ctl/sl-ctl.py:1021
 msgid "añade o quita sabores"
 msgstr "додає або вилучає варіанти"
 
-#: sl-ctl/sl-ctl.py:990
+#: sl-ctl/sl-ctl.py:1028
 msgid "qué se conecta a la red ahora mismo"
 msgstr "що зараз підключається до мережі"
 
-#: sl-ctl/sl-ctl.py:992
+#: sl-ctl/sl-ctl.py:1030
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "показує або змінює профіль приватності"
 
-#: sl-ctl/sl-ctl.py:996
+#: sl-ctl/sl-ctl.py:1034
 msgid "muestra o cambia el color de acento"
 msgstr "показує або змінює колір акценту"
 
-#: sl-ctl/sl-ctl.py:998
+#: sl-ctl/sl-ctl.py:1036
 msgid "lista los acentos"
 msgstr "список акцентів"
 
-#: sl-ctl/sl-ctl.py:1001
+#: sl-ctl/sl-ctl.py:1039
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "показує або змінює тему (шпалери + палітра + стиль)"
 
-#: sl-ctl/sl-ctl.py:1003
+#: sl-ctl/sl-ctl.py:1041
 msgid "lista los temas"
 msgstr "список тем"
 
-#: sl-ctl/sl-ctl.py:1006
+#: sl-ctl/sl-ctl.py:1044
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "продуктивність: стан, профіль живлення і планувальник CPU"
 
-#: sl-ctl/sl-ctl.py:1011
+#: sl-ctl/sl-ctl.py:1049
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "сервер: стан служб, увімкнення та вимкнення"
 
@@ -1506,16 +1523,16 @@ msgstr "вікна кольору туші на вишнево-рожевому 
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
-#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
-#: entornos/hyprland-common/static.lua:190
-#: entornos/hyprland-common/static.lua:191
-#: entornos/hyprland-common/static.lua:192
-#: entornos/hyprland-common/static.lua:193
-#: entornos/hyprland-common/static.lua:194
-#: entornos/hyprland-common/static.lua:196
-#: entornos/hyprland-common/static.lua:197
-#: entornos/hyprland-common/static.lua:199
-#: entornos/hyprland-common/static.lua:200
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:206
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:212
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:215
+#: entornos/hyprland-common/static.lua:216
 #: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "Вікна"
@@ -1538,212 +1555,212 @@ msgid "monocromo violeta, montañas al anochecer"
 msgstr "фіолетовий монохром, гори в сутінках"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:175
-#: entornos/hyprland-common/static.lua:176
-#: entornos/hyprland-common/static.lua:177
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "Apps"
 msgstr "Застосунки"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:191
 msgid "abrir la terminal"
 msgstr "відкрити термінал"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:192
 msgid "abrir el gestor de archivos"
 msgstr "відкрити файловий менеджер"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:193
 msgid "abrir el navegador (Brave Origin)"
 msgstr "відкрити браузер (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "lanzador de aplicaciones"
 msgstr "запуск застосунків"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "Ayuda"
 msgstr "Довідка"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "esta guía de atajos"
 msgstr "цей посібник зі сполучень"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:185
-#: entornos/hyprland-common/static.lua:186
+#: entornos/hyprland-common/static.lua:201
+#: entornos/hyprland-common/static.lua:202
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "область екрана (файл + буфер обміну)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:205
 msgid "cerrar la ventana"
 msgstr "закрити вікно"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:206
 msgid "pantalla completa"
 msgstr "повний екран"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:207
 msgid "flotante / en mosaico"
 msgstr "плаваюче / мозаїка"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:208
 msgid "pseudo-mosaico"
 msgstr "псевдомозаїка"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:209
 msgid "cambiar división horizontal/vertical"
 msgstr "перемкнути горизонтальний/вертикальний поділ"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:210
 msgid "pasar a la siguiente"
 msgstr "перейти до наступного"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:212
 msgid "mover el foco"
 msgstr "перемістити фокус"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:213
 msgid "mover la ventana"
 msgstr "перемістити вікно"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:215
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "перетягувати із Super + лівий клік"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:200
+#: entornos/hyprland-common/static.lua:216
 msgid "redimensionar con Super + clic derecho"
 msgstr "змінювати розмір із Super + правий клік"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:204
-#: entornos/hyprland-common/static.lua:205
-#: entornos/hyprland-common/static.lua:207
-#: entornos/hyprland-common/static.lua:208
-#: entornos/hyprland-common/static.lua:209
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
 msgid "Escritorios"
 msgstr "Робочі столи"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:220
 msgid "ir a un escritorio"
 msgstr "перейти на робочий стіл"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:221
 msgid "mover la ventana a otro escritorio"
 msgstr "перемістити вікно на інший робочий стіл"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:223
 msgid "siguiente (rueda del ratón)"
 msgstr "наступний (коліщатко миші)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:224
 msgid "anterior (rueda del ratón)"
 msgstr "попередній (коліщатко миші)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:225
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "показати/сховати швидкий робочий стіл"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:226
 msgid "mandar la ventana al escritorio rápido"
 msgstr "надіслати вікно на швидкий робочий стіл"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:213
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:229
+#: entornos/hyprland-common/static.lua:230
 msgid "Sesión"
 msgstr "Сеанс"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:229
 msgid "bloquear la pantalla"
 msgstr "заблокувати екран"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:230
 msgid "ver la última notificación"
 msgstr "показати останнє сповіщення"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:220
-#: entornos/hyprland-common/static.lua:221
-#: entornos/hyprland-common/static.lua:222
-#: entornos/hyprland-common/static.lua:223
-#: entornos/hyprland-common/static.lua:224
-#: entornos/hyprland-common/static.lua:225
-#: entornos/hyprland-common/static.lua:226
-#: entornos/hyprland-common/static.lua:227
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:236
+#: entornos/hyprland-common/static.lua:237
+#: entornos/hyprland-common/static.lua:238
+#: entornos/hyprland-common/static.lua:239
+#: entornos/hyprland-common/static.lua:240
+#: entornos/hyprland-common/static.lua:241
+#: entornos/hyprland-common/static.lua:242
+#: entornos/hyprland-common/static.lua:243
+#: entornos/hyprland-common/static.lua:244
 msgid "Multimedia"
 msgstr "Мультимедіа"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:236
 msgid "subir volumen"
 msgstr "гучніше"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:237
 msgid "bajar volumen"
 msgstr "тихіше"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:238
 msgid "silenciar"
 msgstr "вимкнути звук"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:239
 msgid "silenciar el micrófono"
 msgstr "вимкнути мікрофон"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:240
 msgid "subir brillo"
 msgstr "яскравіше"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:241
 msgid "bajar brillo"
 msgstr "темніше"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:242
 msgid "reproducir/pausar"
 msgstr "відтворення/пауза"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:243
 msgid "siguiente pista"
 msgstr "наступний трек"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:244
 msgid "pista anterior"
 msgstr "попередній трек"
 

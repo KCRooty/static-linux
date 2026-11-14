@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 18:13+0100\n"
+"POT-Creation-Date: 2026-11-14 23:08+0100\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -311,193 +311,210 @@ msgstr "{name}: gestoppt, keine offenen Ports."
 msgid "Servicios: {names}"
 msgstr "Dienste: {names}"
 
-#: sl-ctl/sl-ctl.py:657
+#: sl-ctl/sl-ctl.py:661
+#, python-brace-format
 msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
 msgstr "Wiederherstellungspunkt {n} existiert nicht (sl-ctl snapshot --list)"
 
-#: sl-ctl/sl-ctl.py:668
+#: sl-ctl/sl-ctl.py:672
+#, python-brace-format
 msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
 msgstr "Wiederherstellungspunkt {n}: {a} Pakete kehren zur damaligen Version zurück."
 
-#: sl-ctl/sl-ctl.py:670
+#: sl-ctl/sl-ctl.py:674
 msgid "Sin copia en la caché (se quedan como están): "
 msgstr "Keine Kopie im Cache (bleiben, wie sie sind): "
 
-#: sl-ctl/sl-ctl.py:673
+#: sl-ctl/sl-ctl.py:677
 msgid "Instalados después (no se tocan): "
 msgstr "Danach installiert (bleiben unangetastet): "
 
-#: sl-ctl/sl-ctl.py:678
+#: sl-ctl/sl-ctl.py:682
+#, python-brace-format
 msgid "La configuración de entonces está en {f} (no se restaura sola)."
 msgstr "Die damalige Konfiguration liegt in {f} (sie wird nicht automatisch wiederhergestellt)."
 
-#: sl-ctl/sl-ctl.py:685
+#: sl-ctl/sl-ctl.py:689
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Snapshot vor und nach dem Update (snap-pac): wenn etwas schiefgeht, sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:687
+#: sl-ctl/sl-ctl.py:691
 msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Wiederherstellungspunkt erstellt (Paketversionen und /etc): Falls etwas schiefgeht, sl-ctl snapshot --rollback <n>"
 
-#: sl-ctl/sl-ctl.py:695
+#: sl-ctl/sl-ctl.py:699
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR nicht aktualisiert: kein normaler Benutzer gefunden. Führe `paru -Sua` als dein Benutzer aus."
 
-#: sl-ctl/sl-ctl.py:710
+#: sl-ctl/sl-ctl.py:730
+#, python-brace-format
+msgid "Falta el agente de contraseñas ({a}): sin él la bienvenida no puede instalar nada. Instalando..."
+msgstr "Der Passwort-Agent ({a}) fehlt: ohne ihn kann die Willkommens-App nichts installieren. Wird installiert..."
+
+#: sl-ctl/sl-ctl.py:736
+msgid "Añade al inicio de tu escritorio: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+msgstr "Füge ihn zum Autostart deines Desktops hinzu: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+
+#: sl-ctl/sl-ctl.py:737
+msgid "Cierra sesión y vuelve a entrar para que funcione."
+msgstr "Melde dich ab und wieder an, damit es wirkt."
+
+#: sl-ctl/sl-ctl.py:748
+#, python-brace-format
 msgid "Punto de restauración {n} creado."
 msgstr "Wiederherstellungspunkt {n} erstellt."
 
-#: sl-ctl/sl-ctl.py:716
+#: sl-ctl/sl-ctl.py:754
 msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
 msgstr "(kein BTRFS: Wiederherstellungspunkte für Pakete und /etc)"
 
-#: sl-ctl/sl-ctl.py:721
+#: sl-ctl/sl-ctl.py:759
 msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
 msgstr "noch keiner: sl-ctl update legt vor dem Aktualisieren einen an"
 
-#: sl-ctl/sl-ctl.py:733
+#: sl-ctl/sl-ctl.py:771
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "Die Systemdateien werden auf den Stand von Snapshot {n} zurückgesetzt."
 
-#: sl-ctl/sl-ctl.py:734
+#: sl-ctl/sl-ctl.py:772
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "Vorher wird ein weiterer Snapshot erstellt, falls du zum jetzigen Stand zurückwillst."
 
-#: sl-ctl/sl-ctl.py:738
+#: sl-ctl/sl-ctl.py:776
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "Fertig. Starte neu, damit alles die wiederhergestellte Version lädt."
 
-#: sl-ctl/sl-ctl.py:746
+#: sl-ctl/sl-ctl.py:784
 msgid "reflector no está instalado"
 msgstr "reflector ist nicht installiert"
 
-#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
+#: sl-ctl/sl-ctl.py:878 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "installiert"
 
-#: sl-ctl/sl-ctl.py:842
+#: sl-ctl/sl-ctl.py:880
 msgid "pendiente (instalación sin red)"
 msgstr "ausstehend (ohne Netzwerk installiert)"
 
-#: sl-ctl/sl-ctl.py:848
+#: sl-ctl/sl-ctl.py:886
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "Mit Verbindung: sudo sl-ctl flavor add pending"
 
-#: sl-ctl/sl-ctl.py:849
+#: sl-ctl/sl-ctl.py:887
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "Hinzufügen: sudo sl-ctl flavor add <Variante> · entfernen: sudo sl-ctl flavor remove <Variante>"
 
-#: sl-ctl/sl-ctl.py:858
+#: sl-ctl/sl-ctl.py:896
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "Installiere die Variante {name}: {n} Pakete"
 
-#: sl-ctl/sl-ctl.py:870
+#: sl-ctl/sl-ctl.py:908
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "{app} konnte nicht von Flathub installiert werden"
 
-#: sl-ctl/sl-ctl.py:888
+#: sl-ctl/sl-ctl.py:926
 msgid "Del AUR, con tu usuario:"
 msgstr "Aus dem AUR, mit deinem Benutzer:"
 
-#: sl-ctl/sl-ctl.py:892
+#: sl-ctl/sl-ctl.py:930
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "Melde dich ab und wieder an, um die neuen Gruppen zu nutzen."
 
-#: sl-ctl/sl-ctl.py:893
+#: sl-ctl/sl-ctl.py:931
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "Variante {name} installiert."
 
-#: sl-ctl/sl-ctl.py:928
+#: sl-ctl/sl-ctl.py:966
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "Variante {name} entfernt."
 
-#: sl-ctl/sl-ctl.py:946
+#: sl-ctl/sl-ctl.py:984
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "Aufruf: sl-ctl flavor [list | add <Variante> | remove <Variante>]"
 
-#: sl-ctl/sl-ctl.py:948
+#: sl-ctl/sl-ctl.py:986
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "unbekannte Variante: {name}"
 
-#: sl-ctl/sl-ctl.py:955
+#: sl-ctl/sl-ctl.py:993
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome ist nicht installiert."
 
-#: sl-ctl/sl-ctl.py:961
+#: sl-ctl/sl-ctl.py:999
 msgid "Gestión de Static Linux"
 msgstr "Static-Linux-Verwaltung"
 
-#: sl-ctl/sl-ctl.py:965
+#: sl-ctl/sl-ctl.py:1003
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "sl-detect ausführen und Ergebnis zeigen"
 
-#: sl-ctl/sl-ctl.py:966
+#: sl-ctl/sl-ctl.py:1004
 msgid "información del sistema"
 msgstr "Systeminformationen"
 
-#: sl-ctl/sl-ctl.py:967
+#: sl-ctl/sl-ctl.py:1005
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "das ganze System aktualisieren (pacman + AUR + Flatpak)"
 
-#: sl-ctl/sl-ctl.py:968
+#: sl-ctl/sl-ctl.py:1006
 msgid "renueva los mirrors con reflector"
 msgstr "Spiegelserver mit reflector erneuern"
 
-#: sl-ctl/sl-ctl.py:969
+#: sl-ctl/sl-ctl.py:1007
 msgid "abre otra vez sl-welcome"
 msgstr "sl-welcome erneut öffnen"
 
-#: sl-ctl/sl-ctl.py:971
+#: sl-ctl/sl-ctl.py:1009
 msgid "ajustes del sistema reversibles"
 msgstr "umkehrbare Systemanpassungen"
 
-#: sl-ctl/sl-ctl.py:977
+#: sl-ctl/sl-ctl.py:1015
 msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
 msgstr "Snapshots (Snapper auf BTRFS, Wiederherstellungspunkte auf ext4)"
 
-#: sl-ctl/sl-ctl.py:980
+#: sl-ctl/sl-ctl.py:1018
 msgid "devuelve el sistema a esa instantánea o punto de restauración"
 msgstr "setzt das System auf diesen Snapshot oder Wiederherstellungspunkt zurück"
 
-#: sl-ctl/sl-ctl.py:983
+#: sl-ctl/sl-ctl.py:1021
 msgid "añade o quita sabores"
 msgstr "Varianten hinzufügen oder entfernen"
 
-#: sl-ctl/sl-ctl.py:990
+#: sl-ctl/sl-ctl.py:1028
 msgid "qué se conecta a la red ahora mismo"
 msgstr "was gerade mit dem Netz verbunden ist"
 
-#: sl-ctl/sl-ctl.py:992
+#: sl-ctl/sl-ctl.py:1030
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "Datenschutzprofil zeigen oder ändern"
 
-#: sl-ctl/sl-ctl.py:996
+#: sl-ctl/sl-ctl.py:1034
 msgid "muestra o cambia el color de acento"
 msgstr "Akzentfarbe zeigen oder ändern"
 
-#: sl-ctl/sl-ctl.py:998
+#: sl-ctl/sl-ctl.py:1036
 msgid "lista los acentos"
 msgstr "Akzente auflisten"
 
-#: sl-ctl/sl-ctl.py:1001
+#: sl-ctl/sl-ctl.py:1039
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "Thema zeigen oder ändern (Hintergrund + Palette + Stil)"
 
-#: sl-ctl/sl-ctl.py:1003
+#: sl-ctl/sl-ctl.py:1041
 msgid "lista los temas"
 msgstr "Themen auflisten"
 
-#: sl-ctl/sl-ctl.py:1006
+#: sl-ctl/sl-ctl.py:1044
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "Leistung: Status, Energieprofil und CPU-Scheduler"
 
-#: sl-ctl/sl-ctl.py:1011
+#: sl-ctl/sl-ctl.py:1049
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "Server: Status der Dienste, ein- und ausschalten"
 
@@ -1505,16 +1522,16 @@ msgstr "Tintenfenster auf kirschrosa Hintergrund"
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
-#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
-#: entornos/hyprland-common/static.lua:190
-#: entornos/hyprland-common/static.lua:191
-#: entornos/hyprland-common/static.lua:192
-#: entornos/hyprland-common/static.lua:193
-#: entornos/hyprland-common/static.lua:194
-#: entornos/hyprland-common/static.lua:196
-#: entornos/hyprland-common/static.lua:197
-#: entornos/hyprland-common/static.lua:199
-#: entornos/hyprland-common/static.lua:200
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:206
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:212
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:215
+#: entornos/hyprland-common/static.lua:216
 #: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "Fenster"
@@ -1537,212 +1554,212 @@ msgid "monocromo violeta, montañas al anochecer"
 msgstr "violettes Monochrom, Berge in der Dämmerung"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:175
-#: entornos/hyprland-common/static.lua:176
-#: entornos/hyprland-common/static.lua:177
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "Apps"
 msgstr "Apps"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:191
 msgid "abrir la terminal"
 msgstr "Terminal öffnen"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:192
 msgid "abrir el gestor de archivos"
 msgstr "Dateimanager öffnen"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:193
 msgid "abrir el navegador (Brave Origin)"
 msgstr "Browser öffnen (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:178
-#: entornos/hyprland-common/static.lua:179
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:195
 msgid "lanzador de aplicaciones"
 msgstr "Anwendungsstarter"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "Ayuda"
 msgstr "Hilfe"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:182
+#: entornos/hyprland-common/static.lua:198
 msgid "esta guía de atajos"
 msgstr "diese Kürzelübersicht"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:185
-#: entornos/hyprland-common/static.lua:186
+#: entornos/hyprland-common/static.lua:201
+#: entornos/hyprland-common/static.lua:202
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "Bildschirmbereich (Datei + Zwischenablage)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:205
 msgid "cerrar la ventana"
 msgstr "Fenster schließen"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:206
 msgid "pantalla completa"
 msgstr "Vollbild"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:207
 msgid "flotante / en mosaico"
 msgstr "schwebend / gekachelt"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:208
 msgid "pseudo-mosaico"
 msgstr "Pseudo-Kacheln"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:209
 msgid "cambiar división horizontal/vertical"
 msgstr "horizontale/vertikale Teilung wechseln"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:210
 msgid "pasar a la siguiente"
 msgstr "zum nächsten wechseln"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:212
 msgid "mover el foco"
 msgstr "Fokus verschieben"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:213
 msgid "mover la ventana"
 msgstr "Fenster verschieben"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:215
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "ziehen mit Super + Linksklick"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:200
+#: entornos/hyprland-common/static.lua:216
 msgid "redimensionar con Super + clic derecho"
 msgstr "Größe ändern mit Super + Rechtsklick"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:204
-#: entornos/hyprland-common/static.lua:205
-#: entornos/hyprland-common/static.lua:207
-#: entornos/hyprland-common/static.lua:208
-#: entornos/hyprland-common/static.lua:209
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
 msgid "Escritorios"
 msgstr "Arbeitsflächen"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:220
 msgid "ir a un escritorio"
 msgstr "zu einer Arbeitsfläche wechseln"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:221
 msgid "mover la ventana a otro escritorio"
 msgstr "Fenster auf eine andere Arbeitsfläche verschieben"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:223
 msgid "siguiente (rueda del ratón)"
 msgstr "nächste (Mausrad)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:224
 msgid "anterior (rueda del ratón)"
 msgstr "vorherige (Mausrad)"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:225
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "Ablage-Arbeitsfläche zeigen/verbergen"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:210
+#: entornos/hyprland-common/static.lua:226
 msgid "mandar la ventana al escritorio rápido"
 msgstr "Fenster auf die Ablage-Arbeitsfläche schicken"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:213
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:229
+#: entornos/hyprland-common/static.lua:230
 msgid "Sesión"
 msgstr "Sitzung"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:229
 msgid "bloquear la pantalla"
 msgstr "Bildschirm sperren"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:214
+#: entornos/hyprland-common/static.lua:230
 msgid "ver la última notificación"
 msgstr "letzte Benachrichtigung anzeigen"
 
 #. group of keyboard shortcuts in the Hyprland guide
-#: entornos/hyprland-common/static.lua:220
-#: entornos/hyprland-common/static.lua:221
-#: entornos/hyprland-common/static.lua:222
-#: entornos/hyprland-common/static.lua:223
-#: entornos/hyprland-common/static.lua:224
-#: entornos/hyprland-common/static.lua:225
-#: entornos/hyprland-common/static.lua:226
-#: entornos/hyprland-common/static.lua:227
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:236
+#: entornos/hyprland-common/static.lua:237
+#: entornos/hyprland-common/static.lua:238
+#: entornos/hyprland-common/static.lua:239
+#: entornos/hyprland-common/static.lua:240
+#: entornos/hyprland-common/static.lua:241
+#: entornos/hyprland-common/static.lua:242
+#: entornos/hyprland-common/static.lua:243
+#: entornos/hyprland-common/static.lua:244
 msgid "Multimedia"
 msgstr "Multimedia"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:236
 msgid "subir volumen"
 msgstr "lauter"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:237
 msgid "bajar volumen"
 msgstr "leiser"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:238
 msgid "silenciar"
 msgstr "stummschalten"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:239
 msgid "silenciar el micrófono"
 msgstr "Mikrofon stummschalten"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:240
 msgid "subir brillo"
 msgstr "heller"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:241
 msgid "bajar brillo"
 msgstr "dunkler"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:242
 msgid "reproducir/pausar"
 msgstr "Wiedergabe/Pause"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:243
 msgid "siguiente pista"
 msgstr "nächster Titel"
 
 #. what a keyboard shortcut does (Hyprland guide)
-#: entornos/hyprland-common/static.lua:228
+#: entornos/hyprland-common/static.lua:244
 msgid "pista anterior"
 msgstr "vorheriger Titel"
 

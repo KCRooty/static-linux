@@ -94,3 +94,27 @@ class RestorePoints(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main(verbosity=2)
+
+
+class PolkitAgentRepair(unittest.TestCase):
+    """2026.11.14.2 shipped six desktops without a polkit agent; sl-ctl update fixes it."""
+
+    def _run(self, installed):
+        calls = []
+        with mock.patch.object(sl_ctl, "_installed", side_effect=lambda p: p in installed), \
+             mock.patch.object(sl_ctl, "_sh", side_effect=lambda cmd, **k: calls.append(cmd) or mock.Mock(returncode=0)), \
+             mock.patch("builtins.print"):
+            sl_ctl._ensure_polkit_agent()
+        return calls
+
+    def test_xfce_without_agent_gets_polkit_gnome(self):
+        self.assertEqual(self._run({"xfce4-session"}),
+                         [["pacman", "-S", "--needed", "--noconfirm", "polkit-gnome"]])
+
+    def test_kde_gets_the_kde_agent(self):
+        self.assertEqual(self._run({"plasma-workspace"})[0][-1], "polkit-kde-agent")
+
+    def test_nothing_when_an_agent_exists_or_no_desktop(self):
+        self.assertEqual(self._run({"xfce4-session", "polkit-gnome"}), [])
+        self.assertEqual(self._run({"gnome-shell"}), [])
+        self.assertEqual(self._run(set()), [])

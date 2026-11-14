@@ -700,7 +700,41 @@ def cmd_update(args) -> int:
                   "Ejecuta `paru -Sua` con tu usuario."), file=sys.stderr)
     if shutil.which("flatpak"):
         _sh(["flatpak", "update"])
+    if rc == 0:
+        _ensure_polkit_agent()
     return rc
+
+
+# Desktop -> polkit agent it needs. 2026.11.14.2 shipped XFCE, Openbox, KDE, i3,
+# bspwm and sway without one, so sl-welcome's installs failed ("Error creating
+# textual authentication agent"); sl-ctl update brings it to those systems.
+# GNOME and Cinnamon have their own, Hyprland ships hyprpolkitagent.
+_AGENT_FOR = [("plasma-workspace", "polkit-kde-agent"), ("xfce4-session", "polkit-gnome"),
+              ("openbox", "polkit-gnome"), ("i3-wm", "polkit-gnome"), ("bspwm", "polkit-gnome"),
+              ("sway", "polkit-gnome")]
+_AGENTS = ("polkit-gnome", "polkit-kde-agent", "hyprpolkitagent", "gnome-shell", "cinnamon")
+
+
+def _installed(pkg: str) -> bool:
+    return subprocess.run(["pacman", "-Q", pkg], capture_output=True).returncode == 0
+
+
+def _ensure_polkit_agent() -> None:
+    if any(_installed(a) for a in _AGENTS):
+        return
+    for desktop, agent in _AGENT_FOR:
+        if _installed(desktop):
+            break
+    else:
+        return  # no desktop: nothing asks for a password graphically
+    print(_("Falta el agente de contraseñas ({a}): sin él la bienvenida no puede instalar nada. Instalando...").format(a=agent))
+    if _sh(["pacman", "-S", "--needed", "--noconfirm", agent]).returncode != 0:
+        return
+    if desktop not in ("plasma-workspace", "xfce4-session"):
+        # XFCE starts it from /etc/xdg/autostart (staticlinux-base), KDE from its own
+        # autostart; the tiling desktops and Openbox read only their own config file.
+        print(_("Añade al inicio de tu escritorio: /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"))
+    print(_("Cierra sesión y vuelve a entrar para que funcione."))
 
 
 def cmd_snapshot(args) -> int:
