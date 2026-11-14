@@ -171,7 +171,8 @@ mkdir -p "$AIROOTFS/etc/calamares"
 cp -a "$REPO/installer/calamares/." "$AIROOTFS/etc/calamares/"
 # the installer shows the ISO's own version (same date as iso_version), not
 # whatever was last typed into branding.desc
-SL_VER="$(date +%Y.%m.%d)"
+SL_VER="${SL_ISO_VERSION:-$(date +%Y.%m.%d)}"  # SL_ISO_VERSION: a second build the same day (2026.11.14.1)
+export SL_ISO_VERSION="$SL_VER"
 sed -i -E "s/^(  (short)?[vV]ersion: ).*/\1\"$SL_VER\"/; s/^(  versionedName: ).*/\1\"Static Linux $SL_VER\"/; s/^(  shortVersionedName: ).*/\1\"SL $SL_VER\"/" \
     "$AIROOTFS/etc/calamares/branding/staticlinux/branding.desc"
 

@@ -4,7 +4,7 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
-## Sin publicar
+## 2026.11.14.1 · XFCE por debajo de 650 MB
 
 ### Arreglos
 - **XFCE en reposo: de ~705 a ~635 MB** (VM, perfil Mejorado; ~617 MB con
@@ -23,6 +23,11 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   colores del tema anterior hasta reiniciar sesión: `sl-theme` lo reinicia.
 - Vistas previas nuevas de Aero y Nube con sus fondos nuevos, en el
   instalador, sl-welcome y la web.
+
+### Nuevo
+- Tercer espejo: **archive.org**, con torrent (`iso/release.sh archive`).
+- `SL_ISO_VERSION=2026.11.14.1 sudo iso/build.sh universal`: una segunda
+  ISO el mismo día sin pisar el nombre de la primera.
 
 ## 2026.11.14 · La primera ISO pública de prueba
 
