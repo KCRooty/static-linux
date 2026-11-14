@@ -14,6 +14,7 @@ _link_os_release() {
 
 post_install() {
     _link_os_release
+    sh /usr/lib/static-linux/entornos/xfce-themed/panel-internal.sh
     command -v update-desktop-database >/dev/null && update-desktop-database -q /usr/share/applications
     command -v gtk-update-icon-cache >/dev/null && gtk-update-icon-cache -q /usr/share/icons/hicolor 2>/dev/null
 

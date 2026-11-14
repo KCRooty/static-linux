@@ -22,6 +22,15 @@ if str(SRC_DIR) not in sys.path:
 # i18n/sl_i18n.py: ../../i18n in the repo and in /usr/lib/static-linux
 sys.path.insert(0, str(SRC_DIR.parent.parent / "i18n"))
 
+APP_ID = "dev.staticforge.welcome"
+STATE_FILE = Path.home() / ".local" / "state" / "static-linux" / "welcome-shown"
+
+# On later logins the autostart entry has nothing to do: leave before GTK
+# starts, or libadwaita wakes up xdg-desktop-portal (~20 MB that then stays
+# for the whole session) only to quit.
+if "--autostart" in sys.argv[1:] and STATE_FILE.exists():
+    sys.exit(0)
+
 import gi  # noqa: E402
 
 gi.require_version("Gtk", "4.0")
@@ -29,10 +38,6 @@ gi.require_version("Adw", "1")
 from gi.repository import Adw, Gdk, Gio, Gtk  # noqa: E402
 
 from window import WelcomeWindow  # noqa: E402
-
-APP_ID = "dev.staticforge.welcome"
-STATE_FILE = Path.home() / ".local" / "state" / "static-linux" / "welcome-shown"
-
 
 class WelcomeApp(Adw.Application):
     def __init__(self, autostart: bool) -> None:

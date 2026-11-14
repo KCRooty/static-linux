@@ -91,6 +91,8 @@ if [[ $SYSTEM_CONFIG -eq 1 ]]; then
     [[ $EUID -eq 0 ]] || die "--system-config needs root"
     log "installing etc/ config"
     cp -rv "$HERE/etc/." /etc/
+    # panel plugins in-process (staticlinux-base's pacman hook keeps it so)
+    sh "$HERE/panel-internal.sh"
 fi
 
 # --- ownership -------------------------------------------------------

@@ -44,6 +44,6 @@ tooltip, tooltip.background { background-color: #{{surface}}; color: #{{text}}; 
 {{style_gtk3}}
 
 /* xfdesktop icon labels sit on the wallpaper */
-XfdesktopIconView.view.label { color: #{{text}}; text-shadow: 0 1px 2px alpha(black, 0.6); }
+XfdesktopIconView.view.label, XfdesktopIconView.view .label { color: #{{text}}; text-shadow: 0 0 3px #{{bg}}, 0 0 2px #{{bg}}, 0 1px 2px #{{bg}}; }
 
 @import url("gtk-custom.css");

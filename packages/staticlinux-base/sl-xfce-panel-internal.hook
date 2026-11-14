@@ -1,0 +1,11 @@
+# Static Linux: XFCE panel plugins in-process (see panel-internal.sh)
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/share/xfce4/panel/plugins/*.desktop
+
+[Action]
+Description = Static Linux: XFCE panel plugins in-process
+When = PostTransaction
+Exec = /usr/lib/static-linux/entornos/xfce-themed/panel-internal.sh

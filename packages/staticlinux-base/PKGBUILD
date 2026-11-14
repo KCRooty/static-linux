@@ -191,6 +191,9 @@ package() {
     chmod 755 "$lib/entornos/bspwm/skel/.config/bspwm/bspwmrc" \
               "$lib/entornos/bspwm/skel/.config/polybar/launch.sh" 2>/dev/null || true
     install -Dm644 entornos/common/deploy.sh "$lib/entornos/common/deploy.sh"
+    install -Dm755 entornos/xfce-themed/panel-internal.sh "$lib/entornos/xfce-themed/panel-internal.sh"
+    install -Dm644 packages/staticlinux-base/sl-xfce-panel-internal.hook \
+        "$pkgdir/usr/share/libalpm/hooks/sl-xfce-panel-internal.hook"
     install -Dm755 entornos/kde-plasma/firstrun.sh "$lib/entornos/kde-plasma/firstrun.sh"
     # Hyprland base config (Lua), loaded by every user's ~/.config/hypr/hyprland.lua
     install -Dm644 entornos/hyprland-common/static.lua "$pkgdir/usr/share/static-linux/hypr/static.lua"
