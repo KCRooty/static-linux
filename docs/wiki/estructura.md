@@ -84,5 +84,5 @@ hay realmente en el repo, no el plan original.
 2. El conocimiento de hardware va en `sl-detect/rules/*.rules`, no en `detect.py`.
 3. `sl-detect` solo stdlib: tiene que correr en la ISO live mínima.
 4. `[BUILD · bash]` para Linux · `[PROD · PowerShell]` para Windows. Nunca mezclar.
-5. Techo de 4 GB RAM. >600 MB idle en Hyprland full = bug.
+5. Techo de 4 GB RAM. >650 MB idle en Hyprland full = bug.
 6. Bay Trail (Z36xxx) y Kepler → siempre XFCE, nunca Wayland. Confirmado.

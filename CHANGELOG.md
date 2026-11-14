@@ -107,7 +107,7 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
 - El instalador decía "2026.10": ahora enseña la fecha de la ISO. Y el botón
   del diálogo de confirmación ya no sale como "%Regresar" (errata de la
   traducción de Calamares, corregida en nuestro paquete).
-- La regla de diseño de RAM pasa de 500 a **600 MB en reposo**, para tener
+- La regla de diseño de RAM pasa de 500 a **650 MB en reposo**, para tener
   margen.
 - La barra de Hyprland (Astal) no aparecía en equipos sin Wi-Fi: el icono
   de red anidaba dos `<With>` y gnim tumbaba la barra entera. Visto al
@@ -151,7 +151,7 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   power-profiles-daemon solo ofrece `balanced` y `power-saver`. Falta
   probarlo en hardware real.
 - XFCE con una terminal abierta usa ~750 MB de RAM en reposo (la regla es
-  600 MB). Hay que recortar applets que arrancan aunque no hagan falta
+  650 MB). Hay que recortar applets que arrancan aunque no hagan falta
   (blueman sin Bluetooth, por ejemplo).
 
 ## 2026-11-13 · Los temas, en todos los escritorios y en el arranque

@@ -12,7 +12,7 @@ tint2 &
 nm-applet &
 dunst &
 
-# No compositor by default on the 512 MB tier (">500 MB idle RAM = design
+# No compositor by default on the 512 MB tier (">650 MB idle RAM = design
 # bug", docs/PROYECTO.md). Uncomment if the hardware has room to spare:
 # picom --config ~/.config/picom/picom.conf &
 
