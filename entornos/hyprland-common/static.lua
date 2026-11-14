@@ -59,18 +59,29 @@ hl.monitor({ output = "", mode = "preferred", position = "auto", scale = "auto" 
 ------------------------------------------------------------------------
 -- autostart
 ------------------------------------------------------------------------
+-- The Astal bar, bundled to one file and run by gjs (sl-theme restarts it with
+-- the same command). Instance name: sl-shell.
+SL_BAR = "sh -c 'ags bundle ~/.config/ags/app.tsx \"$XDG_RUNTIME_DIR/sl-bar\" >/dev/null && exec \"$XDG_RUNTIME_DIR/sl-bar\"'"
+
 hl.on("hyprland.start", function()
-    -- hyprpaper can't get a buffer on some virtual/software GPUs (it
-    -- segfaults in QEMU with llvmpipe): swaybg keeps the wallpaper there
-    hl.exec_cmd("hyprpaper || swaybg -m fill -i '" .. (th.wallpaper or "") .. "'")
-    hl.exec_cmd("ags run ~/.config/ags/app.tsx")
-    hl.exec_cmd("dunst")
-    hl.exec_cmd("systemctl --user start hyprpolkitagent")
+    -- Idle RAM (650 MB rule; Hyprland full measured 928 MB on 2026-11-14):
+    --  * swaybg, not hyprpaper: same picture, ~100 MB less (hyprpaper kept its
+    --    GPU buffers; it also segfaulted on llvmpipe, where swaybg was the fallback)
+    --  * the bar is bundled once and run by gjs: `ags run` stayed resident (24 MB)
+    --    only to babysit it
+    --  * GIO_USE_VFS=local on the session daemons: none of them needs remote
+    --    filesystems, and through GIO they woke gvfsd/-fuse/-metadata (~40 MB).
+    --    Thunar and the rest of the apps still start gvfs when they need it.
+    local vfs = "env GIO_USE_VFS=local "
+    hl.exec_cmd("swaybg -m fill -i '" .. (th.wallpaper or "") .. "'")
+    hl.exec_cmd(vfs .. SL_BAR)
+    hl.exec_cmd(vfs .. "dunst")
+    hl.exec_cmd(vfs .. "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1")
     hl.exec_cmd("hypridle")
-    hl.exec_cmd("nm-applet --indicator")
+    hl.exec_cmd(vfs .. "nm-applet --indicator")
     hl.exec_cmd("wl-paste --watch cliphist store")
-    hl.exec_cmd("sleep 3 && sl-hypr-guide --autostart")
-    hl.exec_cmd("sl-welcome --autostart")
+    hl.exec_cmd("sleep 3 && " .. vfs .. "sl-hypr-guide --autostart")
+    hl.exec_cmd(vfs .. "sl-welcome --autostart")
 end)
 
 ------------------------------------------------------------------------
@@ -131,6 +142,11 @@ hl.config({
         disable_hyprland_logo = true,
         disable_splash_rendering = true,
     },
+
+    -- Hyprland's own "what's new" window (hyprland-update-screen, ~60 MB) on the
+    -- first login after each version: sl-hypr-guide already greets the first login,
+    -- and updates come through the distro (sl-ctl update), not Hyprland's notes.
+    ecosystem = { no_update_news = true },
 
     input = {
         kb_layout = kb_layout,

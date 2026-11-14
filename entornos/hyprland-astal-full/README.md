@@ -11,7 +11,7 @@ config doesn't need to defend against a GPU that can't handle it.
 |---|---|
 | Compositor | Hyprland |
 | Shell (bar) | Astal / AGS (`~/.config/ags/`, TypeScript) |
-| Wallpaper | hyprpaper |
+| Wallpaper | swaybg |
 | Lock / idle | hyprlock / hypridle |
 | Launcher | rofi (`$mod+D`) |
 | Terminal | kitty (`$mod+Return`) |

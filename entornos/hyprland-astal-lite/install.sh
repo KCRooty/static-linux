@@ -98,5 +98,5 @@ fc-list : family 2>/dev/null | grep -qi "space grotesk" || warn "font 'Space Gro
 fc-list : family 2>/dev/null | grep -qi "jetbrains mono" || warn "font 'JetBrains Mono' missing (pacman: ttf-jetbrains-mono)"
 
 log "done. Backup of replaced files (if any): $BACKUP"
-[[ "$MODE" == "home" ]] && log "log out and pick the Hyprland session (SDDM), or run: start-hyprland"
+[[ "$MODE" == "home" ]] && log "log out and pick the Hyprland session (LightDM), or run: start-hyprland"
 exit 0

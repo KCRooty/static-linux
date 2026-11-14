@@ -705,12 +705,13 @@ def refresh_session(theme: dict[str, str], user: str | None) -> None:
     if (s := session_env(user, ["Hyprland", ".Hyprland-wrapped"])):
         run(*s, "hyprctl", "reload")
         # the bar reads its edge (top/bottom) from theme.lua at start
-        run(*s, "sh", "-c", "ags quit -i sl-shell 2>/dev/null; exec ags run ~/.config/ags/app.tsx",
+        # same commands as static.lua's autostart (bundled bar, swaybg, no gvfs)
+        run(*s, "sh", "-c", "ags quit -i sl-shell 2>/dev/null; ags bundle ~/.config/ags/app.tsx "
+            "\"$XDG_RUNTIME_DIR/sl-bar\" >/dev/null && GIO_USE_VFS=local exec \"$XDG_RUNTIME_DIR/sl-bar\"",
             background=True)
         run(*s, "pkill", "-x", "hyprpaper")
         run(*s, "pkill", "-x", "swaybg")
-        # same fallback as static.lua: swaybg where hyprpaper can't draw
-        run(*s, "sh", "-c", f"hyprpaper || exec swaybg -m fill -i '{theme['wallpaper']}'", background=True)
+        run(*s, "swaybg", "-m", "fill", "-i", theme["wallpaper"], background=True)
     if (s := session_env(user, ["plasmashell"])):
         # re-applying the scheme that is already active is a no-op in Plasma
         run(*s, "plasma-apply-colorscheme", "BreezeDark" if theme["mode"] == "light" else "BreezeLight")

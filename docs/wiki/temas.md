@@ -87,7 +87,7 @@ que tengas:
 |---|---|
 | XFCE | xfwm4, panel, xfce4-terminal, fondo por xfconf |
 | KDE Plasma | esquema de color `StaticLinux` (también dentro de `kdeglobals`), Konsole, fondo |
-| Hyprland | bordes y redondeo (`~/.config/hypr/theme.lua`), hyprpaper, hyprlock, barra de Astal, dunst |
+| Hyprland | bordes y redondeo (`~/.config/hypr/theme.lua`), fondo (swaybg), hyprlock, barra de Astal, dunst |
 | Openbox | tema de ventanas `StaticLinux`, tint2, jgmenu, dunst, LXTerminal, fondo con feh |
 | GNOME | modo claro/oscuro, acento (el más cercano de GNOME), tema GTK, iconos, fuentes y fondo por gsettings |
 | Cinnamon | lo mismo que GNOME, más un tema de panel `StaticLinux` generado desde la paleta |
@@ -115,7 +115,7 @@ antes a `~/.local/state/static-linux/theme-backup/<fecha>/`.
 
 Con la sesión abierta, `sl-theme` avisa a lo que esté corriendo: el panel
 de XFCE se reconstruye al cambiar de estilo, Openbox, tint2 y dunst recargan,
-Hyprland recarga y relanza hyprpaper (o swaybg), Plasma aplica el esquema y
+Hyprland recarga y relanza el fondo (swaybg) y la barra, Plasma aplica el esquema y
 el fondo, GNOME y Cinnamon cambian al momento por gsettings, i3 y sway
 recargan, bspwm repinta los bordes, y polybar, waybar y mako se reinician.
 Las apps que ya estaban abiertas cambian al reabrirlas.

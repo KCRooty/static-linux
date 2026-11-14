@@ -46,5 +46,18 @@ class PolkitAgents(unittest.TestCase):
                 self.assertTrue(packages(env) & AGENTS, f"{env}.list has no polkit agent")
 
 
+class OneNamePerLine(unittest.TestCase):
+    """2026-11-14: "hyprpaper swaybg" on one line reached pacman as a single name and
+    Hyprland lite/full failed to install (iso/build.sh splits words, the installer
+    did not). The installer now splits too; keep the lists one name per line anyway."""
+
+    def test_every_list_line_is_one_package(self):
+        for path in sorted(LISTS.glob("*.list")):
+            for n, ln in enumerate(path.read_text().splitlines(), 1):
+                body = ln.split("#", 1)[0].split()
+                with self.subTest(list=path.name, line=n):
+                    self.assertLessEqual(len(body), 1, ln)
+
+
 if __name__ == "__main__":
     unittest.main()

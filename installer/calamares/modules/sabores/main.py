@@ -81,7 +81,8 @@ def _parse_list(path):
                 aur.append(m.group(1))
                 continue
             if not line.startswith("#"):
-                pkgs.append(line)
+                # a line can hold several names and a trailing comment, as iso/build.sh reads it
+                pkgs.extend(line.split("#", 1)[0].split())
     return pkgs, flatpaks, aur
 
 

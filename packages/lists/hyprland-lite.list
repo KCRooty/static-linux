@@ -5,8 +5,10 @@
 hyprland
 hyprlock
 hypridle
-hyprpaper swaybg
-hyprpolkitagent
+swaybg
+# polkit agent (password prompts): polkit-gnome, 19 MB idle vs 54 MB for the Qt
+# hyprpolkitagent (measured 2026-11-14, Hyprland full was at 928 MB idle)
+polkit-gnome
 xdg-desktop-portal-hyprland
 xdg-desktop-portal-gtk
 qt5-wayland
@@ -44,7 +46,11 @@ grim
 slurp
 
 # Login
-sddm
+# LightDM: the themed greeter (SDDM only got the Breeze background) and it
+# stops its X server once the Wayland session starts; SDDM kept ~100 MB
+# (Xorg + sddm + sddm-helper) alive for the whole session
+lightdm
+lightdm-gtk-greeter
 
 # ---- Astal shell (bar) ---------------------------------------------
 # AUR-only upstream; built into the ISO's local repo by
