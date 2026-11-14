@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=cinnamon-settings-daemon-color
+# Static Linux: off to stay under 650 MB idle (see entornos/cinnamon/README)
+Hidden=true

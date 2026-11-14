@@ -89,9 +89,10 @@ hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 ------------------------------------------------------------------------
 hl.config({
     general = {
-        gaps_in = full and 5 or 3,
-        gaps_out = full and 12 or 6,
-        border_size = 2,
+        -- the theme's style sets them (ventanas: none, estante: roomy); lite keeps them small
+        gaps_in = full and (th.gaps_in or 5) or math.min(th.gaps_in or 3, 3),
+        gaps_out = full and (th.gaps_out or 12) or math.min(th.gaps_out or 6, 6),
+        border_size = th.border or 2,
         col = {
             active_border   = { colors = { "rgba(" .. th.accent .. "ff)", "rgba(" .. th.accent2 .. "ff)" }, angle = 45 },
             inactive_border = "rgba(" .. th.line .. "aa)",

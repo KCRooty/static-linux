@@ -2,1514 +2,2002 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 10:17+0100\n"
+"POT-Creation-Date: 2026-11-14 18:13+0100\n"
 "Language: ko\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
+#: installer/calamares/modules/basepkgs/main.py:108
 msgid "Instalando los paquetes base"
 msgstr "기본 패키지 설치 중"
 
+#: installer/calamares/modules/display/main.py:41
 msgid "Ajustando la escala de pantalla"
 msgstr "화면 배율 설정 중"
 
+#: installer/calamares/modules/entorno-pkgs/main.py:62
 msgid "Instalando el escritorio"
 msgstr "데스크톱 설치 중"
 
+#: installer/calamares/modules/luks/main.py:48
 msgid "Comprobando el cifrado del disco"
 msgstr "디스크 암호화 확인 중"
 
+#: installer/calamares/modules/privacidad-apply/main.py:63
 msgid "Aplicando el perfil de privacidad"
 msgstr "개인정보 보호 프로필 적용 중"
 
+#: installer/calamares/modules/rendimiento/main.py:49
 msgid "Ajustando el rendimiento"
 msgstr "성능 조정 중"
 
+#: installer/calamares/modules/sabores/main.py:65
 msgid "Instalando los sabores"
 msgstr "플레이버 설치 중"
 
+#: installer/calamares/modules/sl-detect/main.py:49
 msgid "Detectando el hardware (sl-detect)"
 msgstr "하드웨어 감지 중 (sl-detect)"
 
+#: installer/calamares/modules/tema-apply/main.py:40
 msgid "Aplicando el tema"
 msgstr "테마 적용 중"
 
+#: sl-ctl/sl-ctl.py:52
 msgid "este comando necesita root (usa sudo)"
 msgstr "이 명령은 root가 필요합니다 (sudo 사용)"
 
+#: sl-ctl/sl-ctl.py:114 sl-ctl/sl-ctl.py:148
 msgid "desconocido"
 msgstr "알 수 없음"
 
+#: sl-ctl/sl-ctl.py:123 sl-ctl/sl-ctl.py:429
 msgid "Kernel"
 msgstr "커널"
 
+#: sl-ctl/sl-ctl.py:127 sl-welcome/src/pages/overview.py:82
 msgid "Arquitectura"
 msgstr "아키텍처"
 
+#: sl-ctl/sl-ctl.py:128
 msgid "Disco"
 msgstr "디스크"
 
+#: sl-ctl/sl-ctl.py:130
 msgid "Escritorio recomendado"
 msgstr "추천 데스크톱"
 
+#: sl-ctl/sl-ctl.py:131 sl-welcome/src/window.py:46
 msgid "Privacidad"
 msgstr "개인정보 보호"
 
+#: sl-ctl/sl-ctl.py:152 sl-welcome/src/privileged.py:42
 #, python-brace-format
 msgid "perfil de privacidad desconocido: {name}"
 msgstr "알 수 없는 개인정보 보호 프로필: {name}"
 
+#: sl-ctl/sl-ctl.py:158
 #, python-brace-format
 msgid "no se encuentra {path}"
 msgstr "{path}을(를) 찾을 수 없습니다"
 
+#: sl-ctl/sl-ctl.py:198
 msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
 msgstr "sudo 없이는 다른 사용자와 root의 프로세스가 보이지 않습니다."
 
+#: sl-ctl/sl-ctl.py:200
 msgid "Escuchando fuera"
 msgstr "외부 수신 대기"
 
+#: sl-ctl/sl-ctl.py:200 sl-ctl/sl-ctl.py:553
 msgid "nada"
 msgstr "없음"
 
+#: sl-ctl/sl-ctl.py:202
 msgid "Conexiones"
 msgstr "연결"
 
+#: sl-ctl/sl-ctl.py:209
 msgid "(cifrado, dnscrypt-proxy)"
 msgstr "(암호화, dnscrypt-proxy)"
 
+#: sl-ctl/sl-ctl.py:210
 msgid "(sin cifrar)"
 msgstr "(암호화 안 됨)"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "Cortafuegos"
 msgstr "방화벽"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:545
+#: sl-ctl/sl-ctl.py:554
 msgid "activo"
 msgstr "활성"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "desactivado"
 msgstr "꺼짐"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "Temporizadores"
 msgstr "타이머"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "ninguno"
 msgstr "없음"
 
+#: sl-ctl/sl-ctl.py:216
 msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
 msgstr "Static Linux는 원격 측정 데이터를 보내지 않습니다. 위의 연결은 사용자 것입니다: 브라우저, 직접 시작한 업데이트, 시간 동기화(NTP)."
 
+#: sl-ctl/sl-ctl.py:234
 msgid "no se encuentra la herramienta de acentos"
 msgstr "강조색 도구를 찾을 수 없습니다"
 
+#: sl-ctl/sl-ctl.py:240
 msgid "'accent <nombre>' necesita root (cambia /etc)"
 msgstr "'accent <이름>'은 root가 필요합니다 (/etc 변경)"
 
+#: sl-ctl/sl-ctl.py:256
 msgid "no se encuentra sl-theme"
 msgstr "sl-theme을 찾을 수 없습니다"
 
+#: sl-ctl/sl-ctl.py:261
 msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
 msgstr "sudo를 쓰면 로그인 화면, GRUB, 부팅 화면도 바뀝니다"
 
+#: sl-ctl/sl-ctl.py:280
 msgid "fstrim.timer semanal (solo SSD)"
 msgstr "주간 fstrim.timer (SSD 전용)"
 
+#: sl-ctl/sl-ctl.py:284
 msgid "Volver a frenar los split locks (desactivado por rendimiento)"
 msgstr "split lock 제한 다시 켜기 (성능을 위해 꺼 둠)"
 
+#: sl-ctl/sl-ctl.py:290
 msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
 msgstr "하드웨어 워치독 다시 불러오기 (기본으로 제거됨)"
 
+#: sl-ctl/sl-ctl.py:320 sl-ctl/sl-ctl.py:349
 msgid "aplicado"
 msgstr "적용됨"
 
+#: sl-ctl/sl-ctl.py:327
 #, python-brace-format
 msgid "ajuste desconocido: {name}"
 msgstr "알 수 없는 조정: {name}"
 
+#: sl-ctl/sl-ctl.py:354
 #, python-brace-format
 msgid "el ajuste {name} no está aplicado"
 msgstr "{name} 조정은 적용되어 있지 않습니다"
 
+#: sl-ctl/sl-ctl.py:368
 #, python-brace-format
 msgid "revertido: {name}"
 msgstr "되돌림: {name}"
 
+#: sl-ctl/sl-ctl.py:404
 msgid "el del kernel (este kernel no tiene sched_ext)"
 msgstr "커널 기본 (이 커널에는 sched_ext가 없음)"
 
+#: sl-ctl/sl-ctl.py:409
 msgid "el del kernel (EEVDF)"
 msgstr "커널 기본 (EEVDF)"
 
+#: sl-ctl/sl-ctl.py:411
 msgid "sin power-profiles-daemon"
 msgstr "power-profiles-daemon 없음"
 
+#: sl-ctl/sl-ctl.py:418
 msgid "ninguna"
 msgstr "없음"
 
+#: sl-ctl/sl-ctl.py:428
 msgid "rendimiento"
 msgstr "성능"
 
+#: sl-ctl/sl-ctl.py:430
 msgid "Planificador de CPU"
 msgstr "CPU 스케줄러"
 
+#: sl-ctl/sl-ctl.py:431
 msgid "Perfil de energía"
 msgstr "전원 프로필"
 
+#: sl-ctl/sl-ctl.py:434
 msgid "Planificador de disco"
 msgstr "디스크 스케줄러"
 
+#: sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:547
 msgid "parado"
 msgstr "중지됨"
 
+#: sl-ctl/sl-ctl.py:438
 #, no-python-format
 msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
 msgstr "게임: Steam 실행 옵션에  sl-game %command%  를 넣으세요."
 
+#: sl-ctl/sl-ctl.py:444
 msgid "power-profiles-daemon no está instalado"
 msgstr "power-profiles-daemon이 설치되어 있지 않습니다"
 
+#: sl-ctl/sl-ctl.py:448
 #, python-brace-format
 msgid "perfil desconocido: {name}"
 msgstr "알 수 없는 프로필: {name}"
 
+#: sl-ctl/sl-ctl.py:455
 #, python-brace-format
 msgid "Planificadores: {list}, off"
 msgstr "스케줄러: {list}, off"
 
+#: sl-ctl/sl-ctl.py:456
 msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
 msgstr "추천은 lavd: 부하를 스스로 따라가며 게임, 오디오, 데스크톱을 우선합니다."
 
+#: sl-ctl/sl-ctl.py:460
 #, python-brace-format
 msgid "planificador desconocido: {name}"
 msgstr "알 수 없는 스케줄러: {name}"
 
+#: sl-ctl/sl-ctl.py:464
 msgid "Vuelve el planificador del kernel."
 msgstr "커널 스케줄러로 돌아갑니다."
 
+#: sl-ctl/sl-ctl.py:467
 msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
 msgstr "이 커널에는 sched_ext가 없습니다. linux-zen 또는 linux를 쓰세요"
 
+#: sl-ctl/sl-ctl.py:493
 msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
 msgstr "스케줄러가 시작되지 않았습니다.  journalctl -u scx_loader  를 확인하세요"
 
+#: sl-ctl/sl-ctl.py:496
 #, python-brace-format
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "스케줄러: scx_{name} (다음 부팅에도 적용)."
 
+#: sl-ctl/sl-ctl.py:543
 msgid "no instalado"
 msgstr "설치 안 됨"
 
+#: sl-ctl/sl-ctl.py:553
 msgid "Escuchando"
 msgstr "대기 중"
 
+#: sl-ctl/sl-ctl.py:556
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "켜기: sudo sl-ctl server on <서비스> · 끄기: sudo sl-ctl server off <서비스>"
 
+#: sl-ctl/sl-ctl.py:563
 #, python-brace-format
 msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
 msgstr "{pkg}이(가) 설치되지 않았습니다: sudo pacman -S {pkg}"
 
+#: sl-ctl/sl-ctl.py:569
 msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
 msgstr "/etc/wireguard/wg0.conf가 없습니다: 먼저 만드세요 (위키: Servidor)."
 
+#: sl-ctl/sl-ctl.py:577
 #, python-brace-format
 msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
 msgstr "{user}이(가) docker 그룹에 추가됨 (다음 로그인부터 적용)."
 
+#: sl-ctl/sl-ctl.py:581
 #, python-brace-format
 msgid "Cortafuegos: {port} abierto."
 msgstr "방화벽: {port} 열림."
 
+#: sl-ctl/sl-ctl.py:583
 #, python-brace-format
 msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
 msgstr "방화벽 꺼짐: {port}에 네트워크에서 접근할 수 있습니다."
 
+#: sl-ctl/sl-ctl.py:584
 #, python-brace-format
 msgid "{name}: activo."
 msgstr "{name}: 켜짐."
 
+#: sl-ctl/sl-ctl.py:596
 #, python-brace-format
 msgid "{name}: parado y sin puertos abiertos."
 msgstr "{name}: 중지됨, 열린 포트 없음."
 
+#: sl-ctl/sl-ctl.py:603
 #, python-brace-format
 msgid "Servicios: {names}"
 msgstr "서비스: {names}"
 
+#: sl-ctl/sl-ctl.py:657
+msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
+msgstr "복원 지점 {n}이(가) 없습니다 (sl-ctl snapshot --list)"
+
+#: sl-ctl/sl-ctl.py:668
+msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
+msgstr "복원 지점 {n}: 패키지 {a}개를 당시 버전으로 되돌립니다."
+
+#: sl-ctl/sl-ctl.py:670
+msgid "Sin copia en la caché (se quedan como están): "
+msgstr "캐시에 사본 없음 (그대로 둠): "
+
+#: sl-ctl/sl-ctl.py:673
+msgid "Instalados después (no se tocan): "
+msgstr "이후에 설치됨 (건드리지 않음): "
+
+#: sl-ctl/sl-ctl.py:678
+msgid "La configuración de entonces está en {f} (no se restaura sola)."
+msgstr "당시 설정은 {f}에 있습니다 (자동으로 복원되지 않음)."
+
+#: sl-ctl/sl-ctl.py:685
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "업데이트 전후 스냅샷(snap-pac): 문제가 생기면 sl-ctl snapshot --rollback <n>"
 
+#: sl-ctl/sl-ctl.py:687
+msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "복원 지점을 만들었습니다 (패키지 버전과 /etc): 문제가 생기면 sl-ctl snapshot --rollback <n>"
+
+#: sl-ctl/sl-ctl.py:695
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR 업데이트 안 됨: 일반 사용자를 찾을 수 없습니다. 본인 계정으로 `paru -Sua`를 실행하세요."
 
-msgid "snapper no está instalado (solo BTRFS)"
-msgstr "snapper가 설치되어 있지 않습니다 (BTRFS 전용)"
+#: sl-ctl/sl-ctl.py:710
+msgid "Punto de restauración {n} creado."
+msgstr "복원 지점 {n}을(를) 만들었습니다."
 
-msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
-msgstr "스냅샷 없음: 시스템이 BTRFS가 아니거나 Snapper가 설정되지 않았습니다"
+#: sl-ctl/sl-ctl.py:716
+msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
+msgstr "(BTRFS 없음: 패키지와 /etc 복원 지점)"
 
+#: sl-ctl/sl-ctl.py:721
+msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
+msgstr "아직 없음: sl-ctl update가 업데이트 전에 하나 만듭니다"
+
+#: sl-ctl/sl-ctl.py:733
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "시스템 파일을 스냅샷 {n} 상태로 되돌립니다."
 
+#: sl-ctl/sl-ctl.py:734
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "현재 상태로 돌아올 수 있도록 먼저 스냅샷을 하나 더 만듭니다."
 
+#: sl-ctl/sl-ctl.py:738
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "완료. 복원된 버전을 불러오도록 다시 시작하세요."
 
+#: sl-ctl/sl-ctl.py:746
 msgid "reflector no está instalado"
 msgstr "reflector가 설치되어 있지 않습니다"
 
+#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "설치됨"
 
+#: sl-ctl/sl-ctl.py:842
 msgid "pendiente (instalación sin red)"
 msgstr "대기 중 (네트워크 없이 설치됨)"
 
+#: sl-ctl/sl-ctl.py:848
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "연결 후: sudo sl-ctl flavor add pending"
 
+#: sl-ctl/sl-ctl.py:849
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "추가: sudo sl-ctl flavor add <플레이버> · 제거: sudo sl-ctl flavor remove <플레이버>"
 
+#: sl-ctl/sl-ctl.py:858
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "{name} 플레이버 설치 중: 패키지 {n}개"
 
+#: sl-ctl/sl-ctl.py:870
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "Flathub에서 {app}을(를) 설치할 수 없습니다"
 
+#: sl-ctl/sl-ctl.py:888
 msgid "Del AUR, con tu usuario:"
 msgstr "AUR에서, 본인 사용자로:"
 
+#: sl-ctl/sl-ctl.py:892
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "새 그룹을 사용하려면 로그아웃했다가 다시 로그인하세요."
 
+#: sl-ctl/sl-ctl.py:893
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "{name} 플레이버를 설치했습니다."
 
+#: sl-ctl/sl-ctl.py:928
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "{name} 플레이버를 제거했습니다."
 
+#: sl-ctl/sl-ctl.py:946
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "사용법: sl-ctl flavor [list | add <플레이버> | remove <플레이버>]"
 
+#: sl-ctl/sl-ctl.py:948
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "알 수 없는 플레이버: {name}"
 
+#: sl-ctl/sl-ctl.py:955
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome이 설치되어 있지 않습니다."
 
+#: sl-ctl/sl-ctl.py:961
 msgid "Gestión de Static Linux"
 msgstr "Static Linux 관리"
 
+#: sl-ctl/sl-ctl.py:965
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "sl-detect를 실행하고 결과 표시"
 
+#: sl-ctl/sl-ctl.py:966
 msgid "información del sistema"
 msgstr "시스템 정보"
 
+#: sl-ctl/sl-ctl.py:967
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "시스템 전체 업데이트 (pacman + AUR + Flatpak)"
 
+#: sl-ctl/sl-ctl.py:968
 msgid "renueva los mirrors con reflector"
 msgstr "reflector로 미러 갱신"
 
+#: sl-ctl/sl-ctl.py:969
 msgid "abre otra vez sl-welcome"
 msgstr "sl-welcome 다시 열기"
 
+#: sl-ctl/sl-ctl.py:971
 msgid "ajustes del sistema reversibles"
 msgstr "되돌릴 수 있는 시스템 조정"
 
-msgid "instantáneas de Snapper"
-msgstr "Snapper 스냅샷"
+#: sl-ctl/sl-ctl.py:977
+msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
+msgstr "스냅샷 (BTRFS는 Snapper, ext4는 복원 지점)"
 
-msgid "devuelve los archivos del sistema a esa instantánea"
-msgstr "시스템 파일을 그 스냅샷 상태로 되돌립니다"
+#: sl-ctl/sl-ctl.py:980
+msgid "devuelve el sistema a esa instantánea o punto de restauración"
+msgstr "시스템을 해당 스냅샷이나 복원 지점으로 되돌립니다"
 
+#: sl-ctl/sl-ctl.py:983
 msgid "añade o quita sabores"
 msgstr "플레이버 추가 또는 제거"
 
+#: sl-ctl/sl-ctl.py:990
 msgid "qué se conecta a la red ahora mismo"
 msgstr "지금 네트워크에 연결된 것"
 
+#: sl-ctl/sl-ctl.py:992
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "개인정보 프로필 표시 또는 변경"
 
+#: sl-ctl/sl-ctl.py:996
 msgid "muestra o cambia el color de acento"
 msgstr "강조색 표시 또는 변경"
 
+#: sl-ctl/sl-ctl.py:998
 msgid "lista los acentos"
 msgstr "강조색 목록"
 
+#: sl-ctl/sl-ctl.py:1001
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "테마 표시 또는 변경 (배경화면 + 팔레트 + 스타일)"
 
+#: sl-ctl/sl-ctl.py:1003
 msgid "lista los temas"
 msgstr "테마 목록"
 
+#: sl-ctl/sl-ctl.py:1006
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "성능: 상태, 전원 프로필, CPU 스케줄러"
 
+#: sl-ctl/sl-ctl.py:1011
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "서버: 서비스 상태 확인 및 켜기/끄기"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Espacio"
 msgstr "Space"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Impr Pant"
 msgstr "PrintScreen"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Intro"
 msgstr "Enter"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic derecho"
 msgstr "오른쪽 클릭"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic izquierdo"
 msgstr "왼쪽 클릭"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↑"
 msgstr "휠 ↑"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↓"
 msgstr "휠 ↓"
 
+#: sl-ctl/sl-hypr-guide:40
 msgid "Silencio"
 msgstr "음소거"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo +"
 msgstr "밝기 +"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo −"
 msgstr "밝기 −"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Micro"
 msgstr "마이크"
 
+#: sl-ctl/sl-hypr-guide:49
 #, python-brace-format
 msgid "código {n}"
 msgstr "코드 {n}"
 
+#: sl-ctl/sl-hypr-guide:62
 msgid "flechas"
 msgstr "방향키"
 
+#: sl-ctl/sl-hypr-guide:81
 msgid "Otros"
 msgstr "기타"
 
+#: sl-ctl/sl-hypr-guide:130
 msgid "Atajos de Hyprland"
 msgstr "Hyprland 단축키"
 
+#: sl-ctl/sl-hypr-guide:139
 msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
 msgstr "Hyprland는 주로 키보드로 다룹니다. Super는 Windows 키입니다. 이 안내서는 언제든 Super + F1로 다시 열 수 있습니다."
 
+#: sl-ctl/sl-hypr-guide:145
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "단축키를 읽을 수 없습니다 (Hyprland가 실행 중인가요?)."
 
 #. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
+#: sl-ctl/sl-quick:40
 msgid "%A, %-d de %B"
 msgstr "%-m월 %-d일 %A"
 
+#: sl-ctl/sl-quick:83
 msgid "Cable"
 msgstr "유선"
 
+#: sl-ctl/sl-quick:171
 #, python-brace-format
 msgid "Red: {name}"
 msgstr "네트워크: {name}"
 
+#: sl-ctl/sl-quick:199
 msgid "Ajustes rápidos"
 msgstr "빠른 설정"
 
+#: sl-ctl/sl-quick:230
 msgid "Cerrar sesión"
 msgstr "로그아웃"
 
+#: sl-ctl/sl-quick:231
 msgid "Apagar"
 msgstr "시스템 종료"
 
+#: sl-ctl/sl-quick:232
 msgid "Bloquear"
 msgstr "잠금"
 
+#: sl-ctl/sl-quick:233
 msgid "Ajustes"
 msgstr "설정"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Activado"
 msgstr "켜짐"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Desactivado"
 msgstr "꺼짐"
 
+#: sl-ctl/sl-quick:264
 msgid "Avisos activos"
 msgstr "알림 켜짐"
 
+#: sl-ctl/sl-quick:264
 msgid "No molestar"
 msgstr "방해 금지"
 
+#: sl-ctl/sl-quick:264
 msgid "Sin avisos"
 msgstr "알림 없음"
 
+#: sl-ctl/sl-quick:266
 msgid "Luz nocturna"
 msgstr "야간 조명"
 
+#: sl-ctl/sl-quick:266
 msgid "Tonos cálidos"
 msgstr "따뜻한 색조"
 
+#: sl-ctl/sl-quick:275
 msgid "Captura"
 msgstr "스크린샷"
 
+#: sl-ctl/sl-quick:301
 #, python-brace-format
 msgid "Batería {pct} %"
 msgstr "배터리 {pct} %"
 
+#: sl-ctl/sl-quick:301
 msgid "cargando"
 msgstr "충전 중"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "Frutiger Aero, barra abajo"
 msgstr "Frutiger Aero, 아래쪽 막대"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "barra fina arriba"
 msgstr "위쪽 얇은 막대"
 
+#: sl-welcome/src/pages/appearance.py:56
 msgid "como Windows, barra abajo"
 msgstr "Windows 스타일, 아래쪽 막대"
 
+#: sl-welcome/src/pages/appearance.py:57
 msgid "lanzador y estante abajo"
 msgstr "아래쪽 실행기와 선반"
 
+#: sl-welcome/src/pages/appearance.py:106
 msgid "Tema"
 msgstr "테마"
 
+#: sl-welcome/src/pages/appearance.py:107
 msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
 msgstr "테마는 배경화면, 거기서 뽑은 팔레트, 창과 막대 스타일로 이루어집니다. 모두 한 번에 바뀌고, 바뀌는 것은 백업됩니다. sudo가 필요 없습니다."
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "claro"
 msgstr "밝은"
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "oscuro"
 msgstr "어두운"
 
+#: sl-welcome/src/pages/appearance.py:135
 msgid "No encuentro los temas de Static Linux (sl-theme)."
 msgstr "Static Linux 테마를 찾을 수 없습니다 (sl-theme)."
 
+#: sl-welcome/src/pages/appearance.py:147
 msgid "No se pudo aplicar el tema"
 msgstr "테마를 적용하지 못했습니다"
 
+#: sl-welcome/src/pages/appearance.py:147
 #, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "테마 적용됨: {name}"
 
+#: sl-welcome/src/pages/catalog.py:42
 msgid "repos oficiales"
 msgstr "공식 저장소"
 
+#: sl-welcome/src/pages/catalog.py:93
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "완료. Enter를 눌러 닫으세요… "
 
+#: sl-welcome/src/pages/catalog.py:128
 msgid "Pendiente de tus sabores"
 msgstr "플레이버에서 남은 항목"
 
+#: sl-welcome/src/pages/catalog.py:129
 msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
 msgstr "설치 중에 설치하지 못한 항목입니다. 이미 선택되어 있습니다."
 
+#: sl-welcome/src/pages/catalog.py:139 sl-welcome/src/window.py:48
 msgid "Catálogo"
 msgstr "카탈로그"
 
+#: sl-welcome/src/pages/catalog.py:140
 msgid "No se encontró ningún catálogo."
 msgstr "카탈로그를 찾을 수 없습니다."
 
+#: sl-welcome/src/pages/catalog.py:153
 msgid "Instalar lo marcado"
 msgstr "선택한 항목 설치"
 
+#: sl-welcome/src/pages/catalog.py:154
 msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
 msgstr "공식 저장소: 비밀번호 필요 · Flathub: 비밀번호 없음 · AUR와 Static Forge: 터미널이 열립니다"
 
+#: sl-welcome/src/pages/catalog.py:156
 msgid "Instalar"
 msgstr "설치"
 
+#: sl-welcome/src/pages/catalog.py:166
 msgid "No has marcado nada"
 msgstr "선택한 항목이 없습니다"
 
+#: sl-welcome/src/pages/catalog.py:181
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Static Forge 앱을 설치할 터미널이 없습니다"
 
+#: sl-welcome/src/pages/catalog.py:186
 #, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "터미널 없음: «{cmd}»를 실행하세요"
 
+#: sl-welcome/src/pages/catalog.py:200
 msgid "pacman falló"
 msgstr "pacman 실패"
 
+#: sl-welcome/src/pages/catalog.py:209
 msgid "flatpak falló"
 msgstr "flatpak 실패"
 
+#: sl-welcome/src/pages/catalog.py:216
 #, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "앱 {n}개 설치됨"
 
+#: sl-welcome/src/pages/catalog.py:217 sl-welcome/src/pages/privacy.py:63
 #, python-brace-format
 msgid "Falló: {error}"
 msgstr "실패: {error}"
 
+#: sl-welcome/src/pages/overview.py:24
 msgid "Wiki online"
 msgstr "온라인 위키"
 
+#: sl-welcome/src/pages/overview.py:25
 msgid "Repositorio (GitHub)"
 msgstr "저장소 (GitHub)"
 
+#: sl-welcome/src/pages/overview.py:26
 msgid "Reportar un problema"
 msgstr "문제 신고"
 
+#: sl-welcome/src/pages/overview.py:74
 msgid "Este equipo"
 msgstr "이 컴퓨터"
 
+#: sl-welcome/src/pages/overview.py:78
 msgid "Driver gráfico"
 msgstr "그래픽 드라이버"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "No"
 msgstr "아니요"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "Sí"
 msgstr "예"
 
+#: sl-welcome/src/pages/overview.py:81
 msgid "Almacenamiento"
 msgstr "저장 장치"
 
+#: sl-welcome/src/pages/overview.py:86
 msgid "Recomendación de sl-detect"
 msgstr "sl-detect 추천"
 
+#: sl-welcome/src/pages/overview.py:87
 msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
 msgstr "이 하드웨어에 맞게 계산했습니다. 모양과 개인정보 보호에서 바꿀 수 있습니다."
 
+#: sl-welcome/src/pages/overview.py:89
 msgid "Entorno"
 msgstr "환경"
 
+#: sl-welcome/src/pages/overview.py:90
 msgid "Sistema de archivos"
 msgstr "파일 시스템"
 
+#: sl-welcome/src/pages/overview.py:94
 msgid "Enlaces"
 msgstr "링크"
 
+#: sl-welcome/src/pages/overview.py:96
 msgid "Copia local, funciona sin conexión"
 msgstr "로컬 사본, 오프라인에서도 작동"
 
+#: sl-welcome/src/pages/privacy.py:17
 msgid "Básico"
 msgstr "기본"
 
+#: sl-welcome/src/pages/privacy.py:18
 msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
 msgstr "첫날부터 안전한 설정 + UFW + 무작위 MAC. 커널 linux-zen."
 
+#: sl-welcome/src/pages/privacy.py:19
 msgid "Mejorado"
 msgstr "강화"
 
+#: sl-welcome/src/pages/privacy.py:20
 msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
 msgstr "+ Firejail + AppArmor + USBGuard. 커널 linux-zen."
 
+#: sl-welcome/src/pages/privacy.py:21
 msgid "Máximo"
 msgstr "최대"
 
+#: sl-welcome/src/pages/privacy.py:22
 msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
 msgstr "+ Tor + kloak + 암호화된 스왑. 커널 linux-hardened."
 
+#: sl-welcome/src/pages/privacy.py:29
 msgid "Perfil de privacidad"
 msgstr "개인정보 보호 프로필"
 
+#: sl-welcome/src/pages/privacy.py:30
 msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
 msgstr "각 프로필은 바꾸는 내용을 백업하므로 (/var/backups/static-linux/privacy/) 모든 것을 되돌릴 수 있습니다. 관리자 비밀번호가 필요합니다."
 
+#: sl-welcome/src/pages/privacy.py:39
 msgid "Aplicar"
 msgstr "적용"
 
+#: sl-welcome/src/pages/privacy.py:62
 #, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "{name} 프로필 적용됨"
 
+#: sl-welcome/src/pages/privacy.py:63
 msgid "mira el registro"
 msgstr "로그를 확인하세요"
 
+#: sl-welcome/src/privileged.py:34
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec가 설치되어 있지 않습니다. 시스템 변경을 적용하려면 «polkit»을 설치하세요."
 
+#: sl-welcome/src/privileged.py:50
 #, python-brace-format
 msgid "no encuentro {path}"
 msgstr "{path}을(를) 찾을 수 없습니다"
 
+#: sl-welcome/src/window.py:28
 msgid "Bienvenido a Static Linux"
 msgstr "Static Linux에 오신 것을 환영합니다"
 
+#: sl-welcome/src/window.py:40
 msgid "General"
 msgstr "개요"
 
+#: sl-welcome/src/window.py:43
 msgid "Apariencia"
 msgstr "모양"
 
+#: sl-ctl/sl-game:21
 msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
 msgstr "사용법: sl-game <명령…>   (Steam에서: sl-game %command%)"
 
+#: sl-ctl/sl-logout:11
 msgid "¿Cerrar la sesión?"
 msgstr "로그아웃할까요?"
 
+#: sl-ctl/sl-logout:12
 msgid "Sí, cerrar la sesión"
 msgstr "예, 로그아웃"
 
+#: sl-ctl/sl-logout:18
 msgid "Cancelar"
 msgstr "취소"
 
+#: sl-ctl/sl-screenshot:20 sl-ctl/sl-screenshot:24
 msgid "Capturas"
 msgstr "스크린샷"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Captura guardada"
 msgstr "스크린샷 저장됨"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Copiada al portapapeles"
 msgstr "클립보드에 복사됨"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:35
 msgid "Aplicaciones (Super + Espacio)"
 msgstr "응용 프로그램 (Super + Space)"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:117
 msgid "Sin conexión"
 msgstr "연결 안 됨"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:160
 msgid "Más ajustes de sonido"
 msgstr "사운드 설정 더 보기"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:195
 msgid "Suspender"
 msgstr "절전"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:198
 msgid "Reiniciar"
 msgstr "다시 시작"
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:1
 msgid "Static Forge"
 msgstr "Static Forge"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:5
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "YouTube, YouTube Music, Spotify, Pinterest에서 다운로드. 스튜디오 제작."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:6
 msgid "Internet"
 msgstr "인터넷"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:10
 msgid "El navegador de Mozilla."
 msgstr "Mozilla의 브라우저."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:14
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "Firefox 기반, 세로 탭과 작업 공간 지원."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:19
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "Google 서비스가 없는 Chrome의 자유 기반."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:23
 msgid "Correo, calendario y contactos."
 msgstr "메일, 캘린더, 연락처."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:27
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "광고 없는 자유 BitTorrent 클라이언트."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:31
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "클라우드 없이 네트워크의 다른 기기로 파일을 보냅니다."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:35
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "내 Nextcloud 서버와 동기화합니다."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:39
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP 클라이언트."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:1
 msgid "Comunicación"
 msgstr "커뮤니케이션"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:5
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Vencord가 내장된 Discord: 테마, 플러그인, Linux에서 더 나은 성능."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:10
 msgid "El cliente oficial."
 msgstr "공식 클라이언트."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:14
 msgid "Mensajería."
 msgstr "메신저."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:18
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "종단 간 암호화 메신저."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:22
 msgid "Chat descentralizado (Matrix)."
 msgstr "탈중앙화 채팅 (Matrix)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:1
 msgid "Música y audio"
 msgstr "음악과 오디오"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:5
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "공식 클라이언트 (spotify-launcher로 설치 및 업데이트)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:9
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Spotify용 테마와 확장. 먼저 Spotify를 설치하세요."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:13
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Spotify 재생목록을 로컬로 다운로드 (YouTube Music에서)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:17
 msgid "Grabar y editar audio."
 msgstr "오디오 녹음 및 편집."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:21
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "자유 전문가용 DAW: 멀티트랙 녹음과 믹싱."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:25
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "FL Studio 스타일의 음악 제작용 자유 DAW."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:29
 msgid "Caja de ritmos."
 msgstr "드럼 머신."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:33
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "체험판이 있는 상용 DAW, Linux 네이티브."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:37
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "가볍고 강력한 DAW (유료 라이선스, 전체 기능 체험판)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:41
 msgid "Software de DJ."
 msgstr "DJ 소프트웨어."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:45
 msgid "Reproductor de música ligero."
 msgstr "가벼운 음악 플레이어."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:1
 msgid "Vídeo"
 msgstr "비디오"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:5
 msgid "Editor de vídeo libre y completo."
 msgstr "자유롭고 기능이 풍부한 동영상 편집기."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:9
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "자유롭고 간단하며 빠른 동영상 편집기."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:13
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "전문 편집과 색 보정 (무료지만 자유 소프트웨어는 아님). 무겁고 전용 GPU가 필요합니다."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:17
 msgid "Grabar y emitir en directo."
 msgstr "녹화와 라이브 방송."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:21
 msgid "Convertir y comprimir vídeo."
 msgstr "동영상 변환과 압축."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:25
 msgid "Reproduce cualquier cosa."
 msgstr "무엇이든 재생합니다."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:29
 msgid "Reproductor mínimo y muy rápido."
 msgstr "최소한으로 매우 빠른 플레이어."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:1
 msgid "Grafismo y 3D"
 msgstr "그래픽과 3D"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:5
 msgid "Pintura digital."
 msgstr "디지털 페인팅."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:9
 msgid "Retoque fotográfico."
 msgstr "사진 보정."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:13
 msgid "Gráficos vectoriales."
 msgstr "벡터 그래픽."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:17
 msgid "Modelado, animación y render 3D."
 msgstr "3D 모델링, 애니메이션, 렌더링."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:21
 msgid "CAD 3D paramétrico."
 msgstr "파라메트릭 3D CAD."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:25
 msgid "Revelado RAW."
 msgstr "RAW 현상."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:29
 msgid "Motor de videojuegos libre."
 msgstr "자유 게임 엔진."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:33
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "픽셀 아트와 애니메이션 (소스에서 빌드)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:1
 msgid "Juegos"
 msgstr "게임"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:5
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "Proton으로 Windows 게임을 즐기세요."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:9
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games, GOG, Amazon Prime Gaming. Linux에서 Epic을 쓰는 방법."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:14
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "모든 게임과 런처를 한곳에 (Battle.net, EA, Ubisoft…)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:18
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "여러 인스턴스와 모드를 지원하는 Minecraft Java."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:22
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Modrinth의 모드와 모드팩을 쓰는 Minecraft Java."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:26
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "Mojang의 공식 Minecraft Java 런처."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:30
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "베드락 에디션 런처 (Google Play에서 구매해야 합니다)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:34
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Proton-GE 등 여러 Proton/Wine 버전을 클릭 한 번으로 설치."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:38
 msgid "Programas de Windows en entornos aislados."
 msgstr "격리된 환경에서 Windows 프로그램 실행."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:42
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "게임 성능과 FPS 표시."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:46
 msgid "Emulador multisistema."
 msgstr "멀티 시스템 에뮬레이터."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:50
 msgid "Emulador de GameCube y Wii."
 msgstr "게임큐브와 Wii 에뮬레이터."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:54
 msgid "Emulador de PlayStation 2."
 msgstr "PlayStation 2 에뮬레이터."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/07-desarrollo.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:148
 msgid "Desarrollo"
 msgstr "개발"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:5
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "버전 관리 (Static Linux에 포함)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:9
 msgid "GitHub desde la terminal (gh)."
 msgstr "터미널에서 GitHub (gh)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:13
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Compose와 Buildx가 있는 컨테이너. docker 그룹에 자신을 추가하는 것을 잊지 마세요."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:17
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "마켓플레이스가 있는 Microsoft 빌드."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:21
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "자유 소스로 빌드한 VS Code (공식 저장소)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:25
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "Microsoft 원격 측정이 없는 VS Code."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:30
 msgid "Editor modal en la terminal."
 msgstr "터미널의 모달 편집기."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:34
 msgid "Git con interfaz en la terminal."
 msgstr "터미널 UI가 있는 Git."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:38
 msgid "Comparar archivos y carpetas."
 msgstr "파일과 폴더 비교."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:42
 msgid "Cliente de bases de datos."
 msgstr "데이터베이스 클라이언트."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:46
 msgid "adb y fastboot."
 msgstr "adb와 fastboot."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:1
 msgid "Productividad"
 msgstr "생산성"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:5
 msgid "Ofimática completa, en español y con corrector."
 msgstr "맞춤법 검사가 있는 완전한 오피스 제품군."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:9
 msgid "Notas en Markdown enlazadas."
 msgstr "서로 연결된 Markdown 노트."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:13
 msgid "Gestor de contraseñas local y libre."
 msgstr "로컬 자유 비밀번호 관리자."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:17
 msgid "Gestor de contraseñas en la nube."
 msgstr "클라우드 비밀번호 관리자."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:21
 msgid "Notas con sincronización cifrada."
 msgstr "암호화 동기화가 되는 노트."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:25
 msgid "Notas a mano y anotar PDFs."
 msgstr "손글씨 노트와 PDF 주석."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:29
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "PDF 병합, 분할, 순서 변경."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:33
 msgid "Tareas y listas."
 msgstr "할 일과 목록."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:1
 msgid "Sistema y herramientas"
 msgstr "시스템과 도구"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:5
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "7z, zip, rar… 압축과 해제 (Static Linux에 포함)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:9
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "오디오와 비디오 변환 (Static Linux에 포함)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:13
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "YouTube 등에서 동영상과 오디오 다운로드 (Static Linux에 포함)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:17
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH 클라이언트와 서버 (포함. 서버는 켜기 전까지 꺼져 있습니다)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:21
 msgid "Permisos de las apps de Flathub."
 msgstr "Flathub 앱 권한."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:25
 msgid "Copias del sistema para volver atrás."
 msgstr "되돌리기 위한 시스템 스냅숏."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:29
 msgid "Particionar discos."
 msgstr "디스크 파티션 나누기."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:33
 msgid "Liberar espacio y borrar rastros."
 msgstr "공간 확보와 흔적 삭제."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:37
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "클라우드 없이 컴퓨터 사이에서 폴더 동기화."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:41
 msgid "Monitor de recursos en la terminal."
 msgstr "터미널 리소스 모니터."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:45
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "여러 ISO를 한 번에 담는 부팅 USB."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/10-virtualizacion.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:228
 msgid "Máquinas virtuales"
 msgstr "가상 머신"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:5
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "KVM 기반 가상 머신, Linux에서 가장 빠름. QEMU와 libvirt 포함."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:9
 msgid "Máquinas virtuales en dos clics."
 msgstr "두 번의 클릭으로 가상 머신."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:13
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "전통적인 선택지. KVM보다 느리고 자체 커널 모듈을 씁니다."
 
 #. installer page (name)
 #. theme name
+#: branding/themes/aero/theme.conf
+#: installer/calamares/modules/tema/module.conf:251
 msgid "Aero"
 msgstr "에어로"
 
 #. short description of a theme
+#: branding/themes/aero/theme.conf
 msgid "cielo, agua y hierba, con brillo"
 msgstr "하늘, 물, 풀, 광택"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/ambar/theme.conf
+#: installer/calamares/modules/tema/module.conf:30
 msgid "Ámbar"
 msgstr "호박"
 
 #. short description of a theme
+#: branding/themes/ambar/theme.conf
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "70년대의 나무, 겨자, 청록"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/bosque/theme.conf
+#: installer/calamares/modules/tema/module.conf:147
 msgid "Bosque"
 msgstr "숲"
 
 #. short description of a theme
+#: branding/themes/bosque/theme.conf
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "소나무 위 안개, 차분한 초록과 축축한 회색"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nordico/theme.conf
+#: installer/calamares/modules/tema/module.conf:109
 msgid "Nórdico"
 msgstr "노르딕"
 
 #. short description of a theme
+#: branding/themes/nordico/theme.conf
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "푸른빛 슬레이트 그레이, 얼음과 서리"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nube/theme.conf
+#: installer/calamares/modules/tema/module.conf:320
 msgid "Nube"
 msgstr "구름"
 
 #. short description of a theme
+#: branding/themes/nube/theme.conf
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "구름 낀 아침 하늘, 밝고 부드러움"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/papel/theme.conf
+#: installer/calamares/modules/tema/module.conf:71
 msgid "Papel"
 msgstr "종이"
 
 #. short description of a theme
+#: branding/themes/papel/theme.conf
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "오래된 종이, 먹, 올리브 그린"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/sakura/theme.conf
+#: installer/calamares/modules/tema/module.conf:187
 msgid "Sakura"
 msgstr "사쿠라"
 
 #. short description of a theme
+#: branding/themes/sakura/theme.conf
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "벚꽃 분홍 배경 위의 먹색 창"
 
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:200
+#: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "윈도우즈"
 
 #. short description of a theme
+#: branding/themes/ventanas/theme.conf
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "흑연 회색과 하늘색, 아이콘이 가운데인 아래쪽 막대"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/violeta/theme.conf
+#: installer/calamares/modules/tema/module.conf:215
 msgid "Violeta"
 msgstr "바이올렛"
 
 #. short description of a theme
+#: branding/themes/violeta/theme.conf
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "보라색 단색, 해 질 녘 산"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "Apps"
 msgstr "앱"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:175
 msgid "abrir la terminal"
 msgstr "터미널 열기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:176
 msgid "abrir el gestor de archivos"
 msgstr "파일 관리자 열기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:177
 msgid "abrir el navegador (Brave Origin)"
 msgstr "브라우저 열기 (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "lanzador de aplicaciones"
 msgstr "앱 실행기"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:182
 msgid "Ayuda"
 msgstr "도움말"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:182
 msgid "esta guía de atajos"
 msgstr "이 단축키 안내서"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:185
+#: entornos/hyprland-common/static.lua:186
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "화면 영역 (파일 + 클립보드)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:189
 msgid "cerrar la ventana"
 msgstr "창 닫기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:190
 msgid "pantalla completa"
 msgstr "전체 화면"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:191
 msgid "flotante / en mosaico"
 msgstr "떠 있는 창 / 타일"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:192
 msgid "pseudo-mosaico"
 msgstr "유사 타일"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:193
 msgid "cambiar división horizontal/vertical"
 msgstr "가로/세로 분할 전환"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:194
 msgid "pasar a la siguiente"
 msgstr "다음으로 전환"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:196
 msgid "mover el foco"
 msgstr "포커스 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:197
 msgid "mover la ventana"
 msgstr "창 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:199
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "Super + 왼쪽 클릭으로 끌기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:200
 msgid "redimensionar con Super + clic derecho"
 msgstr "Super + 오른쪽 클릭으로 크기 조절"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
 msgid "Escritorios"
 msgstr "작업 공간"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:204
 msgid "ir a un escritorio"
 msgstr "작업 공간으로 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:205
 msgid "mover la ventana a otro escritorio"
 msgstr "창을 다른 작업 공간으로 이동"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:207
 msgid "siguiente (rueda del ratón)"
 msgstr "다음 (마우스 휠)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:208
 msgid "anterior (rueda del ratón)"
 msgstr "이전 (마우스 휠)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:209
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "임시 작업 공간 보이기/숨기기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:210
 msgid "mandar la ventana al escritorio rápido"
 msgstr "창을 임시 작업 공간으로 보내기"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:214
 msgid "Sesión"
 msgstr "세션"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:213
 msgid "bloquear la pantalla"
 msgstr "화면 잠금"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:214
 msgid "ver la última notificación"
 msgstr "마지막 알림 보기"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:228
 msgid "Multimedia"
 msgstr "미디어"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:220
 msgid "subir volumen"
 msgstr "볼륨 높이기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:221
 msgid "bajar volumen"
 msgstr "볼륨 낮추기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:222
 msgid "silenciar"
 msgstr "음소거"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:223
 msgid "silenciar el micrófono"
 msgstr "마이크 음소거"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:224
 msgid "subir brillo"
 msgstr "밝기 높이기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:225
 msgid "bajar brillo"
 msgstr "밝기 낮추기"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:226
 msgid "reproducir/pausar"
 msgstr "재생/일시 정지"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:227
 msgid "siguiente pista"
 msgstr "다음 트랙"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:228
 msgid "pista anterior"
 msgstr "이전 트랙"
 
 #. installer page (step)
+#: installer/calamares/modules/entorno/module.conf:24
 msgid "Entorno de escritorio"
 msgstr "데스크톱 환경"
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:46
 msgid "XFCE (temático)"
 msgstr "XFCE (테마 적용)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:61
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "실제 하드웨어에서 검증된 환경 (Packard Bell iMedia S2883). Xorg, 가벼움. RAM 1 GB 이상이거나 GPU가 Wayland를 지원하지 않을 때 추천합니다."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:85
 msgid "Openbox minimal"
 msgstr "Openbox 최소"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:99
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "가장 낮은 단계: 512 MB. Openbox + tint2 + jgmenu, 기본적으로 컴포지터 없음."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:122
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:123
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland, 2-4 GB. full 버전과 같은 Astal 셸, 흐림·그림자·무거운 애니메이션 없음."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:146
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:147
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland, 권장 상한 4 GB. 흐림, 그림자, 전체 애니메이션. Wayland를 잘 지원하는 GPU가 필요합니다."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:170
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:171
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "완전하고 익숙한 데스크톱: 아래쪽 막대, 시작 메뉴, Dolphin, 모든 것을 위한 설정. Wayland, RAM 4 GB 이상. 가장 무거운 환경이라 sl-detect는 기본으로 추천하지 않습니다."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:195
 msgid "GNOME"
 msgstr "GNOME"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:196
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "있는 그대로의 GNOME 데스크톱: 현재 활동, 독, GNOME 앱. Wayland, RAM 4 GB 이상. 테마가 밝은/어두운 모드, 강조색, 배경화면, 앱에 적용됩니다. GDM으로 로그인."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:220
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:221
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "클래식하고 편안함: 아래쪽 막대, 시작 메뉴, 바탕 화면 아이콘. Xorg, 2 GB 이상. 테마가 패널과 메뉴에도 적용됩니다."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:245
 msgid "i3"
 msgstr "i3"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:246
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "키보드로 타일링: 창이 알아서 배치됩니다. Xorg, 1 GB 이상. i3bar 막대, rofi 실행기. Super + Enter로 터미널을 엽니다."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:269
 msgid "bspwm"
 msgstr "bspwm"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:270
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "이진 트리 타일링, sxhkd 단축키, polybar 막대. Xorg, 1 GB 이상. 모든 것을 직접 설정하고 싶은 분께."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:293
 msgid "sway"
 msgstr "sway"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:294
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "Wayland에서 쓰는 i3 타일링. 1-2 GB 이상. waybar 막대, rofi 실행기, mako 알림."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:320
 msgid "Sin entorno gráfico"
 msgstr "그래픽 환경 없음"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:338
 msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
 msgstr "콘솔만: 명령줄로 부팅하며 디스플레이 서버, 브라우저, 오디오가 없습니다. tmux, btop, sl-ctl 포함. 512 MB 이상."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:363
+#: installer/calamares/modules/sabores-picker/module.conf:348
 msgid "Servidor / Homelab"
 msgstr "서버 / 홈랩"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:377
 msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
 msgstr "그래픽 환경 없이 서버 플레이버 포함: Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit(웹 패널). «sl-ctl server»로 켜기 전까지 네트워크에서 아무것도 대기하지 않습니다."
 
 #. installer page (step)
+#: installer/calamares/modules/sabores-picker/module.conf:10
 msgid "Sabores"
 msgstr "플레이버"
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:29
 msgid "Sabores (opcional)"
 msgstr "플레이버 (선택)"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:44
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "하려는 일에 맞춘 앱 묶음입니다. 원하는 것을 선택하세요 (여러 개 또는 없음): 시스템과 함께 설치되며 각각 잘 돌아가도록 조정되어 있습니다. 나중에 환영 앱에서 추가하거나 뺄 수 있습니다."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:69
 msgid "Gaming"
 msgstr "게이밍"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:83
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Steam과 Proton, Lutris, Heroic (Epic, GOG, Amazon), Minecraft용 Prism Launcher와 Modrinth, MangoHud, GameMode, Gamescope. 32비트 라이브러리와 GPU의 Vulkan 드라이버를 켭니다."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:107
 msgid "Creación de contenido"
 msgstr "콘텐츠 제작"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:125
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity, 그리고 DAW인 Ardour, LMMS, Hydrogen. 실시간 (저지연) 오디오 포함."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:166
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git과 GitHub CLI, Docker (쓸 때 자동 시작), VS Code (Code - OSS), Python, Rust, Node, Java."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:189
 msgid "Oficina"
 msgstr "사무"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:205
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "맞춤법 검사가 있는 LibreOffice, Obsidian, KeePassXC, Xournal++, PDF 도구."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:246
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "virt-manager와 GNOME Boxes가 있는 KVM/QEMU, Windows 11 게스트용 TPM과 UEFI 지원."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:269
 msgid "Educación"
 msgstr "교육"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:286
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra, Stellarium, Anki, Jupyter, FreeCAD."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:308
 msgid "Ciberseguridad"
 msgstr "사이버 보안"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:326
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra, Tor."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:362
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban, Cockpit. 보안을 위해 켜기 전까지 어떤 서비스도 대기하지 않습니다."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:47
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Static Linux의 테마. 어둡고 따뜻함: 나무, 겨자, 청록. 배경은 호쿠사이의 «산하백우». 위쪽 얇은 막대와 불투명한 창."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:86
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "밝음, 오래된 종이와 먹과 올리브 그린의 색조. 배경은 호쿠사이의 판화. 밝은 곳에서 일하는 분께."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:124
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "어둡고 차가움: 푸른빛 슬레이트와 얼음. 배경은 히로시게의 «가바라 밤의 눈»."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:164
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "어두움, 소나무와 안개의 초록. 배경은 히로시게의 «쓰치야마 봄비»."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:193
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "어두움에 벚꽃 분홍. 배경은 호쿠사이의 «고텐야마에서 본 후지»."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:229
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "어두운 보라색 단색, 해 질 녘 산."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:256
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Frutiger Aero 스타일: 밝고, 하늘과 거품과 풀, 광택 있는 막대, 작업 표시줄은 아래."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:297
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Windows 스타일: 어둡고, 앱이 가운데인 작업 표시줄이 아래, 창 버튼은 ─ □ ✕."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:337
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "밝고 부드러움, 구름 낀 하늘 배경. 둥근 실행기와 앱이 가운데인 선반이 아래. 시계를 누르면 빠른 설정이 열립니다."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:18
 msgid ""
 "fast · private · yours\n"
 "Tu sistema se está instalando. Esto tarda unos minutos."
@@ -1518,10 +2006,12 @@ msgstr ""
 "시스템을 설치하는 중입니다. 몇 분 걸립니다."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:20
 msgid "Tu escritorio, tu color"
 msgstr "나만의 데스크톱, 나만의 색"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:21
 msgid ""
 "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
 "Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
@@ -1530,10 +2020,12 @@ msgstr ""
 "환영 앱이나  sl-ctl theme으로 언제든 바꾸세요."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:23
 msgid "Privado de serie"
 msgstr "처음부터 비공개"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:24
 msgid ""
 "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
 "Sube el nivel con  sl-ctl privacy."
@@ -1542,10 +2034,12 @@ msgstr ""
 " sl-ctl privacy로 수준을 높이세요."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:26
 msgid "Todo a mano"
 msgstr "모든 것을 손쉽게"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:27
 msgid ""
 "sl-welcome: catálogo de apps y primeros pasos.\n"
 "sl-ctl: actualizar, snapshots, ajustes y más."
@@ -1554,10 +2048,12 @@ msgstr ""
 "sl-ctl: 업데이트, 스냅숏, 조정 등."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:29
 msgid "Hecho para tu equipo"
 msgstr "내 컴퓨터를 위해 만들어짐"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:30
 msgid ""
 "sl-detect ha elegido entorno, kernel y sistema de archivos\n"
 "según tu hardware, de un Celeron a una RTX."
@@ -1565,54 +2061,79 @@ msgstr ""
 "sl-detect가 하드웨어에 맞춰 환경, 커널, 파일 시스템을\n"
 "골랐습니다. 셀러론부터 RTX까지."
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:39
 msgid "Contraseña"
 msgstr "비밀번호"
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:40
 msgid "Contraseña incorrecta"
 msgstr "비밀번호가 틀렸습니다"
 
+#: branding/themes/templates/system/plymouth.script.in:68
 msgid "Contraseña del disco"
 msgstr "디스크 비밀번호"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:3
 msgid "Bienvenida a Static Linux"
 msgstr "Static Linux 환영"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:21
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "첫걸음, 모양, 개인정보 보호, 앱 카탈로그"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:3
 msgid "Captura de pantalla (zona)"
 msgstr "스크린샷 (영역)"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:19
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "사진/스크린샷에 저장하고 클립보드에 복사합니다"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:3
 msgid "Instalar Static Linux"
 msgstr "Static Linux 설치"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:20
 msgid "Instala Static Linux en este equipo"
 msgstr "이 컴퓨터에 Static Linux 설치"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:9
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Static Linux 개인정보 보호 프로필 적용"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:27
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "sl-welcome이 개인정보 보호 프로필을 적용하려면 관리자 권한이 필요합니다"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:55
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "sl-welcome 카탈로그에서 패키지 설치"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:73
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome이 pacman으로 패키지를 설치하려면 관리자 권한이 필요합니다"
+
+#~ msgid "snapper no está instalado (solo BTRFS)"
+#~ msgstr "snapper가 설치되어 있지 않습니다 (BTRFS 전용)"
+
+#~ msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+#~ msgstr "스냅샷 없음: 시스템이 BTRFS가 아니거나 Snapper가 설정되지 않았습니다"
+
+#~ msgid "instantáneas de Snapper"
+#~ msgstr "Snapper 스냅샷"
+
+#~ msgid "devuelve los archivos del sistema a esa instantánea"
+#~ msgstr "시스템 파일을 그 스냅샷 상태로 되돌립니다"
 
 #~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
 #~ msgstr "아직 구현되지 않았습니다. 플레이버는 sl-welcome 카탈로그에서 추가하세요."

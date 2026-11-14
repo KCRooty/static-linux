@@ -1,10 +1,10 @@
 # Static Linux — sway colours and wallpaper, written by sl-theme ({{name}}).
 # ~/.config/sway/config includes this file; don't edit it, run sl-theme.
 font pango:{{font_ui}} 10
-default_border pixel 2
-default_floating_border pixel 2
-gaps inner 6
-gaps outer 4
+default_border pixel {{border_px}}
+default_floating_border pixel {{border_px}}
+gaps inner {{gaps_in}}
+gaps outer {{gaps_out}}
 output * bg {{wallpaper}} fill
 #                       border      background  text        indicator   child_border
 client.focused          #{{accent}} #{{accent}} #{{accent_fg}} #{{accent_hi}} #{{accent}}

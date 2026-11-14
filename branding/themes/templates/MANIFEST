@@ -24,5 +24,6 @@ tiling/sway-theme.in           .config/sway/theme                               
 tiling/bspwm-theme.sh.in       .config/bspwm/theme.sh                                     bspwm
 tiling/polybar-colors.ini.in   .config/polybar/colors.ini                                 polybar
 tiling/waybar-colors.css.in    .config/waybar/colors.css                                  waybar
+tiling/waybar-layout.jsonc.in  .config/waybar/layout.jsonc                                waybar
 tiling/rofi.rasi.in            .local/share/rofi/themes/static-linux.rasi                 rofi
 tiling/mako.in                 .config/mako/config                                        mako

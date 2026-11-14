@@ -2,1515 +2,2003 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 10:17+0100\n"
+"POT-Creation-Date: 2026-11-14 18:13+0100\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: installer/calamares/modules/basepkgs/main.py:108
 msgid "Instalando los paquetes base"
 msgstr "Basispakketten installeren"
 
+#: installer/calamares/modules/display/main.py:41
 msgid "Ajustando la escala de pantalla"
 msgstr "Schermschaal instellen"
 
+#: installer/calamares/modules/entorno-pkgs/main.py:62
 msgid "Instalando el escritorio"
 msgstr "Bureaublad installeren"
 
+#: installer/calamares/modules/luks/main.py:48
 msgid "Comprobando el cifrado del disco"
 msgstr "Schijfversleuteling controleren"
 
+#: installer/calamares/modules/privacidad-apply/main.py:63
 msgid "Aplicando el perfil de privacidad"
 msgstr "Privacyprofiel toepassen"
 
+#: installer/calamares/modules/rendimiento/main.py:49
 msgid "Ajustando el rendimiento"
 msgstr "Prestaties afstellen"
 
+#: installer/calamares/modules/sabores/main.py:65
 msgid "Instalando los sabores"
 msgstr "Smaken installeren"
 
+#: installer/calamares/modules/sl-detect/main.py:49
 msgid "Detectando el hardware (sl-detect)"
 msgstr "Hardware detecteren (sl-detect)"
 
+#: installer/calamares/modules/tema-apply/main.py:40
 msgid "Aplicando el tema"
 msgstr "Thema toepassen"
 
+#: sl-ctl/sl-ctl.py:52
 msgid "este comando necesita root (usa sudo)"
 msgstr "deze opdracht heeft root nodig (gebruik sudo)"
 
+#: sl-ctl/sl-ctl.py:114 sl-ctl/sl-ctl.py:148
 msgid "desconocido"
 msgstr "onbekend"
 
+#: sl-ctl/sl-ctl.py:123 sl-ctl/sl-ctl.py:429
 msgid "Kernel"
 msgstr "Kernel"
 
+#: sl-ctl/sl-ctl.py:127 sl-welcome/src/pages/overview.py:82
 msgid "Arquitectura"
 msgstr "Architectuur"
 
+#: sl-ctl/sl-ctl.py:128
 msgid "Disco"
 msgstr "Schijf"
 
+#: sl-ctl/sl-ctl.py:130
 msgid "Escritorio recomendado"
 msgstr "Aanbevolen bureaublad"
 
+#: sl-ctl/sl-ctl.py:131 sl-welcome/src/window.py:46
 msgid "Privacidad"
 msgstr "Privacy"
 
+#: sl-ctl/sl-ctl.py:152 sl-welcome/src/privileged.py:42
 #, python-brace-format
 msgid "perfil de privacidad desconocido: {name}"
 msgstr "onbekend privacyprofiel: {name}"
 
+#: sl-ctl/sl-ctl.py:158
 #, python-brace-format
 msgid "no se encuentra {path}"
 msgstr "{path} niet gevonden"
 
+#: sl-ctl/sl-ctl.py:198
 msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
 msgstr "Zonder sudo zijn processen van andere gebruikers en root niet zichtbaar."
 
+#: sl-ctl/sl-ctl.py:200
 msgid "Escuchando fuera"
 msgstr "Luistert naar buiten"
 
+#: sl-ctl/sl-ctl.py:200 sl-ctl/sl-ctl.py:553
 msgid "nada"
 msgstr "niets"
 
+#: sl-ctl/sl-ctl.py:202
 msgid "Conexiones"
 msgstr "Verbindingen"
 
+#: sl-ctl/sl-ctl.py:209
 msgid "(cifrado, dnscrypt-proxy)"
 msgstr "(versleuteld, dnscrypt-proxy)"
 
+#: sl-ctl/sl-ctl.py:210
 msgid "(sin cifrar)"
 msgstr "(onversleuteld)"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "Cortafuegos"
 msgstr "Firewall"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:545
+#: sl-ctl/sl-ctl.py:554
 msgid "activo"
 msgstr "actief"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "desactivado"
 msgstr "uitgeschakeld"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "Temporizadores"
 msgstr "Timers"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "ninguno"
 msgstr "geen"
 
+#: sl-ctl/sl-ctl.py:216
 msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
 msgstr "Static Linux stuurt geen telemetrie. De verbindingen hierboven zijn van jou: browser, updates die je start, tijdsynchronisatie (NTP)."
 
+#: sl-ctl/sl-ctl.py:234
 msgid "no se encuentra la herramienta de acentos"
 msgstr "accenthulpmiddel niet gevonden"
 
+#: sl-ctl/sl-ctl.py:240
 msgid "'accent <nombre>' necesita root (cambia /etc)"
 msgstr "'accent <naam>' heeft root nodig (wijzigt /etc)"
 
+#: sl-ctl/sl-ctl.py:256
 msgid "no se encuentra sl-theme"
 msgstr "sl-theme niet gevonden"
 
+#: sl-ctl/sl-ctl.py:261
 msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
 msgstr "met sudo veranderen ook het inlogscherm, GRUB en het opstartscherm"
 
+#: sl-ctl/sl-ctl.py:280
 msgid "fstrim.timer semanal (solo SSD)"
 msgstr "Wekelijkse fstrim.timer (alleen SSD)"
 
+#: sl-ctl/sl-ctl.py:284
 msgid "Volver a frenar los split locks (desactivado por rendimiento)"
 msgstr "Split locks weer afremmen (uit voor prestaties)"
 
+#: sl-ctl/sl-ctl.py:290
 msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
 msgstr "Hardware-watchdogs weer laden (standaard verwijderd)"
 
+#: sl-ctl/sl-ctl.py:320 sl-ctl/sl-ctl.py:349
 msgid "aplicado"
 msgstr "toegepast"
 
+#: sl-ctl/sl-ctl.py:327
 #, python-brace-format
 msgid "ajuste desconocido: {name}"
 msgstr "onbekende aanpassing: {name}"
 
+#: sl-ctl/sl-ctl.py:354
 #, python-brace-format
 msgid "el ajuste {name} no está aplicado"
 msgstr "aanpassing {name} is niet toegepast"
 
+#: sl-ctl/sl-ctl.py:368
 #, python-brace-format
 msgid "revertido: {name}"
 msgstr "teruggedraaid: {name}"
 
+#: sl-ctl/sl-ctl.py:404
 msgid "el del kernel (este kernel no tiene sched_ext)"
 msgstr "die van de kernel (deze kernel heeft geen sched_ext)"
 
+#: sl-ctl/sl-ctl.py:409
 msgid "el del kernel (EEVDF)"
 msgstr "die van de kernel (EEVDF)"
 
+#: sl-ctl/sl-ctl.py:411
 msgid "sin power-profiles-daemon"
 msgstr "geen power-profiles-daemon"
 
+#: sl-ctl/sl-ctl.py:418
 msgid "ninguna"
 msgstr "geen"
 
+#: sl-ctl/sl-ctl.py:428
 msgid "rendimiento"
 msgstr "prestaties"
 
+#: sl-ctl/sl-ctl.py:430
 msgid "Planificador de CPU"
 msgstr "CPU-planner"
 
+#: sl-ctl/sl-ctl.py:431
 msgid "Perfil de energía"
 msgstr "Energieprofiel"
 
+#: sl-ctl/sl-ctl.py:434
 msgid "Planificador de disco"
 msgstr "Schijfplanner"
 
+#: sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:547
 msgid "parado"
 msgstr "gestopt"
 
+#: sl-ctl/sl-ctl.py:438
 #, no-python-format
 msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
 msgstr "Games: zet in Steam  sl-game %command%  bij de startopties."
 
+#: sl-ctl/sl-ctl.py:444
 msgid "power-profiles-daemon no está instalado"
 msgstr "power-profiles-daemon is niet geïnstalleerd"
 
+#: sl-ctl/sl-ctl.py:448
 #, python-brace-format
 msgid "perfil desconocido: {name}"
 msgstr "onbekend profiel: {name}"
 
+#: sl-ctl/sl-ctl.py:455
 #, python-brace-format
 msgid "Planificadores: {list}, off"
 msgstr "Planners: {list}, off"
 
+#: sl-ctl/sl-ctl.py:456
 msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
 msgstr "lavd wordt aangeraden: volgt de belasting zelf en geeft voorrang aan games, audio en bureaublad."
 
+#: sl-ctl/sl-ctl.py:460
 #, python-brace-format
 msgid "planificador desconocido: {name}"
 msgstr "onbekende planner: {name}"
 
+#: sl-ctl/sl-ctl.py:464
 msgid "Vuelve el planificador del kernel."
 msgstr "Terug naar de planner van de kernel."
 
+#: sl-ctl/sl-ctl.py:467
 msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
 msgstr "deze kernel heeft geen sched_ext; gebruik linux-zen of linux"
 
+#: sl-ctl/sl-ctl.py:493
 msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
 msgstr "de planner is niet gestart; zie  journalctl -u scx_loader"
 
+#: sl-ctl/sl-ctl.py:496
 #, python-brace-format
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Planner: scx_{name} (ook bij de volgende start)."
 
+#: sl-ctl/sl-ctl.py:543
 msgid "no instalado"
 msgstr "niet geïnstalleerd"
 
+#: sl-ctl/sl-ctl.py:553
 msgid "Escuchando"
 msgstr "Luistert"
 
+#: sl-ctl/sl-ctl.py:556
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Aanzetten: sudo sl-ctl server on <dienst> · uitzetten: sudo sl-ctl server off <dienst>"
 
+#: sl-ctl/sl-ctl.py:563
 #, python-brace-format
 msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
 msgstr "{pkg} is niet geïnstalleerd: sudo pacman -S {pkg}"
 
+#: sl-ctl/sl-ctl.py:569
 msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
 msgstr "/etc/wireguard/wg0.conf ontbreekt: maak het eerst aan (wiki: Servidor)."
 
+#: sl-ctl/sl-ctl.py:577
 #, python-brace-format
 msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
 msgstr "{user} zit in de groep docker (geldt vanaf de volgende aanmelding)."
 
+#: sl-ctl/sl-ctl.py:581
 #, python-brace-format
 msgid "Cortafuegos: {port} abierto."
 msgstr "Firewall: {port} open."
 
+#: sl-ctl/sl-ctl.py:583
 #, python-brace-format
 msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
 msgstr "Firewall uitgeschakeld: {port} is bereikbaar vanaf het netwerk."
 
+#: sl-ctl/sl-ctl.py:584
 #, python-brace-format
 msgid "{name}: activo."
 msgstr "{name}: actief."
 
+#: sl-ctl/sl-ctl.py:596
 #, python-brace-format
 msgid "{name}: parado y sin puertos abiertos."
 msgstr "{name}: gestopt, geen open poorten."
 
+#: sl-ctl/sl-ctl.py:603
 #, python-brace-format
 msgid "Servicios: {names}"
 msgstr "Diensten: {names}"
 
+#: sl-ctl/sl-ctl.py:657
+msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
+msgstr "herstelpunt {n} bestaat niet (sl-ctl snapshot --list)"
+
+#: sl-ctl/sl-ctl.py:668
+msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
+msgstr "Herstelpunt {n}: {a} pakketten gaan terug naar de versie van toen."
+
+#: sl-ctl/sl-ctl.py:670
+msgid "Sin copia en la caché (se quedan como están): "
+msgstr "Geen kopie in de cache (blijven zoals ze zijn): "
+
+#: sl-ctl/sl-ctl.py:673
+msgid "Instalados después (no se tocan): "
+msgstr "Daarna geïnstalleerd (blijven ongemoeid): "
+
+#: sl-ctl/sl-ctl.py:678
+msgid "La configuración de entonces está en {f} (no se restaura sola)."
+msgstr "De configuratie van toen staat in {f} (wordt niet vanzelf hersteld)."
+
+#: sl-ctl/sl-ctl.py:685
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Snapshot voor en na het bijwerken (snap-pac): als er iets misgaat, sl-ctl snapshot --rollback <n>"
 
+#: sl-ctl/sl-ctl.py:687
+msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Herstelpunt aangemaakt (pakketversies en /etc): als er iets misgaat, sl-ctl snapshot --rollback <n>"
+
+#: sl-ctl/sl-ctl.py:695
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR niet bijgewerkt: geen gewone gebruiker gevonden. Voer `paru -Sua` uit als je eigen gebruiker."
 
-msgid "snapper no está instalado (solo BTRFS)"
-msgstr "snapper is niet geïnstalleerd (alleen BTRFS)"
+#: sl-ctl/sl-ctl.py:710
+msgid "Punto de restauración {n} creado."
+msgstr "Herstelpunt {n} aangemaakt."
 
-msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
-msgstr "geen snapshots: het systeem staat niet op BTRFS of Snapper is niet ingesteld"
+#: sl-ctl/sl-ctl.py:716
+msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
+msgstr "(geen BTRFS: herstelpunten van pakketten en /etc)"
 
+#: sl-ctl/sl-ctl.py:721
+msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
+msgstr "nog geen: sl-ctl update maakt er een voor het bijwerken"
+
+#: sl-ctl/sl-ctl.py:733
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "De systeembestanden gaan terug naar de toestand van snapshot {n}."
 
+#: sl-ctl/sl-ctl.py:734
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "Eerst wordt een nieuwe snapshot gemaakt, voor als je terug wilt naar hoe het nu is."
 
+#: sl-ctl/sl-ctl.py:738
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "Klaar. Herstart zodat alles de herstelde versie laadt."
 
+#: sl-ctl/sl-ctl.py:746
 msgid "reflector no está instalado"
 msgstr "reflector is niet geïnstalleerd"
 
+#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "geïnstalleerd"
 
+#: sl-ctl/sl-ctl.py:842
 msgid "pendiente (instalación sin red)"
 msgstr "in afwachting (zonder netwerk geïnstalleerd)"
 
+#: sl-ctl/sl-ctl.py:848
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "Met verbinding: sudo sl-ctl flavor add pending"
 
+#: sl-ctl/sl-ctl.py:849
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "Toevoegen: sudo sl-ctl flavor add <smaak> · verwijderen: sudo sl-ctl flavor remove <smaak>"
 
+#: sl-ctl/sl-ctl.py:858
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "De smaak {name} installeren: {n} pakketten"
 
+#: sl-ctl/sl-ctl.py:870
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "kon {app} niet vanaf Flathub installeren"
 
+#: sl-ctl/sl-ctl.py:888
 msgid "Del AUR, con tu usuario:"
 msgstr "Uit de AUR, met je eigen gebruiker:"
 
+#: sl-ctl/sl-ctl.py:892
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "Log uit en weer in om de nieuwe groepen te gebruiken."
 
+#: sl-ctl/sl-ctl.py:893
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "Smaak {name} geïnstalleerd."
 
+#: sl-ctl/sl-ctl.py:928
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "Smaak {name} verwijderd."
 
+#: sl-ctl/sl-ctl.py:946
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "gebruik: sl-ctl flavor [list | add <smaak> | remove <smaak>]"
 
+#: sl-ctl/sl-ctl.py:948
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "onbekende smaak: {name}"
 
+#: sl-ctl/sl-ctl.py:955
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome is niet geïnstalleerd."
 
+#: sl-ctl/sl-ctl.py:961
 msgid "Gestión de Static Linux"
 msgstr "Static Linux-beheer"
 
+#: sl-ctl/sl-ctl.py:965
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "voert sl-detect uit en toont het resultaat"
 
+#: sl-ctl/sl-ctl.py:966
 msgid "información del sistema"
 msgstr "systeeminformatie"
 
+#: sl-ctl/sl-ctl.py:967
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "werkt het hele systeem bij (pacman + AUR + Flatpak)"
 
+#: sl-ctl/sl-ctl.py:968
 msgid "renueva los mirrors con reflector"
 msgstr "vernieuwt de mirrors met reflector"
 
+#: sl-ctl/sl-ctl.py:969
 msgid "abre otra vez sl-welcome"
 msgstr "opent sl-welcome opnieuw"
 
+#: sl-ctl/sl-ctl.py:971
 msgid "ajustes del sistema reversibles"
 msgstr "omkeerbare systeemaanpassingen"
 
-msgid "instantáneas de Snapper"
-msgstr "Snapper-momentopnamen"
+#: sl-ctl/sl-ctl.py:977
+msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
+msgstr "snapshots (Snapper op BTRFS, herstelpunten op ext4)"
 
-msgid "devuelve los archivos del sistema a esa instantánea"
-msgstr "zet systeembestanden terug naar die snapshot"
+#: sl-ctl/sl-ctl.py:980
+msgid "devuelve el sistema a esa instantánea o punto de restauración"
+msgstr "zet het systeem terug naar die snapshot of dat herstelpunt"
 
+#: sl-ctl/sl-ctl.py:983
 msgid "añade o quita sabores"
 msgstr "voegt smaken toe of verwijdert ze"
 
+#: sl-ctl/sl-ctl.py:990
 msgid "qué se conecta a la red ahora mismo"
 msgstr "wat er nu met het netwerk verbindt"
 
+#: sl-ctl/sl-ctl.py:992
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "toont of wijzigt het privacyprofiel"
 
+#: sl-ctl/sl-ctl.py:996
 msgid "muestra o cambia el color de acento"
 msgstr "toont of wijzigt de accentkleur"
 
+#: sl-ctl/sl-ctl.py:998
 msgid "lista los acentos"
 msgstr "toont de accenten"
 
+#: sl-ctl/sl-ctl.py:1001
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "toont of wijzigt het thema (achtergrond + palet + stijl)"
 
+#: sl-ctl/sl-ctl.py:1003
 msgid "lista los temas"
 msgstr "toont de thema's"
 
+#: sl-ctl/sl-ctl.py:1006
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "prestaties: status, energieprofiel en CPU-planner"
 
+#: sl-ctl/sl-ctl.py:1011
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "server: status van de diensten, en ze aan- of uitzetten"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Espacio"
 msgstr "Spatie"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Impr Pant"
 msgstr "Print Screen"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Intro"
 msgstr "Enter"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic derecho"
 msgstr "rechtsklik"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic izquierdo"
 msgstr "linksklik"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↑"
 msgstr "scrollwiel ↑"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↓"
 msgstr "scrollwiel ↓"
 
+#: sl-ctl/sl-hypr-guide:40
 msgid "Silencio"
 msgstr "Dempen"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo +"
 msgstr "Helderheid +"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo −"
 msgstr "Helderheid −"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Micro"
 msgstr "Microfoon"
 
+#: sl-ctl/sl-hypr-guide:49
 #, python-brace-format
 msgid "código {n}"
 msgstr "code {n}"
 
+#: sl-ctl/sl-hypr-guide:62
 msgid "flechas"
 msgstr "pijltjes"
 
+#: sl-ctl/sl-hypr-guide:81
 msgid "Otros"
 msgstr "Overig"
 
+#: sl-ctl/sl-hypr-guide:130
 msgid "Atajos de Hyprland"
 msgstr "Sneltoetsen van Hyprland"
 
+#: sl-ctl/sl-hypr-guide:139
 msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
 msgstr "Hyprland bedien je vooral met het toetsenbord. Super is de Windows-toets. Open deze gids altijd opnieuw met Super + F1."
 
+#: sl-ctl/sl-hypr-guide:145
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "Kon de sneltoetsen niet lezen (draait Hyprland?)."
 
 #. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
+#: sl-ctl/sl-quick:40
 msgid "%A, %-d de %B"
 msgstr "%A %-d %B"
 
+#: sl-ctl/sl-quick:83
 msgid "Cable"
 msgstr "Kabel"
 
+#: sl-ctl/sl-quick:171
 #, python-brace-format
 msgid "Red: {name}"
 msgstr "Netwerk: {name}"
 
+#: sl-ctl/sl-quick:199
 msgid "Ajustes rápidos"
 msgstr "Snelle instellingen"
 
+#: sl-ctl/sl-quick:230
 msgid "Cerrar sesión"
 msgstr "Afmelden"
 
+#: sl-ctl/sl-quick:231
 msgid "Apagar"
 msgstr "Uitschakelen"
 
+#: sl-ctl/sl-quick:232
 msgid "Bloquear"
 msgstr "Vergrendelen"
 
+#: sl-ctl/sl-quick:233
 msgid "Ajustes"
 msgstr "Instellingen"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Activado"
 msgstr "Aan"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Desactivado"
 msgstr "Uit"
 
+#: sl-ctl/sl-quick:264
 msgid "Avisos activos"
 msgstr "Meldingen aan"
 
+#: sl-ctl/sl-quick:264
 msgid "No molestar"
 msgstr "Niet storen"
 
+#: sl-ctl/sl-quick:264
 msgid "Sin avisos"
 msgstr "Geen meldingen"
 
+#: sl-ctl/sl-quick:266
 msgid "Luz nocturna"
 msgstr "Nachtlicht"
 
+#: sl-ctl/sl-quick:266
 msgid "Tonos cálidos"
 msgstr "Warme tinten"
 
+#: sl-ctl/sl-quick:275
 msgid "Captura"
 msgstr "Schermafbeelding"
 
+#: sl-ctl/sl-quick:301
 #, python-brace-format
 msgid "Batería {pct} %"
 msgstr "Accu {pct} %"
 
+#: sl-ctl/sl-quick:301
 msgid "cargando"
 msgstr "laadt op"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "Frutiger Aero, barra abajo"
 msgstr "Frutiger Aero, balk onderaan"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "barra fina arriba"
 msgstr "dunne balk bovenaan"
 
+#: sl-welcome/src/pages/appearance.py:56
 msgid "como Windows, barra abajo"
 msgstr "zoals Windows, balk onderaan"
 
+#: sl-welcome/src/pages/appearance.py:57
 msgid "lanzador y estante abajo"
 msgstr "starter en plank onderaan"
 
+#: sl-welcome/src/pages/appearance.py:106
 msgid "Tema"
 msgstr "Thema"
 
+#: sl-welcome/src/pages/appearance.py:107
 msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
 msgstr "Elk thema is een achtergrond, een palet dat daaruit komt en een stijl voor vensters en balk. Alles verandert tegelijk en wat vervangen wordt, wordt bewaard. Zonder sudo."
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "claro"
 msgstr "licht"
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "oscuro"
 msgstr "donker"
 
+#: sl-welcome/src/pages/appearance.py:135
 msgid "No encuentro los temas de Static Linux (sl-theme)."
 msgstr "Kan de thema's van Static Linux niet vinden (sl-theme)."
 
+#: sl-welcome/src/pages/appearance.py:147
 msgid "No se pudo aplicar el tema"
 msgstr "Kon het thema niet toepassen"
 
+#: sl-welcome/src/pages/appearance.py:147
 #, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "Thema toegepast: {name}"
 
+#: sl-welcome/src/pages/catalog.py:42
 msgid "repos oficiales"
 msgstr "officiële repo's"
 
+#: sl-welcome/src/pages/catalog.py:93
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Klaar. Druk op Enter om te sluiten… "
 
+#: sl-welcome/src/pages/catalog.py:128
 msgid "Pendiente de tus sabores"
 msgstr "Nog open van je smaken"
 
+#: sl-welcome/src/pages/catalog.py:129
 msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
 msgstr "Wat tijdens de installatie niet geïnstalleerd kon worden. Al aangevinkt."
 
+#: sl-welcome/src/pages/catalog.py:139 sl-welcome/src/window.py:48
 msgid "Catálogo"
 msgstr "Catalogus"
 
+#: sl-welcome/src/pages/catalog.py:140
 msgid "No se encontró ningún catálogo."
 msgstr "Geen catalogus gevonden."
 
+#: sl-welcome/src/pages/catalog.py:153
 msgid "Instalar lo marcado"
 msgstr "Selectie installeren"
 
+#: sl-welcome/src/pages/catalog.py:154
 msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
 msgstr "Officiële repo's: vraagt je wachtwoord · Flathub: geen wachtwoord · AUR en Static Forge: er opent een terminal"
 
+#: sl-welcome/src/pages/catalog.py:156
 msgid "Instalar"
 msgstr "Installeren"
 
+#: sl-welcome/src/pages/catalog.py:166
 msgid "No has marcado nada"
 msgstr "Je hebt niets aangevinkt"
 
+#: sl-welcome/src/pages/catalog.py:181
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Geen terminal om de apps van Static Forge te installeren"
 
+#: sl-welcome/src/pages/catalog.py:186
 #, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "Geen terminal: voer «{cmd}» uit"
 
+#: sl-welcome/src/pages/catalog.py:200
 msgid "pacman falló"
 msgstr "pacman is mislukt"
 
+#: sl-welcome/src/pages/catalog.py:209
 msgid "flatpak falló"
 msgstr "flatpak is mislukt"
 
+#: sl-welcome/src/pages/catalog.py:216
 #, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "{n} app geïnstalleerd"
 msgstr[1] "{n} apps geïnstalleerd"
 
+#: sl-welcome/src/pages/catalog.py:217 sl-welcome/src/pages/privacy.py:63
 #, python-brace-format
 msgid "Falló: {error}"
 msgstr "Mislukt: {error}"
 
+#: sl-welcome/src/pages/overview.py:24
 msgid "Wiki online"
 msgstr "Online wiki"
 
+#: sl-welcome/src/pages/overview.py:25
 msgid "Repositorio (GitHub)"
 msgstr "Repository (GitHub)"
 
+#: sl-welcome/src/pages/overview.py:26
 msgid "Reportar un problema"
 msgstr "Een probleem melden"
 
+#: sl-welcome/src/pages/overview.py:74
 msgid "Este equipo"
 msgstr "Deze computer"
 
+#: sl-welcome/src/pages/overview.py:78
 msgid "Driver gráfico"
 msgstr "Grafisch stuurprogramma"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "No"
 msgstr "Nee"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "Sí"
 msgstr "Ja"
 
+#: sl-welcome/src/pages/overview.py:81
 msgid "Almacenamiento"
 msgstr "Opslag"
 
+#: sl-welcome/src/pages/overview.py:86
 msgid "Recomendación de sl-detect"
 msgstr "Aanbeveling van sl-detect"
 
+#: sl-welcome/src/pages/overview.py:87
 msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
 msgstr "Berekend voor deze hardware. Je kunt het wijzigen bij Uiterlijk en Privacy."
 
+#: sl-welcome/src/pages/overview.py:89
 msgid "Entorno"
 msgstr "Omgeving"
 
+#: sl-welcome/src/pages/overview.py:90
 msgid "Sistema de archivos"
 msgstr "Bestandssysteem"
 
+#: sl-welcome/src/pages/overview.py:94
 msgid "Enlaces"
 msgstr "Links"
 
+#: sl-welcome/src/pages/overview.py:96
 msgid "Copia local, funciona sin conexión"
 msgstr "Lokale kopie, werkt offline"
 
+#: sl-welcome/src/pages/privacy.py:17
 msgid "Básico"
 msgstr "Basis"
 
+#: sl-welcome/src/pages/privacy.py:18
 msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
 msgstr "Veilige instellingen vanaf dag één + UFW + willekeurig MAC-adres. Kernel linux-zen."
 
+#: sl-welcome/src/pages/privacy.py:19
 msgid "Mejorado"
 msgstr "Verbeterd"
 
+#: sl-welcome/src/pages/privacy.py:20
 msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
 msgstr "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
 
+#: sl-welcome/src/pages/privacy.py:21
 msgid "Máximo"
 msgstr "Maximaal"
 
+#: sl-welcome/src/pages/privacy.py:22
 msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
 msgstr "+ Tor + kloak + versleutelde swap. Kernel linux-hardened."
 
+#: sl-welcome/src/pages/privacy.py:29
 msgid "Perfil de privacidad"
 msgstr "Privacyprofiel"
 
+#: sl-welcome/src/pages/privacy.py:30
 msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
 msgstr "Elk profiel bewaart een kopie van wat het wijzigt (/var/backups/static-linux/privacy/), dus alles kan ongedaan worden gemaakt. Vraagt het beheerderswachtwoord."
 
+#: sl-welcome/src/pages/privacy.py:39
 msgid "Aplicar"
 msgstr "Toepassen"
 
+#: sl-welcome/src/pages/privacy.py:62
 #, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "Profiel {name} toegepast"
 
+#: sl-welcome/src/pages/privacy.py:63
 msgid "mira el registro"
 msgstr "zie het logboek"
 
+#: sl-welcome/src/privileged.py:34
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec is niet geïnstalleerd. Installeer «polkit» om systeemwijzigingen toe te passen."
 
+#: sl-welcome/src/privileged.py:50
 #, python-brace-format
 msgid "no encuentro {path}"
 msgstr "kan {path} niet vinden"
 
+#: sl-welcome/src/window.py:28
 msgid "Bienvenido a Static Linux"
 msgstr "Welkom bij Static Linux"
 
+#: sl-welcome/src/window.py:40
 msgid "General"
 msgstr "Overzicht"
 
+#: sl-welcome/src/window.py:43
 msgid "Apariencia"
 msgstr "Uiterlijk"
 
+#: sl-ctl/sl-game:21
 msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
 msgstr "gebruik: sl-game <opdracht…>   (in Steam: sl-game %command%)"
 
+#: sl-ctl/sl-logout:11
 msgid "¿Cerrar la sesión?"
 msgstr "Afmelden?"
 
+#: sl-ctl/sl-logout:12
 msgid "Sí, cerrar la sesión"
 msgstr "Ja, afmelden"
 
+#: sl-ctl/sl-logout:18
 msgid "Cancelar"
 msgstr "Annuleren"
 
+#: sl-ctl/sl-screenshot:20 sl-ctl/sl-screenshot:24
 msgid "Capturas"
 msgstr "Schermafbeeldingen"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Captura guardada"
 msgstr "Schermafbeelding opgeslagen"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Copiada al portapapeles"
 msgstr "Naar het klembord gekopieerd"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:35
 msgid "Aplicaciones (Super + Espacio)"
 msgstr "Toepassingen (Super + Spatie)"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:117
 msgid "Sin conexión"
 msgstr "Geen verbinding"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:160
 msgid "Más ajustes de sonido"
 msgstr "Meer geluidsinstellingen"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:195
 msgid "Suspender"
 msgstr "Pauzestand"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:198
 msgid "Reiniciar"
 msgstr "Herstarten"
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:1
 msgid "Static Forge"
 msgstr "Static Forge"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:5
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "Downloads van YouTube, YouTube Music, Spotify en Pinterest, gemaakt in de studio."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:6
 msgid "Internet"
 msgstr "Internet"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:10
 msgid "El navegador de Mozilla."
 msgstr "De browser van Mozilla."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:14
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "Gebaseerd op Firefox, met verticale tabbladen en werkruimtes."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:19
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "De vrije basis van Chrome, zonder Google-diensten."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:23
 msgid "Correo, calendario y contactos."
 msgstr "Mail, agenda en contacten."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:27
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "Vrije BitTorrent-client zonder reclame."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:31
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "Stuur bestanden naar andere apparaten in je netwerk, zonder cloud."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:35
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "Synchroniseert met je eigen Nextcloud-server."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:39
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP-client."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:1
 msgid "Comunicación"
 msgstr "Communicatie"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:5
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Discord met ingebouwde Vencord: thema's, plug-ins en betere prestaties op Linux."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:10
 msgid "El cliente oficial."
 msgstr "De officiële client."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:14
 msgid "Mensajería."
 msgstr "Berichten."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:18
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "End-to-end versleutelde berichten."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:22
 msgid "Chat descentralizado (Matrix)."
 msgstr "Gedecentraliseerde chat (Matrix)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:1
 msgid "Música y audio"
 msgstr "Muziek en audio"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:5
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "De officiële client (geïnstalleerd en bijgewerkt met spotify-launcher)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:9
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Thema's en extensies voor Spotify. Installeer eerst Spotify."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:13
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Download je Spotify-afspeellijsten lokaal (via YouTube Music)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:17
 msgid "Grabar y editar audio."
 msgstr "Audio opnemen en bewerken."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:21
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "Vrije professionele DAW: meersporenopname en mixen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:25
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "Vrije DAW om muziek te maken, in de stijl van FL Studio."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:29
 msgid "Caja de ritmos."
 msgstr "Drumcomputer."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:33
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "Commerciële DAW met proefversie; native op Linux."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:37
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "Lichte, krachtige DAW (betaalde licentie, volledige proefversie)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:41
 msgid "Software de DJ."
 msgstr "DJ-software."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:45
 msgid "Reproductor de música ligero."
 msgstr "Lichte muziekspeler."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:1
 msgid "Vídeo"
 msgstr "Video"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:5
 msgid "Editor de vídeo libre y completo."
 msgstr "Vrije, volledige video-editor."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:9
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "Vrije video-editor, eenvoudig en snel."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:13
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "Professionele montage en kleurcorrectie (gratis, niet vrij). Zwaar; heeft een aparte GPU nodig."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:17
 msgid "Grabar y emitir en directo."
 msgstr "Opnemen en live streamen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:21
 msgid "Convertir y comprimir vídeo."
 msgstr "Video omzetten en comprimeren."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:25
 msgid "Reproduce cualquier cosa."
 msgstr "Speelt alles af."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:29
 msgid "Reproductor mínimo y muy rápido."
 msgstr "Minimale, zeer snelle speler."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:1
 msgid "Grafismo y 3D"
 msgstr "Grafisch en 3D"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:5
 msgid "Pintura digital."
 msgstr "Digitaal schilderen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:9
 msgid "Retoque fotográfico."
 msgstr "Fotobewerking."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:13
 msgid "Gráficos vectoriales."
 msgstr "Vectorafbeeldingen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:17
 msgid "Modelado, animación y render 3D."
 msgstr "3D-modelleren, animatie en rendering."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:21
 msgid "CAD 3D paramétrico."
 msgstr "Parametrisch 3D-CAD."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:25
 msgid "Revelado RAW."
 msgstr "RAW-ontwikkeling."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:29
 msgid "Motor de videojuegos libre."
 msgstr "Vrije game-engine."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:33
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "Pixelart en animatie (gebouwd uit de broncode)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:1
 msgid "Juegos"
 msgstr "Games"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:5
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "Met Proton om Windows-games te spelen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:9
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games, GOG en Amazon Prime Gaming. Zo gebruik je Epic op Linux."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:14
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "Eén plek voor al je games en launchers (Battle.net, EA, Ubisoft…)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:18
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "Minecraft Java met meerdere instanties en mods."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:22
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Minecraft Java met de mods en modpacks van Modrinth."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:26
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "De officiële launcher van Mojang voor Minecraft Java."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:30
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "Launcher voor de Bedrock-editie (je moet die op Google Play gekocht hebben)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:34
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Installeer Proton-GE en andere versies van Proton/Wine met één klik."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:38
 msgid "Programas de Windows en entornos aislados."
 msgstr "Windows-programma's in afgeschermde omgevingen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:42
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "Gameprestaties en FPS-teller."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:46
 msgid "Emulador multisistema."
 msgstr "Multisysteem-emulator."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:50
 msgid "Emulador de GameCube y Wii."
 msgstr "GameCube- en Wii-emulator."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:54
 msgid "Emulador de PlayStation 2."
 msgstr "PlayStation 2-emulator."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/07-desarrollo.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:148
 msgid "Desarrollo"
 msgstr "Ontwikkeling"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:5
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "Versiebeheer (meegeleverd met Static Linux)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:9
 msgid "GitHub desde la terminal (gh)."
 msgstr "GitHub vanuit de terminal (gh)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:13
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Containers, met Compose en Buildx. Vergeet niet jezelf aan de groep docker toe te voegen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:17
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "De build van Microsoft, met de marketplace."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:21
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "VS Code gebouwd uit de vrije broncode (officiële repo's)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:25
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "VS Code zonder Microsoft-telemetrie."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:30
 msgid "Editor modal en la terminal."
 msgstr "Modale editor in de terminal."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:34
 msgid "Git con interfaz en la terminal."
 msgstr "Git met een terminalinterface."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:38
 msgid "Comparar archivos y carpetas."
 msgstr "Bestanden en mappen vergelijken."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:42
 msgid "Cliente de bases de datos."
 msgstr "Databaseclient."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:46
 msgid "adb y fastboot."
 msgstr "adb en fastboot."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:1
 msgid "Productividad"
 msgstr "Productiviteit"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:5
 msgid "Ofimática completa, en español y con corrector."
 msgstr "Volledig kantoorpakket, met spellingcontrole."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:9
 msgid "Notas en Markdown enlazadas."
 msgstr "Gekoppelde Markdown-notities."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:13
 msgid "Gestor de contraseñas local y libre."
 msgstr "Lokale, vrije wachtwoordbeheerder."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:17
 msgid "Gestor de contraseñas en la nube."
 msgstr "Wachtwoordbeheerder in de cloud."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:21
 msgid "Notas con sincronización cifrada."
 msgstr "Notities met versleutelde synchronisatie."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:25
 msgid "Notas a mano y anotar PDFs."
 msgstr "Handgeschreven notities en PDF's annoteren."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:29
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "PDF's samenvoegen, splitsen en herschikken."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:33
 msgid "Tareas y listas."
 msgstr "Taken en lijsten."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:1
 msgid "Sistema y herramientas"
 msgstr "Systeem en hulpmiddelen"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:5
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "7z, zip, rar… in- en uitpakken (meegeleverd met Static Linux)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:9
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "Audio en video omzetten (meegeleverd met Static Linux)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:13
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "Video en audio downloaden van YouTube en meer (meegeleverd met Static Linux)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:17
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH-client en -server (meegeleverd; de server blijft uit tot je hem inschakelt)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:21
 msgid "Permisos de las apps de Flathub."
 msgstr "Rechten van Flathub-apps."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:25
 msgid "Copias del sistema para volver atrás."
 msgstr "Systeemsnapshots om terug te gaan."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:29
 msgid "Particionar discos."
 msgstr "Schijven partitioneren."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:33
 msgid "Liberar espacio y borrar rastros."
 msgstr "Ruimte vrijmaken en sporen wissen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:37
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "Mappen synchroniseren tussen je computers, zonder cloud."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:41
 msgid "Monitor de recursos en la terminal."
 msgstr "Bronnenmonitor in de terminal."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:45
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "Opstart-USB met meerdere ISO's tegelijk."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/10-virtualizacion.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:228
 msgid "Máquinas virtuales"
 msgstr "Virtuele machines"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:5
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "Virtuele machines met KVM, het snelst op Linux. Met QEMU en libvirt."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:9
 msgid "Máquinas virtuales en dos clics."
 msgstr "Virtuele machines in twee klikken."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:13
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "De klassieke optie; trager dan KVM en met een eigen kernelmodule."
 
 #. installer page (name)
 #. theme name
+#: branding/themes/aero/theme.conf
+#: installer/calamares/modules/tema/module.conf:251
 msgid "Aero"
 msgstr "Aero"
 
 #. short description of a theme
+#: branding/themes/aero/theme.conf
 msgid "cielo, agua y hierba, con brillo"
 msgstr "lucht, water en gras, met glans"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/ambar/theme.conf
+#: installer/calamares/modules/tema/module.conf:30
 msgid "Ámbar"
 msgstr "Amber"
 
 #. short description of a theme
+#: branding/themes/ambar/theme.conf
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "hout, mosterd en blauwgroen uit de jaren 70"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/bosque/theme.conf
+#: installer/calamares/modules/tema/module.conf:147
 msgid "Bosque"
 msgstr "Bos"
 
 #. short description of a theme
+#: branding/themes/bosque/theme.conf
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "mist boven dennen, gedempt groen en vochtig grijs"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nordico/theme.conf
+#: installer/calamares/modules/tema/module.conf:109
 msgid "Nórdico"
 msgstr "Noords"
 
 #. short description of a theme
+#: branding/themes/nordico/theme.conf
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "blauwig leigrijs, ijs en rijp"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nube/theme.conf
+#: installer/calamares/modules/tema/module.conf:320
 msgid "Nube"
 msgstr "Wolk"
 
 #. short description of a theme
+#: branding/themes/nube/theme.conf
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "ochtendlucht met wolken, licht en zacht"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/papel/theme.conf
+#: installer/calamares/modules/tema/module.conf:71
 msgid "Papel"
 msgstr "Papier"
 
 #. short description of a theme
+#: branding/themes/papel/theme.conf
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "vergeeld papier, inkt en olijfgroen"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/sakura/theme.conf
+#: installer/calamares/modules/tema/module.conf:187
 msgid "Sakura"
 msgstr "Sakura"
 
 #. short description of a theme
+#: branding/themes/sakura/theme.conf
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "inktvensters op een kersenroze achtergrond"
 
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:200
+#: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "Vensters"
 
 #. short description of a theme
+#: branding/themes/ventanas/theme.conf
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "grafietgrijs en lichtblauw, balk onderaan met gecentreerde pictogrammen"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/violeta/theme.conf
+#: installer/calamares/modules/tema/module.conf:215
 msgid "Violeta"
 msgstr "Violet"
 
 #. short description of a theme
+#: branding/themes/violeta/theme.conf
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "violet monochroom, bergen in de schemering"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "Apps"
 msgstr "Apps"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:175
 msgid "abrir la terminal"
 msgstr "de terminal openen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:176
 msgid "abrir el gestor de archivos"
 msgstr "de bestandsbeheerder openen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:177
 msgid "abrir el navegador (Brave Origin)"
 msgstr "de browser openen (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "lanzador de aplicaciones"
 msgstr "toepassingenstarter"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:182
 msgid "Ayuda"
 msgstr "Hulp"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:182
 msgid "esta guía de atajos"
 msgstr "deze sneltoetsengids"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:185
+#: entornos/hyprland-common/static.lua:186
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "schermgebied (bestand + klembord)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:189
 msgid "cerrar la ventana"
 msgstr "het venster sluiten"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:190
 msgid "pantalla completa"
 msgstr "volledig scherm"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:191
 msgid "flotante / en mosaico"
 msgstr "zwevend / getegeld"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:192
 msgid "pseudo-mosaico"
 msgstr "pseudo-tegelen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:193
 msgid "cambiar división horizontal/vertical"
 msgstr "horizontale/verticale splitsing wisselen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:194
 msgid "pasar a la siguiente"
 msgstr "naar de volgende"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:196
 msgid "mover el foco"
 msgstr "focus verplaatsen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:197
 msgid "mover la ventana"
 msgstr "het venster verplaatsen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:199
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "slepen met Super + linksklik"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:200
 msgid "redimensionar con Super + clic derecho"
 msgstr "formaat wijzigen met Super + rechtsklik"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
 msgid "Escritorios"
 msgstr "Werkbladen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:204
 msgid "ir a un escritorio"
 msgstr "naar een werkblad gaan"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:205
 msgid "mover la ventana a otro escritorio"
 msgstr "het venster naar een ander werkblad verplaatsen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:207
 msgid "siguiente (rueda del ratón)"
 msgstr "volgende (scrollwiel)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:208
 msgid "anterior (rueda del ratón)"
 msgstr "vorige (scrollwiel)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:209
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "het snelle werkblad tonen/verbergen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:210
 msgid "mandar la ventana al escritorio rápido"
 msgstr "het venster naar het snelle werkblad sturen"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:214
 msgid "Sesión"
 msgstr "Sessie"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:213
 msgid "bloquear la pantalla"
 msgstr "het scherm vergrendelen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:214
 msgid "ver la última notificación"
 msgstr "de laatste melding tonen"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:228
 msgid "Multimedia"
 msgstr "Multimedia"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:220
 msgid "subir volumen"
 msgstr "volume omhoog"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:221
 msgid "bajar volumen"
 msgstr "volume omlaag"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:222
 msgid "silenciar"
 msgstr "dempen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:223
 msgid "silenciar el micrófono"
 msgstr "microfoon dempen"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:224
 msgid "subir brillo"
 msgstr "helderheid omhoog"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:225
 msgid "bajar brillo"
 msgstr "helderheid omlaag"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:226
 msgid "reproducir/pausar"
 msgstr "afspelen/pauzeren"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:227
 msgid "siguiente pista"
 msgstr "volgend nummer"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:228
 msgid "pista anterior"
 msgstr "vorig nummer"
 
 #. installer page (step)
+#: installer/calamares/modules/entorno/module.conf:24
 msgid "Entorno de escritorio"
 msgstr "Bureaubladomgeving"
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:46
 msgid "XFCE (temático)"
 msgstr "XFCE (met thema)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:61
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "De omgeving die op echte hardware is getest (Packard Bell iMedia S2883). Xorg, licht, aanbevolen vanaf 1 GB RAM of als de GPU geen Wayland ondersteunt."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:85
 msgid "Openbox minimal"
 msgstr "Openbox minimaal"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:99
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "Het laagste niveau: 512 MB. Openbox + tint2 + jgmenu, standaard zonder compositor."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:122
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:123
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland, 2-4 GB. Dezelfde Astal-shell als de volledige versie, zonder vervaging, schaduwen of zware animaties."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:146
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:147
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland, aanbevolen plafond van 4 GB. Vervaging, schaduwen en volledige animaties. Heeft een GPU met goede Wayland-ondersteuning nodig."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:170
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:171
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "Het complete, vertrouwde bureaublad: balk onderaan, startmenu, Dolphin en instellingen voor alles. Wayland, vanaf 4 GB RAM. De zwaarste omgeving; sl-detect raadt hem standaard niet aan."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:195
 msgid "GNOME"
 msgstr "GNOME"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:196
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "Het GNOME-bureaublad zoals het is: activiteitenoverzicht, dock en GNOME-apps. Wayland, vanaf 4 GB RAM. Het thema bereikt lichte of donkere modus, accent, achtergrond en apps. Aanmelden met GDM."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:220
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:221
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "Klassiek en comfortabel: balk onderaan, startmenu en pictogrammen op het bureaublad. Xorg, vanaf 2 GB. Het thema kleedt ook het paneel en het menu aan."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:245
 msgid "i3"
 msgstr "i3"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:246
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "Tegelen met het toetsenbord: vensters schikken zichzelf. Xorg, vanaf 1 GB. Balk i3bar, starter rofi. Super + Enter opent de terminal."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:269
 msgid "bspwm"
 msgstr "bspwm"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:270
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "Tegelen in een binaire boom, sneltoetsen in sxhkd en balk polybar. Xorg, vanaf 1 GB. Voor wie alles zelf wil instellen."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:293
 msgid "sway"
 msgstr "sway"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:294
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "Het tegelen van i3, op Wayland. Vanaf 1-2 GB. Balk waybar, starter rofi en meldingen met mako."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:320
 msgid "Sin entorno gráfico"
 msgstr "Geen grafische omgeving"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:338
 msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
 msgstr "Alleen de console: start op naar de opdrachtregel, zonder grafische server, zonder browser en zonder audio. Met tmux, btop en sl-ctl. Vanaf 512 MB."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:363
+#: installer/calamares/modules/sabores-picker/module.conf:348
 msgid "Servidor / Homelab"
 msgstr "Server / Homelab"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:377
 msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
 msgstr "Zonder grafische omgeving, met de Server-smaak: Docker, Nginx, MariaDB, WireGuard, Fail2ban en Cockpit (webpaneel). Niets luistert op het netwerk tot je het inschakelt met «sl-ctl server»."
 
 #. installer page (step)
+#: installer/calamares/modules/sabores-picker/module.conf:10
 msgid "Sabores"
 msgstr "Smaken"
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:29
 msgid "Sabores (opcional)"
 msgstr "Smaken (optioneel)"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:44
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "App-pakketten klaar voor wat je gaat doen. Vink aan wat je wilt (meerdere of geen): ze worden met het systeem geïnstalleerd en elk is afgesteld om goed te presteren. Alles kan later worden toegevoegd of verwijderd in de welkomst-app."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:69
 msgid "Gaming"
 msgstr "Gaming"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:83
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Steam met Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher en Modrinth voor Minecraft, MangoHud, GameMode en Gamescope. Schakelt de 32-bits bibliotheken en het Vulkan-stuurprogramma van je GPU in."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:107
 msgid "Creación de contenido"
 msgstr "Contentcreatie"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:125
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity en de DAW's Ardour, LMMS en Hydrogen, met realtime audio (lage latentie)."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:166
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git en GitHub CLI, Docker (start vanzelf bij gebruik), VS Code (Code - OSS), Python, Rust, Node en Java."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:189
 msgid "Oficina"
 msgstr "Kantoor"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:205
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "LibreOffice met spellingcontrole, Obsidian, KeePassXC, Xournal++ en PDF-hulpmiddelen."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:246
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "KVM/QEMU met virt-manager en GNOME Boxes, met TPM en UEFI voor Windows 11-gasten."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:269
 msgid "Educación"
 msgstr "Onderwijs"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:286
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra, Stellarium, Anki, Jupyter en FreeCAD."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:308
 msgid "Ciberseguridad"
 msgstr "Cyberbeveiliging"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:326
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra en Tor."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:362
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban en Cockpit. Voor de veiligheid luistert geen enkele dienst tot je hem inschakelt."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:47
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Het thema van Static Linux. Donker en warm: hout, mosterd en blauwgroen, over «Onweer onder de Fuji» van Hokusai. Dunne balk bovenaan en massieve vensters."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:86
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "Licht, in tinten van vergeeld papier, inkt en olijfgroen, over een prent van Hokusai. Voor wie bij veel licht werkt."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:124
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "Donker en koel: blauwig leisteen en ijs, over «Avondsneeuw in Kanbara» van Hiroshige."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:164
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "Donker, in dennen- en mistgroen, over «Voorjaarsregen in Tsuchiyama» van Hiroshige."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:193
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "Donker met kersenroze, over «De Fuji vanaf Gotenyama» van Hokusai."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:229
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "Donker en monochroom violet, met bergen in de schemering."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:256
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Frutiger Aero-stijl: licht, met lucht, bellen en gras, glanzende balken en de taakbalk onderaan."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:297
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Zoals Windows: donker, taakbalk onderaan met gecentreerde apps en vensterknoppen ─ □ ✕."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:337
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "Licht en zacht, over een bewolkte lucht. Ronde starter en plank onderaan met gecentreerde apps; de klok opent de snelle instellingen."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:18
 msgid ""
 "fast · private · yours\n"
 "Tu sistema se está instalando. Esto tarda unos minutos."
@@ -1519,10 +2007,12 @@ msgstr ""
 "Je systeem wordt geïnstalleerd. Dit duurt een paar minuten."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:20
 msgid "Tu escritorio, tu color"
 msgstr "Jouw bureaublad, jouw kleur"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:21
 msgid ""
 "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
 "Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
@@ -1531,10 +2021,12 @@ msgstr ""
 "Wissel wanneer je wilt in de welkomst-app of met  sl-ctl theme."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:23
 msgid "Privado de serie"
 msgstr "Standaard privé"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:24
 msgid ""
 "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
 "Sube el nivel con  sl-ctl privacy."
@@ -1543,10 +2035,12 @@ msgstr ""
 "Zet het hoger met  sl-ctl privacy."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:26
 msgid "Todo a mano"
 msgstr "Alles bij de hand"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:27
 msgid ""
 "sl-welcome: catálogo de apps y primeros pasos.\n"
 "sl-ctl: actualizar, snapshots, ajustes y más."
@@ -1555,10 +2049,12 @@ msgstr ""
 "sl-ctl: updates, snapshots, instellingen en meer."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:29
 msgid "Hecho para tu equipo"
 msgstr "Gemaakt voor jouw computer"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:30
 msgid ""
 "sl-detect ha elegido entorno, kernel y sistema de archivos\n"
 "según tu hardware, de un Celeron a una RTX."
@@ -1566,54 +2062,79 @@ msgstr ""
 "sl-detect heeft omgeving, kernel en bestandssysteem gekozen\n"
 "op basis van je hardware, van een Celeron tot een RTX."
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:39
 msgid "Contraseña"
 msgstr "Wachtwoord"
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:40
 msgid "Contraseña incorrecta"
 msgstr "Onjuist wachtwoord"
 
+#: branding/themes/templates/system/plymouth.script.in:68
 msgid "Contraseña del disco"
 msgstr "Schijfwachtwoord"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:3
 msgid "Bienvenida a Static Linux"
 msgstr "Welkom bij Static Linux"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:21
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "Eerste stappen, uiterlijk, privacy en app-catalogus"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:3
 msgid "Captura de pantalla (zona)"
 msgstr "Schermafbeelding (gebied)"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:19
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "Slaat op in Afbeeldingen/Schermafbeeldingen en kopieert naar het klembord"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:3
 msgid "Instalar Static Linux"
 msgstr "Static Linux installeren"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:20
 msgid "Instala Static Linux en este equipo"
 msgstr "Static Linux op deze computer installeren"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:9
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Een privacyprofiel van Static Linux toepassen"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:27
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "sl-welcome heeft beheerdersrechten nodig om het privacyprofiel toe te passen"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:55
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "Pakketten uit de catalogus van sl-welcome installeren"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:73
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome heeft beheerdersrechten nodig om pakketten met pacman te installeren"
+
+#~ msgid "snapper no está instalado (solo BTRFS)"
+#~ msgstr "snapper is niet geïnstalleerd (alleen BTRFS)"
+
+#~ msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+#~ msgstr "geen snapshots: het systeem staat niet op BTRFS of Snapper is niet ingesteld"
+
+#~ msgid "instantáneas de Snapper"
+#~ msgstr "Snapper-momentopnamen"
+
+#~ msgid "devuelve los archivos del sistema a esa instantánea"
+#~ msgstr "zet systeembestanden terug naar die snapshot"
 
 #~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
 #~ msgstr "nog niet klaar; smaken voeg je toe via de catalogus van sl-welcome."

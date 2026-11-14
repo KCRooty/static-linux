@@ -18,3 +18,7 @@ maim
 xclip
 brightnessctl
 pavucontrol
+
+# Session / login (lightdm also starts Wayland sessions such as sway)
+lightdm
+lightdm-gtk-greeter

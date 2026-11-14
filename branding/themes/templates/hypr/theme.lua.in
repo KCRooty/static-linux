@@ -11,6 +11,10 @@ return {
     accent   = "{{accent}}",
     accent2  = "{{accent_hi}}",
     rounding = {{radius_win}},
+    gaps_in  = {{gaps_in}},
+    gaps_out = {{gaps_out}},
+    border   = {{border_px}},
+    bar      = "{{bar_pos}}",
     font     = "{{font_ui}}",
     wallpaper = "{{wallpaper}}",
 }

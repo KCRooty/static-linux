@@ -2,1515 +2,2003 @@ msgid ""
 msgstr ""
 "Project-Id-Version: static-linux\n"
 "Report-Msgid-Bugs-To: staticforge@staticforge.me\n"
-"POT-Creation-Date: 2026-11-14 10:17+0100\n"
+"POT-Creation-Date: 2026-11-14 18:13+0100\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
+#: installer/calamares/modules/basepkgs/main.py:108
 msgid "Instalando los paquetes base"
 msgstr "Oinarrizko paketeak instalatzen"
 
+#: installer/calamares/modules/display/main.py:41
 msgid "Ajustando la escala de pantalla"
 msgstr "Pantailaren eskala doitzen"
 
+#: installer/calamares/modules/entorno-pkgs/main.py:62
 msgid "Instalando el escritorio"
 msgstr "Mahaigaina instalatzen"
 
+#: installer/calamares/modules/luks/main.py:48
 msgid "Comprobando el cifrado del disco"
 msgstr "Diskoaren zifratzea egiaztatzen"
 
+#: installer/calamares/modules/privacidad-apply/main.py:63
 msgid "Aplicando el perfil de privacidad"
 msgstr "Pribatutasun-profila aplikatzen"
 
+#: installer/calamares/modules/rendimiento/main.py:49
 msgid "Ajustando el rendimiento"
 msgstr "Errendimendua doitzen"
 
+#: installer/calamares/modules/sabores/main.py:65
 msgid "Instalando los sabores"
 msgstr "Zaporeak instalatzen"
 
+#: installer/calamares/modules/sl-detect/main.py:49
 msgid "Detectando el hardware (sl-detect)"
 msgstr "Hardwarea detektatzen (sl-detect)"
 
+#: installer/calamares/modules/tema-apply/main.py:40
 msgid "Aplicando el tema"
 msgstr "Gaia aplikatzen"
 
+#: sl-ctl/sl-ctl.py:52
 msgid "este comando necesita root (usa sudo)"
 msgstr "agindu honek root behar du (erabili sudo)"
 
+#: sl-ctl/sl-ctl.py:114 sl-ctl/sl-ctl.py:148
 msgid "desconocido"
 msgstr "ezezaguna"
 
+#: sl-ctl/sl-ctl.py:123 sl-ctl/sl-ctl.py:429
 msgid "Kernel"
 msgstr "Kernela"
 
+#: sl-ctl/sl-ctl.py:127 sl-welcome/src/pages/overview.py:82
 msgid "Arquitectura"
 msgstr "Arkitektura"
 
+#: sl-ctl/sl-ctl.py:128
 msgid "Disco"
 msgstr "Diskoa"
 
+#: sl-ctl/sl-ctl.py:130
 msgid "Escritorio recomendado"
 msgstr "Gomendatutako mahaigaina"
 
+#: sl-ctl/sl-ctl.py:131 sl-welcome/src/window.py:46
 msgid "Privacidad"
 msgstr "Pribatutasuna"
 
+#: sl-ctl/sl-ctl.py:152 sl-welcome/src/privileged.py:42
 #, python-brace-format
 msgid "perfil de privacidad desconocido: {name}"
 msgstr "pribatutasun-profil ezezaguna: {name}"
 
+#: sl-ctl/sl-ctl.py:158
 #, python-brace-format
 msgid "no se encuentra {path}"
 msgstr "ez da aurkitu {path}"
 
+#: sl-ctl/sl-ctl.py:198
 msgid "Sin sudo no se ven los procesos de otros usuarios ni de root."
 msgstr "sudo gabe, ez dira beste erabiltzaileen ezta root-en prozesuak ikusten."
 
+#: sl-ctl/sl-ctl.py:200
 msgid "Escuchando fuera"
 msgstr "Kanpora entzuten"
 
+#: sl-ctl/sl-ctl.py:200 sl-ctl/sl-ctl.py:553
 msgid "nada"
 msgstr "ezer ez"
 
+#: sl-ctl/sl-ctl.py:202
 msgid "Conexiones"
 msgstr "Konexioak"
 
+#: sl-ctl/sl-ctl.py:209
 msgid "(cifrado, dnscrypt-proxy)"
 msgstr "(zifratuta, dnscrypt-proxy)"
 
+#: sl-ctl/sl-ctl.py:210
 msgid "(sin cifrar)"
 msgstr "(zifratu gabe)"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "Cortafuegos"
 msgstr "Suebakia"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:545
+#: sl-ctl/sl-ctl.py:554
 msgid "activo"
 msgstr "aktibo"
 
+#: sl-ctl/sl-ctl.py:211 sl-ctl/sl-ctl.py:554
 msgid "desactivado"
 msgstr "desgaituta"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "Temporizadores"
 msgstr "Tenporizadoreak"
 
+#: sl-ctl/sl-ctl.py:214
 msgid "ninguno"
 msgstr "bat ere ez"
 
+#: sl-ctl/sl-ctl.py:216
 msgid "Static Linux no envía telemetría. Las conexiones de arriba son tuyas: navegador, actualizaciones que lances, sincronización de hora (NTP)."
 msgstr "Static Linux-ek ez du telemetriarik bidaltzen. Goiko konexioak zureak dira: nabigatzailea, zuk abiarazitako eguneraketak, ordu-sinkronizazioa (NTP)."
 
+#: sl-ctl/sl-ctl.py:234
 msgid "no se encuentra la herramienta de acentos"
 msgstr "ez da aurkitu azentuen tresna"
 
+#: sl-ctl/sl-ctl.py:240
 msgid "'accent <nombre>' necesita root (cambia /etc)"
 msgstr "'accent <izena>' root behar du (/etc aldatzen du)"
 
+#: sl-ctl/sl-ctl.py:256
 msgid "no se encuentra sl-theme"
 msgstr "ez da aurkitu sl-theme"
 
+#: sl-ctl/sl-ctl.py:261
 msgid "con sudo también cambian la pantalla de inicio de sesión, GRUB y el arranque"
 msgstr "sudo-rekin saio-hasierako pantaila, GRUB eta abioa ere aldatzen dira"
 
+#: sl-ctl/sl-ctl.py:280
 msgid "fstrim.timer semanal (solo SSD)"
 msgstr "Asteko fstrim.timer (SSD soilik)"
 
+#: sl-ctl/sl-ctl.py:284
 msgid "Volver a frenar los split locks (desactivado por rendimiento)"
 msgstr "Split lock-ak berriro mantsotu (errendimenduagatik desaktibatuta)"
 
+#: sl-ctl/sl-ctl.py:290
 msgid "Volver a cargar los watchdogs de hardware (quitados por defecto)"
 msgstr "Hardware watchdog-ak berriro kargatu (lehenespenez kenduta)"
 
+#: sl-ctl/sl-ctl.py:320 sl-ctl/sl-ctl.py:349
 msgid "aplicado"
 msgstr "aplikatuta"
 
+#: sl-ctl/sl-ctl.py:327
 #, python-brace-format
 msgid "ajuste desconocido: {name}"
 msgstr "doikuntza ezezaguna: {name}"
 
+#: sl-ctl/sl-ctl.py:354
 #, python-brace-format
 msgid "el ajuste {name} no está aplicado"
 msgstr "{name} doikuntza ez dago aplikatuta"
 
+#: sl-ctl/sl-ctl.py:368
 #, python-brace-format
 msgid "revertido: {name}"
 msgstr "leheneratuta: {name}"
 
+#: sl-ctl/sl-ctl.py:404
 msgid "el del kernel (este kernel no tiene sched_ext)"
 msgstr "kernelarena (kernel honek ez du sched_ext)"
 
+#: sl-ctl/sl-ctl.py:409
 msgid "el del kernel (EEVDF)"
 msgstr "kernelarena (EEVDF)"
 
+#: sl-ctl/sl-ctl.py:411
 msgid "sin power-profiles-daemon"
 msgstr "power-profiles-daemon gabe"
 
+#: sl-ctl/sl-ctl.py:418
 msgid "ninguna"
 msgstr "bat ere ez"
 
+#: sl-ctl/sl-ctl.py:428
 msgid "rendimiento"
 msgstr "errendimendua"
 
+#: sl-ctl/sl-ctl.py:430
 msgid "Planificador de CPU"
 msgstr "CPU planifikatzailea"
 
+#: sl-ctl/sl-ctl.py:431
 msgid "Perfil de energía"
 msgstr "Energia profila"
 
+#: sl-ctl/sl-ctl.py:434
 msgid "Planificador de disco"
 msgstr "Disko planifikatzailea"
 
+#: sl-ctl/sl-ctl.py:435 sl-ctl/sl-ctl.py:547
 msgid "parado"
 msgstr "geldituta"
 
+#: sl-ctl/sl-ctl.py:438
 #, no-python-format
 msgid "Juegos: en Steam pon  sl-game %command%  en las opciones de lanzamiento."
 msgstr "Jokoak: Steam-en jarri  sl-game %command%  abiarazte aukeretan."
 
+#: sl-ctl/sl-ctl.py:444
 msgid "power-profiles-daemon no está instalado"
 msgstr "power-profiles-daemon ez dago instalatuta"
 
+#: sl-ctl/sl-ctl.py:448
 #, python-brace-format
 msgid "perfil desconocido: {name}"
 msgstr "profil ezezaguna: {name}"
 
+#: sl-ctl/sl-ctl.py:455
 #, python-brace-format
 msgid "Planificadores: {list}, off"
 msgstr "Planifikatzaileak: {list}, off"
 
+#: sl-ctl/sl-ctl.py:456
 msgid "lavd es el recomendado: sigue la carga solo y prioriza juegos, audio y escritorio."
 msgstr "lavd da gomendatua: karga bere kabuz jarraitzen du eta jokoak, audioa eta mahaigaina lehenesten ditu."
 
+#: sl-ctl/sl-ctl.py:460
 #, python-brace-format
 msgid "planificador desconocido: {name}"
 msgstr "planifikatzaile ezezaguna: {name}"
 
+#: sl-ctl/sl-ctl.py:464
 msgid "Vuelve el planificador del kernel."
 msgstr "Kernelaren planifikatzailea itzultzen da."
 
+#: sl-ctl/sl-ctl.py:467
 msgid "este kernel no tiene sched_ext; usa linux-zen o linux"
 msgstr "kernel honek ez du sched_ext; erabili linux-zen edo linux"
 
+#: sl-ctl/sl-ctl.py:493
 msgid "el planificador no ha arrancado; mira  journalctl -u scx_loader"
 msgstr "planifikatzailea ez da abiarazi; begiratu  journalctl -u scx_loader"
 
+#: sl-ctl/sl-ctl.py:496
 #, python-brace-format
 msgid "Planificador: scx_{name} (también en el próximo arranque)."
 msgstr "Planifikatzailea: scx_{name} (hurrengo abioan ere bai)."
 
+#: sl-ctl/sl-ctl.py:543
 msgid "no instalado"
 msgstr "instalatu gabe"
 
+#: sl-ctl/sl-ctl.py:553
 msgid "Escuchando"
 msgstr "Entzuten"
 
+#: sl-ctl/sl-ctl.py:556
 msgid "Activar: sudo sl-ctl server on <servicio> · apagar: sudo sl-ctl server off <servicio>"
 msgstr "Aktibatu: sudo sl-ctl server on <zerbitzua> · itzali: sudo sl-ctl server off <zerbitzua>"
 
+#: sl-ctl/sl-ctl.py:563
 #, python-brace-format
 msgid "{pkg} no está instalado: sudo pacman -S {pkg}"
 msgstr "{pkg} ez dago instalatuta: sudo pacman -S {pkg}"
 
+#: sl-ctl/sl-ctl.py:569
 msgid "Falta /etc/wireguard/wg0.conf: créalo primero (wiki: Servidor)."
 msgstr "/etc/wireguard/wg0.conf falta da: sortu lehenik (wikia: Servidor)."
 
+#: sl-ctl/sl-ctl.py:577
 #, python-brace-format
 msgid "{user} está en el grupo docker (vale desde el próximo inicio de sesión)."
 msgstr "{user} docker taldean dago (hurrengo saio-hasieratik balio du)."
 
+#: sl-ctl/sl-ctl.py:581
 #, python-brace-format
 msgid "Cortafuegos: {port} abierto."
 msgstr "Suebakia: {port} irekita."
 
+#: sl-ctl/sl-ctl.py:583
 #, python-brace-format
 msgid "Cortafuegos desactivado: {port} queda accesible desde la red."
 msgstr "Suebakia desgaituta: {port} saretik eskuragarri dago."
 
+#: sl-ctl/sl-ctl.py:584
 #, python-brace-format
 msgid "{name}: activo."
 msgstr "{name}: aktibo."
 
+#: sl-ctl/sl-ctl.py:596
 #, python-brace-format
 msgid "{name}: parado y sin puertos abiertos."
 msgstr "{name}: geldituta eta ataka irekirik gabe."
 
+#: sl-ctl/sl-ctl.py:603
 #, python-brace-format
 msgid "Servicios: {names}"
 msgstr "Zerbitzuak: {names}"
 
+#: sl-ctl/sl-ctl.py:657
+msgid "no existe el punto de restauración {n} (sl-ctl snapshot --list)"
+msgstr "{n} leheneratze-puntua ez dago (sl-ctl snapshot --list)"
+
+#: sl-ctl/sl-ctl.py:668
+msgid "Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces."
+msgstr "{n} leheneratze-puntua: {a} pakete garai hartako bertsiora itzultzen dira."
+
+#: sl-ctl/sl-ctl.py:670
+msgid "Sin copia en la caché (se quedan como están): "
+msgstr "Cachean kopiarik gabe (dauden bezala geratzen dira): "
+
+#: sl-ctl/sl-ctl.py:673
+msgid "Instalados después (no se tocan): "
+msgstr "Geroago instalatuak (ez dira ukitzen): "
+
+#: sl-ctl/sl-ctl.py:678
+msgid "La configuración de entonces está en {f} (no se restaura sola)."
+msgstr "Garai hartako konfigurazioa {f} fitxategian dago (ez da berez leheneratzen)."
+
+#: sl-ctl/sl-ctl.py:685
 msgid "Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>"
 msgstr "Argazkia eguneratu aurretik eta ondoren (snap-pac): zerbait gaizki ateratzen bada, sl-ctl snapshot --rollback <n>"
 
+#: sl-ctl/sl-ctl.py:687
+msgid "Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>"
+msgstr "Leheneratze-puntua sortu da (paketeen bertsioak eta /etc): zerbait gaizki ateratzen bada, sl-ctl snapshot --rollback <n>"
+
+#: sl-ctl/sl-ctl.py:695
 msgid "AUR sin actualizar: no hay un usuario normal al que pasar. Ejecuta `paru -Sua` con tu usuario."
 msgstr "AUR eguneratu gabe: ez dago erabiltzaile arruntik. Exekutatu `paru -Sua` zure erabiltzailearekin."
 
-msgid "snapper no está instalado (solo BTRFS)"
-msgstr "snapper ez dago instalatuta (BTRFS soilik)"
+#: sl-ctl/sl-ctl.py:710
+msgid "Punto de restauración {n} creado."
+msgstr "{n} leheneratze-puntua sortu da."
 
-msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
-msgstr "ez dago argazkirik: sistema ez dago BTRFS-n edo Snapper ez dago konfiguratuta"
+#: sl-ctl/sl-ctl.py:716
+msgid "(sin BTRFS: puntos de restauración de paquetes y /etc)"
+msgstr "(BTRFS gabe: paketeen eta /etc-en leheneratze-puntuak)"
 
+#: sl-ctl/sl-ctl.py:721
+msgid "ninguno todavía: sl-ctl update crea uno antes de actualizar"
+msgstr "bat ere ez oraindik: sl-ctl update-k bat sortzen du eguneratu aurretik"
+
+#: sl-ctl/sl-ctl.py:733
 #, python-brace-format
 msgid "Se devolverán los archivos del sistema al estado de la instantánea {n}."
 msgstr "Sistemaren fitxategiak {n} argazkiko egoerara itzuliko dira."
 
+#: sl-ctl/sl-ctl.py:734
 msgid "Antes se crea otra instantánea, por si quieres volver a lo de ahora."
 msgstr "Aurretik beste argazki bat sortzen da, oraingo egoerara itzuli nahi baduzu."
 
+#: sl-ctl/sl-ctl.py:738
 msgid "Hecho. Reinicia para que todo cargue la versión restaurada."
 msgstr "Eginda. Berrabiarazi dena berreskuratutako bertsioarekin kargatzeko."
 
+#: sl-ctl/sl-ctl.py:746
 msgid "reflector no está instalado"
 msgstr "reflector ez dago instalatuta"
 
+#: sl-ctl/sl-ctl.py:840 sl-welcome/src/pages/catalog.py:115
 msgid "instalado"
 msgstr "instalatuta"
 
+#: sl-ctl/sl-ctl.py:842
 msgid "pendiente (instalación sin red)"
 msgstr "zain (sarerik gabe instalatua)"
 
+#: sl-ctl/sl-ctl.py:848
 msgid "Con conexión: sudo sl-ctl flavor add pending"
 msgstr "Konexioarekin: sudo sl-ctl flavor add pending"
 
+#: sl-ctl/sl-ctl.py:849
 msgid "Añadir: sudo sl-ctl flavor add <sabor> · quitar: sudo sl-ctl flavor remove <sabor>"
 msgstr "Gehitu: sudo sl-ctl flavor add <zaporea> · kendu: sudo sl-ctl flavor remove <zaporea>"
 
+#: sl-ctl/sl-ctl.py:858
 #, python-brace-format
 msgid "Instalando el sabor {name}: {n} paquetes"
 msgstr "{name} zaporea instalatzen: {n} pakete"
 
+#: sl-ctl/sl-ctl.py:870
 #, python-brace-format
 msgid "no se pudo instalar {app} desde Flathub"
 msgstr "ezin izan da {app} Flathub-etik instalatu"
 
+#: sl-ctl/sl-ctl.py:888
 msgid "Del AUR, con tu usuario:"
 msgstr "AURetik, zure erabiltzailearekin:"
 
+#: sl-ctl/sl-ctl.py:892
 msgid "Cierra la sesión y vuelve a entrar para usar los grupos nuevos."
 msgstr "Itxi saioa eta sartu berriro talde berriak erabiltzeko."
 
+#: sl-ctl/sl-ctl.py:893
 #, python-brace-format
 msgid "Sabor {name} instalado."
 msgstr "{name} zaporea instalatuta."
 
+#: sl-ctl/sl-ctl.py:928
 #, python-brace-format
 msgid "Sabor {name} quitado."
 msgstr "{name} zaporea kenduta."
 
+#: sl-ctl/sl-ctl.py:946
 msgid "uso: sl-ctl flavor [list | add <sabor> | remove <sabor>]"
 msgstr "erabilera: sl-ctl flavor [list | add <zaporea> | remove <zaporea>]"
 
+#: sl-ctl/sl-ctl.py:948
 #, python-brace-format
 msgid "sabor desconocido: {name}"
 msgstr "zapore ezezaguna: {name}"
 
+#: sl-ctl/sl-ctl.py:955
 msgid "sl-welcome no está instalado."
 msgstr "sl-welcome ez dago instalatuta."
 
+#: sl-ctl/sl-ctl.py:961
 msgid "Gestión de Static Linux"
 msgstr "Static Linux kudeaketa"
 
+#: sl-ctl/sl-ctl.py:965
 msgid "ejecuta sl-detect y muestra el resultado"
 msgstr "exekutatu sl-detect eta erakutsi emaitza"
 
+#: sl-ctl/sl-ctl.py:966
 msgid "información del sistema"
 msgstr "sistemaren informazioa"
 
+#: sl-ctl/sl-ctl.py:967
 msgid "actualiza todo el sistema (pacman + AUR + Flatpak)"
 msgstr "eguneratu sistema osoa (pacman + AUR + Flatpak)"
 
+#: sl-ctl/sl-ctl.py:968
 msgid "renueva los mirrors con reflector"
 msgstr "berritu ispiluak reflector-ekin"
 
+#: sl-ctl/sl-ctl.py:969
 msgid "abre otra vez sl-welcome"
 msgstr "ireki berriro sl-welcome"
 
+#: sl-ctl/sl-ctl.py:971
 msgid "ajustes del sistema reversibles"
 msgstr "sistemaren doikuntza itzulgarriak"
 
-msgid "instantáneas de Snapper"
-msgstr "Snapper argazkiak"
+#: sl-ctl/sl-ctl.py:977
+msgid "instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"
+msgstr "argazkiak (Snapper BTRFSn, leheneratze-puntuak ext4n)"
 
-msgid "devuelve los archivos del sistema a esa instantánea"
-msgstr "sistemaren fitxategiak argazki horretara itzultzen ditu"
+#: sl-ctl/sl-ctl.py:980
+msgid "devuelve el sistema a esa instantánea o punto de restauración"
+msgstr "sistema argazki edo leheneratze-puntu horretara itzultzen du"
 
+#: sl-ctl/sl-ctl.py:983
 msgid "añade o quita sabores"
 msgstr "gehitu edo kendu zaporeak"
 
+#: sl-ctl/sl-ctl.py:990
 msgid "qué se conecta a la red ahora mismo"
 msgstr "zer dagoen sarera konektatuta oraintxe"
 
+#: sl-ctl/sl-ctl.py:992
 msgid "muestra o cambia el perfil de privacidad"
 msgstr "erakutsi edo aldatu pribatutasun profila"
 
+#: sl-ctl/sl-ctl.py:996
 msgid "muestra o cambia el color de acento"
 msgstr "erakutsi edo aldatu azentu kolorea"
 
+#: sl-ctl/sl-ctl.py:998
 msgid "lista los acentos"
 msgstr "zerrendatu azentuak"
 
+#: sl-ctl/sl-ctl.py:1001
 msgid "muestra o cambia el tema (fondo + paleta + estilo)"
 msgstr "erakutsi edo aldatu gaia (atzealdea + paleta + estiloa)"
 
+#: sl-ctl/sl-ctl.py:1003
 msgid "lista los temas"
 msgstr "zerrendatu gaiak"
 
+#: sl-ctl/sl-ctl.py:1006
 msgid "rendimiento: estado, perfil de energía y planificador de CPU"
 msgstr "errendimendua: egoera, energia profila eta CPU planifikatzailea"
 
+#: sl-ctl/sl-ctl.py:1011
 msgid "servidor: estado de los servicios y activarlos o apagarlos"
 msgstr "zerbitzaria: zerbitzuen egoera, eta aktibatu edo itzali"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Espacio"
 msgstr "Zuriunea"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Impr Pant"
 msgstr "ImprPant"
 
+#: sl-ctl/sl-hypr-guide:36
 msgid "Intro"
 msgstr "Sartu"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic derecho"
 msgstr "eskuineko klika"
 
+#: sl-ctl/sl-hypr-guide:38
 msgid "clic izquierdo"
 msgstr "ezkerreko klika"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↑"
 msgstr "gurpila ↑"
 
+#: sl-ctl/sl-hypr-guide:39
 msgid "rueda ↓"
 msgstr "gurpila ↓"
 
+#: sl-ctl/sl-hypr-guide:40
 msgid "Silencio"
 msgstr "Mututu"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo +"
 msgstr "Distira +"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Brillo −"
 msgstr "Distira −"
 
+#: sl-ctl/sl-hypr-guide:41
 msgid "Micro"
 msgstr "Mikroa"
 
+#: sl-ctl/sl-hypr-guide:49
 #, python-brace-format
 msgid "código {n}"
 msgstr "{n} kodea"
 
+#: sl-ctl/sl-hypr-guide:62
 msgid "flechas"
 msgstr "geziak"
 
+#: sl-ctl/sl-hypr-guide:81
 msgid "Otros"
 msgstr "Beste batzuk"
 
+#: sl-ctl/sl-hypr-guide:130
 msgid "Atajos de Hyprland"
 msgstr "Hyprland-en lasterbideak"
 
+#: sl-ctl/sl-hypr-guide:139
 msgid "Hyprland se maneja sobre todo con el teclado. Super es la tecla de Windows. Vuelve a abrir esta guía cuando quieras con Super + F1."
 msgstr "Hyprland batez ere teklatuarekin erabiltzen da. Super Windows tekla da. Ireki gida hau berriro nahi duzunean Super + F1 sakatuta."
 
+#: sl-ctl/sl-hypr-guide:145
 msgid "No se han podido leer los atajos (¿Hyprland está en marcha?)."
 msgstr "Ezin izan dira lasterbideak irakurri (Hyprland martxan dago?)."
 
 #. TRANSLATORS: strftime pattern for the date in the quick settings and its tooltip
+#: sl-ctl/sl-quick:40
 msgid "%A, %-d de %B"
 msgstr "%A, %B %-d"
 
+#: sl-ctl/sl-quick:83
 msgid "Cable"
 msgstr "Kablea"
 
+#: sl-ctl/sl-quick:171
 #, python-brace-format
 msgid "Red: {name}"
 msgstr "Sarea: {name}"
 
+#: sl-ctl/sl-quick:199
 msgid "Ajustes rápidos"
 msgstr "Ezarpen azkarrak"
 
+#: sl-ctl/sl-quick:230
 msgid "Cerrar sesión"
 msgstr "Amaitu saioa"
 
+#: sl-ctl/sl-quick:231
 msgid "Apagar"
 msgstr "Itzali"
 
+#: sl-ctl/sl-quick:232
 msgid "Bloquear"
 msgstr "Blokeatu"
 
+#: sl-ctl/sl-quick:233
 msgid "Ajustes"
 msgstr "Ezarpenak"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Activado"
 msgstr "Aktibatuta"
 
+#: sl-ctl/sl-quick:262 sl-ctl/sl-quick:263
 msgid "Desactivado"
 msgstr "Desaktibatuta"
 
+#: sl-ctl/sl-quick:264
 msgid "Avisos activos"
 msgstr "Jakinarazpenak aktibo"
 
+#: sl-ctl/sl-quick:264
 msgid "No molestar"
 msgstr "Ez molestatu"
 
+#: sl-ctl/sl-quick:264
 msgid "Sin avisos"
 msgstr "Jakinarazpenik ez"
 
+#: sl-ctl/sl-quick:266
 msgid "Luz nocturna"
 msgstr "Gaueko argia"
 
+#: sl-ctl/sl-quick:266
 msgid "Tonos cálidos"
 msgstr "Tonu beroak"
 
+#: sl-ctl/sl-quick:275
 msgid "Captura"
 msgstr "Pantaila-argazkia"
 
+#: sl-ctl/sl-quick:301
 #, python-brace-format
 msgid "Batería {pct} %"
 msgstr "Bateria % {pct}"
 
+#: sl-ctl/sl-quick:301
 msgid "cargando"
 msgstr "kargatzen"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "Frutiger Aero, barra abajo"
 msgstr "Frutiger Aero, barra behean"
 
+#: sl-welcome/src/pages/appearance.py:55
 msgid "barra fina arriba"
 msgstr "barra mehea goian"
 
+#: sl-welcome/src/pages/appearance.py:56
 msgid "como Windows, barra abajo"
 msgstr "Windows bezala, barra behean"
 
+#: sl-welcome/src/pages/appearance.py:57
 msgid "lanzador y estante abajo"
 msgstr "abiarazlea eta apala behean"
 
+#: sl-welcome/src/pages/appearance.py:106
 msgid "Tema"
 msgstr "Gaia"
 
+#: sl-welcome/src/pages/appearance.py:107
 msgid "Cada tema es un fondo, una paleta sacada de él y un estilo de ventanas y barra. Cambia todo a la vez y guarda copia de lo que sustituye. Sin sudo."
 msgstr "Gai bakoitza horma-paper bat da, hartatik ateratako paleta bat eta leiho eta barrarentzako estilo bat. Dena batera aldatzen da eta ordezten dena gordetzen da. sudo gabe."
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "claro"
 msgstr "argia"
 
+#: sl-welcome/src/pages/appearance.py:115
 msgid "oscuro"
 msgstr "iluna"
 
+#: sl-welcome/src/pages/appearance.py:135
 msgid "No encuentro los temas de Static Linux (sl-theme)."
 msgstr "Ez ditut Static Linux-en gaiak aurkitzen (sl-theme)."
 
+#: sl-welcome/src/pages/appearance.py:147
 msgid "No se pudo aplicar el tema"
 msgstr "Ezin izan da gaia aplikatu"
 
+#: sl-welcome/src/pages/appearance.py:147
 #, python-brace-format
 msgid "Tema aplicado: {name}"
 msgstr "Gaia aplikatuta: {name}"
 
+#: sl-welcome/src/pages/catalog.py:42
 msgid "repos oficiales"
 msgstr "biltegi ofizialak"
 
+#: sl-welcome/src/pages/catalog.py:93
 msgid "Listo. Pulsa Intro para cerrar… "
 msgstr "Eginda. Sakatu Sartu ixteko… "
 
+#: sl-welcome/src/pages/catalog.py:128
 msgid "Pendiente de tus sabores"
 msgstr "Zure zaporeetatik falta dena"
 
+#: sl-welcome/src/pages/catalog.py:129
 msgid "Lo que no se pudo instalar durante la instalación. Ya está marcado."
 msgstr "Instalazioan zehar instalatu ezin izan dena. Markatuta dago jada."
 
+#: sl-welcome/src/pages/catalog.py:139 sl-welcome/src/window.py:48
 msgid "Catálogo"
 msgstr "Katalogoa"
 
+#: sl-welcome/src/pages/catalog.py:140
 msgid "No se encontró ningún catálogo."
 msgstr "Ez da katalogorik aurkitu."
 
+#: sl-welcome/src/pages/catalog.py:153
 msgid "Instalar lo marcado"
 msgstr "Instalatu markatutakoa"
 
+#: sl-welcome/src/pages/catalog.py:154
 msgid "Repos oficiales: pide tu contraseña · Flathub: sin contraseña · AUR y Static Forge: se abre una terminal"
 msgstr "Biltegi ofizialak: pasahitza eskatzen du · Flathub: pasahitzik gabe · AUR eta Static Forge: terminal bat irekitzen da"
 
+#: sl-welcome/src/pages/catalog.py:156
 msgid "Instalar"
 msgstr "Instalatu"
 
+#: sl-welcome/src/pages/catalog.py:166
 msgid "No has marcado nada"
 msgstr "Ez duzu ezer markatu"
 
+#: sl-welcome/src/pages/catalog.py:181
 msgid "Sin terminal para instalar las apps de Static Forge"
 msgstr "Ez dago terminalik Static Forge-ren aplikazioak instalatzeko"
 
+#: sl-welcome/src/pages/catalog.py:186
 #, python-brace-format
 msgid "Sin terminal: ejecuta «{cmd}»"
 msgstr "Ez dago terminalik: exekutatu «{cmd}»"
 
+#: sl-welcome/src/pages/catalog.py:200
 msgid "pacman falló"
 msgstr "pacman-ek huts egin du"
 
+#: sl-welcome/src/pages/catalog.py:209
 msgid "flatpak falló"
 msgstr "flatpak-ek huts egin du"
 
+#: sl-welcome/src/pages/catalog.py:216
 #, python-brace-format
 msgid "{n} app instalada"
 msgid_plural "{n} apps instaladas"
 msgstr[0] "Aplikazio {n} instalatuta"
 msgstr[1] "{n} aplikazio instalatuta"
 
+#: sl-welcome/src/pages/catalog.py:217 sl-welcome/src/pages/privacy.py:63
 #, python-brace-format
 msgid "Falló: {error}"
 msgstr "Huts egin du: {error}"
 
+#: sl-welcome/src/pages/overview.py:24
 msgid "Wiki online"
 msgstr "Wiki linean"
 
+#: sl-welcome/src/pages/overview.py:25
 msgid "Repositorio (GitHub)"
 msgstr "Biltegia (GitHub)"
 
+#: sl-welcome/src/pages/overview.py:26
 msgid "Reportar un problema"
 msgstr "Jakinarazi arazo bat"
 
+#: sl-welcome/src/pages/overview.py:74
 msgid "Este equipo"
 msgstr "Ordenagailu hau"
 
+#: sl-welcome/src/pages/overview.py:78
 msgid "Driver gráfico"
 msgstr "Txartel grafikoaren kontrolatzailea"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "No"
 msgstr "Ez"
 
+#: sl-welcome/src/pages/overview.py:79
 msgid "Sí"
 msgstr "Bai"
 
+#: sl-welcome/src/pages/overview.py:81
 msgid "Almacenamiento"
 msgstr "Biltegiratzea"
 
+#: sl-welcome/src/pages/overview.py:86
 msgid "Recomendación de sl-detect"
 msgstr "sl-detect-en gomendioa"
 
+#: sl-welcome/src/pages/overview.py:87
 msgid "Calculada para este hardware. Puedes cambiarla en Apariencia y Privacidad."
 msgstr "Hardware honetarako kalkulatua. Itxura eta Pribatutasuna ataletan alda dezakezu."
 
+#: sl-welcome/src/pages/overview.py:89
 msgid "Entorno"
 msgstr "Ingurunea"
 
+#: sl-welcome/src/pages/overview.py:90
 msgid "Sistema de archivos"
 msgstr "Fitxategi-sistema"
 
+#: sl-welcome/src/pages/overview.py:94
 msgid "Enlaces"
 msgstr "Estekak"
 
+#: sl-welcome/src/pages/overview.py:96
 msgid "Copia local, funciona sin conexión"
 msgstr "Kopia lokala, konexiorik gabe dabil"
 
+#: sl-welcome/src/pages/privacy.py:17
 msgid "Básico"
 msgstr "Oinarrizkoa"
 
+#: sl-welcome/src/pages/privacy.py:18
 msgid "Ajustes seguros desde el primer día + UFW + MAC aleatoria. Kernel linux-zen."
 msgstr "Lehen egunetik ezarpen seguruak + UFW + ausazko MAC. linux-zen nukleoa."
 
+#: sl-welcome/src/pages/privacy.py:19
 msgid "Mejorado"
 msgstr "Hobetua"
 
+#: sl-welcome/src/pages/privacy.py:20
 msgid "+ Firejail + AppArmor + USBGuard. Kernel linux-zen."
 msgstr "+ Firejail + AppArmor + USBGuard. linux-zen nukleoa."
 
+#: sl-welcome/src/pages/privacy.py:21
 msgid "Máximo"
 msgstr "Gehienezkoa"
 
+#: sl-welcome/src/pages/privacy.py:22
 msgid "+ Tor + kloak + swap cifrado. Kernel linux-hardened."
 msgstr "+ Tor + kloak + swap zifratua. linux-hardened nukleoa."
 
+#: sl-welcome/src/pages/privacy.py:29
 msgid "Perfil de privacidad"
 msgstr "Pribatutasun-profila"
 
+#: sl-welcome/src/pages/privacy.py:30
 msgid "Cada perfil guarda copia de lo que toca (/var/backups/static-linux/privacy/), así que todo se puede deshacer. Pide contraseña de administrador."
 msgstr "Profil bakoitzak aldatzen duenaren kopia gordetzen du (/var/backups/static-linux/privacy/), beraz dena desegin daiteke. Administratzailearen pasahitza eskatzen du."
 
+#: sl-welcome/src/pages/privacy.py:39
 msgid "Aplicar"
 msgstr "Aplikatu"
 
+#: sl-welcome/src/pages/privacy.py:62
 #, python-brace-format
 msgid "Perfil {name} aplicado"
 msgstr "{name} profila aplikatuta"
 
+#: sl-welcome/src/pages/privacy.py:63
 msgid "mira el registro"
 msgstr "begiratu erregistroa"
 
+#: sl-welcome/src/privileged.py:34
 msgid "pkexec no está instalado. Instala «polkit» para aplicar cambios de sistema."
 msgstr "pkexec ez dago instalatuta. Instalatu «polkit» sistemako aldaketak aplikatzeko."
 
+#: sl-welcome/src/privileged.py:50
 #, python-brace-format
 msgid "no encuentro {path}"
 msgstr "ez dut {path} aurkitzen"
 
+#: sl-welcome/src/window.py:28
 msgid "Bienvenido a Static Linux"
 msgstr "Ongi etorri Static Linux-era"
 
+#: sl-welcome/src/window.py:40
 msgid "General"
 msgstr "Orokorra"
 
+#: sl-welcome/src/window.py:43
 msgid "Apariencia"
 msgstr "Itxura"
 
+#: sl-ctl/sl-game:21
 msgid "uso: sl-game <comando…>   (en Steam: sl-game %command%)"
 msgstr "erabilera: sl-game <agindua…>   (Steam-en: sl-game %command%)"
 
+#: sl-ctl/sl-logout:11
 msgid "¿Cerrar la sesión?"
 msgstr "Saioa itxi?"
 
+#: sl-ctl/sl-logout:12
 msgid "Sí, cerrar la sesión"
 msgstr "Bai, itxi saioa"
 
+#: sl-ctl/sl-logout:18
 msgid "Cancelar"
 msgstr "Utzi"
 
+#: sl-ctl/sl-screenshot:20 sl-ctl/sl-screenshot:24
 msgid "Capturas"
 msgstr "Pantaila-argazkiak"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Captura guardada"
 msgstr "Pantaila-argazkia gordeta"
 
+#: sl-ctl/sl-screenshot:24
 msgid "Copiada al portapapeles"
 msgstr "Arbelean kopiatuta"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:35
 msgid "Aplicaciones (Super + Espacio)"
 msgstr "Aplikazioak (Super + Zuriunea)"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:117
 msgid "Sin conexión"
 msgstr "Konexiorik gabe"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:160
 msgid "Más ajustes de sonido"
 msgstr "Soinu-ezarpen gehiago"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:195
 msgid "Suspender"
 msgstr "Eseki"
 
+#: entornos/hyprland-common/skel/.config/ags/widget/Bar.tsx:198
 msgid "Reiniciar"
 msgstr "Berrabiarazi"
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:1
 msgid "Static Forge"
 msgstr "Static Forge"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/00-static-forge.yaml:5
 msgid "Descarga de YouTube, YouTube Music, Spotify y Pinterest, hecho en el estudio."
 msgstr "YouTube, YouTube Music, Spotify eta Pinterest-eko deskargak, estudioan egina."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:6
 msgid "Internet"
 msgstr "Internet"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:10
 msgid "El navegador de Mozilla."
 msgstr "Mozillaren nabigatzailea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:14
 msgid "Basado en Firefox, con pestañas verticales y espacios de trabajo."
 msgstr "Firefoxen oinarritua, fitxa bertikalekin eta lan-eremuekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:19
 msgid "La base libre de Chrome, sin servicios de Google."
 msgstr "Chromeren oinarri librea, Googleren zerbitzurik gabe."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:23
 msgid "Correo, calendario y contactos."
 msgstr "Posta, egutegia eta kontaktuak."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:27
 msgid "Cliente BitTorrent libre y sin publicidad."
 msgstr "BitTorrent bezero librea eta iragarkirik gabea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:31
 msgid "Pasa archivos a otros dispositivos de tu red, sin nube."
 msgstr "Bidali fitxategiak zure sareko beste gailu batzuetara, hodeirik gabe."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:35
 msgid "Sincroniza con tu propio servidor Nextcloud."
 msgstr "Zure Nextcloud zerbitzariarekin sinkronizatzen du."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/01-internet.yaml:39
 msgid "Cliente FTP/SFTP."
 msgstr "FTP/SFTP bezeroa."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:1
 msgid "Comunicación"
 msgstr "Komunikazioa"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:5
 msgid "Discord con Vencord ya integrado: temas, plugins y mejor rendimiento en Linux."
 msgstr "Discord, Vencord integratuta: gaiak, pluginak eta errendimendu hobea Linuxen."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:10
 msgid "El cliente oficial."
 msgstr "Bezero ofiziala."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:14
 msgid "Mensajería."
 msgstr "Mezularitza."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:18
 msgid "Mensajería cifrada de extremo a extremo."
 msgstr "Muturretik muturrera zifratutako mezularitza."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/02-comunicacion.yaml:22
 msgid "Chat descentralizado (Matrix)."
 msgstr "Txat deszentralizatua (Matrix)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:1
 msgid "Música y audio"
 msgstr "Musika eta audioa"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:5
 msgid "El cliente oficial (se instala y actualiza con spotify-launcher)."
 msgstr "Bezero ofiziala (spotify-launcher-ekin instalatu eta eguneratzen da)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:9
 msgid "Temas y extensiones para Spotify. Instala Spotify primero."
 msgstr "Spotifyrako gaiak eta hedapenak. Instalatu Spotify lehenik."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:13
 msgid "Descarga tus listas de Spotify en local (desde YouTube Music)."
 msgstr "Deskargatu zure Spotify zerrendak lokalean (YouTube Music-etik)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:17
 msgid "Grabar y editar audio."
 msgstr "Audioa grabatu eta editatu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:21
 msgid "DAW profesional libre: grabación multipista y mezcla."
 msgstr "DAW profesional librea: pista anitzeko grabazioa eta nahasketa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:25
 msgid "DAW libre para producir música, al estilo FL Studio."
 msgstr "Musika ekoizteko DAW librea, FL Studio estiloan."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:29
 msgid "Caja de ritmos."
 msgstr "Erritmo-kutxa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:33
 msgid "DAW comercial con versión de prueba; nativo en Linux."
 msgstr "DAW komertziala proba-bertsioarekin; Linuxen natiboa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:37
 msgid "DAW ligero y potente (licencia de pago, prueba completa)."
 msgstr "DAW arin eta indartsua (ordainpeko lizentzia, proba osoa)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:41
 msgid "Software de DJ."
 msgstr "DJ softwarea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/03-musica-y-audio.yaml:45
 msgid "Reproductor de música ligero."
 msgstr "Musika-erreproduzigailu arina."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:1
 msgid "Vídeo"
 msgstr "Bideoa"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:5
 msgid "Editor de vídeo libre y completo."
 msgstr "Bideo-editore libre eta osoa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:9
 msgid "Editor de vídeo libre, sencillo y rápido."
 msgstr "Bideo-editore librea, erraza eta azkarra."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:13
 msgid "Edición y color profesional (gratuito, no libre). Pesado; necesita GPU dedicada."
 msgstr "Edizio eta kolore profesionala (doakoa, ez librea). Astuna; GPU dedikatua behar du."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:17
 msgid "Grabar y emitir en directo."
 msgstr "Grabatu eta zuzenean igorri."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:21
 msgid "Convertir y comprimir vídeo."
 msgstr "Bideoa bihurtu eta konprimitu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:25
 msgid "Reproduce cualquier cosa."
 msgstr "Edozer erreproduzitzen du."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/04-video.yaml:29
 msgid "Reproductor mínimo y muy rápido."
 msgstr "Erreproduzigailu minimoa eta oso azkarra."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:1
 msgid "Grafismo y 3D"
 msgstr "Grafismoa eta 3D"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:5
 msgid "Pintura digital."
 msgstr "Margolan digitala."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:9
 msgid "Retoque fotográfico."
 msgstr "Argazkiak ukitu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:13
 msgid "Gráficos vectoriales."
 msgstr "Grafiko bektorialak."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:17
 msgid "Modelado, animación y render 3D."
 msgstr "3D modelatzea, animazioa eta errendatzea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:21
 msgid "CAD 3D paramétrico."
 msgstr "3D CAD parametrikoa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:25
 msgid "Revelado RAW."
 msgstr "RAW errebelatzea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:29
 msgid "Motor de videojuegos libre."
 msgstr "Bideo-joko motor librea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/05-grafismo-y-3d.yaml:33
 msgid "Pixel art y animación (se compila desde el código)."
 msgstr "Pixel art eta animazioa (iturburu-kodetik konpilatzen da)."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:1
 msgid "Juegos"
 msgstr "Jokoak"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:5
 msgid "Con Proton para jugar a juegos de Windows."
 msgstr "Protonekin Windows jokoetan jolasteko."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:9
 msgid "Epic Games, GOG y Amazon Prime Gaming. La forma de usar Epic en Linux."
 msgstr "Epic Games, GOG eta Amazon Prime Gaming. Epic Linuxen erabiltzeko modua."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:14
 msgid "Un sitio para todos tus juegos y lanzadores (Battle.net, EA, Ubisoft…)."
 msgstr "Zure joko eta abiarazle guztientzako leku bat (Battle.net, EA, Ubisoft…)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:18
 msgid "Minecraft Java con varias instancias y mods."
 msgstr "Minecraft Java hainbat instantzia eta modekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:22
 msgid "Minecraft Java con los mods y modpacks de Modrinth."
 msgstr "Minecraft Java Modrinth-eko mod eta modpack-ekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:26
 msgid "El launcher oficial de Mojang para Minecraft Java."
 msgstr "Mojangen abiarazle ofiziala Minecraft Javarako."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:30
 msgid "Launcher de la versión Bedrock (necesitas tenerla comprada en Google Play)."
 msgstr "Bedrock bertsioaren abiarazlea (Google Play-n erosita izan behar duzu)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:34
 msgid "Instala Proton-GE y otras versiones de Proton/Wine con un clic."
 msgstr "Proton-GE eta Proton/Wine-ren beste bertsio batzuk klik batez instalatzen ditu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:38
 msgid "Programas de Windows en entornos aislados."
 msgstr "Windows programak ingurune isolatuetan."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:42
 msgid "Rendimiento al jugar y contador de FPS."
 msgstr "Jokoetako errendimendua eta FPS kontagailua."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:46
 msgid "Emulador multisistema."
 msgstr "Sistema anitzeko emuladorea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:50
 msgid "Emulador de GameCube y Wii."
 msgstr "GameCube eta Wii emuladorea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/06-juegos.yaml:54
 msgid "Emulador de PlayStation 2."
 msgstr "PlayStation 2 emuladorea."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/07-desarrollo.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:148
 msgid "Desarrollo"
 msgstr "Garapena"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:5
 msgid "Control de versiones (incluido en Static Linux)."
 msgstr "Bertsio-kontrola (Static Linux-en barne)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:9
 msgid "GitHub desde la terminal (gh)."
 msgstr "GitHub terminaletik (gh)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:13
 msgid "Contenedores, con Compose y Buildx. Recuerda añadirte al grupo docker."
 msgstr "Edukiontziak, Compose eta Buildx-ekin. Gogoratu zeure burua docker taldera gehitzea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:17
 msgid "La compilación de Microsoft, con su marketplace."
 msgstr "Microsoften konpilazioa, bere marketplace-arekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:21
 msgid "VS Code compilado desde el código libre (repos oficiales)."
 msgstr "Kode libretik konpilatutako VS Code (biltegi ofizialak)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:25
 msgid "VS Code sin telemetría de Microsoft."
 msgstr "VS Code Microsoften telemetriarik gabe."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:30
 msgid "Editor modal en la terminal."
 msgstr "Editore modala terminalean."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:34
 msgid "Git con interfaz en la terminal."
 msgstr "Git terminaleko interfazearekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:38
 msgid "Comparar archivos y carpetas."
 msgstr "Fitxategiak eta karpetak alderatu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:42
 msgid "Cliente de bases de datos."
 msgstr "Datu-baseen bezeroa."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/07-desarrollo.yaml:46
 msgid "adb y fastboot."
 msgstr "adb eta fastboot."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:1
 msgid "Productividad"
 msgstr "Produktibitatea"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:5
 msgid "Ofimática completa, en español y con corrector."
 msgstr "Bulegotika-sorta osoa, zuzentzailearekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:9
 msgid "Notas en Markdown enlazadas."
 msgstr "Lotutako Markdown oharrak."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:13
 msgid "Gestor de contraseñas local y libre."
 msgstr "Pasahitz-kudeatzaile lokala eta librea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:17
 msgid "Gestor de contraseñas en la nube."
 msgstr "Hodeiko pasahitz-kudeatzailea."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:21
 msgid "Notas con sincronización cifrada."
 msgstr "Oharrak sinkronizazio zifratuarekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:25
 msgid "Notas a mano y anotar PDFs."
 msgstr "Eskuzko oharrak eta PDFak oharpenekin."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:29
 msgid "Unir, dividir y reordenar PDFs."
 msgstr "PDFak batu, zatitu eta berrantolatu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/08-productividad.yaml:33
 msgid "Tareas y listas."
 msgstr "Zereginak eta zerrendak."
 
 #. app category in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:1
 msgid "Sistema y herramientas"
 msgstr "Sistema eta tresnak"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:5
 msgid "Comprimir y descomprimir 7z, zip, rar… (incluido en Static Linux)."
 msgstr "7z, zip, rar… konprimitu eta deskonprimitu (Static Linux-en barne)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:9
 msgid "Convertir audio y vídeo (incluido en Static Linux)."
 msgstr "Audioa eta bideoa bihurtu (Static Linux-en barne)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:13
 msgid "Descargar vídeo y audio de YouTube y más (incluido en Static Linux)."
 msgstr "YouTube-tik eta gehiagotik bideoa eta audioa deskargatu (Static Linux-en barne)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:17
 msgid "Cliente y servidor SSH (incluido; el servidor está apagado hasta que lo actives)."
 msgstr "SSH bezeroa eta zerbitzaria (barne; zerbitzaria itzalita dago aktibatzen duzun arte)."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:21
 msgid "Permisos de las apps de Flathub."
 msgstr "Flathub aplikazioen baimenak."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:25
 msgid "Copias del sistema para volver atrás."
 msgstr "Atzera egiteko sistemaren kopiak."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:29
 msgid "Particionar discos."
 msgstr "Diskoak partizionatu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:33
 msgid "Liberar espacio y borrar rastros."
 msgstr "Lekua askatu eta aztarnak ezabatu."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:37
 msgid "Sincronizar carpetas entre tus equipos, sin nube."
 msgstr "Karpetak zure ordenagailuen artean sinkronizatu, hodeirik gabe."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:41
 msgid "Monitor de recursos en la terminal."
 msgstr "Baliabide-monitorea terminalean."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/09-sistema.yaml:45
 msgid "USB de arranque con varias ISOs a la vez."
 msgstr "Abioko USBa hainbat ISOrekin batera."
 
 #. app category in the sl-welcome catalog
 #. installer page (name)
+#: sl-welcome/catalog/10-virtualizacion.yaml:1
+#: installer/calamares/modules/sabores-picker/module.conf:228
 msgid "Máquinas virtuales"
 msgstr "Makina birtualak"
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:5
 msgid "Máquinas virtuales con KVM, lo más rápido en Linux. Incluye QEMU y libvirt."
 msgstr "KVM bidezko makina birtualak, Linuxen azkarrena. QEMU eta libvirt barne."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:9
 msgid "Máquinas virtuales en dos clics."
 msgstr "Makina birtualak bi klikatan."
 
 #. one-line app description in the sl-welcome catalog
+#: sl-welcome/catalog/10-virtualizacion.yaml:13
 msgid "La opción clásica; más lenta que KVM y con módulo propio del kernel."
 msgstr "Aukera klasikoa; KVM baino motelagoa eta nukleo-modulu propioarekin."
 
 #. installer page (name)
 #. theme name
+#: branding/themes/aero/theme.conf
+#: installer/calamares/modules/tema/module.conf:251
 msgid "Aero"
 msgstr "Aero"
 
 #. short description of a theme
+#: branding/themes/aero/theme.conf
 msgid "cielo, agua y hierba, con brillo"
 msgstr "zerua, ura eta belarra, distirarekin"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/ambar/theme.conf
+#: installer/calamares/modules/tema/module.conf:30
 msgid "Ámbar"
 msgstr "Anbarra"
 
 #. short description of a theme
+#: branding/themes/ambar/theme.conf
 msgid "madera, mostaza y verde azulado de los 70"
 msgstr "70eko hamarkadako egurra, ziapea eta berde urdinxka"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/bosque/theme.conf
+#: installer/calamares/modules/tema/module.conf:147
 msgid "Bosque"
 msgstr "Basoa"
 
 #. short description of a theme
+#: branding/themes/bosque/theme.conf
 msgid "niebla sobre pinos, verdes apagados y gris húmedo"
 msgstr "lainoa pinuen gainean, berde itzaliak eta gris hezea"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nordico/theme.conf
+#: installer/calamares/modules/tema/module.conf:109
 msgid "Nórdico"
 msgstr "Nordikoa"
 
 #. short description of a theme
+#: branding/themes/nordico/theme.conf
 msgid "gris pizarra azulado, hielo y escarcha"
 msgstr "arbel-gris urdinxka, izotza eta izozteak"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/nube/theme.conf
+#: installer/calamares/modules/tema/module.conf:320
 msgid "Nube"
 msgstr "Hodeia"
 
 #. short description of a theme
+#: branding/themes/nube/theme.conf
 msgid "cielo de mañana con nubes, claro y suave"
 msgstr "goizeko zerua hodeiekin, argia eta leuna"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/papel/theme.conf
+#: installer/calamares/modules/tema/module.conf:71
 msgid "Papel"
 msgstr "Papera"
 
 #. short description of a theme
+#: branding/themes/papel/theme.conf
 msgid "papel envejecido, tinta y un verde oliva"
 msgstr "paper zahartua, tinta eta oliba-berde bat"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/sakura/theme.conf
+#: installer/calamares/modules/tema/module.conf:187
 msgid "Sakura"
 msgstr "Sakura"
 
 #. short description of a theme
+#: branding/themes/sakura/theme.conf
 msgid "ventanas de tinta sobre un fondo rosa cerezo"
 msgstr "tinta-leihoak gerezi-arrosa hondo baten gainean"
 
 #. group of keyboard shortcuts in the Hyprland guide
 #. installer page (name)
 #. theme name
+#: branding/themes/ventanas/theme.conf entornos/hyprland-common/static.lua:189
+#: entornos/hyprland-common/static.lua:190
+#: entornos/hyprland-common/static.lua:191
+#: entornos/hyprland-common/static.lua:192
+#: entornos/hyprland-common/static.lua:193
+#: entornos/hyprland-common/static.lua:194
+#: entornos/hyprland-common/static.lua:196
+#: entornos/hyprland-common/static.lua:197
+#: entornos/hyprland-common/static.lua:199
+#: entornos/hyprland-common/static.lua:200
+#: installer/calamares/modules/tema/module.conf:279
 msgid "Ventanas"
 msgstr "Leihoak"
 
 #. short description of a theme
+#: branding/themes/ventanas/theme.conf
 msgid "gris grafito y azul claro, barra abajo con los iconos al centro"
 msgstr "grafito-grisa eta urdin argia, barra behean ikonoak erdian"
 
 #. installer page (name)
 #. theme name
+#: branding/themes/violeta/theme.conf
+#: installer/calamares/modules/tema/module.conf:215
 msgid "Violeta"
 msgstr "Bioleta"
 
 #. short description of a theme
+#: branding/themes/violeta/theme.conf
 msgid "monocromo violeta, montañas al anochecer"
 msgstr "bioleta monokromoa, mendiak ilunabarrean"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:175
+#: entornos/hyprland-common/static.lua:176
+#: entornos/hyprland-common/static.lua:177
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "Apps"
 msgstr "Aplikazioak"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:175
 msgid "abrir la terminal"
 msgstr "ireki terminala"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:176
 msgid "abrir el gestor de archivos"
 msgstr "ireki fitxategi-kudeatzailea"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:177
 msgid "abrir el navegador (Brave Origin)"
 msgstr "ireki nabigatzailea (Brave Origin)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:178
+#: entornos/hyprland-common/static.lua:179
 msgid "lanzador de aplicaciones"
 msgstr "aplikazio-abiarazlea"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:182
 msgid "Ayuda"
 msgstr "Laguntza"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:182
 msgid "esta guía de atajos"
 msgstr "lasterbideen gida hau"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:185
+#: entornos/hyprland-common/static.lua:186
 msgid "zona de pantalla (archivo + portapapeles)"
 msgstr "pantailaren eremua (fitxategia + arbela)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:189
 msgid "cerrar la ventana"
 msgstr "itxi leihoa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:190
 msgid "pantalla completa"
 msgstr "pantaila osoa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:191
 msgid "flotante / en mosaico"
 msgstr "flotatzailea / mosaikoan"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:192
 msgid "pseudo-mosaico"
 msgstr "sasi-mosaikoa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:193
 msgid "cambiar división horizontal/vertical"
 msgstr "aldatu zatiketa horizontala/bertikala"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:194
 msgid "pasar a la siguiente"
 msgstr "pasatu hurrengora"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:196
 msgid "mover el foco"
 msgstr "mugitu fokua"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:197
 msgid "mover la ventana"
 msgstr "mugitu leihoa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:199
 msgid "arrastrar con Super + clic izquierdo"
 msgstr "arrastatu Super + ezkerreko klikarekin"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:200
 msgid "redimensionar con Super + clic derecho"
 msgstr "tamaina aldatu Super + eskuineko klikarekin"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:204
+#: entornos/hyprland-common/static.lua:205
+#: entornos/hyprland-common/static.lua:207
+#: entornos/hyprland-common/static.lua:208
+#: entornos/hyprland-common/static.lua:209
+#: entornos/hyprland-common/static.lua:210
 msgid "Escritorios"
 msgstr "Mahaigainak"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:204
 msgid "ir a un escritorio"
 msgstr "joan mahaigain batera"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:205
 msgid "mover la ventana a otro escritorio"
 msgstr "mugitu leihoa beste mahaigain batera"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:207
 msgid "siguiente (rueda del ratón)"
 msgstr "hurrengoa (saguaren gurpila)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:208
 msgid "anterior (rueda del ratón)"
 msgstr "aurrekoa (saguaren gurpila)"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:209
 msgid "mostrar/ocultar el escritorio rápido"
 msgstr "erakutsi/ezkutatu mahaigain azkarra"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:210
 msgid "mandar la ventana al escritorio rápido"
 msgstr "bidali leihoa mahaigain azkarrera"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:213
+#: entornos/hyprland-common/static.lua:214
 msgid "Sesión"
 msgstr "Saioa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:213
 msgid "bloquear la pantalla"
 msgstr "blokeatu pantaila"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:214
 msgid "ver la última notificación"
 msgstr "ikusi azken jakinarazpena"
 
 #. group of keyboard shortcuts in the Hyprland guide
+#: entornos/hyprland-common/static.lua:220
+#: entornos/hyprland-common/static.lua:221
+#: entornos/hyprland-common/static.lua:222
+#: entornos/hyprland-common/static.lua:223
+#: entornos/hyprland-common/static.lua:224
+#: entornos/hyprland-common/static.lua:225
+#: entornos/hyprland-common/static.lua:226
+#: entornos/hyprland-common/static.lua:227
+#: entornos/hyprland-common/static.lua:228
 msgid "Multimedia"
 msgstr "Multimedia"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:220
 msgid "subir volumen"
 msgstr "igo bolumena"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:221
 msgid "bajar volumen"
 msgstr "jaitsi bolumena"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:222
 msgid "silenciar"
 msgstr "mututu"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:223
 msgid "silenciar el micrófono"
 msgstr "mututu mikrofonoa"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:224
 msgid "subir brillo"
 msgstr "igo distira"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:225
 msgid "bajar brillo"
 msgstr "jaitsi distira"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:226
 msgid "reproducir/pausar"
 msgstr "erreproduzitu/pausatu"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:227
 msgid "siguiente pista"
 msgstr "hurrengo pista"
 
 #. what a keyboard shortcut does (Hyprland guide)
+#: entornos/hyprland-common/static.lua:228
 msgid "pista anterior"
 msgstr "aurreko pista"
 
 #. installer page (step)
+#: installer/calamares/modules/entorno/module.conf:24
 msgid "Entorno de escritorio"
 msgstr "Mahaigain-ingurunea"
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:46
 msgid "XFCE (temático)"
 msgstr "XFCE (gaiarekin)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:61
 msgid "El entorno validado en hardware real (Packard Bell iMedia S2883). Xorg, ligero, recomendado desde 1 GB de RAM o cuando la GPU no soporta Wayland."
 msgstr "Benetako hardwarean balioztatutako ingurunea (Packard Bell iMedia S2883). Xorg, arina, 1 GB RAMetik aurrera edo GPUak Wayland onartzen ez duenean gomendatua."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:85
 msgid "Openbox minimal"
 msgstr "Openbox minimoa"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:99
 msgid "El nivel más bajo: 512 MB. Openbox + tint2 + jgmenu, sin compositor por defecto."
 msgstr "Mailarik baxuena: 512 MB. Openbox + tint2 + jgmenu, lehenespenez konposatzailerik gabe."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:122
 msgid "Hyprland + Astal (lite)"
 msgstr "Hyprland + Astal (lite)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:123
 msgid "Wayland, 2-4 GB. Mismo shell Astal que la versión full, sin blur/sombras/animaciones pesadas."
 msgstr "Wayland, 2-4 GB. Full bertsioaren Astal shell bera, lausotzerik, itzalik eta animazio astunik gabe."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:146
 msgid "Hyprland + Astal (full)"
 msgstr "Hyprland + Astal (full)"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:147
 msgid "Wayland, techo recomendado de 4 GB. Blur, sombras y animaciones completas. Necesita una GPU con buen soporte de Wayland."
 msgstr "Wayland, gomendatutako sabaia 4 GB. Lausotzea, itzalak eta animazio osoak. Wayland ondo onartzen duen GPU bat behar du."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:170
 msgid "KDE Plasma"
 msgstr "KDE Plasma"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:171
 msgid "El escritorio completo y familiar: barra abajo, menú de inicio, Dolphin y ajustes para todo. Wayland, desde 4 GB de RAM. Es el entorno más pesado; sl-detect no lo recomienda por defecto."
 msgstr "Mahaigain osoa eta ezaguna: barra behean, hasiera-menua, Dolphin eta denetarako ezarpenak. Wayland, 4 GB RAMetik aurrera. Ingurunerik astunena da; sl-detect-ek ez du lehenespenez gomendatzen."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:195
 msgid "GNOME"
 msgstr "GNOME"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:196
 msgid "El escritorio de GNOME tal cual: vista de actividades, dock y apps GNOME. Wayland, desde 4 GB de RAM. El tema llega al modo claro u oscuro, al acento, al fondo y a las apps. Entra con GDM."
 msgstr "GNOME mahaigaina den bezala: jarduerak ikuspegia, kaia eta GNOME aplikazioak. Wayland, 4 GB RAMetik aurrera. Gaia modu argi edo ilunera, nabarmentze-kolorera, horma-paperera eta aplikazioetara iristen da. GDMrekin sartzen da."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:220
 msgid "Cinnamon"
 msgstr "Cinnamon"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:221
 msgid "Clásico y cómodo: barra abajo, menú de inicio e iconos en el escritorio. Xorg, desde 2 GB. El tema también viste el panel y el menú."
 msgstr "Klasikoa eta erosoa: barra behean, hasiera-menua eta ikonoak mahaigainean. Xorg, 2 GBtik aurrera. Gaiak panela eta menua ere janzten ditu."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:245
 msgid "i3"
 msgstr "i3"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:246
 msgid "Mosaico con el teclado: las ventanas se colocan solas. Xorg, desde 1 GB. Barra i3bar, lanzador rofi. Super + Intro abre la terminal."
 msgstr "Mosaikoa teklatuarekin: leihoak berez kokatzen dira. Xorg, 1 GBtik aurrera. i3bar barra, rofi abiarazlea. Super + Sartu-k terminala irekitzen du."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:269
 msgid "bspwm"
 msgstr "bspwm"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:270
 msgid "Mosaico por árbol binario, atajos en sxhkd y barra polybar. Xorg, desde 1 GB. Para quien quiere configurarlo todo."
 msgstr "Zuhaitz bitarreko mosaikoa, lasterbideak sxhkd-n eta polybar barra. Xorg, 1 GBtik aurrera. Dena konfiguratu nahi duenarentzat."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:293
 msgid "sway"
 msgstr "sway"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:294
 msgid "El mosaico de i3, en Wayland. Desde 1-2 GB. Barra waybar, lanzador rofi y avisos con mako."
 msgstr "i3-ren mosaikoa, Waylanden. 1-2 GBtik aurrera. waybar barra, rofi abiarazlea eta mako-rekin jakinarazpenak."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:320
 msgid "Sin entorno gráfico"
 msgstr "Ingurune grafikorik gabe"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:338
 msgid "Solo la consola: arranca a la línea de comandos, sin servidor gráfico, sin navegador y sin audio. Con tmux, btop y sl-ctl. Desde 512 MB."
 msgstr "Kontsola soilik: komando-lerrora abiarazten da, zerbitzari grafikorik, nabigatzailerik eta audiorik gabe. tmux, btop eta sl-ctl-ekin. 512 MBtik aurrera."
 
 #. installer page (name)
+#: installer/calamares/modules/entorno/module.conf:363
+#: installer/calamares/modules/sabores-picker/module.conf:348
 msgid "Servidor / Homelab"
 msgstr "Zerbitzaria / Homelab"
 
 #. installer page (description)
+#: installer/calamares/modules/entorno/module.conf:377
 msgid "Sin entorno gráfico y con el sabor Servidor: Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit (panel web). Nada escucha en la red hasta que lo actives con «sl-ctl server»."
 msgstr "Ingurune grafikorik gabe eta Zerbitzari zaporearekin: Docker, Nginx, MariaDB, WireGuard, Fail2ban eta Cockpit (web panela). Ezerk ez du sarean entzuten «sl-ctl server»-ekin aktibatu arte."
 
 #. installer page (step)
+#: installer/calamares/modules/sabores-picker/module.conf:10
 msgid "Sabores"
 msgstr "Zaporeak"
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:29
 msgid "Sabores (opcional)"
 msgstr "Zaporeak (aukerakoa)"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:44
 msgid "Paquetes de apps listos para lo que vayas a hacer. Marca los que quieras (puedes elegir varios o ninguno): se instalan con el sistema y cada uno viene ajustado para rendir bien. Todo se puede añadir o quitar después desde la bienvenida."
 msgstr "Egingo duzunerako prest dauden aplikazio-paketeak. Markatu nahi dituzunak (hainbat edo bat ere ez): sistemarekin batera instalatzen dira eta bakoitza ondo errenditzeko doituta dator. Dena gehitu edo kendu daiteke gero ongietorri-aplikaziotik."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:69
 msgid "Gaming"
 msgstr "Jokoak"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:83
 msgid "Steam con Proton, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher y Modrinth para Minecraft, MangoHud, GameMode y Gamescope. Activa las librerías de 32 bits y el driver Vulkan de tu GPU."
 msgstr "Steam Protonekin, Lutris, Heroic (Epic, GOG, Amazon), Prism Launcher eta Modrinth Minecrafterako, MangoHud, GameMode eta Gamescope. 32 biteko liburutegiak eta zure GPUaren Vulkan kontrolatzailea aktibatzen ditu."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:107
 msgid "Creación de contenido"
 msgstr "Eduki-sorkuntza"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:125
 msgid "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity y los DAWs Ardour, LMMS e Hydrogen, con audio en tiempo real (baja latencia)."
 msgstr "Krita, GIMP, Inkscape, Blender, Kdenlive, Shotcut, OBS, Audacity eta Ardour, LMMS eta Hydrogen DAWak, denbora errealeko audioarekin (latentzia baxua)."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:166
 msgid "Git y GitHub CLI, Docker (se arranca solo al usarlo), VS Code (Code - OSS), Python, Rust, Node y Java."
 msgstr "Git eta GitHub CLI, Docker (erabiltzean berez abiarazten da), VS Code (Code - OSS), Python, Rust, Node eta Java."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:189
 msgid "Oficina"
 msgstr "Bulegoa"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:205
 msgid "LibreOffice en español con corrector, Obsidian, KeePassXC, Xournal++ y herramientas de PDF."
 msgstr "LibreOffice zuzentzailearekin, Obsidian, KeePassXC, Xournal++ eta PDF tresnak."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:246
 msgid "KVM/QEMU con virt-manager y GNOME Boxes, con TPM y UEFI para invitados Windows 11."
 msgstr "KVM/QEMU virt-manager eta GNOME Boxes-ekin, TPM eta UEFIrekin Windows 11 gonbidatuentzat."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:269
 msgid "Educación"
 msgstr "Hezkuntza"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:286
 msgid "GeoGebra, Stellarium, Anki, Jupyter y FreeCAD."
 msgstr "GeoGebra, Stellarium, Anki, Jupyter eta FreeCAD."
 
 #. installer page (name)
+#: installer/calamares/modules/sabores-picker/module.conf:308
 msgid "Ciberseguridad"
 msgstr "Zibersegurtasuna"
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:326
 msgid "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra y Tor."
 msgstr "Nmap, Wireshark, Hashcat, John, Metasploit, Ghidra eta Tor."
 
 #. installer page (description)
+#: installer/calamares/modules/sabores-picker/module.conf:362
 msgid "Docker, Nginx, MariaDB, WireGuard, Fail2ban y Cockpit. Por seguridad ningún servicio se queda escuchando hasta que tú lo actives."
 msgstr "Docker, Nginx, MariaDB, WireGuard, Fail2ban eta Cockpit. Segurtasunagatik, zerbitzu batek ere ez du entzuten zuk aktibatu arte."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:47
 msgid "El tema de Static Linux. Oscuro y cálido: madera, mostaza y verde azulado, sobre «Tormenta bajo el Fuji» de Hokusai. Barra fina arriba y ventanas sólidas."
 msgstr "Static Linux-en gaia. Iluna eta beroa: egurra, ziapea eta berde urdinxka, Hokusairen «Ekaitza Fujiren azpian» lanaren gainean. Barra mehea goian eta leiho sendoak."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:86
 msgid "Claro, en tonos de papel envejecido, tinta y verde oliva, sobre un grabado de Hokusai. Para quien trabaja con mucha luz."
 msgstr "Argia, paper zahartu, tinta eta oliba-berde tonuetan, Hokusairen grabatu baten gainean. Argi askorekin lan egiten duenarentzat."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:124
 msgid "Oscuro y frío: pizarra azulada y hielo, sobre «Nieve al anochecer en Kanbara» de Hiroshige."
 msgstr "Iluna eta hotza: arbel urdinxka eta izotza, Hiroshigeren «Arratsaldeko elurra Kanbaran» lanaren gainean."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:164
 msgid "Oscuro, en verdes de pino y niebla, sobre «Lluvia de primavera en Tsuchiyama» de Hiroshige."
 msgstr "Iluna, pinu- eta laino-berdeetan, Hiroshigeren «Udaberriko euria Tsuchiyaman» lanaren gainean."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:193
 msgid "Oscuro con rosa cerezo, sobre «El Fuji desde Gotenyama» de Hokusai."
 msgstr "Iluna gerezi-arrosarekin, Hokusairen «Fuji Gotenyamatik» lanaren gainean."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:229
 msgid "Oscuro y monocromo en violeta, con montañas al anochecer."
 msgstr "Iluna eta monokromoa bioletan, mendiak ilunabarrean."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:256
 msgid "Estilo Frutiger Aero: claro, con cielo, burbujas y hierba, barras con brillo y la barra de tareas abajo."
 msgstr "Frutiger Aero estiloa: argia, zeru, burbuila eta belarrarekin, barra distiratsuekin eta ataza-barra behean."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:297
 msgid "Parecido a Windows: oscuro, barra de tareas abajo con las apps al centro y botones de ventana ─ □ ✕."
 msgstr "Windowsen antzekoa: iluna, ataza-barra behean aplikazioak erdian eta leiho-botoiak ─ □ ✕."
 
 #. installer page (description)
+#: installer/calamares/modules/tema/module.conf:337
 msgid "Claro y suave, sobre un cielo con nubes. Lanzador redondo y estante abajo con las apps al centro; la hora abre los ajustes rápidos."
 msgstr "Argia eta leuna, hodeiz betetako zeru baten gainean. Abiarazle biribila eta apala behean aplikazioak erdian; orduak ezarpen azkarrak irekitzen ditu."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:18
 msgid ""
 "fast · private · yours\n"
 "Tu sistema se está instalando. Esto tarda unos minutos."
@@ -1519,10 +2007,12 @@ msgstr ""
 "Zure sistema instalatzen ari da. Minutu batzuk behar ditu."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:20
 msgid "Tu escritorio, tu color"
 msgstr "Zure mahaigaina, zure kolorea"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:21
 msgid ""
 "Nueve temas para todo el sistema: fondo, ventanas, terminal y arranque.\n"
 "Cámbialo cuando quieras desde la bienvenida o con  sl-ctl theme."
@@ -1531,10 +2021,12 @@ msgstr ""
 "Aldatu nahi duzunean ongietorri-aplikaziotik edo  sl-ctl theme erabiliz."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:23
 msgid "Privado de serie"
 msgstr "Pribatua jatorritik"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:24
 msgid ""
 "Cero telemetría. DNS cifrado y cortafuegos activos desde el primer arranque.\n"
 "Sube el nivel con  sl-ctl privacy."
@@ -1543,10 +2035,12 @@ msgstr ""
 "Igo maila  sl-ctl privacy erabiliz."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:26
 msgid "Todo a mano"
 msgstr "Dena eskura"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:27
 msgid ""
 "sl-welcome: catálogo de apps y primeros pasos.\n"
 "sl-ctl: actualizar, snapshots, ajustes y más."
@@ -1555,10 +2049,12 @@ msgstr ""
 "sl-ctl: eguneratzeak, argazkiak, doikuntzak eta gehiago."
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:29
 msgid "Hecho para tu equipo"
 msgstr "Zure ordenagailurako egina"
 
 #. installer slideshow
+#: installer/calamares/branding/staticlinux/show.qml:30
 msgid ""
 "sl-detect ha elegido entorno, kernel y sistema de archivos\n"
 "según tu hardware, de un Celeron a una RTX."
@@ -1566,54 +2062,79 @@ msgstr ""
 "sl-detect-ek ingurunea, nukleoa eta fitxategi-sistema aukeratu ditu\n"
 "zure hardwarearen arabera, Celeron batetik RTX bateraino."
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:39
 msgid "Contraseña"
 msgstr "Pasahitza"
 
+#: branding/themes/templates/hypr/hyprlock.conf.in:40
 msgid "Contraseña incorrecta"
 msgstr "Pasahitz okerra"
 
+#: branding/themes/templates/system/plymouth.script.in:68
 msgid "Contraseña del disco"
 msgstr "Diskoaren pasahitza"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:3
 msgid "Bienvenida a Static Linux"
 msgstr "Static Linux-en ongietorria"
 
 #. menu entry
+#: sl-welcome/data/dev.staticforge.welcome.desktop:21
 msgid "Primeros pasos, apariencia, privacidad y catálogo de apps"
 msgstr "Lehen urratsak, itxura, pribatutasuna eta aplikazio-katalogoa"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:3
 msgid "Captura de pantalla (zona)"
 msgstr "Pantaila-argazkia (eremua)"
 
 #. menu entry
+#: packages/staticlinux-base/sl-screenshot.desktop:19
 msgid "Guarda en Imágenes/Capturas y copia al portapapeles"
 msgstr "Irudiak/Pantaila-argazkiak karpetan gordetzen du eta arbelean kopiatzen du"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:3
 msgid "Instalar Static Linux"
 msgstr "Instalatu Static Linux"
 
 #. menu entry
+#: iso/airootfs-common/usr/share/applications/sl-live-install.desktop:20
 msgid "Instala Static Linux en este equipo"
 msgstr "Instalatu Static Linux ordenagailu honetan"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:9
 msgid "Aplicar un perfil de privacidad de Static Linux"
 msgstr "Aplikatu Static Linux-en pribatutasun-profil bat"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:27
 msgid "sl-welcome necesita privilegios de administrador para aplicar el perfil de privacidad"
 msgstr "sl-welcome-k administratzaile-baimenak behar ditu pribatutasun-profila aplikatzeko"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:55
 msgid "Instalar paquetes del catálogo de sl-welcome"
 msgstr "Instalatu sl-welcome-ren katalogoko paketeak"
 
 #. password prompt
+#: sl-welcome/data/dev.staticforge.welcome.policy:73
 msgid "sl-welcome necesita privilegios de administrador para instalar paquetes con pacman"
 msgstr "sl-welcome-k administratzaile-baimenak behar ditu pacman-ekin paketeak instalatzeko"
+
+#~ msgid "snapper no está instalado (solo BTRFS)"
+#~ msgstr "snapper ez dago instalatuta (BTRFS soilik)"
+
+#~ msgid "no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"
+#~ msgstr "ez dago argazkirik: sistema ez dago BTRFS-n edo Snapper ez dago konfiguratuta"
+
+#~ msgid "instantáneas de Snapper"
+#~ msgstr "Snapper argazkiak"
+
+#~ msgid "devuelve los archivos del sistema a esa instantánea"
+#~ msgstr "sistemaren fitxategiak argazki horretara itzultzen ditu"
 
 #~ msgid "aún no está hecho; los sabores se añaden desde el catálogo de sl-welcome."
 #~ msgstr "oraindik ez dago eginda; zaporeak sl-welcome-ren katalogotik gehitzen dira."

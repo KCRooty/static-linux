@@ -1,0 +1,4 @@
+# Static Linux: no desktop icons by default in Cinnamon (nemo-desktop is a
+# ~25 MB process for the whole session). Settings → Desktop turns them back on.
+[org.nemo.desktop]
+show-desktop-icons=false

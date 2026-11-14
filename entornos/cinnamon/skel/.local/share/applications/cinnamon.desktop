@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Name=Cinnamon
+Comment=Window management and application launching
+# Static Linux: start cinnamon itself instead of cinnamon-launcher, a Python
+# + GTK wrapper (~37 MB for the whole session) whose only job is to offer the
+# fallback mode if Cinnamon crashes. Delete this file to get it back.
+Exec=cinnamon
+TryExec=cinnamon
+NoDisplay=true
+X-GNOME-Autostart-Phase=WindowManager
+X-GNOME-Provides=panel;windowmanager;
+X-GNOME-Autostart-Notify=true
+X-GNOME-AutoRestart=false

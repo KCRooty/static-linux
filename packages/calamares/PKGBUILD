@@ -17,7 +17,7 @@
 
 pkgname=calamares
 pkgver=3.4.2
-pkgrel=2
+pkgrel=3
 pkgdesc="Distribution-independent installer framework (Static Linux build: Python jobs + packagechooser)"
 arch=('x86_64')
 url="https://codeberg.org/Calamares/calamares"
@@ -50,6 +50,11 @@ prepare() {
     # confirmation dialog showed a literal % (2026-11-14)
     sed -i 's|<translation>%Regresar</translation>|<translation>\&amp;Regresar</translation>|' \
         "$pkgname-$pkgver/lang/calamares_es.ts"
+    # the partition legend wrote each name in hard-coded black: invisible on
+    # the installer's dark background. Use the palette's text colour instead.
+    sed -i '/^PartitionLabelsView::drawLabel/,/^}/ s|painter->setPen( Qt::black );|painter->setPen( palette().text().color() );|' \
+        "$pkgname-$pkgver/src/modules/partition/gui/PartitionLabelsView.cpp"
+    grep -q 'setPen( palette().text().color() )' "$pkgname-$pkgver/src/modules/partition/gui/PartitionLabelsView.cpp"
 }
 
 build() {

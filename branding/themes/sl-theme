@@ -22,6 +22,7 @@ import argparse
 import os
 import pwd
 import re
+import shlex
 import shutil
 import subprocess
 import sys
@@ -101,11 +102,20 @@ def load_theme(theme_id: str) -> dict[str, str]:
     theme["icon_base"] = "Papirus-Light" if theme["mode"] == "light" else "Papirus-Dark"
     theme["radius_ctl"] = {"minimal": "6", "aero": "4", "ventanas": "4", "estante": "16"}[theme["style"]]
     theme["radius_win"] = {"minimal": "10", "aero": "8", "ventanas": "3", "estante": "12"}[theme["style"]]
+    # the style outside XFCE: bar position/height, gaps, borders, titlebars
+    theme.update(STYLE_KEYS[theme["style"]])
+    theme["bar_bottom"] = "true" if theme["bar_pos"] == "bottom" else "false"
+    theme["bar_border_top"] = "1" if theme["bar_pos"] == "bottom" else "0"  # the line faces the windows
+    theme["bar_border_bottom"] = "0" if theme["bar_pos"] == "bottom" else "1"
     # tints the styles draw with (gloss, hover rows): bg pulled towards the accent
     for pct in (8, 15, 25, 40):
         theme[f"tint{pct}"] = xfwm4._mix(theme["bg"], theme["accent"], pct / 100)
     theme["accent_hi"] = xfwm4._mix(theme["accent"], "FFFFFF", 0.35)
     theme["accent_lo"] = xfwm4._mix(theme["accent"], "000000", 0.20)
+    # Openbox aero titlebar: gloss from an accent tint down to the background
+    aero = theme["style"] == "aero"
+    theme["ob_title_hi"] = xfwm4._mix(theme["bg"], "FFFFFF", 0.45) if aero else theme["bg"]
+    theme["ob_title_lo"] = theme["tint25"] if aero else theme["bg"]
     # every colour also as "r,g,b", r/g/b alone (0-255) and a truecolor escape
     for key, value in list(theme.items()):
         if not re.fullmatch(r"[0-9A-Fa-f]{6}", value or ""):
@@ -115,6 +125,23 @@ def load_theme(theme_id: str) -> dict[str, str]:
         theme[f"{key}_r"], theme[f"{key}_g"], theme[f"{key}_b"] = map(str, rgb)
         theme[f"{key}_ansi"] = "38;2;" + ";".join(map(str, rgb))
     return theme
+
+
+# Per-style layout for every desktop that isn't XFCE (XFCE has its own panel
+# XML and xfwm4 decorations). Same choices as the XFCE panels: minimal = thin
+# bar on top; aero / ventanas = taskbar at the bottom; estante = a centred
+# shelf at the bottom with roomy gaps.
+STYLE_KEYS = {
+    "minimal":  {"bar_margin": "0", "bar_pos": "top",    "bar_h": "30", "bar_len": "100", "gaps_in": "6", "gaps_out": "4",
+                 "border_px": "2", "title_justify": "center", "ob_title": "flat solid", "kde_border": "Tiny"},
+    "aero":     {"bar_margin": "0", "bar_pos": "bottom", "bar_h": "40", "bar_len": "100", "gaps_in": "4", "gaps_out": "4",
+                 "border_px": "3", "title_justify": "left", "ob_title": "raised gradient vertical",
+                 "kde_border": "Normal"},
+    "ventanas": {"bar_margin": "0", "bar_pos": "bottom", "bar_h": "44", "bar_len": "100", "gaps_in": "0", "gaps_out": "0",
+                 "border_px": "1", "title_justify": "left", "ob_title": "flat solid", "kde_border": "None"},
+    "estante":  {"bar_margin": "8", "bar_pos": "bottom", "bar_h": "48", "bar_len": "60", "gaps_in": "8", "gaps_out": "12",
+                 "border_px": "1", "title_justify": "left", "ob_title": "flat solid", "kde_border": "Tiny"},
+}
 
 
 def render(text: str, theme: dict[str, str]) -> str:
@@ -528,6 +555,55 @@ GNOME_ACCENTS = {"blue": 214, "teal": 180, "green": 135, "yellow": 48, "orange":
                  "red": 357, "pink": 330, "purple": 270}
 
 
+KDE_PANEL_AUTOSTART = ".config/autostart/sl-theme-kde-panel.desktop"
+
+
+def kde_panel_js(theme: dict[str, str]) -> str:
+    """Plasma scripting: move/resize every panel to the style's bar."""
+    shelf = theme["bar_len"] != "100"
+    return ("panels().forEach(function(p){"
+            f"p.location='{theme['bar_pos']}';p.height={theme['bar_h']};"
+            f"try{{p.lengthMode='{'fit' if shelf else 'fill'}';p.alignment='center';"
+            f"p.floating={'true' if shelf else 'false'};}}catch(e){{}}}})")
+
+
+def kde_panel_live(theme: dict[str, str], user: str | None) -> bool:
+    s = session_env(user, ["plasmashell"])
+    qdbus = shutil.which("qdbus6") or shutil.which("qdbus")
+    if not (s and qdbus):
+        return False
+    prefix, env = s
+    keep = [f"{k}={env[k]}" for k in ("DBUS_SESSION_BUS_ADDRESS", "XDG_RUNTIME_DIR") if k in env]
+    r = subprocess.run(prefix + ["env", *keep, qdbus, "org.kde.plasmashell", "/PlasmaShell",
+                                 "org.kde.PlasmaShell.evaluateScript", kde_panel_js(theme)],
+                       env=env, check=False, capture_output=True)
+    return r.returncode == 0
+
+
+def kde_style(w: Writer, theme: dict[str, str], user: str | None, new_panel: bool) -> None:
+    """Window borders always; the panel only when the style changed. With no
+    Plasma running (installer, --skel, another desktop) a one-shot autostart
+    entry moves the panel at the next Plasma login."""
+    ini_merge(w, ".config/kwinrc", {"org.kde.kdecoration2": {
+        "BorderSize": theme["kde_border"], "BorderSizeAuto": "false"}})
+    if not new_panel:
+        return
+    if user and kde_panel_live(theme, user):
+        return
+    w.write(KDE_PANEL_AUTOSTART, "[Desktop Entry]\nType=Application\nName=Static Linux panel layout\n"
+            "Exec=sl-theme --kde-panel\nOnlyShowIn=KDE;\nNoDisplay=true\nX-KDE-autostart-phase=2\n")
+
+
+def kde_panel_login() -> None:
+    """--kde-panel: run once from autostart inside Plasma, then remove the entry."""
+    theme = load_theme(current())
+    for _try in range(15):  # plasmashell may still be starting
+        if kde_panel_live(theme, None):
+            break
+        time.sleep(1)
+    (Path.home() / KDE_PANEL_AUTOSTART).unlink(missing_ok=True)
+
+
 def gnome_accent(hexcolour: str) -> str:
     import colorsys
     r, g, b = (int(hexcolour[i:i + 2], 16) / 255 for i in (0, 2, 4))
@@ -562,9 +638,13 @@ def gnome_prefs(theme: dict[str, str], home: Path, user: str | None) -> None:
              ("org.cinnamon.desktop.wm.preferences", "theme", theme["gtk_theme"]),
              ("org.cinnamon.theme", "name", "StaticLinux" if CINNAMON_CSS.is_file() else "cinnamon"),
              ("org.cinnamon.desktop.background", "picture-uri", uri),
-             ("org.cinnamon.desktop.background", "picture-options", "zoom")]
+             ("org.cinnamon.desktop.background", "picture-options", "zoom"),
+             # the style: window buttons like XFCE's, Cinnamon's panel top/bottom and height
+             ("org.gnome.desktop.wm.preferences", "button-layout", "appmenu:minimize,maximize,close"),
+             ("org.cinnamon", "panels-enabled", f"['1:0:{theme['bar_pos']}']"),
+             ("org.cinnamon", "panels-height", f"['1:{theme['bar_h']}']")]
     # a schema that isn't installed just fails that line; the rest still runs
-    script = "; ".join(f"gsettings set {sch} {k} '{v}' 2>/dev/null" for sch, k, v in rows)
+    script = "; ".join(f"gsettings set {sch} {k} {shlex.quote(v)} 2>/dev/null" for sch, k, v in rows)
     s = session_env(user, GNOME_PROCS) if user else None
     if s and s[1].get("DBUS_SESSION_BUS_ADDRESS"):
         prefix, env = s
@@ -624,6 +704,9 @@ def refresh_session(theme: dict[str, str], user: str | None) -> None:
         run(*s, "gsettings", "set", "org.cinnamon.theme", "name", "StaticLinux")
     if (s := session_env(user, ["Hyprland", ".Hyprland-wrapped"])):
         run(*s, "hyprctl", "reload")
+        # the bar reads its edge (top/bottom) from theme.lua at start
+        run(*s, "sh", "-c", "ags quit -i sl-shell 2>/dev/null; exec ags run ~/.config/ags/app.tsx",
+            background=True)
         run(*s, "pkill", "-x", "hyprpaper")
         run(*s, "pkill", "-x", "swaybg")
         # same fallback as static.lua: swaybg where hyprpaper can't draw
@@ -692,6 +775,8 @@ def apply(theme_id: str, mode: str, user: str | None) -> None:
     new_panel = mode == "skel" or old_style != theme["style"]
     if new_panel:
         w.write(PANEL_STYLE, theme["style"] + "\n")
+    if shutil.which("plasmashell"):
+        kde_style(w, theme, None if mode == "skel" else user, new_panel)
     log(f"{theme['name']} ({theme['style']}) written to {home}")
     # the channel files too: skel ships them with the old defaults and, with
     # no session running (installer, --skel), nothing else would update them
@@ -731,7 +816,11 @@ def main() -> None:
                     help="login screen, GRUB and boot splash for the whole machine (root)")
     ap.add_argument("--no-initramfs", action="store_true",
                     help="with --system: leave the initramfs alone (the installer rebuilds it)")
+    ap.add_argument("--kde-panel", action="store_true", help=argparse.SUPPRESS)
     args = ap.parse_args()
+    if args.kde_panel:
+        kde_panel_login()
+        return
     if args.list:
         active = current()
         for tid in theme_ids():

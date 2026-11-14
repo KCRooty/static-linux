@@ -18,11 +18,7 @@ sl_apparmor_cmdline on
 sl_enable apparmor
 
 # Firejail: sandbox common risk apps by symlinking them through firejail.
-if command -v firecfg >/dev/null; then
-    sl_backup_file /usr/local/bin
-    firecfg >/dev/null
-    sl_log "firejail default profiles linked (firecfg)"
-fi
+sl_firejail on
 
 # USBGuard: generate an allow-list from currently connected devices, then
 # enforce. New/unknown USB devices are blocked until the user approves them.

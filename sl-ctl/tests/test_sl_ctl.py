@@ -58,5 +58,39 @@ class InvokingUser(unittest.TestCase):
         self.assertIsNone(self._resolve({}))
 
 
+class RestorePoints(unittest.TestCase):
+    """ext4 restore points: roll back reinstalls the old versions from the cache."""
+
+    def test_rollback_picks_cached_old_versions(self):
+        import subprocess
+        import tempfile
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            rdir, cache = tmp / "rp", tmp / "pkg"
+            point = rdir / "20261114-120000"
+            point.mkdir(parents=True)
+            cache.mkdir()
+            (point / "packages").write_text("bash 5.2-1\nmesa 1:25.0-1\nzlib 1.3-1\n")
+            for f in ("mesa-1:25.0-1-x86_64.pkg.tar.zst", "mesa-1:25.0-1-x86_64.pkg.tar.zst.sig"):
+                (cache / f).write_text("")
+            now = "bash 5.2-1\nmesa 1:25.1-1\nzlib 1.3.1-1\nnewpkg 1-1\n"
+            calls = []
+
+            def fake_sh(cmd, **kw):
+                calls.append(cmd)
+                out = now if cmd[:2] == ["pacman", "-Q"] else ""
+                return subprocess.CompletedProcess(cmd, 0, stdout=out)
+
+            with mock.patch.object(sl_ctl, "RESTORE_DIR", rdir), \
+                 mock.patch.object(sl_ctl, "PKG_CACHE", cache), \
+                 mock.patch.object(sl_ctl, "_sh", side_effect=fake_sh), \
+                 mock.patch("builtins.print"):
+                self.assertEqual(sl_ctl._restore_rollback("1"), 0)
+            upgrades = [c for c in calls if c[:2] == ["pacman", "-U"]]
+            self.assertEqual(len(upgrades), 1)
+            # only mesa has a cached copy; the .sig is never passed to pacman
+            self.assertEqual([Path(x).name for x in upgrades[0][3:]], ["mesa-1:25.0-1-x86_64.pkg.tar.zst"])
+
+
 if __name__ == "__main__":
     unittest.main(verbosity=2)

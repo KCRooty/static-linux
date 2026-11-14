@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=org.gnome.Evolution-alarm-notify
+# Static Linux: off to stay under 650 MB idle (see entornos/cinnamon/README)
+Hidden=true

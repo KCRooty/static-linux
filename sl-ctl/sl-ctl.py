@@ -610,10 +610,85 @@ def cmd_server(args) -> int:
 # ---------------------------------------------------------------------------
 # thin wrappers  (EXPERIMENTAL — real logic lands in later phases)
 # ---------------------------------------------------------------------------
+# ---------------------------------------------------------------------------
+# restore points (ext4): no filesystem snapshots there, so before an update
+# sl-ctl keeps the package versions and a copy of /etc. Rolling back
+# reinstalls those versions from pacman's cache (paccache keeps 3 of each).
+# ---------------------------------------------------------------------------
+RESTORE_DIR = STATE_DIR / "restore-points"
+RESTORE_KEEP = 5
+PKG_CACHE = Path("/var/cache/pacman/pkg")
+
+
+def _snapper_ready() -> bool:
+    return bool(shutil.which("snapper")) and Path("/etc/snapper/configs/root").exists()
+
+
+def _restore_points() -> list[Path]:
+    if not RESTORE_DIR.is_dir():
+        return []
+    return sorted(p for p in RESTORE_DIR.iterdir() if (p / "packages").is_file())
+
+
+def _restore_create(reason: str) -> Path | None:
+    stamp = datetime.now().strftime("%Y%m%d-%H%M%S")
+    point = RESTORE_DIR / stamp
+    point.mkdir(parents=True, exist_ok=True)
+    try:
+        pkgs = _sh(["pacman", "-Q"], capture_output=True)
+        if pkgs.returncode != 0:
+            raise RuntimeError("pacman -Q failed")
+        (point / "reason").write_text(reason + "\n")
+        # /etc as it is now; restoring it is left to the user (merging configs blindly breaks things)
+        _sh(["tar", "--zstd", "-cpf", str(point / "etc.tar.zst"), "-C", "/", "etc"],
+            stderr=subprocess.DEVNULL)
+        # written last: a point only counts (_restore_points) once this exists
+        (point / "packages").write_text(pkgs.stdout)
+    except Exception:
+        shutil.rmtree(point, ignore_errors=True)
+        raise
+    for old in _restore_points()[:-RESTORE_KEEP]:
+        shutil.rmtree(old, ignore_errors=True)
+    return point
+
+
+def _restore_rollback(ident: str) -> int:
+    points = {p.name: p for p in _restore_points()}
+    if ident.isdigit() and 1 <= int(ident) <= len(points):
+        ident = sorted(points)[int(ident) - 1]
+    point = points.get(ident)
+    if not point:
+        sys.exit("sl-ctl: " + _("no existe el punto de restauración {n} (sl-ctl snapshot --list)").format(n=ident))
+    then = dict(ln.split(None, 1) for ln in (point / "packages").read_text().splitlines() if " " in ln)
+    now = dict(ln.split(None, 1) for ln in _sh(["pacman", "-Q"], capture_output=True).stdout.splitlines() if " " in ln)
+    files, missing = [], []
+    for name, ver in sorted(then.items()):
+        if now.get(name) == ver:
+            continue
+        found = sorted(PKG_CACHE.glob(f"{name}-{ver}-*.pkg.tar.*"))
+        found = [f for f in found if not f.name.endswith(".sig")]
+        (files if found else missing).append(found[0] if found else f"{name} {ver}")
+    added = sorted(set(now) - set(then))
+    print(_("Punto de restauración {n}: {a} paquetes vuelven a la versión de entonces.").format(n=point.name, a=len(files)))
+    if missing:
+        print(AMBER + _("Sin copia en la caché (se quedan como están): ") + ", ".join(missing[:12]) +
+              (" …" if len(missing) > 12 else "") + RESET)
+    if added:
+        print(DIM + _("Instalados después (no se tocan): ") + ", ".join(added[:12]) + (" …" if len(added) > 12 else "") + RESET)
+    rc = 0
+    if files:
+        _restore_create(f"antes de volver a {point.name}")
+        rc = _sh(["pacman", "-U", "--noconfirm", *map(str, files)]).returncode
+    print(DIM + _("La configuración de entonces está en {f} (no se restaura sola).").format(f=point / "etc.tar.zst") + RESET)
+    return rc
+
+
 def cmd_update(args) -> int:
     _need_root()
-    if Path("/etc/snapper/configs/root").exists() and Path("/usr/share/libalpm/hooks/05-snap-pac-pre.hook").exists():
+    if _snapper_ready() and Path("/usr/share/libalpm/hooks/05-snap-pac-pre.hook").exists():
         print(DIM + _("Instantánea antes y después de actualizar (snap-pac): si algo sale mal, sl-ctl snapshot --rollback <n>") + RESET)
+    elif _restore_create("sl-ctl update"):
+        print(DIM + _("Punto de restauración creado (versiones de paquetes y /etc): si algo sale mal, sl-ctl snapshot --rollback <n>") + RESET)
     rc = _sh(["pacman", "-Syu"]).returncode
     if shutil.which("paru"):
         user = _invoking_user()
@@ -629,10 +704,26 @@ def cmd_update(args) -> int:
 
 
 def cmd_snapshot(args) -> int:
-    if not shutil.which("snapper"):
-        sys.exit("sl-ctl: " + _("snapper no está instalado (solo BTRFS)"))
-    if not Path("/etc/snapper/configs/root").exists():
-        sys.exit("sl-ctl: " + _("no hay instantáneas: el sistema no está en BTRFS o Snapper no está configurado"))
+    if not _snapper_ready():
+        # ext4 (or no Snapper): restore points instead of filesystem snapshots
+        if args.create:
+            _need_root()
+            point = _restore_create("sl-ctl manual")
+            if not point:
+                return 1
+            print(_("Punto de restauración {n} creado.").format(n=point.name))
+            return 0
+        if args.rollback:
+            _need_root()
+            return _restore_rollback(args.rollback)
+        points = _restore_points()
+        print(f"{GREEN}sl-ctl snapshot{RESET}  " + DIM + _("(sin BTRFS: puntos de restauración de paquetes y /etc)") + RESET)
+        for i, p in enumerate(points, 1):
+            reason = (p / "reason").read_text().strip() if (p / "reason").is_file() else ""
+            print(f"  {i:>2}  {p.name}  {DIM}{reason}{RESET}")
+        if not points:
+            print("  " + _("ninguno todavía: sl-ctl update crea uno antes de actualizar"))
+        return 0
     if args.create:
         _need_root()
         return _sh(["snapper", "create", "-c", "number", "-d", "sl-ctl manual",
@@ -887,10 +978,10 @@ def build_parser() -> argparse.ArgumentParser:
     t.add_argument("--revert", metavar="NAME")
     t.set_defaults(fn=cmd_tweaks)
 
-    s = sub.add_parser("snapshot", help=_("instantáneas de Snapper"))
+    s = sub.add_parser("snapshot", help=_("instantáneas (Snapper en BTRFS, puntos de restauración en ext4)"))
     s.add_argument("--create", action="store_true")
     s.add_argument("--list", action="store_true")
-    s.add_argument("--rollback", metavar="ID", help=_("devuelve los archivos del sistema a esa instantánea"))
+    s.add_argument("--rollback", metavar="ID", help=_("devuelve el sistema a esa instantánea o punto de restauración"))
     s.set_defaults(fn=cmd_snapshot)
 
     f = sub.add_parser("flavor", help=_("añade o quita sabores"))

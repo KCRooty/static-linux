@@ -176,19 +176,14 @@ export SL_ISO_VERSION="$SL_VER"
 sed -i -E "s/^(  (short)?[vV]ersion: ).*/\1\"$SL_VER\"/; s/^(  versionedName: ).*/\1\"Static Linux $SL_VER\"/; s/^(  shortVersionedName: ).*/\1\"SL $SL_VER\"/" \
     "$AIROOTFS/etc/calamares/branding/staticlinux/branding.desc"
 
-# The universal ISO installs without a network: the welcome page still
-# checks for one (and says so), but no longer refuses to go on.
+# The universal ISO installs the same with or without a network, so the
+# welcome page doesn't check for one at all: offline, that check spun for a
+# minute before letting you go on, and it was the installer's only
+# connection to a third party (archlinux.org) before you chose anything.
 if [[ "$FLAVOR" == "universal" ]]; then
-    python3 - "$AIROOTFS/etc/calamares/modules/welcome.conf" <<'PY'
-import re, sys
-p = sys.argv[1]
-s = open(p).read()
-head, sep, tail = s.partition("    required:")
-tail = re.sub(r"(?m)^        - internet\n", "", tail, count=1)
-open(p, "w").write(head + sep + tail)
-PY
-    grep -A6 '    required:' "$AIROOTFS/etc/calamares/modules/welcome.conf" | grep -q internet \
-        && die "welcome.conf: could not drop the internet requirement"
+    sed -i -E '/^        - internet$/d; /^    internetCheckUrl:/d' "$AIROOTFS/etc/calamares/modules/welcome.conf"
+    grep -qE 'internet' <(grep -v '^ *#' "$AIROOTFS/etc/calamares/modules/welcome.conf") \
+        && die "welcome.conf: could not drop the internet check"
 fi
 
 # The installer pacstraps the target from inside the live session, and

@@ -11,3 +11,7 @@ gnome-text-editor
 gnome-screenshot
 loupe
 xdg-user-dirs-gtk
+
+# Session / login (lightdm also starts Wayland sessions such as sway)
+lightdm
+lightdm-gtk-greeter

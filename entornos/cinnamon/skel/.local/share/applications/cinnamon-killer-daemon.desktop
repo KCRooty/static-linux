@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Cinnamon Killer Daemon
+# Static Linux: a required session component, so it cannot be hidden; this
+# copy runs nothing instead (a Python + GTK process, ~29 MB, only for the
+# Ctrl+Alt+Esc restart). Delete this file to get it back.
+Exec=true
+NoDisplay=true

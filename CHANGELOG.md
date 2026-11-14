@@ -4,6 +4,54 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
+## Sin publicar
+
+### Arreglos
+- **Perfiles Mejorado y Máximo: las apps sandboxeadas no arrancaban.**
+  `firecfg` se ejecuta en el instalador, antes de que exista tu cuenta, y
+  escribía `/etc/firejail/firejail.users` solo con `root`; firejail rechazaba
+  a cualquier otro usuario en las ~30 apps enlazadas. Ahora se borra ese
+  fichero (sin él, cualquier usuario puede usar firejail, como viene de
+  serie). En un sistema ya instalado: `sudo sl-ctl privacy --profile
+  mejorado` (o `maximo`) otra vez.
+- **GNOME, Cinnamon, i3, bspwm y sway arrancaban en la consola** en vez de
+  en la pantalla de acceso. GNOME tenía `gdm` instalado pero Calamares no lo
+  habilitaba; los otros cuatro no instalaban ningún gestor de sesión. Ahora
+  GNOME entra con GDM y los otros cuatro con LightDM (con el tema puesto). Un
+  test comprueba que cada escritorio trae exactamente uno. En un sistema ya
+  instalado: `sudo pacman -S lightdm lightdm-gtk-greeter && sudo systemctl
+  enable lightdm` (o `sudo systemctl enable gdm` en GNOME).
+- **Cinnamon en reposo: de ~780 a ~630 MB** (VM con aceleración, perfil
+  Mejorado). Vienen apagados el avisador de Evolution y los servicios de
+  calendario que despierta, los iconos del escritorio, el lanzador de
+  respaldo en Python, el reinicio con Ctrl+Alt+Esc y cinco servicios de
+  `csd` (tableta, color, tarjeta inteligente, limpieza y portapapeles). Cómo
+  recuperar cada uno: `entornos/cinnamon/README.md`.
+- GNOME en reposo: ~645 MB con aceleración gráfica, dentro de la regla (en
+  una VM sin aceleración sube a ~737 MB porque gnome-shell dibuja por
+  software).
+- La pantalla de acceso de GNOME enseñaba el logo de Arch; ahora el de
+  Static Forge.
+- Instalador: la leyenda de particiones salía en negro sobre fondo oscuro.
+- La ISO universal ya no comprueba internet en la bienvenida del instalador:
+  sin red tardaba ~60 s en seguir y además era una conexión a archlinux.org.
+- La sesión live ya no consulta `ping.archlinux.org` (comprobación de
+  conectividad de NetworkManager) ni servidores NTP.
+
+### Nuevo
+- **Brave Origin dentro de firejail** en Mejorado y Máximo, junto con
+  Mousepad, Editor de texto de GNOME, Kate, Obsidian y Xarchiver (tenían
+  perfil, pero `firecfg` no los enlazaba). Básico lo deshace (`firecfg
+  --clean`): antes, bajar de Mejorado a Básico dejaba el sandbox puesto.
+- **Puntos de restauración en ext4.** Sin BTRFS no hay Snapper, así que
+  `sl-ctl update` guarda antes de actualizar la lista de versiones de
+  paquetes y una copia de `/etc`; `sl-ctl snapshot --rollback <n>` reinstala
+  las versiones de entonces desde la caché de pacman. Se guardan los 5
+  últimos. Con BTRFS sigue siendo Snapper.
+- **Estilos de ventana y barra fuera de XFCE**: minimal, aero, ventanas y
+  estante cambian posición y tamaño de la barra, huecos, bordes y barra de
+  título en Openbox, KDE, GNOME, Cinnamon, Hyprland, i3, sway y bspwm.
+
 ## 2026.11.14.2 · Los temas, vistos en los nueve escritorios
 
 ### Arreglos

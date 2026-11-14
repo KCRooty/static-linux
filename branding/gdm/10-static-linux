@@ -1,0 +1,4 @@
+# Static Linux — GDM login screen (system-db:gdm, added by /etc/dconf/profile/gdm).
+# The greeter shows this mark at the bottom instead of the stock Arch logo.
+[org/gnome/login-screen]
+logo='/usr/share/static-linux/logo/sf-gdm.png'

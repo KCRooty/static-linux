@@ -54,6 +54,47 @@ sl_record_profile() {
     sl_log "active privacy profile: $1"
 }
 
+# sl_firejail on|off : sandbox the apps that have a firejail profile by
+# symlinking them in /usr/local/bin (firecfg). Stock firecfg.config misses the
+# ones Static Linux ships by default (Brave Origin above all), so they go in a
+# firecfg.d drop-in, plus a profile for brave-origin built on brave.profile
+# (same ~/.config/BraveSoftware tree). `off` removes every symlink and the
+# drop-in: the Basic profile has to be able to undo Improved/Maximum.
+SL_FIREJAIL_APPS=(brave-origin mousepad gnome-text-editor kate obsidian xarchiver)
+sl_firejail() {
+    command -v firecfg >/dev/null || return 0
+    local dropin=/etc/firejail/firecfg.d/50-static-linux.conf
+    local prof=/etc/firejail/brave-origin.profile
+    if [[ "$1" == on ]]; then
+        sl_backup_file /usr/local/bin
+        mkdir -p /etc/firejail/firecfg.d
+        printf '# Static Linux: apps sandboxed on top of firecfg.config\n' > "$dropin"
+        printf '%s\n' "${SL_FIREJAIL_APPS[@]}" >> "$dropin"
+        cat > "$prof" <<'PROF'
+# Firejail profile for Brave Origin (Static Linux). Its profile lives in
+# ~/.config/BraveSoftware/Brave-Origin, already whitelisted by brave.profile.
+include brave-origin.local
+noblacklist ${HOME}/.config/brave-origin-flags.conf
+whitelist ${HOME}/.config/brave-origin-flags.conf
+include brave.profile
+PROF
+        firecfg >/dev/null 2>&1
+        # firecfg also writes /etc/firejail/firejail.users with the user that
+        # ran it. In the installer that is root (the account does not exist
+        # yet), and a users file without you makes every linked app refuse to
+        # start. No file = every user may use firejail (upstream default).
+        sl_backup_file /etc/firejail/firejail.users
+        rm -f /etc/firejail/firejail.users
+        sl_log "firejail: apps linked through firecfg ($(find /usr/local/bin -maxdepth 1 -lname '*firejail' | wc -l) sandboxed)"
+    else
+        if [[ -e "$dropin" || -n "$(find /usr/local/bin -maxdepth 1 -lname '*firejail' 2>/dev/null)" ]]; then
+            firecfg --clean >/dev/null 2>&1
+            rm -f "$dropin" "$prof"
+            sl_log "firejail: sandbox symlinks removed"
+        fi
+    fi
+}
+
 # sl_apparmor_cmdline on|off : AppArmor only runs if the kernel loads it as an
 # LSM, and Arch kernels leave it out of the default list. Add (or remove) it in
 # GRUB_CMDLINE_LINUX_DEFAULT. In the installer this runs before the grubcfg

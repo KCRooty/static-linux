@@ -11,3 +11,7 @@ accent-fg = #{{accent_fg}}
 danger = #{{danger}}
 warning = #{{warning}}
 font = {{font_ui}}:size=10;2
+; layout of the style ({{style}}): bar on top or at the bottom, line on the side facing the windows
+bar-bottom = {{bar_bottom}}
+bar-border-top = {{bar_border_top}}
+bar-border-bottom = {{bar_border_bottom}}

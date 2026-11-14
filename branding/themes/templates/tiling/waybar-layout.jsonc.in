@@ -1,0 +1,3 @@
+// Static Linux — waybar layout of the style ({{style}}), written by sl-theme ({{name}}).
+// ~/.config/waybar/config.jsonc includes this file; don't edit it, run sl-theme.
+{ "position": "{{bar_pos}}" }

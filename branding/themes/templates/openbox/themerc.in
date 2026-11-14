@@ -1,7 +1,7 @@
 # Static Linux — Openbox window theme, rendered by sl-theme from the active
-# theme ({{name}}, style {{style}}). Flat titlebars in the theme background,
-# accent border on the focused window.
-border.width: 1
+# theme ({{name}}, style {{style}}). Titlebars in the theme background (aero:
+# a glossy gradient), accent border on the focused window.
+border.width: {{border_px}}
 padding.width: 6
 padding.height: 4
 window.handle.width: 0
@@ -18,15 +18,17 @@ window.inactive.border.color: #{{line}}
 window.active.client.color: #{{bg}}
 window.inactive.client.color: #{{bg}}
 
-window.active.title.bg: flat solid
-window.active.title.bg.color: #{{bg}}
-window.inactive.title.bg: flat solid
+window.active.title.bg: {{ob_title}}
+window.active.title.bg.color: #{{ob_title_hi}}
+window.active.title.bg.colorTo: #{{ob_title_lo}}
+window.inactive.title.bg: {{ob_title}}
 window.inactive.title.bg.color: #{{surface}}
+window.inactive.title.bg.colorTo: #{{surface}}
 window.active.label.bg: parentrelative
 window.inactive.label.bg: parentrelative
 window.active.label.text.color: #{{text}}
 window.inactive.label.text.color: #{{text_dim}}
-window.label.text.justify: center
+window.label.text.justify: {{title_justify}}
 
 window.active.button.unpressed.bg: parentrelative
 window.active.button.unpressed.image.color: #{{text}}

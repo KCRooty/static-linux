@@ -147,6 +147,16 @@ package() {
     done
     # the Static Forge mark, white on transparent (Plymouth splash)
     install -Dm644 branding/logo/sf-static-forge.png "$share/logo/sf-static-forge.png"
+    # GDM greeter logo (dconf system-db "gdm"; dconf's pacman hook compiles it)
+    install -Dm644 branding/gdm/sf-gdm.png "$share/logo/sf-gdm.png"
+    # Cinnamon: no desktop icons by default (idle RAM, entornos/cinnamon/README.md);
+    # glib2's pacman hook recompiles the schemas. Ignored where nemo is absent.
+    install -Dm644 branding/cinnamon/90_static-linux-cinnamon.gschema.override \
+        "$pkgdir/usr/share/glib-2.0/schemas/90_static-linux-cinnamon.gschema.override"
+    install -Dm644 branding/gdm/10-static-linux "$pkgdir/etc/dconf/db/gdm.d/10-static-linux"
+    # gdm's stock profile (/usr/share/dconf/profile/gdm) reads no system-db;
+    # this one in /etc takes precedence and adds it
+    install -Dm644 branding/gdm/profile-gdm "$pkgdir/etc/dconf/profile/gdm"
     for theme_dir in branding/themes/*/; do
         [[ -f "$theme_dir/theme.conf" ]] || continue
         id="$(basename "$theme_dir")"

@@ -1,10 +1,10 @@
 # Static Linux — i3 colours and bar, written by sl-theme ({{name}}).
 # ~/.config/i3/config includes this file; don't edit it, run sl-theme.
 font pango:{{font_ui}} 10
-default_border pixel 2
-default_floating_border pixel 2
-gaps inner 6
-gaps outer 4
+default_border pixel {{border_px}}
+default_floating_border pixel {{border_px}}
+gaps inner {{gaps_in}}
+gaps outer {{gaps_out}}
 #                       border      background  text        indicator   child_border
 client.focused          #{{accent}} #{{accent}} #{{accent_fg}} #{{accent_hi}} #{{accent}}
 client.focused_inactive #{{line}}   #{{surface}} #{{text}}  #{{line}}   #{{line}}
@@ -13,7 +13,7 @@ client.urgent           #{{danger}} #{{danger}} #{{bg}}     #{{danger}} #{{dange
 client.background       #{{bg}}
 
 bar {
-    position top
+    position {{bar_pos}}
     status_command i3status
     font pango:{{font_ui}} 10
     tray_output primary

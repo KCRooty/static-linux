@@ -1,4 +1,4 @@
-// Static Linux — Astal top bar.
+// Static Linux — Astal bar (top or bottom, by the theme's style).
 //   start:  launcher · workspaces
 //   center: clock (calendar on click)
 //   end:    tray · wifi · volume · battery · power menu
@@ -203,9 +203,19 @@ function Power() {
   )
 }
 
+// top or bottom: the theme's style (sl-theme writes bar = "top"|"bottom" in theme.lua)
+function barEdge(): "top" | "bottom" {
+  try {
+    const [ok, data] = GLib.file_get_contents(`${GLib.get_home_dir()}/.config/hypr/theme.lua`)
+    if (ok && /bar\s*=\s*"bottom"/.test(new TextDecoder().decode(data))) return "bottom"
+  } catch (_e) { /* no theme yet: stock top bar */ }
+  return "top"
+}
+
 export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
   let win: Astal.Window
-  const { TOP, LEFT, RIGHT } = Astal.WindowAnchor
+  const { TOP, BOTTOM, LEFT, RIGHT } = Astal.WindowAnchor
+  const edge = barEdge()
   onCleanup(() => win.destroy())
 
   return (
@@ -214,10 +224,10 @@ export default function Bar({ gdkmonitor }: { gdkmonitor: Gdk.Monitor }) {
       visible
       namespace="sl-bar"
       name={`sl-bar-${gdkmonitor.connector}`}
-      cssClasses={["sl-bar"]}
       gdkmonitor={gdkmonitor}
       exclusivity={Astal.Exclusivity.EXCLUSIVE}
-      anchor={TOP | LEFT | RIGHT}
+      cssClasses={["sl-bar", `sl-bar-${edge}`]}
+      anchor={(edge === "bottom" ? BOTTOM : TOP) | LEFT | RIGHT}
       application={app}
     >
       <centerbox cssClasses={["bar-inner"]}>

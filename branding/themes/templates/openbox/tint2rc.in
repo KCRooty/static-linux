@@ -32,12 +32,12 @@ border_color_pressed = #{{accent}} 100
 # away via Openbox's own root menu bindings (rc.xml) — no need for a second,
 # possibly-missing .desktop entry just to duplicate that.
 panel_items = TSC
-panel_size = 100% 28
-panel_margin = 0 0
+panel_size = {{bar_len}}% {{bar_h}}
+panel_margin = 0 {{bar_margin}}
 panel_padding = 6 0 6
 panel_background_id = 1
 panel_layer = top
-panel_position = bottom center horizontal
+panel_position = {{bar_pos}} center horizontal
 panel_dock = 0
 panel_monitor = all
 wm_menu = 0

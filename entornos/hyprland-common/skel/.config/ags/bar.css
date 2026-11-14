@@ -18,6 +18,11 @@ window.sl-bar {
   font-size: 13px;
 }
 
+/* bottom bar (aero, ventanas, estante): float off the bottom edge instead */
+window.sl-bar-bottom .bar-inner {
+  margin: 0 10px 6px;
+}
+
 .bar-inner button,
 .bar-inner menubutton > button {
   min-height: 0;

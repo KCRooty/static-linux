@@ -20,3 +20,7 @@ brightnessctl
 pavucontrol
 xdg-desktop-portal-wlr
 xorg-xwayland
+
+# Session / login (lightdm also starts Wayland sessions such as sway)
+lightdm
+lightdm-gtk-greeter

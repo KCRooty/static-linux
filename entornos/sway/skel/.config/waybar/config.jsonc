@@ -1,7 +1,8 @@
 // Static Linux — waybar for sway. Colours: style.css imports colors.css (sl-theme).
 {
   "layer": "top",
-  "position": "top",
+  // top or bottom: the theme's style, in layout.jsonc (sl-theme)
+  "include": ["~/.config/waybar/layout.jsonc"],
   "height": 30,
   "modules-left": ["sway/workspaces", "sway/mode"],
   "modules-center": ["clock"],
