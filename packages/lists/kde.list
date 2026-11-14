@@ -55,3 +55,6 @@ phonon-qt6-vlc
 # ---- sl-screenshot (Super+Shift+S): spectacle + clipboard --------------
 wl-clipboard
 xclip
+
+# Password prompts for pkexec (plasma-workspace does not pull it in)
+polkit-kde-agent

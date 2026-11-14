@@ -40,3 +40,7 @@ libnotify
 xorg-xrandr
 maim
 xclip
+
+# Password prompts for sl-welcome/pkexec (without an agent pkexec fails with
+# "Error creating textual authentication agent")
+polkit-gnome

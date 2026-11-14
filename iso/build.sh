@@ -163,6 +163,9 @@ if [[ -n "$DEV_SSH_KEY" ]]; then
     install -Dm600 "$DEV_SSH_KEY" "$AIROOTFS/root/.ssh/authorized_keys"
     chmod 700 "$AIROOTFS/root/.ssh"
     ln -sf /usr/lib/systemd/system/sshd.service "$WANTS/sshd.service"
+    # the host drives the installer with many short ssh calls; OpenSSH's
+    # per-source penalties would lock it out after a few dropped ones
+    printf 'PerSourcePenalties no\n' | install -Dm644 /dev/stdin "$AIROOTFS/etc/ssh/sshd_config.d/90-dev.conf"
 fi
 
 log "airootfs: installer/calamares/ -> etc/calamares/"

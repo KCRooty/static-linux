@@ -22,3 +22,7 @@ pavucontrol
 # Session / login (lightdm also starts Wayland sessions such as sway)
 lightdm
 lightdm-gtk-greeter
+
+# Password prompts for sl-welcome/pkexec (without an agent pkexec fails with
+# "Error creating textual authentication agent")
+polkit-gnome

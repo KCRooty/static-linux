@@ -37,6 +37,17 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   sin red tardaba ~60 s en seguir y además era una conexión a archlinux.org.
 - La sesión live ya no consulta `ping.archlinux.org` (comprobación de
   conectividad de NetworkManager) ni servidores NTP.
+- **XFCE, Openbox, KDE, i3, bspwm y sway: la bienvenida no podía instalar
+  nada ni cambiar la privacidad** ("Error creating textual authentication
+  agent"). Faltaba el agente de polkit, la ventanita que pide la contraseña;
+  solo lo traían Hyprland, GNOME y Cinnamon. Visto en una instalación real.
+  Ahora cada escritorio trae uno (polkit-gnome, o polkit-kde-agent en KDE) y
+  un test lo comprueba. En un sistema ya instalado: `sudo pacman -S
+  polkit-gnome` y añadir `/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1`
+  al inicio de sesión (en KDE: `sudo pacman -S polkit-kde-agent` y volver a
+  entrar).
+- bspwm y sway: la fecha de la barra salía en inglés ("Sat 14 Nov"); ahora
+  usa el idioma del sistema.
 
 ### Nuevo
 - **Brave Origin dentro de firejail** en Mejorado y Máximo, junto con

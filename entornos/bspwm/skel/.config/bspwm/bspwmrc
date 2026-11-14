@@ -13,5 +13,6 @@ bspc config focus_follows_pointer true
 pgrep -x picom >/dev/null || picom -b
 pgrep -x dunst >/dev/null || dunst &
 pgrep -x nm-applet >/dev/null || nm-applet &
+pgrep -f polkit-gnome-authentication-agent >/dev/null || /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 ~/.config/polybar/launch.sh &
 sl-welcome --autostart &

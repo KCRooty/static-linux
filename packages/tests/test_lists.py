@@ -33,5 +33,18 @@ class DisplayManagers(unittest.TestCase):
         self.assertEqual(used, ENV_LISTS)
 
 
+# 2026-11-14 (real install): sl-welcome's installs failed with "Error creating textual
+# authentication agent" on XFCE; only Hyprland shipped a polkit agent. GNOME and
+# Cinnamon have one built into the shell.
+AGENTS = {"polkit-gnome", "polkit-kde-agent", "hyprpolkitagent", "gnome-shell", "cinnamon"}
+
+
+class PolkitAgents(unittest.TestCase):
+    def test_each_environment_can_ask_for_a_password(self):
+        for env in sorted(ENV_LISTS):
+            with self.subTest(env=env):
+                self.assertTrue(packages(env) & AGENTS, f"{env}.list has no polkit agent")
+
+
 if __name__ == "__main__":
     unittest.main()

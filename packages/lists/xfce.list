@@ -67,3 +67,7 @@ xfce4-terminal
 # sl-screenshot on X11 (Super+Shift+S)
 maim
 xclip
+
+# Password prompts for sl-welcome/pkexec (without an agent pkexec fails with
+# "Error creating textual authentication agent")
+polkit-gnome

@@ -10,6 +10,7 @@
 [ -x ~/.fehbg ] && ~/.fehbg &
 tint2 &
 nm-applet &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &   # password prompts (pkexec)
 dunst &
 
 # No compositor by default on the 512 MB tier (">650 MB idle RAM = design
