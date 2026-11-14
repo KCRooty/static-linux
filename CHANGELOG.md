@@ -14,8 +14,8 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   instalador lee las listas igual que la ISO y un test exige un paquete por
   línea. Afectaba a 2026.11.14.2: con esa ISO, elige otro escritorio.
 - **Hyprland full gastaba 928 MB en reposo** (el límite es 650). Ahora
-  ~670 MB con el perfil Mejorado y ~650 con Básico (VM, sin ventanas
-  abiertas). Cambios: LightDM en vez de SDDM (SDDM dejaba su Xorg vivo toda
+  ~670 MB (VM, sin ventanas abiertas; el DNS cifrado va en los tres
+  perfiles, así que la cifra es la misma en todos). Cambios: LightDM en vez de SDDM (SDDM dejaba su Xorg vivo toda
   la sesión, ~100 MB; además LightDM sale con el tema completo y SDDM solo con
   el fondo de Breeze), swaybg en vez de hyprpaper (~100 MB menos, mismo
   fondo), polkit-gnome en vez de hyprpolkitagent, la barra de Astal
