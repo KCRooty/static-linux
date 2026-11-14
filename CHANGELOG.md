@@ -4,6 +4,26 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
+## Sin publicar
+
+### Arreglos
+- **XFCE en reposo: de ~705 a ~635 MB** (VM, perfil Mejorado; ~617 MB con
+  Básico), por debajo de la regla de 650 MB:
+  - los plugins del panel (menú, bandeja, volumen, estante, genmon) se cargan
+    dentro de `xfce4-panel` en vez de un `wrapper-2.0` por plugin (~30 MB).
+    Un hook de pacman de `staticlinux-base` lo mantiene tras cada
+    actualización; llega con `pacman -Syu`.
+  - `sl-welcome --autostart` arrancaba GTK4/libadwaita en cada inicio de
+    sesión solo para cerrarse, y eso despertaba `xdg-desktop-portal` (con
+    sus backends GTK y XApp, ~20 MB) para toda la sesión. Ahora sale antes
+    de cargar GTK.
+- Las etiquetas de los iconos del escritorio llevan un halo del color de
+  fondo del tema: en Aero, "Papelera" se perdía sobre las palmeras.
+- Al cambiar de tema, Thunar (que se queda residente) se cerraba con los
+  colores del tema anterior hasta reiniciar sesión: `sl-theme` lo reinicia.
+- Vistas previas nuevas de Aero y Nube con sus fondos nuevos, en el
+  instalador, sl-welcome y la web.
+
 ## 2026.11.14 · La primera ISO pública de prueba
 
 ### Nuevo
@@ -152,7 +172,7 @@ La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me
   probarlo en hardware real.
 - XFCE con una terminal abierta usa ~750 MB de RAM en reposo (la regla es
   650 MB). Hay que recortar applets que arrancan aunque no hagan falta
-  (blueman sin Bluetooth, por ejemplo).
+  (blueman sin Bluetooth, por ejemplo). *Arreglado después: ~635 MB.*
 
 ## 2026-11-13 · Los temas, en todos los escritorios y en el arranque
 
