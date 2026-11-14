@@ -86,6 +86,8 @@ drive)
     for f in "$iso" "$iso.sha256" "$iso.sig" "$iso.asc"; do
         rclone copy --progress --drive-chunk-size 64M "$f" "sl-drive:Static Linux/$ver/"
     done
+    # anyone with the link can read it (the folder is private otherwise)
+    log "public folder: $(rclone link "sl-drive:Static Linux/$ver")"
     ;;
 archive)
     # shellcheck disable=SC1090
