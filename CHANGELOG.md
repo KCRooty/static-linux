@@ -59,12 +59,37 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
 - La barra de Hyprland (Astal) no aparecía en equipos sin Wi-Fi: el icono
   de red anidaba dos `<With>` y gnim tumbaba la barra entera. Visto al
   sacar las vistas previas en la VM (solo cable).
+- El aviso de cerrar sesión de i3, sway y bspwm (`Super+Mayús+E`) sale ya en
+  el idioma del sistema: lo muestra el nuevo `sl-logout` (swaynag, i3-nagbar
+  o rofi según la sesión).
+- `sl-ctl server` decía "ufw desactivado" sin `sudo` aunque el cortafuegos
+  estuviera activo (`ufw status` necesita root); ahora lee `ufw.conf` y el
+  servicio. Visto al instalar Servidor / Homelab desde la ISO.
+- `packages/local-repo.sh`: si un paquete AUR -git deja de compilar, conserva
+  el último que funcionaba en vez de borrarlo antes de probar.
+
+### Probado
+- **Servidor / Homelab instalado desde la ISO** (VM, 2026-11-14): arranca a
+  consola (`multi-user.target`) con Terminus, sin Xorg, Brave ni GTK; nada
+  escuchando salvo dnscrypt-proxy en localhost; **391 MB de RAM en reposo**,
+  499 paquetes, 7,7 GB en disco. `sudo sl-ctl server on ssh` enciende sshd
+  y abre el 22 en ufw, y responde desde fuera.
+- **XFCE + sabor Gaming instalado desde la ISO** (VM, 2026-11-14): Steam,
+  Lutris, GameMode, MangoHud, Prism, Heroic y Modrinth (flatpak); swapfile de
+  2 GB (la VM tiene 3,9 GB) junto a zram; `scx_loader` arranca con lavd en
+  modo Auto y `sl-game` lo pasa a Gaming y lo devuelve al salir el juego.
+- `sl-game` pedía la contraseña (polkit) para cambiar el modo de lavd en
+  mitad del arranque del juego. Nueva regla
+  `50-static-linux-scx.rules`: sin contraseña para `wheel` con sesión local
+  activa.
 
 ### Problemas conocidos
-- Las alertas de i3 y sway siguen en español.
-- Probado en una VM instalando el paquete (zram, sysctl, earlyoom, perfiles,
-  lavd con `sl-game`); falta una instalación completa desde la ISO con el
-  sabor Gaming.
+- El perfil `performance` de `sl-game` no se ha visto en acción: en una VM
+  power-profiles-daemon solo ofrece `balanced` y `power-saver`. Falta
+  probarlo en hardware real.
+- XFCE con una terminal abierta usa ~750 MB de RAM en reposo (la regla es
+  500 MB). Hay que recortar applets que arrancan aunque no hagan falta
+  (blueman sin Bluetooth, por ejemplo).
 
 ## 2026-11-13 · Los temas, en todos los escritorios y en el arranque
 

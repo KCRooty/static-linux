@@ -17,6 +17,7 @@ tocar el paquete. No se toca la línea de arranque del kernel.
 | `environment.d/60-static-linux.conf`, `profile.d/static-linux-gpu.sh` | `/usr/lib/environment.d/`, `/etc/profile.d/` | Caché de shaders de 12 GB para Mesa y NVIDIA: menos tirones la segunda vez que juegas |
 | `makepkg.conf.d/static-linux.conf` | `/etc/makepkg.conf.d/` | paru/makepkg compilan con todos los núcleos y comprimen en paralelo |
 | `scx/config.toml` | `/usr/share/static-linux/rendimiento/` | Plantilla de `/etc/scx_loader/config.toml`: planificador de CPU `scx_lavd` |
+| `polkit/50-static-linux-scx.rules` | `/usr/share/polkit-1/rules.d/` | `sl-game` cambia lavd a modo Gaming y vuelve sin pedir contraseña (solo `wheel` con sesión local activa) |
 
 ## Servicios
 

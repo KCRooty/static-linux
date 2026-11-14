@@ -249,6 +249,8 @@ package() {
     install -Dm644 $r/profile.d/static-linux-gpu.sh "$pkgdir/etc/profile.d/static-linux-gpu.sh"
     install -Dm644 $r/makepkg.conf.d/static-linux.conf "$pkgdir/etc/makepkg.conf.d/static-linux.conf"
     install -Dm644 $r/scx/config.toml "$share/rendimiento/scx/config.toml"
+    install -Dm644 $r/polkit/50-static-linux-scx.rules \
+        "$pkgdir/usr/share/polkit-1/rules.d/50-static-linux-scx.rules"
 
     # ---- offline wiki: docs/wiki rendered to one HTML page, opened by
     # sl-welcome's "Wiki" link so it works without a network ---------------
