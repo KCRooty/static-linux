@@ -87,8 +87,13 @@ así no se distribuye nunca.**
 ## Publicar
 
 1. `sudo iso/build.sh universal` (sin `--dev-ssh-key`).
-2. Suma y firma con la clave de Static Forge:
-   `sha256sum ISO > ISO.sha256` y `gpg --detach-sign --armor ISO` (deja
-   `ISO.asc`; se publica también como `ISO.sig`).
-3. Subir los tres archivos a SourceForge y a los demás espejos.
+2. `iso/release.sh sign ISO`: suma SHA256 y firma con la clave de Static
+   Forge (`.sha256`, `.sig` binaria y `.asc` en texto). Se niega con una ISO
+   de desarrollo.
+3. Subir la ISO y sus tres compañeros a los espejos, cada uno con su
+   subcomando de `iso/release.sh`:
+   - `sourceforge` (rsync por SSH; usuario en `~/.config/static-linux/sourceforge.env`)
+   - `drive` (rclone, remoto `sl-drive:`; después `rclone link` hace pública la carpeta)
+   - `archive` (archive.org, que además genera un torrent; claves S3 en
+     `~/.config/static-linux/archive.env`)
 4. Nota de la versión: cambios, arreglos y problemas conocidos.

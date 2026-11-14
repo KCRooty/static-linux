@@ -16,6 +16,12 @@
 #   iso/release.sh drive  iso/out/static-linux-VERSION-x86_64.iso
 #       rclone copy to the "sl-drive:" remote, folder "Static Linux/VERSION".
 #
+#   iso/release.sh archive  iso/out/static-linux-VERSION-x86_64.iso
+#       Upload to the Internet Archive as item static-linux-VERSION (public,
+#       GPL-3.0); archive.org then seeds a torrent of it by itself. Needs the
+#       account's S3 keys (archive.org/account/s3.php) as IA_ACCESS/IA_SECRET
+#       in ~/.config/static-linux/archive.env.
+#
 # Refuses an ISO built with --dev-ssh-key (it would let anyone with that key
 # into the live session).
 
@@ -26,7 +32,7 @@ die() { printf '\033[1;31m[release]\033[0m %s\n' "$*" >&2; exit 1; }
 log() { printf '\033[1;38;5;43m[release]\033[0m %s\n' "$*"; }
 
 cmd="${1:-}"; iso="${2:-}"
-[[ -f "$iso" ]] || die "usage: $0 sign|sourceforge|drive ISO"
+[[ -f "$iso" ]] || die "usage: $0 sign|sourceforge|drive|archive ISO"
 name="$(basename "$iso")"
 ver="$(sed -E 's/^static-linux-([0-9.]+)-x86_64\.iso$/\1/' <<<"$name")"
 [[ "$ver" != "$name" ]] || die "unexpected ISO name: $name"
@@ -81,5 +87,27 @@ drive)
         rclone copy --progress --drive-chunk-size 64M "$f" "sl-drive:Static Linux/$ver/"
     done
     ;;
-*) die "usage: $0 sign|sourceforge|drive ISO" ;;
+archive)
+    # shellcheck disable=SC1090
+    source ~/.config/static-linux/archive.env
+    : "${IA_ACCESS:?set IA_ACCESS and IA_SECRET in archive.env}" "${IA_SECRET:?}"
+    command -v ia >/dev/null || die "install python-internetarchive"
+    for f in "$iso" "$iso.sha256" "$iso.sig" "$iso.asc"; do [[ -f "$f" ]] || die "missing $f (run sign first)"; done
+    item="static-linux-$ver"
+    log "uploading to archive.org: $item"
+    cfg="$(mktemp)"; trap 'rm -f "$cfg"' EXIT
+    printf '[s3]\naccess = %s\nsecret = %s\n' "$IA_ACCESS" "$IA_SECRET" > "$cfg"
+    ia --config-file "$cfg" upload "$item" "$iso" "$iso.sha256" "$iso.sig" "$iso.asc" \
+        --retries 10 --checksum \
+        --metadata="title:Static Linux $ver" \
+        --metadata="mediatype:software" \
+        --metadata="collection:opensource_media" \
+        --metadata="creator:Static Forge" \
+        --metadata="date:$(date -I)" \
+        --metadata="licenseurl:https://www.gnu.org/licenses/gpl-3.0.html" \
+        --metadata="subject:linux;arch linux;distribution;static linux" \
+        --metadata="description:Static Linux $ver, an Arch-based distribution by Static Forge (x86_64, UEFI). Test release. Signed with the Static Forge release key 3E617ED06C90C75735C9C45E51D58FA35045B8D0. https://staticforge.me/linux/"
+    log "https://archive.org/details/$item (torrent: https://archive.org/download/$item/${item}_archive.torrent)"
+    ;;
+*) die "usage: $0 sign|sourceforge|drive|archive ISO" ;;
 esac
