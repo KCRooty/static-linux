@@ -5,7 +5,7 @@ Builds Static Linux's live/install medium with [archiso](https://gitlab.archlinu
 ```bash
 sudo pacman -S archiso
 packages/local-repo.sh      # as your normal user: builds calamares, staticlinux-base, brave-origin-bin
-sudo iso/build.sh universal # ~4.5 GB, installs with or without a network (the public one)
+sudo iso/build.sh universal # ~4.8 GB, installs with or without a network (the public one)
 sudo iso/build.sh online    # ~2 GB, downloads everything at install time
 ```
 

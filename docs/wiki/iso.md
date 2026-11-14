@@ -3,7 +3,7 @@
 ```bash
 sudo pacman -S --needed archiso git base-devel
 packages/local-repo.sh               # paquetes propios, como usuario normal
-sudo iso/build.sh universal          # ~4,5 GB, instala con o sin red
+sudo iso/build.sh universal          # ~4,8 GB, instala con o sin red
 sudo iso/build.sh online             # ~2 GB, descarga todo al instalar
 ```
 
@@ -14,7 +14,7 @@ La ISO sale en `iso/out/`. Hacen falta unos 25 GB libres para la universal
 
 | | Universal | Online |
 |---|---|---|
-| Tamaño | ~4,5 GB | ~2 GB |
+| Tamaño | ~4,8 GB | ~2 GB |
 | Sin conexión | instala base, cualquier escritorio, los tres kernels y el perfil de privacidad | no instala |
 | Con conexión | instala lo mismo desde la ISO, pone el sistema al día (`pacman -Syu`) y añade los sabores | descarga todo |
 | Sabores | con red al instalar, o después con `sudo sl-ctl flavor add pending` | con red al instalar |

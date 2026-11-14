@@ -63,7 +63,7 @@ static-linux/
 │
 ├── iso/                  perfiles archiso — placeholders, sin airootfs todavía
 │   ├── profiledir-online/    ISO online (~1 GB, mensual)
-│   ├── profiledir-universal/ ISO universal (~4,5 GB, instala sin red)
+│   ├── profiledir-universal/ ISO universal (~4,8 GB, instala sin red)
 │   └── build.sh
 │
 ├── docs/wiki/            fuentes MkDocs Material — sitio real, ver mkdocs.yml

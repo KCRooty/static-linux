@@ -2,12 +2,12 @@
 
 Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
-Aún no hay ISO pública: todo se construye desde este repositorio.
+La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
-## Sin publicar · 18 idiomas, y rendimiento de serie
+## 2026.11.14 · La primera ISO pública de prueba
 
 ### Nuevo
-- **ISO universal** (`sudo iso/build.sh universal`, ~4,5 GB): sustituye a la
+- **ISO universal** (`sudo iso/build.sh universal`, ~4,8 GB): sustituye a la
   "offline" a medias. Lleva dentro el sistema base, los diez escritorios, los
   tres kernels y las herramientas de privacidad (1.300 paquetes, 2,6 GB, en
   `/opt/staticlinux-offline`), así que **instala sin conexión**. Con red,
@@ -95,7 +95,9 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   de los wifis de hotel.
 - El perfil **Máximo** prometía `linux-hardened` y no lo instalaba, y
   ningún perfil instalaba sus herramientas (firejail, usbguard, tor…) desde
-  el instalador: ahora sí.
+  el instalador: ahora sí. Y, una vez instalado, GRUB arrancaba igualmente
+  `linux-lts` (va primero el de versión más alta): el instalador fija
+  `GRUB_TOP_LEVEL` al kernel elegido.
 - **AppArmor no se cargaba** en los perfiles Mejorado y Máximo: se
   activaba el servicio, pero nadie ponía AppArmor en la línea de arranque
   del kernel (los de Arch no lo cargan si no se pide). Ahora el perfil añade
@@ -120,6 +122,16 @@ Aún no hay ISO pública: todo se construye desde este repositorio.
   el último que funcionaba en vez de borrarlo antes de probar.
 
 ### Probado
+- **Instalación sin conexión desde la ISO universal** (VM sin red,
+  2026-11-14): KDE Plasma + tema Nube + privacidad Máxima + sabor Oficina en
+  unos 7 minutos. Arranca `linux-hardened` con AppArmor en la línea del
+  kernel, entra solo en KDE, y el sabor Oficina queda pendiente
+  (`sl-ctl flavor list` lo marca) para cuando haya red. La caché de pacman
+  del sistema instalado queda vacía (88 KB).
+- **XFCE + btrfs + privacidad Mejorada** (VM, 2026-11-14): AppArmor con 80
+  perfiles en enforce, Snapper con instantáneas antes y después de cada
+  pacman, `grub-btrfsd` activo, `[staticlinux]` con su clave. Tráfico
+  capturado en reposo: solo Quad9/dnscry.pt cifrado y NTP.
 - **Servidor / Homelab instalado desde la ISO** (VM, 2026-11-14): arranca a
   consola (`multi-user.target`) con Terminus, sin Xorg, Brave ni GTK; nada
   escuchando salvo dnscrypt-proxy en localhost; **391 MB de RAM en reposo**,
