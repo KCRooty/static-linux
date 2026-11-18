@@ -78,7 +78,11 @@ ufw
 dnscrypt-proxy
 apparmor
 
-# ---- Graphics stack (GPU-specific drivers appended by sl-detect) ---
+# ---- Graphics stack ------------------------------------------------
+# Intel and AMD: in-kernel driver + mesa userspace, nothing else needed.
+# NVIDIA has no in-kernel proprietary driver — basepkgs appends
+# nvidia-dkms/nvidia-utils/nvidia-settings itself when sl-detect's gpu.driver
+# says "nvidia" (not "nouveau"); see installer/calamares/modules/basepkgs.
 # mesa now bundles VA-API/VDPAU support directly — libva-mesa-driver and
 # mesa-vdpau were separate packages once, both gone from the repos now
 # (verified against archlinux.org/packages/search/json 2026-09-21).

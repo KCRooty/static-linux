@@ -4,6 +4,22 @@ Notas de desarrollo de Static Linux. Las versiones largas, con capturas, están
 en el blog: [staticforge.me/linux/blog](https://staticforge.me/linux/blog/).
 La ISO se descarga desde [staticforge.me/linux/descargar](https://staticforge.me/linux/descargar/).
 
+## 2026.11.18 · El driver de NVIDIA, por fin instalado
+
+### Arreglos
+- **Las GPU NVIDIA nunca recibían su driver.** sl-detect recomendaba
+  `nvidia` correctamente, pero nada lo instalaba: `sabores/main.py` solo
+  añadía `lib32-nvidia-utils` con el sabor Gaming, encima de un driver base
+  que no existía. El sistema arrancaba con nouveau/modesetting, y con eso:
+  el segundo monitor a menudo no sale, y Proton y los juegos con Vulkan dan
+  error. Visto en una instalación real (Cinnamon, dos monitores). Ahora
+  `basepkgs` instala `nvidia-dkms nvidia-utils nvidia-settings` cuando
+  `sl-detect` recomienda `nvidia` (no toca nada en Kepler/Fermi, donde
+  nouveau sigue siendo lo correcto — Nvidia dejó esas tarjetas sin soporte).
+  La ISO universal lleva el driver en su repositorio sin red, igual que los
+  tres núcleos. En un sistema ya instalado: `sudo sl-ctl update` lo instala
+  y pide reiniciar.
+
 ## 2026.11.14.3 · Hyprland vuelve a instalarse y la bienvenida pide la contraseña
 
 ### Arreglos

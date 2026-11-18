@@ -204,7 +204,9 @@ printf '\n[%s]\nSigLevel = Optional TrustAll\nServer = file://%s\n' \
 
 # ---- 2b. universal ISO: the packages an install needs, as a repo --------
 # Everything basepkgs, entorno-pkgs and privacidad-apply can ask for: base
-# (+ console extras), each desktop, the three kernels, the privacy tools.
+# (+ console extras), each desktop, the three kernels, the NVIDIA driver
+# (bundled always, like the three kernels — basepkgs decides at install time
+# whether sl-detect's machine actually needs it), the privacy tools.
 # Downloaded against an empty package database, so every dependency comes
 # along; one pacman call per desktop, because some lists conflict with each
 # other (they are never installed together). Flavors stay out: with them the
@@ -227,7 +229,8 @@ if [[ "$FLAVOR" == "universal" ]]; then
     BASE=$(readlist "$LISTS/base.list" "$LISTS/sin-escritorio.list" \
                     "$LISTS"/privacy-*.list)
     EXTRA="linux-lts linux-lts-headers linux-zen linux-zen-headers \
-           linux-hardened linux-hardened-headers staticlinux-base staticlinux-keyring"
+           linux-hardened linux-hardened-headers staticlinux-base staticlinux-keyring \
+           nvidia-dkms nvidia-utils nvidia-settings"
     for env in xfce openbox hyprland-lite hyprland-full kde gnome cinnamon i3 bspwm sway; do
         log "universal: base + $env"
         # shellcheck disable=SC2046,SC2086

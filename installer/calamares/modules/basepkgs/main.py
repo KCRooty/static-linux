@@ -154,6 +154,20 @@ def run():
         if extra not in pkgs:
             pkgs.append(extra)
 
+    # base.list's own mesa/vulkan-icd-loader cover Intel and AMD (both have
+    # their driver in-kernel + mesa userspace, nothing else to install).
+    # NVIDIA has no in-kernel proprietary driver, and nouveau alone cannot
+    # drive a second monitor reliably or run Proton/Vulkan on it — without
+    # this, sl-detect's "nvidia" recommendation was never actually installed
+    # anywhere (sabores/main.py only ever added lib32-nvidia-utils for
+    # Gaming, on top of a base driver that didn't exist). Needs DKMS, already
+    # in base.list for the kernel headers above.
+    gpu_driver = ((gs.value("slDetect") or {}).get("gpu") or {}).get("driver", "").lower()
+    if "nvidia" in gpu_driver and "nouveau" not in gpu_driver:
+        for extra in ("nvidia-dkms", "nvidia-utils", "nvidia-settings"):
+            if extra not in pkgs:
+                pkgs.append(extra)
+
     # -K: give the target its own fresh pacman keyring instead of copying
     # the live session's.
     # Plain subprocess: this runs in the live session, and libcalamares only

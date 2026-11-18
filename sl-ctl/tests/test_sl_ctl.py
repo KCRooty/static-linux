@@ -8,6 +8,7 @@ Stdlib `unittest` only, same as sl-detect. From the repo root:
 """
 
 import importlib.util
+import json
 import os
 import pwd
 import unittest
@@ -118,3 +119,38 @@ class PolkitAgentRepair(unittest.TestCase):
         self.assertEqual(self._run({"xfce4-session", "polkit-gnome"}), [])
         self.assertEqual(self._run({"gnome-shell"}), [])
         self.assertEqual(self._run(set()), [])
+
+
+class GpuDriverRepair(unittest.TestCase):
+    """sl-detect recommended "nvidia" but nothing ever pacstrapped it — only
+    lib32-nvidia-utils, with the Gaming flavor, on top of a base driver that
+    didn't exist. sl-ctl update brings it to systems that already hit this."""
+
+    def _run(self, driver, installed=frozenset()):
+        calls = []
+
+        def fake_sh(cmd, **k):
+            if "--json" in cmd:
+                return mock.Mock(stdout=json.dumps({"gpu": {"driver": driver}}))
+            calls.append(cmd)
+            return mock.Mock(returncode=0)
+
+        with mock.patch.object(sl_ctl, "_installed", side_effect=lambda p: p in installed), \
+             mock.patch.object(sl_ctl, "_sh", side_effect=fake_sh), \
+             mock.patch("builtins.print"):
+            sl_ctl._ensure_gpu_driver()
+        return calls
+
+    def test_nvidia_without_driver_gets_installed(self):
+        self.assertEqual(self._run("nvidia"),
+                         [["pacman", "-S", "--needed", "--noconfirm",
+                           "nvidia-dkms", "nvidia-utils", "nvidia-settings"]])
+
+    def test_nouveau_is_left_alone(self):
+        self.assertEqual(self._run("nouveau"), [])
+
+    def test_non_nvidia_gpu_is_left_alone(self):
+        self.assertEqual(self._run("amdgpu"), [])
+
+    def test_nothing_when_driver_already_installed(self):
+        self.assertEqual(self._run("nvidia", installed={"nvidia-utils"}), [])

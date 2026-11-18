@@ -702,7 +702,30 @@ def cmd_update(args) -> int:
         _sh(["flatpak", "update"])
     if rc == 0:
         _ensure_polkit_agent()
+        _ensure_gpu_driver()
     return rc
+
+
+# NVIDIA GPUs had sl-detect correctly recommend "nvidia" but nothing ever
+# installed it — only lib32-nvidia-utils, with the Gaming flavor, on top of
+# a base driver that didn't exist. The machine ran on nouveau/modesetting
+# instead: a second monitor often doesn't come up, and Proton/Vulkan games
+# error out. sl-ctl update brings the real driver to systems that already
+# hit this; nouveau stays alone on GPUs sl-detect doesn't recommend it for
+# (old Kepler/Fermi cards: the proprietary driver has dropped them).
+def _ensure_gpu_driver() -> None:
+    out = _sh([sys.executable, _sl_detect_path(), "--json"], capture_output=True)
+    try:
+        driver = (json.loads(out.stdout).get("gpu") or {}).get("driver", "").lower()
+    except (ValueError, AttributeError):
+        return
+    if "nvidia" not in driver or "nouveau" in driver or _installed("nvidia-utils"):
+        return
+    print(_("Falta el driver NVIDIA (vas con nouveau/modesetting: así fallan el segundo "
+             "monitor y Proton). Instalando..."))
+    if _sh(["pacman", "-S", "--needed", "--noconfirm",
+            "nvidia-dkms", "nvidia-utils", "nvidia-settings"]).returncode == 0:
+        print(_("Hecho. Reinicia para que cargue el driver nuevo."))
 
 
 # Desktop -> polkit agent it needs. 2026.11.14.2 shipped XFCE, Openbox, KDE, i3,
