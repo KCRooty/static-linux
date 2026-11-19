@@ -37,9 +37,11 @@ bienvenida o con `sl-ctl theme`. Detalle en la
 ## Estado
 
 Fases 1 y 2 cerradas: la ISO se construye, arranca en UEFI e instala de
-principio a fin (probada en QEMU/KVM). Fase 3 en curso: el aspecto nuevo y
-probar el resto de escritorios. **No hay ISO pública todavía**; se construye
-desde este repositorio (ver [`iso/README.md`](iso/README.md)).
+principio a fin (probada en QEMU/KVM). Fase 3 en curso: hardware real y lo
+que queda de la parte técnica. **Ya hay ISO pública de prueba** (universal,
+4,8 GB, instala con conexión o sin ella) en la
+[página de descarga](https://staticforge.me/linux/descargar/); también se
+construye desde este repositorio (ver [`iso/README.md`](iso/README.md)).
 
 Funciona hoy:
 
@@ -61,8 +63,8 @@ Funciona hoy:
 - **DNS cifrado** por dnscrypt-proxy desde el primer arranque; 3 perfiles de
   privacidad y 8 sabores, todos reversibles.
 
-Pendiente: estilos fuera de XFCE; BIOS antigua; LUKS; pruebas en hardware
-real con la ISO. La lista de cambios está en
+Pendiente: hardware real (de momento todo probado en máquinas virtuales);
+arranque en BIOS antigua; LUKS. La lista de cambios está en
 [`CHANGELOG.md`](CHANGELOG.md).
 
 ## Arquitectura
