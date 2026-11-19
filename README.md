@@ -19,19 +19,20 @@ cero telemetría, siempre.
 ## Temas y estilos
 
 Un tema es un fondo y la paleta que sale de él; un estilo es la forma del
-escritorio. Ocho temas y tres estilos, elegibles en el instalador, en la
+escritorio. Nueve temas y cuatro estilos, elegibles en el instalador, en la
 bienvenida o con `sl-ctl theme`. Detalle en la
 [wiki](https://staticforge.me/static-linux/temas/).
 
-| Aero (estilo aero) | Ventanas (estilo ventanas) |
-|---|---|
-| ![Tema Aero](docs/wiki/img/temas/aero.webp) | ![Tema Ventanas](docs/wiki/img/temas/ventanas.webp) |
+| Aero (estilo aero) | Ventanas (estilo ventanas) | Nube (estilo estante) |
+|---|---|---|
+| ![Tema Aero](docs/wiki/img/temas/aero.webp) | ![Tema Ventanas](docs/wiki/img/temas/ventanas.webp) | ![Tema Nube](docs/wiki/img/temas/nube.webp) |
 
 | Tema | Modo | Estilo |
 |---|---|---|
 | **Ámbar** (por defecto) · Papel · Nórdico · Bosque · Sakura · Violeta | oscuro, salvo Papel | minimal |
 | **Aero** | claro | aero: brillo, botones cápsula, barra abajo |
 | **Ventanas** | oscuro | ventanas: plana, apps centradas en la barra |
+| **Nube** | claro | estante: lanzador y estante abajo, apps fijadas al centro |
 
 ## Estado
 
