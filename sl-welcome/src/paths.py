@@ -20,6 +20,7 @@ PRIVACY_DIR_INSTALLED = Path("/usr/lib/static-linux/privacidad")
 APPLY_PROFILE_WRAPPER_INSTALLED = Path("/usr/lib/static-linux/sl-welcome/apply-profile")
 SF_PKGBUILDS_INSTALLED = Path("/usr/lib/static-linux/packages/sf")
 THEMES_INSTALLED = Path("/usr/share/static-linux/themes")
+MASCOT_INSTALLED = Path("/usr/share/static-linux/logo/sae.png")
 
 
 def _repo_root() -> Path | None:
@@ -94,3 +95,14 @@ def themes_dir() -> Path:
     if root:
         return root / "branding" / "themes"
     return THEMES_INSTALLED
+
+
+def mascot_path() -> Path | None:
+    """Sae, Static Linux's mascot (branding/mascota/). None if missing."""
+    if MASCOT_INSTALLED.exists():
+        return MASCOT_INSTALLED
+    root = _repo_root()
+    if root:
+        candidate = root / "branding" / "mascota" / "sae.png"
+        return candidate if candidate.exists() else None
+    return None

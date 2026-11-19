@@ -17,6 +17,8 @@ gi.require_version("Adw", "1")
 gi.require_foreign("cairo")  # ImportError without python-cairo; overview falls back
 from gi.repository import Adw, Gtk  # noqa: E402
 
+from paths import mascot_path  # noqa: E402
+
 
 def _rgb(hexstr: str) -> tuple[float, float, float]:
     h = hexstr.strip().lstrip("#")
@@ -53,6 +55,20 @@ class GroovyBanner(Gtk.Overlay):
         text.append(Gtk.Label(label="Static Linux", xalign=0, css_classes=["sl-wordmark"]))
         text.append(Gtk.Label(label="fast · private · yours", xalign=0, css_classes=["sl-tagline"]))
         self.add_overlay(text)
+
+        # Sae, the mascot — tucked into the corner the stripes curl out of.
+        mascot = mascot_path()
+        if mascot:
+            pic = Gtk.Picture.new_for_filename(str(mascot))
+            pic.set_content_fit(Gtk.ContentFit.CONTAIN)
+            pic.set_can_shrink(True)
+            pic.set_can_target(False)
+            pic.set_size_request(104, 112)
+            pic.set_halign(Gtk.Align.END)
+            pic.set_valign(Gtk.Align.END)
+            pic.set_margin_end(14)
+            pic.set_margin_bottom(6)
+            self.add_overlay(pic)
 
         target = Adw.CallbackAnimationTarget.new(self._tick)
         self._anim = Adw.TimedAnimation.new(area, 0.0, 1.0, 900, target)

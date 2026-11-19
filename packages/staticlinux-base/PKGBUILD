@@ -22,6 +22,7 @@
 #   /usr/share/static-linux/fastfetch/     logo assets (config.jsonc: an
 #                                          /etc default, not here)
 #   /usr/share/static-linux/wallpapers/    gen-wallpaper.py + one PNG/accent
+#   /usr/share/static-linux/logo/          sf-static-forge.png, sf-gdm.png, sae.png (mascot)
 #   /usr/share/static-linux/hypr/static.lua  Hyprland base config (Lua)
 #   /usr/share/doc/static-linux/wiki/    offline wiki (docs/build-offline-wiki.py)
 #   /usr/bin/{sl-detect,sl-ctl,sl-welcome,sl-screenshot,sl-hypr-guide,sl-display-scale,sl-quick,sl-game,sl-logout} symlinks into the paths above
@@ -152,6 +153,8 @@ package() {
     install -Dm644 branding/logo/sf-static-forge.png "$share/logo/sf-static-forge.png"
     # GDM greeter logo (dconf system-db "gdm"; dconf's pacman hook compiles it)
     install -Dm644 branding/gdm/sf-gdm.png "$share/logo/sf-gdm.png"
+    # Sae, the mascot — sl-welcome's banner (branding/mascota/README.md)
+    install -Dm644 branding/mascota/sae.png "$share/logo/sae.png"
     # Cinnamon: no desktop icons by default (idle RAM, entornos/cinnamon/README.md);
     # glib2's pacman hook recompiles the schemas. Ignored where nemo is absent.
     install -Dm644 branding/cinnamon/90_static-linux-cinnamon.gschema.override \

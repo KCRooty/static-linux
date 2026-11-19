@@ -1,4 +1,4 @@
-<img src="assets/logo.png" alt="Static Linux" width="96" height="96">
+<img src="assets/logo.png" alt="Static Linux" width="96" height="96"><img src="branding/mascota/sae.png" alt="Sae, la mascota de Static Linux" width="89" height="96">
 
 # Static Linux
 **by Static Forge**
